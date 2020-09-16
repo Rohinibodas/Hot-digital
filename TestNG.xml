@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="SUite" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="Utilities.Listener"/>
+    </listeners>
+    <test name="Helenoftroy" testid="1" priority="P1" description="This script will cover Regression Process">
+        <classes>
+            <class name="TestExecute.HelenoftroyTestCase"/>
+        </classes>
+    </test>
+  </suite>  
