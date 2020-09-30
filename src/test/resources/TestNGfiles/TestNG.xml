@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="SUite" >
+    <!-- <listeners>
+        <listener class-name="Utilities.Listener"/>
+    </listeners> -->
+    <parameter name="browser" value="chrome"/>  
+    <test name="Oxo" testid="1" priority="P1" description="This script will cover Regression Process of oxo">
+        <classes>
+            <class name="TestExecute.Oxo.OxoBusiness"/>
+        </classes>
+    </test>
+    <!-- <parameter name="browser" value="firefox"/>  
+      <test name="Revelon" testid="2" priority="P1" description="This script will cover End to End Process of revelon">
+        <classes>
+            <class name="TestExecute.Revlon.RevlonEndtoEndTestCase"/>
+        </classes>
+    </test> -->
+    
+  </suite>  

@@ -286,9 +286,9 @@ public class ExcelReader {
 				
 	}
 	
-	public static Map<String, Map<String, Object>> getExcelValue() {
-		Map<String, Object> cellVal=new HashMap<>();
-		Map<String, Map<String, Object>> excelData=new HashMap<>();
+	public static Map<String, Map<String, String>> getExcelValue() {
+		Map<String, String> cellVal=new HashMap<>();
+		Map<String, Map<String, String>> excelData=new HashMap<>();
 
 		try {
 			workbook = new XSSFWorkbook(new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\testData\\"+fileName)));
@@ -300,13 +300,16 @@ public class ExcelReader {
 		String data=null;
 		int rowNumber;
 		int cellNumber;
-		for(int i=1;i<sheet.getLastRowNum()-1;i++)
+		System.out.println(sheet.getLastRowNum());
+		for(int i=1;i<=sheet.getLastRowNum();i++)
 		{
 			String dataSet=sheet.getRow(i).getCell(0).getStringCellValue();
 			{	
+				cellVal=new HashMap<>();
 				for(int j=1;j<sheet.getRow(i).getLastCellNum();j++)
 				{
 						cell=sheet.getRow(i).getCell(j);
+						data=null;
 						try {
 						if(cell.getCellType()==cell.CELL_TYPE_STRING)
 						{
@@ -314,7 +317,7 @@ public class ExcelReader {
 						}
 						else if(cell.getCellType()==cell.CELL_TYPE_NUMERIC)
 						{
-							data= String.valueOf(cell.getNumericCellValue());
+							data= String.valueOf((long)(cell.getNumericCellValue()));
 						}
 						else if(cell.getCellType()==cell.CELL_TYPE_BOOLEAN)
 						{

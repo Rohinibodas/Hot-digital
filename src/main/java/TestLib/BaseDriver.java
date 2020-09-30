@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -42,6 +43,16 @@ public class BaseDriver
 				driver=new FirefoxDriver();
 				
 			}
+			 
+			 else if(browserName.equalsIgnoreCase("edge"))
+				{
+					WebDriverManager.edgedriver().setup();
+					 /*DesiredCapabilities cap = new DesiredCapabilities();
+					 cap.setJavascriptEnabled(true);
+					 FirefoxOptions  opt = new FirefoxOptions();*/
+					driver=new EdgeDriver();
+					
+				}
 			else if(browserName.equalsIgnoreCase("safari"))
 			{
 				DriverManagerType safari = DriverManagerType.SAFARI;
@@ -134,6 +145,12 @@ public class BaseDriver
 		public static WebDriver getDriver()
 		{
 			return driver;
+			
+		}
+		
+		public static void setDriver(WebDriver webdriver)
+		{
+			 driver=webdriver;
 			
 		}
 		

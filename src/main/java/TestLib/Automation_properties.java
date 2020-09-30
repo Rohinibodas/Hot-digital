@@ -40,7 +40,7 @@ public class Automation_properties {
 	}
 
 	public static String getTestNGFilePath(){
-		File testNGFile = new File(System.getProperty("user.dir")+testNG);
+		File testNGFile = new File(testNG);
 		if (testNGFile.exists()) {
 			return testNGFile.getAbsolutePath();
 		}
@@ -62,7 +62,7 @@ public class Automation_properties {
 	// Call this method only to change the file from which the properties have
 	// to be loaded.
 	private Automation_properties() {
-		System.out.println("Loading automation properties from the file" + configFile);
+		System.out.println("Loading automation properties from the file" + System.getProperty("configFile",configFile));
 		loadProperties();
 	}
 
@@ -87,7 +87,7 @@ public class Automation_properties {
 	private static void loadProperties() {
 		try {
 			automation_properties.clear();
-			automation_properties.load(new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\" + configFile));
+			automation_properties.load(new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\Config\\" + System.getProperty("configFile",configFile)));
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to load the properties:"+e);
 		}
@@ -103,6 +103,11 @@ public class Automation_properties {
 			createInstance();
 		}
 		return instance;
+	}
+	
+	public static void setInstance(Automation_properties prop) {
+		instance=prop;
+		
 	}
 
 	/**

@@ -19,7 +19,7 @@ import TestLib.Driver;
 
 public class HTMLPreparation {
 
-	public static String mailTemplatePath=System.getProperty("user.dir")+"/MailTemplates/";
+	public static String mailTemplatePath=System.getProperty("user.dir")+"/src/test/resources/MailTemplates/";
 	public static String htmlContent;
 	public static String module;
 	public static ITestResult test;
@@ -57,15 +57,16 @@ public class HTMLPreparation {
 			System.out.println("MAil Body prepared");
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		}
+		System.out.println("HTML Report: "+htmlreportpath);
 		return htmlreportpath;
 	}
 
 
 
 
-	/*public static String generateMail(String mailType) throws Exception {
+	public static String generateMail(String mailType) throws Exception {
 
 		String filePath;
 		switch(mailType)
@@ -73,40 +74,32 @@ public class HTMLPreparation {
 		case "start" :
 		{
 			filePath=mailTemplatePath+"ExecutionStartMail.html";
-			mailGeneration.to= Automation_properties.getInstance().getProperty("Exestartmail");
 			htmlContent= parseHTMLfile(filePath).replace("#Browser#", Automation_properties.getInstance().getProperty("BROWSER") );
 
 			fillCommonDetails();
-			MailTestSuite.generateStartMail();
+			//.generateStartMail();
 			return prepmail("Execution_StartMail");
 		}
 		case "exectionReport":
 		{
 			filePath=mailTemplatePath+"ExecutionMail.html";
-			mailGeneration.to= HA.TestAutomation.HATF_properties.getInstance().getProperty("Exemail");
-			htmlContent= parseHTMLfile(filePath).replace("#Browser#", HA.TestAutomation.HATF_properties.getInstance().getProperty("BROWSER") );
+			htmlContent= parseHTMLfile(filePath).replace("#Browser#", Automation_properties.getInstance().getProperty("BROWSER") );
 			fillCommonDetails();
-			System.out.println("Module Name:"+HTMLPreparation.module);
-			String module=generateHTMLReport.getTCdetails(0).get(4).split("HA.TestExecute.")[1].split("\\.")[0]+" "+ HA.TestAutomation.HATF_properties.getInstance().getProperty("BROWSER");
-			String ModuleName=generateHTMLReport.getTCdetails(0).get(4).split("HA.TestExecute.")[1].split("\\.")[0];
-			if(ModuleName.equals("DI"))
-			{
-				htmlContent=htmlContent.replace( "#HorizonStatus#", "    <tr>"
-						+"   <td align='left' valign='middle' style='background:#e9e9e9; border:1px solid #b6b6b6; font:bold 13px 'Segoe UI', Arial, Helvetica, sans-serif;' class='auto-style1'>Horizon Status</td>"
-			//			+"  <td align='left' valign='middle' style='border:1px solid #b6b6b6; font:normal 13px 'Segoe UI', Arial, Helvetica, sans-serif; '>"+DLRWebServices.getHorizonStatus()+"</td>"
-						+"</tr>");
-			}
-			else
-				htmlContent=htmlContent.replace( "#HorizonStatus#","");
-		//	mailGeneration.subject+=": "+module+" Module Results"+MailTestSuite.generateExecutionHTML();;
+			System.out.println("Module Name:"+ HTMLPreparation.module);
+			String module=generateHTMLReport.getTCdetails(0).get(4).split("TestExecute.")[1].split("\\.")[0]+" "+ TestLib.Automation_properties.getInstance().getProperty("BROWSER");
+			String ModuleName=generateHTMLReport.getTCdetails(0).get(4).split("TestExecute.")[1].split("\\.")[0];
+			System.out.println("Mankoo@@:"+generateHTMLReport.getTCdetails(0).get(4).split("TestExecute.")[1]);
+			
+			//	mailGeneration.subject+=": "+module+" Module Results"+.generateExecutionHTML();;
+			MailTestSuite.generateExecutionHTML();
 			HTML.htmlreportpath=prepmail("Execution_report");
 			return HTML.htmlreportpath;
 		}
 		case "failure":
 		{
 			filePath=mailTemplatePath+"ExecutionFail.html";
-		//	mailGeneration.subject="Test case Failed";
-		//	mailGeneration.to= HA.TestAutomation.HATF_properties.getInstance().getProperty("FailureMail");
+			//	mailGeneration.subject="Test case Failed";
+			//	mailGeneration.to= TestLib.Automation_properties.getInstance().getProperty("FailureMail");
 			htmlContent= parseHTMLfile(filePath);
 			fillCommonDetails();
 			String testDetails = test.getTestClass().toString();
@@ -119,21 +112,16 @@ public class HTMLPreparation {
 			htmlContent=htmlContent.replace("#Module#",Module).replace("#Test Script Name#",testScriptName).replace("#Test Duration#",testDuration).replace("#Remarks#",generateHTMLReport.exception(Remarks));
 			return prepmail("TC_Failed");
 		}
-		case "consolidatedReport":
-		{
-			filePath=mailTemplatePath+"ConsolidatedMail.html";
-			mailGeneration.to= Automation_properties.getInstance().getProperty("Exemail");
-			htmlContent= parseHTMLfile(filePath);
-			htmlContent=htmlContent.replace("#BuildVersion#",DLRWebServices.getVersion());
-			MailTestSuite.generateConsolidatedTable(MailTestSuite.generateConsolidatedHTML());
-
-			return prepmail("Consolidated_Report_");
-		}
 		}
 		return null;
 	}
-*/
-	
+
+
+	public static void fillCommonDetails() throws UnknownHostException
+	{
+		htmlContent=htmlContent.replace("#URL#",Automation_properties.getInstance().getProperty("BASEURL")).replace("#OS#",System.getProperty("os.name")).replace("#ExecutionMachine#",InetAddress.getLocalHost().getHostName());
+	}
+
 
 	public static void setFailedTestcaseDetails(ITestResult testCase) {
 

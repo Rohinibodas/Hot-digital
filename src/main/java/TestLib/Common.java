@@ -679,6 +679,19 @@ public class Common {
 		}
 		Driver.getLogger().info("screenshot saved successfully");
 	}
+	
+	public static String getscreenShot(String screnShotName) {
+		String filePath=System.getProperty("user.dir") + "/TestLogs/screenShots/" + (screnShotName +Utilities.File.GetDateTime()) + ".jpg";
+		File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(scrFile, new File(filePath));
+		} catch (IOException e) {
+		Driver.getLogger().error(e);
+		}
+		Driver.getLogger().info("screenshot saved successfully");
+		return filePath;
+		
+	}
 
 	public static void fileUpLoad(String elemfindBY, String elemfindText,String filepath) {
 		int retryCount = 0;
@@ -706,8 +719,9 @@ public class Common {
 	 * closeAll: will closed all the windows and quit the selenium driver.
 	 */
 	public static void closeAll() {
-		
 				getDriver().quit();
+				BaseDriver.setDriver(null);
+				
 	}
 
 	
@@ -1244,6 +1258,13 @@ public class Common {
 		getDriver().get(System.getProperty("url"));
 	}
 
+	public static void openNewTab() {
+		getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.chord(Keys.CONTROL + "n"));
+		executeJS("window.open()");
+		List<String> tabs = new ArrayList<String>(getDriver().getWindowHandles());
+		getDriver().switchTo().window(tabs.get(1));
+	}
+	
 	public static void switchToSecondTab() {
 		WebDriver driver = getDriver();
 		List<String> tabs = new ArrayList<String>(driver.getWindowHandles());

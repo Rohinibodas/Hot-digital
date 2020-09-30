@@ -21,17 +21,56 @@ public class Login {
 	
 	public static void signIn(String browser) throws Exception
 	{
-			browserName = browser;
+			/*browserName = browser;
 			driver=BaseDriver.StartBrowser(browser, automation_properties.BASEURL);
-			Driver.getLogger().info("Logged in with User: ");
+			Driver.getLogger().info("Logged in with User: ");*/
+		if(BaseDriver.getDriver()==null)
+		{
+		Automation_properties.setInstance(null);
+		automation_properties = Automation_properties.getInstance();
+		System.out.println(automation_properties.getInstance().getProperty(automation_properties.BASEURL));
+		driver=BaseDriver.StartBrowser(browser,automation_properties.getInstance().getProperty(automation_properties.BASEURL));
+		Driver.getLogger().info("Logged in with User: ");
+		}
 		
 	}
 	
+	
+	
 	public static void signIn() throws Exception
 	{
-		
+			if(BaseDriver.getDriver()==null)
+			{
+			automation_properties = Automation_properties.getInstance();	
 			driver=BaseDriver.StartBrowser(automation_properties.getInstance().getProperty(automation_properties.BROWSER),automation_properties.getInstance().getProperty(automation_properties.BASEURL));
 			Driver.getLogger().info("Logged in with User: ");
+			}
+		
+	}
+	
+	
+	public static void signInOxo() throws Exception
+	{
+			if(BaseDriver.getDriver()==null)
+			{
+			Automation_properties.setInstance(null);
+			automation_properties = Automation_properties.getInstance();
+			System.out.println(automation_properties.getInstance().getProperty(automation_properties.BASEURL));
+			driver=BaseDriver.StartBrowser(automation_properties.getInstance().getProperty(automation_properties.BROWSER),automation_properties.getInstance().getProperty(automation_properties.BASEURL));
+			Driver.getLogger().info("Logged in with User: ");
+			}
+		
+	}
+	
+	public static void signInRevolon() throws Exception
+	{
+			if(BaseDriver.getDriver()==null)
+			{
+				Automation_properties.setInstance(null);
+				automation_properties = Automation_properties.getInstance();
+			driver=BaseDriver.StartBrowser(automation_properties.getInstance().getProperty(automation_properties.BROWSER),automation_properties.getInstance().getProperty(automation_properties.BASEURL));
+			Driver.getLogger().info("Logged in with User: ");
+			}
 		
 	}
 	

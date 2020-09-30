@@ -14,28 +14,42 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.log4j.Logger;
+
 import TestLib.Driver;
 
 	public class StatusMail {
+		
+		public final static String PROPERTYFILENAME = "config/mail.properties";
+		private static Properties mailProperties = new Properties();
+		final public static Logger logger = Logger.getLogger(StatusMail.class);
+		public static int totalTCcount = 0;
+		public static int passTCcount = 0;
+		public static int failTCcount = 0;
+		public static String testPassPercentage = null;
+		public static String testPassRate = null;
+		public static String DBUName = null, DBPwd = null, DBURL = null, DBDriver = null;
+		public static int SUMMARYFLAG;
 
-		public static String to="mahendra@mahendra.com",cc="mahendra@mahendra.com",subject="",attachmentPath="",attachmentPath1="";
+		public static String to="mchiruvella@gmail.com,mahendra.koppanadham@gmail.com",cc="mchiruvella@gmail.com",subject="HoT Test Automation Results",attachmentPath="",attachmentPath1="";
 		
 		
 		
 		public static void sendMail() throws Exception
 		{
-			subject="Regression Test Results ";
-			attachmentPath=System.getProperty("user.dir")+"src/test/resources/MailTemplates/ExecutionMailReport.html" ;
+			subject="HoT Test Automation Results";
+			attachmentPath=System.getProperty("user.dir")+"/src/test/resources/MailTemplates/ExecutionMailReport.html" ;
 			//attachmentPath1=;
+			attachmentPath=HTMLPreparation.generateMail("exectionReport");
 			triggerSendMail();
 		}
 
 		
 		public static void triggerSendMail()
 		{
-			String userName="automationruser@.com";
-			String passWord= "automation$123";
-			String host="smtp.gmail.com";
+			String userName="manoj@lotuswave.net";
+			String passWord= "Mankoo@17";
+			String host="mail.privateemail.com";
 			String port="465";
 			String starttls="true";
 			String auth="true";
@@ -111,13 +125,11 @@ import TestLib.Driver;
 				transport.sendMessage(msg, msg.getAllRecipients());
 				
 				transport.close();
-				Driver.getLogger().info("Mail Sent");
 				System.out.println("Mail Sent");
 			} 
 
 			catch (Exception e){
-				e.printStackTrace();
-				Driver.logger.error(e);				
+				e.printStackTrace();				
 			}
 		}
 
