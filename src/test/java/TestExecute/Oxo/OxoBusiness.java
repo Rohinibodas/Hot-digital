@@ -103,18 +103,18 @@ public class OxoBusiness
 
 	}
 	
-	@AfterTest
+	/*@AfterTest
 	public void clearBrowser()
 	{
-		BaseDriver.setDriver(null);
+		Common.closeAll();
 
-	}
+	}*/
 	
 	@BeforeTest
-	//@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	@Parameters({"browser"})  
+	  public void startTest(String browser) throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn(browser);
 		  
 	  }
 

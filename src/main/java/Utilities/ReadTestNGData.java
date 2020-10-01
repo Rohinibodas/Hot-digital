@@ -73,7 +73,7 @@ public class ReadTestNGData {
 		HashMap<String, String> modules = getAttributes("class", "name");
 		Set<String> keys = modules.keySet();
 		for(String key: keys){
-			modules.put(key, modules.get(key).split("\\.")[2]);
+			modules.put(key, modules.get(key).split("\\.")[1]);
 		}
 		Driver.getLogger().info("Returning all test case modules");
 		return modules;

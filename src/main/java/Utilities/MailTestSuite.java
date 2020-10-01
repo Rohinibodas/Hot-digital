@@ -49,7 +49,7 @@ public class MailTestSuite {
 		HashMap<String, String> tcDescs = testNGObj.getAllTestDescriptions();
 		HashMap<String, String> modules = testNGObj.getAllModules();
 		HashMap<String, String> priorities = testNGObj.getAllPriorities();
-		HashMap<String, String> correlationIDs = getCorrelationMap();
+		//HashMap<String, String> correlationIDs = getCorrelationMap();
 		boolean isDataProvider = false;
 
 		File file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
@@ -159,16 +159,20 @@ public class MailTestSuite {
 										String testdesc = tcDescs.get(testscriptname);
 										String priority = priorities.get(testscriptname);
 										String module = modules.get(testscriptname);
-										String CorrelationID = correlationIDs.get(execClassName);
-										String[] TCcount = testids.split(",");
+									//	String CorrelationID = correlationIDs.get(execClassName);
+										int TCcount=1;
+										if(testids.contains(","))
+										{	
+										TCcount = testids.split(",").length;
+										}
 										//dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#CorrelationID#", CorrelationID);
 										dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module);
 										if(values.equals("PASS")){
 											System.out.println("Test :"+testmethodElement.getAttribute("signature")+" is passed");
 											if(l==testmethodList.getLength()-1){
 												dynamicRow=dynamicRow.replaceAll("#color#","green").replace("#Remarks#","").replace("#Status#", "PASS");
-												StatusMail.totalTCcount =StatusMail.totalTCcount+TCcount.length;
-												StatusMail.passTCcount =StatusMail.passTCcount+TCcount.length;
+												StatusMail.totalTCcount =StatusMail.totalTCcount+TCcount;
+												StatusMail.passTCcount =StatusMail.passTCcount+TCcount;
 											}
 										}
 										else{
@@ -180,14 +184,14 @@ public class MailTestSuite {
 												exceptionname = exceptionElement.getAttribute("class");
 												exceptionname =generateHTMLReport.exception(exceptionname);
 												HashMap<String,String> logMap=null;
-												exceptionname="Failed to Complete while "+logMap.get("CONTEXT")+"<br/> <label for=\"show\">[Show]</label><label for=\"hide\">/ [Hide]</label><input type=radio id=\"show\" name=\"group\"/><input type=radio id=\"hide\" name=\"group\"/><div id=\"message\">Last Successful ACTION : "+logMap.get("ACTION")+"<br/> EXCEPTION : "+(logMap.containsKey("EXCEPTION")?logMap.get("EXCEPTION"):"")+"<br/> JAVA Exception: "+(logMap.containsKey("JAVAEXCEPTION")?logMap.get("JAVAEXCEPTION"):"")+"</div>";
+												//exceptionname="Failed to Complete while "+logMap.get("CONTEXT")+"<br/> <label for=\"show\">[Show]</label><label for=\"hide\">/ [Hide]</label><input type=radio id=\"show\" name=\"group\"/><input type=radio id=\"hide\" name=\"group\"/><div id=\"message\">Last Successful ACTION : "+logMap.get("ACTION")+"<br/> EXCEPTION : "+(logMap.containsKey("EXCEPTION")?logMap.get("EXCEPTION"):"")+"<br/> JAVA Exception: "+(logMap.containsKey("JAVAEXCEPTION")?logMap.get("JAVAEXCEPTION"):"")+"</div>";
 												System.out.println("Exception :"+ generateHTMLReport.exception(exceptionname));
 											}
 											System.out.println("Test :"+testmethodElement.getAttribute("signature")+" is failed");
 											System.out.println("Test :"+classElement.getAttribute("name")+" is failed");
 											dynamicRow=dynamicRow.replaceAll("#color#","red").replace("#Remarks#",exceptionname).replace("#Status#","FAIL");
-											StatusMail.totalTCcount =StatusMail.totalTCcount+TCcount.length;
-											StatusMail.failTCcount =StatusMail.failTCcount+TCcount.length;
+											StatusMail.totalTCcount =StatusMail.totalTCcount+TCcount;
+											StatusMail.failTCcount =StatusMail.failTCcount+TCcount;
 											break loopmethod;
 										}
 									}	
