@@ -15,6 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -861,14 +862,14 @@ public class Common {
 	
 
 	public static void doubleClick(String elemfindBY, String elemfindText)  {
-		if (browserName().equals("FF")) {
+	/*	if (browserName().equals("FF")) {
 			executeJS("var event = new MouseEvent('dblclick', {\r\n 'view': window,\r\n" + "    'bubbles': true,\r\n" + "    'cancelable': true\r\n" + "  });arguments[0].dispatchEvent(event);", findElement(elemfindBY,elemfindText));
 			Actions doubleClick = new Actions(getDriver());
 			doubleClick.moveToElement(findElement(elemfindBY,elemfindText)).doubleClick().build().perform();
-		} else {
+		} else {*/
 			Actions doubleClick = new Actions(getDriver());
 			doubleClick.moveToElement(findElement(elemfindBY,elemfindText)).doubleClick().build().perform();
-		}
+		//}
 	}
 
 	public static void switchWindowsAfterClick(String elemfindBY, String elemfindText)  {
@@ -913,7 +914,18 @@ public class Common {
 		Select select = new Select(findElement(elemfindBY,elemfindText));
 		return select.getFirstSelectedOption().getText();
 	}
-
+	
+	public static int genrateRandomNumber()
+	{
+		Random rand = new Random(); 
+        int randNumber = rand.nextInt(100000); 
+        return randNumber;
+	}
+	
+	public static String genrateRandomEmail(String email)
+	{
+		return email.split("@")[0]+"+"+genrateRandomNumber()+"@"+email.split("@")[1];
+	}
 
 	public static boolean isElementClickable(long waitSeconds, By by)  {
 		try {

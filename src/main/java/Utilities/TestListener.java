@@ -18,6 +18,7 @@ public class TestListener implements  ITestListener {
 	public  void onStart(ISuite arg0) 
 	{
 		System.out.println("Suited Name	: "+arg0.getXmlSuite().getName());
+		if(report!=null)
 		report=new ExtenantReportUtils(arg0.getXmlSuite().getName());
 	}
 	

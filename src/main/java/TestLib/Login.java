@@ -21,9 +21,6 @@ public class Login {
 	
 	public static void signIn(String browser) throws Exception
 	{
-			/*browserName = browser;
-			driver=BaseDriver.StartBrowser(browser, automation_properties.BASEURL);
-			Driver.getLogger().info("Logged in with User: ");*/
 		if(BaseDriver.getDriver()==null)
 		{
 		Automation_properties.setInstance(null);
@@ -42,7 +39,7 @@ public class Login {
 			if(BaseDriver.getDriver()==null)
 			{
 			automation_properties = Automation_properties.getInstance();	
-			driver=BaseDriver.StartBrowser(automation_properties.getInstance().getProperty(automation_properties.BROWSER),automation_properties.getInstance().getProperty(automation_properties.BASEURL));
+			driver=BaseDriver.StartBrowser(System.getProperty("browser",automation_properties.getInstance().getProperty(automation_properties.BROWSER)),System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)));
 			Driver.getLogger().info("Logged in with User: ");
 			}
 		

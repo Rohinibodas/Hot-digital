@@ -30,8 +30,6 @@ public class OxoHelper {
 		try {
 		Sync.waitElementClickable(30, By.xpath("//span[text()='Create Account']"));
 		}catch (Exception e) {
-			// TODO: handle exception
-			Common.findElement("xpath", "//a[@class='social-login']").click();
 			if(Common.findElement("xpath", "//span[text()='Create Account']")==null)
 			{
 				Common.clickElement("xpath", "//a[@class='social-login']");

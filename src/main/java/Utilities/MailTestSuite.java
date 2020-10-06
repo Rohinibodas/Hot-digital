@@ -52,7 +52,8 @@ public class MailTestSuite {
 		//HashMap<String, String> correlationIDs = getCorrelationMap();
 		boolean isDataProvider = false;
 
-		File file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
+		//File file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
+		File file = new File(System.getProperty("user.dir")+"/target/surefire-reports/testng-results.xml");
 		String values;
 		String Exetime = "";
 		String starttime="";

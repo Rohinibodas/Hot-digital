@@ -11,11 +11,5 @@
         </classes>
     </test>
    
-      <test name="Revelon" testid="22,45" priority="P1" description="This script will cover End to End Process of revelon">
-          <parameter name="browser" value="chrome"/>  
-        <classes>
-            <class name="TestExecute.Revlon.RevlonEndtoEndTestCase"/>
-        </classes>
-    </test> 
     
   </suite>  
