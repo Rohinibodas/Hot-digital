@@ -1,15 +1,18 @@
 package TestComponent.Hydroflask;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import TestLib.Common;
 import TestLib.Sync;
+import TestLib.Common.SelectBy;
 import Utilities.ExcelReader;
 
 public class HydroHelper {
@@ -168,6 +171,154 @@ public class HydroHelper {
 		
 	}
 
+	public void clickWarranty()throws Exception{
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//a[text()='warranty']");
+		Common.clickElement("xpath", "//a[text()='warranty']");
+	}
+	
+	public void submitWarranty(String dataSet) throws Exception{
+		Common.actionsKeyPress(Keys.END);
+		clickWarranty();
+		Sync.waitElementPresent("xpath", "//div[@class='wararnty-cta']/a");
+		Common.clickElement("xpath", "//div[@class='wararnty-cta']/a");
+		
+		
+		
+		Sync.waitElementPresent("id", "email");
+		Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+		
+		
+		Sync.waitElementPresent("id", "pass");
+		Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
+		
+		
+		
+		
+		
+		Sync.waitElementPresent("xpath", "//button[@class='login-page-submit-action']");
+		Common.clickElement("xpath", "//button[@class='login-page-submit-action']");
+		
+		
+		
+		//Submit a Warranty Claim form
+		
+		Sync.waitElementPresent("xpath", "//iframe[contains(@src,'warranty')]");
+		Common.switchFrames("xpath", "//iframe[contains(@src,'warranty')]");
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'First')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'First')]", data.get(dataSet).get("FirstName"));
+		
+		String s=data.get(dataSet).get("LastName");
+		System.out.println(s);
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'Last')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Last')]", data.get(dataSet).get("LastName"));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'Street')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Street')]", data.get(dataSet).get("Street"));
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'City')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'City')]", data.get(dataSet).get("City"));
+		
+		Common.clickElement(By.xpath("//select[contains(@id,'Country')]"));
+
+		Sync.waitElementPresent("xpath", "//select[contains(@id,'Country')]");
+		Common.dropdown("xpath", "//select[contains(@id,'Country')]", SelectBy.TEXT, data.get(dataSet).get("Country"));
+		
+		
+		Sync.waitElementPresent("xpath", "//select[contains(@id,'StateOrProvince')]");
+		Common.clickElement(By.xpath("//select[contains(@id,'StateOrProvince')]"));
+		Thread.sleep(5000);
+		Common.dropdown("xpath", "//select[contains(@id,'StateOrProvince')]", SelectBy.TEXT,data.get(dataSet).get("State"));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'PostalCode')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'PostalCode')]", data.get(dataSet).get("postcode"));
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'MOBILE')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'MOBILE')]", data.get(dataSet).get("phone"));
+		
+		Sync.waitElementPresent("xpath", "//span[text()='View All']");
+		Common.clickElement(By.xpath("//span[text()='View All']"));
+		
+		Thread.sleep(5000);
+	    List<WebElement> Productselemts=	Common.findElements("xpath", "//div[contains(@class,'nameset')]");
+		
+	       for(int i=0;i<Productselemts.size();i++){
+	    	   
+	    	    if(Productselemts.get(i).getAttribute("title").equals( data.get(dataSet).get("Products"))){
+	    	    	Productselemts.get(i).click();
+	    	    	break;
+	    	    }
+	    	   
+	       }
+	
+	     //input[contains(@class,'product_quantity')]
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@class,'product_quantity')]");
+		Common.textBoxInput("xpath", "//input[contains(@class,'product_quantity')]", data.get(dataSet).get("ProductQuantity"));
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@class,'problem_description')]");
+		Common.textBoxInput("xpath", "//input[contains(@class,'problem_description')]", data.get(dataSet).get("ProblemDescription"));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'FileInput')]");
+		String path=System.getProperty("user.dir")+("/src//test//resources//TestData//Hydroflask//hyderoflask.jpg");
+		Common.textBoxInput("xpath", "//input[contains(@id,'FileInput')]", path);
+		
+		Thread.sleep(10000);
+		Sync.waitElementPresent("xpath", "//button[contains(@id,'CustomFormSubmit')]");
+		Common.clickElement("xpath", "//button[contains(@id,'CustomFormSubmit')]");
+		
+		}
+
+	
+	public void clickContact()throws Exception{
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//a[text()='Contact']");
+		Common.clickElement("xpath", "//a[text()='Contact']");
+	}
+	
+	public void contactUsPage(String dataSet) throws Exception{
+		clickContact();
+	Common.implicitWait();
+		Sync.waitElementPresent("xpath", "//li[@data-tab-name='E-mail Us']");
+		Common.clickElement("xpath","//li[@data-tab-name='E-mail Us']");
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'First')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'First')]", data.get(dataSet).get("FirstName"));
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'Last')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Last')]", data.get(dataSet).get("LastName"));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'company')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'company')]", data.get(dataSet).get("CompanyName"));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'MOBILE')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'MOBILE')]", data.get(dataSet).get("Primary "));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'Street')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Street')]", data.get(dataSet).get("Street "));
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'City')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'City')]", data.get(dataSet).get("City "));
+		
+		
+	}
+	
+	
+	
 
 	public  HydroHelper(String datafile)
 	{
