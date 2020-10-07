@@ -96,7 +96,7 @@ public class generateHTMLReport {
 	public static String generateHTML() throws Exception{	
 
 
-		File file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
+		File file = new File(System.getProperty("user.dir")+"\\target\\surefire-reports\\testng-results.xml");
 		String values,strtestHTML = "";
 
 		if(file.getName().endsWith(".xml")){

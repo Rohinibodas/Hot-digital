@@ -261,7 +261,7 @@
 		</profile>
 		
 		<profile>
-			<id>HydroFlask</id>
+			<id>Hydroflask</id>
 			<build>
 				<plugins>
 					<!-- Following plugin executes the testng tests -->
@@ -273,6 +273,7 @@
 							<suiteXmlFiles>
 								<suiteXmlFile>src\test\resources\TestNGfiles\Hydroflask\Hydero_POC_TestNG.xml</suiteXmlFile>
 							</suiteXmlFiles>
+							<testFailureIgnore>true</testFailureIgnore>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -281,7 +282,44 @@
 						<version>1.2</version>
 						<executions>
 							<execution>
-								<phase>test</phase>
+								<phase>package</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>Utilities.SendMail</mainClass>
+						</configuration>
+					</plugin>
+				</plugins>
+
+			</build>
+		</profile>
+		
+		<profile>
+			<id>Automation</id>
+			<build>
+				<plugins>
+					<!-- Following plugin executes the testng tests -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.20</version>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>src\test\resources\TestNGfiles\${testNG}</suiteXmlFile>
+							</suiteXmlFiles>
+							<testFailureIgnore>true</testFailureIgnore>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
 								<goals>
 									<goal>java</goal>
 								</goals>

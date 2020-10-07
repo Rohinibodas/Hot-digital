@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -104,7 +105,7 @@ public class HydroHelper {
 		Thread.sleep(4000);
 		Sync.waitElementClickable("xpath", "//button[@title='Add to Cart']");
 		Common.clickElement("xpath", "//button[@title='Add to Cart']");
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		}
 
 	public void checkOut() throws Exception
@@ -119,55 +120,66 @@ public class HydroHelper {
 	public void addDeliveryAddress(String dataSet) throws Exception
 	{
 		try {	
-		Sync.waitElementVisible("id", "customer-email-address");
-		Common.textBoxInput("id", "customer-email-address",data.get(dataSet).get("Email"));
-		}catch (NoSuchElementException e) {
-			checkOut();
+			Sync.waitElementVisible("id", "customer-email-address");
 			Common.textBoxInput("id", "customer-email-address",data.get(dataSet).get("Email"));
-		}
-		Thread.sleep(3000);
-		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
-		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
-		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
-		Thread.sleep(2000);
-		Common.actionsKeyPress(Keys.SPACE);
-		Thread.sleep(3000);
-		Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
-		if(data.get(dataSet).get("StreetLine2")!=null)
-		{
-			Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
-		}
-		if(data.get(dataSet).get("StreetLine3")!=null)
-		{
-			Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
-		}
-		Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
-		Thread.sleep(2000);
-		Common.textBoxInputClear("name", "postcode");
-		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
-		Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
-		Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
-		Thread.sleep(3000);
+			}catch (NoSuchElementException e) {
+				checkOut();
+				Common.textBoxInput("id", "customer-email-address",data.get(dataSet).get("Email"));
+			}
+			Thread.sleep(3000);
+			Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+			Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.SPACE);
+			Thread.sleep(3000);
+			Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+			if(data.get(dataSet).get("StreetLine2")!=null)
+			{
+				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
+			}
+			if(data.get(dataSet).get("StreetLine3")!=null)
+			{
+				Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
+			}
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(3000);
+			//Common.mouseOverClick("name", "region_id");
+			try {
+			Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));}
+			catch (ElementClickInterceptedException e) {
+				// TODO: handle exception
+				Thread.sleep(3000);
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			}
+			Thread.sleep(2000);
+			Common.textBoxInputClear("name", "postcode");
+			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+			Thread.sleep(3000);
 	}
 
 	public void addPaymentDetails(String dataSet) throws Exception
 	{
 		//Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
-		Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
-		Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
-		Thread.sleep(2000);
-		Common.switchFrames("id", "paymetric_xisecure_frame");
-		Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
-		Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
-		Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpMonth"));
-		Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
-		Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));	
-		Thread.sleep(2000);
-		Common.actionsKeyPress(Keys.ARROW_DOWN);
-		Common.switchToDefault();
-		Common.clickElement("xpath", "//button[@title='Place Order']");
-		String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
-		Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
+		//Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
+				Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
+				Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+				Thread.sleep(2000);
+				Common.switchFrames("id", "paymetric_xisecure_frame");
+				Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+				Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+				Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpMonth"));
+				Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+				Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));	
+				Thread.sleep(2000);
+				Common.actionsKeyPress(Keys.ARROW_DOWN);
+				Common.switchToDefault();
+				Thread.sleep(2000);
+				Common.clickElement("xpath", "//button[@title='Place Order']");
+				String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
+				Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
 		
 	}
 
