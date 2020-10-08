@@ -341,6 +341,93 @@ public class HydroHelper {
 		
 	}
 	
+	public void clickProDeal()throws Exception{
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//a[text()='Pro Deal']");
+		Common.clickElement("xpath", "//a[text()='Pro Deal']");
+	}
+	public void ProdelerPage(String dataSet) throws Exception{
+		clickProDeal();
+		Sync.waitElementPresent("xpath", "//a[@title='Sign in or register']");
+		Common.clickElement("xpath", "//a[@title='Sign in or register']");
+		
+		
+		
+	
+		
+		
+		
+		Sync.waitElementPresent("id", "email");
+		Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+		Sync.waitElementPresent("id", "pass");
+		Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
+		Sync.waitElementPresent("xpath", "//button[@class='login-page-submit-action']");
+		Common.clickElement("xpath", "//button[@class='login-page-submit-action']");
+		
+		
+		
+		Sync.waitElementPresent("xpath", "//a[contains(@class,'pro-deal-action-primary')]");
+		Common.clickElement("xpath", "//a[contains(@class,'pro-deal-action-primary')]");
+		
+		Common.switchWindows();
+		
+		
+		
+	    
+	   
+		
+		Thread.sleep(10000);
+		Sync.waitElementPresent("id", "first_name");
+		Common.textBoxInput("id", "first_name", data.get(dataSet).get("FirstName"));
+		
+	
+		Sync.waitElementPresent("id", "last_name");
+		Common.textBoxInput("id", "last_name", data.get(dataSet).get("LastName"));
+		
+		
+		Sync.waitElementPresent("id", "association");
+		Common.textBoxInput("id", "association", data.get(dataSet).get("Company"));
+		
+		Sync.waitElementPresent("id", "association_email");
+		Common.textBoxInput("id", "association_email", data.get(dataSet).get("AssociationEmailAddress"));
+		
+		
+		 Common.actionsKeyPress(Keys.PAGE_DOWN);
+		    Thread.sleep(6000);
+		     String path=System.getProperty("user.dir")+("/src//test//resources//TestData//Hydroflask//hyderoflask.jpg");
+			//Sync.waitElementInvisible("xpath", "//input[@id='supporting_document']");
+			Common.textBoxInput("xpath", "//input[@id='supporting_document']", path);
+		
+		Sync.waitElementPresent("id", "group_id");
+		
+		System.out.println(data.get(dataSet).get("GropName"));
+		Common.dropdown("xpath", "//select[@id='group_id']", SelectBy.TEXT, data.get(dataSet).get("GropName"));
+		
+		Sync.waitElementPresent("id", "comment");
+		Common.textBoxInput("id", "comment",  data.get(dataSet).get("CommetsHydroflask"));
+		
+		
+		Sync.waitElementPresent("xpath", "//button[@title='Submit']");
+		Common.clickElement("xpath", "//button[@title='Submit']");
+		
+		
+	}
+	public void stayIntouch(String dataSet) throws Exception{
+		Common.actionsKeyPress(Keys.END);
+		Thread.sleep(5000);
+		
+		Sync.waitElementPresent("id", "newsletter");
+		Common.clickElement("id", "newsletter");
+		Common.textBoxInput("id", "newsletter", data.get(dataSet).get("Email"));
+		Thread.sleep(5000);
+		Common.actionsKeyPress(Keys.ENTER);
+		
+		//Common.clickElement("xpath", "//div[contains(@class,'sign-button')]");
+		//Thread.sleep(5000);
+	   // System.out.println(Common.getText("class", "mage-success"));
+		
+		
+	}
 	
 	
 
