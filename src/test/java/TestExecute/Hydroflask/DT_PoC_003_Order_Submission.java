@@ -24,7 +24,7 @@ public class DT_PoC_003_Order_Submission
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress("Address");
-			Hydro.addPaymentDetails("PaymentDetails");
+			Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception e) {
 			

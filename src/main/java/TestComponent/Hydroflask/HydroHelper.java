@@ -57,6 +57,7 @@ public class HydroHelper {
 		Common.clickElement("xpath", "//button[@title='Sign Up']");
 		//Common.actionsKeyPress(Keys.ESCAPE);
 		Thread.sleep(2000);
+		Sync.waitElementVisible("xpath", "//span[@data-ui-id='page-title-wrapper']");
 		Assert.assertEquals(Common.getText("xpath", "//span[@data-ui-id='page-title-wrapper']"), "My Account");
 	}	
 
@@ -178,9 +179,20 @@ public class HydroHelper {
 				Common.switchToDefault();
 				Thread.sleep(2000);
 				Common.clickElement("xpath", "//button[@title='Place Order']");
-				String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
-				Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
+				
 		
+		
+	}
+	
+	public void updatePaymentAndSubmitOrder(String dataSet) throws Exception
+	{
+		addPaymentDetails(dataSet);
+		if(Common.findElement("xpath", "//div[@class='message message-error']")!=null)
+		{
+			addPaymentDetails(dataSet);
+		}
+		String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
+		Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
 	}
 
 	public void clickWarranty()throws Exception{
