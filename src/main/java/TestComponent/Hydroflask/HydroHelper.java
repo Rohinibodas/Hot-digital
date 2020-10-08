@@ -186,9 +186,9 @@ public class HydroHelper {
 	
 	public void updatePaymentAndSubmitOrder(String dataSet) throws Exception
 	{
+		try {
 		addPaymentDetails(dataSet);
-		if(Common.findElement("xpath", "//div[@class='message message-error']")!=null)
-		{
+		}catch(Exception e){
 			addPaymentDetails(dataSet);
 		}
 		String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
