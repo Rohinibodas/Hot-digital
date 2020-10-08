@@ -34,7 +34,7 @@ public class DT_PoC_009_Newsletter_Subscription {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

@@ -18,4 +18,17 @@
             <class name="TestExecute.Hydroflask.DT_PoC_003_Order_Submission"/>
         </classes>
     </test>
+
+	<test name="DT_PoC_008_ProDeal_Registration" testid="8" priority="P1" description="This script will cover deal registration Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Hydroflask.DT_PoC_008_ProDeal_Registration"/>
+        </classes>
+    </test>
+	
+	<test name="DT_PoC_009_Newsletter_Subscription" testid="9" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Hydroflask.DT_PoC_009_Newsletter_Subscription"/>
+        </classes>
+    </test>
+	
   </suite>  

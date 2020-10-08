@@ -177,7 +177,7 @@ public class HydroHelper {
 				Thread.sleep(2000);
 				Common.actionsKeyPress(Keys.ARROW_DOWN);
 				Common.switchToDefault();
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 				Common.clickElement("xpath", "//button[@title='Place Order']");
 				
 		
@@ -186,13 +186,16 @@ public class HydroHelper {
 	
 	public void updatePaymentAndSubmitOrder(String dataSet) throws Exception
 	{
-		try {
 		addPaymentDetails(dataSet);
-		}catch(Exception e){
+
+		if(Common.findElements("xpath", "//div[@class='message message-error']").size()>0)
+		{	
 			addPaymentDetails(dataSet);
 		}
-		String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
-		Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
+			String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
+			Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
+			
+		
 	}
 
 	public void clickWarranty()throws Exception{
@@ -350,36 +353,20 @@ public class HydroHelper {
 		clickProDeal();
 		Sync.waitElementPresent("xpath", "//a[@title='Sign in or register']");
 		Common.clickElement("xpath", "//a[@title='Sign in or register']");
-		
-		
-		
-	
-		
-		
-		
 		Sync.waitElementPresent("id", "email");
 		Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
 		Sync.waitElementPresent("id", "pass");
 		Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
 		Sync.waitElementPresent("xpath", "//button[@class='login-page-submit-action']");
 		Common.clickElement("xpath", "//button[@class='login-page-submit-action']");
-		
-		
-		
 		Sync.waitElementPresent("xpath", "//a[contains(@class,'pro-deal-action-primary')]");
 		Common.clickElement("xpath", "//a[contains(@class,'pro-deal-action-primary')]");
+		Thread.sleep(3000);
+		Common.switchWindows(false);
 		
-		Common.switchWindows();
-		
-		
-		
-	    
-	   
-		
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		Sync.waitElementPresent("id", "first_name");
 		Common.textBoxInput("id", "first_name", data.get(dataSet).get("FirstName"));
-		
 	
 		Sync.waitElementPresent("id", "last_name");
 		Common.textBoxInput("id", "last_name", data.get(dataSet).get("LastName"));
@@ -394,9 +381,9 @@ public class HydroHelper {
 		
 		 Common.actionsKeyPress(Keys.PAGE_DOWN);
 		    Thread.sleep(6000);
-		     String path=System.getProperty("user.dir")+("/src//test//resources//TestData//Hydroflask//hyderoflask.jpg");
+		     String path=System.getProperty("user.dir")+("\\TestLogs\\screenShots\\TestScreen.jpg");
 			//Sync.waitElementInvisible("xpath", "//input[@id='supporting_document']");
-			Common.textBoxInput("xpath", "//input[@id='supporting_document']", path);
+			Common.fileUpLoad("xpath", "//input[@id='supporting_document']", path);
 		
 		Sync.waitElementPresent("id", "group_id");
 		

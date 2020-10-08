@@ -33,14 +33,22 @@ public class BaseDriver
 	public static String className = Common.getCLassName();
 		public static WebDriver StartBrowser(String browserName,String URL) throws InterruptedException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException
 		{
-	
+			try {
 			 if(browserName.equalsIgnoreCase("firefox"))
 			{
 				WebDriverManager.firefoxdriver().setup();
-				 /*DesiredCapabilities cap = new DesiredCapabilities();
+				 DesiredCapabilities cap = new DesiredCapabilities();
 				 cap.setJavascriptEnabled(true);
-				 FirefoxOptions  opt = new FirefoxOptions();*/
-				driver=new FirefoxDriver();
+				 FirefoxOptions  options = new FirefoxOptions();
+					options.addArguments("--no-sandbox");
+					options.addArguments("-disable-dev-shm-usage");
+					options.addArguments("--test-type");
+					options.addArguments("--enable-video-player-chromecast-support");
+					options.addPreference("dom.file.createInChild", true);
+					options.addArguments("disable-infobars");
+					options.addArguments("--disable-notifications");
+					options.addArguments("--disable-popup-blocking");
+				driver=new FirefoxDriver(options);
 				
 			}
 			 
@@ -132,8 +140,12 @@ public class BaseDriver
 			System.out.println("URL is=====?"+URL);
 			driver.get(URL);
 			driver.manage().window().maximize();
-			return driver;
 			
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+			return driver;
 		}
 
 		

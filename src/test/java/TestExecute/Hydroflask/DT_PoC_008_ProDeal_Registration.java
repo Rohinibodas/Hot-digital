@@ -7,6 +7,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 
@@ -35,7 +36,7 @@ public class DT_PoC_008_ProDeal_Registration {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	
