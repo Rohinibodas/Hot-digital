@@ -85,32 +85,13 @@ public class HottoolsHelpr {
 		}
 		
 	}
-/*	public void createDate(String dataSet){
-		String[] monthName = { "", "January", "February", "March", "April", "May", "June", "July", "August",
-				"September", "October", "November", "December" };
-		String month=data.get(dataSet).get("Month");
-	
-	    String datepicermonth=Common.getText("class", "ui-datepicker-month");
-	
-	    for(int i=0;i<=12;i++){
-	    	
-	    	
-	    	  if(Common.getText("class", "ui-datepicker-month").equals(month)){
-		    	   
-		       }
-		       
-		       else{
-		    	   Common.clickElement("xpath", "");
-		       }
-	    	
-	    	
-	    }
+
 	    
 	     
 	
 		
 		
-	}*/
+
 	
 	public void clickCreateNewCustomerAccountButton()throws Exception{
 		Sync.waitElementPresent("xpath", "//a[contains(text(),'Create')]");
