@@ -6,9 +6,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import com.sun.jna.platform.win32.Netapi32Util.Group;
-
 import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.BaseDriver;
 import TestLib.Common;
@@ -31,8 +28,8 @@ public class HottoolsTestCases {
 		
 		Assert.fail(e.getMessage(), e);
 	}
-  }*/
-  
+  }
+  */
   
   @Test(priority=1)
   public void SigIn(){
@@ -104,6 +101,20 @@ public class HottoolsTestCases {
 			Assert.fail(e.getMessage(), e);
 		}
   }
+  @Test(dependsOnMethods="addCardDetiles")
+  public void logout(){
+	  
+	  try{
+		  Hottools.LogOut();
+	  }
+	  catch (Exception e) {
+			
+			e.printStackTrace();
+			
+			Assert.fail(e.getMessage(), e);
+		}
+  }
+  
   
   
   @BeforeMethod

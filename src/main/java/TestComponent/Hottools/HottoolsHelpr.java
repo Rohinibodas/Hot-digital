@@ -166,7 +166,7 @@ public class HottoolsHelpr {
 		
 		
 		Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName"));
-		Common.textBoxInput("id", "middlename", data.get(dataSet).get("MiddleName"));
+	//	Common.textBoxInput("id", "middlename", data.get(dataSet).get("MiddleName"));
 		Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName"));
 		
 		Common.textBoxInput("id", "email_address", data.get(dataSet).get("Email"));
@@ -174,8 +174,16 @@ public class HottoolsHelpr {
 		Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
 		
 		
+		Thread.sleep(5000);
+		
+		Common.clickElement("xpath", "//button[@title='Create an Account']");
+		
+		//
+		
+	//	Create an Account
+		
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
-		Thread.sleep(300);
+		
 		
     	String cap=	Common.findElement(By.xpath("//img[@class='captcha-img']")).getAttribute("value");
 		System.out.println(cap+"cap with class");
@@ -190,7 +198,7 @@ public class HottoolsHelpr {
 	
 	public void singin(String dataSet) throws Exception{
 		
-		agreeCookiesbanner();
+		//agreeCookiesbanner();
 		
 		Sync.waitElementPresent("xpath", "//span[@class='authorization-link']");
 		Common.clickElement("xpath", "//span[@class='authorization-link']");
@@ -235,11 +243,11 @@ public class HottoolsHelpr {
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
 	//	Sync.waitElementPresent("xpath", "//a[@title='"+data.get(dataSet).get("ProductName")+"']");
 		
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		Common.clickElement("xpath", "//a[@title='"+data.get(dataSet).get("ProductName")+"']");
 		
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		Sync.waitElementPresent("id", "product-addtocart-button");
 		Common.clickElement(By.id("product-addtocart-button"));
 		Thread.sleep(5000);
@@ -297,28 +305,31 @@ public class HottoolsHelpr {
 		Common.implicitWait();
 		Sync.waitElementPresent("name", "firstname");
 		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Thread.sleep(7000);
 		Sync.waitElementPresent("name", "lastname");
 		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Thread.sleep(8000);
 		Sync.waitElementPresent("name", "street[0]");
 		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		Sync.waitElementPresent("name", "city");
 		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
 		Sync.waitElementPresent("xpath", "//select[@name='region_id']");
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		Common.dropdown("xpath", "//select[@name='region_id']", SelectBy.TEXT, data.get(dataSet).get("Region"));
 		
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
 		Sync.waitElementPresent("name", "postcode");
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		Common.dropdown("xpath", "//select[@name='country_id']", SelectBy.TEXT, data.get(dataSet).get("Country"));
 	
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		Common.textBoxInput("name", "company", data.get(dataSet).get("Company"));
 		Thread.sleep(5000);
 		Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+		
 		
 	}
 	
@@ -342,9 +353,23 @@ public class HottoolsHelpr {
 		Common.switchToDefault();
 		
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
-		Sync.waitElementPresent("xpath", "//button[@title='Place Order']");
+		Sync.waitElementPresent("xpath", "//*[@id='iosc-summary']/div[5]/button");
 		
-		Common.clickElement(By.xpath("//button[@title='Place Order']"));
+		Common.clickElement(By.xpath("//*[@id='iosc-summary']/div[5]/button"));
+		
+		
+		
+		Thread.sleep(6000);
+		Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
 	}
+	public void LogOut() throws Exception{
+		
+		Thread.sleep(8000);
+		
+		Common.clickElement(By.xpath("//div[@class='panel header']//ul[3]/li[2]"));
+		
 	
+		Thread.sleep(3000);
+		Common.clickElement(By.xpath("//div[@class='panel header']//ul[3]/li[2]/div/ul/li[3]"));
+	}
 }
