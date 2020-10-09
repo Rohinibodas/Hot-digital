@@ -77,7 +77,7 @@ public class HottoolsTestCases {
 	  
 	  try{
 		  Hottools.shippingAddress("shippingAddress");
-		  //shippingAddress("shippingAddress");
+		 
 	  }
 	  catch (Exception e) {
 			
