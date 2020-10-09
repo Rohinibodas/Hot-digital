@@ -158,10 +158,7 @@ public class HottoolsHelpr {
 		Thread.sleep(5000);
 		
 		Common.clickElement("xpath", "//button[@title='Create an Account']");
-		
-		//
-		
-	//	Create an Account
+	
 		
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
 		
