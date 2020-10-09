@@ -72,8 +72,7 @@ public class BraunHelper {
 	public void CreateNewAccount(String dataSet) throws Exception{
 		
 	
-		//Sync.waitElementClickable(30, By.xpath("//div[@title='Close']"));
-		//Common.mouseOverClick("xpath","//div[@title='Close']" );
+		
 		
 		Sync.waitElementClickable(30, By.xpath("//button[@id='btn-bar']"));
 		Common.mouseOverClick("xpath", "//button[@id='btn-bar']");
