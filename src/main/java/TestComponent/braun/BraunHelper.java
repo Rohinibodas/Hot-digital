@@ -144,6 +144,19 @@ public class BraunHelper {
    public void shippingAddress_stage(String dataSet) throws Exception{
 	   
 	   
+	int size=   Common.findElements("xpath", "//div[@class='shipping-address-item selected-item']").size();
+	   if(size>0){
+		   
+		    Thread.sleep(5000);
+		    Sync.waitElementPresent("xpath", "//div[@id='shipping-method-buttons-container']//button");
+			Common.clickElement("xpath","//div[@id='shipping-method-buttons-container']//button");
+		 
+			Thread.sleep(6000);
+			Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
+		  // action-accept
+	   }
+	   
+	   else{
 	   
 	    Sync.waitElementPresent("xpath", "//li[@id='shipping']//input[@name='firstname']");
 	   
@@ -175,7 +188,7 @@ public class BraunHelper {
 		Common.clickElement("xpath","//div[@id='shipping-method-buttons-container']/div/button");
 		
         
-	
+	   }
    
    }
 	
@@ -206,7 +219,12 @@ public class BraunHelper {
 		
 		Common.clickElement("xpath","//*[@id='checkout-payment-method-load']//div[6]//button");
 		Thread.sleep(4000);
-		Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
+		int size=Common.findElements("xpath","//button[contains(@class,'action-accept')]").size();
+		if(size>0){
+
+			Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
+		}
+		
 	}
 	
 	

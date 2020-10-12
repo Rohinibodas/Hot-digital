@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.hssf.record.PageBreakRecord.Break;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -228,9 +229,20 @@ public class HottoolsHelpr {
 		Thread.sleep(6000);
 		Sync.waitElementPresent("id", "product-addtocart-button");
 		Common.clickElement(By.id("product-addtocart-button"));
-		Thread.sleep(5000);
-		Sync.waitElementPresent("id", "top-cart-btn-checkout");
-		Common.clickElement(By.id("top-cart-btn-checkout"));
+		Thread.sleep(7000);
+		
+       int size= Common.findElements("id", "top-cart-btn-checkout").size();
+		if(size<0){
+			Common.clickElement(By.id("product-addtocart-button"));
+			Sync.waitElementPresent("id", "top-cart-btn-checkout");
+			Common.clickElement(By.id("top-cart-btn-checkout"));
+		}
+		else{
+			
+			Sync.waitElementPresent("id", "top-cart-btn-checkout");
+			Common.clickElement(By.id("top-cart-btn-checkout"));
+		}
+		
 		
 		//a[@title='Mini Travel Dryer in Mint']//following::button[1]
 	}
@@ -279,8 +291,20 @@ public class HottoolsHelpr {
 	}
 	
 	public void shippingAddress(String dataSet) throws Exception{
-        Thread.sleep(7000);
-		Common.implicitWait();
+        Thread.sleep(9000);
+		
+         int sizes=Common.findElements(By.xpath("//div[@id='checkout-step-shipping']/div")).size();     
+         
+      
+		//Sync.waitElementInvisible(60, "xpath", "//div[@id='checkout-step-shipping']/div[2]");
+		//String Classname=Common.findElement(By.xpath("//div[@id='checkout-step-shipping']/div[2]")).getAttribute("class");
+		//System.out.println(Classname);
+		if(sizes>2){
+			
+			Common.doubleClick("xpath", "//div[@class='shipping-address-item selected-item']");
+		}
+    else{
+		
 		Sync.waitElementPresent("name", "firstname");
 		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
 		Thread.sleep(7000);
@@ -308,37 +332,148 @@ public class HottoolsHelpr {
 		Thread.sleep(5000);
 		Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
 		
+		Thread.sleep(5000);
+		Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-']");
+		
+		
+		//fieldset[@id="billing-new-address-form"]//input[@name='lastname']
+		
+		Sync.waitElementPresent("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='firstname']");
+		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='firstname']", data.get(dataSet).get("FirstName"));
+		Thread.sleep(7000);
+		Sync.waitElementPresent("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='lastname']");
+		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='lastname']", data.get(dataSet).get("LastName"));
+		Thread.sleep(8000);
+		Sync.waitElementPresent("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='street[0]']");
+		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='street[0]']", data.get(dataSet).get("Street"));
+		Thread.sleep(7000);
+		Sync.waitElementPresent("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='city']");
+		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='city']", data.get(dataSet).get("City"));
+		//Sync.waitElementPresent("xpath", "//select[@name='region_id']")
+		
+		Sync.waitElementPresent("xpath", "//fieldset[@id='billing-new-address-form']//select[@name='region_id']");
+		Thread.sleep(7000);
+		Common.dropdown("xpath", "//fieldset[@id='billing-new-address-form']//select[@name='region_id']", SelectBy.TEXT, data.get(dataSet).get("Region"));
+		
+		
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Sync.waitElementPresent("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='postcode']");
+		Thread.sleep(7000);
+		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='postcode']", data.get(dataSet).get("postcode"));
+		
+		
+		
+		Thread.sleep(5000);
+		Common.dropdown("xpath", "//fieldset[@id='billing-new-address-form']//select[@name='country_id']", SelectBy.TEXT, data.get(dataSet).get("Country"));
+		
+		Thread.sleep(7000);
+		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='company']", data.get(dataSet).get("Company"));
+		Thread.sleep(5000);
+		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='telephone']", data.get(dataSet).get("phone"));
+		Thread.sleep(5000);
+		
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		
+		
+		}
 		
 	}
 	
 	public void addCardDetiles(String dataSet) throws Exception{
-		Thread.sleep(7000);
+		Thread.sleep(9000);
+	//	Sync.waitElementClickable("xpath", "//input[@id='ime_paymetrictokenize']");
+	//	Common.clickCheckBox("xpath", "//input[@id='ime_paymetrictokenize']");
 		Common.clickElement(By.id("ime_paymetrictokenize"));
 		Thread.sleep(7000);
 		
 		Common.switchFrames("paymetric_xisecure_frame");
-		
+		Common.clickElement("xpath", "//select[@id='c-ct']");
 		Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
 		
 		
 		Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
 		
+		Common.clickElement("id", "c-exmth");
 		
 		Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
+		Common.clickElement("id", "c-exyr");
 		Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
 		
 		Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
 		Common.switchToDefault();
 		
-		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Thread.sleep(6000);
+	//	Common.clickElement(By.xpath("//*[@id='iosc-summary']/div[5]/button"));
+		//Common.actionsKeyPress(Keys.PAGE_DOWN);
+		
+		int sizes=Common.findElements(By.xpath("//div[@id='checkout-step-shipping']/div")).size();     
+        if(sizes>2){
+        	Thread.sleep(6000);
+
+        	Sync.waitElementPresent("xpath", "//*[@id='iosc-summary']/div[5]/button");
+    		Common.clickElement(By.xpath("//*[@id='iosc-summary']/div[5]/button"));
+    		
+    		Thread.sleep(6000);
+    		int sizs=Common.findElements("xpath", "//a[@class='action primary continue']").size();
+    		if(sizs>0){
+    			
+    			//Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
+    		}
+    		else{
+    			
+    			Common.actionsKeyPress(Keys.PAGE_UP);
+    			Common.clickElement("xpath", "//div[@class='shipping-address-item selected-item']");
+    			Common.actionsKeyPress(Keys.PAGE_DOWN);
+    			Sync.waitElementClickable("xpath", "//input[@id='ime_paymetrictokenize']");
+    			Common.clickCheckBox("xpath", "//input[@id='ime_paymetrictokenize']");
+    			Common.clickElement(By.id("ime_paymetrictokenize"));
+    			Thread.sleep(7000);
+    			
+    			Common.switchFrames("paymetric_xisecure_frame");
+    			Common.clickElement("xpath", "//select[@id='c-ct']");
+    			Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
+    			
+    			
+    			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+    			
+    			Common.clickElement("id", "c-exmth");
+    			
+    			Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
+    			Common.clickElement("id", "c-exyr");
+    			Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+    			
+    			Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
+    			Common.switchToDefault();
+    			Thread.sleep(6000);
+
+            	Sync.waitElementPresent("xpath", "//*[@id='iosc-summary']/div[5]/button");
+        		Common.clickElement(By.xpath("//*[@id='iosc-summary']/div[5]/button"));
+
+    			
+    		}
+    		
+    		
+
+		}
+    else{
+		
+    //	Common.actionsKeyPress(Keys.PAGE_DOWN);
+    	Thread.sleep(6000);
 		Sync.waitElementPresent("xpath", "//*[@id='iosc-summary']/div[5]/button");
-		
 		Common.clickElement(By.xpath("//*[@id='iosc-summary']/div[5]/button"));
-		
-		
-		
 		Thread.sleep(6000);
 		Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
+		Thread.sleep(4000);
+		Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
+		
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
 	public void LogOut() throws Exception{
 		

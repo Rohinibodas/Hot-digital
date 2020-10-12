@@ -31,7 +31,7 @@ public class HottoolsTestCases {
   }
   */
   
-  @Test(priority=1)
+  @Test(priority=2)
   public void SigIn(){
 	  
 	  try{
@@ -96,7 +96,6 @@ public class HottoolsTestCases {
 	  }
 	  catch (Exception e) {
 			
-			e.printStackTrace();
 			
 			Assert.fail(e.getMessage(), e);
 		}
