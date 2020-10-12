@@ -328,4 +328,12 @@ public class BraunHelper {
 	//	Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));	
 	}
 
-}
+   public void Logout() throws Exception{
+	   Thread.sleep(5000);   
+	   Common.clickElement("xpath","//div[@class='panel header']//button");
+	   Thread.sleep(5000); 
+	   Common.clickElement("xpath","//div[@class='customer-welcome active']//li[2]/a");
+	
+		
+   }
+   }

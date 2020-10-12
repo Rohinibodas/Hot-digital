@@ -5,9 +5,9 @@
     </listeners>
     
     
-    <test name=" Hottools" testid="1" priority="P1" description="This HottoolsTestcases">
+    <test name=" Hottools" testid="1" priority="P1" description="This Broun end to end">
         <classes>
-            <class name="TestExecute.hottools.HottoolsEnd_EndTestCases"/>
+            <class name="TestExecute.TestExecute.Braun.BraunStageEnd_EndTestCases"/>
         </classes>
     </test>
   </suite>  

@@ -300,6 +300,7 @@ public class HottoolsHelpr {
 		if(sizes>2){
 			
 			Common.doubleClick("xpath", "//div[@class='shipping-address-item selected-item']");
+			 Thread.sleep(9000);
 		}
     else{
 		

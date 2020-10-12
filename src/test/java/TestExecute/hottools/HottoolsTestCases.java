@@ -127,7 +127,7 @@ public class HottoolsTestCases {
   @AfterSuite
 	public void closeBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	
