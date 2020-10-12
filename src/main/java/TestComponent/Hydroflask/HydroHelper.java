@@ -351,7 +351,13 @@ public class HydroHelper {
 	}
 	public void ProdelerPage(String dataSet) throws Exception{
 		clickProDeal();
+		try {
 		Sync.waitElementPresent("xpath", "//a[@title='Sign in or register']");
+		}catch(Exception e)
+		{
+			clickProDeal();
+			Thread.sleep(3000);
+		}
 		Common.clickElement("xpath", "//a[@title='Sign in or register']");
 		Sync.waitElementPresent("id", "email");
 		Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
@@ -381,7 +387,7 @@ public class HydroHelper {
 		
 		 Common.actionsKeyPress(Keys.PAGE_DOWN);
 		    Thread.sleep(6000);
-		     String path=System.getProperty("user.dir")+("\\TestLogs\\screenShots\\TestScreen.jpg");
+		     String path=System.getProperty("user.dir")+("\\src\\test\\resources\\TestData\\Hydroflask\\TestScreen.jpg");
 			//Sync.waitElementInvisible("xpath", "//input[@id='supporting_document']");
 			Common.fileUpLoad("xpath", "//input[@id='supporting_document']", path);
 		

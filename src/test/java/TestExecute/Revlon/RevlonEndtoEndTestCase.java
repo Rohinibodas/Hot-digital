@@ -16,17 +16,17 @@ public class RevlonEndtoEndTestCase {
 	
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
-	/*@Test
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	public void createAccount() throws Exception {
 		String datafile = "revlon//RevlonTestData.xlsx";	
 		try {
 			RevelonHelper revelon=new RevelonHelper(datafile);
-			revelon.navigateAccount();
-			revelon.CreateNewAccount("AccountDetails");
+			//revelon.CreateNewAccount("AccountDetails");
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("Dryers");
 			revelon.proccedToCheckout();
-			revelon.addShippingAddress();
+			revelon.addShippingAddress("Address");
+			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception e) {
 			
@@ -37,13 +37,13 @@ public class RevlonEndtoEndTestCase {
 			//Common.closeAll();
 
 		}
-	}*/
+	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void createAccount() throws Exception {
 
 		try {
-			revelon.CreateNewAccount("AccountDetails");
+			//revelon.CreateNewAccount("AccountDetails");
 		}
 		catch (Exception e) {
 			
@@ -99,7 +99,7 @@ public class RevlonEndtoEndTestCase {
 		} 
 	}
 	
-	/*@Test(dependsOnMethods="addDeliveryAddress")
+	@Test(dependsOnMethods="addDeliveryAddress")
 	public void proceedPayment() throws Exception {
 
 		try {
@@ -111,7 +111,7 @@ public class RevlonEndtoEndTestCase {
 		} 
 	}
 */
-	@AfterSuite
+/*	@AfterSuite
 	public void closeBrowser()
 	{
 		Common.closeAll();
@@ -121,14 +121,14 @@ public class RevlonEndtoEndTestCase {
 	@AfterTest
 	public void clearBrowser()
 	{
-		BaseDriver.setDriver(null);
+		Common.closeAll();
 
-	}
+	}*/
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signInRevolon();
-		  
+		  Login.signIn();
+		  revelon.acceptPrivecy();
 	  }
 
 }

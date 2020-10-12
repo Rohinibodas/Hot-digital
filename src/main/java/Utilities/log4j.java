@@ -24,7 +24,7 @@ public class log4j {
     public log4j() {
         try {
             
-        	String 	logFilepath = System.getProperty("user.dir")+"//TestLogs//"+"Automation-Log-"+Utils.getDateTime()+".log";
+        	String 	logFilepath = System.getProperty("user.dir")+"//TestLogs//logs//"+"Automation-Log-"+Utils.getDateTime()+".log";
             Files.deleteIfExists(new java.io.File(logFilepath).toPath());
             Properties propertie=new Properties();
             propertie.load(new FileInputStream("Log4j.properties"));

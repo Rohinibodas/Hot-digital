@@ -15,13 +15,13 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-@Listeners(Utilities.TestListener.class)
+//@Listeners(Utilities.TestListener.class)
 public class DT_PoC_001_Account_Creation 
 {
 	
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
-	@Test
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	public void createAccount() throws Exception {
 
 		try {

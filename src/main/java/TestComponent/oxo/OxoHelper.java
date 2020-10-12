@@ -51,7 +51,8 @@ public class OxoHelper {
 	
 	public void searchProductAndAddtoCart(String productName) throws Exception
 	{
-		Thread.sleep(4000);
+		Thread.sleep(10000);
+		Common.actionsKeyPress(Keys.ESCAPE);
 		Common.clickElement("className", "search-tool");
 		Sync.waitElementPresent("id", "search");
 		if(Common.findElement("id", "search")==null)
@@ -78,9 +79,17 @@ public class OxoHelper {
 	
 	public void checkOut() throws Exception
 	{
+		
+			Common.actionsKeyPress(Keys.ESCAPE);
 		Common.mouseOver("className", "minicart-wrapper");
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		try{
 		Common.mouseOverClick("id", "top-cart-btn-checkout");
+		}catch (Exception e) {
+			Common.actionsKeyPress(Keys.ESCAPE);
+			Common.mouseOver("className", "minicart-wrapper");
+			Common.mouseOverClick("id", "top-cart-btn-checkout");
+		}
 		Thread.sleep(4000);
 		//Common.actionsKeyPress(Keys.PAGE_DOWN);
 		

@@ -11,13 +11,13 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-@Listeners(Utilities.TestListener.class)
+//@Listeners(Utilities.TestListener.class)
 public class DTC_PoC_002_Customer_Login 
 {
 	
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
-	@Test
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	public void customerLogin() throws Exception {
 
 		try {

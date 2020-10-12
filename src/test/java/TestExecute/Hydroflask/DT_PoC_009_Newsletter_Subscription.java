@@ -10,14 +10,14 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-@Listeners(Utilities.TestListener.class)
+//@Listeners(Utilities.TestListener.class)
 public class DT_PoC_009_Newsletter_Subscription {
 	
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
  
 	
-	@Test
+ @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void NewsletterSubscription() {
 		
 

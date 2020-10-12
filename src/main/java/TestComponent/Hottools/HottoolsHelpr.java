@@ -423,8 +423,9 @@ public class HottoolsHelpr {
     			Common.actionsKeyPress(Keys.PAGE_UP);
     			Common.clickElement("xpath", "//div[@class='shipping-address-item selected-item']");
     			Common.actionsKeyPress(Keys.PAGE_DOWN);
+    			Thread.sleep(2000);
     			Sync.waitElementClickable("xpath", "//input[@id='ime_paymetrictokenize']");
-    			Common.clickCheckBox("xpath", "//input[@id='ime_paymetrictokenize']");
+    			Common.clickElement("xpath", "//input[@id='ime_paymetrictokenize']");
     			Common.clickElement(By.id("ime_paymetrictokenize"));
     			Thread.sleep(7000);
     			

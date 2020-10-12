@@ -13,6 +13,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javafx.application.Application;
 
 import org.apache.log4j.Logger;
 
@@ -31,7 +32,7 @@ import TestLib.Driver;
 		public static String DBUName = null, DBPwd = null, DBURL = null, DBDriver = null;
 		public static int SUMMARYFLAG;
 
-		public static String to="mchiruvella@gmail.com,mahendra.koppanadham@gmail.com",cc="mchiruvella@gmail.com",subject="HoT Test Automation Results",attachmentPath="",attachmentPath1="";
+		public static String to="mahendra.koppanadham@gmail.com",cc="mchiruvella@gmail.com",subject="HoT Test Automation Results",attachmentPath="",attachmentPath1="";
 		
 		
 		
@@ -41,6 +42,15 @@ import TestLib.Driver;
 			attachmentPath=System.getProperty("user.dir")+"/src/test/resources/MailTemplates/ExecutionMailReport.html" ;
 			//attachmentPath1=;
 			attachmentPath=HTMLPreparation.generateMail("exectionReport");
+			PieChartGenerator pie=new PieChartGenerator();
+			if(totalTCcount-failTCcount>0)
+			{pie.setTestPassed(totalTCcount-failTCcount);}
+			//pie.setTestSkiped(totalTCcount-(passTCcount+failTCcount));
+			if(failTCcount>0)
+			{pie.setTestFailed(failTCcount);}
+		
+			Application.launch(PieChartGenerator.class);	
+			//attachmentPath=System.getProperty("user.dir")+"/TestLogs/ExtentReportResults_Test.html";
 			triggerSendMail();
 		}
 
@@ -109,6 +119,15 @@ import TestLib.Driver;
 				messageBodyPart1.setDataHandler(new DataHandler(source1));
 				messageBodyPart1.setFileName("ADCTasksDetailStatusReport.xlsx");
 				multipart.addBodyPart(messageBodyPart1);*/
+				
+				
+				messageBodyPart = new MimeBodyPart();
+		         DataSource fds = new FileDataSource(
+		            System.getProperty("user.dir")+"/test-output/automationPichart.png");
+
+		         messageBodyPart.setDataHandler(new DataHandler(fds));
+		         messageBodyPart.setHeader("Content-ID", "<image>");
+		         multipart.addBodyPart(messageBodyPart);
 
 				msg.setContent(multipart);
 				msg.setFrom(new InternetAddress(userName));

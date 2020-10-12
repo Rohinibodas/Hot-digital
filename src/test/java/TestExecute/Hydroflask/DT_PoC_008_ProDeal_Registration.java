@@ -11,7 +11,7 @@ import TestLib.Common;
 import TestLib.Login;
 
 
-@Listeners(Utilities.TestListener.class)
+//@Listeners(Utilities.TestListener.class)
 public class DT_PoC_008_ProDeal_Registration {
 
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
@@ -19,12 +19,11 @@ public class DT_PoC_008_ProDeal_Registration {
 	
 	
 	
-	@Test
+  @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void prodealRegistration() {
 
 		try {
-	
-	        
+      
 	        Hydro.ProdelerPage("ProdelerDetails");
 		}
 		catch (Exception e) {

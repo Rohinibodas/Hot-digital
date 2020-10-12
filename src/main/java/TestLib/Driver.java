@@ -16,6 +16,10 @@ public class Driver {
 	public static log4j getLogger() {	
 		return logger;
 	}
+	
+	
+	
+	
 
 	
 

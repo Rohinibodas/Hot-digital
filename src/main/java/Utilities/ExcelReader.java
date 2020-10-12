@@ -304,6 +304,10 @@ public class ExcelReader {
 		for(int i=1;i<=sheet.getLastRowNum();i++)
 		{
 			String dataSet=sheet.getRow(i).getCell(0).getStringCellValue();
+			if(dataSet.isEmpty())
+			{
+				break;
+			}
 			{	
 				cellVal=new HashMap<>();
 				for(int j=1;j<sheet.getRow(i).getLastCellNum();j++)

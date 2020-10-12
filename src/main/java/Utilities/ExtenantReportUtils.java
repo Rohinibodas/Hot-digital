@@ -17,11 +17,13 @@ public class ExtenantReportUtils {
 	static ExtentTest logger;
 	
 	public ExtenantReportUtils(String reportFileName) {
+		if(reportFileName.contains("\\s"))
+		reportFileName=reportFileName.split(" ")[0];
 		ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter(reportFileName+"_Report.html");
 	    extent = new ExtentReports();
 	    extent.attachReporter(htmlReporter);
 	    extent.setSystemInfo("OS", "windows");
-	    extent.setSystemInfo("Browser", "chrome");
+	    extent.setSystemInfo("Browser", System.getProperty("browser","chrome"));
 	    extent.setSystemInfo("Environment", "Automation Testing ENV");
 	    htmlReporter.config().setChartVisibilityOnOpen(true);
 	    htmlReporter.config().setDocumentTitle("Extent Report Demo");
@@ -72,9 +74,9 @@ public class ExtenantReportUtils {
 		logger.log(Status.FAIL, failMessage);
 	}
 	
-	public static void main(String[] args) throws IOException {
+	/*public static void main(String[] args) throws IOException {
 		
-	ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter("ExtentReportResults.html");
+	ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter("./TestLogs/ExtentReportResults_52.html");
     ExtentReports extent = new ExtentReports();
     extent.attachReporter(htmlReporter);
     extent.setSystemInfo("OS", "windows");
@@ -85,14 +87,15 @@ public class ExtenantReportUtils {
     htmlReporter.config().setReportName("Test Report");
     htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
     htmlReporter.config().setTheme(Theme.STANDARD);
-    htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
+   // htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
     
-    ExtentTest logger=extent.createTest("LoginTest");
+    ExtentTest logger=extent.creasteTest("LoginTest").assignCategory("GoogleAPP");
     logger.log(Status.INFO, "Login to Revolon");
     logger.log(Status.PASS, "Title verified");
-    logger.log(Status.FAIL, "Failed with", MediaEntityBuilder.createScreenCaptureFromPath("C:\\Users\\Mahendra\\Pictures\\PAN.jpg").build());
+    //logger.log(Status.FAIL, "Failed with", MediaEntityBuilder.createScreenCaptureFromPath("../TestLogs/screenShots/TestScreen.jpg").build());
+    logger.log(Status.FAIL, "Failed with", MediaEntityBuilder.createScreenCaptureFromPath("TestScreen.jpg").build());
     extent.flush();
 	
-	}
-
+	}*/
+	
 }

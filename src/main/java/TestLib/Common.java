@@ -693,6 +693,20 @@ public class Common {
 		return filePath;
 		
 	}
+	
+	public static String getscreenShotPathforReport(String screnShotName) {
+		String screenName=screnShotName +Utilities.File.GetDateTime();
+		String filePath=System.getProperty("user.dir") + "/TestLogs/screenShots/" +screenName+ ".jpg";
+		File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(scrFile, new File(filePath));
+		} catch (IOException e) {
+		Driver.getLogger().error(e);
+		}
+		Driver.getLogger().info("screenshot saved successfully");
+		return "../TestLogs/screenShots/" +screenName+ ".jpg";
+		
+	}
 
 	public static void fileUpLoad(String elemfindBY, String elemfindText,String filepath) {
 		int retryCount = 0;

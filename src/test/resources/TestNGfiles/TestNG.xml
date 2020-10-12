@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <suite name="SUite" >
-    <!-- <listeners>
-        <listener class-name="Utilities.Listener"/>
-    </listeners> -->
-    <parameter name="browser" value="chrome"/>  
-    <test name="Oxo" testid="1" priority="P1" description="This script will cover Regression Process of oxo">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="DT_PoC_001_Account_Creation" testid="1" priority="P1" description="This script will cover Account Process of HydroFlesk">
         <classes>
-            <class name="TestExecute.Oxo.OxoBusiness"/>
+            <class name="TestExecute.Hydroflask.DT_PoC_001_Account_Creation"/>
         </classes>
     </test>
-    <!-- <parameter name="browser" value="firefox"/>  
-      <test name="Revelon" testid="2" priority="P1" description="This script will cover End to End Process of revelon">
+    <test name="DTC_PoC_002_Customer_Login" testid="2" priority="P1" description="This script will cover Login Process of HydroFlesk">
         <classes>
-            <class name="TestExecute.Revlon.RevlonEndtoEndTestCase"/>
+            <class name="TestExecute.Hydroflask.DTC_PoC_002_Customer_Login"/>
         </classes>
-    </test> -->
-    
+    </test>
+    <test name="DT_PoC_003_Order_Submission" testid="3" priority="P1" description="This script will cover order sbumit Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Hydroflask.DT_PoC_003_Order_Submission"/>
+        </classes>
+    </test>
+
+	<test name="DT_PoC_008_ProDeal_Registration" testid="8" priority="P1" description="This script will cover deal registration Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Hydroflask.DT_PoC_008_ProDeal_Registration"/>
+        </classes>
+    </test>
+	
+	<test name="DT_PoC_009_Newsletter_Subscription" testid="9" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Hydroflask.DT_PoC_009_Newsletter_Subscription"/>
+        </classes>
+    </test>
+	
   </suite>  

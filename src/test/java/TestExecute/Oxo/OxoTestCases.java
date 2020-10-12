@@ -17,75 +17,20 @@ import TestLib.Common;
 import TestLib.Login;
 import Utilities.TestListener;
 
-@Listeners(TestListener.class)
+//@Listeners(TestListener.class)
 public class OxoTestCases 
 {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
-	@Test(priority=1)
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	public void createAccount() throws Exception {
 
 		try {
-			oxo.CreateNewAccount("AccountDetails");
-		}
-		catch (Exception e) {
-			
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	
-	
-	@Test(dependsOnMethods="createAccount")
-	public void loginApplication() throws Exception {
-
-		try {
+			//oxo.CreateNewAccount("AccountDetails");
 			oxo.loginOxo("AccountDetails");
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="loginApplication")
-	public void searchProduct() throws Exception {
-
-		try {
 			oxo.searchProductAndAddtoCart("Beverage");
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="searchProduct")
-	public void checkOut() throws Exception {
-
-		try {
 			oxo.checkOut();
-		}
-		catch (Exception e) {
-			
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="checkOut")
-	public void addDeliveryAddress() throws Exception {
-
-		try {
 			oxo.addDeliveryAddress("Address");
-		}
-		catch (Exception e) {
-			
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="addDeliveryAddress")
-	public void proceedPayment() throws Exception {
-
-		try {
 			oxo.addPaymentDetails("PaymentDetails");
 		}
 		catch (Exception e) {
@@ -93,13 +38,7 @@ public class OxoTestCases
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-
-	@AfterSuite
-	public void closeBrowser()
-	{
-		Common.closeAll();
-
-	}
+	
 	
 	@AfterTest
 	public void clearBrowser()
@@ -111,7 +50,7 @@ public class OxoTestCases
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		  Login.signInOxo();
+		  Login.signIn();
 		  
 	  }
 

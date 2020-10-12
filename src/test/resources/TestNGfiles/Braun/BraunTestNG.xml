@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="SUite" parallel="tests" thread-count="4">
+<suite name="Braun Suite">
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
     
     
-    <test name=" Hottools" testid="1" priority="P1" description="This Broun end to end">
+    <test name=" Braun" testid="1" priority="P1" description="This Broun end to end">
         <classes>
-            <class name="TestExecute.TestExecute.Braun.BraunStageEnd_EndTestCases"/>
+            <class name="TestExecute.Braun.BraunStageEnd_EndTestCases"/>
         </classes>
     </test>
   </suite>  

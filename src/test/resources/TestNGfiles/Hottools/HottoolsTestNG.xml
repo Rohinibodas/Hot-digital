@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="SUite" parallel="tests" thread-count="4">
+<suite name="Hottools Suite" parallel="tests" thread-count="4">
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
