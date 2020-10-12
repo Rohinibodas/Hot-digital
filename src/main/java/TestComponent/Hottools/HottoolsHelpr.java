@@ -296,9 +296,7 @@ public class HottoolsHelpr {
          int sizes=Common.findElements(By.xpath("//div[@id='checkout-step-shipping']/div")).size();     
          
       
-		//Sync.waitElementInvisible(60, "xpath", "//div[@id='checkout-step-shipping']/div[2]");
-		//String Classname=Common.findElement(By.xpath("//div[@id='checkout-step-shipping']/div[2]")).getAttribute("class");
-		//System.out.println(Classname);
+		
 		if(sizes>2){
 			
 			Common.doubleClick("xpath", "//div[@class='shipping-address-item selected-item']");
@@ -381,9 +379,9 @@ public class HottoolsHelpr {
 	
 	public void addCardDetiles(String dataSet) throws Exception{
 		Thread.sleep(9000);
-	//	Sync.waitElementClickable("xpath", "//input[@id='ime_paymetrictokenize']");
+		Sync.waitElementClickable("xpath", "//input[@id='ime_paymetrictokenize']");
 	//	Common.clickCheckBox("xpath", "//input[@id='ime_paymetrictokenize']");
-		Common.clickElement(By.id("ime_paymetrictokenize"));
+		Common.clickCheckBox("xpath", "//input[@id='ime_paymetrictokenize']");
 		Thread.sleep(7000);
 		
 		Common.switchFrames("paymetric_xisecure_frame");
