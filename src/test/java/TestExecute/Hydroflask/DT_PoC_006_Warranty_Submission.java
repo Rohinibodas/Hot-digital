@@ -20,7 +20,7 @@ public class DT_PoC_006_Warranty_Submission {
 	
 	
 	
-	@Test
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void WarrantySubmission() {
 
 		try {
@@ -37,7 +37,7 @@ public class DT_PoC_006_Warranty_Submission {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

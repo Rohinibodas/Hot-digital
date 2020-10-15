@@ -16,6 +16,7 @@ import TestLib.Common;
 import TestLib.Sync;
 import TestLib.Common.SelectBy;
 import Utilities.ExcelReader;
+import Utilities.ExtenantReportUtils;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 
@@ -23,12 +24,21 @@ public class HottoolsHelpr {
 	String datafile;
 	ExcelReader excelData;
 	Map<String, Map<String, String>> data=new HashMap<>();
+	 static ExtenantReportUtils report;
 
 	public  HottoolsHelpr(String datafile)
 	{
 		excelData=new ExcelReader(datafile);
 		data=excelData.getExcelValue();
 		this.data=data;
+		
+		if(Utilities.TestListener.report==null)
+		{
+			report=new ExtenantReportUtils("Hydro");
+			report.createTestcase("HottoolsTestCases");
+		}else{
+			this.report=Utilities.TestListener.report;
+		}
 	}
 	
 	
@@ -186,6 +196,7 @@ public class HottoolsHelpr {
 		Sync.waitElementPresent("xpath", "//a[text()='sign in']");
 		Common.clickElement("xpath", "//a[text()='sign in']");
 		
+		report.addPassLog("click the Sign IN button ",Common.getscreenShotPathforReport("Sign IN button"));
 		
 		Sync.waitElementPresent("id", "email");
 		
@@ -194,8 +205,11 @@ public class HottoolsHelpr {
 		
 		Sync.waitElementPresent("xapth","//fieldset[@class='fieldset login']//div[3]");
 		Thread.sleep(4000);
+		
+		report.addPassLog("log in with user name and password ",Common.getscreenShotPathforReport("Sign IN with user email and password"));
 		Sync.waitElementPresent("id", "send2");
 		Common.clickElement(By.id("send2"));
+		report.addPassLog("submitting user logins",Common.getscreenShotPathforReport("click the submit button in signPage"));
 		
 	}
 	
@@ -207,12 +221,13 @@ public class HottoolsHelpr {
 		
 		Common.clickElement("xpath", "//a[@title='Search']");
 		
-		
+		report.addPassLog("click the search button to search Product ",Common.getscreenShotPathforReport("click the search button"));
 		Sync.waitElementPresent("id", "search");
 		Common.textBoxInput("id", "search", data.get(dataSet).get("ProductName"));
 		
 		Sync.waitElementClickable("xpath", "//button[@title='Search']");
 		Common.clickElement(By.xpath("//button[@title='Search']"));
+		report.addPassLog("search with producat name ",Common.getscreenShotPathforReport("produact name in search box"));
 		
 		}
 	
@@ -224,23 +239,29 @@ public class HottoolsHelpr {
 		
 		Thread.sleep(6000);
 		Common.clickElement("xpath", "//a[@title='"+data.get(dataSet).get("ProductName")+"']");
+		report.addPassLog("select the searched product ",Common.getscreenShotPathforReport("produact selection"));
 		
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
 		Thread.sleep(6000);
 		Sync.waitElementPresent("id", "product-addtocart-button");
 		Common.clickElement(By.id("product-addtocart-button"));
+		
+		report.addPassLog("add producat to Cart ",Common.getscreenShotPathforReport("produact to cart"));
 		Thread.sleep(7000);
 		
        int size= Common.findElements("id", "top-cart-btn-checkout").size();
 		if(size<0){
 			Common.clickElement(By.id("product-addtocart-button"));
+			report.addPassLog("add producat to Cart ",Common.getscreenShotPathforReport("produact to cart"));
 			Sync.waitElementPresent("id", "top-cart-btn-checkout");
 			Common.clickElement(By.id("top-cart-btn-checkout"));
+			report.addPassLog(" producat  Cart to check out",Common.getscreenShotPathforReport("click the check out button"));
 		}
 		else{
 			
 			Sync.waitElementPresent("id", "top-cart-btn-checkout");
 			Common.clickElement(By.id("top-cart-btn-checkout"));
+			report.addPassLog(" producat  Cart to check out",Common.getscreenShotPathforReport("click the check out button"));
 		}
 		
 		
@@ -300,6 +321,8 @@ public class HottoolsHelpr {
 		if(sizes>2){
 			
 			Common.doubleClick("xpath", "//div[@class='shipping-address-item selected-item']");
+			
+			report.addPassLog("selecting the producat shipping address",Common.getscreenShotPathforReport("select the shipping address"));
 			 Thread.sleep(9000);
 		}
     else{
@@ -331,6 +354,7 @@ public class HottoolsHelpr {
 		Thread.sleep(5000);
 		Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
 		
+		report.addPassLog("Enter the shipping  address",Common.getscreenShotPathforReport("enter the  shipping address"));
 		Thread.sleep(5000);
 		Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-']");
 		
@@ -370,7 +394,7 @@ public class HottoolsHelpr {
 		Thread.sleep(5000);
 		Common.textBoxInput("xpath", "//fieldset[@id='billing-new-address-form']//input[@name='telephone']", data.get(dataSet).get("phone"));
 		Thread.sleep(5000);
-		
+		report.addPassLog("Enter shipping address",Common.getscreenShotPathforReport(" shipping address"));
 		Common.actionsKeyPress(Keys.PAGE_UP);
 		
 		
@@ -383,6 +407,8 @@ public class HottoolsHelpr {
 		Sync.waitElementClickable("xpath", "//input[@id='ime_paymetrictokenize']");
 	//	Common.clickCheckBox("xpath", "//input[@id='ime_paymetrictokenize']");
 		Common.clickCheckBox("xpath", "//input[@id='ime_paymetrictokenize']");
+		report.addPassLog("select the card payement mode",Common.getscreenShotPathforReport(" card payement"));
+		
 		Thread.sleep(7000);
 		
 		Common.switchFrames("paymetric_xisecure_frame");
@@ -401,6 +427,7 @@ public class HottoolsHelpr {
 		Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
 		Common.switchToDefault();
 		
+		report.addPassLog("enter the card detiles",Common.getscreenShotPathforReport(" card details"));
 		Thread.sleep(6000);
 	//	Common.clickElement(By.xpath("//*[@id='iosc-summary']/div[5]/button"));
 		//Common.actionsKeyPress(Keys.PAGE_DOWN);
@@ -445,10 +472,12 @@ public class HottoolsHelpr {
     			Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
     			Common.switchToDefault();
     			Thread.sleep(6000);
+    			report.addPassLog("enter the card detiles",Common.getscreenShotPathforReport(" card details"));
 
             	Sync.waitElementPresent("xpath", "//*[@id='iosc-summary']/div[5]/button");
         		Common.clickElement(By.xpath("//*[@id='iosc-summary']/div[5]/button"));
-
+        		
+        		report.addPassLog("submit the ordear",Common.getscreenShotPathforReport(" ordersubmit"));
     			
     		}
     		
@@ -465,6 +494,7 @@ public class HottoolsHelpr {
 		Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
 		Thread.sleep(4000);
 		Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
+		
 		
 		}
 		
@@ -484,5 +514,6 @@ public class HottoolsHelpr {
 	
 		Thread.sleep(3000);
 		Common.clickElement(By.xpath("//div[@class='panel header']//ul[3]/li[2]/div/ul/li[3]"));
+		report.addPassLog("log out the application ",Common.getscreenShotPathforReport(" log out the application"));
 	}
 }
