@@ -421,6 +421,97 @@ public class HydroHelper {
 		
 		
 	}
+	public void forgetpassword(String dataSet) throws Exception{
+		navigateMyAccount();
+		Sync.waitElementPresent("xpath", "//a[contains(@class,'forgot-password')]");
+		Common.clickElement("xpath","//a[contains(@class,'forgot-password')]");
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'forgot-password-email')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'forgot-password-email')]",data.get(dataSet).get("Email"));
+		
+		Common.clickElement("xpath", "//button[contains(text(),'Reset my Password')]");
+		
+		Common.actionsKeyPress(Keys.ESCAPE);
+	}
+	
+    public void Customize_Bottle() throws Exception{
+    	Thread.sleep(9000);
+    	Sync.waitElementPresent("xpath", "//a[contains(text(),'Customize')]");
+    	Common.clickElement("xpath", "//a[contains(text(),'Customize')]");
+    	
+    	Common.switchWindows();
+    	/*Sync.waitElementPresent("xpath","//ul[@class='megamenu-list']/li[2]/div[1]/button");
+    	Common.clickElement("xpath", "	");*/
+    	
+      	/*Thread.sleep(6000);
+    	Sync.waitElementPresent("xpath", "//a[contains(@title,'create yours now')");
+    	Common.clickElement("xpath", "//a[contains(@title,'create yours now')]");*/
+    	Thread.sleep(9000);
+    	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[2]/div[1]/button");
+    
+    	
+		
+		Thread.sleep(6000);
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+
+		
+		Sync.waitElementPresent("xpath", "//div[text()='Standard Mouth Bottle']/following::a[1]");
+    	Common.mouseOverClick("xpath", "//div[text()='Standard Mouth Bottle']/following::a[1]");
+		
+    	
+    	Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80251']");
+    	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80251']");
+    	
+    	
+    	Sync.waitElementPresent("xpath", "//div[contains(@aria-label,'24 oz Our')]");
+    	Common.clickElement("xpath", "//div[contains(@aria-label,'24 oz Our')]");
+    	
+    	
+    	Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80262']");
+    	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80262']");
+    	
+    	Sync.waitElementPresent("xpath", "//fieldset[@id='fc-ca-swatch-80262-fieldset']//div[5]/span");
+    	Common.clickElement("xpath", "//fieldset[@id='fc-ca-swatch-80262-fieldset']//div[5]/span");
+    	
+    	
+    	Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80263']");
+    	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80263']");
+    	
+    	Sync.waitElementPresent("xpath", "//fieldset[@id='fc-ca-swatch-80263-fieldset']//div[5]/span");
+    	Common.clickElement("xpath", "//fieldset[@id='fc-ca-swatch-80263-fieldset']//div[5]/span");
+    	
+    	
+      	Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80268']");
+    	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80268']");
+    	
+    	Sync.waitElementPresent("xpath", "//fieldset[@id='fc-ca-swatch-80268-fieldset']//div[5]/span");
+    	Common.clickElement("xpath", "//fieldset[@id='fc-ca-swatch-80268-fieldset']//div[5]/span");
+    	
+    
+    	
+      	Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80270']");
+    	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80270']");
+    	
+    	Sync.waitElementPresent("xpath", "//fieldset[@id='fc-ca-swatch-80270-fieldset']//div[5]/span");
+    	Common.clickElement("xpath", "//fieldset[@id='fc-ca-swatch-80270-fieldset']//div[5]/span");
+    	
+    	
+    	Sync.waitElementPresent("xpath", "//span[text()='Add To Cart']");
+    	Common.clickElement("xpath", "//span[text()='Add To Cart']");
+    	
+    	Thread.sleep(6000);
+    	Sync.waitElementPresent("xpath", "//button[@id='top-cart-btn-checkout']");
+    	Common.clickElement("xpath", "//button[@id='top-cart-btn-checkout']");
+    	}
+    
+    
+    public void shop_bottles() throws Exception{
+    	Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[ 1]/div[1]/button");
+    	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[ 1]/div[1]/button");
+    	
+    	Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list-ancestor']//a[contains(text(),'Bottles')]");
+    	Common.clickElement("xpath","//ul[@class='megamenu-list-ancestor']//a[contains(text(),'Bottles')]");
+    	 }
 	
 	
 
