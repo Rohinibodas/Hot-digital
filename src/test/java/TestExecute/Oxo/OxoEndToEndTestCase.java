@@ -20,7 +20,7 @@ import TestLib.Login;
 import Utilities.TestListener;
 
 //@Listeners(TestListener.class)
-public class OxoBusiness 
+public class OxoEndToEndTestCase 
 {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);

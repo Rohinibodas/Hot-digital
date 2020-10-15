@@ -19,7 +19,8 @@ public class ExtenantReportUtils {
 	public ExtenantReportUtils(String reportFileName) {
 		if(reportFileName.contains("\\s"))
 		reportFileName=reportFileName.split(" ")[0];
-		ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter(reportFileName+"_Report.html");
+		ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/TestLogs/ExtenantReport/"+reportFileName+".html");
+		//ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/TestLogs/ExtenantReport/index.html");
 	    extent = new ExtentReports();
 	    extent.attachReporter(htmlReporter);
 	    extent.setSystemInfo("OS", "windows");

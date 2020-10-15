@@ -32,8 +32,8 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 	{
 		cleanAutomationEnvironment();
 		System.out.println("Suited Name	: "+arg0.getXmlSuite().getName());
-		if(report==null)
-		report=new ExtenantReportUtils(arg0.getXmlSuite().getName());
+		/*if(report==null)
+		report=new ExtenantReportUtils(arg0.getXmlSuite().getName());*/
 	}
 	
 	private static void deleteFilesInDirectory(File directoryPath) {
@@ -48,11 +48,12 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 	public void onStart(ITestContext context) {
 		String testName=context.getName();
 		System.out.println(context.getName());
-		if(report==null)
+		/*if(report==null)
 		{
 			report=new ExtenantReportUtils(testName);
-		}
+		}*/
 		
+		report=new ExtenantReportUtils(testName);
 	}
 
 	
@@ -108,7 +109,7 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 	
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+		report.extent.flush();
 		
 	}
 
