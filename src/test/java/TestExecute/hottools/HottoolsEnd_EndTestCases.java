@@ -17,7 +17,7 @@ public class HottoolsEnd_EndTestCases {
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 	
-  @Test
+  @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void end_toEndTestCases() {
 	  try{
 		  Hottools.singin("RetailCustomerAccountDetails");
