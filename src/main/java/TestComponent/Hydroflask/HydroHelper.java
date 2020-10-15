@@ -11,16 +11,21 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.aventstack.extentreports.TestListener;
+
 import TestLib.Common;
 import TestLib.Sync;
 import TestLib.Common.SelectBy;
 import Utilities.ExcelReader;
+import Utilities.ExtenantReportUtils;
 
 public class HydroHelper {
 
 	String datafile;
 	ExcelReader excelData;
 	Map<String, Map<String, String>> data=new HashMap<>();
+	 static ExtenantReportUtils report;
+	
 
 	public void navigateMyAccount() throws InterruptedException
 	{	
@@ -38,6 +43,7 @@ public class HydroHelper {
 		navigateMyAccount();
 		try {
 			Sync.waitElementClickable(30, By.xpath("//div[contains(text(),'Sign Up')]"));
+			
 		}catch (Exception e) {
 			if(Common.findElement("xpath", "//div[contains(text(),'Sign Up')]")==null)
 			{
@@ -45,8 +51,10 @@ public class HydroHelper {
 				Thread.sleep(2000);
 			}
 		}
+		report.addPassLog("Opened login, register pop up",Common.getscreenShotPathforReport("loginPop"));
 		String email=Common.genrateRandomEmail(data.get(dataSet).get("Email"));
 		Common.clickElement("xpath", "//div[contains(text(),'Sign Up')]");
+		report.addPassLog("opens registration pop up",Common.getscreenShotPathforReport("register"));
 		Common.textBoxInput("id", "social-login-popup-create-firstname", data.get(dataSet).get("FirstName"));
 		Common.textBoxInput("id", "social-login-popup-create-lastname", data.get(dataSet).get("LastName"));
 		Common.textBoxInput("id", "social-login-popup-create-email", email);
@@ -54,11 +62,13 @@ public class HydroHelper {
 		Common.textBoxInput("id", "social-login-popup-create-pass", data.get(dataSet).get("Password"));
 		Common.textBoxInput("id", "password-confirmation-social", data.get(dataSet).get("Password"));
 		Common.clickElement("id", "social-login-popup-create-is-subscribed");
+		report.addPassLog("Fields populated with the data",Common.getscreenShotPathforReport("fields"));
 		Common.clickElement("xpath", "//button[@title='Sign Up']");
 		//Common.actionsKeyPress(Keys.ESCAPE);
 		Thread.sleep(2000);
 		Sync.waitElementVisible("xpath", "//span[@data-ui-id='page-title-wrapper']");
 		Assert.assertEquals(Common.getText("xpath", "//span[@data-ui-id='page-title-wrapper']"), "My Account");
+		report.addPassLog("Created an account and logged in the application",Common.getscreenShotPathforReport("Myaccount"));
 	}	
 
 	
@@ -66,6 +76,7 @@ public class HydroHelper {
 	{
 		Thread.sleep(3000);
 		navigateMyAccount();
+		report.addPassLog("Opened login, register pop up",Common.getscreenShotPathforReport("register"));
 		Sync.waitElementClickable(30, By.id("social-login-popup-log-in-email"));
 		if(Common.findElement("id", "social-login-popup-log-in-email")==null)
 		{
@@ -74,9 +85,11 @@ public class HydroHelper {
 		}
 		Common.textBoxInput("id", "social-login-popup-log-in-email",data.get(dataSet).get("Email"));
 		Common.textBoxInput("id", "social-login-popup-log-in-pass",data.get(dataSet).get("Password"));
+		report.addPassLog("Fields populated with the data",Common.getscreenShotPathforReport("fields"));
 		Common.clickElement("id", "bnt-social-login-authentication");
 		Thread.sleep(2000);
 		Assert.assertEquals(Common.getText("xpath", "//span[@data-ui-id='page-title-wrapper']"), "My Account");
+		report.addPassLog("Logged in the application and customer is redirected to 'My Account' page",Common.getscreenShotPathforReport("Myaccount"));
 	}
 	
 	public void orderSubmit(String category) throws Exception
@@ -227,20 +240,24 @@ public class HydroHelper {
 		Common.clickElement("xpath", "//button[@class='login-page-submit-action']");
 		
 		
-		
+		Thread.sleep(6000);
 		//Submit a Warranty Claim form
 		
 		Sync.waitElementPresent("xpath", "//iframe[contains(@src,'warranty')]");
 		Common.switchFrames("xpath", "//iframe[contains(@src,'warranty')]");
 		
-		
-		Sync.waitElementPresent("xpath", "//input[contains(@id,'First')]");
-		Common.textBoxInput("xpath", "//input[contains(@id,'First')]", data.get(dataSet).get("FirstName"));
+		try {
+		Sync.waitElementPresent("xpath", "//input[contains(@name,'Contact.Name.First')]");
+		Common.textBoxInput("xpath", "//input[contains(@name,'Contact.Name.First')]", data.get(dataSet).get("FirstName"));
+		}catch(Exception e)
+		{
+			Common.textBoxInput("xpath", "//input[contains(@name,'Contact.Name.First')]", data.get(dataSet).get("FirstName"));
+		}
 		
 		String s=data.get(dataSet).get("LastName");
 		System.out.println(s);
-		Sync.waitElementPresent("xpath", "//input[contains(@id,'Last')]");
-		Common.textBoxInput("xpath", "//input[contains(@id,'Last')]", data.get(dataSet).get("LastName"));
+		Sync.waitElementPresent("xpath", "//input[@name='Contact.Name.Last']");
+		Common.textBoxInput("xpath", "//input[@name='Contact.Name.Last']", data.get(dataSet).get("LastName"));
 		
 		Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
 		Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
@@ -296,12 +313,18 @@ public class HydroHelper {
 		Common.textBoxInput("xpath", "//input[contains(@class,'problem_description')]", data.get(dataSet).get("ProblemDescription"));
 		
 		Sync.waitElementPresent("xpath", "//input[contains(@id,'FileInput')]");
-		String path=System.getProperty("user.dir")+("/src//test//resources//TestData//Hydroflask//hyderoflask.jpg");
-		Common.textBoxInput("xpath", "//input[contains(@id,'FileInput')]", path);
-		
-		Thread.sleep(10000);
+		String path=System.getProperty("user.dir")+("\\src\\test\\resources\\TestData\\Hydroflask\\TestScreen.jpg");
+		try {
+		Common.fileUpLoad("xpath", "//input[contains(@id,'FileInput')]", path);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		Thread.sleep(5000);
 		Sync.waitElementPresent("xpath", "//button[contains(@id,'CustomFormSubmit')]");
 		Common.clickElement("xpath", "//button[contains(@id,'CustomFormSubmit')]");
+		Common.actionsKeyPress(Keys.HOME);
 		
 		}
 
@@ -520,5 +543,12 @@ public class HydroHelper {
 		excelData=new ExcelReader(datafile);
 		data=excelData.getExcelValue();
 		this.data=data;
+		if(Utilities.TestListener.report==null)
+		{
+			report=new ExtenantReportUtils("Hydro");
+			report.createTestcase("HydroTestCases");
+		}else{
+			this.report=Utilities.TestListener.report;
+		}
 	}
 }

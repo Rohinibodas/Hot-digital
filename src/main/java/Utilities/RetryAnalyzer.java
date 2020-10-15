@@ -6,7 +6,7 @@ import org.testng.ITestResult;
 public class RetryAnalyzer implements IRetryAnalyzer {
 
 	int counter = 0;
-	int retryLimit = Integer.parseInt(System.getProperty("RetryCount","1"));
+	int retryLimit = Integer.parseInt(System.getProperty("RetryCount","0"));
 	@Override
 	public boolean retry(ITestResult result) {
 

@@ -19,7 +19,7 @@ import TestLib.Driver;
 public class TestListener implements  ITestListener ,ISuiteListener{
 	final public static log4j logger = Driver.getLogger();
 	String StartTime, EndTime;
-	ExtenantReportUtils report;
+	public static ExtenantReportUtils report;
 	
 	//private static List<String> executionDataDirectories = Arrays.asList("TestLogs/logs", "TestLogs/screenShots", "test-output", "TestLogs/videos", "TestLogs/buildlogs", "TestLogs/Listener txt files", "TestLogs/IETraceLogs", "TestLogs/DebugLogs");
 	
@@ -75,7 +75,7 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 		// TODO Auto-generated method stub
 		String testName=result.getName();
 		String filePath=Common.getscreenShotPathforReport(testName);
-		report.addPassLog(testName, filePath);	
+		report.addPassLog(testName);
 		
 	}
 
