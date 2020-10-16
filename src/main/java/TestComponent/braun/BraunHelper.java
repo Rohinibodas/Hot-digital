@@ -11,25 +11,35 @@ import TestLib.Common;
 import TestLib.Common.SelectBy;
 import TestLib.Sync;
 import Utilities.ExcelReader;
+import Utilities.ExtenantReportUtils;
 
 public class BraunHelper {
 	
 	String datafile;
 	ExcelReader excelData;
 	Map<String, Map<String, String>> data=new HashMap<>();
-	
+	 static ExtenantReportUtils report;
 	
 	public  BraunHelper(String datafile)
 	{
 		excelData=new ExcelReader(datafile);
 		data=excelData.getExcelValue();
 		this.data=data;
+		if(Utilities.TestListener.report==null)
+		{
+			report=new ExtenantReportUtils("braun");
+			report.createTestcase("braunTestCases");
+		}else{
+			this.report=Utilities.TestListener.report;
+		}
 	}
 	
 	public void clickMyAccount(){
 		
 		Sync.waitElementClickable(30, By.xpath("//a[@title='My Account']"));
 		Common.mouseOverClick("xpath", "//a[@title='My Account']");
+		
+		report.addPassLog("click the my account ",Common.getscreenShotPathforReport("my account"));
 	}
 	
 	
@@ -63,6 +73,8 @@ public class BraunHelper {
 		Common.textBoxInput("id", "email",data.get(dataSet).get("Email"));
 		Common.textBoxInput("id", "pass",data.get(dataSet).get("Password"));
 		Common.clickElement("xpath", "//button[@title='Sign in']");
+		report.addPassLog("Sigin as User",Common.getscreenShotPathforReport("SignIn"));
+		
 		Thread.sleep(3000);
 		
 	}
@@ -116,10 +128,12 @@ public class BraunHelper {
 		Common.clickElement("xpath", "//a[@title='Search']");
 		//Common.mouseOverClick("xpath", "//a[@title='Search']");
 		
+		report.addPassLog("Search Box Clicking ",Common.getscreenShotPathforReport("Click Search box"));
+		
 		Thread.sleep(2000);
 		//Common.findElement("xapth", "//input[@id='search']").click();
 		Common.textBoxInput("id", "search",  data.get(dataSet).get("ProductName"));
-		
+		report.addPassLog("Search Box Enter the ProductName "+data.get(dataSet).get("ProductName"),Common.getscreenShotPathforReport("Search Poducat"));
 		Common.actionsKeyPress(Keys.ENTER);
 		Thread.sleep(8000);
 		
@@ -132,9 +146,11 @@ public class BraunHelper {
 		Thread.sleep(5000);
 		Sync.waitElementClickable(30, By.id("product-addtocart-button"));
 		Common.clickElement("id","product-addtocart-button");
+		
+		report.addPassLog("Product adding to Cart",Common.getscreenShotPathforReport("Click addtoCart"));
 		Sync.waitElementClickable(30, By.id("top-cart-btn-checkout"));
 		Common.clickElement("id","top-cart-btn-checkout");
-		
+		report.addPassLog("Product adding to checkout",Common.getscreenShotPathforReport("Click CheckOut"));
 		
 		
 		
@@ -150,6 +166,7 @@ public class BraunHelper {
 		    Thread.sleep(5000);
 		    Sync.waitElementPresent("xpath", "//div[@id='shipping-method-buttons-container']//button");
 			Common.clickElement("xpath","//div[@id='shipping-method-buttons-container']//button");
+			report.addPassLog("selecting the shipping address ",Common.getscreenShotPathforReport("Select the shipping Address"));
 		 
 			Thread.sleep(6000);
 			Common.clickElement("xpath","//button[contains(@class,'action-accept')]");
@@ -174,7 +191,7 @@ public class BraunHelper {
 	    Sync.waitElementPresent("xpath", "//li[@id='shipping']//select[@name='region_id']");
 	 
 	    Common.dropdown("xpath", "//li[@id='shipping']//select[@name='region_id']", SelectBy.TEXT, data.get(dataSet).get("Region"));
-	    
+	   
 	   
 	   
 		
@@ -186,7 +203,7 @@ public class BraunHelper {
 		
 		Sync.waitElementPresent("xpath", "//div[@id='shipping-method-buttons-container']/div/button");
 		Common.clickElement("xpath","//div[@id='shipping-method-buttons-container']/div/button");
-		
+		report.addPassLog("shipping address form filling ",Common.getscreenShotPathforReport("shipping Address"));
         
 	   }
    
@@ -196,6 +213,7 @@ public class BraunHelper {
 		Thread.sleep(8000);
 		
 		Common.clickElement("xpath", "//span[text()='Credit Card']");
+		report.addPassLog("Select the Card to payment",Common.getscreenShotPathforReport("select the Card"));
 		
 		Common.switchFrames("id", "paymetric_xisecure_frame");
 		//Common.actionsKeyPress(Keys.ARROW_DOWN);
@@ -210,6 +228,8 @@ public class BraunHelper {
 		Common.dropdown("xpath", "//select[@id='c-exyr']", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
 	    Sync.waitElementPresent("id", "c-cvv");
 		Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));
+		
+		report.addPassLog("card detiles form filling",Common.getscreenShotPathforReport("Card infromation filling"));
 		
 		Common.switchToDefault();
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
@@ -333,6 +353,8 @@ public class BraunHelper {
 	   Common.clickElement("xpath","//div[@class='panel header']//button");
 	   Thread.sleep(5000); 
 	   Common.clickElement("xpath","//div[@class='customer-welcome active']//li[2]/a");
+	   
+	   report.addPassLog("Log out from the application ",Common.getscreenShotPathforReport("Click logOutbutton"));
 	
 		
    }

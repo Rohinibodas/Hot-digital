@@ -37,7 +37,7 @@ public class DT_PoC_003_Order_Submission
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+	Common.closeAll();
 
 	}
 	

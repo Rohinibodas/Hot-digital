@@ -150,9 +150,9 @@ public class HydroHelper {
 				report.addPassLog("enter the email address",Common.getscreenShotPathforReport("fill in the email id"));
 			}
 			Thread.sleep(3000);
-			Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
-			Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
-			Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']", data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']", data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']", data.get(dataSet).get("Street"));
 			Thread.sleep(2000);
 			Common.actionsKeyPress(Keys.SPACE);
 			Thread.sleep(3000);
@@ -365,14 +365,32 @@ public class HydroHelper {
      	Common.implicitWait();
      	
      	Thread.sleep(9000);
+     int size=	Common.findElements("xpath","//li[@data-tab-name='E-mail Us']").size();
+     	System.out.println(size);
 		Sync.waitElementPresent("xpath", "//li[@data-tab-name='E-mail Us']");
+		
+		
 		Common.clickElement("xpath","//li[@data-tab-name='E-mail Us']");
 		report.addPassLog(" navigate to contact page ",Common.getscreenShotPathforReport("click email Us button "));
 		
 		
+		Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
 		
-		Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
-		Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
+		
+		try{
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
+		}
+			catch(Exception e){
+				Common.clickElement("xpath","//li[@data-tab-name='E-mail Us']");
+				report.addPassLog(" navigate to contact page ",Common.getscreenShotPathforReport("click email Us button "));
+				Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
+			}
+		
+		
+		
+		/*Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));*/
 		Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
 		
 		Sync.waitElementPresent("xpath", "//input[contains(@id,'First')]");
@@ -501,26 +519,29 @@ public class HydroHelper {
 	}
 	
     public void Customize_Bottle() throws Exception{
-    	Thread.sleep(9000);
-    	Sync.waitElementPresent("xpath", "//a[contains(text(),'Customize')]");
-    	Common.clickElement("xpath", "//a[contains(text(),'Customize')]");
+        
+		Thread.sleep(8000);
+
+    	Sync.waitElementPresent("xpath","//ul[@class='megamenu-list']/li[2]/div[1]/button");
+        Thread.sleep(4000);
+
+    	Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]/div[1]/button");
+    	report.addPassLog("select the custom option",Common.getscreenShotPathforReport("customize option"));
     	
-    	Common.switchWindows();
+    	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+        Thread.sleep(4000);
+        Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
     	
     	report.addPassLog("opean the customize order page",Common.getscreenShotPathforReport("customize order page"));
-    	/*Sync.waitElementPresent("xpath","//ul[@class='megamenu-list']/li[2]/div[1]/button");
-    	Common.clickElement("xpath", "	");*/
     	
-      	/*Thread.sleep(6000);
-    	Sync.waitElementPresent("xpath", "//a[contains(@title,'create yours now')");
-    	Common.clickElement("xpath", "//a[contains(@title,'create yours now')]");*/
-    	Thread.sleep(9000);
-    	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[2]/div[1]/button");
-        Thread.sleep(6000);
+        Thread.sleep(8000);
+
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
 
-		
+
 		Sync.waitElementPresent("xpath", "//div[text()='Standard Mouth Bottle']/following::a[1]");
+        Thread.sleep(5000);
+
     	Common.mouseOverClick("xpath", "//div[text()='Standard Mouth Bottle']/following::a[1]");
     
     	report.addPassLog("opean the  my hydro configurator page",Common.getscreenShotPathforReport("customize bottle page"));
