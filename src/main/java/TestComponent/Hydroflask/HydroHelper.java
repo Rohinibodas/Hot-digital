@@ -365,23 +365,28 @@ public class HydroHelper {
      	Common.implicitWait();
      	
      	Thread.sleep(9000);
+     	
+     	
      int size=	Common.findElements("xpath","//li[@data-tab-name='E-mail Us']").size();
-     	System.out.println(size);
-		Sync.waitElementPresent("xpath", "//li[@data-tab-name='E-mail Us']");
+    		Sync.waitElementPresent("xpath", "//li[@data-tab-name='E-mail Us']");
+    		Sync.waitElementInvisible(60, "xpath", "//li[@data-tab-name='E-mail Us']");
+    		Common.clickElement("xpath","//li[@data-tab-name='E-mail Us']");
+    		
+    		//*[@id="HNNEN6W"]//ul/li[3]
 		
+//		Common.clickElement("xpath","//li[@data-tab-name='E-mail Us']");
 		
-		Common.clickElement("xpath","//li[@data-tab-name='E-mail Us']");
 		report.addPassLog(" navigate to contact page ",Common.getscreenShotPathforReport("click email Us button "));
-		
-		
-		Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
-		
+		/*//Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
+		1
 		
 		try{
-			Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
+			Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
+             Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
 			Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
 		}
 			catch(Exception e){
+				Common.switchToDefault();
 				Common.clickElement("xpath","//li[@data-tab-name='E-mail Us']");
 				report.addPassLog(" navigate to contact page ",Common.getscreenShotPathforReport("click email Us button "));
 				Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
@@ -389,9 +394,9 @@ public class HydroHelper {
 		
 		
 		
-		/*Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
-		Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));*/
-		Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
+		//Common.switchFrames("xpath", "//iframe[contains(@src,'custhelp')]");
 		
 		Sync.waitElementPresent("xpath", "//input[contains(@id,'First')]");
 		Common.textBoxInput("xpath", "//input[contains(@id,'First')]", data.get(dataSet).get("FirstName"));
@@ -414,7 +419,7 @@ public class HydroHelper {
 		
 		report.addPassLog(" filling user infromation in conatct us page ",Common.getscreenShotPathforReport("enter user infromation"));
 		
-		
+	*/	
 	}
 	
 	public void clickProDeal()throws Exception{
