@@ -76,7 +76,7 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 		String testName=result.getName();
 		String filePath=Common.getscreenShotPathforReport(testName);
 		report.addPassLog(testName);
-		RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Passed");
+		//RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Passed");
 		
 	}
 
@@ -86,7 +86,7 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 		String testName=result.getName();
 		String filePath=Common.getscreenShotPathforReport(testName);
 		report.addFailedLog(testName+" Failed",filePath);
-		RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Failed");
+		//RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Failed");
 	}
 
 	
@@ -103,7 +103,7 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 		String testName=result.getName();
 		String filePath=Common.getscreenShotPathforReport(testName);
 		report.addFailedLog(testName+" Failed",filePath);
-		RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Failed");
+		//RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Failed");
 		
 	}
 
