@@ -40,7 +40,8 @@ public class HydroHelper {
 		Common.clickElementStale("xpath", "//button[text()='AGREE & PROCEED']");
 	}
 	public void CreateNewAccount(String dataSet) throws Exception
-	{
+	{	
+		
 		navigateMyAccount();
 		try {
 			Sync.waitElementClickable(30, By.xpath("//div[contains(text(),'Sign Up')]"));
@@ -94,15 +95,15 @@ public class HydroHelper {
 	}
 	
 	public void orderSubmit(String category) throws Exception
-	{
-		Thread.sleep(8000);
+	{	
+		report.addPassLog("Successfully landed on the home page",Common.getscreenShotPathforReport("Successfully landed on the home page"));
+		Thread.sleep(5000);
 		//Common.getDriver().switchTo().frame(0);
 	//	Thread.sleep(2000);
 		Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
 		System.out.println(Common.getText("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button"));
 		Thread.sleep(4000);
-		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
-		report.addPassLog("click the option as shop in category",Common.getscreenShotPathforReport("click the category as shop "));
+		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");	
 		//Common.clickElement("css", "ul.megamenu-list > li:nth-of-type(1) > div:nth-of-type(1) > button");
 		Thread.sleep(3000);
 		try {
@@ -112,12 +113,14 @@ public class HydroHelper {
 		}catch (Exception e) {
 			// TODO: handle exception
 			Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
-			report.addPassLog("click the option as shop in category",Common.getscreenShotPathforReport("click the category as shop "));		}
+			//report.addPassLog("click the option as shop in category",Common.getscreenShotPathforReport("click the category as shop "));		
+			}
+		report.addPassLog("Clicked shop option in category",Common.getscreenShotPathforReport("clicked shop option in category"));
 		Thread.sleep(1000);
 		Common.clickElement("xpath", "//a[contains(text(),'"+category+"')]");
 		//Sync.waitElementVisible("xpath", "//div[text()='Drink in the adventure.']");
-		report.addPassLog("click the"+category,Common.getscreenShotPathforReport("click the category as shop option as  "+category));
 		Thread.sleep(4000);
+		report.addPassLog("Selected the "+category+" category	",Common.getscreenShotPathforReport("click the category as shop option as  "+category));
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
 		Thread.sleep(2000);
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
@@ -125,7 +128,7 @@ public class HydroHelper {
 		Sync.waitElementClickable("xpath", "//button[@title='Add to Cart']");
 		Common.clickElement("xpath", "//button[@title='Add to Cart']");
 		Thread.sleep(5000);
-		report.addPassLog("add to Card product ",Common.getscreenShotPathforReport("adding product to cart"));
+		report.addPassLog("Added Product to Cart",Common.getscreenShotPathforReport("Added Product to Cart"));
 		}
 
 	public void checkOut() throws Exception
@@ -134,8 +137,25 @@ public class HydroHelper {
 		Thread.sleep(2000);
 		Common.clickElement("id", "top-cart-btn-checkout");
 		Sync.waitElementVisible("className", "checkout-step-title");
-
-		report.addPassLog("click the checkout button",Common.getscreenShotPathforReport("check out page"));
+		report.addPassLog("Clicked the checkout button",Common.getscreenShotPathforReport("checked out page"));
+	}
+	public void checkOutCart() throws Exception
+	{
+		try {
+			checkOut();
+		}
+		catch (Exception e) {
+			Common.refreshpage();
+			Thread.sleep(6000);
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(4000);
+			Sync.waitElementClickable("xpath", "//button[@title='Add to Cart']");
+			Common.clickElement("xpath", "//button[@title='Add to Cart']");
+			Thread.sleep(5000);
+			checkOut();
+		}
 	}
 
 	public void addDeliveryAddress(String dataSet) throws Exception
@@ -143,20 +163,28 @@ public class HydroHelper {
 		try {	
 			Sync.waitElementVisible("id", "customer-email-address");
 			Common.textBoxInput("id", "customer-email-address",data.get(dataSet).get("Email"));
-			report.addPassLog("enter the email address",Common.getscreenShotPathforReport("fill in the email id"));
 			}catch (NoSuchElementException e) {
 				checkOut();
 				Common.textBoxInput("id", "customer-email-address",data.get(dataSet).get("Email"));
-				report.addPassLog("enter the email address",Common.getscreenShotPathforReport("fill in the email id"));
+				//report.addPassLog("enter the email address",Common.getscreenShotPathforReport("fill in the email id"));
 			}
 			Thread.sleep(3000);
+			report.addPassLog("Filled Email address",Common.getscreenShotPathforReport("fill in the email id"));
 			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']", data.get(dataSet).get("FirstName"));
 			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']", data.get(dataSet).get("LastName"));
 			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']", data.get(dataSet).get("Street"));
 			Thread.sleep(2000);
 			Common.actionsKeyPress(Keys.SPACE);
 			Thread.sleep(3000);
+			try {
 			Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+			}catch(Exception e)
+			{
+				Common.actionsKeyPress(Keys.BACK_SPACE);
+				Thread.sleep(1000);
+				Common.actionsKeyPress(Keys.SPACE);
+				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");		
+			}
 			if(data.get(dataSet).get("StreetLine2")!=null)
 			{
 				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
@@ -179,10 +207,10 @@ public class HydroHelper {
 			Common.textBoxInputClear("name", "postcode");
 			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
 			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
-			report.addPassLog("fill the shipping address for check out page",Common.getscreenShotPathforReport("fill the shipping address"));
+			report.addPassLog("Filled the shipping address for check out page",Common.getscreenShotPathforReport("fill the shipping address"));
             Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
 			Thread.sleep(3000);
-			report.addPassLog("click on the proceed to payment section",Common.getscreenShotPathforReport("land on the payment section"));
+			report.addPassLog("clicked on the proceed to payment section",Common.getscreenShotPathforReport("land on the payment section"));
 	}
 
 	public void addPaymentDetails(String dataSet) throws Exception
@@ -199,12 +227,12 @@ public class HydroHelper {
 				Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
 				Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));	
 				Thread.sleep(2000);
-				report.addPassLog("filling the Card details ",Common.getscreenShotPathforReport("filling the Card details"));
+				report.addPassLog("Filled the Card details ",Common.getscreenShotPathforReport("filling the Card details"));
 				Common.actionsKeyPress(Keys.ARROW_DOWN);
 				Common.switchToDefault();
 				Thread.sleep(1000);
 				Common.clickElement("xpath", "//button[@title='Place Order']");
-				report.addPassLog(" navigating to order confirmation page ",Common.getscreenShotPathforReport("place the order "));
+				//report.addPassLog(" navigating to order confirmation page ",Common.getscreenShotPathforReport("place the order "));
 				
 		
 		
@@ -220,7 +248,7 @@ public class HydroHelper {
 		}
 			String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
 			Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
-			report.addPassLog(" place the order success message  ",Common.getscreenShotPathforReport("order  confromation "));
+			report.addPassLog("Order Placed successfull",Common.getscreenShotPathforReport("order  confromation "));
 			
 		
 	}

@@ -83,6 +83,7 @@ public class HTMLPreparation {
 		case "exectionReport":
 		{
 			filePath=mailTemplatePath+"ExecutionMail.html";
+			//htmlContent= parseHTMLfile(filePath).replace("#Browser#", Automation_properties.getInstance().getProperty("BROWSER") );
 			htmlContent= parseHTMLfile(filePath).replace("#Browser#", Automation_properties.getInstance().getProperty("BROWSER") );
 			fillCommonDetails();
 			System.out.println("Module Name:"+ HTMLPreparation.module);

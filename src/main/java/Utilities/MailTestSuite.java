@@ -52,8 +52,13 @@ public class MailTestSuite {
 		//HashMap<String, String> correlationIDs = getCorrelationMap();
 		boolean isDataProvider = false;
 
-		//File file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
+		
 		File file = new File(System.getProperty("user.dir")+"/target/surefire-reports/testng-results.xml");
+		//file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
+		if(!file.exists())
+		{
+			file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
+		}
 		String values;
 		String Exetime = "";
 		String starttime="";
@@ -78,8 +83,8 @@ public class MailTestSuite {
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Status#</td>");
 			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#CorrelationID#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Remarks#</td>");
-			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Exetime#</td></tr>");
-
+			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Exetime#</td>");
+			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'><a href=\"file://D:/Lotus/Automation%20Code/HoT-digital/TestLogs/ExtenantReport/#reportName#.html\" target=\"_blank\">DetailReport</a></td></tr>");	
 			String Row=contentBuilder.toString();
 			String exceptionname="";
 			String dynamicRow;
@@ -167,7 +172,7 @@ public class MailTestSuite {
 										TCcount = testids.split(",").length;
 										}
 										//dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#CorrelationID#", CorrelationID);
-										dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module);
+										dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#reportName#", testscriptname);
 										if(values.equals("PASS")){
 											System.out.println("Test :"+testmethodElement.getAttribute("signature")+" is passed");
 											if(l==testmethodList.getLength()-1){

@@ -32,7 +32,7 @@ import TestLib.Driver;
 		public static String DBUName = null, DBPwd = null, DBURL = null, DBDriver = null;
 		public static int SUMMARYFLAG;
 
-		public static String to="mahendra.koppanadham@gmail.com",cc="mchiruvella@gmail.com",subject="HoT Test Automation Results",attachmentPath="",attachmentPath1="";
+		public static String to="mahendra.koppanadham@gmail.com,mahendra@lotuswave.net",cc="mchiruvella@gmail.com",subject="HoT Test Automation Results",attachmentPath="",attachmentPath1="";
 		
 		
 		

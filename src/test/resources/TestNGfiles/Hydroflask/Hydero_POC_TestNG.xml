@@ -3,7 +3,7 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-   <!--  <test name="DT_PoC_001_Account_Creation" testid="1" priority="P1" description="This script will cover Account Process of HydroFlesk">
+     <test name="DT_PoC_001_Account_Creation" testid="1" priority="P1" description="This script will cover Account Process of HydroFlesk">
         <classes>
             <class name="TestExecute.Hydroflask.DT_PoC_001_Account_Creation"/>
         </classes>
@@ -13,17 +13,20 @@
             <class name="TestExecute.Hydroflask.DTC_PoC_002_Customer_Login"/>
         </classes>
     </test>
-    <test name="DT_PoC_003_Order_Submission" testid="3" priority="P1" description="This script will cover order sbumit Process of HydroFlesk">
+    
+    
+    
+     <test name="DT_PoC_003_Order_Submission" testid="3" priority="P1" description="This script will cover order sbumit Process of HydroFlesk">
         <classes>
             <class name="TestExecute.Hydroflask.DT_PoC_003_Order_Submission"/>
         </classes>
-    </test> -->
+    </test> 
     
-    <!--   <test name="DT_PoC_004_MyHydro_Order_Submissio" testid="4" priority="P1" description="This script will cover Customize order sbumit Process of HydroFlesk">
+     <test name="DT_PoC_004_MyHydro_Order_Submissio" testid="4" priority="P1" description="This script will cover Customize order sbumit Process of HydroFlesk">
         <classes>
             <class name="TestExecute.Hydroflask.DT_PoC_004_MyHydro_Order_Submission"/>
         </classes>
-    </test> -->
+    </test> 
     
     <test name="DT_PoC_005_Combined_Order_Submission" testid="5" priority="P1" description="This script will cover Customize order and noraml order sbumit Process of HydroFlesk">
         <classes>
@@ -44,7 +47,7 @@
         </classes>
     </test>
    
-<!-- 
+
 	<test name="DT_PoC_008_ProDeal_Registration" testid="8" priority="P1" description="This script will cover deal registration Process of HydroFlesk">
         <classes>
             <class name="TestExecute.Hydroflask.DT_PoC_008_ProDeal_Registration"/>
@@ -55,6 +58,12 @@
         <classes>
             <class name="TestExecute.Hydroflask.DT_PoC_009_Newsletter_Subscription"/>
         </classes>
-    </test> -->
+    </test>  
+    
+    <test name="DT_PoC_010_Reset_Password" testid="9" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Hydroflask.DT_PoC_010_Reset_Password"/>
+        </classes>
+    </test>  
 	
   </suite>  

@@ -23,9 +23,10 @@ public class PieChartGenerator extends Application{
 	      //Preparing ObservbleList object
 	      ObservableList<PieChart.Data>pieChartData =
 	      FXCollections.observableArrayList(
-	      new PieChart.Data("Pass", pass),
+	    		  new PieChart.Data("Fail", fail),
 	      new PieChart.Data("Skip",skip),
-	      new PieChart.Data("Fail", fail));
+	      new PieChart.Data("Pass", pass));
+	      
 	      //Creating a Pie chart
 	      PieChart pieChart = new PieChart(pieChartData);
 	      pieChart.setTitle("Automation Execution");
@@ -46,11 +47,11 @@ public class PieChartGenerator extends Application{
 	     StatusMail.triggerSendMail();
 	     System.exit(0);
 	   }
-	/*public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		launch(args);
 	   
 		
-	  }*/
+	  }
 		
 	public static void setTestPassed(int passTCcount)
 	{

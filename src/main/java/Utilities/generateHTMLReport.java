@@ -97,6 +97,11 @@ public class generateHTMLReport {
 
 
 		File file = new File(System.getProperty("user.dir")+"\\target\\surefire-reports\\testng-results.xml");
+		// file = new File(System.getProperty("user.dir")+"\\test-output\\testng-results.xml");
+		if(!file.exists())
+		{
+			file = new File(System.getProperty("user.dir")+"/test-output/testng-results.xml");
+		}
 		String values,strtestHTML = "";
 
 		if(file.getName().endsWith(".xml")){
@@ -127,9 +132,11 @@ public class generateHTMLReport {
 				String failed = resultElement.getAttribute("failed");
 				String total = resultElement.getAttribute("total");
 				String passed = resultElement.getAttribute("passed");
-
-
-
+				/*PieChartGenerator pie=new PieChartGenerator();
+				pie.setTestPassed(passed);
+				pie.setTestSkiped(skipped);
+				pie.setTestFailed(failed);*/
+				
 				NodeList sList = doc.getElementsByTagName(suiteName);
 				for (int temp = 0; temp < sList.getLength(); temp++) 
 				{
@@ -200,7 +207,7 @@ public class generateHTMLReport {
 									if(values.equals("PASS")){
 										if(l==testmethodList.getLength()-1){
 											strstepHTML = reporterpass();				
-											strstepHTML=strstepHTML.replace("#ScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module);
+											strstepHTML=strstepHTML.replace("#ScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#reportName#", testscriptname);
 											strtestHTML=strtestHTML+strstepHTML;
 										}
 
@@ -219,11 +226,11 @@ public class generateHTMLReport {
 
 										
 										strstepHTML = reporterfail();
-										strstepHTML=strstepHTML.replace("#Exception#", exceptionname).replace("#ScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module);
+										strstepHTML=strstepHTML.replace("#Exception#", exceptionname).replace("#ScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#reportName#", testscriptname);;
 										strtestHTML=strtestHTML+strstepHTML;
 										StatusMail.totalTCcount =StatusMail.totalTCcount+TCcount.length;
 										StatusMail.failTCcount =StatusMail.failTCcount+TCcount.length;
-
+									
 										break loopmethod;
 									}								
 
@@ -252,6 +259,7 @@ public class generateHTMLReport {
 		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=red>Fail</font></TD> ";
 		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=red>#Exception#</font></TD> ";
 		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=red>#Exetime#</font></TD>";
+		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=red><a href=\"D:/Lotus/Automation%20Code/HoT-digital/TestLogs/ExtenantReport/#reportName#.html\">Detail Report</a></font></TD>";
 		strHTML = strHTML + "</TR>";		
 		return strHTML;
 
@@ -268,6 +276,7 @@ public class generateHTMLReport {
 		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=green>Pass</font></TD> ";
 		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=red></font></TD> ";
 		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=green>#Exetime#</font></TD>";
+		strHTML = strHTML + "<TD bgcolor='#F3F3FF' height=50px ALIGN='Center'><font face=Calibri size=3 color=red><a href=\"D:/Lotus/Automation%20Code/HoT-digital/TestLogs/ExtenantReport/#reportName#.html\">Detail Report</a></font></TD>";
 		strHTML = strHTML + "</TR>";		
 		return strHTML;
 
