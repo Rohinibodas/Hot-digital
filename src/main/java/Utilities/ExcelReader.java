@@ -303,7 +303,12 @@ public class ExcelReader {
 		System.out.println(sheet.getLastRowNum());
 		for(int i=1;i<=sheet.getLastRowNum();i++)
 		{
-			String dataSet=sheet.getRow(i).getCell(0).getStringCellValue();
+			String dataSet=null;
+			try {
+			dataSet=sheet.getRow(i).getCell(0).getStringCellValue();
+			}catch (Exception e) {
+				break;
+			}
 			if(dataSet.isEmpty())
 			{
 				break;
