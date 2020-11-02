@@ -76,15 +76,15 @@ public class MailTestSuite {
 			String teststatus="status";
 			StringBuilder contentBuilder = new StringBuilder();
 			contentBuilder.append("<tr><td align='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#TestID#</td>");
-			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Priority#</td>");
-			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Module#</td>");
+			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Priority#</td>");
+			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Module#</td>");
 			contentBuilder.append("<td valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#TestScriptName#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'> #TestDesc#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Status#</td>");
 			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#CorrelationID#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Remarks#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Exetime#</td>");
-			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'><a href=\"file://D:/Lotus/Automation%20Code/HoT-digital/TestLogs/ExtenantReport/#reportName#.html\" target=\"_blank\">DetailReport</a></td></tr>");	
+			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'><a href=\""+System.getProperty("user.dir")+"/TestLogs/ExtenantReport/#reportName#.html\" target=\"_blank\">DetailReport</a></td></tr>");	
 			String Row=contentBuilder.toString();
 			String exceptionname="";
 			String dynamicRow;
@@ -172,11 +172,13 @@ public class MailTestSuite {
 										TCcount = testids.split(",").length;
 										}
 										//dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#CorrelationID#", CorrelationID);
-										dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#reportName#", testscriptname);
+										//dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#Priority#", priority).replace("#TestDesc#", testdesc).replace("#Module#", module).replace("#reportName#", testscriptname);
+										dynamicRow=dynamicRow.replace("#TestScriptName#", testscriptname).replace("#Exetime#", testexetime).replace("#TestID#", testids).replace("#TestDesc#", testdesc).replace("#reportName#", testscriptname);
 										if(values.equals("PASS")){
 											System.out.println("Test :"+testmethodElement.getAttribute("signature")+" is passed");
 											if(l==testmethodList.getLength()-1){
 												dynamicRow=dynamicRow.replaceAll("#color#","green").replace("#Remarks#","").replace("#Status#", "PASS");
+												dynamicRow=dynamicRow.replaceAll("#color#","green").replace("#Status#", "PASS");
 												StatusMail.totalTCcount =StatusMail.totalTCcount+TCcount;
 												StatusMail.passTCcount =StatusMail.passTCcount+TCcount;
 											}
@@ -196,6 +198,7 @@ public class MailTestSuite {
 											System.out.println("Test :"+testmethodElement.getAttribute("signature")+" is failed");
 											System.out.println("Test :"+classElement.getAttribute("name")+" is failed");
 											dynamicRow=dynamicRow.replaceAll("#color#","red").replace("#Remarks#",exceptionname).replace("#Status#","FAIL");
+											dynamicRow=dynamicRow.replaceAll("#color#","red").replace("#Status#","FAIL");
 											StatusMail.totalTCcount =StatusMail.totalTCcount+TCcount;
 											StatusMail.failTCcount =StatusMail.failTCcount+TCcount;
 											break loopmethod;

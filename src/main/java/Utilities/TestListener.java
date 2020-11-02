@@ -13,6 +13,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import TestLib.Automation_properties;
 import TestLib.Common;
 import TestLib.Driver;
 
@@ -20,6 +21,7 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 	final public static log4j logger = Driver.getLogger();
 	String StartTime, EndTime;
 	public static ExtenantReportUtils report;
+	VideoCapture video=new VideoCapture();
 	
 	//private static List<String> executionDataDirectories = Arrays.asList("TestLogs/logs", "TestLogs/screenShots", "test-output", "TestLogs/videos", "TestLogs/buildlogs", "TestLogs/Listener txt files", "TestLogs/IETraceLogs", "TestLogs/DebugLogs");
 	
@@ -48,6 +50,14 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 	public void onStart(ITestContext context) {
 		String testName=context.getName();
 		System.out.println(context.getName());
+		
+		String videoStatus=Automation_properties.getInstance().getProperty("VideoRecord");
+		if(videoStatus!=null)
+		{
+		if(Automation_properties.getInstance().getProperty("VideoRecord").toLowerCase().equalsIgnoreCase("Yes"))
+		{	
+		video.startVideoCapture();
+		}}
 		/*if(report==null)
 		{
 			report=new ExtenantReportUtils(testName);
@@ -113,6 +123,14 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 		report.extent.flush();
+		String videoStatus=Automation_properties.getInstance().getProperty("VideoRecord");
+		if(videoStatus!=null)
+		{	
+		if(videoStatus.toLowerCase().equalsIgnoreCase("Yes"))
+		{	
+		video.stopVideoCapture(context.getName());
+		}
+		}
 		
 	}
 

@@ -34,6 +34,7 @@ public class Automation_properties {
 	public final static String NEWCOMPARISON = "NEWCOMPARISON";
 	public static final String EncryptPassword = "EncryptPassword";
 	public static final String FAAS = "FAASFLAG";
+	public final static String VideoRecord = "VideoRecord";
 
 	public static void setTestNG(String testNGFile) {
 		testNG = testNGFile;
@@ -86,7 +87,8 @@ public class Automation_properties {
 
 	private static void loadProperties() {
 		try {
-			automation_properties.clear();			
+			automation_properties.clear();	
+			System.out.println( System.getProperty("configFile",configFile));
 			automation_properties.load(new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\Config\\" + System.getProperty("configFile",configFile)));
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to load the properties:"+e);
