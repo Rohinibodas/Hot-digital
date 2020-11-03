@@ -34,6 +34,10 @@ public class ExtenantReportUtils {
 	    htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
 	}
 	
+	public static void  saveTestCase()
+	{
+		extent.flush();
+	}
 	public static ExtentTest createTestcase(String TestCaseName)
 	{
 		logger=extent.createTest(TestCaseName);
@@ -49,6 +53,28 @@ public class ExtenantReportUtils {
 	{
 		try {
 			logger.log(Status.PASS, passMessage, MediaEntityBuilder.createScreenCaptureFromPath(screenShotPath).build());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addPassLog(String expectedResult,String actualResult,String screenShotPath)
+	{
+		try {
+			String testResult = "<b style=\"color:green;\">Expected Result:</b> " + expectedResult +" &nbsp;<br/><b style=\"color:green;\">Actual Result&nbsp;&nbsp;:</b>" + actualResult;
+			logger.log(Status.PASS, testResult, MediaEntityBuilder.createScreenCaptureFromPath(screenShotPath).build());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addFailedLog(String expectedResult,String actualResult,String screenShotPath)
+	{
+		try {
+			String testResult = "<b style=\"color:green;\">Expected Result:</b> " + expectedResult +" &nbsp;<br/><b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>" + actualResult;
+			logger.log(Status.FAIL, testResult, MediaEntityBuilder.createScreenCaptureFromPath(screenShotPath).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +101,7 @@ public class ExtenantReportUtils {
 		logger.log(Status.FAIL, failMessage);
 	}
 	
-	/*public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		
 	ExtentHtmlReporter htmlReporter=new ExtentHtmlReporter("./TestLogs/ExtentReportResults_52.html");
     ExtentReports extent = new ExtentReports();
@@ -90,13 +116,16 @@ public class ExtenantReportUtils {
     htmlReporter.config().setTheme(Theme.STANDARD);
    // htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
     
-    ExtentTest logger=extent.creasteTest("LoginTest").assignCategory("GoogleAPP");
+    ExtentTest logger=extent.createTest("LoginTest").assignCategory("GoogleAPP");
+    String testResult = "<b style=\"color:green;\">Expected Result:</b> " + "User Should Login into revoln application" +" &nbsp;<br/><b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>"+" Logined into application";
+    
     logger.log(Status.INFO, "Login to Revolon");
     logger.log(Status.PASS, "Title verified");
+    
     //logger.log(Status.FAIL, "Failed with", MediaEntityBuilder.createScreenCaptureFromPath("../TestLogs/screenShots/TestScreen.jpg").build());
-    logger.log(Status.FAIL, "Failed with", MediaEntityBuilder.createScreenCaptureFromPath("TestScreen.jpg").build());
+    logger.log(Status.FAIL, testResult, MediaEntityBuilder.createScreenCaptureFromPath("TestScreen.jpg").build());
     extent.flush();
 	
-	}*/
+	}
 	
 }
