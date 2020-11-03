@@ -95,7 +95,8 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 		// TODO Auto-generated method stub
 		String testName=result.getName();
 		String filePath=Common.getscreenShotPathforReport(testName);
-		report.addFailedLog(testName+" Failed",filePath);
+		//report.addFailedLog(testName+" Failed",filePath);
+		report.addFailedLog(testName+" Failed");
 		//RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Failed");
 	}
 
