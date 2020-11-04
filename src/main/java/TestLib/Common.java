@@ -734,6 +734,7 @@ public class Common {
 	 * closeAll: will closed all the windows and quit the selenium driver.
 	 */
 	public static void closeAll() {
+		        
 				getDriver().quit();
 				BaseDriver.setDriver(null);
 				
@@ -938,7 +939,7 @@ public class Common {
 	
 	public static String genrateRandomEmail(String email)
 	{
-		return email.split("@")[0]+"+"+genrateRandomNumber()+"@"+email.split("@")[1];
+		return email.split("@")[0]+genrateRandomNumber()+"@"+email.split("@")[1];
 	}
 
 	public static boolean isElementClickable(long waitSeconds, By by)  {
@@ -1422,8 +1423,24 @@ public class Common {
 		Alert alert = getDriver().switchTo().alert();
 		return (alert.getText().trim());
 	}
-
-	
+   public static String getCurrentURL()
+   {
+	return  getDriver().getCurrentUrl();
+	   
+   }
+   public static String getPageTitle()
+   {
+	   
+	return  getDriver().getTitle();
+	   
+   }
+   
+   public static  void oppenURL(String URL)
+   {
+	   
+      getDriver().get(URL);
+	   
+   }
 	public static void dismissAlert() {
 		alert(Sync.waitSeconds, "DISMISS");
 	}
