@@ -56,6 +56,7 @@ import org.testng.Assert;
 
 import TestLib.Driver;
 import TestLib.Sync;
+import Utilities.ExtenantReportUtils;
 
 public class Common {
 
@@ -1445,5 +1446,26 @@ public class Common {
 		alert(Sync.waitSeconds, "DISMISS");
 	}
 	
+	public static void assertionCheckwithReport(String actualvalue,String expectedvalue,String actualResult,String expectedResult,String FailedMessage)
+	{
+		try{
+		Assert.assertEquals(actualvalue, expectedvalue);
+		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}catch (Exception |Error e) {
+			ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+			Assert.fail();
+			// TODO: handle exception
+		}
+		
+	}
 	
+	public static void assertionCheckwithReport(boolean status,String actualResult,String expectedResult,String FailedMessage)
+	{
+		if(status){
+		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}
+		else{
+		ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}
+	}
 }
