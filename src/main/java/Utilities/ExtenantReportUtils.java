@@ -70,7 +70,29 @@ public class ExtenantReportUtils {
 		}
 	}
 	
+	public static void addPassLog(String description,String expectedResult,String actualResult,String screenShotPath)
+	{
+		try {
+			String testResult = "<b style=\"color:green;\">Description :</b> " + description +" &nbsp;<br/><b style=\"color:green;\">Expected Result:</b> " + expectedResult +" &nbsp;<br/><b style=\"color:green;\">Actual Result&nbsp;&nbsp;:</b>" + actualResult;
+			logger.log(Status.PASS, testResult, MediaEntityBuilder.createScreenCaptureFromPath(screenShotPath).build());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public static void addFailedLog(String expectedResult,String actualResult,String screenShotPath)
+	{
+		try {
+			String testResult = "<b style=\"color:green;\">Expected Result:</b> " + expectedResult +" &nbsp;<br/><b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>" + actualResult;
+			logger.log(Status.FAIL, testResult, MediaEntityBuilder.createScreenCaptureFromPath(screenShotPath).build());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addFailedLog(String description,String expectedResult,String actualResult,String screenShotPath)
 	{
 		try {
 			String testResult = "<b style=\"color:green;\">Expected Result:</b> " + expectedResult +" &nbsp;<br/><b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>" + actualResult;
@@ -117,7 +139,7 @@ public class ExtenantReportUtils {
    // htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
     
     ExtentTest logger=extent.createTest("LoginTest").assignCategory("GoogleAPP");
-    String testResult = "<b style=\"color:green;\">Expected Result:</b> " + "User Should Login into revoln application" +" &nbsp;<br/><b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>"+" Logined into application";
+    String testResult = "<b style=\"color:green;\">Description :</b> " + "Login application validation"+"<b style=\"color:green;\">Expected Result:</b> " + "User Should Login into revoln application" +" &nbsp;&nbsp;&nbsp;<b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>"+" Logined into application";
     
     logger.log(Status.INFO, "Login to Revolon");
     logger.log(Status.PASS, "Title verified");
