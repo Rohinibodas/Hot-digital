@@ -56,6 +56,7 @@ import org.testng.Assert;
 
 import TestLib.Driver;
 import TestLib.Sync;
+import Utilities.ExtenantReportUtils;
 
 public class Common {
 
@@ -734,6 +735,7 @@ public class Common {
 	 * closeAll: will closed all the windows and quit the selenium driver.
 	 */
 	public static void closeAll() {
+		        
 				getDriver().quit();
 				BaseDriver.setDriver(null);
 				
@@ -938,7 +940,7 @@ public class Common {
 	
 	public static String genrateRandomEmail(String email)
 	{
-		return email.split("@")[0]+"+"+genrateRandomNumber()+"@"+email.split("@")[1];
+		return email.split("@")[0]+genrateRandomNumber()+"@"+email.split("@")[1];
 	}
 
 	public static boolean isElementClickable(long waitSeconds, By by)  {
@@ -1422,11 +1424,48 @@ public class Common {
 		Alert alert = getDriver().switchTo().alert();
 		return (alert.getText().trim());
 	}
-
-	
+   public static String getCurrentURL()
+   {
+	return  getDriver().getCurrentUrl();
+	   
+   }
+   public static String getPageTitle()
+   {
+	   
+	return  getDriver().getTitle();
+	   
+   }
+   
+   public static  void oppenURL(String URL)
+   {
+	   
+      getDriver().get(URL);
+	   
+   }
 	public static void dismissAlert() {
 		alert(Sync.waitSeconds, "DISMISS");
 	}
 	
+	public static void assertionCheckwithReport(String actualvalue,String expectedvalue,String actualResult,String expectedResult,String FailedMessage)
+	{
+		try{
+		Assert.assertEquals(actualvalue, expectedvalue);
+		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}catch (Exception |Error e) {
+			ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+			Assert.fail();
+			// TODO: handle exception
+		}
+		
+	}
 	
+	public static void assertionCheckwithReport(boolean status,String actualResult,String expectedResult,String FailedMessage)
+	{
+		if(status){
+		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}
+		else{
+		ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}
+	}
 }
