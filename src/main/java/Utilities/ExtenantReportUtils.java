@@ -9,6 +9,9 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import TestLib.Automation_properties;
+
 import com.aventstack.extentreports.markuputils.Markup;
 
 public class ExtenantReportUtils {
@@ -24,7 +27,12 @@ public class ExtenantReportUtils {
 	    extent = new ExtentReports();
 	    extent.attachReporter(htmlReporter);
 	    extent.setSystemInfo("OS", "windows");
-	    extent.setSystemInfo("Browser", System.getProperty("browser","chrome"));
+	    try {
+	    extent.setSystemInfo("Browser", System.getProperty("browser",Automation_properties.getInstance().getProperty("BROWSER")));
+	    }catch(Exception e)
+	    {
+	    	 extent.setSystemInfo("Browser", System.getProperty("browser","chrome"));
+	    }
 	    extent.setSystemInfo("Environment", "Automation Testing ENV");
 	    htmlReporter.config().setChartVisibilityOnOpen(true);
 	    htmlReporter.config().setDocumentTitle("Extent Report Demo");
