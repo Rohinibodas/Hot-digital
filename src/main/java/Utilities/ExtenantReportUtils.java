@@ -27,12 +27,6 @@ public class ExtenantReportUtils {
 	    extent = new ExtentReports();
 	    extent.attachReporter(htmlReporter);
 	    extent.setSystemInfo("OS", "windows");
-	    try {
-	    extent.setSystemInfo("Browser", System.getProperty("browser",Automation_properties.getInstance().getProperty("BROWSER")));
-	    }catch(Exception e)
-	    {
-	    	 extent.setSystemInfo("Browser", System.getProperty("browser","chrome"));
-	    }
 	    extent.setSystemInfo("Environment", "Automation Testing ENV");
 	    htmlReporter.config().setChartVisibilityOnOpen(true);
 	    htmlReporter.config().setDocumentTitle("Extent Report Demo");
@@ -137,7 +131,7 @@ public class ExtenantReportUtils {
     ExtentReports extent = new ExtentReports();
     extent.attachReporter(htmlReporter);
     extent.setSystemInfo("OS", "windows");
-    extent.setSystemInfo("Browser", "chrome");
+   
     extent.setSystemInfo("Environment", "Automation Testing ENV");
     htmlReporter.config().setChartVisibilityOnOpen(true);
     htmlReporter.config().setDocumentTitle("Extent Report Demo");
@@ -151,7 +145,7 @@ public class ExtenantReportUtils {
     
     logger.log(Status.INFO, "Login to Revolon");
     logger.log(Status.PASS, "Title verified");
-    
+    extent.setSystemInfo("Browser", "firefox");
     //logger.log(Status.FAIL, "Failed with", MediaEntityBuilder.createScreenCaptureFromPath("../TestLogs/screenShots/TestScreen.jpg").build());
     logger.log(Status.FAIL, testResult, MediaEntityBuilder.createScreenCaptureFromPath("TestScreen.jpg").build());
     extent.flush();

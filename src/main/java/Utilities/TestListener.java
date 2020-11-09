@@ -76,6 +76,14 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 		{
 			report=new ExtenantReportUtils(result.getTestContext().getCurrentXmlTest().getClasses().get(0).getName());
 		}
+		try {
+			if(System.getProperty("browser")==null)
+			{report.extent.setSystemInfo("Browser", System.getProperty("browser",Automation_properties.getInstance().getProperty("BROWSER")));}
+			else {report.extent.setSystemInfo("Browser", System.getProperty("browser"));}
+		    }catch(Exception e)
+		    {
+		    	report.extent.setSystemInfo("Browser", System.getProperty("browser","chrome"));
+		    }
 		report.createTestcase(testName);
 		
 	}
@@ -86,7 +94,7 @@ public class TestListener implements  ITestListener ,ISuiteListener{
 		String testName=result.getName();
 		String filePath=Common.getscreenShotPathforReport(testName);
 		report.addPassLog(testName);
-		//RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Passed");
+	    RESTHelper.updateJIRAStatus("BTY-340,BTY-341,BTY-427,BTY-428,OUS23-707,HFM2-976","Passed");
 		
 	}
 
