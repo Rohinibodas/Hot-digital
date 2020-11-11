@@ -5,16 +5,19 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 
 import TestLib.Common;
 import TestLib.Sync;
 import Utilities.ExcelReader;
+import Utilities.ExtenantReportUtils;
 
 public class OxoHelper {
 
 	String datafile;
 	ExcelReader excelData;
 	Map<String, Map<String, String>> data=new HashMap<>();
+	static ExtenantReportUtils report;
 
 	/*public void navigateLoginPage()
 	{
@@ -138,10 +141,109 @@ public class OxoHelper {
 		
 	}
 	
+	public void creditCard_payment(String dataSet) throws Exception{
+		
+		try{
+			Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+			Thread.sleep(2000);
+			Common.switchFrames("id", "paymetric_xisecure_frame");
+			int size=Common.findElements("xpath", "//select[@id='c-ct']").size();
+			Common.switchToDefault();
+			Common.assertionCheckwithReport(size>0, "veridying Creditcard option", "click the creadit card label", "clicking credit card label and open the card fields", "user faield to open credit card form");
+			}
+		   catch(Exception |Error e) {
+ 			ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label", "faield to click Credit Card option",  Common.getscreenShotPathforReport("Cardinoption"));
+ 			Assert.fail();
+ 			
+ 		}
+		
+		
+		try{
+		
+		Thread.sleep(2000);
+		Common.switchFrames("id", "paymetric_xisecure_frame");
+		Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+		Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+		Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpMonth"));
+		Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+		Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));	
+		Thread.sleep(2000);
+		
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.switchToDefault();
+		Thread.sleep(1000);
+		Common.clickElement("xpath", "//button[@title='Place Order']");
+		
+		String expectedResult="credit card fields are filled with the data";
+	    String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
+	    Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+	    	
+		
+		}
+		catch(Exception |Error e) {
+		    ExtenantReportUtils.addFailedLog("validating the Credit Card infromation", "", "faield  to fill the Credit Card infromation",  Common.getscreenShotPathforReport("Cardinfromationfail"));
+			//ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
+			Assert.fail();
+			
+		}
+		
+		
+		
+	}
+
+	public void payPal_payment(String dataSet){
+		String expectedResult="It should open paypal site window.";
+		try{
+		Thread.sleep(3000);
+		Sync.waitElementPresent("xpath", "//input[@id='paypal_express']");
+		Common.clickElement("xpath", "//input[@id='paypal_express']");
+		Thread.sleep(5000);
+    	Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]"); 	
+		Sync.waitElementClickable("xpath", "//div[contains(@class,'paypal-button-container')]");
+		Common.clickElement("xpath", "//div[contains(@class,'paypal-button-container')]");
+		Common.switchToDefault();
+		Thread.sleep(5000);
+		Common.switchWindows();
+		int size=Common.findElements("id", "acceptAllButton").size();
+		if(size>0){
+			
+			Common.clickElement("id", "acceptAllButton");
+			
+		}
+	
+		
+		Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+		Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
+		int sizeemail=Common.findElements("id", "email").size();
+		
+		Common.assertionCheckwithReport(sizeemail>0, "verifying the paypal payment ", expectedResult, "open paypal site window", "faild to open paypal account");
+		Common.clickElement("id", "btnLogin");
+		Thread.sleep(5000);
+		Common.actionsKeyPress(Keys.END);
+		Thread.sleep(5000);
+		Common.clickElement("id", "payment-submit-btn");
+		Thread.sleep(8000);
+		Common.switchToFirstTab();
+		}
+		catch(Exception |Error e) {
+    		ExtenantReportUtils.addFailedLog("verifying the paypal payment ", expectedResult, "User failed to proceed with paypal payment", Common.getscreenShotPathforReport(expectedResult));
+    	    Assert.fail();
+          }
+	}
+	
+	
 	public  OxoHelper(String datafile)
 	{
 		excelData=new ExcelReader(datafile);
 		data=excelData.getExcelValue();
 		this.data=data;
+		if(Utilities.TestListener.report==null)
+		{
+			report=new ExtenantReportUtils("Hydro");
+			report.createTestcase("HydroTestCases");
+		}else{
+			this.report=Utilities.TestListener.report;
+		}
 	}
 }

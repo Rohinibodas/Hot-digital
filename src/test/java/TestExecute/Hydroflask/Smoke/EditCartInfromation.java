@@ -41,7 +41,7 @@ public class EditCartInfromation {
   @AfterTest
  	public void clearBrowser()
  	{
- 		//Common.closeAll();
+ 		Common.closeAll();
 
  	}
  	

@@ -31,7 +31,7 @@ public class DT_PoC_007_Contact_Us {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

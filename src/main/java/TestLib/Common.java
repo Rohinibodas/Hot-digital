@@ -1452,7 +1452,7 @@ public class Common {
 		Assert.assertEquals(actualvalue, expectedvalue);
 		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
 		}catch (Exception |Error e) {
-			ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+			ExtenantReportUtils.addFailedLog(expectedResult, FailedMessage, Common.getscreenShotPathforReport(expectedResult));
 			Assert.fail();
 			// TODO: handle exception
 		}
@@ -1465,7 +1465,24 @@ public class Common {
 		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
 		}
 		else{
-		ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		ExtenantReportUtils.addFailedLog(expectedResult, FailedMessage, Common.getscreenShotPathforReport(expectedResult));
+		Assert.fail();
 		}
 	}
+	
+	
+	public static void assertionCheckwithReport(boolean status,String description,String expectedResult,String actualResult,String FailedMessage)
+	{
+		if(status){
+		ExtenantReportUtils.addPassLog(description, expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}
+		else{
+		ExtenantReportUtils.addFailedLog(description, expectedResult, FailedMessage, Common.getscreenShotPathforReport(expectedResult));
+		Assert.fail();
+		}
+	}
+	
+	
+	
+	
 }

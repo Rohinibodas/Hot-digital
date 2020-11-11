@@ -18,7 +18,7 @@ public class UpdateMyAddress {
 
 		try {
 			 Hydro.loginHydroflaskAccount("AccountDetails");
-			//Hydro.changeAddressIn_AddressBook("AddressBook");
+			Hydro.changeAddressIn_AddressBook("AddressBook");
 			
 		}
 		catch (Exception e) {
