@@ -114,6 +114,47 @@ public class OxoHelper {
 		Thread.sleep(3000);
 	}
 	
+	
+	
+	public void clickBaby_Toddler(){
+		String expectedResult="It Should be navigate to the selected category page.";
+		try{
+		Sync.waitElementClickable("xpath", "//a[contains(text(),'Baby & Toddler')]");
+		Common.clickElement("xpath", "//a[contains(text(),'Baby & Toddler')]");
+		Common.clickElement("xpath", "//a[contains(text(),'Baby & Toddler')]");
+	String s=	Common.getPageTitle();
+	System.out.println(s);
+		}
+       catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult, "user faield to navigate",  Common.getscreenShotPathforReport("faield to navgate categorypage"));
+			//ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
+			Assert.fail();
+			
+		}
+	}
+	
+	
+	public void Selectproduct() throws Exception{
+		
+		
+		Sync.waitElementPresent("xpath", "//a[contains(text(),'Splash')]");
+		Common.clickElement("xpath", "//a[contains(text(),'Splash')]");
+		
+		
+		Sync.waitElementPresent("xpath", "//div[@id='overview']/div[3]//h1/span");
+		
+		
+		String Text=Common.getText("xpath", "//div[@id='overview']/div[3]//h1/span");
+		
+		System.out.println(Text);
+		//Common.assertionCheckwithReport(Text.equals(""), "verifying product details page", "It Should navigate to the product details page", "successfully navigated to product details page", "faield to navigate to product details page");
+		//div[@id="overview"]/div[3]//h1/span
+		Common.clickElement("id", "product-addtocart-button");
+		Common.clickElement("xpath", "//a[contains(text(),'Checkout Now')]");
+	}
+	
+	
+	
 	public void addPaymentDetails(String dataSet) throws Exception
 	{
 		Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
@@ -232,6 +273,17 @@ public class OxoHelper {
           }
 	}
 	
+	
+public void closetheadd() throws Exception{
+		
+        Thread.sleep(20000);
+        Common.switchFrames("xpath", "//iframe[@id='attentive_creative']");
+        Sync.waitElementPresent("xpath", "//button[@id='closeIconContainer']");
+		Common.clickElement("xpath", "//button[@id='closeIconContainer']");
+		
+		Common.switchToDefault();
+	}
+
 	
 	public  OxoHelper(String datafile)
 	{
