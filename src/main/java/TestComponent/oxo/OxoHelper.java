@@ -119,15 +119,24 @@ public class OxoHelper {
 	public void clickBaby_Toddler(){
 		String expectedResult="It Should be navigate to the selected category page.";
 		try{
-		Sync.waitElementClickable("xpath", "//a[contains(text(),'Baby & Toddler')]");
-		Common.clickElement("xpath", "//a[contains(text(),'Baby & Toddler')]");
-		Common.clickElement("xpath", "//a[contains(text(),'Baby & Toddler')]");
-	String s=	Common.getPageTitle();
-	System.out.println(s);
+		Sync.waitElementClickable("xpath", "//div[@id='store.menu']/nav/ul/li[4]/a");
+		Common.doubleClick("xpath", "//div[@id='store.menu']/nav/ul/li[4]/a");
+		
+		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15186']");
+		
+		Common.mouseOverClick("xpath", "//a[@data-menu='menu-15186']");
+	
+		Common.getPageTitle();
+		
+		
+		//a[@data-menu='menu-15184']		
+    	String s=	Common.getPageTitle();
+	   System.out.println(s);
 		}
        catch(Exception |Error e) {
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult, "user faield to navigate",  Common.getscreenShotPathforReport("faield to navgate categorypage"));
 			//ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
+			e.printStackTrace();
 			Assert.fail();
 			
 		}
@@ -275,13 +284,19 @@ public class OxoHelper {
 	
 	
 public void closetheadd() throws Exception{
-		
-        Thread.sleep(20000);
+	
+        Thread.sleep(40000);
+     // int elementsize=  Common.findElements("xpath", "//h1[contains(@id,'bubbleheader')]").size();
+      
+     
+    	  //System.out.println(elementsize);
+        
         Common.switchFrames("xpath", "//iframe[@id='attentive_creative']");
         Sync.waitElementPresent("xpath", "//button[@id='closeIconContainer']");
 		Common.clickElement("xpath", "//button[@id='closeIconContainer']");
-		
-		Common.switchToDefault();
+	    Common.switchToDefault();
+    
+	
 	}
 
 	

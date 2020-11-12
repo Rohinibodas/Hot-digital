@@ -1442,6 +1442,12 @@ public class Common {
       getDriver().get(URL);
 	   
    }
+   
+   public static void validating_URL_PageTitle(String URL,String pagetitle){
+	  Assert.assertTrue(getCurrentURL().equals(URL)&&getPageTitle().equals(pagetitle));
+	   
+   }
+   
 	public static void dismissAlert() {
 		alert(Sync.waitSeconds, "DISMISS");
 	}
