@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="TEST_HT_ST_001_VerifyCustomerRegistrationforRetailerUser" testid="BTY-346" priority="P1" description="This script will cover Account Creation of Retailer in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_RG_001_RetialerRegistration"/>
+        </classes>
+    </test> 
+    
+	<test name="TEST_HT_ST_008-OrderSuccesspageforRetailerUser" testid="BTY-398" priority="P1" description="This script will cover Checkout process with Credit card payment for retailer of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_COP_007_Checkout_page"/>
+        </classes>
+    </test> 
+    
+    <test name="TEST_HT_ST_008_VerifyForgotpasswordforRetailerUser" testid="BTY-474" priority="P1" description="This script will cover Forgot password for retailer of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_LG_004_Forgot_Password"/>
+        </classes>
+    </test> 
+      
+</suite>  

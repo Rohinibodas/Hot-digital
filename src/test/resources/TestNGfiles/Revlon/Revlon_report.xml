@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Revelon Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="TEST_RHT_ST_018_GuestUserCheckoutPayPal" testid="BTY-386" priority="P1" description="This script will cover Guest User Checkout Process with PayPal">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Guest_Checkout_Paypal"/>
+        </classes>
+    </test>
+</suite>  

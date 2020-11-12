@@ -1173,11 +1173,17 @@ public class Common {
 	public static void scrollIntoView(WebElement element) {
 		executeJS("arguments[0].scrollIntoView();", element);
 	}
+	
+	public static void scrollIntoView(String elemfindBY, String elemfindText) {
+		WebElement element=findElement(elemfindBY, elemfindText);
+		executeJS("arguments[0].scrollIntoView();", element);
+	}
 
 	public static void scrollTo(WebElement element, int x, int y) {
 		executeJS("arguments[0].scrollTo(arguments[1],arguments[2]);", element, x, y);
 	}
 
+	
 	
 	public static void clickWithPostCondition(String findBy, String locator, boolean postShouldDisplay)  {
 		Sync.waitElementClickable(60, findBy, locator);
