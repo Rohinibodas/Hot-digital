@@ -37,6 +37,7 @@ public class DT_PoC_006_Warranty_Submission {
 	@AfterTest
 	public void clearBrowser()
 	{
+		
 		Common.closeAll();
 
 	}

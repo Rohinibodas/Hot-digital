@@ -1,135 +1,174 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="Hydroflask Suite"  >
+<suite name="Hydroflask smoke Suite"  >
+
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-     <test name="Test_HF_ST_001_Account_Creation" testid="HMF2-973" priority="P1" description="This script will cover Account Process of HydroFlesk">
+     
+     
+     
+     
+      <!--  <test name="Test_HF_ST_001_Guest Checkout with Creditcard_chrome" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
+        <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Account_Creation"/>
+            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
         </classes>
-    </test>
-    <test name="Test_HF_ST_002_Customer_Login" testid=" HMF2-974" priority="P1" description="This script will cover Login Process of HydroFlesk">
+        </test>
+         -->
+       <!--  <test name="Test_HF_ST_001_Guest Checkout with Creditcard_firefox" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
+        <parameter name="browser" value="firefox" />
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Customer_Login"/>
+            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
+        </classes>
+        </test> -->
+        
+        
+        <!-- <test name="Test_HF_ST_001_Guest Checkout with Creditcard_chrome" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
+        </classes>
+        </test> -->
+     
+     <!-- <test name="Test_HF_ST_007_Produc to Review by Guest user" testid="HMF2-1068" priority="P1" description="This script will cover  WriteReview of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.WriteReview"/>
+        </classes>
+    </test> -->
+     
+      <!--   <test name="Test_HF_ST_001_Guest Checkout with Creditcard" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
+        </classes>
+        </test>
+     
+        <test name="Test_HF_ST_002_My Hydro Order Submission" testid="HMF2-977" priority="P1" description="This script will cover Cusome order  Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.MyHydro_Order_Submission"/>
+        </classes>
+    </test> -->
+    
+     
+    
+    
+<!--     
+    <test name="Test_HF_ST_013-Change_Password" testid="HFM2-1066" priority="P1" description="This script will cover Registered user reset his password and login with new password and log out for HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.EditAccounInfromation"/>
+        </classes>
+    </test> 
+  -->
+     
+    
+    
+    
+    
+    
+ <!--   
+    
+    <test name="Test_HF_ST_003_Guest Checkout with Paypal" testid="HMF2-1074" priority="P1" description="This script will cover guest user order using paypal order submit Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_Paypal"/>
         </classes>
     </test>
     
-    
-    <test name="TTest_HF_ST_003_Guest_Checkout_CreditCard" testid="HMF2-975" priority="P1" description="This script will cover guest order using creditcard submit Process of HydroFlesk">
+   
+    <test name="Test_HF_ST_004_Registered Checkout with Credit card" testid="HMF2-1077" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of HydroFlesk">
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Guest_Checkout_CreditCard"/>
+            <class name="TestExecute.HydroflaskSmoke.RegisteredUser_Checkout_CreditCard"/>
         </classes>
     </test> 
     
     
-    <test name="Test_HF_ST_004_MyHydro_Order_Submission" testid="HMF2-977" priority="P1" description="This script will cover Cusome order  Process of HydroFlesk">
+    
+      <test name="Test_HF_ST_005_Registered Checkout with PayPal" testid="HMF2-1078" priority="P1" description="This script will cover Registered order user using paypal order submit Process of HydroFlesk">
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.MyHydro_Order_Submission"/>
+            <class name="TestExecute.HydroflaskSmoke.Registered_Checkout_Paypal"/>
         </classes>
     </test>
     
-    <test name="Test_HT_ST_005_Combined_Order_Submission" testid="HMF2-976" priority="P1" description="This script will cover Customize order and noraml order submit Process of HydroFlesk">
+     <test name="Test_HF_ST_006_Guest user Checkout using Promo Code" testid="HMF2-1076" priority="P1" description="This script will cover applying promo code  of HydroFlesk">
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Combined_Order_Submission"/>
+            <class name="TestExecute.HydroflaskSmoke.Promo_Code"/>
         </classes>
     </test>
     
-     <test name="Test_HF_ST_006_Warranty submission" testid="HMF2-978" priority="P1" description="This script will cover Warranty_submission  Process of HydroFlesk">
+    
+    
+      	<test name="Test_HF_ST_007_Product Review by Guest user" testid="HMF2-1068" priority="P1" description="This script will cover  WriteReview of HydroFlesk">
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Warranty_Submission"/>
+            <class name="TestExecute.HydroflaskSmoke.WriteReview"/>
+        </classes>
+    </test>
+    
+      <test name="Test_HF_ST_008_Contact_Us" testid="HMF2-980" priority="P1" description="This script will cover Countact Us Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Contact_Us"/>
+        </classes>
+    </test>    
+
+   <test name="Test_HF_ST_009_Newsletter_Subscription" testid="HMF2-982" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Newsletter_Subscription"/>
+        </classes>
+    </test>
+    
+
+
+  <test name="Test_HF_ST_010_Reset_Password" testid="HMF2-983" priority="P1" description="This script will cover User reset password by using forgot password option of HydroFlesk	">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Fogetpassword"/>
+        </classes>
+    </test>  
+  
+    
+       <test name="Test_HF_ST_011_Account_Creation" testid="HMF2-973" priority="P1" description="This script will cover Account Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Account_Creation"/>
+        </classes>
+    </test>
+
+ <test name="Test_HF_ST_012_Warranty submission" testid="HMF2-978" priority="P1" description="This script will cover Warranty_submission  Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.Warranty_Submission"/>
         </classes>
     </test>
      
-      <test name="Test_HF_ST_007_Contact_Us" testid="HMF2-980" priority="P1" description="This script will cover Countact Us Process of HydroFlesk">
+
+    <test name="Test_HF_ST_013-Change_Password" testid="HFM2-1066" priority="P1" description="This script will cover Registered user reset his password and login with new password and log out for HydroFlesk">
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Contact_Us"/>
+            <class name="TestExecute.HydroflaskSmoke.EditAccounInfromation"/>
         </classes>
-    </test>
-    
-    
-    
-    <test name="Test_HF_ST_008_ProDeal_Registration" testid="HMF2-981" priority="P1" description="This script will cover deal registration Process of HydroFlesk">
+    </test> 
+ 
+
+     <test name="Test_HF_ST_014_ProDeal Registration" testid="HMF2-981" priority="P1" description="This script will cover deal registration Process of HydroFlesk">
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.ProDeal_Registration"/>
-        </classes>
-    </test>
-    
-    
-    <test name="Test_HF_ST_009_Newsletter_Subscription" testid="HMF2-982" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Newsletter_Subscription"/>
+            <class name="TestExecute.HydroflaskSmoke.ProDeal_Registration"/>
         </classes>
     </test> 
     
     
-    <test name="Test_HF_ST_010_Reset_Password" testid="HMF2-983" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
+    
+    <test name="Test_HF_ST_015_Combined Order Submission" testid="HMF2-976" priority="P1" description="This script will cover Customize order and noraml order submit Process of HydroFlesk">
         <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Fogetpassword"/>
-        </classes>
-    </test>  
-    
-    
-    
-    <test name="Test_HF_ST_LO_011-Logout" testid="HMF2-1075" priority="P1" description="This script will cover log out WriteReview of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Logoutaplication"/>
-        </classes>
-    </test>  
-    
-    
-    
-    
-    
-    
-     <test name="Test_HF_ST_GP_013-Guest_Checkout_Paypal" testid="HMF2-1074" priority="P1" description="This script will cover guest order using paypal order submit Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Guest_Checkout_Paypal"/>
-        </classes>
-    </test> 
-    
-    
-    <test name="Test_HF_ST_RC_014-Registered_Checkout_CreditCard" testid="HMF2-1077" priority="P1" description="This script will cover Registered order using creditcard submit Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.RegisteredUser_Checkout_CreditCard"/>
-        </classes>
-    </test> 
-    
-     <test name="Test_HF_ST_RP_015-Registered_Checkout_Paypal" testid="HMF2-1078" priority="P1" description="This script will cover Registered order using paypal order submit Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Registered_Checkout_Paypal"/>
-        </classes>
-    </test> 
-	
-	<!-- <test name="UpdateMyAddress" testid="14" priority="P1" description="This script will cover update or create address in my account page of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.UpdateMyAddress"/>
-        </classes>
-    </test>
-	 -->
-	 
-	 <test name="Test_HF_ST_PC_017-Promo_Code" testid="HMF2-1076" priority="P1" description="This script will cover applying promo code  of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.Promo_Code"/>
-        </classes>
-    </test>
-	 
-	
-	<test name="Test_HF_ST_PR_018-Product Review" testid="HMF2-1068" priority="P1" description="This script will cover  WriteReview of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.Smoke.WriteReview"/>
+            <class name="TestExecute.HydroflaskSmoke.Combined_Order_Submission"/>
         </classes>
     </test>
     
     
+    <test name="Test_HF_ST_016-WebPageLinkValidation" testid="HMF2-1094" priority="P1" description="This script will Link validation of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Hydroflask.URLS.URLSCheck"/>
+        </classes>
+    </test> -->
+    
+     <test name="Test_HF_ST_017" testid="HMF2-1094" priority="P1" description="This script will Link validation of HydroFlesk">
+        <classes>
+            <class name="TestExecute.HydroflaskSmoke.UpdateMyAddress"/>
+        </classes>
+    </test>
     
     
-	
-	
-    
-    
-    
-    
-    
-    
-    
-  </suite>  
+        </suite>  

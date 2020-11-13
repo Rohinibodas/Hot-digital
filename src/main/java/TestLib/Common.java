@@ -1173,11 +1173,17 @@ public class Common {
 	public static void scrollIntoView(WebElement element) {
 		executeJS("arguments[0].scrollIntoView();", element);
 	}
+	
+	public static void scrollIntoView(String elemfindBY, String elemfindText) {
+		WebElement element=findElement(elemfindBY, elemfindText);
+		executeJS("arguments[0].scrollIntoView();", element);
+	}
 
 	public static void scrollTo(WebElement element, int x, int y) {
 		executeJS("arguments[0].scrollTo(arguments[1],arguments[2]);", element, x, y);
 	}
 
+	
 	
 	public static void clickWithPostCondition(String findBy, String locator, boolean postShouldDisplay)  {
 		Sync.waitElementClickable(60, findBy, locator);
@@ -1452,7 +1458,7 @@ public class Common {
 		Assert.assertEquals(actualvalue, expectedvalue);
 		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
 		}catch (Exception |Error e) {
-			ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+			ExtenantReportUtils.addFailedLog(expectedResult, FailedMessage, Common.getscreenShotPathforReport(expectedResult));
 			Assert.fail();
 			// TODO: handle exception
 		}
@@ -1465,7 +1471,24 @@ public class Common {
 		ExtenantReportUtils.addPassLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
 		}
 		else{
-		ExtenantReportUtils.addFailedLog(expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		ExtenantReportUtils.addFailedLog(expectedResult, FailedMessage, Common.getscreenShotPathforReport(expectedResult));
+		Assert.fail();
 		}
 	}
+	
+	
+	public static void assertionCheckwithReport(boolean status,String description,String expectedResult,String actualResult,String FailedMessage)
+	{
+		if(status){
+		ExtenantReportUtils.addPassLog(description, expectedResult, actualResult, Common.getscreenShotPathforReport(expectedResult));
+		}
+		else{
+		ExtenantReportUtils.addFailedLog(description, expectedResult, FailedMessage, Common.getscreenShotPathforReport(expectedResult));
+		Assert.fail();
+		}
+	}
+	
+	
+	
+	
 }

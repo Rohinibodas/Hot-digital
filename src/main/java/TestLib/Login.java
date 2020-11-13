@@ -38,6 +38,7 @@ public class Login {
 	{
 			if(BaseDriver.getDriver()==null)
 			{
+				Automation_properties.setInstance(null);
 			automation_properties = Automation_properties.getInstance();	
 			driver=BaseDriver.StartBrowser(System.getProperty("browser",automation_properties.getInstance().getProperty(automation_properties.BROWSER)),System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)));
 			Driver.getLogger().info("Logged in with User: ");

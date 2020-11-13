@@ -34,7 +34,7 @@ public class DTC_PoC_002_Customer_Login
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	
