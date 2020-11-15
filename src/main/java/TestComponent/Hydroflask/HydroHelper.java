@@ -743,6 +743,11 @@ catch(Exception |Error e) {
 			addPaymentDetails(dataSet);
 		}
 			
+		Thread.sleep(3000);
+		int placeordercount=Common.findElements("xpath", "//button[@title='Place Order']").size();
+		if(placeordercount>1){
+			Common.clickElement("xpath", "//button[@title='Place Order']");
+		}
 		
 		    String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
 			//Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
