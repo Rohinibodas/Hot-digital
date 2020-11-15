@@ -9,8 +9,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.asserts.Assertion;
-
 import TestLib.Common;
 import TestLib.Sync;
 import TestLib.Common.SelectBy;
@@ -248,7 +246,8 @@ public class HydroHelper {
 	    int size=Common.findElements("xpath", "//a[@class='logo']").size();
 	    Common.assertionCheckwithReport(size>0, "validating the home page ",expectedResult, "Successfully landed on the home page","User unabel to land on home page");
 		//Common.assertionCheckwithReport(size>0, "Successfully landed on the home page", expectedResult,"User unabel to land on home page");
-        Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
+       
+	    Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
 		Thread.sleep(4000);
 		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");	
 		Thread.sleep(3000);
@@ -266,6 +265,8 @@ public class HydroHelper {
 		int sizebotteles=Common.findElements("xpath", "//a[contains(text(),'"+category+"')]").size();
 		Common.assertionCheckwithReport(sizebotteles>0, "validating the product category as" +category+ "from navigation menu ", expectedResult, "Selected the "+category+" category", "User unabel to click"+category+"");
 	    //Common.assertionCheckwithReport(sizebotteles>0, "Selected the "+category+" category", expectedResult,"User unabel to click"+category+"");
+		
+		try{
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
 		Thread.sleep(2000);
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
@@ -283,7 +284,11 @@ public class HydroHelper {
 		   }
 	    Sync.waitElementClickable("xpath", "//button[@title='Add to Cart']");
 		Thread.sleep(4000);
-		Common.clickElement("xpath", "//button[@title='Add to Cart']");
+	List<WebElement> element=Common.findElements("xpath", "//button[@title='Add to Cart']");
+		
+	     element.get(2).click();
+	
+	//	Common.clickElement("xpath", "//button[@title='Add to Cart']");
 		//Common.assertionCheckwithReport(cartbuttonsize>0, "Added Product to Cart", expectedResult,"User unabel add product to cart");
 		
 		Thread.sleep(5000);
@@ -297,7 +302,14 @@ public class HydroHelper {
 		int cartbuttonsize=Common.findElements("xpath", "//button[@title='Add to Cart']").size();
 		Common.assertionCheckwithReport(cartbuttonsize>0, "validating the add product to cart", expectedResult, "Added Product to Cart", "User unabel add product to cart");
 		//report.addPassLog(expectedResult,"Added Product to Cart",Common.getscreenShotPathforReport(expectedResult));
-		
+		}
+catch(Exception |Error e) {
+			
+			ExtenantReportUtils.addFailedLog("validating the product add to cart", expectedResult, "User unabel to add product to cart",  Common.getscreenShotPathforReport("faield to add product"));
+			//ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
+			Assert.fail();
+			
+		}
 		}
 	public void checkOut() throws Exception
 	{
@@ -1547,7 +1559,7 @@ public void review_bottles(String dataSet) throws Exception{
 		Thread.sleep(8000);
 		Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
 		Thread.sleep(4000);
-		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
+		//Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	
 		//Common.clickElement("css", "ul.megamenu-list > li:nth-of-type(1) > div:nth-of-type(1) > button");
 		Thread.sleep(3000);
@@ -1569,20 +1581,15 @@ public void review_bottles(String dataSet) throws Exception{
 	    }
 	    catch(Exception |Error e) {
     		ExtenantReportUtils.addFailedLog("validating Bottles option ", "user selecct the bottle option", "user failed to click the bottle option",Common.getscreenShotPathforReport("bottleselectionmissing"));
-    		//("Click on  product image/ product name", "User failed to to select the bottle product for review ", "));
+
     		Assert.fail();
     		
     	}
        
-	//	Common.assertionCheckwithReport(sizeofbottle>0, "Successfully landed  Product Listing Page", expectedResult,"User unabel to land on product page");
-		Thread.sleep(4000);
+	
 		
-		
-		
-	//report.addPassLog(expectedResult,"lands on the Product Listing Page",Common.getscreenShotPathforReport(expectedResult));
-		
-		
-		Common.actionsKeyPress(Keys.PAGE_DOWN);
+	  Thread.sleep(4000);
+      Common.actionsKeyPress(Keys.PAGE_DOWN);
 		try{	
 		
 		
@@ -1594,26 +1601,20 @@ public void review_bottles(String dataSet) throws Exception{
 
 		}
 		  catch(Exception |Error e) {
+			  e.printStackTrace();
     		ExtenantReportUtils.addFailedLog("Click on  product image/ product name", "User failed to to select the bottle product for review ", Common.getscreenShotPathforReport("bottleselectionmissing"));
     		Assert.fail();
     		
     	}
-		
-
-	
-		
-		
-		
 		Thread.sleep(8000);
 		try{
 		expectedResult="Click on  product image/ product name, it should  be redirect to the product details page";
-	//	report.addPassLog(expectedResult," redirect to the product details page",Common.getscreenShotPathforReport(" product details page"));
-    	Sync.waitElementPresent("id", "tab-title-reviews");
+	    Sync.waitElementPresent("id", "tab-title-reviews");
         int	tabelview=Common.findElements("id", "tab-title-reviews").size();
         Common.assertionCheckwithReport(tabelview>0, "redirect to the product details page", expectedResult,"User unabel to redirect the product details page");
         Common.clickElement("id", "tab-title-reviews");
 		}
-       // expectedResult ="It should navigated to review options.";
+      
        
         
         
@@ -1623,7 +1624,7 @@ public void review_bottles(String dataSet) throws Exception{
     		
     	}
         Thread.sleep(4000);
-      //  report.addPassLog(expectedResult,"Review option selected",Common.getscreenShotPathforReport("review button"));
+     
         try{
         
         Sync.waitElementPresent("xpath", "//button[contains(@class,'write-review')]");
@@ -2014,10 +2015,14 @@ public void review_bottles(String dataSet) throws Exception{
 		
 	 else{
 		Common.clickElementStale("xpath", "//a[contains(text(),'Change Billing Address')]");
-		report.addPassLog("click update button myaccount page",Common.getscreenShotPathforReport("edit the shipping address myaccount"));
+		//report.addPassLog("click update button myaccount page",Common.getscreenShotPathforReport("edit the shipping address myaccount"));
 		
 		try{
 		Common.textBoxInput("xpath", "//input[@id='firstname']", data.get(dataSet).get("FirstName"));
+		
+	//	ExtenantReportUtils.addPassLog("validating Address Book from","Filled the shipping address for myaccount page",Common.getscreenShotPathforReport("fill the shipping address myaccount"));
+		
+		
 		Common.textBoxInput("xpath", "//input[@id='lastname']", data.get(dataSet).get("LastName"));
 		Common.textBoxInput("xpath", "//input[@id='street_1']", data.get(dataSet).get("Street"));
 		try {
@@ -2035,14 +2040,13 @@ public void review_bottles(String dataSet) throws Exception{
 			Thread.sleep(6000);
 			
 			String Sucess=Common.getText("xpath","//div[contains(@class,'message-success')]/div");
-			Assert.assertEquals(Sucess, "You saved the address.", "Adress is saved");
+			//Assert.assertEquals(Sucess, "You saved the address.", "Adress is saved");
 			Common.assertionCheckwithReport(Sucess.equals("You saved the address."), "validating my address book with data", "enter the valid address without any validation", "successfully user enter the address", "User failed to enter data in my address book");
 		}
 			
 		 catch(Exception |Error e) {
 	    		ExtenantReportUtils.addFailedLog("validating my address book with data", "enter the valid address without any validation", "User failed to enter data in my address book", Common.getscreenShotPathforReport("faield to addressbookt"));
-	    		//(expectedResult, "User failed to proceed with promocode ", Common.getscreenShotPathforReport(expectedResult));
-	    		Assert.fail();
+	    	    Assert.fail();
 	    		
 	    	}
 		}
@@ -2054,11 +2058,8 @@ public void review_bottles(String dataSet) throws Exception{
 		
 		Sync.waitElementClickable("xpath", "//input[@id='search']");
 		Common.clickElement("xpath", "//input[@id='search']");
-		
 		Common.textBoxInput("xpath", "//input[@id='search']",data.get(dataSet).get("sampleproduct"));
-		
-		
-		Common.clickElement("xpath", "//a[contains(text(),'"+data.get(dataSet).get("sampleproduct")+"')]");
+	    Common.clickElement("xpath", "//a[contains(text(),'"+data.get(dataSet).get("sampleproduct")+"')]");
 		report.addPassLog("Clicking search button ",Common.getscreenShotPathforReport("search button"));
 		
 		
@@ -2155,10 +2156,45 @@ public void review_bottles(String dataSet) throws Exception{
 		Common.clickElement("xpath", "//a[@aria-label='minicart']");
 		Thread.sleep(2000);
 		Common.clickElement("xpath", "//a[contains(@class,'viewcart')]");
+		
+		Thread.sleep(10000);
 		//div[contains(@class,'no-edit')]/a[2]
 		//Sync.waitElementVisible("className", "checkout-step-title");
 		//report.addPassLog("Clicked the checkout button",Common.getscreenShotPathforReport("checked out page"));
+	   
+		//div[contains(@class,'no-remove')]
+		
+		List<WebElement> elemtddds=Common.findElements("xpath", "//div[contains(@class,'no-remove')]/a[1]");
+		
+		elemtddds.get(elemtddds.size()-1).click();
+		
+		
+		
+		/*Common.clickElement("id", "block-discount-heading");
+	Common.textBoxInput("id", "coupon_code", "h20");
+	Common.clickElement("xpath", "//button[contains(@class,'cart-table-discount-apply')]");*/
 	}
+	
+	public void EditProduct(){
+		try{
+			List<WebElement> elemtddds=Common.findElements("xpath", "//div[contains(@class,'no-remove')]/a[1]");
+			
+			elemtddds.get(elemtddds.size()-1).click();
+		/*Thread.sleep(10000);
+		Common.dropdown("xpath", "//select[@name='qty-mobile']", Common.SelectBy.VALUE, "2");
+		ExtenantReportUtils.addPassLog("verifying Editproduct", "select the product quantity", "user select the Quntity", Common.getscreenShotPathforReport("passQuntitly"));
+	   
+		Common.clickElement("xpath", "//button[@title='Update Cart']");*/
+		
+		}
+		 catch(Exception |Error e) {
+			 e.printStackTrace();
+	    		ExtenantReportUtils.addFailedLog("verifying Editproduct","User clickeditbutton navigate to product details page", "User failed to edit product or navigate to product detiles page", Common.getscreenShotPathforReport("editproduct"));
+	    		Assert.fail();
+	    		
+	    	}
+	}
+	
 	
 	
 	public void new_arrivals(String dataSet){
@@ -2223,7 +2259,17 @@ public void review_bottles(String dataSet) throws Exception{
 	}
 	
 	
-	
+	public void order_ppt(String category) throws Exception{
+		    Thread.sleep(5000);
+		 	String expectedResult="User should land on the home page";
+		    int size=Common.findElements("xpath", "//a[@class='logo']").size();
+		    Common.assertionCheckwithReport(size>0, "validating the home page ",expectedResult, "Successfully landed on the home page","User unabel to land on home page");
+		    Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
+			Thread.sleep(4000);
+			Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");	
+			Thread.sleep(3000);
+			expectedResult="User should click the"+category;
+	}
 	
 	
 	public void urls(String URL){

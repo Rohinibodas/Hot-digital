@@ -32,13 +32,13 @@ import TestLib.Driver;
 		public static String DBUName = null, DBPwd = null, DBURL = null, DBDriver = null;
 		public static int SUMMARYFLAG;
 
-		public static String to="mahendra.koppanadham@gmail.com,mahendra@lotuswave.net",cc="mchiruvella@gmail.com",subject="HoT Test Automation Results",attachmentPath="",attachmentPath1="";
+		public static String to="manojk@lotuswave.net",cc="",subject="Hydroflask Smoke Test Reports",attachmentPath="",attachmentPath1="";
 		
 		
 		
 		public static void sendMail() throws Exception
 		{
-			subject="HoT Test Automation Results";
+			subject="Hydroflask Smoke Test Reports";
 			attachmentPath=System.getProperty("user.dir")+"/src/test/resources/MailTemplates/ExecutionMailReport.html" ;
 			//attachmentPath1=;
 			attachmentPath=HTMLPreparation.generateMail("exectionReport");

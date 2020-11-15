@@ -27,11 +27,24 @@ public class OxoTestCases
 
 		try {
 			//oxo.CreateNewAccount("AccountDetails");
-			oxo.loginOxo("AccountDetails");
+			oxo.closetheadd();
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.ShippingAddress("ShippingAddress");
+			oxo.selectGroundShippingMethod();
+			oxo.clickAcceptingaddress();
+			oxo.Click_CreditCard();
+			oxo.Edit_BillingAddress("BiillingAddress");
+			oxo.clickAcceptingaddress();
+			oxo.creditCard_payment("PaymentDetails");
+			//oxo.oxo
+			//oxo.Selectproduct();
+			/*oxo.loginOxo("AccountDetails");
 			oxo.searchProductAndAddtoCart("Beverage");
 			oxo.checkOut();
 			oxo.addDeliveryAddress("Address");
-			oxo.addPaymentDetails("PaymentDetails");
+			oxo.addPaymentDetails("PaymentDetails");*/
 		}
 		catch (Exception e) {
 			
@@ -41,9 +54,10 @@ public class OxoTestCases
 	
 	
 	@AfterTest
-	public void clearBrowser()
+	public void clearBrowser() throws Exception
 	{
 		BaseDriver.setDriver(null);
+		
 
 	}
 	
@@ -51,6 +65,7 @@ public class OxoTestCases
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		  Login.signIn();
+		 
 		  
 	  }
 
