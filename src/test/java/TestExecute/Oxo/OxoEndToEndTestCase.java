@@ -43,7 +43,7 @@ public class OxoEndToEndTestCase
 	public void loginApplication() throws Exception {
 
 		try {
-			oxo.loginOxo("AccountDetails");
+			//oxo.loginOxo("AccountDetails");
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

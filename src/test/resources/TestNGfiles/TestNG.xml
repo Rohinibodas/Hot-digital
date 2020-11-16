@@ -8,6 +8,40 @@
      
      
      
+     <test name="TEST_OXO_ST_001-Account Creation" testid="OUS23-703" priority="P1" description="This script will cover Creating New Account Process of oxo">
+       <classes>
+            <class name="TestExecute.Oxo.CreateNewAccount"/>
+        </classes>
+        </test> 
+     
+     
+      <test name="TEST_OXO_ST_003-Guest Checkout Paypal" testid="OUS23-762" priority="P1" description="This script will cover guest user order using paypal submit Process of oxo">
+        <classes>
+            <class name="TestExecute.Oxo.Guest_Checkout_Paypal"/>
+        </classes>
+        </test> 
+     
+     
+     <test name="TEST_OXO_ST_004-Guest Checkout Creditcard" testid="OUS23-759" priority="P1" description="This script will cover guest user order using Creditcard submit Process of oxo">
+        <classes>
+            <class name="TestExecute.Oxo.Guest_checkout_CreditCard"/>
+        </classes>
+        </test> 
+     
+     
+     <test name="TEST_OXO_ST_006-Registered Checkout Paypal" testid="OUS23-764" priority="P1" description="This script will cover Registered User  order using paypal submit Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Oxo.RegisteredUser_Checkout_PayPal"/>
+        </classes>
+    </test>
+     
+     
+       <test name="TEST_OXO_ST_007-Registered Checkout Creditcard" testid="OUS23-763" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of HydroFlesk">
+        <classes>
+            <class name="TestExecute.Oxo.RegisteredUser_Checkout_CreditCard"/>
+        </classes>
+    </test>
+     
       <!--  <test name="Test_HF_ST_001_Guest Checkout with Creditcard_chrome" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
         <parameter name="browser" value="chrome" />
         <classes>
@@ -163,12 +197,12 @@
             <class name="TestExecute.Hydroflask.URLS.URLSCheck"/>
         </classes>
     </test> -->
-    
+    <!-- 
      <test name="Test_HF_ST_017" testid="HMF2-1094" priority="P1" description="This script will Link validation of HydroFlesk">
         <classes>
             <class name="TestExecute.HydroflaskSmoke.UpdateMyAddress"/>
         </classes>
-    </test>
+    </test> -->
     
     
         </suite>  

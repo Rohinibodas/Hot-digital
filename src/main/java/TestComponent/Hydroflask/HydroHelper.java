@@ -97,7 +97,7 @@ public class HydroHelper {
 		expectedResult="see the fields populated with the data";
 	    ExtenantReportUtils.addPassLog("verifying sign up page with field data", expectedResult, "successfully fill the data in username email password",  Common.getscreenShotPathforReport("signup page issue"));
 		Common.clickElement("xpath", "//button[@title='Sign Up']");
-		int errormessagetextSize= Common.findElements("xpath", "//div[contains (@id,'error')]").size();
+		int errormessagetextSize= Common.findElements("xpath", "//div[contains (text(),'required')]").size();
 		if(errormessagetextSize<=0){
 		}
 		else{
