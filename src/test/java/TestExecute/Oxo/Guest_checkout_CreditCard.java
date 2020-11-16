@@ -18,6 +18,7 @@ public class Guest_checkout_CreditCard {
   public void guest_checkout_CreditCard() {
 		try{
 		oxo.closetheadd();
+		
 		oxo.clickBaby_Toddler();
 		oxo.addproducts("1");
 		oxo.checkout();

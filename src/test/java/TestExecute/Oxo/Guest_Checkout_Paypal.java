@@ -14,7 +14,8 @@ public class Guest_Checkout_Paypal {
 	OxoHelper oxo=new OxoHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-  public void guest_Checkout_Paypal() {
+
+	public void guest_Checkout_Paypal() {
 		try{
 		oxo.closetheadd();
 		oxo.clickBaby_Toddler();
