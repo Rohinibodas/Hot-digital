@@ -254,6 +254,7 @@ public class OxoHelper {
 	}
 	
 	
+	
 	public void CheckPost() throws Exception {
 		Thread.sleep(5000);
 		Sync.waitPageLoad();
