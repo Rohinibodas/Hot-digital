@@ -29,19 +29,25 @@
         </test> 
      
      
-     <test name="TEST_OXO_ST_006-Registered Checkout Paypal" testid="OUS23-764" priority="P1" description="This script will cover Registered User  order using paypal submit Process of HydroFlesk">
+     <test name="TEST_OXO_ST_006-Registered Checkout Paypal" testid="OUS23-764" priority="P1" description="This script will cover Registered User  order using paypal submit Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.RegisteredUser_Checkout_PayPal"/>
         </classes>
     </test>
      
      
-       <test name="TEST_OXO_ST_007-Registered Checkout Creditcard" testid="OUS23-763" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of HydroFlesk">
+       <test name="TEST_OXO_ST_007-Registered Checkout Creditcard" testid="OUS23-763" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.RegisteredUser_Checkout_CreditCard"/>
         </classes>
     </test>
      
+      
+       <test name="TEST_OXO_ST_010-Validation of Cart Page" testid="OUS23-765" priority="P1" description="This script will cover Validation of Cart Page of oxo">
+        <classes>
+            <class name="TestExecute.Oxo.RegisteredUser_Checkout_CreditCard"/>
+        </classes>
+    </test>
       <!--  <test name="Test_HF_ST_001_Guest Checkout with Creditcard_chrome" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
         <parameter name="browser" value="chrome" />
         <classes>
