@@ -88,6 +88,159 @@ public class OxoHelper {
 	}	
 
 	
+	
+	
+	
+	public void validatingSearchBoxWithOutData() throws Exception{
+		String expectedResult="Click on the search button Lands on Global search page should show search textbox";
+		String url=Common.getCurrentURL();
+		Thread.sleep(5000);
+		try{
+		Common.clickElement("className", "search-tool");
+		
+		
+		Sync.waitElementPresent("id", "search");
+		if(Common.findElement("id", "search")==null)
+		{
+			Common.mouseOverClick("className", "search-tool");
+			Thread.sleep(2000);
+		}
+		ExtenantReportUtils.addPassLog("validating search box", expectedResult, "successfully Click on the search button Lands on Global search page", Common.getscreenShotPathforReport("faieldopensearchbox"));
+		}
+		catch(Exception |Error e) {
+		    	ExtenantReportUtils.addFailedLog("validating search box",expectedResult, "user faield to Click on the search button",Common.getscreenShotPathforReport("faieldopensearchbox"));
+				Assert.fail();
+				
+			}
+		try{
+			expectedResult="It Should redirect to home page";
+		
+		Common.textBoxInput("id", "search", "");
+		Common.actionsKeyPress(Keys.ENTER);
+		Sync.waitPageLoad();
+		Common.assertionCheckwithReport(Common.getCurrentURL().equals(url), "validating the search with empty data", expectedResult, "user enter empty data and it redirect to home page", Common.getscreenShotPathforReport("user faield eneter empty data in search or redirect to home page"));
+		}
+		catch(Exception |Error e) {
+	    	ExtenantReportUtils.addFailedLog("validating the search with empty data",expectedResult, "user faield eneter empty data in search or redirect to home page",Common.getscreenShotPathforReport("emptysearch"));
+			Assert.fail();
+			
+		}
+	}
+	
+	public void validatingSearchBoxWithNumberText(String productName) throws Exception{
+		String expectedResult="Click on the search button Lands on Global search page should show search textbox";
+		Thread.sleep(5000);
+		try{
+		Common.clickElement("className", "search-tool");
+		
+		
+		Sync.waitElementPresent("id", "search");
+		if(Common.findElement("id", "search")==null)
+		{
+			Common.mouseOverClick("className", "search-tool");
+			Thread.sleep(2000);
+		}
+		ExtenantReportUtils.addPassLog("validating search box", expectedResult, "successfully Click on the search button Lands on Global search page", Common.getscreenShotPathforReport("faieldopensearchbox"));
+		}
+		catch(Exception |Error e) {
+		    	ExtenantReportUtils.addFailedLog("validating search box",expectedResult, "user faield to Click on the search button",Common.getscreenShotPathforReport("faieldopensearchbox"));
+				Assert.fail();
+				
+			}
+		
+		
+		try{
+			expectedResult="It should allow both text and numeric";
+		
+		Common.textBoxInput("id", "search", productName);
+		Common.actionsKeyPress(Keys.ENTER);
+		Sync.waitPageLoad();
+		String Classname=Common.findElement("xpath", "//div[@id='ajax-layer-product-list-container']/div[1]").getAttribute("class");
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.assertionCheckwithReport(Classname.contains("results"), "validating the search with combination of latter Numbers data", expectedResult, "successfully search allow both text and numeric", Common.getscreenShotPathforReport("failed allow both text and numeric"));
+		}
+		catch(Exception |Error e) {
+	    	ExtenantReportUtils.addFailedLog("validating the search with combination of latter Numbers data",expectedResult, "user faield allowing combination of latter Numbers data",Common.getscreenShotPathforReport("serchnumbertext"));
+			Assert.fail();
+			
+		}
+	}
+		
+	
+public void  validatingSearchProductInformation(String productName) throws Exception{
+	String expectedResult="Click on the search button Lands on Global search page should show search textbox";
+	Thread.sleep(5000);
+	try{
+	Common.clickElement("className", "search-tool");
+	
+	
+	Sync.waitElementPresent("id", "search");
+	if(Common.findElement("id", "search")==null)
+	{
+		Common.mouseOverClick("className", "search-tool");
+		Thread.sleep(2000);
+	}
+	ExtenantReportUtils.addPassLog("validating search box", expectedResult, "successfully Click on the search button Lands on Global search page", Common.getscreenShotPathforReport("faieldopensearchbox"));
+	}
+	catch(Exception |Error e) {
+	    	ExtenantReportUtils.addFailedLog("validating search box",expectedResult, "user faield to Click on the search button",Common.getscreenShotPathforReport("faieldopensearchbox"));
+			Assert.fail();
+			
+		}
+	
+	
+	try{
+		
+	expectedResult="It should contines homeTab ";
+	Common.textBoxInput("id", "search", productName);
+	Common.actionsKeyPress(Keys.ENTER);
+	Sync.waitPageLoad();
+	Thread.sleep(8000);
+	String textelemt=Common.getText("xpath", "//ul[@class='items']/li[1]/a");
+	Common.assertionCheckwithReport(textelemt.contains("Home"), "validating the search rueslt contines homeTab ", expectedResult, "search result it showing home tab", Common.getscreenShotPathforReport("faield to diaply hometab"));
+	}
+	catch(Exception |Error e) {
+    	ExtenantReportUtils.addFailedLog("validating the search rueslt contines homeTab",expectedResult, "faield to display hometab",Common.getscreenShotPathforReport("homeTab"));
+		Assert.fail();
+		
+	}
+	String errormessage="product Namesis";
+	try{
+		
+		
+		  expectedResult="in search result should show product image, product title, price add wishlist.";
+		int totalproductscount=Common.findElements("xpath", "//li[@class='item product product-item ']").size();
+		
+		int producttitles=Common.findElements("xpath", "//a[@class='product-item-link']").size();
+		Assert.assertTrue(totalproductscount==producttitles);
+		errormessage="wishlist button";
+		int totlWishList=Common.findElements("xpath", "//a[@class='action towishlist']").size();
+		Assert.assertTrue(totalproductscount==totlWishList);
+		
+		errormessage="product price";
+		int productprice=Common.findElements("xpath","//span[contains(@id,'product-price')]").size();
+		Assert.assertTrue(totalproductscount==productprice);
+	
+		
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		ExtenantReportUtils.addPassLog("validating the search rueslt", expectedResult, "it display all images,price wishlist ", Common.getscreenShotPathforReport("resultissues"));
+	}
+	catch(Exception |Error e) {
+    	ExtenantReportUtils.addFailedLog("validating the search rueslt",expectedResult, "faield to display "+errormessage+"",Common.getscreenShotPathforReport("resultissues"));
+		Assert.fail();
+		
+	}
+	
+	
+	
+}
+	
+//a[@class='product-item-link']
+//a[@class='action towishlist']
+//img[@class='product-image-photo']
+	
+	
+	
 	public void searchProductAndAddtoCart(String productName) throws Exception
 	{
 		Thread.sleep(10000);
@@ -592,7 +745,7 @@ public class OxoHelper {
 	public void loginOxo(String dataSet) throws Exception
 	{
 		Thread.sleep(3000);
-		
+		try{
 		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 		Common.findElement("xpath", "//a[@class='social-login']").click();
 		Sync.waitElementClickable(30, By.id("email"));
@@ -601,13 +754,36 @@ public class OxoHelper {
 			Common.mouseOverClick("xpath", "//a[@class='social-login']");
 			Thread.sleep(2000);
 		}
-		
-
+		ExtenantReportUtils.addPassLog("verifying Sign in link","lands on sign popup", "User lands on the sign popup", Common.getscreenShotPathforReport("signpop"));
+		}
+		  catch(Exception |Error e) {
+		 		ExtenantReportUtils.addFailedLog("verifying Sign in link","lands on sign popup", "User failed lands on sign popup", Common.getscreenShotPathforReport("signpop"));
+		 		Assert.fail();
+		 		
+		 	}
+try{
 		Common.textBoxInput("id", "email",data.get(dataSet).get("Email"));
 		Common.textBoxInput("id", "pass1",data.get(dataSet).get("Password"));
+		ExtenantReportUtils.addPassLog("verifying login page with fieldData", "User enter the FieldData", "successfully enter the data", Common.getscreenShotPathforReport("logindata"));
 		Common.clickElement("id", "bnt-social-login-authentication");
 		Thread.sleep(8000);
+		int errormessagetextSize= Common.findElements("xpath", "//div[contains (text(),'required')]").size();
+		if(errormessagetextSize<=0){
+		}
+		else{
+			
+			ExtenantReportUtils.addFailedLog("verifying login page with fieldData", "see the fields populated with the data", "User failed to proceed login form", Common.getscreenShotPathforReport("logindata"));
+			Assert.fail();
+		}
 		
+		
+}
+
+catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("verifying login page","lands on sign popup", "User failed lands on sign popup", Common.getscreenShotPathforReport("signpoptt"));
+		Assert.fail();
+		
+	}
 		/*try{
 		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 		Common.findElement("xpath", "//a[@class='social-login']").click();
@@ -765,7 +941,7 @@ public class OxoHelper {
 	
 public void closetheadd() throws Exception{
 	
-        Thread.sleep(40000);
+        Thread.sleep(80000);
      // int elementsize=  Common.findElements("xpath", "//h1[contains(@id,'bubbleheader')]").size();
       
      
