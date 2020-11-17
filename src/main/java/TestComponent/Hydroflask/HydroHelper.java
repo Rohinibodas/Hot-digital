@@ -2059,23 +2059,43 @@ public void review_bottles(String dataSet) throws Exception{
 	    
 	
 	
-	public void SearchProduct(String dataSet) throws Exception{
+	public void SampleSearchProduct(String dataSet) throws Exception{
+		Thread.sleep(8000);
+		try{
+		Sync.waitElementVisible("xpath", "//form[@id='search_mini_form']//label");
+		Thread.sleep(8000);
+		Common.clickElement("xpath", "//form[@id='search_mini_form']//label");
+	    Common.textBoxInput("xpath", "//input[@id='search']",dataSet);
+	    ExtenantReportUtils.addPassLog("validating Search box", "enter product name will display in search box", "user enter the product name in  search box", Common.getscreenShotPathforReport("searchproduct"));
+		}
+		catch(Exception |Error e) {
+    		ExtenantReportUtils.addFailedLog("validating Search box", "enter product name will display in search box", "User failed to enter product name", Common.getscreenShotPathforReport("searchproduct"));
+    	    Assert.fail();
+    		
+    	}
+	   try{
+		Thread.sleep(8000);
+		Common.actionsKeyPress(Keys.ENTER);
+		Thread.sleep(8000);
+		List<WebElement> productsizes=Common.findElements("xpath", "//li[contains(@class,'product-item')]");
+		for(int i=0;i<productsizes.size();i++){
+			String attribute=productsizes.get(i).getAttribute("data-product-id");
+			List<WebElement> productColors=Common.findElements("xpath", "//li[contains(@data-product-id,'"+attribute+"')]//div[contains(@class,'swatch-attribute-options clearfix')]/div");
+            if(productColors.size()<=1&&productColors.size()>0){
+				Common.clickElement("xpath","//li[contains(@data-product-id,'"+attribute+"')]");
+				  ExtenantReportUtils.addPassLog("validating sample product", "user find sample product in search", "user successfully find sample product in search", Common.getscreenShotPathforReport("searchproductsample"));
+				
+			    break;
+			    }
+		    }
 		
-		Sync.waitElementClickable("xpath", "//input[@id='search']");
-		Common.clickElement("xpath", "//input[@id='search']");
-		Common.textBoxInput("xpath", "//input[@id='search']",data.get(dataSet).get("sampleproduct"));
-	    Common.clickElement("xpath", "//a[contains(text(),'"+data.get(dataSet).get("sampleproduct")+"')]");
-		report.addPassLog("Clicking search button ",Common.getscreenShotPathforReport("search button"));
 		
-		
-		
-		
-		
-		//h4[text()='12 oz Cooler Cup']
-		
-		
-		
-		
+	   }
+	   catch(Exception |Error e) {
+   		ExtenantReportUtils.addFailedLog("validating sample product", "user find sample product in search", "User failed find sample product in search", Common.getscreenShotPathforReport("searchproductsample"));
+   	    Assert.fail();
+   		
+   	}
 	}
 	
 	public void myAccountInformation(){
