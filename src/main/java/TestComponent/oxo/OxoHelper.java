@@ -29,6 +29,7 @@ public class OxoHelper {
 	public void CreateNewAccount(String dataSet) throws Exception
 	{
 		try{
+			Thread.sleep(3000);
 		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 		Common.findElement("xpath", "//a[@class='social-login']").click();
 		Thread.sleep(3000);
@@ -67,7 +68,8 @@ public class OxoHelper {
 		ExtenantReportUtils.addPassLog("verifying sign up page with fieldData", "User enter the FieldData", "successfully enter the data", Common.getscreenShotPathforReport("sigData"));
 		
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
-		Common.mouseOverClick("id", "button-create-social");
+	
+		Common.clickElement("id", "button-create-social");
 		
 		int errormessagetextSize= Common.findElements("xpath", "//div[contains (text(),'required')]").size();
 		if(errormessagetextSize<=0){
@@ -81,6 +83,7 @@ public class OxoHelper {
 		Common.actionsKeyPress(Keys.ESCAPE);
 	}
 		catch(Exception |Error e) {
+			
     		ExtenantReportUtils.addFailedLog("verifying sign up page to Create new account","Sign up popup with valid Data", "User failed to proceed signUp form ", Common.getscreenShotPathforReport("signupissue"));
     		Assert.fail();
     		
@@ -330,7 +333,8 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		int elementsize=Common.findElements("xpath", "//input[@class='sf-stepper-input']").size();
 		
 		if(elementsize>0){
-		try{	
+		try{
+			Thread.sleep(6000);
 		Common.textBoxInput("xpath", "//input[@class='sf-stepper-input']", quantity);
 		Sync.waitElementPresent("xpath", "//input[@class='sf-stepper-input']");
 		Common.clickElement("xpath","//button[@id='product-addtocart-button']");
@@ -341,6 +345,7 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		ExtenantReportUtils.addPassLog("validating the product to Cart", "user add the product to cart", "user successfully add the product to cart", Common.getscreenShotPathforReport("usertheproducttocart"));
 		}
 		catch(Exception |Error e) {
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the product to Cart","user add the product to cart", "user faield to add the product to cart",Common.getscreenShotPathforReport("user faield to add the product to cart"));
 			Assert.fail();
 			
@@ -492,12 +497,14 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 	public void clickBaby_Toddler() throws Exception{
 		String expectedResult="It Should be navigate to the Baby_Toddler category page.";
 		try{
+			Thread.sleep(5000);
 		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15184']");
 		Common.clickElement("xpath", "//a[@data-menu='menu-15184']");
 		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15186']");
 		Common.mouseOverClick("xpath", "//a[@data-menu='menu-15186']");
 		}
        catch(Exception |Error e) {
+    	   e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult, "user faield to navigate Baby Toddler category",  Common.getscreenShotPathforReport("faield to navgate categorypage"));
 			Assert.fail();
 			
@@ -941,7 +948,7 @@ catch(Exception |Error e) {
 	
 public void closetheadd() throws Exception{
 	
-        Thread.sleep(80000);
+        Thread.sleep(8000);
      // int elementsize=  Common.findElements("xpath", "//h1[contains(@id,'bubbleheader')]").size();
       
      
