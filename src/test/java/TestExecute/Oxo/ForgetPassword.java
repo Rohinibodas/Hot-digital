@@ -9,25 +9,23 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.BaseDriver;
 import TestLib.Login;
 
-public class ValidationofCartPage {
+public class ForgetPassword {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-	  public void registeredUser_Checkout_CreditCard() {
-			try{
-			oxo.closetheadd();
-			oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
-			oxo.addproducts("1");
-		    oxo.clickViewCart();
-			oxo.CheckPost();
-			}
-catch (Exception e) {
+  public void forgetPassword() {
+		try{
+		oxo.closetheadd();
+		
+		oxo.ForgotPassword("Forgetpassoword");
+  }
+	catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);
 	} 
 }
+	
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
@@ -35,6 +33,7 @@ catch (Exception e) {
 		
 
 	}
+	
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
@@ -42,4 +41,6 @@ catch (Exception e) {
 		 
 		  
 	  }
+
 }
+

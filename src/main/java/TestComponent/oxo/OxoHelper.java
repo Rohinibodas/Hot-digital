@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.bcel.generic.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import TestLib.Common;
@@ -13,6 +14,7 @@ import TestLib.Common.SelectBy;
 import TestLib.Sync;
 import Utilities.ExcelReader;
 import Utilities.ExtenantReportUtils;
+import Utilities.MailAPI;
 
 public class OxoHelper {
 
@@ -949,7 +951,7 @@ catch(Exception |Error e) {
 	
 public void closetheadd() throws Exception{
 	
-        Thread.sleep(8000);
+        Thread.sleep(60000);
      // int elementsize=  Common.findElements("xpath", "//h1[contains(@id,'bubbleheader')]").size();
       
      
@@ -962,6 +964,737 @@ public void closetheadd() throws Exception{
     
 	
 	}
+ public void ForgotPassword(String dataset) throws Exception {
+	 
+	 
+	 Thread.sleep(3000);
+		try{
+		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
+		Common.findElement("xpath", "//a[@class='social-login']").click();
+		Sync.waitElementClickable(30, By.id("email"));
+		if(Common.findElement("id", "email")==null)
+		{
+			Common.mouseOverClick("xpath", "//a[@class='social-login']");
+			Thread.sleep(3000);
+		}
+		ExtenantReportUtils.addPassLog("verifying Sign in link","lands on sign page", "User lands on the sign popup", Common.getscreenShotPathforReport("signpopf"));
+		}
+		  catch(Exception |Error e) {
+		 		ExtenantReportUtils.addFailedLog("verifying Sign in link","lands on sign popup", "User failed lands on sign popup", Common.getscreenShotPathforReport("signpopf"));
+		 		Assert.fail();
+		 		
+		 	}
+	 
+	Thread.sleep(3000);
+	String expectedResult="Forgot password pop up is displayed to customer";
+	try{
+	Common.clickElement("xpath","//a[@class='action remind']");
+	Thread.sleep(3000);
+	Common.textBoxInput("id", "email_address_forgot",data.get(dataset).get("Email"));
+	Common.clickElement("id","bnt-social-login-forgot");
+	Thread.sleep(5000);
+	String message=Common.getText("xpath", "//div[contains(@class,'message-success')]/div");
+	System.out.println(message);
+	int size=Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();
+	//int size=Common.findElements("xpath", "//input[@id='email_address_forgot']").size();
+//	Common.assertionCheckwithReport(size>0, "verifying forgetpassword option", expectedResult,"Successfully Forgot password pop up is displayed to customer", "User faield to get  Forgot password pop");
+	Common.assertionCheckwithReport(size>0, "verifying forgetpassword option", expectedResult,"Successfully Forgot password pop up is displayed to customer", "User faield to get  Forgot password pop");
+    }
+        catch(Exception |Error e) {
+        	e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying forgetpassword option","clcik the forget password option", "User failed to clcik the forget password button", Common.getscreenShotPathforReport("forgetpasswordbuttonfaield"));
+		Assert.fail();
+	}
+	
+	/*String emailID="mahendra.lotuswave@gmail.com";
+	String password="Mahendra@123";
+	String fromAddress="Akhil Meesarakonda <meesarakonda.akhil9@gmail.com>";
+	String toAddress="Mahendra.lotuswave@gmail.com";
+	String subject="Fwd: Reset your OXO password";
+	String content="Set a New Password";*/
+	
+	System.out.println(data.get(dataset).get("Email"));
+	System.out.println(data.get(dataset).get("Password"));
+	System.out.println(data.get(dataset).get("fromAddress"));
+	System.out.println(data.get(dataset).get("toAddress"));
+	System.out.println(data.get(dataset).get("subject"));
+	System.out.println(data.get(dataset).get("content"));
+	
+	try{
+	String email=MailAPI.gmailAPI(data.get(dataset).get("Email"),data.get(dataset).get("Password"),data.get(dataset).get("fromAddress"), data.get(dataset).get("toAddress"), data.get(dataset).get("subject"), data.get(dataset).get("content"));
+	System.out.println(email.split("Set a New Password")[1].split("<")[1].split(">")[0].trim());
+	
+	}
+	
+	catch(Exception |Error e) {
+    	e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("verifying forgetpassword email","clcik the forget password link in email", "User not getting EMail", Common.getscreenShotPathforReport("emailFaield"));
+	Assert.fail();
+	}
+	
+}
+
+
+
+
+//span[@class='customer-name active']
+
+ 
+ public void ProductRegistration() throws InterruptedException {
+ 	Thread.sleep(3000);
+ 	try {
+ 	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14883']");
+ 	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14883']"));
+ 	ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+ 	Common.clickElement("xpath","//a[@data-menu='menu-14883']");
+ 	Thread.sleep(3000);
+ 	WebElement element=Common.findElement("xpath","//h2[contains(text(),'Select your product')]");
+ 	String text=element.getText();
+ 	if(text.contains("Select your product")){
+       ExtenantReportUtils.addPassLog("Validating Webtext of Product Registration Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("ProductRegistrationText") );
+       }
+   else{
+         ExtenantReportUtils.addFailedLog("Validating Webelement of Product Registration Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Product Registration");
+          Assert.fail();            
+      }
+ 	}
+ 	 catch(Exception e) {
+  		ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Product Registration");
+  		Assert.fail();    
+  	 }
+ 	
+ 	
+	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "Product Registration URL should Contains https", "Product Registration URL contains https", "Product Registration URL missing https");
+	   Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/productregistration")&&Common.getPageTitle().equals("Product Registration"));
+       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/productregistration")&&Common.getPageTitle().equals("Product Registration"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+ 
+ 	
+    
+ }
+ 
+ public void ContactUS() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14881']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14881']"));
+	   	ExtenantReportUtils.addPassLog("Validating ContactUS Link","ContactUS link should be present" ,"ContactUS Link is present",Common.getscreenShotPathforReport("ContactUSLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14881']");
+	   	
+	    WebElement element=Common.findElement("xpath","//h2[contains(text(),'Email us')]");
+	    String text=element.getText();
+	  
+	    if(text.contains("Email us"))
+	                {
+	    	       
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of ContactUS Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("ContactUSText") );
+	                }
+	    	 else{
+	               
+	               ExtenantReportUtils.addFailedLog("Validating Webelement of ContactUS Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation ContactUS");
+	               Assert.fail(); 
+	    	 }
+	    
+		}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of ContactUS Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation ContactUS");
+	    	   Assert.fail(); 
+	       }
+	    
+	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "ContactUS URL should Contains https", "ContactUS URL contains https", "ContactUS URL missing https");	
+	   // Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+		 Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/contact-us")&&Common.getPageTitle().equals("Contact Us"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	}
+	   	
+	      
+ public void FAQ() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14882']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14882']"));
+	   	ExtenantReportUtils.addPassLog("Validating FAQ Link","FAQ link should be present" ,"FAQ Link is present",Common.getscreenShotPathforReport("FAQLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating FAQ Link","FAQ link should be able to click" ,"Clicked on PFAQ Link",Common.getscreenShotPathforReport("FAQ Link"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14882']");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Frequently Asked Questions')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is..."+text);
+	    if(text.contains("Frequently Asked Questions"))
+	                {
+	    	        System.out.println("Expected text is obtained");
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of FAQ Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("FAQText") );
+	                }
+	    	 else{
+	              System.out.println("Expected text is not obtained");
+	              ExtenantReportUtils.addFailedLog("Validating Webelement of FAQ Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation FAQ");
+	              Assert.fail();
+	    	 }}
+	    catch(Exception e) {
+	    	  ExtenantReportUtils.addFailedLog("Validating Webelement of FAQ Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation FAQ");
+              Assert.fail();
+	       }
+
+	    
+	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "FAQ URL should Contains https", "FAQ URL contains https", "FAQ URL missing https");	
+	   // Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+			
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/faq")&&Common.getPageTitle().equals("FAQ"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/faq")&&Common.getPageTitle().equals("FAQ"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	}
+	   	
+ public void VoluntaryRecall() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14884']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14884']"));
+	   	ExtenantReportUtils.addPassLog("Validating VoluntaryRecall Link","VoluntaryRecall link should be present" ,"VoluntaryRecall Link is present",Common.getscreenShotPathforReport("VoluntaryRecallLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14884']");
+			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Tot Nest Booster Seat Voluntary Recall')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is"+   text);
+	    if(text.contains("Tot Nest Booster Seat Voluntary Recall"))
+	                {
+	            	 System.out.println("Expected text is obtained");
+	            	 ExtenantReportUtils.addPassLog("Validating Webtext of VoluntaryRecall Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("VoluntaryRecallText") );
+	                }
+	    	 else{
+	             System.out.println("Expected text is not obtained");
+	             ExtenantReportUtils.addFailedLog("Validating Webelement of VoluntaryRecall Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation VoluntaryRecall");
+	         Assert.fail();    
+	    	 }
+	    
+		}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of VoluntaryRecall Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation VoluntaryRecall");
+	    	   Assert.fail(); 
+	       }
+	      Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "VoluntaryRecall URL should Contains https", "VoluntaryRecall URL contains https", "VoluntaryRecall URL missing https");
+		  Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/product-recall")&&Common.getPageTitle().equals("Product Recall"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   
+	   }
+ public void PrivacyPolicy() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14885']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14885']"));
+		ExtenantReportUtils.addPassLog("Validating PrivacyPolicy Link","PrivacyPolicy link should be present" ,"PrivacyPolicy Link is present",Common.getscreenShotPathforReport("PrivacyPolicyLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14885']");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Privacy Policy')]");
+	    	    String text=element.getText();
+	    	    System.out.println("Text Obtained is"+   text);
+	    	    if(text.contains("Privacy Policy"))
+	    	                {
+	    	    	        System.out.println("Expected text is obtained");
+	    	    	        ExtenantReportUtils.addPassLog("Validating Webtext of PrivacyPolicy Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("PrivacyPolicyText") );
+	    	                }
+	    	    	 else{
+	    	             System.out.println("Expected text is not obtained");
+	    	             ExtenantReportUtils.addFailedLog("Validating Webelement of PrivacyPolicy Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation PrivacyPolicy");
+	    	             Assert.fail();    
+	    	    	 }
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of PrivacyPolicy Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation PrivacyPolicy");
+	    	   Assert.fail();
+	    	   
+	       }
+	    	    
+	    	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "PrivacyPolicy URL should Contains https", "PrivacyPolicy URL contains https", "PrivacyPolicy URL missing https");
+			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+			
+	     // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/privacy")&&Common.getPageTitle().equals("Privacy Policy"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/privacy")&&Common.getPageTitle().equals("Privacy Policy"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+ public void TermsandConditions() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14886']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14886']"));
+	   	ExtenantReportUtils.addPassLog("TermsandConditions Link","TermsandConditions link should be present" ,"TermsandConditions Link is present",Common.getscreenShotPathforReport("TermsandConditionsLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14886']");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Terms & Conditions')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is"+   text);
+	    if(text.contains("Terms & Conditions"))
+	                {
+	    	        System.out.println("Expected text is obtained");
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of TermsandConditions Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("TermsandConditionsText") );
+	                }
+	    	 else{
+	             System.out.println("Expected text is not obtained");
+	             ExtenantReportUtils.addFailedLog("Validating Webelement of TermsandConditions Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation TermsandConditions");
+	             Assert.fail();    
+	    	 }
+	    
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of TermsandConditions Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation TermsandConditions");
+	    	   Assert.fail();
+	       }
+	    
+	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "TermsandConditions URL should Contains https", "TermsandConditions URL contains https", "TermsandConditions URL missing https");
+	   	   //Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+		
+	     //  Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/Terms")&&Common.getPageTitle().equals("Terms and Conditions"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/Terms")&&Common.getPageTitle().equals("Terms and Conditions"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+ public void TrackOrder() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14888']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14888']"));
+	   	ExtenantReportUtils.addPassLog("TrackOrder Link","TrackOrder link should be present" ,"TrackOrder Link is present",Common.getscreenShotPathforReport("TrackOrderLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14888']");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Track Order')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is..."+   text);
+	    if(text.contains("Track Order"))
+	                {
+	    	        System.out.println("Expected text is obtained");
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of TrackOrder Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("TrackOrderText") );
+	                }
+	    	 else{
+	               System.out.println("Expected text is not obtained");
+	               ExtenantReportUtils.addFailedLog("Validating Webelement of TrackOrder Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation TrackOrder");
+	               Assert.fail();
+	    	 }	
+	    
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of TrackOrder Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation TrackOrder");
+	         Assert.fail();
+	       }
+	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "TrackOrder URL should Contains https", "TrackOrder URL contains https", "TrackOrder URL missing https");
+	   	//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+			System.out.println(Common.getPageTitle());
+	       System.out.println(Common.getCurrentURL());
+	    //  Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/sales/guest/form/")&&Common.getPageTitle().equals("Orders and Returns"));
+	      Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/sales/guest/form/")&&Common.getPageTitle().equals("Orders and Returns"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+
+
+
+
+ public void ShippingInformation() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14889']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14889']"));
+	   	ExtenantReportUtils.addPassLog("ShippingInformation Link","ShippingInformation link should be present" ,"ShippingInformation Link is present",Common.getscreenShotPathforReport("ShippingInformationLink"));
+	   //ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14889']");
+	    WebElement element=Common.findElement("xpath","//h2[contains(text(),'Shipping Policies')]");
+	     String text=element.getText();
+	     System.out.println("Text Obtained is..."+   text);
+	     if(text.contains("Shipping Policies"))
+	                 {
+	     	         System.out.println("Expected text is obtained");
+	     	         ExtenantReportUtils.addPassLog("Validating Webtext of ShippingInformation Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("ShippingInformationText") );
+	                 }
+	     	 else{
+	             System.out.println("Expected text is not obtained");
+	             ExtenantReportUtils.addFailedLog("Validating Webelement of ShippingInformation Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation ShippingInformation");
+	             Assert.fail();  
+	     	 }	
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of ShippingInformation Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation ShippingInformation");
+	           Assert.fail();
+	       }
+	     Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "ShippingInformation URL should Contains https", "ShippingInformation URL contains https", "ShippingInformation URL missing https");
+	   	  //Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+		   System.out.println(Common.getPageTitle());
+	       System.out.println(Common.getCurrentURL());
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/shipping")&&Common.getPageTitle().equals("Shipping"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/shipping")&&Common.getPageTitle().equals("Shipping"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+ public void BetterGuarantee() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14890']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14890']"));
+	   	ExtenantReportUtils.addPassLog("BetterGuarantee Link","BetterGuarantee link should be present" ,"BetterGuarantee Link is present",Common.getscreenShotPathforReport("BetterGuaranteeLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14890']");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'The OXO Better Guarantee*')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is..."+   text);
+	    if(text.contains("The OXO Better Guarantee*"))
+	                {
+	    	        System.out.println("Expected text is obtained");
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of BetterGuarantee Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("BetterGuaranteeText") );
+	                }
+	    	 else{
+	             System.out.println("Expected text is not obtained");
+	             
+	             ExtenantReportUtils.addFailedLog("Validating Webelement of BetterGuarantee Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation BetterGuarantee");
+	             Assert.fail();    
+	    	 }	
+	    
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of BetterGuarantee Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation BetterGuarantee");
+	             Assert.fail();
+	       }
+	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "BetterGuarantee URL should Contains https", "BetterGuarantee URL contains https", "BetterGuarantee URL missing https");
+	  // 	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+			System.out.println(Common.getPageTitle());
+	       System.out.println(Common.getCurrentURL());
+	    //   Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/guarantee")&&Common.getPageTitle().equals("The OXO Better Guarantee"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/guarantee")&&Common.getPageTitle().equals("The OXO Better Guarantee"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+ public void GoodTipsBlog() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14892']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14892']"));
+	   	ExtenantReportUtils.addPassLog("GoodTipsBlog Link","GoodTipsBlog link should be present" ,"GoodTipsBlog Link is present",Common.getscreenShotPathforReport("GoodTipsBlogLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14892']");
+	   	Thread.sleep(5000);
+	   	//Common.switchWindows();
+	   	Sync.waitElementPresent("Xpath", "//h1[contains(text(),'Good Tips')]");
+	    WebElement element=Common.findElement("xpath","//h1[contains(text(),'Good Tips')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is..."+   text);
+	    if(text.contains("Good Tips"))
+	                {
+	    	        System.out.println("Expected text is obtained");
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of GoodTipsBlog Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("GoodTipsBlogText") );
+	                }
+	    	 else{
+	                      System.out.println("Expected text is not obtained");
+	                      ExtenantReportUtils.addFailedLog("Validating Webelement of GoodTipsBlog Page", "Expected text should not be obtained","Expected text is not obtained", "GoodTipsBlog Product Registration");
+	         Assert.fail();            
+	    	 }
+	    
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of GoodTipsBlog Page", "Expected text should not be obtained","Expected text is not obtained", "GoodTipsBlog Product Registration");
+		         Assert.fail();
+	       }
+	   	Thread.sleep(2000);
+	   	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "GoodTipsBlog URL should Contains https", "GoodTipsBlog URL contains https", "GoodTipsBlog URL missing https");
+			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+			System.out.println(Common.getPageTitle());
+	       System.out.println(Common.getCurrentURL());
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/blog/")&&Common.getPageTitle().equals("OXO Good Tips - The OXO Blog"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/blog/")&&Common.getPageTitle().equals("OXO Good Tips - The OXO Blog"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+
+
+ 
+	
+	public void InventorSubmissions() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14893']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14893']"));
+	   	ExtenantReportUtils.addPassLog("InventorSubmissions Link","InventorSubmissions link should be present" ,"InventorSubmissions Link is present",Common.getscreenShotPathforReport("InventorSubmissionsLink"));
+	   //	ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14893']");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Inventor Submission')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is..."+   text);
+	    if(text.contains("Inventor Submission"))
+	                {
+	    	        System.out.println("Expected text is obtained");
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of InventorSubmissions Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("InventorSubmissionsText") );
+	                }
+	    	 else{
+	              System.out.println("Expected text is not obtained");
+	              ExtenantReportUtils.addFailedLog("Validating Webelement of InventorSubmissions Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation InventorSubmissions");
+	             Assert.fail();     
+	    	 }	
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of InventorSubmissions Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation InventorSubmissions");
+	             Assert.fail();    
+	       }
+	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "InventorSubmissions URL should Contains https", "InventorSubmissions URL contains https", "InventorSubmissions URL missing https");
+	   //	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+			System.out.println(Common.getPageTitle());
+	       System.out.println(Common.getCurrentURL());
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/inventor")&&Common.getPageTitle().equals("Inventor Submission"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/inventor")&&Common.getPageTitle().equals("Inventor Submission"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+	
+	public void Careers() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14894']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14894']"));
+	   	ExtenantReportUtils.addPassLog("Careers Link","Careers link should be present" ,"Careers Link is present",Common.getscreenShotPathforReport("CareersLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14894']");
+	   	Thread.sleep(2000);
+	   	Common.switchWindows();
+	   	Sync.waitElementPresent("xpath", "//span[contains(text(),'Search for Jobs')]");
+	     WebElement element=Common.findElement("xpath","//span[contains(text(),'Search for Jobs')]");
+	     String text=element.getText();
+	     System.out.println("Text Obtained is..."+   text);
+	     if(text.contains("Search for Jobs"))
+	                 {
+	     	         System.out.println("Expected text is obtained");
+	     	        ExtenantReportUtils.addPassLog("Validating Webtext of Careers Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("CareersText") );
+	                 }
+	     	 else{
+	             System.out.println("Expected text is not obtained");
+	             ExtenantReportUtils.addFailedLog("Validating Webelement of Careers Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Careers");
+	     Assert.fail();
+	     	 }
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of Careers Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Careers");
+	  	     Assert.fail();
+	       }
+	   	Thread.sleep(2000);
+	   	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "Careers URL should Contains https", "Careers URL contains https", "Careers URL missing https");
+			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+		
+	       Thread.sleep(6000);
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://helenoftroy.wd1.myworkdayjobs.com/Main_HoT")&&Common.getPageTitle().equals("Search for Jobs"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://helenoftroy.wd1.myworkdayjobs.com/Main_HoT")&&Common.getPageTitle().equals("Search for Jobs"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+
+
+	public void InvestorRelations() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14895']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14895']"));
+	   	ExtenantReportUtils.addPassLog("InvestorRelations Link","InvestorRelations link should be present" ,"InvestorRelations Link is present",Common.getscreenShotPathforReport("InvestorRelationsLink"));
+	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14895']");
+	   	Thread.sleep(2000);
+	   	Common.switchWindows();
+	   	//Thread.sleep(4000);
+	   	Sync.waitElementPresent("xpath", "//span[contains(text(),'Why Helen of Troy')]");
+	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Why Helen of Troy')]");
+	    String text=element.getText();
+	    System.out.println("Text Obtained is..."+   text);
+	    if(text.contains("Why Helen of Troy"))
+	                {
+	    	        System.out.println("Expected text is obtained");
+	    	        ExtenantReportUtils.addPassLog("Validating Webtext of InvestorRelations Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("InvestorRelationsText") );
+	                }
+	    	 else{
+	              System.out.println("Expected text is not obtained");
+	              ExtenantReportUtils.addFailedLog("Validating Webelement of InvestorRelations Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation InvestorRelations");
+	         Assert.fail();    
+	    	 }
+	   	}
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of InvestorRelations Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation InvestorRelations");
+		         Assert.fail();
+	       }
+	    
+	         Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "InvestorRelations URL should Contains https", "InvestorRelations URL contains https", "InvestorRelations URL missing https");
+			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+			System.out.println(Common.getPageTitle());
+	       System.out.println(Common.getCurrentURL());
+	       Thread.sleep(3000);
+	    //   Assert.assertTrue(Common.getCurrentURL().equals("https://investor.helenoftroy.com/overview/default.aspx")&&Common.getPageTitle().equals("Helen of Troy Limited - Overview"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://investor.helenoftroy.com/overview/default.aspx")&&Common.getPageTitle().equals("Helen of Troy Limited - Overview"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	
+	   }
+
+
+
+
+
+	public void Instagram() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11486']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11486']"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-11486']");
+	   	Thread.sleep(2000);
+		Common.switchWindows();
+	   	Thread.sleep(3000);
+	   	WebElement element=Common.findElement("xpath","//h2[contains(text(),'oxo')]");
+	   	String text=element.getText();
+	   	System.out.println("Text Obtained is"+   text);
+	   	if(text.contains("oxo")){
+	   			
+	                 System.out.println("Expected text is obtained");
+	                 ExtenantReportUtils.addPassLog("Validating Webelement of Instagram Page", "Expected text should be obtained","Expected text is obtained", "Instagram LinkValidation ");
+	               }
+	   	         else{
+	                     System.out.println("Expected text is not obtained");
+	                     ExtenantReportUtils.addFailedLog("Validating Webelement of Instagram Page", "Expected text should not be obtained","Expected text is not obtained", "Instagram LinkValidation");
+	                     }
+		   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+		   System.out.println(Common.getPageTitle());
+	      System.out.println(Common.getCurrentURL());
+	      Assert.assertTrue(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
+	      //Common.assertionCheckwithReport(status, description, expectedResult, actualResult, FailedMessage);
+	   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	//ExtenantReportUtils.addPassLog("Validating URL and PageTitle", "Actual and Current URL should be equal", "Both actual and current URL are equal", "Validation Of ProductRegistration");
+	   	}
+	   	
+	       catch(Exception e) {
+	       	e.printStackTrace();
+	       }
+	   }
+	public void YouTube() throws InterruptedException {
+	   	Thread.sleep(3000);
+	   	try {
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11489']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11489']"));
+	   	ExtenantReportUtils.addPassLog("Validating YouTube Link","" ,"",Common.getscreenShotPathforReport("YouTubeLink"));
+	   	Common.clickElement("xpath","//a[@data-menu='menu-11489']");
+	   	
+	   	Thread.sleep(2000);
+		Common.switchWindows();
+	   	Thread.sleep(3000);
+	   	}
+	   	/*WebElement element=Common.findElement("xpath","//div[contains(text(),'Playlists')]");
+	   	String text=element.getText();
+	   	System.out.println("Text Obtained is"+   text);
+	   	if(text.contains("Playlists")){
+	  	                 ExtenantReportUtils.addPassLog("Validating Webelement of YouTube Channel", "Expected text should be obtained","Expected text is obtained", "YouTube LinkValidation ");
+	               }
+	   	         else{
+	                     ExtenantReportUtils.addFailedLog("Validating Webelement of YouTube Channel", "Expected text should not be obtained","Expected text is not obtained", "YouTube LinkValidation");
+	                     Assert.fail();
+	   	         }
+	   	}*/
+	   	
+	       catch(Exception e) {
+	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of YouTube Channel", "Expected text should not be obtained","Expected text is not obtained", "YouTube LinkValidation");
+	    	   Assert.fail();
+	    
+	       }
+	      	//Assert.assertTrue(Common.getCurrentURL().contains("https"));
+		   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+		   System.out.println(Common.getPageTitle());
+	      System.out.println(Common.getCurrentURL());
+	     // Assert.assertTrue(Common.getCurrentURL().equals("https://www.youtube.com/oxo")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
+	    
+	   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.youtube.com/oxo")&&Common.getPageTitle().equals("OXO - YouTube"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   }
+
+public void logOut() throws Exception{
+		
+		Thread.sleep(5000);
+	try{
+		
+	
+		Sync.waitElementPresent("xpath", "//span[@class='customer-name']");
+		Common.mouseOverClick("xpath", "//span[@class='customer-name']");
+		Thread.sleep(5000);
+		Sync.waitElementPresent("xpath", "//li[contains(@class,'customer-welcome')]//li[2]/a");
+		Common.mouseOverClick("xpath", "//li[contains(@class,'customer-welcome')]//li[2]/a");
+		ExtenantReportUtils.addPassLog("verifying logoout","Log out from aplication", "User log out from aplication", Common.getscreenShotPathforReport("logout"));
+		
+	}
+	 catch(Exception |Error e) {
+ 		ExtenantReportUtils.addFailedLog("verifying logoout","user log from application", "User failed to log out from aplication", Common.getscreenShotPathforReport("logoutfailed"));
+ 		Assert.fail();
+ 		
+ 	}    
+	/*	Thread.sleep(3000);
+		int sizemessage=Common.findElements("xpath", "//div[@class='customer-logout-success-message']").size();
+		
+		Common.assertionCheckwithReport(sizemessage>0, "Successfully Log out from aplication", expectedResult,"User unabel logoutappliaction");*/
+		
+		}
+
+	
+public void pinterest() throws InterruptedException {
+   	Thread.sleep(3000);
+   	try {
+   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11488']");
+   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11488']"));
+   	Common.clickElement("xpath","//a[@data-menu='menu-11488']");
+   	Thread.sleep(2000);
+	Common.switchWindows();
+   	Thread.sleep(3000);
+   	WebElement element=Common.findElement("xpath","//span[contains(text(),'Following')]");
+   	String text=element.getText();
+   	System.out.println("Text Obtained is"+   text);
+   	if(text.contains("Following")){
+                 ExtenantReportUtils.addPassLog("Validating Webtext of pinterest", "Expected text should be obtained","Expected text is obtained", "pinterest LinkValidation ");
+               }
+   	         else{
+                     ExtenantReportUtils.addFailedLog("Validating Webtext of pinterest", "Expected text should not be obtained","Expected text is not obtained", "pinterest LinkValidation");
+                     Assert.fail();
+   	         }
+   	}
+   	
+       catch(Exception e) {
+    	   ExtenantReportUtils.addFailedLog("Validating Webtext of pinterest", "Expected text should not be obtained","Expected text is not obtained", "pinterest LinkValidation");
+    	   Assert.fail();
+       }
+	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+      Assert.assertTrue(Common.getCurrentURL().equals("https://in.pinterest.com/oxo/_shop/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"));
+   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://in.pinterest.com/oxo/_shop/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+   }
+
+
+public void Twitter() throws InterruptedException {
+   	Thread.sleep(3000);
+   	try {
+   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11490']");
+   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11490']"));
+   	Common.clickElement("xpath","//a[@data-menu='menu-11490']");
+   	Thread.sleep(2000);
+	Common.switchWindows();
+   	Thread.sleep(3000);
+   	WebElement element=Common.findElement("xpath","//span[contains(text(),'New to Twitter?')]");
+   	String text=element.getText();
+   	System.out.println("Text Obtained is"+   text);
+   	if(text.contains("New to Twitter?")){
+                 ExtenantReportUtils.addPassLog("Validating Webelement of Twitter Page", "Expected text should be obtained","Expected text is obtained", "Twitter LinkValidation ");
+               }
+   	         else{
+                     ExtenantReportUtils.addFailedLog("Validating Webelement of Twitter Page", "Expected text should not be obtained","Expected text is not obtained", "Twitter LinkValidation");
+                     Assert.fail();
+                     }
+          	}
+   	
+       catch(Exception e) {
+    	   ExtenantReportUtils.addFailedLog("Validating Webelement of Twitter Page", "Expected text should not be obtained","Expected text is not obtained", "Twitter LinkValidation");
+    	   Assert.fail();
+       }
+	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "given url contains https", "give url missing  https");
+      Assert.assertTrue(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
+    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+  
+}
+
+ 
+
 
 	
 	public  OxoHelper(String datafile)
