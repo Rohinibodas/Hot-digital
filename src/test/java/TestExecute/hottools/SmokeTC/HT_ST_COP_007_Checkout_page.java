@@ -47,7 +47,7 @@ public class HT_ST_COP_007_Checkout_page {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn("firefox");
 		  
 	  }*/
 
