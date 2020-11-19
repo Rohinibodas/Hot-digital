@@ -2,15 +2,11 @@ package TestComponent.oxo;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.bcel.generic.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import TestLib.Common;
-import TestLib.Common.SelectBy;
 import TestLib.Sync;
 import Utilities.ExcelReader;
 import Utilities.ExtenantReportUtils;
@@ -27,6 +23,27 @@ public class OxoHelper {
 	{
 		
 	}*/	
+	
+	
+	public void clickLogo(){
+		try{
+			Thread.sleep(3000);
+		String url=	Common.getCurrentURL();
+		if(url.contains("blog")){
+			Sync.waitPresenceOfElementLocated("xpath", "//img[@alt='oxo']");
+			Common.clickElement("xpath", "//img[@alt='oxo']");
+			
+		}
+		Sync.waitPresenceOfElementLocated("xpath", "//img[@title='OXO']");
+		Common.clickElement("xpath", "//img[@title='OXO']");
+		}
+		  catch(Exception |Error e) {
+			  e.printStackTrace();
+		 		ExtenantReportUtils.addFailedLog("verifying logo button","click logo button land on home page", "User failed to click logo", Common.getscreenShotPathforReport("oxologo"));
+		 		Assert.fail();
+		 		
+		 	}
+	}
 	
 	public void CreateNewAccount(String dataSet) throws Exception
 	{
@@ -951,7 +968,7 @@ catch(Exception |Error e) {
 	
 public void closetheadd() throws Exception{
 	
-        Thread.sleep(60000);
+        Thread.sleep(30000);
      // int elementsize=  Common.findElements("xpath", "//h1[contains(@id,'bubbleheader')]").size();
       
      
@@ -1065,7 +1082,7 @@ public void closetheadd() throws Exception{
  	
  	
 	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "Product Registration URL should Contains https", "Product Registration URL contains https", "Product Registration URL missing https");
-	   Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/productregistration")&&Common.getPageTitle().equals("Product Registration"));
+	   //Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/productregistration")&&Common.getPageTitle().equals("Product Registration"));
        Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/productregistration")&&Common.getPageTitle().equals("Product Registration"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
  
  	
@@ -1074,6 +1091,7 @@ public void closetheadd() throws Exception{
  
  public void ContactUS() throws InterruptedException {
 	   	Thread.sleep(3000);
+	   	clickLogo();
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14881']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14881']"));
@@ -1365,6 +1383,7 @@ public void closetheadd() throws Exception{
 
  public void GoodTipsBlog() throws InterruptedException {
 	   	Thread.sleep(3000);
+	   	clickLogo();
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14892']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14892']"));
@@ -1372,7 +1391,7 @@ public void closetheadd() throws Exception{
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
 	   	Common.clickElement("xpath","//a[@data-menu='menu-14892']");
 	   	Thread.sleep(5000);
-	   	//Common.switchWindows();
+	
 	   	Sync.waitElementPresent("Xpath", "//h1[contains(text(),'Good Tips')]");
 	    WebElement element=Common.findElement("xpath","//h1[contains(text(),'Good Tips')]");
 	    String text=element.getText();
@@ -1410,6 +1429,7 @@ public void closetheadd() throws Exception{
 	
 	public void InventorSubmissions() throws InterruptedException {
 	   	Thread.sleep(3000);
+	 	clickLogo();
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14893']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14893']"));
@@ -1446,6 +1466,7 @@ public void closetheadd() throws Exception{
 	
 	public void Careers() throws InterruptedException {
 	   	Thread.sleep(3000);
+	 	clickLogo();
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14894']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14894']"));
@@ -1466,13 +1487,15 @@ public void closetheadd() throws Exception{
 	     	 else{
 	             System.out.println("Expected text is not obtained");
 	             ExtenantReportUtils.addFailedLog("Validating Webelement of Careers Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Careers");
-	     Assert.fail();
+	             Common.switchToFirstTab();
+	             Assert.fail();
 	     	 }
 	   	}
 	   	
 	       catch(Exception e) {
 	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of Careers Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Careers");
-	  	     Assert.fail();
+	    	   Common.switchToFirstTab();
+	    	   Assert.fail();
 	       }
 	   	Thread.sleep(2000);
 	   	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "Careers URL should Contains https", "Careers URL contains https", "Careers URL missing https");
@@ -1481,13 +1504,14 @@ public void closetheadd() throws Exception{
 	       Thread.sleep(6000);
 	      // Assert.assertTrue(Common.getCurrentURL().equals("https://helenoftroy.wd1.myworkdayjobs.com/Main_HoT")&&Common.getPageTitle().equals("Search for Jobs"));
 	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://helenoftroy.wd1.myworkdayjobs.com/Main_HoT")&&Common.getPageTitle().equals("Search for Jobs"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
-	   	
+	       Common.switchToFirstTab();
 	   }
 
 
 
 	public void InvestorRelations() throws InterruptedException {
 	   	Thread.sleep(3000);
+	 	clickLogo();
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14895']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14895']"));
@@ -1509,101 +1533,28 @@ public void closetheadd() throws Exception{
 	    	 else{
 	              System.out.println("Expected text is not obtained");
 	              ExtenantReportUtils.addFailedLog("Validating Webelement of InvestorRelations Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation InvestorRelations");
-	         Assert.fail();    
+	              Common.switchToFirstTab();
+	              Assert.fail();    
 	    	 }
 	   	}
 	   	
 	       catch(Exception e) {
 	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of InvestorRelations Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation InvestorRelations");
-		         Assert.fail();
-	       }
-	    
-	         Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "InvestorRelations URL should Contains https", "InvestorRelations URL contains https", "InvestorRelations URL missing https");
-			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
-			System.out.println(Common.getPageTitle());
-	       System.out.println(Common.getCurrentURL());
-	       Thread.sleep(3000);
-	    //   Assert.assertTrue(Common.getCurrentURL().equals("https://investor.helenoftroy.com/overview/default.aspx")&&Common.getPageTitle().equals("Helen of Troy Limited - Overview"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://investor.helenoftroy.com/overview/default.aspx")&&Common.getPageTitle().equals("Helen of Troy Limited - Overview"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
-	   	
-	   }
-
-
-
-
-
-	public void Instagram() throws InterruptedException {
-	   	Thread.sleep(3000);
-	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11486']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11486']"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-11486']");
-	   	Thread.sleep(2000);
-		Common.switchWindows();
-	   	Thread.sleep(3000);
-	   	WebElement element=Common.findElement("xpath","//h2[contains(text(),'oxo')]");
-	   	String text=element.getText();
-	   	System.out.println("Text Obtained is"+   text);
-	   	if(text.contains("oxo")){
-	   			
-	                 System.out.println("Expected text is obtained");
-	                 ExtenantReportUtils.addPassLog("Validating Webelement of Instagram Page", "Expected text should be obtained","Expected text is obtained", "Instagram LinkValidation ");
-	               }
-	   	         else{
-	                     System.out.println("Expected text is not obtained");
-	                     ExtenantReportUtils.addFailedLog("Validating Webelement of Instagram Page", "Expected text should not be obtained","Expected text is not obtained", "Instagram LinkValidation");
-	                     }
-		   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
-		   System.out.println(Common.getPageTitle());
-	      System.out.println(Common.getCurrentURL());
-	      Assert.assertTrue(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
-	      //Common.assertionCheckwithReport(status, description, expectedResult, actualResult, FailedMessage);
-	   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
-	   	//ExtenantReportUtils.addPassLog("Validating URL and PageTitle", "Actual and Current URL should be equal", "Both actual and current URL are equal", "Validation Of ProductRegistration");
-	   	}
-	   	
-	       catch(Exception e) {
-	       	e.printStackTrace();
-	       }
-	   }
-	public void YouTube() throws InterruptedException {
-	   	Thread.sleep(3000);
-	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11489']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11489']"));
-	   	ExtenantReportUtils.addPassLog("Validating YouTube Link","" ,"",Common.getscreenShotPathforReport("YouTubeLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-11489']");
-	   	
-	   	Thread.sleep(2000);
-		Common.switchWindows();
-	   	Thread.sleep(3000);
-	   	}
-	   	/*WebElement element=Common.findElement("xpath","//div[contains(text(),'Playlists')]");
-	   	String text=element.getText();
-	   	System.out.println("Text Obtained is"+   text);
-	   	if(text.contains("Playlists")){
-	  	                 ExtenantReportUtils.addPassLog("Validating Webelement of YouTube Channel", "Expected text should be obtained","Expected text is obtained", "YouTube LinkValidation ");
-	               }
-	   	         else{
-	                     ExtenantReportUtils.addFailedLog("Validating Webelement of YouTube Channel", "Expected text should not be obtained","Expected text is not obtained", "YouTube LinkValidation");
-	                     Assert.fail();
-	   	         }
-	   	}*/
-	   	
-	       catch(Exception e) {
-	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of YouTube Channel", "Expected text should not be obtained","Expected text is not obtained", "YouTube LinkValidation");
+	    	   Common.switchToFirstTab();
 	    	   Assert.fail();
-	    
 	       }
-	      	//Assert.assertTrue(Common.getCurrentURL().contains("https"));
-		   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
-		   System.out.println(Common.getPageTitle());
-	      System.out.println(Common.getCurrentURL());
-	     // Assert.assertTrue(Common.getCurrentURL().equals("https://www.youtube.com/oxo")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
 	    
-	   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.youtube.com/oxo")&&Common.getPageTitle().equals("OXO - YouTube"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	       Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "InvestorRelations URL should Contains https", "InvestorRelations URL contains https", "InvestorRelations URL missing https");
+	       Thread.sleep(3000);
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://investor.helenoftroy.com/overview/default.aspx")&&Common.getPageTitle().equals("Helen of Troy Limited - Overview"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   	   Common.switchToFirstTab();
 	   }
 
+
+
+
+
+	
 public void logOut() throws Exception{
 		
 		Thread.sleep(5000);
@@ -1623,12 +1574,77 @@ public void logOut() throws Exception{
  		Assert.fail();
  		
  	}    
-	/*	Thread.sleep(3000);
-		int sizemessage=Common.findElements("xpath", "//div[@class='customer-logout-success-message']").size();
-		
-		Common.assertionCheckwithReport(sizemessage>0, "Successfully Log out from aplication", expectedResult,"User unabel logoutappliaction");*/
-		
+	
 		}
+public void Instagram() throws InterruptedException {
+   	Thread.sleep(3000);
+   	try {
+   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11486']");
+   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11486']"));
+   	Common.clickElement("xpath","//a[@data-menu='menu-11486']");
+   	Thread.sleep(2000);
+	Common.switchWindows();
+   	Thread.sleep(3000);
+   	WebElement element=Common.findElement("xpath","//h2[contains(text(),'oxo')]");
+   	String text=element.getText();
+   	if(text.contains("oxo")){
+   			    ExtenantReportUtils.addPassLog("Validating Webelement of Instagram Page", "Expected text should be obtained","Expected text is obtained", "Instagram LinkValidation ");
+               }
+   	       else{
+                 ExtenantReportUtils.addFailedLog("Validating Webelement of Instagram Page", "Expected text should not be obtained","Expected text is not obtained", "Instagram LinkValidation");
+                 Common.switchToFirstTab();
+                 Assert.fail();        
+   	         }
+           	}
+   	
+       catch(Exception |Error e) {
+    	   ExtenantReportUtils.addFailedLog("Validating Webelement of Instagram Page", "Expected text should not be obtained","Expected text is not obtained", "Instagram LinkValidation");
+           Common.switchToFirstTab();
+    	  
+           }
+	       Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating Instagram URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+           Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"),"Validating Instagram Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+           Common.switchToFirstTab();
+   	
+   }
+public void YouTube() throws InterruptedException {
+   	Thread.sleep(3000);
+   	try {
+   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11489']");
+   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11489']"));
+   	ExtenantReportUtils.addPassLog("Validating YouTube Link","" ,"",Common.getscreenShotPathforReport("YouTubeLink"));
+   	Common.clickElement("xpath","//a[@data-menu='menu-11489']");
+   	
+   	Thread.sleep(2000);
+	Common.switchWindows();
+   	Thread.sleep(3000);
+   	}
+   	/*WebElement element=Common.findElement("xpath","//div[contains(text(),'Playlists')]");
+   	String text=element.getText();
+   	System.out.println("Text Obtained is"+   text);
+   	if(text.contains("Playlists")){
+  	                 ExtenantReportUtils.addPassLog("Validating Webelement of YouTube Channel", "Expected text should be obtained","Expected text is obtained", "YouTube LinkValidation ");
+               }
+   	         else{
+                     ExtenantReportUtils.addFailedLog("Validating Webelement of YouTube Channel", "Expected text should not be obtained","Expected text is not obtained", "YouTube LinkValidation");
+                     Assert.fail();
+   	         }
+   	}*/
+   	
+       catch(Exception e) {
+    	   ExtenantReportUtils.addFailedLog("Validating  of YouTube Channel", "Expected text should not be obtained","Expected text is not obtained", "YouTube LinkValidation");
+    	   Assert.fail();
+    	   Common.switchToFirstTab();
+       }
+      	//Assert.assertTrue(Common.getCurrentURL().contains("https"));
+	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating  YouTube URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+	   System.out.println(Common.getPageTitle());
+      System.out.println(Common.getCurrentURL());
+     // Assert.assertTrue(Common.getCurrentURL().equals("https://www.youtube.com/oxo")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
+    
+   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.youtube.com/oxo")&&Common.getPageTitle().equals("OXO - YouTube"),"Validating Page  YouTube Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+   	Common.switchToFirstTab();  
+}
 
 	
 public void pinterest() throws InterruptedException {
@@ -1656,10 +1672,11 @@ public void pinterest() throws InterruptedException {
     	   ExtenantReportUtils.addFailedLog("Validating Webtext of pinterest", "Expected text should not be obtained","Expected text is not obtained", "pinterest LinkValidation");
     	   Assert.fail();
        }
-	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
-      Assert.assertTrue(Common.getCurrentURL().equals("https://in.pinterest.com/oxo/_shop/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"));
-   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://in.pinterest.com/oxo/_shop/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
-   }
+	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating pinterest URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+      //Assert.assertTrue(Common.getCurrentURL().equals("https://in.pinterest.com/oxo/_shop/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"));
+   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.pinterest.com/oxo/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"),"Validating pinterest Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+   	Common.switchToFirstTab();  
+}
 
 
 public void Twitter() throws InterruptedException {
@@ -1687,13 +1704,282 @@ public void Twitter() throws InterruptedException {
     	   ExtenantReportUtils.addFailedLog("Validating Webelement of Twitter Page", "Expected text should not be obtained","Expected text is not obtained", "Twitter LinkValidation");
     	   Assert.fail();
        }
-	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "given url contains https", "give url missing  https");
-      Assert.assertTrue(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
-    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
-  
+	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating Twitter URL which contains https", "This URL Contains https", "given url contains https", "give url missing  https");
+     // Assert.assertTrue(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
+    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://twitter.com/OXO")&&Common.getPageTitle().equals("OXO (@OXO) / Twitter"),"Validating  Twitter Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+    	
+    	Common.switchToFirstTab();
 }
 
- 
+public void Facebook() throws InterruptedException {
+   	Thread.sleep(3000);
+   	try {
+   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-11487']");
+   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-11487']"));
+   	Common.clickElement("xpath","//a[@data-menu='menu-11487']");
+   	Thread.sleep(2000);
+	Common.switchWindows();
+   	Thread.sleep(3000);
+   	WebElement element=Common.findElement("id","seo_h1_tag");
+   	String text=element.getText();
+   	System.out.println("Text Obtained is"+   text);
+   	if(text.contains("Kitchen/Cooking")){
+   			
+                 System.out.println("Expected text is obtained");
+                 ExtenantReportUtils.addPassLog("Validating Webelement of Facebook Page", "Expected text should be obtained","Expected text is obtained", "Facebook LinkValidation ");
+               }
+   	         else{
+                     System.out.println("Expected text is not obtained");
+                     ExtenantReportUtils.addFailedLog("Validating Webelement of Facebook Page", "Expected text should not be obtained","Expected text is not obtained", "Facebook LinkValidation");
+                    Assert.fail();       
+   	         }
+   	}
+   	
+    catch(Exception e) {
+    	 ExtenantReportUtils.addFailedLog("Validating Webelement of Facebook Page", "Expected text should not be obtained","Expected text is not obtained", "Facebook LinkValidation");
+    	
+    	Assert.fail();
+    }
+      	
+	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating Facebook URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
+	   Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.facebook.com/OXO")&&Common.getPageTitle().equals("OXO - Home | Facebook"),"Validating Facebook Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   Common.switchToFirstTab();
+   	
+   }
+public void myaccountvalidation(){
+try{
+		
+	Sync.waitElementPresent("xpath", "//div[@id='account-nav']//li[1]/a");
+	Common.clickElement("xpath", "//div[@id='account-nav']//li[1]/a");
+	Common.actionsKeyPress(Keys.PAGE_DOWN);
+	Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
+    String accountinfro=Common.getText("xpath", "//h1[@class='page-title']/span");
+	Common.assertionCheckwithReport(accountinfro.equals("Account Dashboard"), "Validating my account option","it open the my account Dashboard", "successfully open the my account Dashboard", "it faield open the myaccount dashboard");
+	}
+	 catch(Exception e) {
+  	   ExtenantReportUtils.addFailedLog("Validating my account option", "it open the my account Dashboard", "it faield open the myaccount dashboard",Common.getscreenShot("faieldmyaccount"));
+  	   Assert.fail();
+     }
+}
+
+
+public void myaOrders(){
+try{
+		
+	Sync.waitElementPresent("xpath", "//div[@id='account-nav']//li[2]/a");
+	Common.clickElement("xpath", "//div[@id='account-nav']//li[2]/a");
+	Common.actionsKeyPress(Keys.PAGE_DOWN);
+	Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
+    String accountinfro=Common.getText("xpath", "//h1[@class='page-title']/span");
+	Common.assertionCheckwithReport(accountinfro.equals("My Orders"), "Validating  my aOrders option","it open the myaOrders Dashboard", "successfully open the myaOrders Dashboard", "it faield open the myaOrders dashboard");
+	}
+	 catch(Exception e) {
+  	   ExtenantReportUtils.addFailedLog("Validating myaOrders option", "it open the myaOrders Dashboard", "it faield open the myaOrders dashboard",Common.getscreenShot("faieldmyaOrders"));
+  	   Assert.fail();
+     }
+}
+/*
+public void myaOrders(){
+try{
+		
+	Sync.waitElementPresent("xpath", "//div[@id='account-nav']//li[3]/a");
+	Common.clickElement("xpath", "//div[@id='account-nav']//li[3]/a");
+	Common.actionsKeyPress(Keys.PAGE_DOWN);
+	Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
+    String accountinfro=Common.getText("xpath", "//h1[@class='page-title']/span");
+	Common.assertionCheckwithReport(accountinfro.equals("My Orders"), "Validating  my aOrders option","it open the myaOrders Dashboard", "successfully open the myaOrders Dashboard", "it faield open the myaOrders dashboard");
+	}
+	 catch(Exception e) {
+  	   ExtenantReportUtils.addFailedLog("Validating myaOrders option", "it open the myaOrders Dashboard", "it faield open the myaOrders dashboard",Common.getscreenShot("faieldmyaOrders"));
+  	   Assert.fail();
+     }
+}*/
+public void pagewalidation() throws Exception{
+	
+	Thread.sleep(5000);
+try{
+	
+
+	Sync.waitElementPresent("xpath", "//span[@class='customer-name']");
+	Common.mouseOverClick("xpath", "//span[@class='customer-name']");
+	Thread.sleep(5000);
+	Sync.waitElementPresent("xpath", "//li[contains(@class,'customer-welcome')]//li[1]/a");
+	Common.mouseOverClick("xpath", "//li[contains(@class,'customer-welcome')]//li[1]/a");
+	ExtenantReportUtils.addPassLog("verifying logoout","Log out from aplication", "User log out from aplication", Common.getscreenShotPathforReport("logout"));
+	
+}
+ catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("verifying logoout","user log from application", "User failed to log out from aplication", Common.getscreenShotPathforReport("logoutfailed"));
+		Assert.fail();
+		
+	}    
+    }
+
+
+///////////////////////////**********//////////////
+
+public void clickGoodTipsBlog(){
+	 String expectedResult="It Should be navigate Goodtipsblog page";
+	try{
+		Thread.sleep(5000);
+		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15196']");
+		Common.clickElement("xpath", "//a[@data-menu='menu-15196']");
+	   //Common.assertionCheckwithReport(Common.getCurrentURL().equals(data.get(dataSet).get("URL"))&&Common.getPageTitle().equals(data.get(dataSet).get("pageTitle")),"Validating  GoodTipsBlog page Title and URL", "it navigating to GoodTipsBlog page", "user navigated to GoodTipsBlog Page", "user faield to navigate to good tipes blog");
+		ExtenantReportUtils.addPassLog("validating the GoodTipsBlog page.", expectedResult, "user click the GoodTipsblog", Common.getscreenShotPathforReport("passgood"));
+	}
+   catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog page.", expectedResult, "user failed to navigate GoodTipsBlog",Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
+		    Assert.fail();
+		}
+	
+}
+
+public void signButton_GoodTipsBlog() throws Exception{
+    Thread.sleep(4000);
+	String expectedResult="click the sign button navigating to signpage";
+	try{
+	Sync.waitElementClickable("xpath", "//a[@class='sign-in mob-hidden']");
+	Common.clickElement("xpath","//a[@class='sign-in mob-hidden']");
+	Sync.waitElementPresent("xpath", "//input[@id='email-social']");
+    int emailsize=Common.findElements("xpath", "//input[@id='email-social']").size();
+	
+    Common.assertionCheckwithReport(emailsize>0, "validating the signButton", expectedResult, "user successfully click the sign button", "Faield to click the signbutton");
+	}
+	 catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog sign button.", expectedResult, "user failed to navigate GoodTipsBlog",Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
+		    Assert.fail();
+		}
+}
+public void login_GoodTipsBlog(String dataSet) throws Exception{
+	
+	
+	clickGoodTipsBlog();
+	signButton_GoodTipsBlog();
+	try{
+		Common.textBoxInput("xpath", "//input[@id='email-social']",data.get(dataSet).get("Email"));
+		Common.textBoxInput("xpath", "//input[@id='pass-social']",data.get(dataSet).get("Password"));
+		
+		ExtenantReportUtils.addPassLog("verifying login page with fieldData", "User enter the FieldData", "successfully enter the data", Common.getscreenShotPathforReport("logindatagood"));
+	    Sync.waitPageLoad();
+	    Thread.sleep(8000);
+		Common.clickElement("xpath", "//button[contains(@class,'login primary')]");
+		Thread.sleep(8000);
+		int errormessagetextSize= Common.findElements("xpath", "//div[contains (text(),'required')]").size();
+		if(errormessagetextSize<=0){
+		}
+		else{
+			
+			ExtenantReportUtils.addFailedLog("verifying login page with fieldData", "see the fields populated with the data", "User failed to proceed login form", Common.getscreenShotPathforReport("logindata"));
+			Assert.fail();
+		}
+		
+		
+}
+
+catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("verifying login page","lands on sign popup", "User failed lands on sign popup", Common.getscreenShotPathforReport("signpoptt"));
+		Assert.fail();
+		
+	}
+}
+
+public void CreateAccount_GoodTipsBlog(String dataSet) throws Exception{
+	clickGoodTipsBlog();
+	signButton_GoodTipsBlog();
+	Thread.sleep(5000);
+	try{
+	Sync.waitElementClickable(30, By.xpath("//a[@class='action create primary']"));
+	Common.clickElement("xpath", "//a[@class='action create primary']");
+	
+	ExtenantReportUtils.addPassLog("verifying Create account button","lands on the Creating account popup", "User successfully lands createaccount popup", Common.getscreenShotPathforReport("creatnow"));
+	}
+	catch(Exception |Error e) {
+ 		ExtenantReportUtils.addFailedLog("verifying Create account button","lands on the  Creating account", "User failed lands Creating account popup", Common.getscreenShotPathforReport("creatnow"));
+ 		Assert.fail();
+	}
+	  try {
+			//Sync.waitElementClickable("xpath", "//span[text()='Create Account']");
+			
+			Common.textBoxInput("xpath", "//form[@id='form-validate']//input[@name='firstname']", data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("xpath", "//form[@id='form-validate']//input[@name='lastname']", data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='form-validate']//input[@id='email_address']", data.get(dataSet).get("Email"));
+			Common.textBoxInput("xpath", "//form[@id='form-validate']//input[@id='password']", data.get(dataSet).get("Password"));
+			Common.textBoxInput("xpath", "//form[@id='form-validate']//input[@id='password-confirmation']", data.get(dataSet).get("Password"));
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+		    Sync.waitPageLoad();
+			Common.clickElement("xpath", "//button[contains(@class,'submit primary')]");
+			int errormessagetextSize= Common.findElements("xpath", "//div[contains (text(),'required')]").size();
+			if(errormessagetextSize<=0){
+			}
+			else{
+				
+				ExtenantReportUtils.addFailedLog("verifying Createaccount up page with valid field data", "see the fields populated with the data", "User failed to proceed Create account form", Common.getscreenShotPathforReport("signupissuecr"));
+				Assert.fail();
+			}
+			
+			Common.actionsKeyPress(Keys.ESCAPE);
+		}
+			catch(Exception |Error e) {
+				e.printStackTrace();
+				
+	    		ExtenantReportUtils.addFailedLog("verifying sign up page to Create new account","Sign up popup with valid Data", "User failed to proceed Create account form ", Common.getscreenShotPathforReport("signupissuecr"));
+	    		Assert.fail();
+	    		
+	    	}
+		}	
+ 	
+
+
+
+
+public void GoodTipsBlogPage() throws Exception {
+	   String expectedResult="It Should be navigate to the selected category page.";
+		try{
+		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15196']");
+		Common.clickElement("xpath", "//a[@data-menu='menu-15196']");
+		
+		
+		}
+   catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult, "user failed to navigate",  Common.getscreenShotPathforReport("failed to navigate categorypage"));
+		    Assert.fail();
+		}
+		
+		//Thread.sleep(3000);
+		Sync.waitElementClickable("xpath", "//a[@class='sign-in mob-hidden']");
+		Common.clickElement("xpath","//a[@class='sign-in mob-hidden']");
+}
+
+
+public void forgetpasswordGoodTipsBlock(String dataset) throws Exception{
+	clickGoodTipsBlog();
+	signButton_GoodTipsBlog();
+	Thread.sleep(3000);
+	String expectedResult="Forgot password pop up is displayed to customer";
+	try{
+		
+	Common.clickElement("xpath","//a[@class='action remind']");
+	Sync.waitPageLoad();
+	Thread.sleep(7000);
+	Common.textBoxInput("id", "email_address",data.get(dataset).get("Email"));
+	ExtenantReportUtils.addPassLog("verifying user enter email", "user enter email","User successfully enter email", Common.getscreenShotPathforReport("emailforg"));
+	Common.clickElement("xpath","//button[contains(@class,'submit primary')]");
+	Thread.sleep(5000);
+	String message=Common.getText("xpath", "//div[contains(@class,'message-success')]/div");
+	System.out.println(message);
+	int size=Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();
+	//int size=Common.findElements("xpath", "//input[@id='email_address_forgot']").size();
+//	Common.assertionCheckwithReport(size>0, "verifying forgetpassword option", expectedResult,"Successfully Forgot password pop up is displayed to customer", "User faield to get  Forgot password pop");
+	Common.assertionCheckwithReport(size>0, "verifying forgetpassword option", expectedResult,"Successfully Forgot password pop up is displayed to customer", "User faield to get  Forgot password pop");
+    }
+        catch(Exception |Error e) {
+        	e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying forgetpassword option","clcik the forget password option", "User failed to clcik the forget password button", Common.getscreenShotPathforReport("forgetpasswordbuttonfaield"));
+		Assert.fail();
+	}
+}
+
+
 
 
 	

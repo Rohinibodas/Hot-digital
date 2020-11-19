@@ -6,34 +6,31 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import TestComponent.oxo.OxoHelper;
-import TestLib.BaseDriver;
 import TestLib.Common;
 import TestLib.Login;
 
-public class ValidationofCartPage {
+public class GoodTipsBlogs {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
-	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
+  @Test
+  public void createAccount_GoodTip() throws Exception {
 
-	  public void registeredUser_Checkout_CreditCard() {
-			try{
+		try {
 			oxo.closetheadd();
-			oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
-			oxo.addproducts("1");
-		    oxo.clickViewCart();
-			oxo.CheckPost();
-			}
-catch (Exception e) {
-		
-		Assert.fail(e.getMessage(), e);
-	} 
-}
-	@AfterTest
-	public void clearBrowser() throws Exception
+			
+			oxo.CreateAccount_GoodTipsBlog("GoodTipsBlog");
+			oxo.clickGoodTipsBlog();
+			oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
+		}
+		catch (Exception e) {
+			
+			Assert.fail(e.getMessage(), e);
+		} 
+	}
+  @AfterTest
+	public void clearBrowser()
 	{
 		Common.closeAll();
-		
 
 	}
 	@BeforeMethod

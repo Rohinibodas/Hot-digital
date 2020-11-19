@@ -18,10 +18,10 @@ public class ValidationofBlogs_Article_Links {
 		try {
 			oxo.closetheadd();
 			oxo.Instagram();
-			//oxo.Facebook();
+			oxo.Facebook();
 			oxo.pinterest();
-			oxo.YouTube();
 			oxo.Twitter();
+			oxo.YouTube();
 		}
 		catch (Exception e) {
 			
