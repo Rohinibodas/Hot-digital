@@ -15,38 +15,35 @@ import org.testng.annotations.BeforeMethod;
 public class HT_ST_RegistrationForSylistSaloonOwnerUser {
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
-	
-	
-  @Test(priority=1)
-  public void CreateAnAccountStylistSalonOwner() {
-	  try {
-		  Hottools.createNewCustomerAccount_Stylist_SalonOwner("Stylist_registration");
-		
-		
-	} catch (Exception e) {
-	
-		
-		Assert.fail(e.getMessage(), e);
+
+
+	@Test(priority=1)
+	public void CreateAnAccountStylistSalonOwner() {
+		try {
+			Hottools.createNewCustomerAccount_Stylist_SalonOwner("Stylist_registration");
+		} catch (Exception e) {
+
+			Assert.fail(e.getMessage(), e);
+		}
 	}
-  }
-	
-	
-  /*@BeforeMethod
+
+
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
-		  
-	  }*/
-	
-	@BeforeMethod
-	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
-		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome");
-		  
+
 	  }
-	
+
+	/*@BeforeMethod
+	@Parameters({"browser"})  
+	public void startTest() throws Exception {
+		System.setProperty("configFile", "Hottools\\config.properties");
+		Login.signIn("firefox");
+
+	}*/
+
 	@AfterTest
 	public void clearBrowser()
 	{

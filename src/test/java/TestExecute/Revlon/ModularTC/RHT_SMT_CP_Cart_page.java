@@ -21,56 +21,32 @@ public class RHT_SMT_CP_Cart_page {
 
 		try {
 			revelon.loginRevlon("AccountDetails");
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="loginApplication")
-	public void searchProduct() throws Exception {
-
-		try {
 			revelon.searchProduct("productName");
 			revelon.Productselection();
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-
-	@Test(dependsOnMethods="searchProduct")
-	public void minicartpage(){
-
-		try{
-
 			revelon.navigateMinicart();
-		}
-		catch (Exception e) {
-
-			Assert.fail(e.getMessage(), e);
-		}
-	}
-	@Test(dependsOnMethods="minicartpage")
-	public void cartpage(){
-
-		try{
-
 			revelon.navigateCartPage();
 		}
 		catch (Exception e) {
-
 			Assert.fail(e.getMessage(), e);
-		}
+		} 
 	}
 	
+		
 	@BeforeMethod
-	 @Parameters({"browser"})
+	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
 	  }
+	
+	/*@BeforeMethod
+	@Parameters({"browser"})  
+	  public void startTest() throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn("chrome");
+		  
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

@@ -7,6 +7,7 @@ import TestLib.Common;
 import TestLib.Login;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -20,43 +21,31 @@ public class RHT_SMT_MC_Mini_cart {
 
 		try {
 			revelon.loginRevlon("AccountDetails");
+			revelon.searchProduct("productName");
+			revelon.Productselection();
+			revelon.navigateMinicart();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
 	
-	@Test(dependsOnMethods="loginApplication")
-	public void searchProduct() throws Exception {
 
-		try {
-			revelon.searchProduct("productName");
-			revelon.Productselection();
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-
-	@Test(dependsOnMethods="searchProduct")
-	public void minicart(){
-
-		try{
-
-			revelon.navigateMinicart();
-		}
-		catch (Exception e) {
-
-			Assert.fail(e.getMessage(), e);
-		}
-	}
 	@BeforeMethod
-	//@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	@Parameters({"browser"}) 
+	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("browser");
+		  Login.signIn(browser);
 		  
 	  }
+	
+	/*@BeforeMethod
+	@Parameters({"browser"})  
+	  public void startTest() throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn("chrome");
+		  
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

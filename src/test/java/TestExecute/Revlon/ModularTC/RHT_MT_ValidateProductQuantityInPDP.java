@@ -12,21 +12,24 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_SMT_LI_Login {
+public class RHT_MT_ValidateProductQuantityInPDP  {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
-
 	@Test(priority=1)
-	public void loginApplication() throws Exception {
+	public void ValidateProductDetailsPageQuantity() throws Exception {
 
 		try {
-			revelon.loginRevlon("AccountDetails");
+			revelon.acceptPrivecy();
+			revelon.selectioncategory();
+			revelon.Productdetails();
+			revelon.ProductdetailsQuantity();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-
+	
+	
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
@@ -42,12 +45,11 @@ public class RHT_SMT_LI_Login {
 		  Login.signIn("chrome");
 		  
 	  }*/
-
+	
 	@AfterTest
 	public void clearBrowser()
 	{
 		Common.closeAll();
-
 	}
 
 }

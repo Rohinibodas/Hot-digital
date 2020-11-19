@@ -21,30 +21,29 @@ public class RHT_SMT_HP_Home_page {
 
 		try {
 			revelon.loginRevlon("AccountDetails");
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="loginApplication")
-	public void Homepage() throws Exception {
-
-		try {
 			revelon.navigateHomePage();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
+	
 
 	@BeforeMethod
-	@Parameters({"browser"})  
-	public void startTest() throws Exception {
+	@Parameters({"browser"}) 
+	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		Login.signIn("browser");
-
-	}
+		  Login.signIn(browser);
+		  
+	  }
+	
+	/*@BeforeMethod
+	@Parameters({"browser"})  
+	  public void startTest() throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn("chrome");
+		  
+	  }*/
 
 	@AfterTest
 	public void clearBrowser()

@@ -12,21 +12,28 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_SMT_LI_Login {
+public class RHT_MT_ValidateNewAddressinShippingAddressPage {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
-
+	
 	@Test(priority=1)
-	public void loginApplication() throws Exception {
+	public void RegisterUserCheckout() throws Exception {
 
 		try {
-			revelon.loginRevlon("AccountDetails");
+			revelon.acceptPrivecy();
+			revelon.selectioncategory();
+			revelon.Productselection();
+			revelon.navigateMinicart();
+			revelon.navigateCartPage();
+			revelon.checkoutPage();
+			revelon.ShippingAddress("Guest_shipping");
+			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-
+	
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
@@ -42,12 +49,11 @@ public class RHT_SMT_LI_Login {
 		  Login.signIn("chrome");
 		  
 	  }*/
-
+	
 	@AfterTest
 	public void clearBrowser()
 	{
 		Common.closeAll();
 
 	}
-
 }

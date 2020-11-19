@@ -28,21 +28,21 @@ public class RHT_MT_EditAddressinMyAccount {
 		} 
 	}
 		
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }*/
+	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

@@ -3,25 +3,52 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="TEST_HT_ST_001_VerifyCustomerRegistrationforRetailerUser" testid="BTY-346" priority="P1" description="This script will cover Account Creation of Retailer in Hottools">
+    <test name="TEST_HT_ST_001_VerifyCustomerRegistrationforRetailerUser" testid="BTY-346" priority="P1" description="This script will cover CustomerRegistrationforRetailerUser page in Hottools">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.HT_ST_RG_001_RetialerRegistration"/>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_RG_001_RetialerRegistration"/>
         </classes>
-    </test> 
-    
-	<test name="TEST_HT_ST_008-OrderSuccesspageforRetailerUser" testid="BTY-398" priority="P1" description="This script will cover Checkout process with Credit card payment for retailer of Hottools">
+    </test>
+	<test name="TEST_HT_MT_019_VerifyCustomerRegistrationForSylistSaloonOwnerUser" testid="BTY-347" priority="P1" description="This script will cover VerifyCustomerRegistrationForSylistSaloonOwnerUser of Hottools">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.HT_ST_COP_007_Checkout_page"/>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_RegistrationForSylistSaloonOwnerUser"/>
         </classes>
-    </test> 
-    
-    <test name="TEST_HT_ST_008_VerifyForgotpasswordforRetailerUser" testid="BTY-474" priority="P1" description="This script will cover Forgot password for retailer of Hottools">
+    </test>
+	<test name="TEST_HT_ST_008_VerifyForgotpasswordforRetailerUser" testid="BTY-474" priority="P1" description="This script will cover VerifyForgotpasswordforRetailerUser pages in Hottools">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.HT_ST_LG_004_Forgot_Password"/>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_LG_004_Forgot_Password"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_ST_004_VerifyForgotPasswordforDistributorUser" testid="BTY-473" priority="P1" description="This script will cover Forgot password for Distributor of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.DT_ST_009_Distributor_Forgotpassword"/>
         </classes>
     </test> 
-      
+	<test name="TEST_HT_ST_008-OrderSuccesspageforRetailerUser" testid="BTY-398" priority="P1" description="This script will cover OrderSuccesspageforRetailerUser pages in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_COP_007_Checkout_page"/>
+        </classes>
+    </test> 
+	<test name="TEST_HT_ST_010_ValidateCMSPages" testid="BTY-466" priority="P1" description="This script will cover cms pages in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.TEST_HT_ST_010_ValidateCMSPages"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_ST_013_ValidateProductRegistration" testid="BTY-487" priority="P1" description="This script will cover ProductRegistration of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_Productregistration"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_ST_011_ValidateGiveUSFeeback" testid="BTY-495" priority="P1" description="This script will GiveUSFeeback of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GiveUsFeedback"/>
+        </classes>
+    </test> 
 </suite>  

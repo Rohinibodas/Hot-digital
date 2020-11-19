@@ -97,7 +97,7 @@ public class ExtenantReportUtils {
 	public static void addFailedLog(String description,String expectedResult,String actualResult,String screenShotPath)
 	{
 		try {
-			String testResult = "<b style=\"color:green;\">Expected Result:</b> " + expectedResult +" &nbsp;<br/><b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>" + actualResult;
+			String testResult = "<b style=\"color:red;\">Description :</b> " + description +" &nbsp;<br/><b style=\"color:red;\">Expected Result:</b> " + expectedResult +" &nbsp;<br/><b style=\"color:red;\">Actual Result&nbsp;&nbsp;:</b>" + actualResult;
 			logger.log(Status.FAIL, testResult, MediaEntityBuilder.createScreenCaptureFromPath(screenShotPath).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

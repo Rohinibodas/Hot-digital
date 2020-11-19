@@ -21,27 +21,6 @@ public class RHT_SMT_LO_Logout {
 
 		try {
 			revelon.loginRevlon("AccountDetails");
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="loginApplication")
-	public void Homepage() throws Exception {
-
-		try {
-			revelon.navigateHomePage();
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage(), e);
-		} 
-	}
-	
-	@Test(dependsOnMethods="Homepage")
-	public void Logout() throws Exception {
-
-		try {
 			revelon.navigateHomePage();
 			revelon.myAccountLink();
 			revelon.Logout();
@@ -50,14 +29,23 @@ public class RHT_SMT_LO_Logout {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
+	
 
 	@BeforeMethod
-	@Parameters({"browser"})  
-	public void startTest() throws Exception {
+	@Parameters({"browser"}) 
+	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		Login.signIn("browser");
-
-	}
+		  Login.signIn(browser);
+		  
+	  }
+	
+	/*@BeforeMethod
+	@Parameters({"browser"})  
+	  public void startTest() throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn("chrome");
+		  
+	  }*/
 
 	@AfterTest
 	public void clearBrowser()
