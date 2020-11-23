@@ -344,6 +344,64 @@ public class RevelonHelper {
 		}*/
 
 	}
+	
+	public void invalidCreditCard(String dataSet) throws Exception
+	{
+		String expectedResult="Payment Method with invalid Credit card";
+		try {
+			addPaymentDetails(dataSet);
+
+			if(Common.findElements("xpath", "//div[@class='message message-error']").size()>0)
+			{	
+				addPaymentDetails(dataSet);
+			}
+
+			Common.clickElement("xpath", "//button[@id='paymetrictokenize_place_order']");
+			Thread.sleep(2000);
+
+			Common.switchFrames("id", "paymetric_xisecure_frame");
+			String Errormessage=Common.getText("xpath", "//div[@id='c-cardnumber-error']");
+			System.out.println(Errormessage);
+			Assert.assertEquals(Errormessage, "Please enter a valid card number");
+			report.addPassLog(expectedResult, "Should display Error message for Credit card number feild", "Error message for Credit card number feild display successfully", Common.getscreenShotPathforReport("Error message credit card success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Error message for Credit card number feild", "Error message for Credit card number feild not display", Common.getscreenShotPathforReport("Error message credit card Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+		/*if(Common.isElementDisplayed("xpath", "//img[@src='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"static/version1603995779/frontend/Pearl/weltpixel_custom/en_US/images/loader-2.gif']"))){
+			System.out.println("place order button clicked");
+
+			Sync.waitElementPresent(30, "xpath", "//img[@src='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"static/version1603995779/frontend/Pearl/weltpixel_custom/en_US/images/loader-2.gif']"));
+			if(Common.isAlertPresent()) {
+				Common.acceptAlert(10);
+			}
+			Sync.waitAlert(20);
+			Common.acceptAlert(5);
+
+			Thread.sleep(2000);
+			String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']").trim();
+			Assert.assertEquals(sucessMessage, "THANK YOU FOR YOUR PURCHASE");
+
+		}else {
+			System.out.println("place order button not clicked");
+			Common.clickElement("xpath", "//button[@title='Place Order']");
+
+			//Sync.waitElementPresent(10, "xpath", "//img[@src='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"static/version1603995779/frontend/Pearl/weltpixel_custom/en_US/images/loader-2.gif']"));
+
+			Sync.waitAlert(20);
+			Common.acceptAlert(5);
+
+			Thread.sleep(2000);
+
+			String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']").trim();
+			Assert.assertEquals(sucessMessage, "THANK YOU FOR YOUR PURCHASE");
+
+		}*/
+
+	}
 
 	public void addPaypalDetails(String dataSet) throws Exception
 	{
@@ -1413,6 +1471,7 @@ public class RevelonHelper {
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
+			e.printStackTrace();
 			Assert.fail();
 		}
 

@@ -59,6 +59,20 @@
         </classes>
     </test>
     
+    <test name="Test_RHT_ST_019_RegisterUserCheckoutInvalidCreditCard" testid="BTY-529" priority="P1" description="This test case is to verify Revlon hairtools, browse Checkout functionality with invalid credit card details for user.">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_User_Checkout_InvalidCreditCard"/>
+        </classes>
+    </test>
+    
+    <test name="Test_RHT_ST_020_GuestUserCheckoutInvalidCreditCard" testid="BTY-530" priority="P1" description="This test case is to verify Revlon hairtools, browse Checkout functionality with invalid details for guest user.">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Guest_Checkout_invalidCreditCard"/>
+        </classes>
+    </test>
+    
     <test name="TEST_RHT_ST_013_CMSNavigation Links Validation" testid="BTY-463" priority="P1" description="This script will cover user CMS links Process">
          <parameter name="browser" value="chrome" />
         <classes>
