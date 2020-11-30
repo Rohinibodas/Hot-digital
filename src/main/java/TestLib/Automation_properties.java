@@ -35,6 +35,7 @@ public class Automation_properties {
 	public static final String EncryptPassword = "EncryptPassword";
 	public static final String FAAS = "FAASFLAG";
 	public final static String VideoRecord = "VideoRecord";
+	public final static String VIEW = "VIEW";
 
 	public static void setTestNG(String testNGFile) {
 		testNG = testNGFile;

@@ -697,7 +697,7 @@ public class Common {
 	
 	public static String getscreenShotPathforReport(String screnShotName) {
 		String screenName=screnShotName +Utilities.File.GetDateTime();
-		String filePath=System.getProperty("user.dir") + "/TestLogs/ExtenantReport/" +screenName+ ".jpg";
+		String filePath=System.getProperty("user.dir") + "/TestLogs/ExtentReport/" +screenName+ ".jpg";
 		File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File(filePath));

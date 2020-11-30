@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Revelon Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard_Broser" testid="BTY-462" priority="P1" description="This script will cover Registered User Checkout Process with Credit Card">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_User_Checkout"/>
+        </classes>
+    </test>
+   <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard_iPhone X" testid="BTY-462" priority="P1" description="This script will cover Registered User Checkout Process with Credit Card in iPhone X">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Mob_RegisterUserCheckout_Creditcard"/>
+        </classes>
+    </test>
+    <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard_iPad" testid="BTY-462" priority="P1" description="This script will cover Registered User Checkout Process with Credit Card in iPad">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Mob_RegisterUserCheckout_Creditcard"/>
+        </classes>
+    </test>
+</suite>  

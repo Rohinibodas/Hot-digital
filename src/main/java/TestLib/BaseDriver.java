@@ -31,7 +31,15 @@ public class BaseDriver
 
 	public static WebDriver driver;
 	public static String className = Common.getCLassName();
-		public static WebDriver StartBrowser(String browserName,String URL) throws InterruptedException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException
+	static Automation_properties automation_properties = Automation_properties.getInstance();
+	
+	public static WebDriver StartBrowser(String browserName,String URL) throws Exception {
+		return StartBrowser(browserName,URL,"","");
+		
+	}
+	
+	
+		public static WebDriver StartBrowser(String browserName,String URL, String View, String Device) throws InterruptedException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException
 		{
 			try {
 			 if(browserName.equalsIgnoreCase("firefox"))
@@ -88,7 +96,7 @@ public class BaseDriver
 							if(f.delete())
 								{
 									System.out.println(f.getName()+"  file deleted  "+f.getAbsolutePath());
-									Driver.getLogger().info(f.getName()+"  file deleted  "+f.getAbsolutePath());
+									//Driver.getLogger().info(f.getName()+"  file deleted  "+f.getAbsolutePath());
 								}
 								else
 								{
@@ -98,7 +106,11 @@ public class BaseDriver
 						}
 					
 				}
-			
+				
+
+				
+
+				
 			// Save Chrome Preferences in Hash Map
 			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 			HashMap<String, Object> contentsetting = new HashMap<String, Object>();
@@ -109,6 +121,7 @@ public class BaseDriver
 			chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
 			chromePrefs.put("credentials_enable_service", false);
 			chromePrefs.put("password_manager_enabled", false);
+
 			// Save Chrome Opions
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--no-sandbox");
@@ -120,6 +133,15 @@ public class BaseDriver
 			options.addArguments("disable-infobars");
 			options.addArguments("--disable-notifications");
 			options.addArguments("--disable-popup-blocking");
+			if(View.equalsIgnoreCase("mobile")) {
+				HashMap<String, String> mobileEmulation = new HashMap<String, String>();
+				//mobileEmulation.put("deviceName", "iPhone X");
+				mobileEmulation.put("deviceName", Device);
+				options.setExperimentalOption("mobileEmulation", mobileEmulation);
+				System.out.print("Mobile Device initiated");
+			}
+			
+			
 			//options.setCapability("chrome.switches", Arrays.asList("--disable-local-storage"));
 			//options.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 			// cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Revelon Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_RHT_MT_003_Megamenu" testid="RU-97" priority="P1" description="To verify the Megamenu functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.RHT_MOB_MT_HomePage"/>
+        </classes>
+    </test>
+</suite>  

@@ -32,6 +32,19 @@ public class Login {
 		
 	}
 	
+	public static void signIn(String browser, String Device) throws Exception
+	{
+		if(BaseDriver.getDriver()==null)
+		{
+		Automation_properties.setInstance(null);
+		automation_properties = Automation_properties.getInstance();
+		System.out.println(automation_properties.getInstance().getProperty(automation_properties.BASEURL));
+		driver=BaseDriver.StartBrowser(browser,automation_properties.getInstance().getProperty(automation_properties.BASEURL),"mobile",Device);
+		Driver.getLogger().info("Logged in with User: ");
+		}
+		
+	}
+	
 	
 	
 	public static void signIn() throws Exception

@@ -61,7 +61,6 @@ public class RevelonHelper {
 
 	public void CreateNewAccount(String dataSet) throws Exception
 	{
-
 		navigateAccount();
 		String expectedResult="Account Creation of User with valid details";
 		try {
@@ -138,7 +137,8 @@ public class RevelonHelper {
 			}
 			Common.actionsKeyPress(Keys.ENTER);
 			Thread.sleep(10000);
-			Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Assert.assertTrue(Common.isElementDisplayed("id", "nosearchresultcount"));
+			//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
 			report.addPassLog(expectedResult, "Should display Zero search results Page", "Zero search results Page display successfully", Common.getscreenShotPathforReport("Zero results page success"));
 		}catch(Exception |Error e)
 		{
@@ -267,9 +267,9 @@ public class RevelonHelper {
 		//Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
 		Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
 		Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
-		Thread.sleep(200);
+		Thread.sleep(2000);
 		Common.switchFrames("id", "paymetric_xisecure_frame");
-		Thread.sleep(500);
+		Thread.sleep(3000);
 		Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
 		Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
 		Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpMonth"));
@@ -904,7 +904,6 @@ public class RevelonHelper {
 			report.addFailedLog(expectedResult,"Should display Product Registration Page", "Product Registration Page not displayed", Common.getscreenShotPathforReport("Product Registration Failed"));
 			Assert.fail();
 		}
-
 
 
 	}
