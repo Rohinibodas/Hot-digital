@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hyderflask Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<!-- <test name="Test_HF_ST_001_Guest Checkout with Creditcard"
+		testid="HMF2-975" priority="P1"
+		description="This script will cover guest user order using creditcard submit Process of HydroFlesk on chrome">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.Hydroflask.Smoke.Guest_Checkout_CreditCard" />
+		</classes>
+	</test> -->
+
+	<test
+		name="Test_HF_ST_001_Guest Checkout with Creditcard iPhone X"
+		testid="HMF2-975" priority="P1"
+		description="This script will cover guest user order using creditcard submit Process of HydroFlesk on iPhone X device">
+		<parameter name="device" value="iPhone X" />
+		<classes>
+			<class
+				name="TestExecute.Hydroflask.Mobile.Guest_Checkout_CreditCard_Mobile" />
+		</classes>
+	</test>
+	<test name="Test_HF_ST_001_Guest Checkout with Creditcard iPad"
+		testid="HMF2-975" priority="P1"
+		description="This script will cover guest user order using creditcard submit Process of HydroFlesk on iPad">
+		<parameter name="device" value="iPad" />
+		<classes>
+			<class
+				name="TestExecute.Hydroflask.Mobile.Guest_Checkout_CreditCard_Mobile" />
+		</classes>
+	</test>
+	<test
+		name="Test_HF_ST_001_Guest Checkout with Creditcard Andriod_Galaxy S5"
+		testid="HMF2-975" priority="P1"
+		description="This script will cover guest user order using creditcard submit Process of HydroFlesk on Andriod Galaxy S5">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class
+				name="TestExecute.Hydroflask.Mobile.Guest_Checkout_CreditCard_Mobile" />
+		</classes>
+	</test>
+
+</suite>  
