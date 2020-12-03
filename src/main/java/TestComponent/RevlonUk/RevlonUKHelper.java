@@ -276,7 +276,7 @@ public class RevlonUKHelper {
 		}
 	}
 	
-	public void ValidateSearch(String dataSet) throws Exception
+	public void SearchProduct(String dataSet) throws Exception
 	{
 		String expectedResult="Search with Product name :"+data.get(dataSet).get("ProductName");
 		try {
@@ -346,6 +346,284 @@ public class RevlonUKHelper {
 			Assert.fail();
 		}
 
+	}
+	
+	public void navigateMinicart() throws Exception
+	{
+		String expectedResult="Product adding to mini cart";
+		try {
+			Thread.sleep(4000);
+			Sync.waitElementPresent("xpath", "//button[@id='product-addtocart-button']");
+			Common.clickElement("xpath", "//button[@id='product-addtocart-button']");
+			Thread.sleep(7000);
+			String qty=Common.getText("xpath", "//span[@class='qty']");
+			System.out.println("YOUR BAG - "+qty);
+			Thread.sleep(3000);
+			Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/cart/']"));
+			//Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/cart/']"));
+			Thread.sleep(3000);
+			Common.isElementDisplayed("xpath", "//strong[@class='product-item-name']");
+			report.addPassLog(expectedResult, "Should display Mini Cart Page", "Mini Cart Page display successfully", Common.getscreenShotPathforReport("Mini Cart page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Mini Cart Page", "Mini Cart Page not displayed", Common.getscreenShotPathforReport("Mini Cart Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+		/*
+		 * if(Common.isElementDisplayed("xpath",
+		 * "//a[@href='"+System.getProperty("url",automation_properties.getInstance().
+		 * getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']"))) {
+		 * 
+		 * System.out.println("Mini cart page is disaplyed");
+		 * 
+		 * if(Common.isElementDisplayed("xpath",
+		 * "//span[contains(text(),'You have no items in your shopping cart.')]")) {
+		 * 
+		 * Common.clickElement("xpath", "//button[@id='btn-minicart-close']");
+		 * 
+		 * Common.clickElement("xpath", "//span[contains(text(),'Buy Now -')]");
+		 * 
+		 * System.out.println("Clicked on cart again for product display");
+		 * 
+		 * Common.clickElement("xpath",
+		 * "//a[@href='"+System.getProperty("url",automation_properties.getInstance().
+		 * getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']")); }
+		 * }else { Thread.sleep(500); if(Common.isElementDisplayedonPage(30, "xpath",
+		 * "//a[@href='"+System.getProperty("url",automation_properties.getInstance().
+		 * getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']"))) {
+		 * 
+		 * Sync.waitElementPresent("xpath",
+		 * "//a[@href='"+System.getProperty("url",automation_properties.getInstance().
+		 * getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']"));
+		 * Common.clickElement("xpath",
+		 * "//a[@href='"+System.getProperty("url",automation_properties.getInstance().
+		 * getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']"));
+		 * 
+		 * 
+		 * 
+		 * if(Common.isElementDisplayed("xpath",
+		 * "//span[contains(text(),'You have no items in your shopping cart.')]")) {
+		 * 
+		 * Common.clickElement("xpath", "//button[@id='btn-minicart-close']");
+		 * 
+		 * Common.clickElement("xpath", "//span[contains(text(),'Buy Now -')]");
+		 * 
+		 * System.out.println("Clicked on cart again for product display");
+		 * 
+		 * Common.clickElement("xpath",
+		 * "//a[@href='"+System.getProperty("url",automation_properties.getInstance().
+		 * getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']"));
+		 * report.addPassLog(expectedResult, "Should dispaly Mini Cart",
+		 * "Mini Cart displayed successfully",
+		 * Common.getscreenShotPathforReport("Mini cart page"));
+		 * 
+		 * } } }
+		 */
+
+	}
+	
+	public void checkoutPage() throws Exception
+	{
+		String expectedResult="Product adding to checkout page";
+		try {
+			Sync.waitElementPresent("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/']"));
+			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/']"));
+			Thread.sleep(1000);
+			Common.isElementDisplayed("xpath", "//div[contains(text(),'Shipping Address')]");
+			report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
+			Assert.fail();
+		}
+	}
+	
+	public void navigateCheckout() throws Exception
+	{
+		String expectedResult="Checkout page of Register user";
+		try {
+			//Common.clickElement("xpath", "//span[contains(text(),'Ship Here')]");
+			Thread.sleep(2000);
+			Common.scrollToElementAndClick("xpath", "//div[contains(text(),'Shipping Methods')]");
+
+			if(Common.checkBoxIsSelected("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input")) {
+				System.out.println("Shipping method is selected");
+			}else {
+				System.out.println("Shipping method is not selected");
+				Sync.waitElementPresent("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input");
+				Common.clickElement("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input");
+			}
+			Thread.sleep(1000);
+
+			System.out.println("Next button clicked");
+			Thread.sleep(300);
+			Common.actionsKeyPress(Keys.DOWN);
+
+			Sync.waitElementPresent("xpath", "//button[@data-role='opc-continue']");
+			Common.clickElement("xpath", "//button[@data-role='opc-continue']");
+
+			/*Sync.waitElementPresent("xpath", "//span[contains(text(),'Next')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Next')]");*/
+			Thread.sleep(300);
+
+			if(Common.isElementVisibleOnPage(30, "xpath", "//div[contains(text(),'Address is not verified. Do you want to continue ?')]")) {
+
+				System.out.println("Address not verified pop up displayed");
+
+				Sync.waitElementPresent("xpath", "//button[@class='action-primary action-accept']");
+				Common.clickElement("xpath", "//button[@class='action-primary action-accept']");
+			}
+			Common.isElementDisplayed("xpath", "//div[contains(text(),'Payment Method')]");
+			report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+	}
+	
+	public void navigateCheckoutGuest(String dataSet) throws Exception
+	{
+		String expectedResult="Checkout page with payment for Guest user";
+		String expectedResult1="Email page of shipping address";
+		String expectedResult2="Shipping address of Checkout page";
+		try {
+			Thread.sleep(5000);
+			Sync.waitElementPresent("xpath", "//div[contains(text(),'Email')]");
+			Thread.sleep(12000);
+			//Sync.waitPageLoad(10);
+			Common.clickElement("id", "customer-email");
+			Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']/div/div//input[@type='email']", data.get(dataSet).get("Email"));
+			report.addPassLog(expectedResult1, "Should dispaly Shipping address page", "shipping address Page displayed successfully", Common.getscreenShotPathforReport("shipping address page"));
+
+			Sync.waitElementPresent("xpath", "//span[contains(text(),'Next')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Next')]");
+
+			Thread.sleep(1000);
+
+			shipping_Address("Guest_shipping");
+			report.addPassLog(expectedResult2, "Should dispaly Shipping address page", "shipping address Page displayed successfully", Common.getscreenShotPathforReport("Shipping address"));
+
+			if(Common.checkBoxIsSelected("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input")) {
+
+				System.out.println("Shipping method is selected");
+			}else {
+
+				System.out.println("Shipping method is not selected");
+
+				Sync.waitElementPresent("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input");
+				Common.clickElement("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input");
+
+			}
+
+			/*Common.actionsKeyPress(Keys.DOWN);
+
+			Sync.waitElementPresent("xpath", "//button[@data-role='opc-continue']");
+			Common.clickElement("xpath", "//button[@data-role='opc-continue']");*/
+
+			Sync.waitElementPresent("xpath", "//span[contains(text(),'Next')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Next')]");
+
+			Thread.sleep(300);
+
+			if(Common.isElementVisibleOnPage(30, "xpath", "//div[contains(text(),'Address is not verified. Do you want to continue ?')]")) {
+
+				System.out.println("Address not verified pop up displayed");
+
+				Sync.waitElementPresent("xpath", "//button[@class='action-primary action-accept']");
+				Common.clickElement("xpath", "//button[@class='action-primary action-accept']");
+			}
+			Common.isElementDisplayed("xpath", "//div[contains(text(),'Payment Method')]");
+			report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+
+	}
+	
+	public void shipping_Address(String dataSet) throws Exception
+	{
+
+		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		Thread.sleep(3000);
+		Sync.waitElementPresent("xpath", "//div[contains(text(),'Shipping Address')]");
+		Common.clickElement("xpath", "//div[contains(text(),'Shipping Address')]");
+		Thread.sleep(3000);
+		Sync.waitElementPresent("name", "region");
+		Common.clickElement("name", "region");
+		Thread.sleep(4000);
+		Sync.waitElementPresent("name", "region");
+		//Common.clickElement("xpath", "//select[@title='State/Province']");
+		Common.textBoxInput("name", "region", data.get(dataSet).get("Region"));
+		//Common.dropdown("name", "region_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
+		//Common.dropdown("xpath", "//div[@name='shippingAddress.region_id']/div//select[@name='region_id']", SelectBy.TEXT, data.get(dataSet).get("Region"));
+
+		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+
+		//Common.dropdown("xpath", "//select[@name='country_id']", SelectBy.TEXT, data.get(dataSet).get("Country"));
+
+		Thread.sleep(500);
+
+		Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+
+	}
+	
+	public void addPaymentDetails(String dataSet) throws Exception
+	{
+		Sync.waitElementClickable("id", "adyen_cc");
+		Common.clickElement("id", "adyen_cc");
+		Thread.sleep(3000);
+		Common.switchFrames("xpath", "//*[@id='cardContainer']/div/div/div[2]/div[1]/div[1]/label/span[2]/span/iframe");
+		Common.textBoxInput("xpath", "//input[@id='encryptedCardNumber']", data.get(dataSet).get("cardNumber"));
+		Common.switchToDefault();
+		Thread.sleep(1000);
+		Common.switchFrames("xpath", "//*[@id='cardContainer']/div/div/div[2]/div[1]/div[2]/div[1]/label/span[2]/span/iframe");
+		Common.textBoxInput("xpath", "//input[@id='encryptedExpiryDate']", data.get(dataSet).get("ExpYear"));
+		Common.switchToDefault();
+		Thread.sleep(1000);
+		Common.switchFrames("xpath", "//*[@id='cardContainer']/div/div/div[2]/div[1]/div[2]/div[2]/label/span[2]/span/iframe");
+		Common.textBoxInput("xpath", "//input[@id='encryptedSecurityCode']", data.get(dataSet).get("cvv"));
+		Common.switchToDefault();
+		Common.textBoxInput("xpath", "//div[@class='adyen-checkout__field adyen-checkout__card__holderName']/label/span//input[@placeholder='J. Smith']", data.get(dataSet).get("CardName"));
+	}
+	
+	public void updatePaymentAndSubmitOrder(String dataSet) throws Exception
+	{
+		String expectedResult="Payment & Order submition success page with Credit card";
+		try {
+			addPaymentDetails(dataSet);
+
+			if(Common.findElements("xpath", "//div[@class='message message-error']").size()>0)
+			{	
+				addPaymentDetails(dataSet);
+			}
+
+			Common.clickElement("xpath", "//button[@title='Place Order']");
+			Thread.sleep(3000);
+
+			//String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']");
+			String sucessMessage=Common.getText("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
+
+			System.out.println(sucessMessage);
+			Assert.assertEquals(sucessMessage, "Thank you for your purchase");
+			report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success Page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 	
 	public void navigateCMSLink() throws Exception
@@ -792,5 +1070,6 @@ public class RevlonUKHelper {
 			Assert.fail();
 		}
 	}
+	
 	
 }

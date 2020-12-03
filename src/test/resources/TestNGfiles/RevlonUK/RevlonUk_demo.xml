@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="RevlonUK Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_RHT_ST_003_GuestUserCheckoutCreditCard" testid="RU-126" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_GuestUserCheckoutCreditCard"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_003_GuestUserCheckoutCreditCard_iPhone X" testid="RU-129" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site in iPhone X">
+         <parameter name="device" value="iPhone" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_003_GuestUserCheckoutCreditCard_iPad" testid="RU-129" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site in iPad">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
+        </classes>
+     <test name="Test_RHT_MOB_ST_003_GuestUserCheckoutCreditCard_Galaxy S5" testid="RU-129" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site in Galaxy S5">
+         <parameter name="device" value="Galaxy S5" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
+        </classes>
+    </test>
+    </test>
+</suite>

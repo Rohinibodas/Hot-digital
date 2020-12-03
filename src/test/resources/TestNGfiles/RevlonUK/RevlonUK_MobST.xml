@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="RevlonUK Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_RHT_MOB_ST_001_AccountCreation" testid="RU-127" priority="P1" description="To verify the Account Creation functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_AccountCreation"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_002_RegisteredUserCheckoutCreditCard" testid="RU-128" priority="P1" description="To verify the Checkout for registered user functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_RegisterUserCheckoutCreditCard"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_003_GuestUserCheckoutCreditCard" testid="RU-129" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
+        </classes>
+    </test>
+</suite>  

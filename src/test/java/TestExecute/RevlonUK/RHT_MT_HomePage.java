@@ -23,7 +23,7 @@ public class RHT_MT_HomePage {
 		try {
 			revlon.acceptPrivacy();
 			revlon.ValidateHomepagelogo();
-			revlon.ValidateCollections();
+			//revlon.ValidateCollections();
 			revlon.ValidateDryers();
 			revlon.ValidateStraighteners();
 			revlon.ValidateCurlingIrons();

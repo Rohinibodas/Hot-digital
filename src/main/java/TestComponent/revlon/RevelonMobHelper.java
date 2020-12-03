@@ -60,11 +60,11 @@ public class RevelonMobHelper {
 	
 	public void slider() throws InterruptedException
 	{
-
+		Thread.sleep(3000);
 		if(Common.isElementDisplayed("xpath", "//span[contains(text(),'WE VALUE YOUR PRIVACY')]")) {
 			acceptPrivecy();
 		}
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		Sync.waitElementClickable(30, By.className("nav-toggle"));
 		Common.clickElementStale("xpath", "//span[@class='action nav-toggle']");
 	}

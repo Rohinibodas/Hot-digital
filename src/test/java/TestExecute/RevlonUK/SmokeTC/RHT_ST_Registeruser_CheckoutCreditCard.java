@@ -1,4 +1,4 @@
-package TestExecute.RevlonUK;
+package TestExecute.RevlonUK.SmokeTC;
 
 import org.testng.annotations.Test;
 
@@ -12,18 +12,22 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_MT_Search {
+public class RHT_ST_Registeruser_CheckoutCreditCard {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
 	RevlonUKHelper revlon=new RevlonUKHelper(datafile);
 	
 	
 	@Test(priority=1)
-	public void validateSearchProduct() throws Exception {
+	public void RegisteredUserCheckout() throws Exception {
 
 		try {
+			revlon.loginRevlonUK("AccountDetails");
 			revlon.SearchProduct("productName");
 			revlon.Productselection();
-			revlon.zerosearchProduct("Zero_Search");
+			revlon.navigateMinicart();
+			revlon.checkoutPage();
+			revlon.navigateCheckout();
+			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception e) {
 			
@@ -31,21 +35,21 @@ public class RHT_MT_Search {
 		} 
 	}
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }*/
+	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()
