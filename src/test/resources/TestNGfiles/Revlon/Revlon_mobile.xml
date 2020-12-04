@@ -21,4 +21,10 @@
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Mob_RegisterUserCheckout_Creditcard"/>
         </classes>
     </test>
+    <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard_Galaxy S5" testid="BTY-462" priority="P1" description="This script will cover Registered User Checkout Process with Credit Card in Galaxy S5">
+         <parameter name="device" value="Galaxy S5" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Mob_RegisterUserCheckout_Creditcard"/>
+        </classes>
+    </test>
 </suite>  

@@ -42,6 +42,20 @@ import TestLib.Driver;
 
 
 public class Utils {
+	
+	public static String getEmailid() {
+		String Email=null;
+		try {
+			long currentTimestamp = System.currentTimeMillis();
+			 Email ="newuser"+currentTimestamp+"@gmail.com";
+		}
+
+		catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		return Email;
+	}
 
 	public static String getDateTime() {
 		String sDateTime = "";

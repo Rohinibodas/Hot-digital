@@ -19,6 +19,7 @@ import TestLib.Sync;
 import TestLib.Common.SelectBy;
 import Utilities.ExcelReader;
 import Utilities.ExtenantReportUtils;
+import Utilities.Utils;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 
@@ -163,7 +164,7 @@ public class HottoolsHelpr {
 
 			Common.textBoxInput("id", "zip", data.get(dataSet).get("postcode"));
 
-			Common.textBoxInput("id", "email_address", data.get(dataSet).get("Email"));
+			Common.textBoxInput("id", "email_address", Utils.getEmailid());
 			Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
 			Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
 
@@ -204,7 +205,7 @@ public class HottoolsHelpr {
 			//	Common.textBoxInput("id", "middlename", data.get(dataSet).get("MiddleName"));
 			Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName"));
 
-			Common.textBoxInput("id", "email_address", data.get(dataSet).get("Email"));
+			Common.textBoxInput("id", "email_address", Utils.getEmailid());
 			Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
 			Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
 
@@ -284,40 +285,47 @@ public class HottoolsHelpr {
 
 	public void distributorsignin(String dataSet) throws Exception{
 
-		if(Common.isElementDisplayed("id", "truste-consent-button")) {
-			agreeCookiesbanner();
+		String expectedResult="Validating Distributor login page with valid Credentials";
+		try {
+			if(Common.isElementDisplayed("id", "truste-consent-button")) {
+				agreeCookiesbanner();
+			}
+			Sync.waitElementPresent("xpath", "//span[@class='authorization-link']");
+			Common.clickElement("xpath", "//span[@class='authorization-link']");
+
+			Sync.waitElementPresent("xpath", "//a[text()='sign in']");
+			Common.clickElement("xpath", "//a[text()='sign in as distributor']");
+
+			int i=0;
+			do{ 
+				Common.refreshpage();
+
+				Sync.waitElementPresent("id", "email");
+
+				Common.textBoxInput("id", "email", data.get(dataSet).get("UserName"));
+				Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
+
+				Sync.waitElementPresent("xapth","//fieldset[@class='fieldset login']//div[3]");
+				Thread.sleep(4000);
+
+				report.addPassLog("log in with user name and password ",Common.getscreenShotPathforReport("Sign IN with user email and password"));
+				Sync.waitElementPresent("id", "send2");
+				Common.clickElement(By.id("send2"));
+
+				Thread.sleep(4000);
+				i++;
+			}while(i<5 && !Common.isElementDisplayed("xpath", "//span[contains(text(),'My Account')]")); 
+
+			report.addPassLog(expectedResult,"Should Login to application successfully", "Login to application successfully", Common.getscreenShotPathforReport("Login success"));
+		}catch(Exception |Error e)
+		{
+			report.addPassLog(expectedResult,"Should Login to application successfully", "Login to application Failed", Common.getscreenShotPathforReport("Login failed"));
+			e.printStackTrace();
+			Assert.fail();
 		}
-		Sync.waitElementPresent("xpath", "//span[@class='authorization-link']");
-		Common.clickElement("xpath", "//span[@class='authorization-link']");
-
-		Sync.waitElementPresent("xpath", "//a[text()='sign in']");
-		Common.clickElement("xpath", "//a[text()='sign in as distributor']");
-
-		int i=0;
-		do{ 
-			Common.refreshpage();
-
-			Sync.waitElementPresent("id", "email");
-
-			Common.textBoxInput("id", "email", data.get(dataSet).get("UserName"));
-			Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
-
-			Sync.waitElementPresent("xapth","//fieldset[@class='fieldset login']//div[3]");
-			Thread.sleep(4000);
-
-			report.addPassLog("log in with user name and password ",Common.getscreenShotPathforReport("Sign IN with user email and password"));
-			Sync.waitElementPresent("id", "send2");
-			Common.clickElement(By.id("send2"));
-
-			Thread.sleep(4000);
-			i++;
-		}while(i<5 && !Common.isElementDisplayed("xpath", "//span[contains(text(),'My Account')]")); 
-
-		report.addPassLog("submitting user logins",Common.getscreenShotPathforReport("click the submit button in signPage"));
-
 	}
 	public void searchingProducts(String dataSet) throws Exception{
-		
+
 		String expectedResult="Search with Product name :"+data.get(dataSet).get("ProductName");
 		try {
 			if(Common.isElementDisplayed("id", "truste-consent-button")) {
@@ -1145,6 +1153,8 @@ public class HottoolsHelpr {
 			}else {
 
 				System.out.println("You added "+data.get(dataSet).get("ProductName")+" to your shopping cart.");
+				/*Sync.waitElementPresent("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']//a[contains(text(),'shopping cart')]");
+				Common.clickElement("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']//a[contains(text(),'shopping cart')]");*/
 			}
 
 			if(Common.isElementDisplayed("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='https://stage.hottools.com/checkout/cart/']")) {
@@ -1198,19 +1208,45 @@ public class HottoolsHelpr {
 
 	}
 
+	public void DistributorminiCart(String dataSet) throws Exception
+	{
+		String expectedResult="Product adding to Cart page";
+		try {
+			Sync.waitElementPresent("xpath", "//*[@id='shopping-cart-table']/tbody/tr/td[2]/a");
+			Thread.sleep(5000);
+			String s=Common.getText("xpath", "//*[@id='shopping-cart-table']/tbody/tr/td[2]/a");
+			System.out.println(s);
+			//Assert.assertEquals(s, data.get(dataSet).get("ProductName"));
+			System.out.println("Mini cart Test cases passed successfully");
+			Thread.sleep(5000);
+			report.addPassLog(expectedResult,"Should Mini cart page successfully", "Mini cart display successfully", Common.getscreenShotPathforReport("cart success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should Mini cart page successfully", "Mini cart display successfully", Common.getscreenShotPathforReport("cart Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+
+	}
+
 	public void checkoutpage(String dataSet) throws Exception
 	{
 		String expectedResult="Proceeding to checkout page";
 		try {
 
-			Sync.waitElementPresent("xpath", "//span[contains(text(),'Proceed to Checkout')]");
-			Common.clickElement("xpath", "//span[contains(text(),'Proceed to Checkout')]");
 
-			if(Common.isElementDisplayed("id", "customer-email")) {
-				System.out.println("shipping address page will fill");
-				shippingAddress("shippingAddress");
+			Thread.sleep(2000);
+			Sync.waitElementPresent("xpath", "//button[@title='Proceed to Checkout']");
+			Common.clickElement("xpath", "//button[@title='Proceed to Checkout']");
+			//Common.clickElementStale("xpath", "//button[@title='Proceed to Checkout']");
+			//Common.clickElement("xpath", "//button[@class='action primary checkout']");
+
+			if(Common.isElementDisplayed("xpath", "//*[@id='checkout-step-shipping']/div[1]/div/div/div[1]//span[contains(text(),'Ship here:')]")) {
+				System.out.println("Shipping address is not selected");
+				Common.clickElement("xpath", "//*[@id='checkout-step-shipping']/div[1]/div/div/div[1]//span[contains(text(),'Ship here:')]");
 			}else {
-				System.out.println("shipping address will select");
+				System.out.println("Shipping address is selected");
 				Thread.sleep(5000);
 				Sync.waitElementPresent("xpath", "//div[@class='items payment-methods']/div/div[4]/div//input[@name='payment[method]']");
 				Common.clickElement("xpath", "//div[@class='items payment-methods']/div/div[4]/div//input[@name='payment[method]']");		
@@ -1237,21 +1273,14 @@ public class HottoolsHelpr {
 				Common.clickElement(By.id("ime_paymetrictokenize"));
 				Thread.sleep(8000);
 			}	
-			//Common.clickElement(By.id("ime_paymetrictokenize"));
-			//Thread.sleep(8000);
 
+			Common.textBoxInput("xpath", "//input[@title='Purchase Order Number']", data.get(dataSet).get("PurchaseOrder"));
 			Common.switchFrames("paymetric_xisecure_frame");
-
 			Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
 			Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
-
-
 			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
-
-
 			Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
 			Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
-
 			Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
 			Common.switchToDefault();
 
@@ -1689,15 +1718,14 @@ public class HottoolsHelpr {
 	public void distributorSingin(String dataSet) throws Exception{
 
 		//agreeCookiesbanner();
+		String expectedResult="Validating Distributor Login with valid credentials";
 		try
 		{
 			Sync.waitElementPresent("xpath", "//span[@class='authorization-link']");
 			Common.clickElement("xpath", "//span[@class='authorization-link']");
 
-
 			Sync.waitElementPresent("xpath", "//a[text()='sign in as distributor']");
 			Common.clickElement("xpath", "//a[text()='sign in as distributor']");
-
 
 			Sync.waitElementPresent("id", "email");
 
@@ -1709,17 +1737,59 @@ public class HottoolsHelpr {
 			Sync.waitElementPresent("id", "send2");
 			Common.clickElement(By.id("send2"));
 
-			report.addPassLog("Should display distributorSingin", "distributorSingin display successfully", Common.getscreenShotPathforReport("distributorSingin success"));
+			report.addPassLog(expectedResult,"Should display distributorSingin", "distributorSingin display successfully", Common.getscreenShotPathforReport("distributorSingin success"));
 
 		}
 		catch(Exception |Error e)
 		{
-			report.addFailedLog("Should display distributorSingin", "distributorSingin display successfully", Common.getscreenShotPathforReport("distributorSingin Failed"));
+			report.addFailedLog(expectedResult,"Should display distributorSingin", "distributorSingin not display", Common.getscreenShotPathforReport("distributorSingin Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+
+	public void distributorQuickOrderUnits(String dataSet) throws Exception{
+
+		String expectedResult="Validating Distributor Quick Order";
+		try
+		{
+			Sync.waitElementPresent("xpath", "//a[@title='Quick Order']");
+			Common.clickElement("xpath", "//a[@title='Quick Order']");
+
+			Thread.sleep(5000);
+
+			Common.textBoxInput("id", "item-sku-units", data.get(dataSet).get("ProductName"));
+			Common.textBoxInput("id", "item-qty-units", data.get(dataSet).get("QTY"));
+			Common.clickElement("xpath", "//button[@title='Submit']");
+			report.addPassLog(expectedResult,"Should display selected product", "Selected product display successfully", Common.getscreenShotPathforReport("QuickOrder selection success"));
+
+		}
+		catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display selected product", "Selected product not display", Common.getscreenShotPathforReport("QuickOrder selection Failed"));
 			e.printStackTrace();
 			Assert.fail();
 		}
 
+	}
 
+	public void QuickOrderAddtoCart() throws Exception{
+
+		String expectedResult="Validating Distributor Quick Order Add to Cart";
+		try
+		{
+			Sync.waitElementPresent("xpath", "//button[@title='Add to Cart']");
+			Common.clickElement("xpath", "//button[@title='Add to Cart']");
+
+			report.addPassLog(expectedResult,"Should display Checkout page", "Checkout page display successfully", Common.getscreenShotPathforReport("QuickOrder Add to cart success"));
+
+		}
+		catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Checkout page", "Checkout page not display", Common.getscreenShotPathforReport("QuickOrder Add to cart Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
 
 	}
 }

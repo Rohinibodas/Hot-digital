@@ -12,6 +12,7 @@ import TestLib.Common;
 import TestLib.Sync;
 import Utilities.ExcelReader;
 import Utilities.ExtenantReportUtils;
+import Utilities.Utils;
 
 public class RevlonUKMobileHelper {
 	String datafile;
@@ -80,7 +81,7 @@ public class RevlonUKMobileHelper {
 			Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName").toString());
 			Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName").toString());
 			Common.actionsKeyPress(Keys.ARROW_DOWN);
-			Common.textBoxInput("id", "email_address", data.get(dataSet).get("Email").toString());
+			Common.textBoxInput("id", "email_address", Utils.getEmailid());
 			Common.textBoxInput("id", "password", data.get(dataSet).get("Password").toString());
 			Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password").toString());
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
