@@ -19,7 +19,7 @@ public class RHT_MOB_ST_AccountCreation {
 	
 	
 	@Test(priority=1)
-	public void createAccount() throws Exception {
+	public void MobileCreateAccount() throws Exception {
 
 		try {
 			revlon.slider();

@@ -20,7 +20,7 @@ public class RHT_ST_AC_Account_Creation {
 	
 	
 	@Test(priority=1)
-	public void createAccount() throws Exception {
+	public void CreateAccount() throws Exception {
 
 		try {
 			revlon.CreateNewAccount("AccountCreation");
@@ -31,21 +31,21 @@ public class RHT_ST_AC_Account_Creation {
 		} 
 	}
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
+	  }
 	
 	@AfterTest
 	public void clearBrowser()

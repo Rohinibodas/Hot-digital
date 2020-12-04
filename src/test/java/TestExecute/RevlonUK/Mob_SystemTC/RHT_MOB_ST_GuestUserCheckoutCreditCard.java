@@ -18,7 +18,7 @@ public class RHT_MOB_ST_GuestUserCheckoutCreditCard {
 	
 	
 	@Test(priority=1)
-	public void createAccount() throws Exception {
+	public void MobileGuestUserCheckout() throws Exception {
 
 		try {
 			revlon.SearchProduct("productName");

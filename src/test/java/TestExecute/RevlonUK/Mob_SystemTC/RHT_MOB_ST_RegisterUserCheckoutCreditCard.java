@@ -18,7 +18,7 @@ public class RHT_MOB_ST_RegisterUserCheckoutCreditCard {
 	
 	
 	@Test(priority=1)
-	public void createAccount() throws Exception {
+	public void MobileRegisteruserCheckout() throws Exception {
 
 		try {
 			revlon.slider();
