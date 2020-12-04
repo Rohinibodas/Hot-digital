@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class RHT_MOB_MT_HomePage {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
-	RevlonUKMobileHelper revlon=new RevlonUKMobileHelper();
+	RevlonUKMobileHelper revlon=new RevlonUKMobileHelper(datafile);
 	
 	
 	@Test(priority=1)
