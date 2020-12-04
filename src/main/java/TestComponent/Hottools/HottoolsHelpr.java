@@ -138,7 +138,7 @@ public class HottoolsHelpr {
 
 			//Common.textBoxInput("id", "upload_license", data.get(dataSet).get("Upload License"));
 
-			Common.fileUpLoad("id", "upload_license", data.get(dataSet).get("Upload License"));
+			Common.fileUpLoad("id", "upload_license", System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\Hottools\\testimage.jpg" );
 
 			Common.dropdown("xpath", "//select[@id='estimated_no_cus']", SelectBy.TEXT, data.get(dataSet).get("Estimated Number"));
 
