@@ -19,6 +19,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 
@@ -147,6 +148,9 @@ public class BaseDriver
 			// cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			//options.setCapability(ChromeOptions.CAPABILITY, options);
 			//options.setCapability("--enable-video-player-chromecast-support", true);
+			//DesiredCapabilities handlSSLErr = DesiredCapabilities.chrome ()       
+			options.addArguments("ignore-certificate-errors");
+					//WebDriver driver = new ChromeDriver (handlSSLErr);
 			LoggingPreferences logPrefschrome = new LoggingPreferences();
 			logPrefschrome.enable(LogType.BROWSER, Level.ALL);
 			//options.setCapability(CapabilityType.LOGGING_PREFS, logPrefschrome);

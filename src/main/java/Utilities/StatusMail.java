@@ -17,6 +17,7 @@ import javafx.application.Application;
 
 import org.apache.log4j.Logger;
 
+import TestLib.Automation_properties;
 import TestLib.Driver;
 
 	public class StatusMail {
@@ -31,14 +32,16 @@ import TestLib.Driver;
 		public static String testPassRate = null;
 		public static String DBUName = null, DBPwd = null, DBURL = null, DBDriver = null;
 		public static int SUMMARYFLAG;
-
-		public static String to="manojk@lotuswave.net",cc="",subject="Hydroflask Smoke Test Reports",attachmentPath="",attachmentPath1="";
+		
+		public static String to=Automation_properties.getInstance().getProperty("ReportEmail"),cc="makoppanadam@helenoftroy.com",subject="Hydroflask Smoke Test Reports",attachmentPath="",attachmentPath1="";
 		
 		
 		
 		public static void sendMail() throws Exception
 		{
+			System.out.println(Automation_properties.getInstance().getProperty("ReportEmail"));
 			subject="Hydroflask Smoke Test Reports";
+			System.out.println(Automation_properties.getInstance().getProperty("ReportEmail"));
 			attachmentPath=System.getProperty("user.dir")+"/src/test/resources/MailTemplates/ExecutionMailReport.html" ;
 			//attachmentPath1=;
 			attachmentPath=HTMLPreparation.generateMail("exectionReport");
@@ -57,14 +60,14 @@ import TestLib.Driver;
 		
 		public static void triggerSendMail()
 		{
-			String userName="manoj@lotuswave.net";
-			String passWord= "Mankoo@17";
-			String host="mail.privateemail.com";
-			String port="465";
-			String starttls="true";
-			String auth="true";
+			String userName="makoppanadam@helenoftroy.com";
+			String passWord= "Alvwabulxry1!";
+			String host="10.10.10.250";
+			String port="25";
+			String starttls="false";
+			String auth="false";
 			boolean debug=true;
-			String socketFactoryClass="javax.net.ssl.SSLSocketFactory";
+			//String socketFactoryClass="javax.net.ssl.SSLSocketFactory";
 			String fallback="false";
 
 
@@ -93,9 +96,9 @@ import TestLib.Driver;
 				props.put("mail.smtp.socketFactory.port", port);
 			}
 
-			if(!"".equals(socketFactoryClass)){
+			/*if(!"".equals(socketFactoryClass)){
 				props.put("mail.smtp.socketFactory.class",socketFactoryClass);
-			}
+			}*/
 
 			if(!"".equals(fallback)){
 				props.put("mail.smtp.socketFactory.fallback", fallback);
