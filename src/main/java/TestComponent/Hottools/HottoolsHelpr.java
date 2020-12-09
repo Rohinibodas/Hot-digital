@@ -1261,7 +1261,7 @@ public class HottoolsHelpr {
 				Common.clickElement("xpath", "//td[@class='col col-method']");
 			}
 
-			Common.clickElement("xpath", "//td[@class='col col-method']");
+			//Common.clickElement("xpath", "//td[@class='col col-method']");
 
 			Thread.sleep(8000);
 
@@ -1274,7 +1274,7 @@ public class HottoolsHelpr {
 				Thread.sleep(8000);
 			}	
 
-			Common.textBoxInput("xpath", "//input[@title='Purchase Order Number']", data.get(dataSet).get("PurchaseOrder"));
+			//Common.textBoxInput("xpath", "//input[@title='Purchase Order Number']", data.get(dataSet).get("PurchaseOrder"));
 			Common.switchFrames("paymetric_xisecure_frame");
 			Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
 			Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
@@ -1321,8 +1321,8 @@ public class HottoolsHelpr {
 	{
 		String expectedResult="Validating CMS Links Product Registration";
 		try {
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 
 			Sync.waitElementPresent("xpath", "//a[@href='https://stage.hottools.com/product-registration/']");
 			Common.clickElement("xpath", "//a[@href='https://stage.hottools.com/product-registration/']");
@@ -1477,8 +1477,8 @@ public class HottoolsHelpr {
 	public void validateNavigateGiveUsFeedback(String dataSet) throws Exception {
 		String expectedResult="Validating CMS Links Give Us Feedback";
 		try {
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 			Sync.waitElementPresent("xpath", "//a[@href='" + System.getProperty("url",
 					automation_properties.getInstance().getProperty(automation_properties.BASEURL) + "feedback/']"));
 			Common.clickElement("xpath", "//a[@href='" + System.getProperty("url",
@@ -1525,8 +1525,8 @@ public class HottoolsHelpr {
 	{
 		String expectedResult="Validating CMS Link About US";
 		try {
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 			Sync.waitElementPresent("xpath", "//a[@href='" + System.getProperty("url",
 					automation_properties.getInstance().getProperty(automation_properties.BASEURL) + "about-us/']"));
 			Common.clickElement("xpath", "//a[@href='" + System.getProperty("url",
@@ -1555,8 +1555,8 @@ public class HottoolsHelpr {
 		String expectedResult="Validating CMS links FAQ";
 		try
 		{
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 			Sync.waitElementPresent("xpath", "//a[@href='" + System.getProperty("url",
 					automation_properties.getInstance().getProperty(automation_properties.BASEURL) + "faq/']"));
 			Common.clickElement("xpath", "//a[@href='" + System.getProperty("url",
@@ -1583,8 +1583,8 @@ public class HottoolsHelpr {
 
 		String expectedResult="Validating CMS Links Contact us with form submission";
 		try {
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 
 			Sync.waitElementPresent("xpath", "//a[@href='" + System.getProperty("url",
 					automation_properties.getInstance().getProperty(automation_properties.BASEURL) + "contact-us/']"));
@@ -1635,8 +1635,8 @@ public class HottoolsHelpr {
 	public void validateNavigatePrivacyPolicy() throws Exception {
 		String expectedResult="Validating CMS link Privacy Policy";
 		try {
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 			Sync.waitElementPresent("xpath", "//a[@href='" + System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL) + "privacy-policy/']"));
 			Common.clickElement("xpath", "//a[@href='" + System.getProperty("url",
 					automation_properties.getInstance().getProperty(automation_properties.BASEURL) + "privacy-policy/']"));
@@ -1661,8 +1661,8 @@ public class HottoolsHelpr {
 	public void validateNavigateTermsAndConditions() throws Exception {
 		String expectedResult="Validating CMS links Terms & Conditions";
 		try {
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 			Sync.waitElementPresent("xpath",
 					"//a[@href='" + System.getProperty("url",
 							automation_properties.getInstance().getProperty(automation_properties.BASEURL)
@@ -1692,8 +1692,8 @@ public class HottoolsHelpr {
 	public void validateNavigatehottoolsUniversity() throws Exception {
 		String expectedResult="Validating CMS links Hottools University";
 		try {
-			Sync.waitElementPresent("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
-			Common.scrollToElementAndClick("xpath", "//h1[contains(text(),'24k Gold Curling Irons,')]");
+			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
+			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 			Sync.waitElementPresent("xpath", "//a[@href='/hot-tools-university']");
 			Common.clickElement("xpath", "//a[@href='/hot-tools-university']");
 			Thread.sleep(5000);
