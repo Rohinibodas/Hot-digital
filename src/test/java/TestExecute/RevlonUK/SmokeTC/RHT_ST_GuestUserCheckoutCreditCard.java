@@ -35,21 +35,21 @@ public class RHT_ST_GuestUserCheckoutCreditCard {
 		
 	  
   }
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }*/
+	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

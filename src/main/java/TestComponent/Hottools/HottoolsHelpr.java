@@ -265,13 +265,13 @@ public class HottoolsHelpr {
 
 				Sync.waitElementPresent("xapth","//fieldset[@class='fieldset login']//div[3]");
 				Thread.sleep(4000);
-
+				Common.scrollIntoView("id", "send2");
 				Sync.waitElementPresent("id", "send2");
 				Common.clickElement(By.id("send2"));
 
 				Thread.sleep(4000);
 				i++;
-			}while(i<5 && !Common.isElementDisplayed("xpath", "//img[@class='pagebuilder-mobile-hidden i-hide']")); 
+			}while(i<5 && !Common.isElementDisplayed("xpath", "//span[@class='logged-in']")); 
 
 			report.addPassLog(expectedResult,"Should Login to application successfully", "Login to application successfully", Common.getscreenShotPathforReport("Login success"));
 		}catch(Exception |Error e)
@@ -1135,6 +1135,7 @@ public class HottoolsHelpr {
 
 			//Common.actionsKeyPress(Keys.ARROW_DOWN);
 			Thread.sleep(7000);
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
 			Sync.waitElementPresent("id", "product-addtocart-button");
 			Common.clickElement("id", "product-addtocart-button");
 			//Common.clickElement(By.id("product-addtocart-button"));
