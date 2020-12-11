@@ -79,7 +79,7 @@ public class MailTestSuite {
 			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Priority#</td>");
 			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Module#</td>");
 			contentBuilder.append("<td valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#TestScriptName#</td>");
-			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'> #TestDesc#</td>");
+			contentBuilder.append("<td valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'> #TestDesc#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Status#</td>");
 			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#CorrelationID#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Remarks#</td>");
