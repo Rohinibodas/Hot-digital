@@ -224,6 +224,7 @@ public class RevelonMobHelper {
 	{
 		String expectedResult="Checkout page of Register user";
 		try {
+			Thread.sleep(2000);
 			Common.clickElement("xpath", "//span[contains(text(),'Ship Here')]");
 			Thread.sleep(2000);
 			Common.scrollToElementAndClick("xpath", "//div[contains(text(),'Shipping Methods')]");

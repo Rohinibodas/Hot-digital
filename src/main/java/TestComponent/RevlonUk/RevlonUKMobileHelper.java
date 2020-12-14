@@ -41,13 +41,20 @@ public class RevlonUKMobileHelper {
 	}
 	public void slider() throws InterruptedException
 	{
-		Thread.sleep(3000);
-		if(Common.isElementDisplayed("xpath", "//span[contains(text(),'WE VALUE YOUR PRIVACY')]")) {
-			acceptPrivecy();
+		try {
+			Thread.sleep(3000);
+			if(Common.isElementDisplayed("xpath", "//span[contains(text(),'WE VALUE YOUR PRIVACY')]")) {
+				acceptPrivecy();
+			}
+			Thread.sleep(2000);
+			Sync.waitElementClickable(30, By.className("nav-toggle"));
+			Common.clickElementStale("xpath", "//span[@class='action nav-toggle']/small[2]");
+		}catch(Exception |Error e)
+		{
+			e.printStackTrace();
+			Assert.fail();
 		}
-		Thread.sleep(2000);
-		Sync.waitElementClickable(30, By.className("nav-toggle"));
-		Common.clickElementStale("xpath", "//span[@class='action nav-toggle']");
+		
 	}
 	
 	public void Loginpage() throws InterruptedException
@@ -123,6 +130,38 @@ public class RevlonUKMobileHelper {
 		}
 	}
 	
+	public void forgotPassword(String dataSet) throws Exception
+	{
+		String expectedResult="Forgot Password for Registered User";
+		Thread.sleep(2000);
+		try {
+			Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/forgotpassword/']")));
+			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/forgotpassword/']"));
+			int i=0;
+			do{  
+				Common.textBoxInput("id", "email_address", data.get(dataSet).get("Email"));
+				Sync.waitElementClickable(30, By.xpath("//button[contains(text(),'Reset My Password')]"));
+				Common.clickElement("xpath", "//button[contains(text(),'Reset My Password')]");
+				Thread.sleep(4000);
+
+				i++;
+			}while(i<3 && !Common.isElementDisplayed("xpath", "//span[contains(text(),'Customer Login')]")); 
+			Thread.sleep(5000);
+			if(Common.isElementDisplayed("xpath", "//div[@data-bind='html: message.text']")) {
+				String s=Common.getText("xpath", "//div[@data-bind='html: message.text']");
+				Thread.sleep(4000);
+				Assert.assertEquals(s, "If there is an account associated with "+data.get(dataSet).get("Email")+" you will receive an email with a link to reset your password.");
+				Thread.sleep(4000);
+			}
+			report.addPassLog(expectedResult, "Should display Forgot Password Succes message", "Forgot Password page success message displayed successfully", Common.getscreenShotPathforReport("Forgot Password text"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Forgot Password Succes message", "Forgot Password page success message not displayed", Common.getscreenShotPathforReport("Account Creation Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
 	public void SearchProduct(String dataSet) throws Exception
 	{
 		String expectedResult="Search with Product name :"+data.get(dataSet).get("ProductName");
@@ -141,7 +180,7 @@ public class RevlonUKMobileHelper {
 			Common.actionsKeyPress(Keys.ENTER);
 			Thread.sleep(10000);
 			Common.actionsKeyPress(Keys.DOWN);
-			//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
 			report.addPassLog(expectedResult, "Should display Search Results Page", "Search results Page display successfully", Common.getscreenShotPathforReport("Search results success"));
 		}catch(Exception |Error e)
 		{
@@ -149,6 +188,33 @@ public class RevlonUKMobileHelper {
 			e.printStackTrace();
 			Assert.fail();
 		}
+	}
+	
+	public void zerosearchProduct(String dataSet) throws Exception
+	{		
+		String expectedResult="Search with Product name :"+data.get(dataSet).get("ProductName");
+		try {
+			Sync.waitElementPresent("id", "search");
+			try {
+				Common.textBoxInput("id", "search", data.get(dataSet).get("ProductName"));
+
+			}catch(Exception e)
+			{
+				Common.clickElement("xpath", "//div[@class='block block-search search-visible-md minisearch-v2']/div/i");
+				Thread.sleep(3000);
+				Common.textBoxInput("id", "search", data.get(dataSet).get("ProductName"));
+			}
+			Common.actionsKeyPress(Keys.ENTER);
+			Thread.sleep(10000);
+			Assert.assertTrue(Common.isElementDisplayed("id", "nosearchresultcount"));
+			//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			report.addPassLog(expectedResult, "Should display Zero search results Page", "Zero search results Page display successfully", Common.getscreenShotPathforReport("Zero results page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Zero search results Page", "Zero search results Page not display", Common.getscreenShotPathforReport("Zearo results Failed"));
+			Assert.fail();
+		}
+
 	}
 	
 	public void Productselection() throws Exception
@@ -206,8 +272,8 @@ public class RevlonUKMobileHelper {
 	{
 		String expectedResult="Product adding to checkout page";
 		try {
-			Sync.waitElementPresent("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/']"));
-			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/']"));
+			Sync.waitElementPresent("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/']/button"));
+			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/']/button"));
 			Thread.sleep(1000);
 			Common.isElementDisplayed("xpath", "//div[contains(text(),'Shipping Address')]");
 			report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
@@ -391,6 +457,34 @@ public class RevlonUKMobileHelper {
 			e.printStackTrace();
 			Assert.fail();
 		}
+	}
+	
+	public void invalidCreditCard(String dataSet) throws Exception
+	{
+		String expectedResult="Payment Method with invalid Credit card";
+		try {
+			addPaymentDetails(dataSet);
+
+			if(Common.findElements("xpath", "//div[@class='message message-error']").size()>0)
+			{	
+				addPaymentDetails(dataSet);
+			}
+
+			/*Common.clickElement("xpath", "//button[@id='paymetrictokenize_place_order']");
+			Thread.sleep(2000);*/
+
+			//Common.switchFrames("xpath", "//*[@id='cardContainer']/div/div/div[2]/div[1]/div[1]/label/span[2]/span/iframe");
+			String Errormessage=Common.getText("xpath", "//span[@class='adyen-checkout__error-text']");
+			System.out.println(Errormessage);
+			Assert.assertEquals(Errormessage, "Invalid card number");
+			report.addPassLog(expectedResult, "Should display Error message for Credit card number feild", "Error message for Credit card number feild display successfully", Common.getscreenShotPathforReport("Error message credit card success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Error message for Credit card number feild", "Error message for Credit card number feild not display", Common.getscreenShotPathforReport("Error message credit card Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
 	}
 	
 	public void ValidateHomepagelogo() throws Exception
