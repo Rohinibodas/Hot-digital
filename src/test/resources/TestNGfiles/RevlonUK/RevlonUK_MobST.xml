@@ -21,4 +21,34 @@
             <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
         </classes>
     </test>
+    <test name="Test_RHT_MOB_ST_004_ForgotPassword" testid="RU-222" priority="P1" description="To verify the Forgot Password functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_ForgotPassword"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_005_RegisteredUserBrowsersearch" testid="RU-223" priority="P1" description="To verify the Browser Search for registered user functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_RegisteredUserBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_006_GuestUserBrowsersearch" testid="RU-224" priority="P1" description="To verify the Browser Search for Guest user functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_007_RegisteredUserCheckout_InvalidCreditCard" testid="RU-225" priority="P1" description="To verify the Checkout for Registered User with Invalid Credit Card functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_RegisterUserCheckout_InvalidCreditCard"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_MOB_ST_008_GuestUserCheckout_InvalidCreditCard" testid="RU-226" priority="P1" description="To verify the Checkout for Guest User with Invalid Credit Card functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckout_InvalidCreditCard"/>
+        </classes>
+    </test>
 </suite>  

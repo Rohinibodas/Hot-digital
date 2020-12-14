@@ -3,22 +3,52 @@
    <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="Test_RHT_ST_001_Account_Creation" testid="RU-124" priority="P1" description="To verify the Account Creation functionality in Revlon web site">
+    <test name="Test_RUK_ST_001_Account_Creation" testid="RU-124" priority="P1" description="To verify the Account Creation functionality in Revlon web site">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_AC_Account_Creation"/>
         </classes>
     </test>
-    <test name="Test_RHT_ST_002_RegisteredUserCheckoutCreditCard" testid="RU-125" priority="P1" description="To verify the Checkout for registered user functionality in Revlon web site">
+    <test name="Test_RUK_ST_002_RegisteredUserCheckoutCreditCard" testid="RU-125" priority="P1" description="To verify the Checkout for registered user functionality in Revlon web site">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_Registeruser_CheckoutCreditCard"/>
         </classes>
     </test>
-    <test name="Test_RHT_ST_003_GuestUserCheckoutCreditCard" testid="RU-126" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site">
+    <test name="Test_RUK_ST_003_GuestUserCheckoutCreditCard" testid="RU-126" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_GuestUserCheckoutCreditCard"/>
+        </classes>
+    </test>
+    <test name="TEST_RUK_ST_004_ForgotPassword" testid="RU-217" priority="P1" description="To verify the Forgot Password functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_Forgotpassword"/>
+        </classes>
+    </test>
+    <test name="TEST_RUK_ST_005_RegisteredUserBrowsersearch" testid="RU-218" priority="P1" description="To verify the Browser Search for registered user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_RegisteredUserBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="TEST_RUK_ST_006_GuestUserBrowsersearch" testid="RU-219" priority="P1" description="To verify the Browser Search for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_GuestUserBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="TEST_RUK_ST_007_RegisteredUserCheckout_InvalidCreditCard" testid="RU-220" priority="P1" description="To verify the Checkout for Registered User with Invalid Credit Card functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_RegisteredUserCheckout_InvalidCreditCard"/>
+        </classes>
+    </test>
+    <test name="TEST_RUK_ST_008_GuestUserCheckout_InvalidCreditCard" testid="RU-221" priority="P1" description="To verify the Checkout for Guest User with Invalid Credit Card functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_GuestUserCheckout_InvalidCreditCard"/>
         </classes>
     </test>
 </suite>  

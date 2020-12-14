@@ -46,21 +46,21 @@ public class RHT_ST_Mob_RegisterUserCheckout_Creditcard {
 		  
 	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome",Device);
 		  
-	  }*/
+	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
     //@Parameters({"device"})
       public void startTest() throws Exception {
         System.setProperty("configFile", "Revelon\\config.properties");
           Login.signIn("chrome","iPad");
          
-      }
+      }*/
 	@AfterTest
 	public void clearBrowser()
 	{
