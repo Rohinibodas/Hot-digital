@@ -544,7 +544,7 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		
 		
 		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15184']");
-		Common.clickElement("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15184']");
+		Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15184']");
 		//Common.clickElement("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15184']");
 		
 		//Common.clickElement("xpath","//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15184']‌");
@@ -999,7 +999,7 @@ catch(Exception |Error e) {
 	
 	
 	public void VerifyaingConformationPage() throws Exception{
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
 		String Sucessmessage=Common.getText("xpath", "//h1[@class='page-title']/span");
 		System.out.println(Sucessmessage);
@@ -1007,13 +1007,16 @@ catch(Exception |Error e) {
 		
 		//Thank you for your order!
 		
-		Sync.waitElementPresent("xpath", "//div[@id='registration']/div[2]/a/span");
+		/*Sync.waitElementPresent("xpath", "//div[@id='registration']/div[2]/a/span");
 		String CreateAccount=Common.getText("xpath","//div[@id='registration']/div[2]/a/span");
 		Common.assertionCheckwithReport(CreateAccount.equals("Create Account"), "verifying Creat account button", "displaying the Creat account button", "successfully displaying the Creat account button","Failed displaying Creat account button");
-		
+		*/
 	
-		Common.findElements("xpath", "//div[@class='order-help-item']/h4");
+		//Common.findElements("xpath", "//div[@class='order-help-item']/h4");
 		
+		String ordernumber=Common.getText("xpath", "//p[@class='order-number-wrapper']/span");
+		System.out.println(ordernumber);
+	
 		PropertiesReader prop=new PropertiesReader();
 		prop.properUpdate("OxoOrder.properties","OrderNumber_"+Common.getCurrentDate(),Common.getText("xpath", "//p[@class='order-number-wrapper']/span"));
 		// //div[@id="registration"]/div[2]/a Createaccount
