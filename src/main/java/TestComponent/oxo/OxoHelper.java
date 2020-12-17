@@ -12,6 +12,7 @@ import TestLib.Sync;
 import Utilities.ExcelReader;
 import Utilities.ExtenantReportUtils;
 import Utilities.MailAPI;
+import Utilities.PropertiesReader;
 
 public class OxoHelper {
 
@@ -1013,6 +1014,8 @@ catch(Exception |Error e) {
 	
 		Common.findElements("xpath", "//div[@class='order-help-item']/h4");
 		
+		PropertiesReader prop=new PropertiesReader();
+		prop.properUpdate("OxoOrder.properties","OrderNumber_"+Common.getCurrentDate(),Common.getText("xpath", "//p[@class='order-number-wrapper']/span"));
 		// //div[@id="registration"]/div[2]/a Createaccount
 		
 		
