@@ -540,7 +540,7 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		clickThreebadmenu();
 		String expectedResult="It Should be navigate to the Baby_Toddler category page.";
 		try{
-		Thread.sleep(8000);
+		Thread.sleep(4000);
 		
 		
 		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15184']");
@@ -827,6 +827,11 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 	public void loginOxo(String dataSet) throws Exception
 	{
 		Thread.sleep(3000);
+		int name=Common.findElements("xpath", "//span[@class='customer-name']").size();
+		if(name>0){
+			
+		}
+		else{
 		try{
 		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 		Common.findElement("xpath", "//a[@class='social-login']").click();
@@ -866,6 +871,7 @@ catch(Exception |Error e) {
 		Assert.fail();
 		
 	}
+		}
 		/*try{
 		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 		Common.findElement("xpath", "//a[@class='social-login']").click();
@@ -1014,13 +1020,23 @@ catch(Exception |Error e) {
 	
 		//Common.findElements("xpath", "//div[@class='order-help-item']/h4");
 		
+		
+		int number=Common.findElements("xpath","//p[@class='order-number-wrapper']//strong").size();
+		if(number>0){
+			String ordernumber=Common.getText("xpath", "//p[@class='order-number-wrapper']//strong");
+			System.out.println(ordernumber);
+			PropertiesReader prop=new PropertiesReader();
+			prop.properUpdate("OxoOrder.properties","OrderNumber_"+Common.getCurrentDate(),Common.getText("xpath", "//p[@class='order-number-wrapper']//strong"));
+		}
+		
+		else{
 		String ordernumber=Common.getText("xpath", "//p[@class='order-number-wrapper']/span");
 		System.out.println(ordernumber);
 	
 		PropertiesReader prop=new PropertiesReader();
 		prop.properUpdate("OxoOrder.properties","OrderNumber_"+Common.getCurrentDate(),Common.getText("xpath", "//p[@class='order-number-wrapper']/span"));
 		// //div[@id="registration"]/div[2]/a Createaccount
-		
+		}
 		
 		//h1[@class='page-title']/span
 		//Thank you for your order!
@@ -1791,9 +1807,10 @@ public void Twitter() throws InterruptedException {
     	   ExtenantReportUtils.addFailedLog("Validating Webelement of Twitter Page", "Expected text should not be obtained","Expected text is not obtained", "Twitter LinkValidation");
     	   Assert.fail();
        }
+   	System.out.println(Common.getPageTitle());
 	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating Twitter URL which contains https", "This URL Contains https", "given url contains https", "give url missing  https");
      // Assert.assertTrue(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
-    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://twitter.com/OXO")&&Common.getPageTitle().equals("OXO (@OXO) / Twitter"),"Validating  Twitter Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://twitter.com/OXO")&&Common.getPageTitle().equals("Profile / Twitter"),"Validating  Twitter Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
     	
     	Common.closeCurrentWindow();
  	   Common.switchToFirstTab();
