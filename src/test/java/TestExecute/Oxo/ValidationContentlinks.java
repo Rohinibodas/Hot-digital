@@ -173,7 +173,7 @@ public class ValidationContentlinks {
 			oxo.GoodTipsBlog();
 			oxo.InventorSubmissions();
 			oxo.InvestorRelations();
-			oxo.Careers();
+		//	oxo.Careers();
 			}
 		catch (Exception e) {
 			

@@ -7,13 +7,14 @@ import org.testng.annotations.Test;
 
 import TestComponent.oxo.OxoHelper;
 import TestLib.BaseDriver;
+import TestLib.Common;
 import TestLib.Login;
 
 public class Guest_checkout_CreditCard {
 	
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
-	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class,invocationCount = 1)
 
   public void guest_checkout_CreditCard() {
 		try{
@@ -29,6 +30,8 @@ public class Guest_checkout_CreditCard {
 		oxo.Edit_BillingAddress("BiillingAddress");
 		oxo.clickAcceptingaddress();
 		oxo.creditCard_payment("PaymentDetails");
+		oxo.VerifyaingConformationPage();
+		Common.refreshpage();
   }
 	catch (Exception e) {
 		
@@ -39,8 +42,8 @@ public class Guest_checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		BaseDriver.setDriver(null);
-		
+		//BaseDriver.setDriver(null);
+		Common.closeAll();
 
 	}
 	

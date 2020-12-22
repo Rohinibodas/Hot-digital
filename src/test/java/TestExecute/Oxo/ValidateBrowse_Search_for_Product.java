@@ -12,9 +12,8 @@ import TestLib.Login;
 public class ValidateBrowse_Search_for_Product {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
-	@Test(priority=1)
-
-  public void f() {
+	@Test
+  public void validateBrowse_Search_for_Product() {
 	  try {
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
@@ -31,7 +30,7 @@ public class ValidateBrowse_Search_for_Product {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	@BeforeMethod

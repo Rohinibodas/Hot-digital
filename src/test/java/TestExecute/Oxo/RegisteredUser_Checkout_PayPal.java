@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import TestComponent.oxo.OxoHelper;
 import TestLib.BaseDriver;
+import TestLib.Common;
 import TestLib.Login;
 
 
@@ -29,7 +30,6 @@ public class RegisteredUser_Checkout_PayPal {
 			oxo.clickAcceptingaddress();
 			oxo.selectGroundShippingMethod();
 			oxo.payPal_payment("PaypalDetails");
-			//oxo.creditCard_payment("PaypalDetails");
 			//oxo.VerifyaingConformationPage();
 			
 	  }
@@ -41,7 +41,8 @@ public class RegisteredUser_Checkout_PayPal {
 		@AfterTest
 		public void clearBrowser() throws Exception
 		{
-			BaseDriver.setDriver(null);
+			
+		Common.closeAll();
 			
 
 		}

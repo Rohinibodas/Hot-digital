@@ -85,7 +85,7 @@ public class HydroMobileHelper {
 		expectedResult="opens Sign up pop up";
 		int size= Common.findElements("id", "social-login-popup-create-firstname").size();
 		
-		Common.assertionCheckwithReport(size>0, "verifying sign up page ", expectedResult, "Successfully opeans Sign up pop up", "Faild to load the Sign popup");
+		Common.assertionCheckwithReport(size>0, "verifying sign up pageÂ ", expectedResult, "Successfully opeans Sign up pop up", "Faild to load the Sign popup");
 		//Common.assertionCheckwithReport(size>0, "Successfully opeans Sign up pop_up page", expectedResult, "Faild to load the Sign popup");
 		
 		Common.textBoxInput("id", "social-login-popup-create-lastname", data.get(dataSet).get("LastName"));
@@ -253,7 +253,8 @@ public class HydroMobileHelper {
 		Thread.sleep(3000);
 		expectedResult="User should click the"+category;
 		try {
-		Common.mouseOver("xpath", "//a[contains(text(),'"+category+"')]");
+			Common.mouseOver("xpath", "//li[contains(@class,'megamenu-item-mobile')][3]/div/button");
+		//Common.mouseOver("xpath", "//a[contains(text(),'"+category+"')]");
 		}
 		catch (Exception e) {
 			Common.clickElement("xpath", "//div[@class='menu-trigger js-menu-trigger']");
@@ -286,7 +287,7 @@ public class HydroMobileHelper {
 		Thread.sleep(4000);
 	List<WebElement> element=Common.findElements("xpath", "//button[@title='Add to Cart']");
 		
-	     element.get(2).click();
+	     element.get(1).click();
 	
 	//	Common.clickElement("xpath", "//button[@title='Add to Cart']");
 		//Common.assertionCheckwithReport(cartbuttonsize>0, "Added Product to Cart", expectedResult,"User unabel add product to cart");
@@ -304,7 +305,7 @@ public class HydroMobileHelper {
 		//report.addPassLog(expectedResult,"Added Product to Cart",Common.getscreenShotPathforReport(expectedResult));
 		}
 catch(Exception |Error e) {
-			
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the product add to cart", expectedResult, "User unabel to add product to cart",  Common.getscreenShotPathforReport("faield to add product"));
 			//ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
 			Assert.fail();
@@ -692,11 +693,11 @@ catch(Exception |Error e) {
 		     Thread.sleep(4000);
                 String expectedResult="land on the payment section";
             try{
-                Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
+                Sync.waitElementClickable("xpath", "//label[@for='paymetric']");
 				//int sizes=Common.findElements("xpath", "//label[@for='ime_paymetrictokenize']").size();
 				
 			   // Common.assertionCheckwithReport(sizes>0, "Successfully  land on the payment section", expectedResult,"User unabel to land on paymentpage");
-				Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+				Common.clickElement("xpath", "//label[@for='paymetric']");
 				Thread.sleep(2000);
 				Common.switchFrames("id", "paymetric_xisecure_frame");
 				Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
@@ -709,12 +710,12 @@ catch(Exception |Error e) {
 				Common.actionsKeyPress(Keys.ARROW_DOWN);
 				Common.switchToDefault();
 				Thread.sleep(1000);
-				Common.clickElement("xpath", "//button[@title='Place Order']");
+				Common.clickElement("xpath", "//span[text()='Place Order']");
                 
             }
             
             catch(Exception |Error e) {
-    			
+    			e.printStackTrace();
     			ExtenantReportUtils.addFailedLog("validating the Credit Card infromation", expectedResult, "faield  to fill the Credit Card infromation",  Common.getscreenShotPathforReport("Cardinfromationfail"));
     			//ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
     			Assert.fail();
@@ -722,8 +723,9 @@ catch(Exception |Error e) {
     		}
            
                 expectedResult="credit card fields are filled with the data";
-		    	String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
-		        Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+		    	//String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
+		     int errortextsize=  Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+		    	Common.assertionCheckwithReport(errortextsize<=0, "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
 		    	
 		   
 		}
@@ -745,9 +747,9 @@ catch(Exception |Error e) {
 		}
 			
 		Thread.sleep(3000);
-		int placeordercount=Common.findElements("xpath", "//button[@title='Place Order']").size();
+		int placeordercount=Common.findElements("xpath", "//span[text()='Place Order']").size();
 		if(placeordercount>1){
-			Common.clickElement("xpath", "//button[@title='Place Order']");
+			Common.clickElement("xpath", "//span[text()='Place Order']");
 		}
 		
 		    String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
@@ -2103,7 +2105,7 @@ public void review_bottles(String dataSet) throws Exception{
 		try{
 		Sync.waitElementClickable("xpath", "//a[contains(text(),'Account Information')]");
 	    Common.mouseOverClick("xpath", "//a[contains(text(),'Account Information')]");
-	    ExtenantReportUtils.addPassLog("verifying my account button ","User click the my account button", "successfully click the my account button ", Common.getscreenShotPathforReport("my account button"));
+	    ExtenantReportUtils.addPassLog("verifying my account buttonÂ ","User click the my account button", "successfullyÂ click the my account buttonÂ ", Common.getscreenShotPathforReport("my account button"));
 	    
 		}
 		catch(Exception |Error e) {

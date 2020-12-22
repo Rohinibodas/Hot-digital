@@ -1835,12 +1835,14 @@ public void Facebook() throws InterruptedException {
                }
    	         else{
                      System.out.println("Expected text is not obtained");
+                     
                      ExtenantReportUtils.addFailedLog("Validating Webelement of Facebook Page", "Expected text should not be obtained","Expected text is not obtained", "Facebook LinkValidation");
                     Assert.fail();       
    	         }
    	}
    	
     catch(Exception e) {
+    	e.printStackTrace();
     	 ExtenantReportUtils.addFailedLog("Validating Webelement of Facebook Page", "Expected text should not be obtained","Expected text is not obtained", "Facebook LinkValidation");
     	
     	Assert.fail();
