@@ -9,12 +9,12 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Registered_CheckoutWithPaypal {
+public class Registered_CheckoutWithPaypal_from_minicart {
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-  public void checkoutWithPayPal() {
+  public void checkoutWithPayPal_minicart() {
 		try {
 			Hydro.loginHydroflaskAccount("AccountDetails");
 			Hydro.orderSubmit("Bottles");
