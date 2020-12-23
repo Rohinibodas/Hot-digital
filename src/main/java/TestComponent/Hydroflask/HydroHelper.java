@@ -825,6 +825,7 @@ public class HydroHelper {
 			
 			  Common.clickElement("xpath", "//span[text()='Place Order']");
 			// stage its working Common.clickElement("xpath", "//button[@title='Place Order']");
+			  ////span[text()='Place Order']
 		}
 		ExtenantReportUtils.addPassLog("verifying the product confirmation",
 				"It redirects to order confirmation page", "User failed to proceed CreditCard information",
@@ -838,11 +839,12 @@ public class HydroHelper {
 	//Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
 	    Thread.sleep(4000);
 	               String expectedResult="land on the payment section";
-	           try{
-	               Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
+	           try{  
+	        	   //label[@for='paymetric']
+	               Sync.waitElementClickable("xpath", "//label[@for='paymetric']");
 	//int sizes=Common.findElements("xpath", "//label[@for='ime_paymetrictokenize']").size();
 	  // Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land on paymentpage");
-	Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+	Common.clickElement("xpath", "//label[@for='paymetric']");
 	Thread.sleep(2000);
 	Common.switchFrames("id", "paymetric_xisecure_frame");
 	Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
@@ -855,10 +857,14 @@ public class HydroHelper {
 	Common.switchToDefault();
 	Thread.sleep(1000);
     Common.clickElement("xpath", "//span[text()='Place Order']");
+    		//+ "//button[@title='Place Order']");
+
+    		//+ "//span[text()='Place Order']");
 	
     //stage working //Common.clickElement("xpath", "//button[@title='Place Order']");
 	           }
 	           catch(Exception |Error e) {
+	        	   e.printStackTrace();
 	   ExtenantReportUtils.addFailedLog("validating the Credit Card infromation", expectedResult, "faield to fill the Credit Card infromation", Common.getscreenShotPathforReport("Cardinfromationfail"));
 	    //ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
 	   Assert.fail();
@@ -906,14 +912,14 @@ public class HydroHelper {
 		Thread.sleep(4000);
 		String expectedResult = "land on the payment section";
 		try {
-			//Sync.waitElementClickable("xpath", "//label[@for='paymetric']");
-			Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
-			int sizes=Common.findElements("xpath", "//label[@for='ime_paymetrictokenize']").size();
+			Sync.waitElementClickable("xpath", "//label[@for='paymetric']");
+			//Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
+			int sizes=Common.findElements("xpath", "//label[@for='paymetric']").size();
 
 		 Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land opaymentpage");
-			Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+			//Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
 			
-			//Common.clickElement("xpath","//label[@for='paymetric']");
+			Common.clickElement("xpath","//label[@for='paymetric']");
 			
 			Thread.sleep(2000);
 			Common.switchFrames("id", "paymetric_xisecure_frame");
@@ -947,17 +953,17 @@ public class HydroHelper {
 		}
 
 		expectedResult = "credit card fields are filled with the data";
-		String errorTexts = Common.findElement("xpath", "//div[contains(@id,'error')]").getText();
+	//	String errorTexts = Common.findElement("xpath", "//div[contains(@id,'error')]").getText();
 		
-	//	int errormessage=Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+		int errormessage=Common.findElements("xpath", "//div[contains(@id,'error')]").size();
 		
 		
-	//	Common.assertionCheckwithReport(errormessage<=0, "validating the credit card information with valid data",
-		//		expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+		Common.assertionCheckwithReport(errormessage<=0, "validating the credit card information with valid data",
+			expectedResult, "Filled the Card detiles", "missing field data it showinng error");
 
 		
-		Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data",
-				expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+		//Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data",
+			//	expectedResult, "Filled the Card detiles", "missing field data it showinng error");
 
 	}
 

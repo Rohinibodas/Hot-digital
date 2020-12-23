@@ -552,94 +552,121 @@ catch(Exception |Error e) {
 	
 	
 	
-	public void addDeliveryAddress(String dataSet) throws Exception
-	{
-		  try {	
-			  Thread.sleep(8000);
+	public void addDeliveryAddress(String dataSet) throws Exception {
+		try {
 			Sync.waitElementVisible("id", "customer-email-address");
-			Common.textBoxInput("id", "customer-email-address",data.get(dataSet).get("Email"));
-			}catch (NoSuchElementException e) {
-				checkOut();
-				Common.textBoxInput("id", "customer-email-address",data.get(dataSet).get("Email"));
-				
-			}
-			Thread.sleep(3000);
-			String  expectedResult="email field will have email address";
-          try{
-            Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']", data.get(dataSet).get("FirstName"));
-			
-            int size= Common.findElements("id", "customer-email-address").size();
-    		
-            
-            Common.assertionCheckwithReport(size>0, "validating the email address field", expectedResult, "Filled Email address", "unabel to fill the email address");
-            
-            //Common.assertionCheckwithReport(size>0, "Filled Email address", expectedResult, "unabel to fill the email address");
-            Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']", data.get(dataSet).get("LastName"));
-			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']", data.get(dataSet).get("Street"));
+			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+		} catch (NoSuchElementException e) {
+			checkOut();
+			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+
+		}
+		Thread.sleep(3000);
+		String expectedResult = "email field will have email address";
+		try {
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",
+					data.get(dataSet).get("FirstName"));
+
+			int size = Common.findElements("id", "customer-email-address").size();
+
+			Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,
+					"Filled Email address", "unabel to fill the email address");
+
+			// Common.assertionCheckwithReport(size>0, "Filled Email address",
+			// expectedResult, "unabel to fill the email address");
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
+					data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
+					data.get(dataSet).get("Street"));
 			Thread.sleep(2000);
-			Common.actionsKeyPress(Keys.SPACE);
+			String Text=Common.getText("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']");
+			
+			System.out.println(Text);
+			//Common.actionsKeyPress(Keys.SPACE);
+			
+			
 			Thread.sleep(3000);
 			try {
-			Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
-			}catch(Exception e)
-			{
+				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+			} catch (Exception e) {
 				Common.actionsKeyPress(Keys.BACK_SPACE);
 				Thread.sleep(1000);
 				Common.actionsKeyPress(Keys.SPACE);
-				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");		
+				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
 			}
-			if(data.get(dataSet).get("StreetLine2")!=null)
-			{
+			if (data.get(dataSet).get("StreetLine2") != null) {
 				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
+				
+				String text=Common.getText("name","street[1]");
+				System.out.println(text);
+				
 			}
-			if(data.get(dataSet).get("StreetLine3")!=null)
-			{
+			if (data.get(dataSet).get("StreetLine3") != null) {
 				Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
 			}
-			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']", data.get(dataSet).get("City"));
+			Sync.waitPageLoad();
+			Thread.sleep(5000);
+			Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='city']").clear();
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",data.get(dataSet).get("City"));
+			System.out.println(data.get(dataSet).get("City"));
+			
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
 			Thread.sleep(3000);
 			try {
-			Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));}
-			catch (ElementClickInterceptedException e) {
-			    Thread.sleep(3000);
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			} catch (ElementClickInterceptedException e) {
+				Thread.sleep(3000);
 				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
 			}
 			Thread.sleep(2000);
 			Common.textBoxInputClear("name", "postcode");
 			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+			Thread.sleep(5000);
+			
 			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
-			
-          }
-          
-          catch(Exception |Error e) {
-  			
-  			ExtenantReportUtils.addFailedLog("validating shipping address", "shipping address is filled in to the fields", "user faield to fill the shipping address",  Common.getscreenShotPathforReport("shipingaddressfaield"));
-  			//ExtenantReportUtils.addFailedLog("User click check out button", "User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
-  			Assert.fail();
-  			
-  		}
-			
-			
-			
-			expectedResult="shipping address is filled in to the fields";
-			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
-			
-			
-            int errorsize= Common.findElements("xpath", "//div[contains(@id,'error')]").size();
-           
-            if(errorsize<=0){
-            	ExtenantReportUtils.addPassLog("validating the shipping address field with valid Data", expectedResult, "Filled the shipping address", Common.getscreenShotPathforReport("shippingaddresspass"));
-            }
-            else{
-            	ExtenantReportUtils.addFailedLog("validating the shipping address field with valid Datas", expectedResult,"failed to add a addres in the filled", Common.getscreenShotPathforReport("failed to add a address"));
-        		Assert.fail();
-            }
-            
-         //   Common.assertionCheckwithReport(errorsize<=0,"enter the shipping address in to the fields without skipping any mandatory fields", expectedResult, "Filled the shipping address", "failed to add a address");
-            // Common.assertionCheckwithReport(errorsize<=0, "Filled the shipping address", expectedResult, "Missing the shipping address");
-			Thread.sleep(3000);
-			}
+
+		}
+
+		catch (Exception | Error e) {
+
+			ExtenantReportUtils.addFailedLog("validating shipping address",
+					"shipping address is filled in to the fields", "user faield to fill the shipping address",
+					Common.getscreenShotPathforReport("shipingaddressfaield"));
+			// ExtenantReportUtils.addFailedLog("User click check out button",
+			// "User unabel click the checkout button",
+			// Common.getscreenShotPathforReport("check out miniCart"));
+			Assert.fail();
+
+		}
+		Thread.sleep(5000);
+		int size=Common.findElements("xpath", "//input[@id='label_method_bestway']").size();
+		if(size>0){
+			Common.clickElement("xpath", "//input[@id='label_method_bestway']");
+		}
+
+		expectedResult = "shipping address is filled in to the fields";
+		Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+
+		int errorsize = Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+
+		if (errorsize <= 0) {
+			ExtenantReportUtils.addPassLog("validating the shipping address field with valid Data", expectedResult,
+					"Filled the shipping address", Common.getscreenShotPathforReport("shippingaddresspass"));
+		} else {
+			ExtenantReportUtils.addFailedLog("validating the shipping address field with valid Datas", expectedResult,
+					"failed to add a addres in the filled",
+					Common.getscreenShotPathforReport("failed to add a address"));
+			Assert.fail();
+		}
+
+		// Common.assertionCheckwithReport(errorsize<=0,"enter the shipping
+		// address in to the fields without skipping any mandatory fields",
+		// expectedResult, "Filled the shipping address", "failed to add a
+		// address");
+		// Common.assertionCheckwithReport(errorsize<=0, "Filled the shipping
+		// address", expectedResult, "Missing the shipping address");
+		Thread.sleep(3000);
+	}
 
 	
 	public void addNewAddress_ShipPage(String dataSet) throws Exception{
@@ -693,11 +720,11 @@ catch(Exception |Error e) {
 		     Thread.sleep(4000);
                 String expectedResult="land on the payment section";
             try{
-                Sync.waitElementClickable("xpath", "//label[@for='paymetric']");
+                Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
 				//int sizes=Common.findElements("xpath", "//label[@for='ime_paymetrictokenize']").size();
 				
 			   // Common.assertionCheckwithReport(sizes>0, "Successfully  land on the payment section", expectedResult,"User unabel to land on paymentpage");
-				Common.clickElement("xpath", "//label[@for='paymetric']");
+				Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
 				Thread.sleep(2000);
 				Common.switchFrames("id", "paymetric_xisecure_frame");
 				Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
@@ -710,7 +737,7 @@ catch(Exception |Error e) {
 				Common.actionsKeyPress(Keys.ARROW_DOWN);
 				Common.switchToDefault();
 				Thread.sleep(1000);
-				Common.clickElement("xpath", "//span[text()='Place Order']");
+				Common.clickElement("xpath", "//button[@title='Place Order']");
                 
             }
             
@@ -723,9 +750,8 @@ catch(Exception |Error e) {
     		}
            
                 expectedResult="credit card fields are filled with the data";
-		    	//String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
-		     int errortextsize=  Common.findElements("xpath", "//div[contains(@id,'error')]").size();
-		    	Common.assertionCheckwithReport(errortextsize<=0, "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+		    	String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
+		        Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
 		    	
 		   
 		}
@@ -747,9 +773,9 @@ catch(Exception |Error e) {
 		}
 			
 		Thread.sleep(3000);
-		int placeordercount=Common.findElements("xpath", "//span[text()='Place Order']").size();
+		int placeordercount=Common.findElements("xpath", "//button[@title='Place Order']").size();
 		if(placeordercount>1){
-			Common.clickElement("xpath", "//span[text()='Place Order']");
+			Common.clickElement("xpath", "//button[@title='Place Order']");
 		}
 		
 		    String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
