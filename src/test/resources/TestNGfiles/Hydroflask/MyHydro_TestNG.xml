@@ -85,9 +85,9 @@
 			<class name="TestExecute.Hydroflask.Smoke.Warranty_Submission" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_013-Change_Password" testid="HFM2-1066"
+	<test name="Test_HF_ST_013-Account_Create and Change_Password" testid="HFM2-1066"
 		priority="P1"
-		description="This script will cover Registered user reset his password and login with new password and log out for HydroFlesk">
+		description="This script will cover create new Account and Change the password in My Account Page ">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.EditAccounInfromation" />
 		</classes>
