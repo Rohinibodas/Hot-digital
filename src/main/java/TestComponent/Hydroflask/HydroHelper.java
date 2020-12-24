@@ -961,18 +961,18 @@ public class HydroHelper {
 		}
 
 		expectedResult = "credit card fields are filled with the data";
-		String errorTexts = Common.findElement("xpath", "//div[contains(@id,'error')]").getText();
+	//	String errorTexts = Common.findElement("xpath", "//div[contains(@id,'error')]").getText();
 		
-		/*int errormessage=Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+	int errormessage=Common.findElements("xpath", "//div[contains(@id,'error')]").size();
 		
 		
 		Common.assertionCheckwithReport(errormessage<=0, "validating the credit card information with valid data",
 			expectedResult, "Filled the Card detiles", "missing field data it showinng error");
-*/
-		
-		Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data",
-			expectedResult, "Filled the Card detiles", "missing field data it showinng error");
 
+		
+	/*	Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data",
+			expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+*/
 	}
 
 	public void updatePaymentAndSubmitOrder(String dataSet) throws Exception {
