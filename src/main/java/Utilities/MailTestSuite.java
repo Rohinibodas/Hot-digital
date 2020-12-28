@@ -84,7 +84,8 @@ public class MailTestSuite {
 			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#CorrelationID#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Remarks#</td>");
 			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'>#Exetime#</td>");
-			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'><a href=\""+System.getProperty("user.dir")+"/TestLogs/ExtentReport/#reportName#.html\" target=\"_blank\">DetailReport</a></td></tr>");	
+			//contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'><a href=\""+System.getProperty("user.dir")+"/TestLogs/ExtentReport/#reportName#.html\" target=\"_blank\">DetailReport</a></td></tr>");
+			contentBuilder.append("<td align='center' valign='middle' style='background:#f3f3f; border:1px solid #b6b6b6; font:normal 15px Calibri; color:#color#;'><a href=\"ExtentReport/#reportName#.html\" target=\"_blank\">DetailReport</a></td></tr>");
 			String Row=contentBuilder.toString();
 			String exceptionname="";
 			String dynamicRow;
