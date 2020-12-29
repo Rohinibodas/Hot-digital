@@ -3,6 +3,7 @@ package TestComponent.DryBar;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
@@ -530,6 +531,52 @@ public void braintree_creditCard_payment(String dataSet) throws Exception{
 	
 }
 
+public void navigateMyAccount() throws InterruptedException {
+	Thread.sleep(8000);
+	Sync.waitPageLoad();
+	String expectedResult = "User should land on the home page";
+	int size =Common.findElements("xpath", "//a[@class='logo']").size();
+	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
+	 Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
+	try {
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+		Sync.waitElementClickable(30, By.xpath("//ul[@class='header links']//li[2]/a"));
+		Common.findElement("xpath", "//ul[@class='header links']//li[2]/a").click();
+		Thread.sleep(3000);
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying my account option", "clcik the my account button",
+				"User failed to clcik the my account button",
+				Common.getscreenShotPathforReport("my account button"));
+		Assert.fail();
 
+	
+	}}
+
+public void loginApplication(String dataSet){
+	String expectedResult = "Opens login pop_up";
+   
+	   int size= Common.findElements("id", "okta-signin-username").size();
+	   Common.assertionCheckwithReport(size>0, "verifying login page", "open the login page", "successfully open the login page", "Failed open the login page");
+	   try {
+			Common.textBoxInput("id", "okta-signin-username", data.get(dataSet).get("Email"));
+			Common.textBoxInput("id", "okta-signin-password", data.get(dataSet).get("Password"));
+			Common.clickElement("id", "okta-signin-submit");
+			System.out.println(Common.getPageTitle());
+	    
+	   }
+	   catch (Exception | Error e) {
+			ExtenantReportUtils.addFailedLog("verifying login page with credentials", expectedResult,
+					"User failed to login in account  ", Common.getscreenShotPathforReport("login faield"));
+			Assert.fail();
+
+		}
+	}
+	//Email: xshzsmsmstzenzojra@mhzayt.online
+//Email: xshzsmsmstzenzojra@mhzayt.onlineEmail: xshzsmsmstzenzojra@mhzayt.online
+//Rajkumar@1155
+	
+	
 
 }
