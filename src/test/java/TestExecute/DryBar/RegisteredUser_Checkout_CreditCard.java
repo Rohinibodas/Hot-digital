@@ -16,8 +16,17 @@ public class RegisteredUser_Checkout_CreditCard {
   
   public void registeredUser_Checkout_CreditCard() {
 		try {
-			drybar.navigateMyAccount();
-			drybar.loginApplication("AccountDetails");
+			  drybar.navigateMyAccount();
+			  drybar.loginApplication("AccountDetails");
+			  drybar.clickHairProducts();
+			  drybar.selectproduct("ProductName");
+			  drybar.increaseProductQuantity("2");
+			  drybar.clickAddtoBag();
+			  drybar.clickminiCartButton();
+			  drybar.clickCheckoutButton();
+			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
+			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
+			  drybar.creditCard_payment("PaymentDetails");
 			
 			
 		}

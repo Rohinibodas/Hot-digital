@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
@@ -368,6 +369,12 @@ public void Edit_BillingAddress_PaymetricPaymentMethod(String dataSet)throws Exc
 		if(sizes>0){
          Common.clickElement("xpath", "//div[@id='ime_paymetrictokenize_method_form']//button[contains(@class,'action-edit-address')]");
 try{
+	    int selectbutton=Common.findElements("xpath", "//select[@name='billing_address_id']").size();
+	
+	    if(selectbutton>0){
+	    	Common.dropdown("xpath", "//select[@name='billing_address_id']", SelectBy.TEXT, "New Address");
+	    }
+	    
          Sync.waitElementPresent("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='firstname']");
      	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='firstname']",data.get(dataSet).get("FirstName"));
      	Sync.waitElementPresent("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='lastname']");
@@ -563,7 +570,14 @@ public void loginApplication(String dataSet){
 			Common.textBoxInput("id", "okta-signin-username", data.get(dataSet).get("Email"));
 			Common.textBoxInput("id", "okta-signin-password", data.get(dataSet).get("Password"));
 			Common.clickElement("id", "okta-signin-submit");
-			System.out.println(Common.getPageTitle());
+			Thread.sleep(6000);
+			
+			String gettext=Common.findElement(By.xpath("//h1[@class='page-title']/span")).getText();
+			System.out.println(gettext);
+			Common.assertionCheckwithReport(gettext.equals("MY ACCOUNT"), "verifying login account",
+					"customer is redirected to My Account page",
+					"Logged in the application and customer is redirected to My Account page",
+					"Unabel to login Account");
 	    
 	   }
 	   catch (Exception | Error e) {
@@ -573,6 +587,161 @@ public void loginApplication(String dataSet){
 
 		}
 	}
+public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
+
+	String expectedResult = "shipping address is entering in the fields";
+    int size = Common.findElements(By.xpath("//span[contains(text(),'New Address')]")).size();
+	if (size > 0) {
+
+		try {
+			Common.clickElement("xpath", "//span[contains(text(),'New Address')]");
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",
+					data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
+					data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
+					data.get(dataSet).get("Street"));
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.SPACE);
+			Thread.sleep(3000);
+			
+			if (data.get(dataSet).get("StreetLine2") != null) {
+				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
+			}
+			if (data.get(dataSet).get("StreetLine3") != null) {
+				Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
+			}
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(3000);
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",
+					data.get(dataSet).get("City"));
+			// Common.mouseOverClick("name", "region_id");
+			try {
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			} catch (ElementClickInterceptedException e) {
+				// TODO: handle exception
+				Thread.sleep(3000);
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			}
+			Thread.sleep(2000);
+			Common.textBoxInputClear("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']");
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']",
+					data.get(dataSet).get("postcode"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='telephone']",
+					data.get(dataSet).get("phone"));
+
+			ExtenantReportUtils.addPassLog("validating the shipping address", expectedResult,
+					"user add the shipping address",
+					Common.getscreenShotPathforReport("faield to add shipping address"));
+
+
+			Common.clickElement("xpath", "//button[contains(@class,'save-address')]");
+
+			int sizeerrormessage = Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+
+			Common.assertionCheckwithReport(sizeerrormessage <= 0, "verifying shipping addres filling ",
+					"user will fill the all the shipping", "user fill the shiping address click save button",
+					"faield to add new shipping address");
+			
+
+			Common.clickElement("xpath", "//div[@id='shipping-method-buttons-container']/div/button");
+			
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating adding  address", expectedResult,
+					"User unabel add shipping address",
+					Common.getscreenShotPathforReport("shipping address faield"));
+						Assert.fail();
+
+		}
+	}
+
+	else
+
+	{
+		try {
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
+					data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
+					data.get(dataSet).get("Street"));
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.SPACE);
+			Thread.sleep(3000);
+			try {
+				Common.clickElement("xpath",
+						"//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+			} catch (Exception e) {
+				Common.actionsKeyPress(Keys.BACK_SPACE);
+				Thread.sleep(1000);
+				Common.actionsKeyPress(Keys.SPACE);
+				Common.clickElement("xpath",
+						"//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+			}
+			if (data.get(dataSet).get("StreetLine2") != null) {
+				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
+			}
+			if (data.get(dataSet).get("StreetLine3") != null) {
+				Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
+			}
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(3000);
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",
+					data.get(dataSet).get("City"));
+			// Common.mouseOverClick("name", "region_id");
+			try {
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			} catch (ElementClickInterceptedException e) {
+				// TODO: handle exception
+				Thread.sleep(3000);
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			}
+			Thread.sleep(2000);
+			Common.textBoxInputClear("name", "postcode");
+			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+
+			Sync.waitElementClickable("xpath", "//span[contains(text(),'Continue To Payment')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Continue To Payment')]");
+
+		
+			ExtenantReportUtils.addPassLog("verifying shipping addres filling ", expectedResult,
+					"user enter the shipping address ",
+					Common.getscreenShotPathforReport("fill the shipping address first time"));
+
+			//Common.findElements("xpath", "").size();
+			expectedResult = "shipping address is filled in to the fields";
+			// report.addPassLog(expectedResult,"Filled the shipping
+			// address",Common.getscreenShotPathforReport("fill the shipping
+			// address"));
+			
+			//Common.mouseOverClick("xpath", "//input[@id='label_method_bestway']");
+			//Sync.waitElementClickable("xpath","//input[@id='label_method_bestway']");
+			//Common.clickElement("xpath", "//input[@id='label_method_bestway']");
+			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+			
+			Thread.sleep(3000);
+
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating adding  address", expectedResult,
+					"User unabel add shipping address",
+					Common.getscreenShotPathforReport("shipping address faield"));
+			// ExtenantReportUtils.addFailedLog("User click check out
+			// button", "User unabel click the checkout button",
+			// Common.getscreenShotPathforReport("check out miniCart"));
+			Assert.fail();
+
+		}
+	}
+
+	// report.addPassLog("clicked on the proceed to payment
+	// section",Common.getscreenShotPathforReport("land on the payment
+	// section"));
+
+}
 	//Email: xshzsmsmstzenzojra@mhzayt.online
 //Email: xshzsmsmstzenzojra@mhzayt.onlineEmail: xshzsmsmstzenzojra@mhzayt.online
 //Rajkumar@1155
