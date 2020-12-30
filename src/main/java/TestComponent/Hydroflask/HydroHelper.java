@@ -1786,7 +1786,7 @@ public class HydroHelper {
 			Thread.sleep(4000);
             Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]/div[1]/button");
 
-		/*	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+			Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
 			Thread.sleep(4000);
 			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
 
@@ -1797,7 +1797,7 @@ public class HydroHelper {
 
 			Common.assertionCheckwithReport(sizes > 0, "validating My hydro-Landing page", expectedResult,
 					"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
-*/
+
 			
 			// above  code 1736 to 1740 is not working in stage need to commit
 			
