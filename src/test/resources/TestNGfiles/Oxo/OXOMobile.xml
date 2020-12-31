@@ -117,6 +117,7 @@
 			<class name="TestExecute.Oxo.Mobile.Forgot_Password" />
 		</classes>
 	</test>
+
 	<test name="TEST_OXO_ST_002-Validate Forgot Password 
 			on iPad"
 		testid="OUS23-760" priority="P1"
