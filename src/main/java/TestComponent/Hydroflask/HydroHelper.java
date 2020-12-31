@@ -402,8 +402,8 @@ public class HydroHelper {
 			int buttonsize=Common.findElements("id", "payment-submit-btn").size();
 			
 			if(buttonsize>0){
-				//Common.clickElement("id", "payment-submit-btn");
-				Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
+				Common.clickElement("id", "payment-submit-btn");
+				//Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
 			}
 			else{
 			Common.clickElement("id", "confirmButtonTop");
@@ -878,9 +878,10 @@ public class HydroHelper {
 	               String expectedResult="land on the payment section";
 	           try{  
 	        	   //label[@for='paymetric']
+	        	 //label[@for='ime_paymetrictokenize']
 	               Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
-	//int sizes=Common.findElements("xpath", "//label[@for='ime_paymetrictokenize']").size();
-	  // Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land on paymentpage");
+	int sizes=Common.findElements("xpath", "//label[@for='ime_paymetrictokenize']").size();
+	   Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land on paymentpage");
 	Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
 	               //Common.clickElement("xpath", "//label[@for='paymetric']");
 	Thread.sleep(2000);
@@ -949,7 +950,7 @@ public class HydroHelper {
 
 		Thread.sleep(4000);
 		String expectedResult = "land on the payment section";
-		Common.refreshpage();
+		//Common.refreshpage();
 	
 		try {
 			//Sync.waitElementClickable("xpath", "//label[@for='paymetric']");
@@ -1033,6 +1034,7 @@ public class HydroHelper {
 		}
 		
 		else{
+			try{
 		String sucessMessage = Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
 		// Assert.assertEquals(sucessMessage, "Your order has been
 		// received","Sucess message validations");
@@ -1041,12 +1043,14 @@ public class HydroHelper {
 				"verifying the product confirmation", expectedResult,
 				"Successfully It redirects to order confirmation page Order Placed",
 				"User unabel to go orderconformation page");
-		// Common.assertionCheckwithReport(sizes>0, "Successfully It redirects
-		// to order confirmation page Order Placed", expectedResult,"User unabel
-		// to go orderconformation page");
-
-		// report.addPassLog(expectedResult,"
-		// ",Common.getscreenShotPathforRepoYour order has been received
+			}
+			catch (Exception | Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("verifying the product confirmation", expectedResult,
+						"User failed to navigate  to order confirmation page", Common.getscreenShotPathforReport("failednavigatepage"));
+				Assert.fail();
+			}
+	
 	}
 	}
 	public void payPal_Payment(String dataSet) throws Exception {
@@ -1782,7 +1786,7 @@ public class HydroHelper {
 			Thread.sleep(4000);
             Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]/div[1]/button");
 
-		/*	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+			Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
 			Thread.sleep(4000);
 			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
 
@@ -1793,7 +1797,7 @@ public class HydroHelper {
 
 			Common.assertionCheckwithReport(sizes > 0, "validating My hydro-Landing page", expectedResult,
 					"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
-*/
+
 			
 			// above  code 1736 to 1740 is not working in stage need to commit
 			
