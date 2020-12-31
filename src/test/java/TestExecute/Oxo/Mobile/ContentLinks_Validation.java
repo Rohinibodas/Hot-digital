@@ -50,7 +50,6 @@ public class ContentLinks_Validation {
 		Common.closeAll();
 	}
 	
-	
 	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");

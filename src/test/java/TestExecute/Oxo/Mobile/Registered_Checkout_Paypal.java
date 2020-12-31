@@ -41,6 +41,7 @@ public class Registered_Checkout_Paypal {
 	} 
 }
 	
+	
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{

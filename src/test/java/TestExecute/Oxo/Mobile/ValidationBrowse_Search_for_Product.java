@@ -50,6 +50,7 @@ public class ValidationBrowse_Search_for_Product {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");
 	 }*/
+	
 	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {

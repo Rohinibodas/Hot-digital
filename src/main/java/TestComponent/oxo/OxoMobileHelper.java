@@ -49,6 +49,7 @@ public class OxoMobileHelper {
 		Sync.waitElementClickable("xpath", "//span[@class='action nav-toggle']");
 	   // Common.javascriptclickElement(elemfindBY, elemfindText);
 		Common.clickElement("xpath", "//span[@class='action nav-toggle']");
+		
 
 		try{
 			Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));

@@ -46,6 +46,7 @@ public class ValidationBlogs_Article_Links {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");
 	 }
+	
 	/*@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {

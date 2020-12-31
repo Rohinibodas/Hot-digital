@@ -46,5 +46,4 @@ public class Forgot_Password{
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
-
 }

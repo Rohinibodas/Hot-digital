@@ -28,13 +28,13 @@ public class CartPage_Validation {
 			oxo.addproducts("1");
 		    oxo.clickViewCart();
 			oxo.CheckPost();
+			
   }
 	catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);
 	} 
 }
-	
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
