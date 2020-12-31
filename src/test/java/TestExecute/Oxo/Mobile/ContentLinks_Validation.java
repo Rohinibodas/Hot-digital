@@ -13,26 +13,30 @@ import TestLib.BaseDriver;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_checkout_CreditCard {
+public class ContentLinks_Validation {
 	
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoMobileHelper oxo=new OxoMobileHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-  public void guest_checkout_CreditCard() {
+  public void ContentLinks_Validation() {
 		try{
-		oxo.closetheadd();
-		
-		oxo.clickBaby_Toddler();
-		oxo.addproducts("2");
-		oxo.checkout();
-		oxo.ShippingAddress("ShippingAddress");
-		oxo.selectGroundShippingMethod();
-		oxo.clickAcceptingaddress();
-		oxo.Click_CreditCard();
-		oxo.Edit_BillingAddress("BiillingAddress");
-		oxo.clickAcceptingaddress();
-		oxo.creditCard_payment("PaymentDetails");
+			oxo.closetheadd();
+			//oxo.NavigationToggle();
+			//oxo.HelpToggle();
+			oxo.ContactUS();
+			oxo.FAQ();
+			oxo.ProductRegistration();
+			oxo.VoluntaryRecall();
+			oxo.PrivacyPolicy();
+			oxo.TermsandConditions();
+			oxo.TrackOrder();
+			oxo.ShippingInformation();
+			oxo.BetterGuarantee();
+			oxo.GoodTipsBlog();
+			oxo.InventorSubmissions();
+			oxo.InvestorRelations();
+			oxo.Careers();
   }
 	catch (Exception e) {
 		
@@ -44,22 +48,17 @@ public class Guest_checkout_CreditCard {
 	public void clearBrowser() throws Exception
 	{
 		Common.closeAll();
-		
-
 	}
 	
 	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");
-		 
-		  
-	  }*/
+	 }*/
 	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
-
 }

@@ -3,7 +3,8 @@ package TestExecute.Oxo.Mobile;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
@@ -31,15 +32,19 @@ public class CreateNewAccount {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
+	/*
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");
-		 // Login.signIn();
-		 
-		  
+	 }*/
+	@BeforeTest
+	@Parameters({"device"})  
+	  public void startTest(String Device) throws Exception {
+		System.setProperty("configFile", "Oxo\\config.properties");
+		Login.signIn("chrome",Device);
 	  }
 }

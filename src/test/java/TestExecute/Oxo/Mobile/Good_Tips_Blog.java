@@ -7,54 +7,40 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import TestComponent.oxo.OxoHelper;
 import TestComponent.oxo.OxoMobileHelper;
-import TestLib.BaseDriver;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_checkout_CreditCard {
+public class Good_Tips_Blog{
 	
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoMobileHelper oxo=new OxoMobileHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-
-  public void guest_checkout_CreditCard() {
-		try{
-		oxo.closetheadd();
-		
-		oxo.clickBaby_Toddler();
-		oxo.addproducts("2");
-		oxo.checkout();
-		oxo.ShippingAddress("ShippingAddress");
-		oxo.selectGroundShippingMethod();
-		oxo.clickAcceptingaddress();
-		oxo.Click_CreditCard();
-		oxo.Edit_BillingAddress("BiillingAddress");
-		oxo.clickAcceptingaddress();
-		oxo.creditCard_payment("PaymentDetails");
-  }
-	catch (Exception e) {
-		
-		Assert.fail(e.getMessage(), e);
-	} 
-}
-	
+	  public void Good_Tips_Blog() {
+			try{
+				oxo.closetheadd();
+                oxo.CreateAccount_GoodTipsBlog("GoodTipsBlog");
+				oxo.clickGoodTipsBlog();
+				oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
+			}
+		catch (Exception e) {
+			
+			Assert.fail(e.getMessage(), e);
+		} 
+	}
 	@AfterTest
-	public void clearBrowser() throws Exception
+	public void clearBrowser()
 	{
 		Common.closeAll();
-		
 
 	}
 	
-	/*@BeforeMethod
+	/*
+	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");
-		 
-		  
-	  }*/
+	 }*/
 	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
