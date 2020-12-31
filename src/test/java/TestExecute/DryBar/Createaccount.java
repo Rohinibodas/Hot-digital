@@ -2,13 +2,10 @@ package TestExecute.DryBar;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import TestComponent.DryBar.DryBarHelper;
-import TestComponent.oxo.OxoHelper;
+import org.testng.annotations.Test;import TestComponent.DryBar.DryBarHelper;
 import TestLib.Login;
 
-public class NewTest {
+public class Createaccount {
 	
 	//String datafile = "DryBar//OxoTestData.xlsx";	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
@@ -19,20 +16,11 @@ public class NewTest {
 	
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void f() throws Exception {
+  public void createaccount() throws Exception {
 	//  drybar.clickMyaccount();
 	  
-	  drybar.clickHairProducts();
-	  drybar.selectproduct("ProductName");
-	  drybar.increaseProductQuantity("2");
-	  drybar.clickAddtoBag();
-	  drybar.clickminiCartButton();
-	  drybar.clickCheckoutButton();
-	  drybar.click_GuestCheckOut();
-	  drybar.guestShippingAddress("ShippingAddress");
-	  drybar.Click_PaymetricPaymentMethod();
-	  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-	  drybar.creditCard_payment("PaymentDetails");
+	  drybar.CreateAccount("AccountDetails");
+	  
   }
   
   
