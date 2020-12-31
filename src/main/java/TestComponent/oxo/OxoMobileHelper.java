@@ -44,16 +44,43 @@ public class OxoMobileHelper {
 		 	}
 	}
 	
+	public void NavigationToggle() throws InterruptedException{
+		Thread.sleep(3000);
+		Sync.waitElementClickable("xpath", "//span[@class='action nav-toggle']");
+	   // Common.javascriptclickElement(elemfindBY, elemfindText);
+		Common.clickElement("xpath", "//span[@class='action nav-toggle']");
+
+		try{
+			Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
+			Common.javascriptclickElement("xpath","//a[@class='social-login']");
+			//Common.findElement("xpath", "//a[@class='social-login']").click();
+		}catch(Exception |Error e){
+			Sync.waitElementClickable("xpath", "//li[@class='navigation__item navigation__item--no-parent navigation__item--account']");
+			Common.javascriptclickElement("xpath", "//li[@class='navigation__item navigation__item--no-parent navigation__item--account']");
+			//Common.clickElement("xpath", "//li[@class='navigation__item navigation__item--no-parent navigation__item--account']");
+			
+		}
+	}
+	
 	public void CreateNewAccount(String dataSet) throws Exception
 	{
 		try{
 			Thread.sleep(3000);
-		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
-		Common.findElement("xpath", "//a[@class='social-login']").click();
+			Sync.waitElementClickable("xpath", "//span[@class='action nav-toggle']");
+			Common.clickElement("xpath", "//span[@class='action nav-toggle']");
+		try{
+			Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
+			Common.findElement("xpath", "//a[@class='social-login']").click();
+		}catch(Exception |Error e){
+			Sync.waitElementClickable("xpath", "//li[@class='navigation__item navigation__item--no-parent navigation__item--account']");
+			Common.clickElement("xpath", "//li[@class='navigation__item navigation__item--no-parent navigation__item--account']");
+			
+		}
 		Thread.sleep(3000);
 		ExtenantReportUtils.addPassLog("verifying Sign in link","lands on the account creation popup", "User lands on the account creation popup", Common.getscreenShotPathforReport("signbutton"));
 		}
 		  catch(Exception |Error e) {
+			  e.printStackTrace();
 		 		ExtenantReportUtils.addFailedLog("verifying Sign in link","lands on the account creation popup", "User failed lands on the account creation popup", Common.getscreenShotPathforReport("signbutton"));
 		 		Assert.fail();
 		 		
@@ -526,6 +553,7 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 	
 	
 	public void clickBaby_Toddler() throws Exception{
+		
 		String expectedResult="It Should be navigate to the Baby_Toddler category page.";
 		try{
 		Thread.sleep(8000);
@@ -556,7 +584,6 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		}
 		ExtenantReportUtils.addPassLog("verifying category Baby_Toddler","lands on Baby_Toddler options", "User lands on the Baby_Toddler options", Common.getscreenShotPathforReport("faield to click"));
 		Common.mouseOverClick("xpath", "//a[@data-menu='menu-15186']");
-		
 		}
        catch(Exception |Error e) {
     	   e.printStackTrace();
@@ -823,8 +850,8 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 	{
 		Thread.sleep(3000);
 		try{
-		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
-		Common.findElement("xpath", "//a[@class='social-login']").click();
+		//Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
+		//Common.findElement("xpath", "//a[@class='social-login']").click();
 		Sync.waitElementClickable(30, By.id("email"));
 		if(Common.findElement("id", "email")==null)
 		{
@@ -834,6 +861,7 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		ExtenantReportUtils.addPassLog("verifying Sign in link","lands on sign popup", "User lands on the sign popup", Common.getscreenShotPathforReport("signpop"));
 		}
 		  catch(Exception |Error e) {
+			    e.printStackTrace();
 		 		ExtenantReportUtils.addFailedLog("verifying Sign in link","lands on sign popup", "User failed lands on sign popup", Common.getscreenShotPathforReport("signpop"));
 		 		Assert.fail();
 		 		
@@ -938,7 +966,6 @@ catch(Exception |Error e) {
 		
 	}
 
-	
 	public void payPal_payment(String dataSet){
 		String expectedResult="It should open paypal site window.";
 		try{
@@ -948,12 +975,14 @@ catch(Exception |Error e) {
 		Thread.sleep(5000);
     	Common.actionsKeyPress(Keys.PAGE_DOWN);
 		Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]"); 	
-		Sync.waitElementClickable("xpath", "//div[contains(@class,'paypal-button-label-container')]");
+		Sync.waitElementClickable("xpath", "//div[@class='paypal-button-label-container']");
 		int sizes=Common.findElements("xpath", "//div[@class='paypal-button-label-container']").size();
 		
 		System.out.println(sizes);
 		Thread.sleep(5000);
-		Common.clickElement("xpath", "//div[contains(@class,'paypal-button-label-container')]");
+		Common.javascriptclickElement("xpath","//div[@class='paypal-button-label-container']");
+		//Common.mouseOverClick("xpath", "//div[@class='paypal-button-label-container']");
+		//Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
 		Common.switchToDefault();
 		Thread.sleep(5000);
 		Common.switchWindows();
@@ -963,13 +992,14 @@ catch(Exception |Error e) {
 			Common.clickElement("id", "acceptAllButton");
 			
 		}
-	
-		
-		Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+		/*Sync.waitElementClickable("xpath","//div[contains(@class,'paypal-button-label-container')]");
+		Common.clickElement("xpath", "//div[contains(@class,'paypal-button-label-container')]");*/
+		Common.textBoxInput("xpath", "//input[@id='email']", data.get(dataSet).get("Email"));
 		Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
-		int sizeemail=Common.findElements("id", "email").size();
-		
+		int sizeemail=Common.findElements("xpath", "//input[@id='email']").size();
 		Common.assertionCheckwithReport(sizeemail>0, "verifying the paypal payment ", expectedResult, "open paypal site window", "faild to open paypal account");
+		
+		
 		Common.clickElement("id", "btnLogin");
 		Thread.sleep(5000);
 		Common.actionsKeyPress(Keys.END);
@@ -990,9 +1020,6 @@ catch(Exception |Error e) {
     	    Assert.fail();
           }
 	}
-	
-	
-	
 	public void VerifyaingConformationPage() throws Exception{
 		Thread.sleep(8000);
 		Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
@@ -1002,11 +1029,11 @@ catch(Exception |Error e) {
 		
 		//Thank you for your order!
 		
-		Sync.waitElementPresent("xpath", "//div[@id='registration']/div[2]/a/span");
+		/*Sync.waitElementPresent("xpath", "//div[@id='registration']/div[2]/a/span");
 		String CreateAccount=Common.getText("xpath","//div[@id='registration']/div[2]/a/span");
 		Common.assertionCheckwithReport(CreateAccount.equals("Create Account"), "verifying Creat account button", "displaying the Creat account button", "successfully displaying the Creat account button","Failed displaying Creat account button");
 		
-	
+	*/
 		Common.findElements("xpath", "//div[@class='order-help-item']/h4");
 		
 		// //div[@id="registration"]/div[2]/a Createaccount
@@ -1060,8 +1087,17 @@ public void closetheadd() throws Exception{
 	 
 	 Thread.sleep(3000);
 		try{
-		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
-		Common.findElement("xpath", "//a[@class='social-login']").click();
+			Sync.waitElementClickable("xpath", "//span[@class='action nav-toggle']");
+			Common.clickElement("xpath", "//span[@class='action nav-toggle']");
+		try{
+			Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
+			Common.findElement("xpath", "//a[@class='social-login']").click();
+		}catch(Exception |Error e){
+			Sync.waitElementClickable("xpath", "//li[@class='navigation__item navigation__item--no-parent navigation__item--account']");
+			Common.clickElement("xpath", "//li[@class='navigation__item navigation__item--no-parent navigation__item--account']");
+			
+		}
+		
 		Sync.waitElementClickable(30, By.id("email"));
 		if(Common.findElement("id", "email")==null)
 		{
@@ -1071,6 +1107,7 @@ public void closetheadd() throws Exception{
 		ExtenantReportUtils.addPassLog("verifying Sign in link","lands on sign page", "User lands on the sign popup", Common.getscreenShotPathforReport("signpopf"));
 		}
 		  catch(Exception |Error e) {
+			    e.printStackTrace();
 		 		ExtenantReportUtils.addFailedLog("verifying Sign in link","lands on sign popup", "User failed lands on sign popup", Common.getscreenShotPathforReport("signpopf"));
 		 		Assert.fail();
 		 		
@@ -1132,7 +1169,10 @@ public void closetheadd() throws Exception{
 
  
  public void ProductRegistration() throws InterruptedException {
- 	Thread.sleep(3000);
+	 clickLogo();
+	 Thread.sleep(3000);
+	 HelpToggle();
+	   	Thread.sleep(3000);
  	try {
  	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14883']");
  	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14883']"));
@@ -1163,14 +1203,40 @@ public void closetheadd() throws Exception{
     
  }
  
+ public void HelpToggle(){
+	 
+	 Sync.scrollDownToView("xpath", "//h4[contains(text(),'Help')]");
+	 Sync.waitElementClickable("xpath", "//h4[contains(text(),'Help')]");
+	 ExtenantReportUtils.addPassLog("Expanding Help Column toggle", "Help Column toggle should Expand","Help Column toggle is Expanded", Common.getscreenShotPathforReport("HelpColumnToggle"));
+	 Common.clickElement("xpath", "//h4[contains(text(),'Help')]");
+ }
+ public void Shipping_Returns(){
+	 
+	 Sync.scrollDownToView("xpath", "//h4[contains(text(),'Shipping & Returns')]");
+	 Sync.waitElementClickable("xpath", "//h4[contains(text(),'Shipping & Returns')]");
+	 ExtenantReportUtils.addPassLog("Expanding Shipping & Returns toggle", "Shipping & Returns Column toggle should Expand","Shipping & Returns Column toggle is Expanded", Common.getscreenShotPathforReport("ShippingReturnsColumnToggle"));
+	 Common.clickElement("xpath", "//h4[contains(text(),'Shipping & Returns')]");
+ }
+ public void Company(){
+	 
+	 Sync.scrollDownToView("xpath", "//h4[contains(text(),'Company')]");
+	 Sync.waitElementClickable("xpath", "//h4[contains(text(),'Company')]");
+	 ExtenantReportUtils.addPassLog("Expanding Company Column toggle", "Company Column toggle should Expand","Company Column toggle is Expanded", Common.getscreenShotPathforReport("CompanyColumnToggle"));
+	 Common.clickElement("xpath", "//h4[contains(text(),'Company')]");
+ }
+ 
  public void ContactUS() throws InterruptedException {
-	   	Thread.sleep(3000);
-	   	clickLogo();
+	 HelpToggle();
+	 Thread.sleep(3000);
+	   	//clickLogo();
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14881']");
+	   	//Sync.scrollDownToView("xpath","//a[contains(text(),'Contact Us')]");
+	   	Sync.waitElementClickable("xpath","//a[@data-menu='menu-14881']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14881']"));
 	   	ExtenantReportUtils.addPassLog("Validating ContactUS Link","ContactUS link should be present" ,"ContactUS Link is present",Common.getscreenShotPathforReport("ContactUSLink"));
 	   	Common.clickElement("xpath","//a[@data-menu='menu-14881']");
+	   	//Common.mouseOverClick("xpath", "//a[@data-menu='menu-14881']");
+	   	//Common.javascriptclickElement("xpath", "//a[contains(text(),'Contact Us')]");
 	   	
 	    WebElement element=Common.findElement("xpath","//h2[contains(text(),'Email us')]");
 	    String text=element.getText();
@@ -1189,6 +1255,7 @@ public void closetheadd() throws Exception{
 		}
 	   	
 	       catch(Exception e) {
+	    	   e.printStackTrace();
 	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of ContactUS Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation ContactUS");
 	    	   Assert.fail(); 
 	       }
@@ -1200,6 +1267,9 @@ public void closetheadd() throws Exception{
 	   	
 	      
  public void FAQ() throws InterruptedException {
+	 clickLogo();
+	 Thread.sleep(3000);
+	 HelpToggle();
 	   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14882']");
@@ -1234,6 +1304,9 @@ public void closetheadd() throws Exception{
 	   	}
 	   	
  public void VoluntaryRecall() throws InterruptedException {
+	 clickLogo();
+	 Thread.sleep(3000);
+	 HelpToggle();
 	   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14884']");
@@ -1267,6 +1340,9 @@ public void closetheadd() throws Exception{
 	   
 	   }
  public void PrivacyPolicy() throws InterruptedException {
+	 clickLogo();
+	 Thread.sleep(3000);
+	 HelpToggle();
 	   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14885']");
@@ -1304,6 +1380,9 @@ public void closetheadd() throws Exception{
 	   }
 
  public void TermsandConditions() throws InterruptedException {
+	 clickLogo();
+	 Thread.sleep(3000);
+	 HelpToggle();
 	   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14886']");
@@ -1341,6 +1420,9 @@ public void closetheadd() throws Exception{
 	   }
 
  public void TrackOrder() throws InterruptedException {
+	 clickLogo();
+	 Thread.sleep(3000);
+	 Shipping_Returns();
 	   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14888']");
@@ -1382,6 +1464,9 @@ public void closetheadd() throws Exception{
 
 
  public void ShippingInformation() throws InterruptedException {
+	 clickLogo();
+	 Thread.sleep(3000);
+	 Shipping_Returns();
 	   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14889']");
@@ -1418,6 +1503,9 @@ public void closetheadd() throws Exception{
 	   }
 
  public void BetterGuarantee() throws InterruptedException {
+	 clickLogo();
+	 Thread.sleep(3000);
+	 Shipping_Returns();
 	   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14890']");
@@ -1456,8 +1544,11 @@ public void closetheadd() throws Exception{
 	   }
 
  public void GoodTipsBlog() throws InterruptedException {
+	   	
+	 clickLogo();
+	 Thread.sleep(3000);
+	 Company();
 	   	Thread.sleep(3000);
-	   	clickLogo();
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14892']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14892']"));
@@ -1502,8 +1593,10 @@ public void closetheadd() throws Exception{
  
 	
 	public void InventorSubmissions() throws InterruptedException {
-	   	Thread.sleep(3000);
-	 	clickLogo();
+		 clickLogo();
+		 Thread.sleep(3000);
+		 Company();
+		   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14893']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14893']"));
@@ -1539,8 +1632,10 @@ public void closetheadd() throws Exception{
 	   }
 	
 	public void Careers() throws InterruptedException {
-	   	Thread.sleep(3000);
-	 	clickLogo();
+		clickLogo();
+		 Thread.sleep(3000);
+		 Company();
+		   	Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14894']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14894']"));
@@ -1584,8 +1679,10 @@ public void closetheadd() throws Exception{
 
 
 	public void InvestorRelations() throws InterruptedException {
-	   	Thread.sleep(3000);
-	 	clickLogo();
+		 clickLogo();
+		 Thread.sleep(3000);
+		 Company();
+		 Thread.sleep(3000);
 	   	try {
 	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14895']");
 	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14895']"));
@@ -1731,10 +1828,10 @@ public void pinterest() throws InterruptedException {
    	Thread.sleep(2000);
 	Common.switchToSecondTab();
    	Thread.sleep(3000);
-   	WebElement element=Common.findElement("xpath","//span[contains(text(),'Following')]");
+   	WebElement element=Common.findElement("xpath","//div[contains(text(),'All Pins')]");
    	String text=element.getText();
    	System.out.println("Text Obtained is"+   text);
-   	if(text.contains("Following")){
+   	if(text.contains("All Pins")){
                  ExtenantReportUtils.addPassLog("Validating Webtext of pinterest", "Expected text should be obtained","Expected text is obtained", "pinterest LinkValidation ");
                }
    	         else{
@@ -1765,10 +1862,10 @@ public void Twitter() throws InterruptedException {
    	Thread.sleep(2000);
 	Common.switchWindows();
    	Thread.sleep(3000);
-   	WebElement element=Common.findElement("xpath","//span[contains(text(),'New to Twitter?')]");
+   	WebElement element=Common.findElement("xpath","//span[contains(text(),'Profile')]");
    	String text=element.getText();
    	System.out.println("Text Obtained is"+   text);
-   	if(text.contains("New to Twitter?")){
+   	if(text.contains("Profile")){
                  ExtenantReportUtils.addPassLog("Validating Webelement of Twitter Page", "Expected text should be obtained","Expected text is obtained", "Twitter LinkValidation ");
                }
    	         else{
@@ -1778,12 +1875,13 @@ public void Twitter() throws InterruptedException {
           	}
    	
        catch(Exception e) {
+    	   e.printStackTrace();
     	   ExtenantReportUtils.addFailedLog("Validating Webelement of Twitter Page", "Expected text should not be obtained","Expected text is not obtained", "Twitter LinkValidation");
     	   Assert.fail();
        }
 	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating Twitter URL which contains https", "This URL Contains https", "given url contains https", "give url missing  https");
      // Assert.assertTrue(Common.getCurrentURL().equals("https://www.instagram.com/oxo/")&&Common.getPageTitle().equals("OXO (@oxo) • Instagram photos and videos"));
-    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://twitter.com/OXO")&&Common.getPageTitle().equals("OXO (@OXO) / Twitter"),"Validating  Twitter Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://mobile.twitter.com/OXO")&&Common.getPageTitle().equals("Profile / Twitter"),"Validating  Twitter Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
     	
     	Common.closeCurrentWindow();
  	   Common.switchToFirstTab();
@@ -1814,9 +1912,9 @@ public void Facebook() throws InterruptedException {
    	}
    	
     catch(Exception e) {
+    	e.printStackTrace();
     	 ExtenantReportUtils.addFailedLog("Validating Webelement of Facebook Page", "Expected text should not be obtained","Expected text is not obtained", "Facebook LinkValidation");
-    	
-    	Assert.fail();
+       	Assert.fail();
     }
       	
 	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating Facebook URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
@@ -1928,12 +2026,15 @@ public void clickGoodTipsBlog(){
 	 String expectedResult="It Should be navigate Goodtipsblog page";
 	try{
 		Thread.sleep(5000);
+		Sync.waitElementClickable("xpath", "//span[@class='action nav-toggle']");
+		Common.clickElement("xpath", "//span[@class='action nav-toggle']");
 		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15196']");
 		Common.clickElement("xpath", "//a[@data-menu='menu-15196']");
 	   //Common.assertionCheckwithReport(Common.getCurrentURL().equals(data.get(dataSet).get("URL"))&&Common.getPageTitle().equals(data.get(dataSet).get("pageTitle")),"Validating  GoodTipsBlog page Title and URL", "it navigating to GoodTipsBlog page", "user navigated to GoodTipsBlog Page", "user faield to navigate to good tipes blog");
 		ExtenantReportUtils.addPassLog("validating the GoodTipsBlog page.", expectedResult, "user click the GoodTipsblog", Common.getscreenShotPathforReport("passgood"));
 	}
    catch(Exception |Error e) {
+	        e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog page.", expectedResult, "user failed to navigate GoodTipsBlog",Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
 		    Assert.fail();
 		}
@@ -1952,6 +2053,7 @@ public void signButton_GoodTipsBlog() throws Exception{
     Common.assertionCheckwithReport(emailsize>0, "validating the signButton", expectedResult, "user successfully click the sign button", "Faield to click the signbutton");
 	}
 	 catch(Exception |Error e) {
+		 e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog sign button.", expectedResult, "user failed to navigate GoodTipsBlog",Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
 		    Assert.fail();
 		}

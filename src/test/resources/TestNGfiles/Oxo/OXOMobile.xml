@@ -1,49 +1,255 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="Hyderflask Suite">
+<suite name="OxoSuite Suite">
 	<listeners>
 		<listener class-name="Utilities.TestListener" />
 	</listeners>
-	<!-- <test name="Test_HF_ST_001_Guest Checkout with Creditcard"
-		testid="HMF2-975" priority="P1"
-		description="This script will cover guest user order using creditcard submit Process of HydroFlesk on chrome">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class
-				name="TestExecute.Hydroflask.Smoke.Guest_Checkout_CreditCard" />
-		</classes>
-	</test>  -->
-
-	<test
-		name="TEST_OXO_ST_003-Guest Checkout Paypal iPhone X"
-		testid="OUS23-762" priority="P1"
+ <test name="TEST_OXO_ST_004-Guest Checkout Creditcard iPhone X"
+		testid="OUS23-759" priority="P1"
 		description="This script will cover guest user order using creditcard submit Process of oxo on iPhone X device">
 		<parameter name="device" value="iPhone X" />
 		<classes>
-			<class
-				name="TestExecute.Oxo.Mobile.Guest_checkout_CreditCard" />
+			<class name="TestExecute.Oxo.Mobile.Guest_checkout_CreditCard" />
 		</classes>
 	</test>
-	
-	<test
-		name="TEST_OXO_ST_003-Guest Checkout Paypal Andriod_Galaxy S5"
-		testid="OUS23-762" priority="P1"
+	<test name="TEST_OXO_ST_004-Guest Checkout Creditcard Galaxy S5"
+		testid="OUS23-759" priority="P1"
 		description="This script will cover guest user order using creditcard submit Process of oxo on iPhone X device">
 		<parameter name="device" value="Galaxy S5" />
 		<classes>
-			<class
-				name="TestExecute.Oxo.Mobile.Guest_checkout_CreditCard" />
+			<class name="TestExecute.Oxo.Mobile.Guest_checkout_CreditCard" />
 		</classes>
 	</test>
-	
-	
-	<test
-		name="TEST_OXO_ST_003-Guest Checkout Paypal iPad"
-		testid="OUS23-762" priority="P1"
+	<test name="TEST_OXO_ST_004-Guest Checkout Creditcard iPad"
+		testid="OUS23-759" priority="P1"
 		description="This script will cover guest user order using creditcard submit Process of oxo on iPhone X device">
 		<parameter name="device" value="iPad" />
 		<classes>
-			<class
-				name="TestExecute.Oxo.Mobile.Guest_checkout_CreditCard" />
+			<class name="TestExecute.Oxo.Mobile.Guest_checkout_CreditCard" />
 		</classes>
 	</test>
-</suite>  
+	<test name="TEST_OXO_ST_010-Validation of Cart Page iPhone X"
+		testid="OUS23-762" priority="P1"
+		description="This script will cover Validation of Cart Page of oxo on iPhone X device">
+		<parameter name="device" value="iPhone X" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.CartPage_Validation" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_010-Validation of Cart Page iPad" testid="OUS23-762"
+		priority="P1"
+		description="This script will cover Validation of Cart Page of oxo on iPad device">
+		<parameter name="device" value="iPad" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.CartPage_Validation" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_010-Validation of Cart Page Andriod_Galaxy S5"
+		testid="OUS23-762" priority="P1"
+		description="This script will cover Validation of Cart Page of oxo on Andriod_Galaxy S5 device">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.CartPage_Validation" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_008-Validation CMS Content links Andriod_Galaxy S5"
+		testid="OUS23-769" priority="P1"
+		description="This script will cover Validation of footer links  of oxo on Andriod_Galaxy S5 device">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.ContentLinks_Validation" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_008-Validation CMS Content links on iPhone X"
+		testid="OUS23-769" priority="P1"
+		description="This script will cover Validation of footer links  of oxo on iPhone X">
+		<parameter name="device" value="iPhone X" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.ContentLinks_Validation" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_008-Validation CMS Content links on iPad"
+		testid="OUS23-769" priority="P1"
+		description="This script will cover Validation of footer links  of oxo on iPad">
+		<parameter name="device" value="iPad" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.ContentLinks_Validation" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_001-Account Creation on iPad" testid="OUS23-703"
+		priority="P1"
+		description="This script will cover Creating New Account Process of oxo on iPad">
+		<parameter name="device" value="iPad" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.CreateNewAccount" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_001-Account Creation on iPhone X" testid="OUS23-703"
+		priority="P1"
+		description="This script will cover Creating New Account Process of oxo on iPhone X">
+		<parameter name="device" value="iPhone X" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.CreateNewAccount" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_001-Account Creation on Andriod_Galaxy S5"
+		testid="OUS23-703" priority="P1"
+		description="This script will cover Creating New Account Process of oxo on Andriod_Galaxy S5">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.CreateNewAccount" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_002-Validate Forgot Password on Andriod_Galaxy S5"
+		testid="OUS23-760" priority="P1"
+		description="This script will cover forgot password process of oxo on Andriod_Galaxy S5">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Forgot_Password" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_002-Validate Forgot Password 
+			on iPhone X"
+		testid="OUS23-760" priority="P1"
+		description="This script will 
+			cover forgot password process of oxo on iPhone X">
+		<parameter name="device" value="iPhone X" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Forgot_Password" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_002-Validate Forgot Password 
+			on iPad"
+		testid="OUS23-760" priority="P1"
+		description="This script will cover 
+			forgot password process of oxo on iPad">
+		<parameter name="device" value="iPad" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Forgot_Password" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_003-Guest Checkout Paypal on Andriod_Galaxy S5"
+		testid="OUS23-762" priority="P1"
+		description="This script will cover guest user order using paypal submit Process of oxo on Andriod_Galaxy S5">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Guest_Checkout_Paypal" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_003-Guest Checkout Paypal on iPad" testid="OUS23-762"
+		priority="P1"
+		description="This script will cover guest user order using paypal submit Process of oxo on iPad">
+		<parameter name="device" value="iPad" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Guest_Checkout_Paypal" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_003-Guest Checkout Paypal on iPhone X"
+		testid="OUS23-762" priority="P1"
+		description="This script will cover guest user order using paypal submit Process of oxo on iPhone X">
+		<parameter name="device" value="iPhone X" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Guest_Checkout_Paypal" />
+		</classes>
+	</test>
+	<test
+		name="TEST_OXO_ST_007-Registered Checkout Creditcard on Andriod_Galaxy S5"
+		testid="OUS23-763" priority="P1"
+		description="This script will cover Registered User  order using creditcard submit Process of oxo on Andriod_Galaxy S5">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Registered_Checkout_CC" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_007-Registered Checkout Creditcard on iPhone 
+		X"
+		testid="OUS23-763" priority="P1"
+		description="This script will cover Registered 
+		User order using creditcard submit Process of oxo on iPhone X">
+		<parameter name="device" value="iPhone X" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Registered_Checkout_CC" />
+		</classes>
+	</test>
+
+	<test name="TEST_OXO_ST_007-Registered Checkout Creditcard 
+		on iPad"
+		testid="OUS23-763" priority="P1"
+		description="This script will cover 
+		Registered User order using creditcard submit Process of oxo on iPad">
+		<parameter name="device" value="iPad" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Registered_Checkout_CC" />
+		</classes>
+	</test>
+	<test name="TEST_OXO_ST_006-Registered Checkout Paypal on Andriod_Galaxy S5"
+		testid="OUS23-764" priority="P1"
+		description="This script will cover Registered User  order using paypal submit Process of oxo on Andriod_Galaxy S5">
+		<parameter name="device" value="Galaxy S5" />
+		<classes>
+			<class name="TestExecute.Oxo.Mobile.Registered_Checkout_Paypal" />
+		</classes>
+	</test> 
+	
+	<test name="TEST_OXO_ST_006-Registered Checkout 
+			Paypal on iPhone X" testid="OUS23-764" priority="P1" description="This script 
+			will cover Registered User order using paypal submit Process of oxo on iPhone 
+			X"> <parameter name="device" value="iPhone X" /> <classes> <class name="TestExecute.Oxo.Mobile.Registered_Checkout_Paypal" 
+			/> </classes></test> 
+			
+			<test name="TEST_OXO_ST_006-Registered Checkout Paypal 
+			on iPad" testid="OUS23-764" priority="P1" description="This script will cover 
+			Registered User order using paypal submit Process of oxo on iPad"> <parameter 
+			name="device" value="iPad" /> <classes> <class name="TestExecute.Oxo.Mobile.Registered_Checkout_Paypal" 
+			/> </classes>
+			</test> 
+		<test 
+			name="TEST_OXO_ST_009-Validation of Blogs_Article Links on Andriod_Galaxy S5"
+			testid="OUS23-768" priority="P1"
+			description="This script will cover Validation of Blogs/Article Links of oxo on Andriod_Galaxy S5">
+			<parameter name="device" value="Galaxy S5" />
+			<classes>
+				<class name="TestExecute.Oxo.Mobile.ValidationBlogs_Article_Links" />
+			</classes>
+		</test>
+		<test name="TEST_OXO_ST_009-Validation of Blogs_Article Links on iPhone X"
+			testid="OUS23-768" priority="P1"
+			description="This script will cover Validation of Blogs/Article Links of oxo on iPhone X">
+			<parameter name="device" value="iPhone x" />
+			<classes>
+				<class name="TestExecute.Oxo.Mobile.ValidationBlogs_Article_Links" />
+			</classes>
+		</test>
+		<test name="TEST_OXO_ST_009-Validation of Blogs_Article Links on iPad"
+			testid="OUS23-768" priority="P1"
+			description="This script will cover Validation of Blogs/Article Links of oxo on iPad">
+			<parameter name="device" value="iPad" />
+			<classes>
+				<class name="TestExecute.Oxo.Mobile.ValidationBlogs_Article_Links" />
+			</classes>
+		</test>
+		<test name="TEST_OXO_ST_005-Validate Browse_Search for Product on iPad"
+			testid="OUS23-761" priority="P1"
+			description="This script will cover browse_search for Product functionality Process of oxo on iPad">
+			<parameter name="device" value="iPad" />
+			<classes>
+				<class name="TestExecute.Oxo.Mobile.ValidationBrowse_Search_for_Product" />
+			</classes>
+		</test>
+		<test name="TEST_OXO_ST_005-Validate Browse_Search for Product on iPhone X"
+			testid="OUS23-761" priority="P1"
+			description="This script will cover browse_search for Product functionality Process of oxo on iPhone X">
+			<parameter name="device" value="iPhone X" />
+			<classes>
+				<class name="TestExecute.Oxo.Mobile.ValidationBrowse_Search_for_Product" />
+			</classes>
+		</test>
+		<test
+			name="TEST_OXO_ST_005-Validate Browse_Search for Product on Andriod_Galaxy S5"
+			testid="OUS23-761" priority="P1"
+			description="This script will cover browse_search for Product functionality Process of oxo on Andriod_Galaxy S5">
+			<parameter name="device" value="Galaxy S5" />
+			<classes>
+				<class name="TestExecute.Oxo.Mobile.ValidationBrowse_Search_for_Product" />
+			</classes>
+		</test>
+</suite> 
