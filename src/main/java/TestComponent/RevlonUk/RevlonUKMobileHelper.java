@@ -68,6 +68,18 @@ public class RevlonUKMobileHelper {
 		Sync.waitElementClickable(30, By.xpath("//*[@id='store.links']/ul/li[2]/a"));
 		Common.clickElement("xpath", "//*[@id='store.links']/ul/li[2]/a");
 	}
+	
+	public void MyAccount() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		Sync.waitElementClickable(30, By.xpath("//a[@href='#store.links']"));
+		Common.clickElement("xpath", "//a[@href='#store.links']");
+		
+		Thread.sleep(1000);
+		
+		Sync.waitElementClickable(30, By.xpath("//*[@id='store.links']/ul/li[3]/a"));
+		Common.clickElement("xpath", "//*[@id='store.links']/ul/li[3]/a");
+	}
 	public void Accountcreation() throws InterruptedException
 	{
 		Thread.sleep(5000);
@@ -206,7 +218,7 @@ public class RevlonUKMobileHelper {
 			}
 			Common.actionsKeyPress(Keys.ENTER);
 			Thread.sleep(10000);
-			Assert.assertTrue(Common.isElementDisplayed("id", "nosearchresultcount"));
+			Assert.assertTrue(Common.isElementDisplayed("xpath", "//div[@class='message notice']"));
 			//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
 			report.addPassLog(expectedResult, "Should display Zero search results Page", "Zero search results Page display successfully", Common.getscreenShotPathforReport("Zero results page success"));
 		}catch(Exception |Error e)
@@ -221,10 +233,10 @@ public class RevlonUKMobileHelper {
 	{
 		String expectedResult="Product Selection from search results";
 		try {
-			if(Common.isElementDisplayed("xpath", "(//div[@class='product-item-info']/div/div/form//button[@title='Add to Cart'])[1]")) {
+			if(Common.isElementDisplayed("xpath", "(//div[@class='product-item-info']/div/div/form//button[@title='Add to Bag'])[1]")) {
 				Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
 				Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
-			}else if(Common.isElementDisplayed("xpath", "(//div[@class='product-item-info']/div/div/form//button[@title='Add to Cart'])[2]")) {
+			}else if(Common.isElementDisplayed("xpath", "(//div[@class='product-item-info']/div/div/form//button[@title='Add to Bag'])[2]")) {
 				Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[2]");
 				Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[2]");
 			}else {
@@ -442,6 +454,8 @@ public class RevlonUKMobileHelper {
 				addPaymentDetails(dataSet);
 			}
 
+			Common.clickElement("xpath", "//input[@id='agreement_adyen_cc_1']");
+			Thread.sleep(3000);
 			Common.clickElement("xpath", "//button[@title='Place Order']");
 			Thread.sleep(3000);
 
@@ -474,6 +488,8 @@ public class RevlonUKMobileHelper {
 			Thread.sleep(2000);*/
 
 			//Common.switchFrames("xpath", "//*[@id='cardContainer']/div/div/div[2]/div[1]/div[1]/label/span[2]/span/iframe");
+			Common.scrollIntoView("xpath", "//ul[@class='opc-progress-bar']");
+			Thread.sleep(1000);
 			String Errormessage=Common.getText("xpath", "//span[@class='adyen-checkout__error-text']");
 			System.out.println(Errormessage);
 			Assert.assertEquals(Errormessage, "Invalid card number");
@@ -633,6 +649,70 @@ public class RevlonUKMobileHelper {
 			Assert.fail();
 		}
 		
+	}
+	
+	public void NavigateNewsLetterSubscription() throws Exception
+	{
+		String expectedResult="Navigating News Letter Subscription and should lands on News Letter Subscription";
+		try {
+			Sync.waitElementClickable(30, By.xpath("//strong[contains(text(),'My Account')]"));
+			Common.clickElement("xpath", "//strong[contains(text(),'My Account')]");
+			
+			Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/newsletter/manage/']")));
+			Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/newsletter/manage/']")).click();
+			
+			
+			report.addPassLog(expectedResult, "Should redirect to NewsLetter Subscription page", "Redirected to Home PageNewsLetter Subscription page successfully", Common.getscreenShotPathforReport("NewsLetter Subscription page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should redirect to NewsLetter Subscription page", "Not Redirected to NewsLetter Subscription page", Common.getscreenShotPathforReport("NewsLetter Subscription page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void NewsLetterSubscription() throws Exception
+	{
+		String expectedResult="Navigating News Letter Subscription and should lands on News Letter Subscription";
+		try {
+			Sync.waitElementClickable(30, By.xpath("//form[@id='form-validate']/fieldset/div/label//span[contains(text(),'General Subscription')]"));
+			Common.clickElement("xpath", "//form[@id='form-validate']/fieldset/div/label//span[contains(text(),'General Subscription')]");
+			Thread.sleep(2000);
+			Sync.waitElementClickable(30, By.xpath("//button[@title='Save']"));
+			Common.clickElement("xpath", "//button[@title='Save']");
+			Thread.sleep(3000);
+			String message=Common.getText("xpath", "//div[@data-bind='html: message.text']");
+			System.out.println(message);
+			Assert.assertEquals(message, "We have saved your subscription.");
+			report.addPassLog(expectedResult, "Should able to NewsLetter Subscription", "should select to NewsLetter Subscription successfully", Common.getscreenShotPathforReport("NewsLetter Subscription success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should able to NewsLetter Subscription", "Not selected to NewsLetter Subscription", Common.getscreenShotPathforReport("NewsLetter Subscription Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void NewsLetterUnSubscription() throws Exception
+	{
+		String expectedResult="Navigating News Letter Subscription and should lands on News Letter Subscription";
+		try {
+			Sync.waitElementClickable(30, By.xpath("//form[@id='form-validate']/fieldset/div/label//span[contains(text(),'General Subscription')]"));
+			Common.clickElement("xpath", "//form[@id='form-validate']/fieldset/div/label//span[contains(text(),'General Subscription')]");
+			Thread.sleep(2000);
+			Sync.waitElementClickable(30, By.xpath("//button[@title='Save']"));
+			Common.clickElement("xpath", "//button[@title='Save']");
+			Thread.sleep(3000);
+			String message=Common.getText("xpath", "//div[@data-bind='html: message.text']");
+			System.out.println(message);
+			Assert.assertEquals(message, "We have removed your newsletter subscription.");
+			report.addPassLog(expectedResult, "Should able to NewsLetter Subscription", "should select to NewsLetter Subscription successfully", Common.getscreenShotPathforReport("NewsLetter Subscription success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should able to NewsLetter Subscription", "Not selected to NewsLetter Subscription", Common.getscreenShotPathforReport("NewsLetter Subscription Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 
 }
