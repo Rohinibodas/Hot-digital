@@ -7,14 +7,14 @@ import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_CreditCard {
+public class RegisteredUserCheckoutwith_invalid_CC_Credentials {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  
-  public void registeredUser_Checkout_CreditCard() {
+  public void registeredUserCheckoutwith_invalid_CC_Credentials() {
 		try {
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
@@ -27,24 +27,18 @@ public class RegisteredUser_Checkout_CreditCard {
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
 			 // drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-			  //drybar.creditCard_payment("PaymentDetails");
-			  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
-			
-			
-		}
+
+  }
 		catch (Exception e) {
 			e.printStackTrace();
 			
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-	
-	
-	
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	
@@ -56,6 +50,4 @@ public class RegisteredUser_Checkout_CreditCard {
 		 
 		  
 	  }
-
-  
 }

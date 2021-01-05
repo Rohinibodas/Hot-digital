@@ -276,6 +276,8 @@ public void guestShippingAddress(String dataSet) throws Exception{
 	Sync.waitElementPresent("xpath", "//input[@name='telephone']");
 	Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(dataSet).get("phone"));
 	
+	select_USPS_StandardGround_shippingMethod();
+    Thread.sleep(5000);
 	
 	Common.clickElement("xpath","//span[text()='Next']");
 	//div[contains(@class,'error')]
@@ -318,7 +320,7 @@ public void Edit_BillingAddress_BrainTree(String dataSet)throws Exception{
    //Common.clickElement("Xpath","//span[contains(text(),'My billing and shipping address are the same')]");
 	Sync.waitElementPresent("xpath", "//div[@class='payment-method-billing-address']//input[@name='firstname']");
 	Common.textBoxInput("xpath", "//div[@class='payment-method-billing-address']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
-	Sync.waitElementPresent("xp	ath", "//div[@class='payment-method-billing-address']//input[@name='lastname']");
+	Sync.waitElementPresent("xpath", "//div[@class='payment-method-billing-address']//input[@name='lastname']");
 	Common.textBoxInput("xpath", "//div[@class='payment-method-billing-address']//input[@name='lastname']",data.get(dataSet).get("LastName"));
 	Sync.waitElementPresent("xpath", "//div[@class='payment-method-billing-address']//input[@name='firstname']");
 	Common.textBoxInput("xpath", "//div[@class='payment-method-billing-address']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
@@ -417,7 +419,20 @@ try{
 		
 
    //Common.clickElement("Xpath","//span[contains(text(),'My billing and shipping address are the same')]");
+	public void select_USPS_StandardGround_shippingMethod() throws Exception{
+		try{
+
+		Sync.waitElementPresent("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
+	    Common.clickElement("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
 	
+	}
+		 catch(Exception |Error e) {
+			   e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("validating the shipping method USPS Standard Ground", "click the usps standard shipping methoad", "faield to click usps standard shipping methoad",  Common.getscreenShotPathforReport("faieldshipingmethoad"));
+				Assert.fail();
+				
+			}
+	}
 public void creditCard_payment(String dataSet) throws Exception{
 	
 	try{
@@ -463,6 +478,62 @@ public void creditCard_payment(String dataSet) throws Exception{
 	}
 	catch(Exception |Error e) {
 	    ExtenantReportUtils.addFailedLog("validating the Credit Card infromation", "credit card fields are filled with the data", "faield  to fill the Credit Card infromation",  Common.getscreenShotPathforReport("Cardinfromationfail"));
+		Assert.fail();
+		
+	}
+	
+	
+	
+}
+public void creditCard_payment_invalid_CC(String dataSet) throws Exception{
+	
+	try{
+		
+	//	Common.actionsKeyPress(Keys.PAGE_DOWN);
+		//Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+		Thread.sleep(2000);
+		Common.switchFrames("id", "paymetric_xisecure_frame");
+		int size=Common.findElements("xpath", "//select[@id='c-ct']").size();
+		Common.switchToDefault();
+		Common.assertionCheckwithReport(size>0, "validating Creditcard option", "click the creadit card label", "clicking credit card label and open the card fields", "user faield to open credit card form");
+		}
+	   catch(Exception |Error e) {
+		   e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label", "faield to click Credit Card option",  Common.getscreenShotPathforReport("Cardinoption"));
+			Assert.fail();
+			
+		}
+	
+	
+	try{
+	
+	Thread.sleep(2000);
+	Common.switchFrames("id", "paymetric_xisecure_frame");
+	Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+	Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+	Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpMonth"));
+	Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+	Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));	
+	Thread.sleep(2000);
+	
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.switchToDefault();
+	Thread.sleep(1000);
+	Common.clickElement("xpath", "//span[contains(text(),'Place Order')]");
+	Common.switchFrames("id", "paymetric_xisecure_frame");
+	
+	ExtenantReportUtils.addPassLog("validating the invalid Credit Card infromation", "credit card fields are filled with the invalid data", "successfully user enter credit card data", Common.getscreenShotPathforReport("cardinformation"));
+	
+	
+	/*String expectedResult="credit card fields are filled with the data";
+    String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
+    Common.switchToDefault();
+    Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+    	
+	*/
+	}
+	catch(Exception |Error e) {
+	    ExtenantReportUtils.addFailedLog("validating the Credit Card infromation", "credit card fields are filled with the data", "faield  to fill the Credit Card infromation",Common.getscreenShotPathforReport("Cardinfromationfail"));
 		Assert.fail();
 		
 	}
@@ -643,8 +714,12 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 					"user will fill the all the shipping", "user fill the shiping address click save button",
 					"faield to add new shipping address");
 			
-
+			
+			select_USPS_StandardGround_shippingMethod();
+            Thread.sleep(5000);
 			Common.clickElement("xpath", "//div[@id='shipping-method-buttons-container']/div/button");
+			
+			
 			
 		} catch (Exception | Error e) {
 			e.printStackTrace();
@@ -719,6 +794,8 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 			//Common.mouseOverClick("xpath", "//input[@id='label_method_bestway']");
 			//Sync.waitElementClickable("xpath","//input[@id='label_method_bestway']");
 			//Common.clickElement("xpath", "//input[@id='label_method_bestway']");
+			select_USPS_StandardGround_shippingMethod();
+            Thread.sleep(5000);
 			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
 			
 			Thread.sleep(3000);
@@ -746,6 +823,34 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 //Email: xshzsmsmstzenzojra@mhzayt.onlineEmail: xshzsmsmstzenzojra@mhzayt.online
 //Rajkumar@1155
 	
+public void headLinksValidations(String dataSet) throws Exception{
+	String Hederlinks=data.get(dataSet).get("HeaderNames");
+	String[] hedrs=Hederlinks.split(",");
+	for(int i=0;i<hedrs.length;i++){
+		Sync.waitElementClickable("xpath", "//span[text()='"+hedrs[i]+"']");
+		Common.clickElement("xpath", "//span[text()='"+hedrs[i]+"']");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+
+		
+	}
 	
+}
+
+
+
+public void hairProducts(){
+/*	try{
+	Sync.waitElementClickable("xpath", "//span[text()='Hair Products']");
+	Common.clickElement("xpath", "//span[text()='Hair Products']");
+	Common.assertionCheckwithReport(Common.getPageTitle().concat("Hair Products"), description, expectedResult, actualResult, FailedMessage);
+	
+	}
+	catch(){
+		
+	}
+}
+*/	
+}
 
 }
