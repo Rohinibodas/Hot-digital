@@ -24,7 +24,7 @@ public class HT_ST_DistributorCheckoutPurchaseOrder {
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
 			Hottools.miniCart("productName");
-			Hottools.checkoutpage("PaymentDetails");
+			Hottools.checkoutpage();
 			//Hottools.orderSuccesspage();
 		}
 		catch (Exception e) {
