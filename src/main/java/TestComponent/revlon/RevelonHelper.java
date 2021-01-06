@@ -1392,6 +1392,9 @@ public class RevelonHelper {
 			shipping_Address("Guest_shipping");
 			report.addPassLog(expectedResult2, "Should dispaly Shipping address page", "shipping address Page displayed successfully", Common.getscreenShotPathforReport("Shipping address"));
 
+			Common.scrollIntoView("name", "region_id");
+			Thread.sleep(3000);
+			
 			if(Common.checkBoxIsSelected("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input")) {
 
 				System.out.println("Shipping method is selected");
@@ -1404,8 +1407,8 @@ public class RevelonHelper {
 
 			}
 
-			Sync.waitElementPresent("xpath", "//span[contains(text(),'Next')]");
-			Common.clickElement("xpath", "//span[contains(text(),'Next')]");
+			Sync.waitElementPresent("xpath", "(//span[contains(text(),'Next')])[2]");
+			Common.clickElement("xpath", "(//span[contains(text(),'Next')])[2]");
 
 			Thread.sleep(300);
 

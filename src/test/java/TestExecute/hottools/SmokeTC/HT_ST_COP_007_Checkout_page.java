@@ -25,8 +25,9 @@ public class HT_ST_COP_007_Checkout_page {
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
 			Hottools.miniCart("productName");
-			Hottools.checkoutpage("PaymentDetails");
-			Hottools.orderSuccesspage();
+			Hottools.checkoutpage();
+			Hottools.CreditcardPayment("PaymentDetails");
+			Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 
@@ -35,21 +36,21 @@ public class HT_ST_COP_007_Checkout_page {
 	}
 	
 	 
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn("chrome");
 		  
-	  }*/
+	  }
 
 	@AfterTest
 	public void clearBrowser()

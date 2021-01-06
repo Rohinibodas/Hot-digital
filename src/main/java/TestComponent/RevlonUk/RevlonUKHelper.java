@@ -737,7 +737,9 @@ public class RevlonUKHelper {
 			{	
 				addPaymentDetails(dataSet);
 			}
-
+			
+			Common.scrollIntoView("xpath", "//div[contains(text(),'Payment Method')]");
+			Thread.sleep(3000);
 			Common.clickElement("xpath", "//input[@id='agreement_adyen_cc_1']");
 			Thread.sleep(3000);
 			Common.clickElement("xpath", "//button[@title='Place Order']");
