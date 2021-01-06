@@ -51,4 +51,16 @@
             <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_GuestUserCheckout_InvalidCreditCard"/>
         </classes>
     </test>
+    <test name="Test_RUK_ST_014_NewsLetterSubscriptionEmailTrigger" testid="RU-242" priority="P1" description="To verify the News Letter Subscription email trigger functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_NewsLetterSubscription"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_015_NewsLetterUnSubscriptionEmailTrigger" testid="RU-243" priority="P1" description="To verify the News Letter UnSubscription email trigger functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_NewLetterUnSubscription"/>
+        </classes>
+    </test>
 </suite>  

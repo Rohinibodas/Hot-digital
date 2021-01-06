@@ -21,18 +21,20 @@
             <class name="TestExecute.hottools.SmokeTC.HT_ST_LG_004_Forgot_Password"/>
         </classes>
     </test>
-	<test name="TEST_HT_ST_004_VerifyForgotPasswordforDistributorUser" testid="BTY-473" priority="P1" description="This script will cover Forgot password for Distributor of Hottools">
-        <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.hottools.SmokeTC.DT_ST_009_Distributor_Forgotpassword"/>
-        </classes>
-    </test> 
+	 
 	<test name="TEST_HT_ST_008-OrderSuccesspageforRetailerUser" testid="BTY-398" priority="P1" description="This script will cover OrderSuccesspageforRetailerUser pages in Hottools">
         <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.hottools.SmokeTC.HT_ST_COP_007_Checkout_page"/>
         </classes>
     </test> 
+    
+    <test name="TEST_HT_ST_004_VerifyForgotPasswordforDistributorUser" testid="BTY-473" priority="P1" description="This script will cover Forgot password for Distributor of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.DT_ST_009_Distributor_Forgotpassword"/>
+        </classes>
+    </test>
 	<test name="TEST_HT_ST_010_ValidateCMSPages" testid="BTY-466" priority="P1" description="This script will cover cms pages in Hottools">
         <parameter name="browser" value="chrome" />
         <classes>

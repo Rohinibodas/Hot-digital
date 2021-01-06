@@ -51,4 +51,16 @@
             <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckout_InvalidCreditCard"/>
         </classes>
     </test>
+    <test name="Test_RUK_MOB_ST_014_NewsLetterSubscriptionEmailTrigger" testid="RU-250" priority="P1" description="To verify the News Letter Subscription email trigger functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_NewLetterSubscription"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_015_NewsLetterUnSubscriptionEmailTrigger" testid="RU-251" priority="P1" description="To verify the News Letter UnSubscription email trigger functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_NewLetterUnSubscription"/>
+        </classes>
+    </test>
 </suite>  

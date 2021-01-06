@@ -835,7 +835,9 @@ public class RevelonHelper {
 			Common.clickElement("xpath", "//a[contains(text(),'Product Info Request')]");
 		}
 
-		Thread.sleep(300);
+		Thread.sleep(1000);
+		
+		Common.actionsKeyPress(Keys.DOWN);
 
 		Common.textBoxInput("name", "Incident.Threads", data.get(dataSet).get("Message"));
 
@@ -1390,6 +1392,9 @@ public class RevelonHelper {
 			shipping_Address("Guest_shipping");
 			report.addPassLog(expectedResult2, "Should dispaly Shipping address page", "shipping address Page displayed successfully", Common.getscreenShotPathforReport("Shipping address"));
 
+			Common.scrollIntoView("name", "region_id");
+			Thread.sleep(3000);
+			
 			if(Common.checkBoxIsSelected("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr[1]/td[1]/input")) {
 
 				System.out.println("Shipping method is selected");
@@ -1402,13 +1407,8 @@ public class RevelonHelper {
 
 			}
 
-			/*Common.actionsKeyPress(Keys.DOWN);
-
-			Sync.waitElementPresent("xpath", "//button[@data-role='opc-continue']");
-			Common.clickElement("xpath", "//button[@data-role='opc-continue']");*/
-
-			Sync.waitElementPresent("xpath", "//span[contains(text(),'Next')]");
-			Common.clickElement("xpath", "//span[contains(text(),'Next')]");
+			Sync.waitElementPresent("xpath", "(//span[contains(text(),'Next')])[2]");
+			Common.clickElement("xpath", "(//span[contains(text(),'Next')])[2]");
 
 			Thread.sleep(300);
 
@@ -1553,6 +1553,37 @@ public class RevelonHelper {
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+	}
+	
+	public void ValidatingPromocode(String dataSet) throws Exception
+	{
+		String expectedResult="Validate Promode in Checkout page";
+		try {
+			
+			Common.scrollIntoView("xpath", "//div[@class='billing-address-details']");
+			Sync.waitElementPresent("id", "block-discount-heading");
+			Common.clickElement("id", "block-discount-heading");
+			
+			Sync.waitElementPresent("name", "discount_code");
+			Common.clickElement("name", "discount_code");
+			
+			Common.textBoxInput("name", "discount_code", data.get(dataSet).get("Promocode"));
+			
+			Thread.sleep(2000);
+
+			Sync.waitElementPresent("xpath", "//button[@type='submit']/span/span");
+			Common.clickElement("xpath", "//button[@type='submit']/span/span");
+			
+			String success=Common.getText("xpath", "//div[@data-ui-id='checkout-cart-validationmessages-message-success']");
+			System.out.println(success);
+			report.addPassLog(expectedResult, "Should display Success message for promocode", "Success of promocode displayed successfully", Common.getscreenShotPathforReport("Promocode success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Success message for promocode", "Success of promocode not displayed", Common.getscreenShotPathforReport("Promocode Failed"));
 			e.printStackTrace();
 			Assert.fail();
 		}
@@ -1970,6 +2001,27 @@ public class RevelonHelper {
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should update Product Review for selected product", "Update Product review for selected product Failed", Common.getscreenShotPathforReport("Product Review Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void categoryMenuItem()
+	{
+		String expectedResult="Select from  category" ;
+		try {
+			Thread.sleep(1000);
+			Sync.waitElementPresent("xpath", "//span[contains(text(), 'Dryer')]");
+			Common.clickElement("xpath", "//span[contains(text(), 'Dryer')]");
+			Thread.sleep(1000);
+			Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Thread.sleep(5000);
+			report.addPassLog(expectedResult, "Should display item from  menucategory", "product display successfully", Common.getscreenShotPathforReport(" product display success"));
+
+		}catch(Exception e)
+		{
+			report.addFailedLog(expectedResult,"Should display Search Results Page", "Search results Page not display", Common.getscreenShotPathforReport("Search result Failed"));
 			e.printStackTrace();
 			Assert.fail();
 		}
