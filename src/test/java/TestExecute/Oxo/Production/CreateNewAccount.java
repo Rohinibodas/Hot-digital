@@ -30,7 +30,8 @@ public class CreateNewAccount {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-	   Common.closeAll();
+	   
+		Common.closeAll();
   
 	}
 	

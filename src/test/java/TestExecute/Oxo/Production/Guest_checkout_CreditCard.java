@@ -50,8 +50,6 @@ public class Guest_checkout_CreditCard {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		
 		  Login.signIn();
-		 
-		  
-	  }
+		  }
 
 }

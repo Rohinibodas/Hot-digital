@@ -42,7 +42,8 @@ public class RegisteredUser_Checkout_CreditCard {
 	public void clearBrowser() throws Exception
 	{
 		Common.closeAll();
-    }
+    
+	}
 	
 	@BeforeMethod
 	  public void startTest() throws Exception {

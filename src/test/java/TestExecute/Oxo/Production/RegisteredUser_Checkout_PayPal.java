@@ -46,8 +46,7 @@ public class RegisteredUser_Checkout_PayPal {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		
 		  Login.signIn();
-		 
-		  
-	  }
+
+	}
 
 }

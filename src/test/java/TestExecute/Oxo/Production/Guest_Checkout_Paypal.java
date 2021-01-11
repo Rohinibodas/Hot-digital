@@ -45,8 +45,7 @@ public class Guest_Checkout_Paypal {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		
 		  Login.signIn();
-		 
-		  
-	  }
+
+	}
 
 }

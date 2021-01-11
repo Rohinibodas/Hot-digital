@@ -37,6 +37,7 @@ public class ValidationBlogs_Article_Links {
 	{
  
 		Common.closeAll();
+	
 	}
 	
 	@BeforeMethod

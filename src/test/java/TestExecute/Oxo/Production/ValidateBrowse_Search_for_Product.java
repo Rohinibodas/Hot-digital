@@ -41,8 +41,7 @@ public class ValidateBrowse_Search_for_Product {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		
 		  Login.signIn();
-		 
-		  
-	  }
+
+	}
 
 }

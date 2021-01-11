@@ -32,7 +32,6 @@ public class ForgetPassword {
 	{
 		Common.closeAll();
 		
-
 	}
 	
 	@BeforeMethod

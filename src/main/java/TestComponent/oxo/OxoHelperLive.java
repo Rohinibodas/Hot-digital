@@ -1741,7 +1741,8 @@ public void YouTube() throws InterruptedException {
     
    	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.youtube.com/oxo")&&Common.getPageTitle().equals("OXO - YouTube"),"Validating Page  YouTube Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
    	Common.closeCurrentWindow();
-	   Common.switchToFirstTab();  
+	   Common.switchToFirstTab(); 
+	   
 }
 
 	

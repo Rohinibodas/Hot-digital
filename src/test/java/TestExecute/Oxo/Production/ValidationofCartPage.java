@@ -46,8 +46,7 @@
   		 System.setProperty("configFile", "Oxo\\config.properties");
   		
   		  Login.signIn();
-  		 
-  		  
-  	  }
+
+  	}
 
   }

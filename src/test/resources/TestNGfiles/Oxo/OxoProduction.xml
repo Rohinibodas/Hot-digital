@@ -3,8 +3,7 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    
-    
+ 
     <test name="TEST_OXO_ST_007-Registered Checkout Creditcard" testid="OUS23-763" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.Production.RegisteredUser_Checkout_CreditCard"/>
