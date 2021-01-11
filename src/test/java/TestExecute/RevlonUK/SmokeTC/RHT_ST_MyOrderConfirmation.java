@@ -12,19 +12,24 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_ST_NewsLetterSubscription {
+public class RHT_ST_MyOrderConfirmation {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
 	RevlonUKHelper revlon=new RevlonUKHelper(datafile);
 	
 	
 	@Test(priority=1)
-	public void NewLetterSubscription() throws Exception {
+	public void ValidateMyOrderConfirmation() throws Exception {
 
 		try {
 			revlon.loginRevlonUK("AccountDetails");
-			revlon.NavigateNewsLetterSubscription();
-			revlon.NewsLetterSubscription();
-			revlon.NewsLetterSubscriptionMail();
+			revlon.SearchProduct("productName");
+			revlon.Productselection();
+			revlon.navigateMinicart();
+			revlon.checkoutPage();
+			revlon.navigateCheckout();
+			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
+			revlon.navigateMyAccount();
+			revlon.navigateMyorders();
 		}
 		catch (Exception e) {
 			
@@ -32,21 +37,21 @@ public class RHT_ST_NewsLetterSubscription {
 		} 
 	}
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
+	  }
 	
 	@AfterTest
 	public void clearBrowser()

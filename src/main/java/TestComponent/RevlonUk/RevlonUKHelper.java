@@ -75,7 +75,26 @@ public class RevlonUKHelper {
 			e.printStackTrace();
 			Assert.fail();
 		}
-	}	
+	}
+	
+	public void navigateMyAccount() throws InterruptedException
+	{
+		String expectedResult="Naviagating to Login page";
+		try {
+			Sync.waitElementClickable(30, By.xpath("//div[@class='authorization-link header_right user-dropdown m-hide non_ipad']"));
+			Common.findElement("xpath", "//div[@class='authorization-link header_right user-dropdown m-hide non_ipad']").click();
+			Thread.sleep(3000);
+			//Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/']")));
+			Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/']")).click();
+			
+			report.addPassLog(expectedResult, "Should display My Account Page", "My Account Page displayed successfully", Common.getscreenShotPathforReport("My Account Page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display My Account Page", "My Account Page not display", Common.getscreenShotPathforReport("My Account Page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
 	
 	public void navigateAccountCreation() throws InterruptedException
 	{
@@ -184,20 +203,35 @@ public class RevlonUKHelper {
 		String expectedResult="Forgot Password email trigger for Registered User";
 		Thread.sleep(2000);
 		try {
-			System.out.println(data.get(dataSet).get("Email"));
-			System.out.println(data.get(dataSet).get("Password"));
-			System.out.println(data.get(dataSet).get("fromAddress"));
-			System.out.println(data.get(dataSet).get("toAddress"));
-			System.out.println(data.get(dataSet).get("subject"));
-			System.out.println(data.get(dataSet).get("content"));
-			
-			String email=MailAPI.gmailAPI(data.get(dataSet).get("Email"),data.get(dataSet).get("Password"),data.get(dataSet).get("fromAddress"), data.get(dataSet).get("toAddress"), data.get(dataSet).get("subject"), data.get(dataSet).get("content"));
-			String link=automation_properties.getInstance().getProperty(automation_properties.BASEURL)+email.split("https://stage-uk.revlonhairtools.com")[1].split("\"")[0].trim();
-			System.out.println(link);
-			report.addPassLog(expectedResult, "Should display Forgot Password email trigger Succes message", "Forgot Password email triggered successfully", Common.getscreenShotPathforReport("Forgot Password email trigger Success"));
+			String expectedResult1="Landed on Login page";
+			Sync.waitElementClickable(30, By.xpath("//a[@title='My Account']"));
+			Common.findElement("xpath", "//a[@title='My Account']").click();
+			report.addPassLog(expectedResult1, "Should display login page", "Login page displayed successfully", Common.getscreenShotPathforReport("Login page"));
+			Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/forgotpassword/']")));
+			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/forgotpassword/']"));
+			int i=0;
+			do{  
+				Common.textBoxInput("id", "email_address", data.get(dataSet).get("Email"));
+				Sync.waitElementClickable(30, By.xpath("//button[contains(text(),'Reset My Password')]"));
+				Common.clickElement("xpath", "//button[contains(text(),'Reset My Password')]");
+				Thread.sleep(4000);
+
+				i++;
+			}while(i<3 && !Common.isElementDisplayed("xpath", "//span[contains(text(),'Customer Login')]")); 
+			Thread.sleep(5000);
+			if(Common.isElementDisplayed("xpath", "//div[@data-bind='html: message.text']")) {
+				String s=Common.getText("xpath", "//div[@data-bind='html: message.text']");
+				Thread.sleep(4000);
+				Assert.assertEquals(s, "If there is an account associated with "+data.get(dataSet).get("Email")+" you will receive an email with a link to reset your password.");
+				Thread.sleep(4000);
+			}
+			HashMap<String, String> hm = Utilities.GmailAPI.getGmailData("\"Your Password Reset Request\"");
+			Assert.assertTrue(hm.get("body").contains("set a new password"));
+			//System.out.println(hm.get("body"));
+			report.addPassLog(expectedResult, "Should display Forgot Password email trigger Success message", "Forgot Password email triggered successfully", Common.getscreenShotPathforReport("Forgot Password email trigger Success"));
 		}catch(Exception |Error e)
 		{
-			report.addFailedLog(expectedResult,"Should display Forgot Password email trigger Succes message", "Forgot Password email triggered  not successfully", Common.getscreenShotPathforReport("Forgot Password email trigger Failed"));
+			report.addFailedLog(expectedResult,"Should display Forgot Password email trigger Success message", "Forgot Password email triggered  not successfully", Common.getscreenShotPathforReport("Forgot Password email trigger Failed"));
 			e.printStackTrace();
 			Assert.fail();
 		}
@@ -255,6 +289,21 @@ public class RevlonUKHelper {
 		}
 	}
 	
+	public void NewsLetterSubscriptionMail() throws Exception
+	{
+		String expectedResult="Navigating News Letter Subscription Mail Verification";
+		try {
+			HashMap<String, String> hm = Utilities.GmailAPI.getGmailData("\"Newsletter subscription confirmation\"");
+			Assert.assertTrue(hm.get("body").contains("Thank you for signing up to the Revlon Hair Tools newsletter"));
+			report.addPassLog(expectedResult, "Should able to NewsLetter Subscription Mail Verification", "NewsLetter Subscription Mail Verfication done successfully", Common.getscreenShotPathforReport("NewsLetter Subscription mail success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should able to NewsLetter Subscription Mail Verfication", "Not selected to NewsLetter Subscription Mail Verfication", Common.getscreenShotPathforReport("NewsLetter Subscription mail Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
 	public void NewsLetterUnSubscription() throws Exception
 	{
 		String expectedResult="Navigating News Letter Subscription and should lands on News Letter Subscription";
@@ -268,10 +317,25 @@ public class RevlonUKHelper {
 			String message=Common.getText("xpath", "//div[@data-bind='html: message.text']");
 			System.out.println(message);
 			Assert.assertEquals(message, "We have removed your newsletter subscription.");
-			report.addPassLog(expectedResult, "Should able to NewsLetter Subscription", "should select to NewsLetter Subscription successfully", Common.getscreenShotPathforReport("NewsLetter Subscription success"));
+			report.addPassLog(expectedResult, "Should able to NewsLetter UnSubscription", "should select to NewsLetter UnSubscription successfully", Common.getscreenShotPathforReport("NewsLetter UnSubscription success"));
 		}catch(Exception |Error e)
 		{
-			report.addFailedLog(expectedResult,"Should able to NewsLetter Subscription", "Not selected to NewsLetter Subscription", Common.getscreenShotPathforReport("NewsLetter Subscription Failed"));
+			report.addFailedLog(expectedResult,"Should able to NewsLetter UnSubscription", "Not selected to NewsLetter UnSubscription", Common.getscreenShotPathforReport("NewsLetter UnSubscription Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void NewsLetterUnSubscriptionMail() throws Exception
+	{
+		String expectedResult="Navigating News Letter UnSubscription Mail Verification";
+		try {
+			HashMap<String, String> hm = Utilities.GmailAPI.getGmailData("\"Newsletter Unsubscribe\"");
+			Assert.assertTrue(hm.get("body").contains("You have unsubsuscribed from the Revlon Hair Tools newsletter."));
+			report.addPassLog(expectedResult, "Should able to NewsLetter UnSubscription Mail Verification", "NewsLetter UnSubscription Mail Verfication done successfully", Common.getscreenShotPathforReport("NewsLetter UnSubscription Mail success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should able to NewsLetter UnSubscription Mail Verfication", "Not selected to NewsLetter UnSubscription Mail Verfication", Common.getscreenShotPathforReport("NewsLetter UnSubscription mail Failed"));
 			e.printStackTrace();
 			Assert.fail();
 		}
@@ -747,14 +811,56 @@ public class RevlonUKHelper {
 
 			//String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']");
 			String sucessMessage=Common.getText("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
-
 			System.out.println(sucessMessage);
+			String orderid=Common.getText("xpath", "//a[@class='order-number']");
+			System.out.println(orderid);
 			Assert.assertEquals(sucessMessage, "Thank you for your purchase");
 			report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success Page Failed"));
 			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void EmailOrderTrigger() throws Exception
+	{
+		String expectedResult="Order Success Email confirmation";
+		try {
+			String orderid=Common.getText("xpath", "//a[@class='order-number']");
+			System.out.println(orderid);
+			Thread.sleep(5000);
+			HashMap<String, String> hm = Utilities.GmailAPI.getGmailData("\"Your Order Confirmation\"");
+			Assert.assertTrue(hm.get("body").contains("ORDER NUMBER"));
+			//Assert.assertTrue(hm.get("body").contains("ORDER NUMBER #"+orderid));
+			//System.out.println(hm.get("body").contains("ORDER NUMBER"));
+
+			report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Emailtrigger success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Emailtrigger Page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void navigateMyorders() throws Exception
+	{
+		String expectedResult="Lands On My Order Page & Should display list of orders";
+		try {
+			Thread.sleep(5000);
+			Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/sales/order/history/']")));
+			Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/sales/order/history/']")).click();
+			Thread.sleep(3000);
+			
+			String Order=Common.getText("xpath", "//*[@id='my-orders-table']/tbody/tr[1]/td[1]");
+			System.out.println(Order);
+			
+			report.addPassLog(expectedResult, "Should display My Order page with List of orders", "My Order page with List of orders display successfully", Common.getscreenShotPathforReport("MyOrder Page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display My Order page with List of orders", "My Order page with List of orders not displayed", Common.getscreenShotPathforReport("MyOrder Page Failed"));
 			Assert.fail();
 		}
 	}
@@ -1239,6 +1345,21 @@ public class RevlonUKHelper {
 			e.printStackTrace();
 			Assert.fail();
 		}
+	}
+	
+	public void headLinks(String dataSet) throws Exception{
+		String expectedResult="Header Link validations";
+		String Headerlinks=data.get(dataSet).get("HeaderNames");
+		String[] headers=Headerlinks.split(",");
+		for(int i=0;i<headers.length;i++){
+			Sync.waitElementClickable("xpath", "//span[text()='"+headers[i]+"']");
+			Common.clickElement("xpath", "//span[text()='"+headers[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			report.addPassLog(expectedResult, "Should display "+headers[i]+" success Page", ""+headers[i]+" Page display successfully", Common.getscreenShotPathforReport("Product Registration success page success"));
+			
+		}
+		
 	}
 	
 	

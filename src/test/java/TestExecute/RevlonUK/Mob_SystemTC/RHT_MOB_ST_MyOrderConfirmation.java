@@ -12,23 +12,28 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_MOB_ST_NewLetterSubscription {
+public class RHT_MOB_ST_MyOrderConfirmation {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
 	RevlonUKMobileHelper revlon=new RevlonUKMobileHelper(datafile);
 	
 	
 	@Test(priority=1)
-	public void validateNewLetterSubscription() throws Exception {
+	public void MobileMyOrderConfirmation() throws Exception {
 
 		try {
 			revlon.slider();
 			revlon.Loginpage();
 			revlon.loginRevlonUK("AccountDetails");
+			revlon.SearchProduct("productName");
+			revlon.Productselection();
+			revlon.navigateMinicart();
+			revlon.checkoutPage();
+			revlon.navigateCheckout();
+			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
 			revlon.slider();
 			revlon.MyAccount();
-			revlon.NavigateNewsLetterSubscription();
-			revlon.NewsLetterSubscription();
-			revlon.NewsLetterSubscriptionMail();
+			revlon.NavigateMyOrder();
+			
 		}
 		catch (Exception e) {
 			

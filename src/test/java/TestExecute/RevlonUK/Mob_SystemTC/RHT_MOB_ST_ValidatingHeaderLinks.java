@@ -12,23 +12,17 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_MOB_ST_NewLetterSubscription {
+public class RHT_MOB_ST_ValidatingHeaderLinks {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
 	RevlonUKMobileHelper revlon=new RevlonUKMobileHelper(datafile);
 	
 	
 	@Test(priority=1)
-	public void validateNewLetterSubscription() throws Exception {
+	public void MobileCreateAccount() throws Exception {
 
 		try {
-			revlon.slider();
-			revlon.Loginpage();
-			revlon.loginRevlonUK("AccountDetails");
-			revlon.slider();
-			revlon.MyAccount();
-			revlon.NavigateNewsLetterSubscription();
-			revlon.NewsLetterSubscription();
-			revlon.NewsLetterSubscriptionMail();
+			revlon.headLinks("HeaderLinks");
+			
 		}
 		catch (Exception e) {
 			
@@ -48,7 +42,7 @@ public class RHT_MOB_ST_NewLetterSubscription {
     //@Parameters({"device"})
       public void startTest() throws Exception {
         System.setProperty("configFile", "RevlonUK\\config.properties");
-          Login.signIn("chrome","Galaxy S5");
+          Login.signIn("chrome","iPhone X");
          
       }*/
 	

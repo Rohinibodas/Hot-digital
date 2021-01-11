@@ -63,4 +63,28 @@
             <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_NewLetterUnSubscription"/>
         </classes>
     </test>
+    <test name="Test_RUK_MOB_ST_016_RegisteredUserOrderConfirmationEmailTrigger" testid="RU-252" priority="P1" description="To verify the Order Confirmation Email Trigger functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_RegisteredUserOrderConfirmationMail"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_017_MyOrderConfirmation" testid="RU-268" priority="P1" description="To verify the My Order Confirmation functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_MyOrderConfirmation"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_018_ValidatingHeaderLinks" testid="RU-269" priority="P1" description="To verify the Validating Header Links functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_ValidatingHeaderLinks"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_013_ForgotPasswordEmailTrigger" testid="RU-249" priority="P1" description="To verify the Forgot Password Email Trigger functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_ForgotPasswordMail"/>
+        </classes>
+    </test>
 </suite>  
