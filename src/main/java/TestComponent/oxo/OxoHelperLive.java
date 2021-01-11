@@ -239,9 +239,11 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 	try{
 		
 		
-		  expectedResult="in search result should show product image, product title, price add wishlist.";
+		/*  expectedResult="in search result should show product image, product title, price add wishlist.";
 		int totalproductscount=Common.findElements("xpath", "//li[@class='item product product-item ']").size();
-		
+		*/
+		expectedResult="in search result should show product image, product title, price add wishlist.";
+        int totalproductscount=Common.findElements("xpath", "//li[contains(@class,'item product product-item ')]").size();
 		int producttitles=Common.findElements("xpath", "//a[@class='product-item-link']").size();
 		Assert.assertTrue(totalproductscount==producttitles);
 		errormessage="wishlist button";
@@ -257,6 +259,7 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		ExtenantReportUtils.addPassLog("validating the search rueslt", expectedResult, "it display all images,price wishlist ", Common.getscreenShotPathforReport("resultissues"));
 	}
 	catch(Exception |Error e) {
+		e.printStackTrace();
     	ExtenantReportUtils.addFailedLog("validating the search rueslt",expectedResult, "faield to display "+errormessage+"",Common.getscreenShotPathforReport("resultissues"));
 		Assert.fail();
 		
@@ -967,19 +970,22 @@ catch(Exception |Error e) {
 			Common.clickElement("id", "acceptAllButton");
 			
 		}
-	
-		
-		Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
-		Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
+        Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+        ExtenantReportUtils.addPassLog("verifying Paypal Payment page","lands on Paypal payment window", "User lands on the Paypal payment window", Common.getscreenShotPathforReport("Paypalpaymentwindow"));
+    	
+		}
+		/*Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
 		int sizeemail=Common.findElements("id", "email").size();
 		
 		Common.assertionCheckwithReport(sizeemail>0, "verifying the paypal payment ", expectedResult, "open paypal site window", "faild to open paypal account");
+		}
 		Common.clickElement("id", "btnLogin");
 		Thread.sleep(5000);
 		Common.actionsKeyPress(Keys.END);
 		Thread.sleep(5000);
 		
 	int ButtonSize=Common.findElements("id", "confirmButtonTop").size();
+	
 	if(ButtonSize>0){
 		Common.clickElement("id", "confirmButtonTop");
 	}else{
@@ -987,7 +993,7 @@ catch(Exception |Error e) {
 	}
 		Thread.sleep(8000);
 		Common.switchToFirstTab();
-		}
+		}*/
 		catch(Exception |Error e) {
 			e.printStackTrace();
     		ExtenantReportUtils.addFailedLog("verifying the paypal payment ", expectedResult, "User failed to proceed with paypal payment", Common.getscreenShotPathforReport(expectedResult));
@@ -1147,14 +1153,14 @@ public void closetheadd() throws Exception{
  public void ProductRegistration() throws InterruptedException {
  	Thread.sleep(3000);
  	try {
- 	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14883']");
- 	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14883']"));
+ 	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14903']");
+ 	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14903']"));
  	ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
- 	Common.clickElement("xpath","//a[@data-menu='menu-14883']");
+ 	Common.clickElement("xpath","//a[@data-menu='menu-14903']");
  	Thread.sleep(3000);
- 	WebElement element=Common.findElement("xpath","//h2[contains(text(),'Select your product')]");
+ 	WebElement element=Common.findElement("xpath","//h2[contains(text(),'Product Registration')]");
  	String text=element.getText();
- 	if(text.contains("Select your product")){
+ 	if(text.contains("Product Registration")){
        ExtenantReportUtils.addPassLog("Validating Webtext of Product Registration Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("ProductRegistrationText") );
        }
    else{
@@ -1163,14 +1169,15 @@ public void closetheadd() throws Exception{
       }
  	}
  	 catch(Exception e) {
+ 		 e.printStackTrace();
   		ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Product Registration");
   		Assert.fail();    
   	 }
  	
  	
 	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "Product Registration URL should Contains https", "Product Registration URL contains https", "Product Registration URL missing https");
-	   //Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/productregistration")&&Common.getPageTitle().equals("Product Registration"));
-       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/productregistration")&&Common.getPageTitle().equals("Product Registration"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	   //Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/productregistration")&&Common.getPageTitle().equals("Product Registration"));
+       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/product-registration")&&Common.getPageTitle().equals("OXO | Product Registration"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
  
  	
     
@@ -1180,10 +1187,10 @@ public void closetheadd() throws Exception{
 	   	Thread.sleep(3000);
 	   	clickLogo();
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14881']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14881']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14901']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14901']"));
 	   	ExtenantReportUtils.addPassLog("Validating ContactUS Link","ContactUS link should be present" ,"ContactUS Link is present",Common.getscreenShotPathforReport("ContactUSLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14881']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14901']");
 	   	
 	    WebElement element=Common.findElement("xpath","//h2[contains(text(),'Email us')]");
 	    String text=element.getText();
@@ -1202,24 +1209,25 @@ public void closetheadd() throws Exception{
 		}
 	   	
 	       catch(Exception e) {
+	    	   e.printStackTrace();
 	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of ContactUS Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation ContactUS");
 	    	   Assert.fail(); 
 	       }
 	    
 	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "ContactUS URL should Contains https", "ContactUS URL contains https", "ContactUS URL missing https");	
 	   // Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
-		 Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/contact-us")&&Common.getPageTitle().equals("Contact Us"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+		 Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/contact-us")&&Common.getPageTitle().equals("Contact Us"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	}
 	   	
 	      
  public void FAQ() throws InterruptedException {
 	   	Thread.sleep(3000);
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14882']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14882']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14902']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14902']"));
 	   	ExtenantReportUtils.addPassLog("Validating FAQ Link","FAQ link should be present" ,"FAQ Link is present",Common.getscreenShotPathforReport("FAQLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating FAQ Link","FAQ link should be able to click" ,"Clicked on PFAQ Link",Common.getscreenShotPathforReport("FAQ Link"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14882']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14902']");
 	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Frequently Asked Questions')]");
 	    String text=element.getText();
 	    System.out.println("Text Obtained is..."+text);
@@ -1242,18 +1250,18 @@ public void closetheadd() throws Exception{
 	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "FAQ URL should Contains https", "FAQ URL contains https", "FAQ URL missing https");	
 	   // Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 			
-	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/faq")&&Common.getPageTitle().equals("FAQ"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/faq")&&Common.getPageTitle().equals("FAQ"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/faq")&&Common.getPageTitle().equals("FAQ"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/faq")&&Common.getPageTitle().equals("FAQ"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	}
 	   	
  public void VoluntaryRecall() throws InterruptedException {
 	   	Thread.sleep(3000);
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14884']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14884']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14904']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14904']"));
 	   	ExtenantReportUtils.addPassLog("Validating VoluntaryRecall Link","VoluntaryRecall link should be present" ,"VoluntaryRecall Link is present",Common.getscreenShotPathforReport("VoluntaryRecallLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14884']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14904']");
 			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Tot Nest Booster Seat Voluntary Recall')]");
 	    String text=element.getText();
@@ -1276,17 +1284,17 @@ public void closetheadd() throws Exception{
 	    	   Assert.fail(); 
 	       }
 	      Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "VoluntaryRecall URL should Contains https", "VoluntaryRecall URL contains https", "VoluntaryRecall URL missing https");
-		  Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/product-recall")&&Common.getPageTitle().equals("Product Recall"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+		  Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/product-recall")&&Common.getPageTitle().equals("Product Recall"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   
 	   }
  public void PrivacyPolicy() throws InterruptedException {
 	   	Thread.sleep(3000);
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14885']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14885']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14905']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14905']"));
 		ExtenantReportUtils.addPassLog("Validating PrivacyPolicy Link","PrivacyPolicy link should be present" ,"PrivacyPolicy Link is present",Common.getscreenShotPathforReport("PrivacyPolicyLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14885']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14905']");
 	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Privacy Policy')]");
 	    	    String text=element.getText();
 	    	    System.out.println("Text Obtained is"+   text);
@@ -1311,19 +1319,19 @@ public void closetheadd() throws Exception{
 	    	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "PrivacyPolicy URL should Contains https", "PrivacyPolicy URL contains https", "PrivacyPolicy URL missing https");
 			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 			
-	     // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/privacy")&&Common.getPageTitle().equals("Privacy Policy"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/privacy")&&Common.getPageTitle().equals("Privacy Policy"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	     // Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/privacy")&&Common.getPageTitle().equals("Privacy Policy"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/privacy")&&Common.getPageTitle().equals("Privacy Policy"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	
 	   }
 
  public void TermsandConditions() throws InterruptedException {
 	   	Thread.sleep(3000);
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14886']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14886']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14906']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14906']"));
 	   	ExtenantReportUtils.addPassLog("TermsandConditions Link","TermsandConditions link should be present" ,"TermsandConditions Link is present",Common.getscreenShotPathforReport("TermsandConditionsLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14886']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14906']");
 	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Terms & Conditions')]");
 	    String text=element.getText();
 	    System.out.println("Text Obtained is"+   text);
@@ -1348,19 +1356,19 @@ public void closetheadd() throws Exception{
 	    Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https", "TermsandConditions URL should Contains https", "TermsandConditions URL contains https", "TermsandConditions URL missing https");
 	   	   //Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 		
-	     //  Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/Terms")&&Common.getPageTitle().equals("Terms and Conditions"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/Terms")&&Common.getPageTitle().equals("Terms and Conditions"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	     //  Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/Terms")&&Common.getPageTitle().equals("Terms and Conditions"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/Terms")&&Common.getPageTitle().equals("Terms and Conditions"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	
 	   }
 
  public void TrackOrder() throws InterruptedException {
 	   	Thread.sleep(3000);
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14888']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14888']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14908']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14908']"));
 	   	ExtenantReportUtils.addPassLog("TrackOrder Link","TrackOrder link should be present" ,"TrackOrder Link is present",Common.getscreenShotPathforReport("TrackOrderLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14888']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14908']");
 	    WebElement element=Common.findElement("xpath","//span[contains(text(),'Track Order')]");
 	    String text=element.getText();
 	    System.out.println("Text Obtained is..."+   text);
@@ -1385,8 +1393,8 @@ public void closetheadd() throws Exception{
 	   	//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 			System.out.println(Common.getPageTitle());
 	       System.out.println(Common.getCurrentURL());
-	    //  Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/sales/guest/form/")&&Common.getPageTitle().equals("Orders and Returns"));
-	      Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/sales/guest/form/")&&Common.getPageTitle().equals("Orders and Returns"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	    //  Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/sales/guest/form/")&&Common.getPageTitle().equals("Orders and Returns"));
+	      Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/sales/guest/form/")&&Common.getPageTitle().equals("Orders and Returns"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	
 	   }
 
@@ -1397,11 +1405,11 @@ public void closetheadd() throws Exception{
  public void ShippingInformation() throws InterruptedException {
 	   	Thread.sleep(3000);
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14889']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14889']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14909']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14909']"));
 	   	ExtenantReportUtils.addPassLog("ShippingInformation Link","ShippingInformation link should be present" ,"ShippingInformation Link is present",Common.getscreenShotPathforReport("ShippingInformationLink"));
 	   //ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14889']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14909']");
 	    WebElement element=Common.findElement("xpath","//h2[contains(text(),'Shipping Policies')]");
 	     String text=element.getText();
 	     System.out.println("Text Obtained is..."+   text);
@@ -1425,19 +1433,19 @@ public void closetheadd() throws Exception{
 	   	  //Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 		   System.out.println(Common.getPageTitle());
 	       System.out.println(Common.getCurrentURL());
-	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/shipping")&&Common.getPageTitle().equals("Shipping"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/shipping")&&Common.getPageTitle().equals("Shipping"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/shipping")&&Common.getPageTitle().equals("Shipping"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/shipping")&&Common.getPageTitle().equals("Shipping"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	
 	   }
 
  public void BetterGuarantee() throws InterruptedException {
 	   	Thread.sleep(3000);
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14890']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14890']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14910']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14910']"));
 	   	ExtenantReportUtils.addPassLog("BetterGuarantee Link","BetterGuarantee link should be present" ,"BetterGuarantee Link is present",Common.getscreenShotPathforReport("BetterGuaranteeLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14890']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14910']");
 	    WebElement element=Common.findElement("xpath","//span[contains(text(),'The OXO Better Guarantee*')]");
 	    String text=element.getText();
 	    System.out.println("Text Obtained is..."+   text);
@@ -1463,8 +1471,8 @@ public void closetheadd() throws Exception{
 	  // 	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 			System.out.println(Common.getPageTitle());
 	       System.out.println(Common.getCurrentURL());
-	    //   Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/guarantee")&&Common.getPageTitle().equals("The OXO Better Guarantee"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/guarantee")&&Common.getPageTitle().equals("The OXO Better Guarantee"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	    //   Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/guarantee")&&Common.getPageTitle().equals("The OXO Better Guarantee"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/guarantee")&&Common.getPageTitle().equals("The OXO Better Guarantee"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	
 	   }
 
@@ -1472,11 +1480,11 @@ public void closetheadd() throws Exception{
 	   	Thread.sleep(3000);
 	   	clickLogo();
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14892']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14892']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14913']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14913']"));
 	   	ExtenantReportUtils.addPassLog("GoodTipsBlog Link","GoodTipsBlog link should be present" ,"GoodTipsBlog Link is present",Common.getscreenShotPathforReport("GoodTipsBlogLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14892']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14913']");
 	   	Thread.sleep(5000);
 	
 	   	Sync.waitElementPresent("Xpath", "//h1[contains(text(),'Good Tips')]");
@@ -1505,8 +1513,8 @@ public void closetheadd() throws Exception{
 			//Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 			System.out.println(Common.getPageTitle());
 	       System.out.println(Common.getCurrentURL());
-	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/blog/")&&Common.getPageTitle().equals("OXO Good Tips - The OXO Blog"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/blog/")&&Common.getPageTitle().equals("OXO Good Tips - The OXO Blog"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/blog/")&&Common.getPageTitle().equals("OXO Good Tips - The OXO Blog"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/blog/")&&Common.getPageTitle().equals("OXO Good Tips - The OXO Blog"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	
 	   }
 
@@ -1546,8 +1554,8 @@ public void closetheadd() throws Exception{
 	   //	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
 			System.out.println(Common.getPageTitle());
 	       System.out.println(Common.getCurrentURL());
-	      // Assert.assertTrue(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/inventor")&&Common.getPageTitle().equals("Inventor Submission"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://oxo-stg.heledigital.com/inventor")&&Common.getPageTitle().equals("Inventor Submission"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	      // Assert.assertTrue(Common.getCurrentURL().equals("https://www.oxo.com/inventor")&&Common.getPageTitle().equals("Inventor Submission"));
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.oxo.com/inventor")&&Common.getPageTitle().equals("Inventor Submission"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	   	
 	   }
 	
@@ -1555,18 +1563,19 @@ public void closetheadd() throws Exception{
 	   	Thread.sleep(3000);
 	 	clickLogo();
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14894']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14894']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14915']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14915']"));
 	   	ExtenantReportUtils.addPassLog("Careers Link","Careers link should be present" ,"Careers Link is present",Common.getscreenShotPathforReport("CareersLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14894']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14915']");
 	   	Thread.sleep(2000);
 	   	Common.switchWindows();
-	   	Sync.waitElementPresent("xpath", "//span[contains(text(),'Search for Jobs')]");
-	     WebElement element=Common.findElement("xpath","//span[contains(text(),'Search for Jobs')]");
+	   //	Common.scrollIntoView("xpath","//li//a[contains(text(),'Jobs')]");
+	   	Sync.waitElementPresent("xpath", "//li//a[contains(text(),'Jobs')]");
+	     WebElement element=Common.findElement("xpath","//li//a[contains(text(),'Jobs')]");
 	     String text=element.getText();
 	     System.out.println("Text Obtained is..."+   text);
-	     if(text.contains("Search for Jobs"))
+	     if(text.contains("Jobs"))
 	                 {
 	     	         System.out.println("Expected text is obtained");
 	     	        ExtenantReportUtils.addPassLog("Validating Webtext of Careers Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("CareersText") );
@@ -1580,6 +1589,7 @@ public void closetheadd() throws Exception{
 	   	}
 	   	
 	       catch(Exception e) {
+	    	   e.printStackTrace();
 	    	   ExtenantReportUtils.addFailedLog("Validating Webelement of Careers Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Careers");
 	    	   Common.switchToFirstTab();
 	    	   Assert.fail();
@@ -1590,7 +1600,7 @@ public void closetheadd() throws Exception{
 		
 	       Thread.sleep(6000);
 	      // Assert.assertTrue(Common.getCurrentURL().equals("https://helenoftroy.wd1.myworkdayjobs.com/Main_HoT")&&Common.getPageTitle().equals("Search for Jobs"));
-	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://helenoftroy.wd1.myworkdayjobs.com/Main_HoT")&&Common.getPageTitle().equals("Search for Jobs"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+	       Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://careers.helenoftroy.com/en")&&Common.getPageTitle().equals("Careers | Helen Of Troy"),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
 	       Common.switchToFirstTab();
 	   }
 
@@ -1600,11 +1610,11 @@ public void closetheadd() throws Exception{
 	   	Thread.sleep(3000);
 	 	clickLogo();
 	   	try {
-	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14895']");
-	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14895']"));
+	   	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14916']");
+	   	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14916']"));
 	   	ExtenantReportUtils.addPassLog("InvestorRelations Link","InvestorRelations link should be present" ,"InvestorRelations Link is present",Common.getscreenShotPathforReport("InvestorRelationsLink"));
 	   	//ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-	   	Common.clickElement("xpath","//a[@data-menu='menu-14895']");
+	   	Common.clickElement("xpath","//a[@data-menu='menu-14916']");
 	   	Thread.sleep(2000);
 	   	Common.switchWindows();
 	   	//Thread.sleep(4000);
@@ -1763,7 +1773,7 @@ public void pinterest() throws InterruptedException {
        }
 	   Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating pinterest URL which contains https", "This URL Contains https", "give url contains https", "give url missing  https");
       //Assert.assertTrue(Common.getCurrentURL().equals("https://in.pinterest.com/oxo/_shop/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"));
-   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.pinterest.com/oxo/")&&Common.getPageTitle().equals("OXO (oxo) on Pinterest"),"Validating pinterest Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+   	Common.assertionCheckwithReport(Common.getCurrentURL().equals("https://www.pinterest.com/oxo/")&&Common.getPageTitle().equals("OXO (oxo) - Profile | Pinterest"),"Validating pinterest Page Title and URL", "Actual and Current URL&Page Title Should be Same", "Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
    	Common.closeCurrentWindow();
 	Common.switchToFirstTab();
 }
@@ -1941,12 +1951,19 @@ public void clickGoodTipsBlog(){
 	 String expectedResult="It Should be navigate Goodtipsblog page";
 	try{
 		Thread.sleep(5000);
-		Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15196']");
-		Common.clickElement("xpath", "//a[@data-menu='menu-15196']");
+		try{
+			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15796']");
+		    Common.clickElement("xpath", "//a[@data-menu='menu-15796']");
+		}catch(Exception |Error e) {
+			
+			Sync.waitElementClickable("xpath", "//li[@class='active']//a[contains(text(),'Good Tips Blog')]");
+		    Common.clickElement("xpath", "//li[@class='active']//a[contains(text(),'Good Tips Blog')]");
+		}
 	   //Common.assertionCheckwithReport(Common.getCurrentURL().equals(data.get(dataSet).get("URL"))&&Common.getPageTitle().equals(data.get(dataSet).get("pageTitle")),"Validating  GoodTipsBlog page Title and URL", "it navigating to GoodTipsBlog page", "user navigated to GoodTipsBlog Page", "user faield to navigate to good tipes blog");
 		ExtenantReportUtils.addPassLog("validating the GoodTipsBlog page.", expectedResult, "user click the GoodTipsblog", Common.getscreenShotPathforReport("passgood"));
 	}
    catch(Exception |Error e) {
+	        e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog page.", expectedResult, "user failed to navigate GoodTipsBlog",Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
 		    Assert.fail();
 		}

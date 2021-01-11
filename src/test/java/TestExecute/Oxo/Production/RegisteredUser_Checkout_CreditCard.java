@@ -5,33 +5,32 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import TestComponent.oxo.OxoHelper;
 import TestComponent.oxo.OxoHelperLive;
-import TestLib.BaseDriver;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_checkout_CreditCard {
-	
+public class RegisteredUser_Checkout_CreditCard {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelperLive oxo=new OxoHelperLive(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-  public void guest_checkout_CreditCard() {
+  public void RegisteredUser_Checkout_CreditCard() {
 		try{
-		oxo.closetheadd();
-		oxo.acceptPrivecy();
-		
-		oxo.clickBaby_Toddler();
-		oxo.addproducts("2");
-		oxo.checkout();
-		oxo.ShippingAddress("ShippingAddress");
-		oxo.selectGroundShippingMethod();
-		oxo.clickAcceptingaddress();
-		oxo.Click_CreditCard();
-		oxo.Edit_BillingAddress("BiillingAddress");
-		oxo.clickAcceptingaddress();
-		oxo.creditCard_payment("PaymentDetails");
+			oxo.closetheadd();
+			oxo.acceptPrivecy();
+			oxo.loginOxo("AccountDetails");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.addNewAddress("ShippingAddress");
+			oxo.clickAcceptingaddress();
+			oxo.selectGroundShippingMethod();
+			oxo.Click_CreditCard();
+			oxo.Edit_BillingAddress("BiillingAddress");
+			oxo.clickAcceptingaddress();
+			oxo.creditCard_payment("PaymentDetails");
+			//oxo.VerifyaingConformationPage();
+			
   }
 	catch (Exception e) {
 		

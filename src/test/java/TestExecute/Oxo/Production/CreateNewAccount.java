@@ -5,33 +5,21 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import TestComponent.oxo.OxoHelper;
 import TestComponent.oxo.OxoHelperLive;
-import TestLib.BaseDriver;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_checkout_CreditCard {
+public class CreateNewAccount {
 	
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelperLive oxo=new OxoHelperLive(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-  public void guest_checkout_CreditCard() {
+  public void CreateNewAccount() {
 		try{
-		oxo.closetheadd();
-		oxo.acceptPrivecy();
-		
-		oxo.clickBaby_Toddler();
-		oxo.addproducts("2");
-		oxo.checkout();
-		oxo.ShippingAddress("ShippingAddress");
-		oxo.selectGroundShippingMethod();
-		oxo.clickAcceptingaddress();
-		oxo.Click_CreditCard();
-		oxo.Edit_BillingAddress("BiillingAddress");
-		oxo.clickAcceptingaddress();
-		oxo.creditCard_payment("PaymentDetails");
+			oxo.closetheadd();
+			oxo.acceptPrivecy();
+			oxo.CreateNewAccount("AccountDetails");
   }
 	catch (Exception e) {
 		
@@ -42,8 +30,9 @@ public class Guest_checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		Common.closeAll();
-    }
+	   Common.closeAll();
+  
+	}
 	
 	@BeforeMethod
 	  public void startTest() throws Exception {
