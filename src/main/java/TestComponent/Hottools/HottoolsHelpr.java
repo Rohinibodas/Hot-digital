@@ -1361,6 +1361,9 @@ public class HottoolsHelpr {
 			Common.clickElement("xpath", "//a[text()='sign in']");
 
 			Sync.waitElementPresent("id", "email");
+			
+			Common.scrollIntoView("xpath", "//span[contains(text(),'Customer Login')]");
+			Thread.sleep(3000);
 
 			Sync.waitElementPresent("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"customer/account/forgotpassword/']"));
 			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"customer/account/forgotpassword/']"));
@@ -1911,6 +1914,9 @@ public class HottoolsHelpr {
 			Common.clickElement("xpath", "//a[text()='sign in as distributor']");
 
 			Sync.waitElementPresent("id", "email");
+			
+			Common.scrollIntoView("xpath", "//span[contains(text(),'Distributor Login')]");
+			Thread.sleep(3000);
 
 			Sync.waitElementPresent("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"pro/index.php/customer/account/forgotpassword/']"));
 			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"pro/index.php/customer/account/forgotpassword/']"));

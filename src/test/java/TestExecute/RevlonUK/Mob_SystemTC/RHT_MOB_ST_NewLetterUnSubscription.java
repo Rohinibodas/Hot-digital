@@ -28,6 +28,7 @@ public class RHT_MOB_ST_NewLetterUnSubscription {
 			revlon.MyAccount();
 			revlon.NavigateNewsLetterSubscription();
 			revlon.NewsLetterUnSubscription();
+			revlon.NewsLetterUnSubscriptionMail();
 		}
 		catch (Exception e) {
 			

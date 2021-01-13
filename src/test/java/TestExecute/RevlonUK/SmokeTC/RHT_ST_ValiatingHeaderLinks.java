@@ -12,19 +12,15 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_ST_NewsLetterSubscription {
+public class RHT_ST_ValiatingHeaderLinks {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
 	RevlonUKHelper revlon=new RevlonUKHelper(datafile);
-	
-	
-	@Test(priority=1)
-	public void NewLetterSubscription() throws Exception {
+		
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
+	public void ValidateHeaderLinks() throws Exception {
 
 		try {
-			revlon.loginRevlonUK("AccountDetails");
-			revlon.NavigateNewsLetterSubscription();
-			revlon.NewsLetterSubscription();
-			revlon.NewsLetterSubscriptionMail();
+			revlon.headLinks("HeaderLinks");
 		}
 		catch (Exception e) {
 			
