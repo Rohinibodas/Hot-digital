@@ -1,10 +1,12 @@
 package TestExecute.DryBar;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class ValidatingHeaderLinks {
@@ -12,15 +14,22 @@ public class ValidatingHeaderLinks {
 	DryBarHelper drybar=new DryBarHelper(datafile);
 
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void f() throws Exception {
-	  
+  public void validatingHeaderLinks()  {
+	  try {
 	  drybar.headLinksValidations("HeaderLinks");
   }
+  
+	catch (Exception e) {
+		e.printStackTrace();
+		
+		Assert.fail(e.getMessage(), e);
+	} 
+}
   
   @AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

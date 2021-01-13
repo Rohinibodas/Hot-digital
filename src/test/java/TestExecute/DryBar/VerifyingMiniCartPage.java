@@ -15,9 +15,14 @@ public class VerifyingMiniCartPage {
   public void f() throws Exception {
 	  drybar.clickHairProducts();
 	  drybar.selectproduct("ProductName");
-	  drybar.increaseProductQuantity("2");
+	  drybar.increaseProductQuantity("5");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
+	  drybar.updateProductInMinicart("2");
+	  drybar.click_View_editcart();
+	  drybar.edit_ShopingCart();
+	  drybar.changeQuntity_UpdateProduct("5");
+	  drybar.click_ContinueShopping();
 	//  drybar.addproductInMiniCartPage();
   }
   

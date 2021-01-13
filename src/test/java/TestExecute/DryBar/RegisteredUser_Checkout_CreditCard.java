@@ -25,10 +25,11 @@ public class RegisteredUser_Checkout_CreditCard {
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			 // drybar.select_USPS_StandardGround_shippingMethod();
+			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-			  //drybar.creditCard_payment("PaymentDetails");
-			  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
+			  drybar.creditCard_payment("PaymentDetails");
+			  drybar.order_Verifying();
+			//  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
 			
 			
 		}
