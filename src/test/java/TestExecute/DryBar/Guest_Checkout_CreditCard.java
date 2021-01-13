@@ -13,6 +13,7 @@ public class Guest_Checkout_CreditCard {
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	
 	//DryBarMobile drybar=new DryBarMobile(datafile);
+	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void guest_Checkout_CreditCard() throws Exception {
 	   drybar.clickMyaccount();

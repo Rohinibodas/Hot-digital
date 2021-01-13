@@ -20,6 +20,7 @@ public class ApplyOfferCodeonCheckoutPage {
 		  drybar.clickCheckoutButton();
 		  drybar.click_GuestCheckOut();
 		  drybar.guestShippingAddress("ShippingAddress");
+		  drybar.couponCode();
 	 // drybar.select_USPS_StandardGround_shippingMethod();
   }
 	

@@ -421,9 +421,16 @@ try{
    //Common.clickElement("Xpath","//span[contains(text(),'My billing and shipping address are the same')]");
 	public void select_USPS_StandardGround_shippingMethod() throws Exception{
 		try{
+			
+			
+			//td[text()='USPS - Standard Ground']
+			
+			Sync.waitElementPresent("xpath", "//td[text()='USPS - Standard Ground']");
+		    Common.clickElement("xpath", "//td[text()='USPS - Standard Ground']");
+			
 
-		Sync.waitElementPresent("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
-	    Common.clickElement("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
+		//Sync.waitElementPresent("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
+	    //Common.clickElement("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
 	
 	}
 		 catch(Exception |Error e) {
@@ -826,19 +833,220 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 public void headLinksValidations(String dataSet) throws Exception{
 	String Hederlinks=data.get(dataSet).get("HeaderNames");
 	String[] hedrs=Hederlinks.split(",");
-	for(int i=0;i<hedrs.length;i++){
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
 		Sync.waitElementClickable("xpath", "//span[text()='"+hedrs[i]+"']");
 		Common.clickElement("xpath", "//span[text()='"+hedrs[i]+"']");
 		Thread.sleep(3000);
 		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(Common.getPageTitle()), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
 
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+
+	
+}
+
+public void updateProductInMinicart(String Product){
+	try {
+		
+		
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'cart-item')]");
+		Common.findElement("xpath", "//input[contains(@id,'cart-item')]").sendKeys(Keys.BACK_SPACE);
+		//Common.textBoxInput("xpath", "//input[contains(@id,'cart-item')]",Keys.BACK_SPACE);
+		
+		Common.textBoxInput("xpath", "//input[contains(@id,'cart-item')]","2");
+		Common.clickElement("xpath", "//span[text()='Update']");
+		ExtenantReportUtils.addPassLog("verifying the update product in mini cart page","user update the product in mini cart page","user successfully update the product in mini cart page", Common.getscreenShotPathforReport("updateproduct"));
 		
 	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("verifying the update product in mini cart page","user update the product in mini cart page","User unabel update product in mini cart page",Common.getscreenShotPathforReport("userminicartupdate"));
+	
+		Assert.fail();
+
+	}
+	
+	
+}
+
+public void click_View_editcart(){
+	try{
+	Sync.waitElementPresent("xpath", "//span[text()='View and Edit Cart']");
+	Common.clickElement("xpath", "//span[text()='View and Edit Cart']");
+	ExtenantReportUtils.addPassLog("verifying the view wdit cart button from mincart page","user after click the  view and edit button it navigate to SHOPPING CART page","User navigate to SHOPPING CART page",Common.getscreenShotPathforReport("SHOPPINGCARTPAGE"));
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying the view edit cart button from mincart page","user after click the  view and edit button it navigate to SHOPPING CART page","User unabel navigate to SHOPPING CART page",Common.getscreenShotPathforReport("SHOPPINGCARTPAGE"));
+        Assert.fail();
+        }
+	}
+public void edit_ShopingCart(){
+	try{
+	Sync.waitElementPresent("xpath", "//a[contains(@class,'action-edit')]");
+	Common.clickElement("xpath", "//a[contains(@class,'action-edit')]");
+	int updatebuttonsize=Common.findElements("id","product-updatecart-button").size();
+	
+	Common.assertionCheckwithReport(updatebuttonsize>0, "Verifying the edit button in cart page", "user after click the edit button in cart detail page it will navigate product detail page", "user successfully navigate to product detail page ", "Failed to navigate to product detail page");
+	Common.clickElement("id","product-updatecart-button");
+	}catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying the EditShoping cart button","user after click the edit button in cart detail page it will navigate product detail page","User faield click edit button",Common.getscreenShotPathforReport("edit button"));
+        Assert.fail();
+        }
+}
+
+public void changeQuntity_UpdateProduct(String productcount){
+	try{
+	Sync.waitElementPresent("xpath", "//select[contains(@id,'cart')]");
+	Common.dropdown("xpath", "//select[contains(@id,'cart')]", SelectBy.VALUE, productcount);
+	Common.clickElement("xpath", "//button[@id='update_cart_action']");
+	Sync.waitPageLoad();
+	String value=Common.findElement("xpath", "//select[contains(@id,'cart')]").getAttribute("value");
+	System.out.println(Common.getPageTitle());
+	
+	Common.assertionCheckwithReport(value.equals(productcount), "verifying the product Quntity","user change the quntity of product","user successfully  change quntity","Failed to chage the quntity");
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying the product Quntity","user change the quntity of product","User faield to chage the quntity",Common.getscreenShotPathforReport("failed changequntity"));
+        Assert.fail();
+        }
+}
+public void click_ContinueShopping(){
+	
+	Common.clickElement("xpath", "//a[@title='Continue Shopping']");
+     System.out.println(Common.getPageTitle());
+	
+}
+public void addproductInMiniCartPage() throws Exception{
+	
+	Common.textBoxInput("xpath", "//input[contains(@id,'cart-item')]","2");
+	
+	Common.clickElement("xpath", "//span[text()='Update']");
+	Common.clickElement("xpath", "//span[text()='View and Edit Cart']");
+	
+	// Cart page update//
+	
+	Common.dropdown("xpath", "//select[contains(@id,'cart')]", SelectBy.VALUE, "10");
+	
+	
+	
+	//Disscount
+	Common.clickElement("xpath", "//div[@id='block-discount']");
+	
+	//Countinu shopping
+	
+	//Common.clickElement("xpath", "//a[@title='Continue Shopping']");
+	
+	
+	//Removeproduct
+	
+	
+	
+}
+public void gitCard() throws Exception{
+	try{
+	Common.scrollIntoView("id", "block-giftcard-heading");
+	Common.clickElement("id", "block-giftcard-heading");
+	
+	Common.textBoxInput("id","giftcard-code","123");
+	
+	Common.textBoxInput("id","giftcard-pin","123");
+	
+	
+	Common.clickElement("xpath", "//button[@value='Apply']");
+	
+	Thread.sleep(3000);
+	int size=Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();
+	Common.assertionCheckwithReport(size>0, "validating the gift card", "Gift Card was added.", "successfully gift card was added","Failed to add gift card");
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating the gift card","Gift Card was added.","User faield to to add gift card",Common.getscreenShotPathforReport("gitcard"));
+        Assert.fail();
+        }
+	
+}
+public void click_place_order_button(){
+	try{
+	Common.clickElement("xpath", "//button[contains(@class,'checkout')]");
+	System.out.println(Common.getPageTitle());
+	Common.assertionCheckwithReport(Common.getPageTitle().contains("Checkout"),"verifying place order button", "navigate order confirmation page", "User navigate order confirmation message","User faield to navigate order confirmation message");
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying place order button","navigate order confirmation page","User faield to navigate order confirmation message",Common.getscreenShotPathforReport("confirmationmessage"));
+        Assert.fail();
+        }
+		
+}
+
+public void click_forgotpassword() throws Exception{
+	try{
+	Common.clickElement("xpath", "//a[@data-se='forgot-password']");
+    Common.textBoxInput("id", "account-recovery-username","manoj@gm.com");
+	Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
+	Common.actionsKeyPress(Keys.PAGE_UP);
+	int size=Common.findElements("xpath", "//p[contains(@class,'okta-form-subtitle')]").size();
+	Common.assertionCheckwithReport(size>0, "validating forgot password","Email has been sent to given email with instructions on resetting your password.", "Successfully Email has been sent to given email with instructions on resetting your password.","Failed to send forgetpassword");
+	}
+	catch (Exception | Error e) {
+        ExtenantReportUtils.addFailedLog("validating forgot password","Email has been sent to given email with instructions on resetting your password.","User faield to send forgetpassword",Common.getscreenShotPathforReport("forgetpassword"));
+        Assert.fail();
+        }
+}
+
+
+public void couponCode(){
+	try{
+	Common.clickElement("id","block-discount-heading");
+    Common.textBoxInput("id", "discount-code","CouponCode");
+    }
+	catch (Exception | Error e) {
+        ExtenantReportUtils.addFailedLog("validating forgot password","Email has been sent to given email with instructions on resetting your password.","User faield to send forgetpassword",Common.getscreenShotPathforReport("forgetpassword"));
+        Assert.fail();
+        }
+}
+public void order_Verifying() throws Exception{
+	//Thread.sleep(10000);
+	//Common.textBoxInput("id", "//textarea[contains(@id,'tt-c-comment-field')]","Ceate accounts test ");
+	Thread.sleep(5000);
+	String Text=Common.getText("xpath", "//h1[@class='page-title']/span");
+	System.out.println(Text);
 	
 }
 
 
+public void forgetpasswordPageValidation(String InvalidData){
 
+		try{
+			Common.clickElement("xpath", "//a[@data-se='forgot-password']");
+		    Common.textBoxInput("id", "account-recovery-username",InvalidData);
+			Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			int errormessage=Common.findElements("xpath", "//span[contains(@class,'icon error')]/following::p[1]").size();
+			
+	Common.assertionCheckwithReport(errormessage>0, "Validating forget password from", "Enter in valid data it must dispaly error message", "User enter "+InvalidData+" in Forgetpassword field", "Failed to display error message ");		
+	        }
+		catch (Exception | Error e) {
+	        ExtenantReportUtils.addFailedLog("validating forgot password form with  invalid data","I will showing error message","forgotpassword form faield dispaly  error message",Common.getscreenShotPathforReport("forgetpassword error message"));
+	        Assert.fail();
+	        }
+	
+}
 public void hairProducts(){
 /*	try{
 	Sync.waitElementClickable("xpath", "//span[text()='Hair Products']");

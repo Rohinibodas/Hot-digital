@@ -12,7 +12,7 @@ public class VerifyingMiniCartPage {
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	
   @Test
-  public void f() throws Exception {
+  public void verifyingMiniCartPage() throws Exception {
 	  drybar.clickHairProducts();
 	  drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("5");
