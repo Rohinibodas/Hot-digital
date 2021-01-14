@@ -8,6 +8,7 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 
 import TestLib.Common;
@@ -73,6 +74,15 @@ public void clickMyaccount() throws Exception{
 	
 }
 
+public void order_Verifying() throws Exception{
+	//Thread.sleep(10000);
+	//Common.textBoxInput("id", "//textarea[contains(@id,'tt-c-comment-field')]","Ceate accounts test ");
+	Thread.sleep(5000);
+	String Text=Common.getText("xpath", "//h1[@class='page-title']/span");
+	System.out.println(Text);
+	
+}
+
 public void CreateAccount(String dataSet){
 	
 	try{
@@ -93,7 +103,7 @@ public void CreateAccount(String dataSet){
 	Common.textBoxInput("id", "lastname",data.get(dataSet).get("LastName"));
 	Common.clickElement("xpath", "//input[@id='is_subscribed']");
 	Common.clickElement("xpath", "//input[@id='assistance_allowed_checkbox']");
-	Common.textBoxInput("id", "email_address",data.get(dataSet).get("Email"));
+	Common.textBoxInput("id", "email_address",Common.genrateRandomEmail(data.get(dataSet).get("Email")));
 	Common.textBoxInput("id", "password",data.get(dataSet).get("Password"));
 	Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
 	Common.clickElement("xpath", "//button[@title='Create an Account']");
@@ -119,6 +129,8 @@ public void clicktreebarmenu(){
 
 public void clickHairProducts(){
 	try{
+		
+	Common.clickElement("xpath", "//a[@class='action nav-toggle main']");
 	Common.clickElement("xpath", "//span[text()='Hair Products']");
 	
 	int sizes=Common.findElements("xpath", "//a[@id='ui-id-16']/span[2]").size();
@@ -128,7 +140,7 @@ public void clickHairProducts(){
 	}
 	System.out.println(Common.getPageTitle());
 	
-	Common.assertionCheckwithReport(Common.getPageTitle().contains("Hair Care Products"), "verifying Hair Product category","User navigate to hair product page","user successfully open the Hair Category page", "user faield to click the Hair Product");
+	Common.assertionCheckwithReport((Common.getPageTitle().contains("Hair Care Products")||Common.getPageTitle().contains("Hair")), "verifying Hair Product category","User navigate to hair product page","user successfully open the Hair Category page", "user faield to click the Hair Product");
 	//sHair Care Products, Hair Styling Tools & Hair Salon Products | Drybar Drybar
 	
 	
@@ -214,7 +226,7 @@ try{
     String productname=data.get(dataSet).get("ProductName");
 	Common.clickElement("xpath", "//a[contains(text(),'"+productname+"')]");
 	String titletext=Common.findElement("xpath", "//h1[@class='page-title']/span").getText();
-    Common.assertionCheckwithReport(titletext.equals(productname), "verifying product detail page", "user navigate to product detailepage", "user successfully navigate to product detail page", "User Failed navigate to product detail page");
+    Common.assertionCheckwithReport(titletext.contains(productname), "verifying product detail page", "user navigate to product detailepage", "user successfully navigate to product detail page", "User Failed navigate to product detail page");
 	
 }
 
@@ -368,12 +380,14 @@ public void Edit_BillingAddress_BrainTree(String dataSet)throws Exception{
 public void Click_PaymetricPaymentMethod(){
 	try{
 		Sync.waitPageLoad();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Thread.sleep(2000);
          Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
           ExtenantReportUtils.addPassLog("verifying PaymetricPaymentMethod", "user click PaymetricPaymentMethod ", "user clicked PaymetricPaymentMethod option",Common.getscreenShotPathforReport("PaymetricPaymentMethodoption"));
 	}
 	catch(Exception |Error e) {
+		e.printStackTrace();
 		ExtenantReportUtils.addFailedLog("verifying PaymetricPaymentMethod", "user click PaymetricPaymentMethod ", "faield to click PaymetricPaymentMethod",Common.getscreenShotPathforReport("PaymetricPaymentMethodoption"));
 		Assert.fail();
 		
@@ -641,9 +655,16 @@ public void navigateMyAccount() throws InterruptedException {
 	 Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
 	try {
 		Sync.waitPageLoad();
-		Thread.sleep(5000);
-		Sync.waitElementClickable(30, By.xpath("//ul[@class='header links']//li[2]/a"));
-		Common.findElement("xpath", "//ul[@class='header links']//li[2]/a").click();
+		Sync.waitElementClickable(30, By.xpath("//a[@class='action nav-toggle main']"));
+		Common.clickElement("xpath", "//a[@class='action nav-toggle main']");
+		Thread.sleep(2000);
+		try {
+		Sync.waitElementClickable(30, By.xpath("//ul[@class='account-links']//li[2]/a"));
+		}catch(TimeoutException e)
+		{
+			Common.clickElement("xpath", "//a[@class='action nav-toggle main']");
+		}
+		Common.findElement("xpath", "//ul[@class='account-links']//li[2]/a").click();
 		Thread.sleep(3000);
 	} catch (Exception | Error e) {
 		e.printStackTrace();
@@ -658,23 +679,25 @@ public void navigateMyAccount() throws InterruptedException {
 public void loginApplication(String dataSet){
 	String expectedResult = "Opens login pop_up";
    
-	   int size= Common.findElements("id", "okta-signin-username").size();
+	   int size= Common.findElements("id", "email").size();
 	   Common.assertionCheckwithReport(size>0, "verifying login page", "open the login page", "successfully open the login page", "Failed open the login page");
 	   try {
-			Common.textBoxInput("id", "okta-signin-username", data.get(dataSet).get("Email"));
-			Common.textBoxInput("id", "okta-signin-password", data.get(dataSet).get("Password"));
-			Common.clickElement("id", "okta-signin-submit");
-			Thread.sleep(6000);
-			
-			String gettext=Common.findElement(By.xpath("//h1[@class='page-title']/span")).getText();
-			System.out.println(gettext);
-			Common.assertionCheckwithReport(gettext.equals("MY ACCOUNT"), "verifying login account",
+			Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+			Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
+			Common.clickElement("id", "send2");
+			Thread.sleep(3000);
+			Common.clickElement("xpath", "//a[@class='action nav-toggle main']");
+			Thread.sleep(2000);
+			int totalSize=Common.findElements(By.xpath("//ul[@class='account-menu top-link-submenu']/li[1]/a[1]")).size();
+			System.out.println(totalSize);
+			Common.assertionCheckwithReport(totalSize>0, "verifying login account",
 					"customer is redirected to My Account page",
 					"Logged in the application and customer is redirected to My Account page",
 					"Unabel to login Account");
 	    
 	   }
 	   catch (Exception | Error e) {
+		   e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying login page with credentials", expectedResult,
 					"User failed to login in account  ", Common.getscreenShotPathforReport("login faield"));
 			Assert.fail();
@@ -978,14 +1001,15 @@ public void gitCard() throws Exception{
 	Common.scrollIntoView("id", "block-giftcard-heading");
 	Common.clickElement("id", "block-giftcard-heading");
 	
+	Thread.sleep(3000);
 	Common.textBoxInput("id","giftcard-code","123");
 	
 	Common.textBoxInput("id","giftcard-pin","123");
 	
-	
+	Thread.sleep(2000);
+	Common.scrollIntoView("xpath", "//button[@value='Apply']");
 	Common.clickElement("xpath", "//button[@value='Apply']");
-	
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 	int size=Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();
 	Common.assertionCheckwithReport(size>0, "validating the gift card", "Gift Card was added.", "successfully gift card was added","Failed to add gift card");
 	}
@@ -998,6 +1022,7 @@ public void gitCard() throws Exception{
 }
 public void click_place_order_button(){
 	try{
+	Thread.sleep(3000);
 	Common.clickElement("xpath", "//button[contains(@class,'checkout')]");
 	System.out.println(Common.getPageTitle());
 	Common.assertionCheckwithReport(Common.getPageTitle().contains("Checkout"),"verifying place order button", "navigate order confirmation page", "User navigate order confirmation message","User faield to navigate order confirmation message");
@@ -1012,12 +1037,14 @@ public void click_place_order_button(){
 
 public void click_forgotpassword() throws Exception{
 	try{
-	Common.clickElement("xpath", "//a[@data-se='forgot-password']");
-    Common.textBoxInput("id", "account-recovery-username","manoj@gm.com");
-	Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
-	Common.actionsKeyPress(Keys.PAGE_UP);
-	int size=Common.findElements("xpath", "//p[contains(@class,'okta-form-subtitle')]").size();
-	Common.assertionCheckwithReport(size>0, "validating forgot password","Email has been sent to given email with instructions on resetting your password.", "Successfully Email has been sent to given email with instructions on resetting your password.","Failed to send forgetpassword");
+	Common.clickElement("xpath", "//a[@class='action remind']/span[text()='Forgot Your Password?']");
+	Thread.sleep(2000);
+    Common.textBoxInput("id", "email_address","manoj@gm.com");
+	//Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
+	//Common.actionsKeyPress(Keys.PAGE_UP);
+    Common.clickElement("xpath", "//span[text()='Reset My Password']");
+	//int size=Common.findElements("xpath", "//p[contains(@class,'okta-form-subtitle')]").size();
+	//Common.assertionCheckwithReport(size>0, "validating forgot password","Email has been sent to given email with instructions on resetting your password.", "Successfully Email has been sent to given email with instructions on resetting your password.","Failed to send forgetpassword");
 	}
 	catch (Exception | Error e) {
         ExtenantReportUtils.addFailedLog("validating forgot password","Email has been sent to given email with instructions on resetting your password.","User faield to send forgetpassword",Common.getscreenShotPathforReport("forgetpassword"));
