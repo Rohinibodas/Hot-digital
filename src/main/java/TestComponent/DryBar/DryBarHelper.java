@@ -999,9 +999,9 @@ public void click_place_order_button(){
 
 public void click_forgotpassword() throws Exception{
 	try{
-	Common.clickElement("xpath", "//a[@data-se='forgot-password']");
-    Common.textBoxInput("id", "account-recovery-username","manoj@gm.com");
-	Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
+	Common.clickElement("xpath", "//a[@class='action remind']");
+    Common.textBoxInput("id", "email_address","manoj@gm.com");
+	Common.scrollToElementAndClick("xpath", "//*[@id='form-validate']/div/div[1]/button");
 	//Common.actionsKeyPress(Keys.PAGE_UP);
 	int size=Common.findElements("xpath", "//p[contains(@class,'okta-form-subtitle')]").size();
 	Common.assertionCheckwithReport(size>0, "validating forgot password","Email has been sent to given email with instructions on resetting your password.", "Successfully Email has been sent to given email with instructions on resetting your password.","Failed to send forgetpassword");
