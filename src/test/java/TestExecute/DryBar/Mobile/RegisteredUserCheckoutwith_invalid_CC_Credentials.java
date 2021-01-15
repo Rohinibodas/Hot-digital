@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
@@ -45,15 +46,15 @@ public class RegisteredUserCheckoutwith_invalid_CC_Credentials {
 	}
 	
 
-	@BeforeMethod
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");
-	 }
-	/*@BeforeTest
+	 }*/
+	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
-	  }*/
+	  }
 }

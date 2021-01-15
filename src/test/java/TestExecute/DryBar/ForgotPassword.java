@@ -1,10 +1,12 @@
 package TestExecute.DryBar;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class ForgotPassword {
@@ -12,15 +14,23 @@ public class ForgotPassword {
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
  
-  public void f() throws Exception {
-	  drybar.navigateMyAccount();
+  public void forgotPassword() throws Exception {
+	 
+		try{
+			drybar.navigateMyAccount();
+		
 	  drybar.click_forgotpassword();
   }
-	
+	catch (Exception e) {
+		e.printStackTrace();
+		
+		Assert.fail(e.getMessage(), e);
+	} 
+	}
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

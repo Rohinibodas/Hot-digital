@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
 import TestComponent.DryBar.DryBarMobile;
+import TestLib.Common;
 import TestLib.Login;
 
 public class Guest_Checkout_CreditCard {
@@ -29,7 +30,7 @@ public class Guest_Checkout_CreditCard {
 	  drybar.Click_PaymetricPaymentMethod();
 	  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 	  drybar.creditCard_payment("PaymentDetails");
-	  drybar.order_Verifying();
+	 drybar.order_Verifying();
   }
   
 	//ul[contains(@class,'header links')]/li[2]/a
@@ -37,7 +38,7 @@ public class Guest_Checkout_CreditCard {
   @AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	
@@ -45,7 +46,7 @@ public class Guest_Checkout_CreditCard {
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
 		 Login.signIn();
-		//  Login.signIn("chrome","iPhone X");
+	 // Login.signIn("chrome","iPhone X");
 		 
 		 
 		  

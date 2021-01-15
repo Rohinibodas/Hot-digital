@@ -4,11 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
 import TestComponent.DryBar.DryBarMobile;
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class RegisteredUser_Checkout_CreditCard {
@@ -31,7 +33,7 @@ public class RegisteredUser_Checkout_CreditCard {
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment("PaymentDetails");
 			  drybar.order_Verifying();
-			//  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
+			  //drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
 			
 			
 		}
@@ -47,22 +49,22 @@ public class RegisteredUser_Checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+   Common.closeAll();
 
 	}
 	
 
-	@BeforeMethod
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");
-	 }
-	/*@BeforeTest
+	 }*/
+	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
-	  }*/
+	  }
 
   
 }

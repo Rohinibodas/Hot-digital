@@ -1,17 +1,21 @@
 package TestExecute.DryBar;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class ApplyOfferCodeonCheckoutPage {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void f() throws Exception {
+  public void applyOfferCodeonCheckoutPage() throws Exception {
+		 
+		try{
 		  drybar.clickHairProducts();
 		  drybar.selectproduct("ProductName");
 		  drybar.increaseProductQuantity("2");
@@ -23,11 +27,16 @@ public class ApplyOfferCodeonCheckoutPage {
 		  drybar.couponCode();
 	 // drybar.select_USPS_StandardGround_shippingMethod();
   }
-	
+	catch (Exception e) {
+		e.printStackTrace();
+		
+		Assert.fail(e.getMessage(), e);
+	} 
+}
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

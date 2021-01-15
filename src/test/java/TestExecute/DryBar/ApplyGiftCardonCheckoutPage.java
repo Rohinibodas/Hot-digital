@@ -1,10 +1,12 @@
 package TestExecute.DryBar;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class ApplyGiftCardonCheckoutPage {
@@ -13,7 +15,7 @@ public class ApplyGiftCardonCheckoutPage {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void applyGiftCardonCheckoutPage() throws Exception {
 	//  drybar.clickMyaccount();
-	  
+	  try{
 	  drybar.clickHairProducts();
 	  drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("2");
@@ -28,13 +30,19 @@ public class ApplyGiftCardonCheckoutPage {
 	 // drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 	  //drybar.creditCard_payment("PaymentDetails");
   }
+	  catch (Exception e) {
+			e.printStackTrace();
+			
+			Assert.fail(e.getMessage(), e);
+		} 
+	}
   
 	//ul[contains(@class,'header links')]/li[2]/a
   
   @AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

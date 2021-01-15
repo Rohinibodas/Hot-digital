@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class RegisteredUser_Checkout_CreditCard {
@@ -45,7 +46,7 @@ public class RegisteredUser_Checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

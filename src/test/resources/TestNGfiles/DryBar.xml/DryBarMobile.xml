@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="drybar Mobile Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    
+    <test name="Test_DB_ST_001-Create Account iPhone X" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar iPhone X">
+      <parameter name="device" value="iPhone X" />
+       <classes>
+            <class name="TestExecute.DryBar.Mobile.Createaccount"/>
+        </classes>
+        </test>
+        <test name="Test_DB_ST_001-Create Account  Galaxy S5" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar Galaxy S5">
+      <parameter name="device" value="Galaxy S5"/>
+       <classes>
+            <class name="TestExecute.DryBar.Mobile.Createaccount"/>
+        </classes>
+        </test>
+        
+        <test name="Test_DB_ST_001-Create Account  iPad" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar iPad">
+      <parameter name="device" value="iPad" />
+       <classes>
+            <class name="TestExecute.DryBar.Mobile.Createaccount"/>
+        </classes>
+        </test>
+        
+        <!--   Register user  -->
+        
+         <test name="Test_DB_ST_002-Registered user Checkout with Paymetric Payment Method iPhone x" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout CreditCard drybar iPhone X">
+       <parameter name="device" value="iPhone X" />
+       <classes>
+            <class name="TestExecute.DryBar.Mobile.RegisteredUser_Checkout_CreditCard"/>
+        </classes>
+        </test>
+        
+        
+          <test name="Test_DB_ST_002-Registered user Checkout with Paymetric Payment Method Galaxy S5" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout CreditCard drybar Galaxy S5">
+       <parameter name="device" value="Galaxy S5" />
+       <classes>
+            <class name="TestExecute.DryBar.Mobile.RegisteredUser_Checkout_CreditCard"/>
+        </classes>
+        </test>
+        
+        
+         <test name="Test_DB_ST_002-Registered user Checkout with Paymetric Payment Method iPad" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout CreditCard drybar iPad">
+       <parameter name="device" value="iPad" />
+       <classes>
+            <class name="TestExecute.DryBar.Mobile.RegisteredUser_Checkout_CreditCard"/>
+        </classes>
+        </test>
+        
+        <!-- Gust Check out  -->
+        
+         <test name="TEST_DB_ST_003-Guest Checkout with CreditCard" testid="DRY-21" priority="P1" description="This script will cover guest user order product using Credi card in drybar">
+        <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.DryBar.Mobile.Guest_Checkout_CreditCard"/>
+        </classes>
+        </test>
+        
+        
+         <test name="TEST_DB_ST_003-Guest Checkout with CreditCard Galaxy S5 " testid="DRY-21" priority="P1" description="This script will cover guest user order product using Credi card in drybar Galaxy S5">
+        <parameter name="device" value="Galaxy S5" />
+        <classes>
+            <class name="TestExecute.DryBar.Mobile.Guest_Checkout_CreditCard"/>
+        </classes>
+        </test>
+        
+       
+        
+         <test name="TEST_DB_ST_003-Guest Checkout with CreditCard iPad" testid="DRY-21" priority="P1" description="This script will cover guest user order product using Credi card in drybar iPad">
+        <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.DryBar.Mobile.Guest_Checkout_CreditCard"/>
+        </classes>
+        </test>
+        
+        
+     <!-- Page validation  -->
+        
+        <test name="Test_DB_ST_008-Cart Page Validation i phone x" testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website iponex">
+       <parameter name="device" value="iPhone X" />
+          <classes>
+            <class name="TestExecute.DryBar.Mobile.VerifyingMiniCartPage"/>
+        </classes>
+        </test>
+        
+        
+         <test name="Test_DB_ST_008-Cart Page Validation Galaxy S5" testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website Galaxy S5">
+       <parameter name="device" value="Galaxy S5" />
+          <classes>
+            <class name="TestExecute.DryBar.Mobile.VerifyingMiniCartPage"/>
+        </classes>
+        </test>
+       
+         <test name="Test_DB_ST_008-Cart Page Validation ipad" testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website iPad">
+       <parameter name="device" value="iPad" />
+          <classes>
+            <class name="TestExecute.DryBar.Mobile.VerifyingMiniCartPage"/>
+        </classes>
+        </test>
+        
+        
+        
+        </suite>
+        
+        
+        
+        

@@ -4,10 +4,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
 import TestComponent.DryBar.DryBarMobile;
+import TestLib.Common;
 import TestLib.Login;
 
 public class GuestCheckoutwith_invalid_CC_Credentials {
@@ -36,15 +38,22 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
 			Assert.fail(e.getMessage(), e);
 		} 
 }
-  @BeforeMethod
+ /* @BeforeMethod
   public void startTest() throws Exception {
 	 System.setProperty("configFile", "DryBar\\config.properties");
 	 Login.signIn("chrome","Galaxy S5");
- }
-/*@BeforeTest
+ }*/
+  
+  @AfterTest
+	public void clearBrowser()
+	{
+		Common.closeAll();
+
+	}
+@BeforeTest
 @Parameters({"device"})  
   public void startTest(String Device) throws Exception {
 	System.setProperty("configFile", "DryBar\\config.properties");
 	Login.signIn("chrome",Device);
-  }*/
+  }
 }

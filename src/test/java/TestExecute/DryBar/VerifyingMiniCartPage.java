@@ -1,10 +1,12 @@
 package TestExecute.DryBar;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class VerifyingMiniCartPage {
@@ -13,6 +15,7 @@ public class VerifyingMiniCartPage {
 	
   @Test
   public void verifyingMiniCartPage() throws Exception {
+	try{
 	  drybar.clickHairProducts();
 	  drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("5");
@@ -25,11 +28,16 @@ public class VerifyingMiniCartPage {
 	  drybar.click_ContinueShopping();
 	//  drybar.addproductInMiniCartPage();
   }
-  
+  catch (Exception e) {
+		e.printStackTrace();
+		
+		Assert.fail(e.getMessage(), e);
+	} 
+}
   @AfterTest
  	public void clearBrowser()
  	{
- 		//Common.closeAll();
+ 		Common.closeAll();
 
  	}
  	

@@ -12,41 +12,44 @@ import TestComponent.DryBar.DryBarMobile;
 import TestLib.Common;
 import TestLib.Login;
 
-public class ForgotPassword {
+public class VerifyingMiniCartPage {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarMobile drybar=new DryBarMobile(datafile);
-	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
- 
-  public void forgotPassword() throws Exception {
-		try{
-	  drybar.navigateMyAccount();
-	  drybar.click_forgotpassword();
-  }
 	
-	catch (Exception e) {
-		e.printStackTrace();
-		
-		Assert.fail(e.getMessage(), e);
-	} 
-	}
-	@AfterTest
-	public void clearBrowser()
-	{
-	Common.closeAll();
+  @Test
+  public void verifyingMiniCartPage() throws Exception {
 
-	}
+try{
+drybar.clickHairProducts();
+	  drybar.selectproduct("ProductName");
+	  drybar.increaseProductQuantity("5");
+	  drybar.clickAddtoBag();
+	  drybar.clickminiCartButton();
+	  drybar.updateProductInMinicart("2");
+	  drybar.click_View_editcart();
+	//  drybar.edit_ShopingCart();
+	  drybar.changeQuntity_UpdateProduct("5");
+	  drybar.click_ContinueShopping();
+	//  drybar.addproductInMiniCartPage();
+  }
+
+catch (Exception e) {
+	e.printStackTrace();
 	
-/*
-	@BeforeMethod
-	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
-	 }*/
-	@BeforeTest
+	Assert.fail(e.getMessage(), e);
+} 
+}
+  @AfterTest
+ 	public void clearBrowser()
+ 	{
+ 	Common.closeAll();
+
+ 	}
+ 	
+  @BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
-
 }
