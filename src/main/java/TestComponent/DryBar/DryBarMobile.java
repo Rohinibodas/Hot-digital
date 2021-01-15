@@ -74,14 +74,14 @@ public void clickMyaccount() throws Exception{
 	
 }
 
-public void order_Verifying() throws Exception{
+/*public void order_Verifying() throws Exception{
 	//Thread.sleep(10000);
 	//Common.textBoxInput("id", "//textarea[contains(@id,'tt-c-comment-field')]","Ceate accounts test ");
 	Thread.sleep(5000);
 	String Text=Common.getText("xpath", "//h1[@class='page-title']/span");
 	System.out.println(Text);
 	
-}
+}*/
 
 public void CreateAccount(String dataSet){
 	
@@ -1062,6 +1062,51 @@ public void couponCode(){
         ExtenantReportUtils.addFailedLog("validating forgot password","Email has been sent to given email with instructions on resetting your password.","User faield to send forgetpassword",Common.getscreenShotPathforReport("forgetpassword"));
         Assert.fail();
         }
+}
+
+public void order_Verifying() {
+	//Thread.sleep(10000);
+	//Common.textBoxInput("id", "//textarea[contains(@id,'tt-c-comment-field')]","Ceate accounts test ");
+	String expectedResult = "It redirects to order confirmation page";
+	try{
+	Thread.sleep(5000);
+	
+	
+for(int i=0;i<10;i++){
+		
+		if(Common.getCurrentURL().contains("success")){
+			break;
+		}
+		Thread.sleep(5000);
+	}
+	String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']/span");
+	System.out.println(sucessMessage);
+	Common.assertionCheckwithReport(sucessMessage.equals("THANK YOU FOR YOUR PURCHASE!"),"verifying the product confirmation", expectedResult,"Successfully It redirects to order confirmation page Order Placed","User unabel to go orderconformation page");
+		
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying the product confirmation", expectedResult,
+				"User failed to navigate  to order confirmation page", Common.getscreenShotPathforReport("failednavigatepage"));
+		Assert.fail();
+	}
+}
+public void forgetpasswordPageValidation(String InvalidData){
+
+	try{
+		Common.clickElement("xpath", "//a[@data-se='forgot-password']");
+	    Common.textBoxInput("id", "account-recovery-username",InvalidData);
+		Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		int errormessage=Common.findElements("xpath", "//span[contains(@class,'icon error')]/following::p[1]").size();
+		
+      Common.assertionCheckwithReport(errormessage>0, "Validating forget password from", "Enter in valid data it must dispaly error message", "User enter "+InvalidData+" in Forgetpassword field", "Failed to display error message ");		
+        }
+	catch (Exception | Error e) {
+        ExtenantReportUtils.addFailedLog("validating forgot password form with  invalid data","I will showing error message","forgotpassword form faield dispaly  error message",Common.getscreenShotPathforReport("forgetpassword error message"));
+        Assert.fail();
+        }
+
 }
 
 public void hairProducts(){
