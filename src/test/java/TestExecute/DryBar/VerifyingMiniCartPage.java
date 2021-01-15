@@ -23,7 +23,7 @@ public class VerifyingMiniCartPage {
 	  drybar.clickminiCartButton();
 	  drybar.updateProductInMinicart("2");
 	  drybar.click_View_editcart();
-	  drybar.edit_ShopingCart();
+	 // drybar.edit_ShopingCart();
 	  drybar.changeQuntity_UpdateProduct("5");
 	  drybar.click_ContinueShopping();
 	//  drybar.addproductInMiniCartPage();
