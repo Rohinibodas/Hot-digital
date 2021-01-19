@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="RevlonUK Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_RUK_ST_001_GuestUserBrowsersearch" testid="RU-273" priority="P1" description="To verify the Guest User Browser search functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_GuestUserBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_002_GuestUserAmazonHatch" testid="RU-274" priority="P1" description="To verify the Amazon Hatch for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_GuestUserPDPAmazonHatch"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_003_GuestUserPDPBootsHatch" testid="RU-275" priority="P1" description="To verify the Boots Hatch for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_GuestUserPDPBootsHatch"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_004_ValidatingHeaderLinks" testid="RU-276" priority="P1" description="To verify the Validating Header Links functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_ValidatingHeaderLinks"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_005_CMSPage" testid="RU-277" priority="P1" description="To verify the CMS Links and Navigations functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_CMSLinks"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_006_NewsLetterSubscription" testid="RU-278" priority="P1" description="To verify the News Letter Subscription functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_NewsletterSubscription"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_007_ArticleLinks" testid="RU-279" priority="P1" description="To verify the Article Links functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_ValidatingArticleLinks"/>
+        </classes>
+    </test>
+</suite>  

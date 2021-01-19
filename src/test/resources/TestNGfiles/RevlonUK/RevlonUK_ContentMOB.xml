@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="RevlonUK Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_RUK_MOB_ST_001_GuestUserBrowsersearch" testid="RU-280" priority="P1" description="To verify the Guest User Browser search functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Mob.RUK_MOB_ST_GuestUserBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_002_GuestUserPDPAmazonHatch" testid="RU-281" priority="P1" description="To verify the Amazon hatch implementation for Guest user functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Mob.RUK_MOB_ST_GuestUserPDPAmazonHatch"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_003_GuestUserPDPBootsHatch" testid="RU-282" priority="P1" description="To verify the Boots hatch implementation for Guest user functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Mob.RUK_MOB_ST_GuestUserPDPBootsHatch"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_004_ValidatingHeaderLinks" testid="RU-283" priority="P1" description="To verify the Validating Header Links functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Mob.RUK_MOB_ST_ValidatingHeaderLinks"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_005_CMSPage" testid="RU-284" priority="P1" description="To verify the CMS Links and Navigations functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Mob.RUK_MOB_ST_CMSLinks"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_006_NewsLetterSubscription" testid="RU-285" priority="P1" description="To verify the News Letter Subscription functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Mob.RUK_MOB_ST_NewsletterSubscription"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_MOB_ST_007_ArticleLinks" testid="RU-286" priority="P1" description="To verify the Article Links functionality in Revlon web site">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Mob.RUK_MOB_ST_ValidatingArticleLinks"/>
+        </classes>
+    </test>
+    
+</suite>  
