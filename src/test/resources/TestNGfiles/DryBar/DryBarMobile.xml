@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="drybar Mobile Suite">
+
+   <listeners>
+
+       <listener class-name="Utilities.TestListener"/>
+
+   </listeners>
+
+   
+
+   <test name="Test_DB_ST_001-Create Account iPhone X" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar iPhone X">
+
+     <parameter name="device" value="iPhone X" />
+
+      <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Createaccount"/>
+
+       </classes>
+
+       </test>
+
+       <test name="Test_DB_ST_001-Create Account  Galaxy S5" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar Galaxy S5">
+
+     <parameter name="device" value="Galaxy S5"/>
+
+      <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Createaccount"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       <test name="Test_DB_ST_001-Create Account  iPad" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar iPad">
+
+     <parameter name="device" value="iPad" />
+
+      <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Createaccount"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       <!--   Register user  -->
+
+       
+
+        <test name="Test_DB_ST_002-Registered user Checkout with Paymetric Payment Method iPhone x" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout CreditCard drybar iPhone X">
+
+      <parameter name="device" value="iPhone X" />
+
+      <classes>
+
+           <class name="TestExecute.DryBar.Mobile.RegisteredUser_Checkout_CreditCard"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       
+
+         <test name="Test_DB_ST_002-Registered user Checkout with Paymetric Payment Method Galaxy S5" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout CreditCard drybar Galaxy S5">
+
+      <parameter name="device" value="Galaxy S5" />
+
+      <classes>
+
+           <class name="TestExecute.DryBar.Mobile.RegisteredUser_Checkout_CreditCard"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       
+
+        <test name="Test_DB_ST_002-Registered user Checkout with Paymetric Payment Method iPad" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout CreditCard drybar iPad">
+
+      <parameter name="device" value="iPad" />
+
+      <classes>
+
+           <class name="TestExecute.DryBar.Mobile.RegisteredUser_Checkout_CreditCard"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       <!-- Gust Check out  -->
+
+       
+
+        <test name="TEST_DB_ST_003-Guest Checkout with CreditCard" testid="DRY-21" priority="P1" description="This script will cover guest user order product using Credi card in drybar">
+
+       <parameter name="device" value="iPhone X" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Guest_Checkout_CreditCard"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       
+
+        <test name="TEST_DB_ST_003-Guest Checkout with CreditCard Galaxy S5 " testid="DRY-21" priority="P1" description="This script will cover guest user order product using Credi card in drybar Galaxy S5">
+
+       <parameter name="device" value="Galaxy S5" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Guest_Checkout_CreditCard"/>
+
+       </classes>
+
+       </test>
+
+       
+
+      
+
+       
+
+        <test name="TEST_DB_ST_003-Guest Checkout with CreditCard iPad" testid="DRY-21" priority="P1" description="This script will cover guest user order product using Credi card in drybar iPad">
+
+       <parameter name="device" value="iPad" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Guest_Checkout_CreditCard"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       
+
+    <!-- Page validation  -->
+
+       
+
+       <test name="Test_DB_ST_008-Cart Page Validation i phone x" testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website iponex">
+
+      <parameter name="device" value="iPhone X" />
+
+         <classes>
+
+           <class name="TestExecute.DryBar.Mobile.VerifyingMiniCartPage"/>
+
+       </classes>
+
+       </test>
+
+       
+
+       
+
+        <test name="Test_DB_ST_008-Cart Page Validation Galaxy S5" testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website Galaxy S5">
+
+      <parameter name="device" value="Galaxy S5" />
+
+         <classes>
+
+           <class name="TestExecute.DryBar.Mobile.VerifyingMiniCartPage"/>
+
+       </classes>
+
+       </test>
+
+      
+
+        <test name="Test_DB_ST_008-Cart Page Validation ipad" testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website iPad">
+
+      <parameter name="device" value="iPad" />
+
+         <classes>
+
+           <class name="TestExecute.DryBar.Mobile.VerifyingMiniCartPage"/>
+
+       </classes>
+
+       </test>
+
+       
+<!-- 
+        <test name="Test_DB_ST_010-Header Validation i phone x" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality in Darbar website i phone x.">
+
+       <parameter name="device" value="i phone x" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ValidatingHeaderLinks"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_010-Header Validation Galaxy S5" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality in Darbar website Galaxy S5.">
+
+       <parameter name="device" value="Galaxy S5" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ValidatingHeaderLinks"/>
+
+       </classes>
+
+   </test>
+
+      
+
+      <test name="Test_DB_ST_010-Header Validation ipad" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality in Darbar website ipad">
+
+       <parameter name="device" value="ipad" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ValidatingHeaderLinks"/>
+
+       </classes>
+
+   </test>
+
+      
+
+ -->       
+
+        <test name="Test_DB_ST_013-Guest user Checkout with Invalid Credit card  i phone x" testid="DRY-26" priority="P1" description="To Verify the Guest User Checkout with invalid CC Data functionality in Darbar website iponex">
+
+              <parameter name="device" value="iPhone X" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.GuestCheckoutwith_invalid_CC_Credentials"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_013-Guest user Checkout with Invalid Credit card  Galaxy S5" testid="DRY-26" priority="P1" description="To Verify the Guest User Checkout with invalid CC Data functionality in Darbar website Galaxy S5">
+
+              <parameter name="device" value="Galaxy S5" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.GuestCheckoutwith_invalid_CC_Credentials"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_013-Guest user Checkout with Invalid Credit card  ipad" testid="DRY-26" priority="P1" description="To Verify the Guest User Checkout with invalid CC Data functionality in Darbar website ipad">
+
+              <parameter name="device" value="ipad" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.GuestCheckoutwith_invalid_CC_Credentials"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_014-Registered Checkout with Invalid Credi tcard  i phone x" testid="DRY-25" priority="P1" description="To Verify the Registered User Checkout with invalid CC Data functionality in Daybar website i phone x">
+
+             <parameter name="device" value="i phone x" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.RegisteredUserCheckoutwith_invalid_CC_Credentials"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_014-Registered Checkout with Invalid Credi tcard  Galaxy S5" testid="DRY-25" priority="P1" description="To Verify the Registered User Checkout with invalid CC Data functionality in Daybar website Galaxy S5">
+
+             <parameter name="device" value="Galaxy S5" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.RegisteredUserCheckoutwith_invalid_CC_Credentials"/>
+
+       </classes>
+
+   </test>
+
+   
+
+    <test name="Test_DB_ST_014-Registered Checkout with Invalid Credi tcard  ipad" testid="DRY-25" priority="P1" description="To Verify the Registered User Checkout with invalid CC Data functionality in Daybar website ipad">
+
+             <parameter name="device" value="ipad" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.RegisteredUserCheckoutwith_invalid_CC_Credentials"/>
+
+       </classes>
+
+   </test>
+
+   
+
+     <test name="Test_DB_ST_015-Apply Gift Card on Checkout Page  i phone x " testid="DRY-34" priority="P1" description="To Verify the Checkout with applying Gift Card functionality in Daybar website i phone x">
+
+      <parameter name="device" value="iPhone X" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ApplyGiftCardonCheckoutPage"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_015-Apply Gift Card on Checkout Page  Galaxy S5" testid="DRY-34" priority="P1" description="To Verify the Checkout with applying Gift Card functionality in Daybar website Galaxy S5">
+
+      <parameter name="device" value="Galaxy S5" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ApplyGiftCardonCheckoutPage"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_015-Apply Gift Card on Checkout Page  ipad" testid="DRY-34" priority="P1" description="To Verify the Checkout with applying Gift Card functionality in Daybar website ipad">
+
+      <parameter name="device" value="ipad" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ApplyGiftCardonCheckoutPage"/>
+
+       </classes>
+
+   </test>
+
+   
+
+    <test name="Test_DB_ST_016-Apply Offer Code on Checkout Page iPhone X" testid="DRY-33" priority="P1" description="To Verify the Checkout with applying Offer Code functionality in Daybar website iPhone X">
+
+      <parameter name="device" value="iPhone X" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ApplyOfferCodeonCheckoutPage"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_016-Apply Offer Code on Checkout Page Galaxy S5" testid="DRY-33" priority="P1" description="To Verify the Checkout with applying Offer Code functionality in Daybar website Galaxy S5">
+
+      <parameter name="device" value="Galaxy S5" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ApplyOfferCodeonCheckoutPage"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="Test_DB_ST_016-Apply Offer Code on Checkout Page ipad" testid="DRY-33" priority="P1" description="To Verify the Checkout with applying Offer Code functionality in Daybar website ipad">
+
+      <parameter name="device" value="ipad" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ApplyOfferCodeonCheckoutPage"/>
+
+       </classes>
+
+   </test>
+
+   
+
+    <test name="TEST_DB_ST_0017-Forgot Password  iPhone X" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar website iPhone X">
+
+       <parameter name="device" value="iPhone X" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ForgotPassword"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="TEST_DB_ST_0017-Forgot Password  Galaxy S5" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar website Galaxy S5">
+
+       <parameter name="device" value="Galaxy S5" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ForgotPassword"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="TEST_DB_ST_0017-Forgot Password  ipad" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar website ipad">
+
+       <parameter name="device" value="ipad" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.ForgotPassword"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="TEST_DB_ST_018-Verify Forgot Password page validation iPhone X" testid="DRY-38" priority="P1" description="This Test case is to Verify Forgot Password page validation in Drybar website iPhone X">
+
+      <parameter name="device" value="iPhone X" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Verify_ForgotPassword_page_validation"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="TEST_DB_ST_018-Verify Forgot Password page validation Galaxy S5" testid="DRY-38" priority="P1" description="This Test case is to Verify Forgot Password page validation in Drybar website Galaxy S5">
+
+      <parameter name="device" value="Galaxy S5" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Verify_ForgotPassword_page_validation"/>
+
+       </classes>
+
+   </test>
+
+   
+
+   <test name="TEST_DB_ST_018-Verify Forgot Password page validation ipad" testid="DRY-38" priority="P1" description="This Test case is to Verify Forgot Password page validation in Drybar website ipad">
+
+      <parameter name="device" value="ipad" />" />
+
+       <classes>
+
+           <class name="TestExecute.DryBar.Mobile.Verify_ForgotPassword_page_validation"/>
+
+       </classes>
+
+   </test >
+
+       
+
+       </suite>
+
+       
+
+       
+
+       
+
+   
+        
+        
+        
