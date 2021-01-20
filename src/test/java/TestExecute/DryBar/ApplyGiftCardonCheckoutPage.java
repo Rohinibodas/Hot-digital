@@ -24,9 +24,10 @@ public class ApplyGiftCardonCheckoutPage {
 	  drybar.clickCheckoutButton();
 	  drybar.click_GuestCheckOut();
 	  drybar.guestShippingAddress("ShippingAddress");
-	  drybar.gitCard();
+	  drybar.gitCard("GiftCard");
 	  drybar.click_place_order_button();
-	//  drybar.Click_PaymetricPaymentMethod();
+	  drybar.order_Verifying();
+	  //  drybar.Click_PaymetricPaymentMethod();
 	 // drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 	  //drybar.creditCard_payment("PaymentDetails");
   }

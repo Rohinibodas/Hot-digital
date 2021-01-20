@@ -30,7 +30,7 @@ public class Guest_Checkout_CreditCard {
 	  drybar.Click_PaymetricPaymentMethod();
 	  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 	  drybar.creditCard_payment("PaymentDetails");
-	 drybar.order_Verifying();
+	  drybar.order_Verifying();
   }
   
 	//ul[contains(@class,'header links')]/li[2]/a

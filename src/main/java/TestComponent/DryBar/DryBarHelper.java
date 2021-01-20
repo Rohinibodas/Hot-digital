@@ -79,15 +79,18 @@ public void clickMyaccount() throws Exception{
 public void CreateAccount(String dataSet){
 	
 	try{
+		Thread.sleep(5000);
 	Common.clickElement("xpath", "//span[text()='Create an Account']");
 	ExtenantReportUtils.addPassLog("verifying Create Account button", "It should lands on Create New Customer from Account form Page", "user  lands on Customer Account creation form Page", Common.getscreenShotPathforReport("createaccount"));
 	}
 	catch(Exception |Error e) {
+		e.printStackTrace();
 	        ExtenantReportUtils.addFailedLog("verifying Create Account button", "It should lands on Create New Customer from Account form Page", "user faield lands on Account form Page", Common.getscreenShotPathforReport("createaccount"));
 			Assert.fail();
 		}
 	
 	try{
+	Thread.sleep(5000);
 	Common.textBoxInput("id", "firstname",data.get(dataSet).get("FirstName"));
     Common.textBoxInput("id", "lastname",data.get(dataSet).get("LastName"));
 	Common.clickElement("xpath", "//input[@id='is_subscribed']");
@@ -840,6 +843,7 @@ public void headLinksValidations(String dataSet) throws Exception{
 	
 	try{
 	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
 		Sync.waitElementClickable("xpath", "//span[text()='"+hedrs[i]+"']");
 		Common.clickElement("xpath", "//span[text()='"+hedrs[i]+"']");
 		Thread.sleep(3000);
@@ -960,14 +964,17 @@ public void addproductInMiniCartPage() throws Exception{
 	
 	
 }
-public void gitCard() throws Exception{
+public void gitCard(String dataSet) throws Exception{
 	try{
+		Thread.sleep(5000);
 	Common.scrollIntoView("id", "block-giftcard-heading");
 	Common.clickElement("id", "block-giftcard-heading");
 	
-	Common.textBoxInput("id","giftcard-code","123");
+	Thread.sleep(5000);
+
+//	Common.textBoxInput("id","giftcard-code",data.get(dataSet).get("GiftCardCode"));
 	
-	Common.textBoxInput("id","giftcard-pin","123");
+	Common.textBoxInput("id","giftcard-pin",data.get(dataSet).get("GiftCardPin"));
 	
 	
 	Common.clickElement("xpath", "//button[@value='Apply']");
@@ -1013,13 +1020,21 @@ public void click_forgotpassword() throws Exception{
 }
 
 
-public void couponCode(){
+public void couponCode(String dataSet){
 	try{
 	Common.clickElement("id","block-discount-heading");
-    Common.textBoxInput("id", "discount-code","CouponCode");
+	System.out.println(data.get(dataSet).get("couponCode"));
+	Thread.sleep(3000);
+    Common.textBoxInput("id", "discount-code",data.get(dataSet).get("couponCode"));
+    Thread.sleep(2000);
     Common.clickElement("xpath", "//button[@value='Apply Code']");
+    
+    Thread.sleep(3000);
+	int size=Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();
+	Common.assertionCheckwithReport(size>0, "validating the offer code", "offer code was added.", "successfully offer code added","Failed to added offer code");
     }
 	catch (Exception | Error e) {
+		e.printStackTrace();
         ExtenantReportUtils.addFailedLog("validating offer code","offer code is applicable","User faield to add offer code",Common.getscreenShotPathforReport("offercode"));
         Assert.fail();
         }
