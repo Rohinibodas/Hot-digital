@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class GuestCheckoutwith_invalid_CC_Credentials {
@@ -37,7 +38,7 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
   @AfterTest
  	public void clearBrowser()
  	{
- 		//Common.closeAll();
+ 		Common.closeAll();
 
  	}
  	

@@ -1,8 +1,10 @@
 package TestExecute.DryBar;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;import TestComponent.DryBar.DryBarHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class Createaccount {
@@ -19,11 +21,17 @@ public class Createaccount {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void createaccount() throws Exception {
 	//  drybar.clickMyaccount();
+		try{
 	  
 	  drybar.CreateAccount("AccountDetails");
 	  
   }
-  
+	catch (Exception e) {
+		e.printStackTrace();
+		
+		Assert.fail(e.getMessage(), e);
+	} 
+}
   
   
   @AfterTest

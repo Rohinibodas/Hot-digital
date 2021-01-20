@@ -24,6 +24,7 @@ public class RHT_ST_NewsLetterSubscription {
 			revlon.loginRevlonUK("AccountDetails");
 			revlon.NavigateNewsLetterSubscription();
 			revlon.NewsLetterSubscription();
+			revlon.NewsLetterSubscriptionMail();
 		}
 		catch (Exception e) {
 			

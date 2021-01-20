@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class RegisteredUser_Checkout_CreditCard {
@@ -25,10 +26,11 @@ public class RegisteredUser_Checkout_CreditCard {
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			 // drybar.select_USPS_StandardGround_shippingMethod();
+			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-			  //drybar.creditCard_payment("PaymentDetails");
-			  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
+			  drybar.creditCard_payment("PaymentDetails");
+			  drybar.order_Verifying();
+			//  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
 			
 			
 		}
@@ -44,7 +46,7 @@ public class RegisteredUser_Checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

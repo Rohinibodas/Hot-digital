@@ -24,6 +24,7 @@ public class RHT_ST_NewLetterUnSubscription {
 			revlon.loginRevlonUK("AccountDetails");
 			revlon.NavigateNewsLetterSubscription();
 			revlon.NewsLetterUnSubscription();
+			revlon.NewsLetterUnSubscriptionMail();
 		}
 		catch (Exception e) {
 			
@@ -44,7 +45,7 @@ public class RHT_ST_NewLetterUnSubscription {
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn("chrome");
-		  
+		 
 	  }*/
 	
 	@AfterTest
