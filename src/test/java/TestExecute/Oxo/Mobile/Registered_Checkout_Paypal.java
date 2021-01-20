@@ -23,6 +23,7 @@ public class Registered_Checkout_Paypal {
 		try{
 			oxo.closetheadd();
 			oxo.NavigationToggle();
+			oxo.login();
 			oxo.loginOxo("AccountDetails");
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
@@ -46,15 +47,14 @@ public class Registered_Checkout_Paypal {
 	public void clearBrowser() throws Exception
 	{
 		Common.closeAll();
-		
 
 	}
 	
-	/*
-	@BeforeMethod
+	
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
+		 Login.signIn("chrome","iPhone X");
 	 }*/
 	@BeforeTest
 	@Parameters({"device"})  

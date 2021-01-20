@@ -21,6 +21,9 @@ public class CreateNewAccount {
 
 		try {
 			oxo.closetheadd();
+			oxo.NavigationToggle();
+			oxo.OXOLogin();
+		
 			oxo.CreateNewAccount("AccountDetails");
 		}
 		catch (Exception e) {
@@ -35,11 +38,11 @@ public class CreateNewAccount {
 		Common.closeAll();
 
 	}
-	/*
-	@BeforeMethod
+
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
+		 Login.signIn("chrome","iPad");
 	 }*/
 	@BeforeTest
 	@Parameters({"device"})  

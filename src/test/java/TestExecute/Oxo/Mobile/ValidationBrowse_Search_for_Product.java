@@ -22,8 +22,8 @@ public class ValidationBrowse_Search_for_Product {
   public void ValidationBrowse_Search_for_Product() {
 		try{
 			oxo.closetheadd();
-			oxo.NavigationToggle();
-			oxo.loginOxo("AccountDetails");
+			//oxo.NavigationToggle();
+			//oxo.loginOxo("AccountDetails");
 			oxo.validatingSearchBoxWithOutData();
 			oxo.validatingSearchBoxWithNumberText("9 cup");
 			oxo.validatingSearchProductInformation("Nylon Potato Masher");
@@ -44,11 +44,11 @@ public class ValidationBrowse_Search_for_Product {
 
 	}
 	
-	/*
-	@BeforeMethod
+	
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
+		 Login.signIn("chrome","iPad");
 	 }*/
 	
 	@BeforeTest

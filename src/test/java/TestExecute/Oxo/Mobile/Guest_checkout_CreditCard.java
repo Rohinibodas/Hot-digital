@@ -51,7 +51,7 @@ public class Guest_checkout_CreditCard {
 	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
+		 Login.signIn("chrome","iPhone X");
 		 
 		  
 	  }*/

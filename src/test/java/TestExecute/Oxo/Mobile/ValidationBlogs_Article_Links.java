@@ -41,16 +41,16 @@ public class ValidationBlogs_Article_Links {
 	{
 		Common.closeAll();
 	}
-	@BeforeMethod
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
-	 }
+		 Login.signIn("chrome","iPad");
+	 }*/
 	
-	/*@BeforeTest
+	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn("chrome",Device);
-	  }*/
+	  }
 }

@@ -19,6 +19,8 @@ public class Good_Tips_Blog{
 	  public void Good_Tips_Blog() {
 			try{
 				oxo.closetheadd();
+				
+				//oxo.NavigationToggle();
                 oxo.CreateAccount_GoodTipsBlog("GoodTipsBlog");
 				oxo.clickGoodTipsBlog();
 				oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
@@ -35,8 +37,8 @@ public class Good_Tips_Blog{
 
 	}
 	
-	/*
-	@BeforeMethod
+	
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");

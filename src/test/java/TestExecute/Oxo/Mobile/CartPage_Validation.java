@@ -44,7 +44,7 @@ public class CartPage_Validation {
 	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
+		 Login.signIn("chrome","iPad");
 	 }*/
 	@BeforeTest
 	@Parameters({"device"})  
@@ -52,6 +52,4 @@ public class CartPage_Validation {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
-
-
 }

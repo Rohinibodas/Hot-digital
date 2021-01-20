@@ -48,6 +48,7 @@ public class ContentLinks_Validation {
 	public void clearBrowser() throws Exception
 	{
 		Common.closeAll();
+		
 	}
 	
 	/*@BeforeMethod

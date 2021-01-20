@@ -24,6 +24,8 @@ public class Registered_Checkout_CC {
 		try{
 			oxo.closetheadd();
 			oxo.NavigationToggle();
+			//oxo.OXOLogin();
+            oxo.login();
 			oxo.loginOxo("AccountDetails");
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
@@ -36,9 +38,7 @@ public class Registered_Checkout_CC {
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("PaymentDetails");
 			oxo.VerifyaingConformationPage();
-			
-			
-  }
+ }
 	catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);
@@ -48,7 +48,7 @@ public class Registered_Checkout_CC {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		//Common.closeAll();
+		Common.closeAll();
 		
 
 	}
@@ -56,13 +56,13 @@ public class Registered_Checkout_CC {
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","iPad");
+		 Login.signIn("chrome","iPhone X");
 	 }
+	
 	/*@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn("chrome",Device);
-	  }
-*/
+	  }*/
 }
