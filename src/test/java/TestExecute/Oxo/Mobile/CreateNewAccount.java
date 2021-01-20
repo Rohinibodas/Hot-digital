@@ -23,7 +23,6 @@ public class CreateNewAccount {
 			oxo.closetheadd();
 			oxo.NavigationToggle();
 			oxo.OXOLogin();
-		
 			oxo.CreateNewAccount("AccountDetails");
 		}
 		catch (Exception e) {

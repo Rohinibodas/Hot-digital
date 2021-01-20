@@ -30,7 +30,8 @@ public class ValidationBrowse_Search_for_Product {
 			
 			
   }
-	catch (Exception e) {
+	
+		catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);
 	} 

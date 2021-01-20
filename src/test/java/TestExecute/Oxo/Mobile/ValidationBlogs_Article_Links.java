@@ -46,7 +46,6 @@ public class ValidationBlogs_Article_Links {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","iPad");
 	 }*/
-	
 	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {

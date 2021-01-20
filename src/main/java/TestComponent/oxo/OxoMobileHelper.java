@@ -1242,6 +1242,7 @@ public class OxoMobileHelper {
 			Common.textBoxInput("id", "email_address_forgot", data.get(dataset).get("Email"));
 			Common.clickElement("id", "bnt-social-login-forgot");
 			Thread.sleep(5000);
+			
 			//String message = Common.getText("xpath", "//div[contains(@class,'message-success')]/div");
 			//System.out.println(message);
 			//int size = Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();

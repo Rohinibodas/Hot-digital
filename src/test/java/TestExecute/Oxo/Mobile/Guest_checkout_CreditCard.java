@@ -52,9 +52,7 @@ public class Guest_checkout_CreditCard {
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","iPhone X");
-		 
-		  
-	  }*/
+   }*/
 	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {

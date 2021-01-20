@@ -337,6 +337,7 @@
 			<class name="TestExecute.Oxo.Mobile.Good_Tips_Blog" />
 		</classes>
 	</test>
+	
 	<test name="TEST_OXO_ST_017-Good Tips Blogs in Andriod_Galaxy S5"
 		testid="OUS23-761" priority="P1"
 		description="This script cover creating account login account 

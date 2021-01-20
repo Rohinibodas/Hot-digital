@@ -43,6 +43,7 @@ public class Registered_Checkout_CC {
 		
 		Assert.fail(e.getMessage(), e);
 	} 
+
 }
 	
 	@AfterTest

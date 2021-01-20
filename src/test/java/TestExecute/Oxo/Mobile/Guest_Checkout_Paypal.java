@@ -40,8 +40,7 @@ public class Guest_Checkout_Paypal {
 
 	}
 	
-	
-	/*@BeforeMethod
+   /*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		 Login.signIn("chrome","iPhone X");

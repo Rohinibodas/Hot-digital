@@ -49,5 +49,4 @@ public class Good_Tips_Blog{
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
-
 }

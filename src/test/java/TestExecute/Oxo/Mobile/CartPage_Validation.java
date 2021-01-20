@@ -39,6 +39,7 @@ public class CartPage_Validation {
 	public void clearBrowser() throws Exception
 	{
 		Common.closeAll();
+		
 	}
 	
 	/*@BeforeMethod
