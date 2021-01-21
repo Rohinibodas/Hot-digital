@@ -34,6 +34,7 @@ public class RegisteredUser_Checkout_CreditCard {
   }
 	catch (Exception e) {
 		
+		
 		Assert.fail(e.getMessage(), e);
 	} 
 }

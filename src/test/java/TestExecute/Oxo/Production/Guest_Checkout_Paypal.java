@@ -37,6 +37,7 @@ public class Guest_Checkout_Paypal {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
+		
 		Common.closeAll();
     }
 	

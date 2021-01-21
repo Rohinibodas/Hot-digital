@@ -38,6 +38,7 @@
   	@AfterTest
   	public void clearBrowser() throws Exception
   	{
+  		
   		Common.closeAll();
 	}
   	

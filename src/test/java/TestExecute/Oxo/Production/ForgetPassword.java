@@ -32,7 +32,7 @@ public class ForgetPassword {
 	{
 		Common.closeAll();
 		
-	}
+}
 	
 	@BeforeMethod
 	  public void startTest() throws Exception {

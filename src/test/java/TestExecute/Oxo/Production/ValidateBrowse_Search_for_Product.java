@@ -33,6 +33,7 @@ public class ValidateBrowse_Search_for_Product {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
+		
 		Common.closeAll();
 	}
 	

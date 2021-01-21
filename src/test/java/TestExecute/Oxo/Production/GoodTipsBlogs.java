@@ -16,7 +16,8 @@ public class GoodTipsBlogs {
 
   public void GoodTipsBlogs() {
 		try{
-            oxo.closetheadd();
+            
+			oxo.closetheadd();
             oxo.acceptPrivecy();
 			oxo.CreateAccount_GoodTipsBlog("GoodTipsBlog");
 			oxo.clickGoodTipsBlog();

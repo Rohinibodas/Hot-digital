@@ -4,14 +4,7 @@
         <listener class-name="Utilities.TestListener"/>
     </listeners>
  
-    <test name="TEST_OXO_ST_007-Registered Checkout Creditcard" testid="OUS23-763" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of oxo">
-        <classes>
-            <class name="TestExecute.Oxo.Production.RegisteredUser_Checkout_CreditCard"/>
-        </classes>
-    </test>
-    
-    
- <!--  <test name="TEST_OXO_ST_001-Account Creation" testid="OUS23-703" priority="P1" description="This script will cover Creating New Account Process of oxo">
+   <test name="TEST_OXO_ST_001-Account Creation" testid="OUS23-703" priority="P1" description="This script will cover Creating New Account Process of oxo">
        <classes>
             <class name="TestExecute.Oxo.Production.CreateNewAccount"/>
         </classes>
@@ -79,12 +72,16 @@
         </classes>
     </test>
     
-    
+    <test name="TEST_OXO_ST_017-Good Tips Blogs" testid="OUS23-786" priority="P1" description="this script cover creating account login account for password validation of Good Tips Blogs of oxo">
+        <classes>
+            <class name="TestExecute.Oxo.Production.GoodTipsBlogs"/>
+        </classes>
+    </test>
      
     
      <test name="TEST_OXO_MT_016-ValidateLogout" testid="OUS23-705" priority="P1" description="This script will cover logout from oxo">
         <classes>
             <class name="TestExecute.Oxo.Production.LogOut"/>
         </classes>
-    </test> -->
+    </test> 
   </suite>  

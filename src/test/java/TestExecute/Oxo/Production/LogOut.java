@@ -31,8 +31,7 @@ public class LogOut {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
- 
-		Common.closeAll();
+       Common.closeAll();
 	}
 	
 	@BeforeMethod

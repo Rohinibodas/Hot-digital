@@ -19,6 +19,7 @@ public class CreateNewAccount {
 		try{
 			oxo.closetheadd();
 			oxo.acceptPrivecy();
+			
 			oxo.CreateNewAccount("AccountDetails");
   }
 	catch (Exception e) {

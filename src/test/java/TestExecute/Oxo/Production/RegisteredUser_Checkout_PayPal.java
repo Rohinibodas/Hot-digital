@@ -16,6 +16,7 @@ public class RegisteredUser_Checkout_PayPal {
 
   public void RegisteredUser_Checkout_PayPal() {
 		try{
+			
 			oxo.closetheadd();
 			oxo.acceptPrivecy();
 			oxo.loginOxo("AccountDetails");

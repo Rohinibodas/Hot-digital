@@ -36,6 +36,7 @@ public class ValidationContentlinks {
     }
   	catch (Exception e) {
   		
+  		
   		Assert.fail(e.getMessage(), e);
   	} 
   }
