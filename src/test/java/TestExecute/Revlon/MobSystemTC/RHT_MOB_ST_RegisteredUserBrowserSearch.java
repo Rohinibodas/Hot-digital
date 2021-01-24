@@ -1,8 +1,8 @@
-package TestExecute.Revlon.SmokeTC;
+package TestExecute.Revlon.Mob_SystemTC;
 
 import org.testng.annotations.Test;
 
-import TestComponent.revlon.RevelonHelper;
+import TestComponent.revlon.RevelonMobHelper;
 import TestLib.Common;
 import TestLib.Login;
 
@@ -12,28 +12,26 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_SMT_CO_Guest_Checkout {
+public class RHT_MOB_ST_RegisteredUserBrowserSearch {
 	String datafile = "revlon//RevlonTestData.xlsx";	
-	RevelonHelper revelon=new RevelonHelper(datafile);
+	RevelonMobHelper revlon=new RevelonMobHelper(datafile);
 	
 	@Test(priority=1)
-	public void GuestCheckout() throws Exception {
+	public void RegisterUserBrowserSearch() throws Exception {
 
 		try {
-			revelon.acceptPrivecy();
-			revelon.searchProduct("productName");
-			revelon.Productselection();
-			revelon.navigateMinicart();
-			revelon.navigateCartPage();
-			revelon.checkoutPage();
-			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
+			revlon.slider();
+			revlon.Loginpage();
+			revlon.loginRevlon("AccountDetails");
+			revlon.searchProduct("productName");
+			revlon.zerosearchProduct("Zero_Search");
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-
+	
+	
 	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
@@ -43,13 +41,20 @@ public class RHT_SMT_CO_Guest_Checkout {
 	  }*/
 	
 	@BeforeMethod
-	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	@Parameters({"device"})  
+	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn("chrome",Device);
 		  
 	  }
 	
+	/*@BeforeMethod
+    //@Parameters({"device"})
+      public void startTest() throws Exception {
+        System.setProperty("configFile", "Revelon\\config.properties");
+          Login.signIn("chrome","iPad");
+         
+      }*/
 	@AfterTest
 	public void clearBrowser()
 	{

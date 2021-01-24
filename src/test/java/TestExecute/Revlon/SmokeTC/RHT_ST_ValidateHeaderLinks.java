@@ -1,59 +1,54 @@
 package TestExecute.Revlon.SmokeTC;
 
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.revlon.RevelonHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-
-public class RHT_SMT_CUS_Contact_Us_Submission {
+public class RHT_ST_ValidateHeaderLinks {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
-	
 	@Test(priority=1)
-	public void NavigationContactUs() throws Exception {
+	public void ValidateHeaderLinks() throws Exception {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.navigateContactUs();
-		}
+			revelon.headLinks("HeaderLinks");
+
+}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
 	
-	@Test(dependsOnMethods="NavigationContactUs")
-	  public void Contactuspage(){
-		  
-		  try{
-			  revelon.contactus();
-		  }
-		  catch (Exception e) {
-					
-				Assert.fail(e.getMessage(), e);
-			}
-	  }
-	
 	
 	@BeforeMethod
-	//@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	@Parameters({"browser"}) 
+	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn(browser);
 		  
 	  }
+	
+	/*@BeforeMethod
+	//@Parameters({"browser"}) 
+	  public void startTest() throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn("edge");
+		  
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()
 	{
-		
 		Common.closeAll();
 
 	}
+
 
 }

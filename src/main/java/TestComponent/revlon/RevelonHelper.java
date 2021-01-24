@@ -358,7 +358,7 @@ public class RevelonHelper {
 			}
 
 			Common.clickElement("xpath", "//button[@id='paymetrictokenize_place_order']");
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 
 			Common.switchFrames("id", "paymetric_xisecure_frame");
 			String Errormessage=Common.getText("xpath", "//div[@id='c-cardnumber-error']");
@@ -409,10 +409,17 @@ public class RevelonHelper {
 		Sync.waitElementClickable("xpath", "//label[@for='paypal_express']");
 		Common.clickElement("xpath", "//label[@for='paypal_express']");
 		Thread.sleep(3000);
+		Common.scrollIntoView("xpath", "//ul[@class='opc-progress-bar']");
+		Thread.sleep(1000);
+		
 		Common.switchFrames("xpath", "//iframe[@title='PayPal']");
-		Thread.sleep(4000);
-		Sync.waitElementClickable("xpath", "//div[@class='paypal-button-label-container']");
-		Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
+		//Common.actionsKeyPress(Keys.DOWN);
+		Thread.sleep(5000);
+		
+		//*[@id='paypal-animation-content']/div[1]/div[1]/div/img[1]
+		Sync.waitElementClickable("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
+		//Common.clickElement("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
+		Common.javascriptclickElement("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
 
 		Common.switchToDefault();
 		Thread.sleep(10000);
@@ -461,8 +468,9 @@ public class RevelonHelper {
 	}
 
 
-	public void acceptPrivecy()
+	public void acceptPrivecy() throws InterruptedException
 	{
+		Thread.sleep(3000);
 		Common.clickElementStale("xpath", "//button[text()='AGREE & PROCEED']");
 	}
 
@@ -770,7 +778,7 @@ public class RevelonHelper {
 
 	}
 
-	public void ContactUsform(String dataSet) throws Exception
+	/*public void ContactUsform(String dataSet) throws Exception
 	{
 		String expectedResult="Contact Us Form submited";
 		String s=Common.getText("xpath", "//h1[@class='page-title']");
@@ -847,7 +855,176 @@ public class RevelonHelper {
 		Common.clickElement("id", "rn_CustomFormSubmit_53_Button");
 
 		Thread.sleep(500);
-	}
+	}*/
+	public void ContactUsform(String dataSet) throws Exception
+
+    {
+
+            String expectedResult="Contact Us Form submited";
+
+            String s=Common.getText("xpath", "//h1[@class='page-title']");
+
+            System.out.println(s+" page is displayed");
+
+
+
+            Thread.sleep(1000);
+
+
+
+            Common.switchFrames("xpath", "//iframe[@src='https://helenoftroy--tst2.custhelp.com/app/ask/themes/revlon']");
+
+
+
+            //Common.clickElement("xpath", "//body[@id='rn_BlankBody']");
+
+
+
+            Sync.waitPageLoad();
+
+
+
+            System.out.println(s+" page switched to form");
+
+
+
+            Sync.waitElementPresent("name", "Contact.Name.First");
+
+            Common.textBoxInput("xpath","//input[@name='Contact.Name.First']", data.get(dataSet).get("FirstName"));
+
+
+
+            Common.textBoxInput("name", "Contact.Name.Last", data.get(dataSet).get("LastName"));
+
+
+
+            Common.textBoxInput("name", "Contact.CustomFields.c.company", data.get(dataSet).get("Company"));
+
+
+
+            Sync.waitElementPresent("name", "Contact.Address.Country");
+
+            Common.dropdown("name", "Contact.Address.Country", SelectBy.TEXT, data.get(dataSet).get("Country"));
+
+
+
+            Common.textBoxInput("name", "Contact.Address.Street", data.get(dataSet).get("Street"));
+
+
+
+            Common.textBoxInput("name", "Contact.Address.City", data.get(dataSet).get("City"));
+
+
+
+            Sync.waitElementPresent("name", "Contact.Address.StateOrProvince");
+
+            Common.dropdown("name", "Contact.Address.StateOrProvince", SelectBy.TEXT, data.get(dataSet).get("Region"));
+
+
+
+            Common.textBoxInput("name", "Contact.Address.PostalCode", data.get(dataSet).get("postcode"));
+
+
+
+            Common.textBoxInput("name", "Contact.Emails.PRIMARY.Address", data.get(dataSet).get("Email"));
+
+
+
+            Common.textBoxInput("name", "Contact.Phones.MOBILE.Number", data.get(dataSet).get("phone"));
+
+
+
+            Common.textBoxInput("name", "searchKeyword", data.get(dataSet).get("ProductName"));
+
+
+
+            Thread.sleep(300);
+
+
+
+            System.out.println("Product search are display");
+
+
+
+            Sync.waitElementPresent("xpath", "//*[@id='searchResults']/div[1]");
+
+            Common.scrollToElementAndClick("xpath", "//*[@id='searchResults']/div[1]");
+
+
+
+            Thread.sleep(300);
+
+
+
+            Common.clickElement("name", "Incident.CustomFields.c.date_code");
+
+
+
+            Common.textBoxInput("name", "Incident.CustomFields.c.date_code", data.get(dataSet).get("dataCode"));
+
+
+
+            Sync.waitElementPresent("id", "rn_ProductCategoryInput_27_Category_Button");
+
+            Common.clickElement("id", "rn_ProductCategoryInput_27_Category_Button");
+
+
+
+            if(Common.isElementDisplayed("xpath", "//a[contains(text(),'Product Info Request')]")) {
+
+                    Thread.sleep(300);
+
+
+
+                    System.out.println("Topic dropdown are display");
+
+
+
+                    Common.clickElement("xpath", "//a[contains(text(),'Product Info Request')]");
+
+            }
+
+
+
+            Thread.sleep(1000);
+
+            
+
+            Common.actionsKeyPress(Keys.DOWN);
+
+
+
+            Common.textBoxInput("name", "Incident.Threads", data.get(dataSet).get("Message"));
+
+
+
+            report.addPassLog(expectedResult, "Should dispaly Contact us page with data", "Contact Us Page with data displayed successfully", Common.getscreenShotPathforReport("Contact Us Page with data"));
+
+            
+
+            Thread.sleep(3000);
+
+        
+
+            /*Common.actionsKeyPress(Keys.DOWN);
+
+            Thread.sleep(3000);
+
+            Common.actionsKeyPress(Keys.DOWN);*/
+
+            
+
+            Sync.waitElementPresent("id", "rn_CustomFormSubmit_53");
+
+            Common.clickElement("id", "rn_CustomFormSubmit_53");
+
+
+
+            Thread.sleep(1000);
+
+    }
+
+
 
 	public void contactus() throws Exception
 	{
@@ -1215,6 +1392,26 @@ public class RevelonHelper {
 
 	}
 
+	/*public void categoryMenuItem()
+	{
+		String expectedResult="Select from  category" ;
+		try {
+			Thread.sleep(1000);
+			Sync.waitElementPresent("xpath", "//span[contains(text(), 'Dryer')]");
+			Common.clickElement("xpath", "//span[contains(text(), 'Dryer')]");
+			Thread.sleep(3000);
+			Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Thread.sleep(5000);
+			report.addPassLog(expectedResult, "Should display item from  menucategory", "product display successfully", Common.getscreenShotPathforReport(" product display success"));
+
+		}catch(Exception e)
+		{
+			report.addFailedLog(expectedResult,"Should display Search Results Page", "Search results Page not display", Common.getscreenShotPathforReport("Search result Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}*/
 	public void navigateMinicart() throws Exception
 	{
 		String expectedResult="Product adding to mini cart";
@@ -1452,11 +1649,12 @@ public class RevelonHelper {
 			Thread.sleep(300);
 			Common.actionsKeyPress(Keys.DOWN);
 
-			Sync.waitElementPresent("xpath", "//button[@data-role='opc-continue']");
-			Common.clickElement("xpath", "//button[@data-role='opc-continue']");
+			//Sync.waitElementPresent("xpath", "//button[@data-role='opc-continue']");
+			//Common.clickElement("xpath", "//button[@data-role='opc-continue']");
 
-			/*Sync.waitElementPresent("xpath", "//span[contains(text(),'Next')]");
-			Common.clickElement("xpath", "//span[contains(text(),'Next')]");*/
+			Sync.waitElementPresent("xpath", "(//span[contains(text(),'Next')])[2]");
+			Common.clickElement("xpath", "(//span[contains(text(),'Next')])[2]");
+			
 			Thread.sleep(300);
 
 			if(Common.isElementVisibleOnPage(30, "xpath", "//div[contains(text(),'Address is not verified. Do you want to continue ?')]")) {
@@ -1575,8 +1773,8 @@ public class RevelonHelper {
 			
 			Thread.sleep(2000);
 
-			Sync.waitElementPresent("xpath", "//button[@type='submit']/span/span");
-			Common.clickElement("xpath", "//button[@type='submit']/span/span");
+			Sync.waitElementPresent("xpath", "(//button[@type='submit']/span/span)[2]");
+			Common.clickElement("xpath", "(//button[@type='submit']/span/span)[2]");
 			
 			String success=Common.getText("xpath", "//div[@data-ui-id='checkout-cart-validationmessages-message-success']");
 			System.out.println(success);
@@ -2026,6 +2224,128 @@ public class RevelonHelper {
 			Assert.fail();
 		}
 	}
+	
+	/*public void Myorders(String dataSet) throws Exception
+	{
+		String expectedResult="Payment & Order submition success page with Credit card";
+		try {
+			addPaymentDetails(dataSet);
 
+			if(Common.findElements("xpath", "//div[@class='message message-error']").size()>0)
+			{	
+				addPaymentDetails(dataSet);
+			}
 
+			Common.clickElement("xpath", "//button[@id='paymetrictokenize_place_order']");
+			Thread.sleep(2000);
+
+			String sucessMessage=Common.getText("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
+
+			System.out.println(sucessMessage);
+			Assert.assertEquals(sucessMessage, "THANK YOU FOR YOUR PURCHASE");
+			report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
+		/*catch(Exception |Error e)*/
+		/*{
+			//report.addFailedLog(expectedResult,"Should display Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success Page Failed"));
+			//Assert.fail();
+		}*/
+		/*Thread.sleep(3000);
+		String R=Common.getText("xpath", "//a[@class='order-number']");
+		System.out.println(R+" is Displayed");
+		
+		Sync.waitElementPresent("xpath", "(//i[@class='icon-line2-user'])[1]");
+		Common.clickElement("xpath", "(//i[@class='icon-line2-user'])[1]");
+		Thread.sleep(1000);
+		Common.clickElement("xpath", "(//a[@title='My Account'])[1]");
+		Thread.sleep(3000);
+		Sync.waitElementPresent("xpath", "//a[contains(text(), 'My Orders')]");
+		Common.clickElement("xpath", "//a[contains(text(), 'My Orders')]");
+		Thread.sleep(2000);
+		
+		String M=Common.getText("xpath", "(//td[@class='col id'])[1]");
+		System.out.println(M+" is Displayed");
+		
+		Assert.assertEquals(R, Common.getText("xpath", "(//td[@class='col id'])[1]"));
+		
+		report.addPassLog(expectedResult, "Should display My Orders Page", "Order Details Page display successfully", Common.getscreenShotPathforReport("Order Details page success"));
+	}
+		catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult, "Not displayed My Orders Page", "Order Details Page Not displayed", Common.getscreenShotPathforReport("Order Details Page Failed"));
+			Assert.fail();
+		}
+		
+		}*/
+	
+	public void headLinks(String dataSet) throws Exception{
+		String expectedResult="Header Link validations";
+		String Headerlinks=data.get(dataSet).get("HeaderNames");
+		String[] headers=Headerlinks.split(",");
+		for(int i=0;i<headers.length;i++){
+			Sync.waitElementClickable("xpath", "//span[text()='"+headers[i]+"']");
+			Common.clickElement("xpath", "//span[text()='"+headers[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			report.addPassLog(expectedResult, "Should display "+headers[i]+" success Page", ""+headers[i]+" Page display successfully", Common.getscreenShotPathforReport("Product Registration success page success"));
+			
+		}
+		
+	}
+	public void navigateMyAccounts() throws InterruptedException
+	{
+		String expectedResult="Naviagating to Login page";
+		try {
+			Thread.sleep(10000);
+			
+			Sync.waitElementClickable(30, By.xpath("//div[@class='authorization-link header_right user-dropdown m-hide non_ipad']"));
+            //Common.findElement("xpath", "//div[@class='authorization-link header_right user-dropdown m-hide non_ipad']").click();
+            Common.mouseOver("xpath", "//div[@class='authorization-link header_right user-dropdown m-hide non_ipad']");
+			//Sync.waitElementClickable(30, By.xpath("(//i[@class='icon-line2-user'])[1]"));
+			//Sync.waitElementClickable("xpath", "(//i[@class='icon-line2-user'])[1]");
+			//Common.findElement("xpath", "(//i[@class='icon-line2-user'])[1]").click();
+			
+			//Thread.sleep(10000);
+			
+			//Sync.waitElementClickable(30, By.xpath("//div[@class='authorization-link header_right user-dropdown m-hide non_ipad']"));
+			//Common.findElement("xpath", "//div[@class='authorization-link header_right user-dropdown m-hide non_ipad']").click();
+			
+			Thread.sleep(4000);
+			Common.findElement("xpath", "(//a[@title='My Account'])[1]").click();
+			
+			//Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/customer/account/")));
+			//Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/customer/account/")).click();
+			
+			report.addPassLog(expectedResult, "Should display My Account Page", "My Account Page displayed successfully", Common.getscreenShotPathforReport("My Account Page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display My Account Page", "My Account Page not display", Common.getscreenShotPathforReport("My Account Page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	public void navigateMyorders() throws Exception
+	{
+		String expectedResult="Lands On My Order Page & Should display list of orders";
+		try {
+			Thread.sleep(6000);
+			
+			Sync.waitElementPresent("xpath", "//a[contains(text(), 'My Orders')]");
+			Common.clickElement("xpath", "//a[contains(text(), 'My Orders')]");
+			
+			//Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/sales/order/history/")));
+			//Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/sales/order/history/")).click();
+			Thread.sleep(4000);
+			
+			//String Order=Common.getText("xpath", "//*[@id='my-orders-table']/tbody/tr[1]/td[1]");
+			String Order=Common.getText("xpath", "(//td[@class='col id'])[1]");
+			
+			System.out.println(Order);
+			
+			report.addPassLog(expectedResult, "Should display My Order page with List of orders", "My Order page with List of orders display successfully", Common.getscreenShotPathforReport("MyOrder Page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display My Order page with List of orders", "My Order page with List of orders not displayed", Common.getscreenShotPathforReport("MyOrder Page Failed"));
+			Assert.fail();
+		}
+	}
 }

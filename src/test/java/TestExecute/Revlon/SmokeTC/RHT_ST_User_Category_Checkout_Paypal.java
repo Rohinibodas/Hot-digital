@@ -1,28 +1,26 @@
 package TestExecute.Revlon.SmokeTC;
 
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.revlon.RevelonHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
+public class RHT_ST_User_Category_Checkout_Paypal {
 
-public class RHT_ST_User_Checkout_Paypal {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void UserPayPalCheckout() throws Exception {
+	public void UserCategoryPayPalCheckout() throws Exception {
 
 		try {
 			revelon.loginRevlon("AccountDetails");
-			revelon.searchProduct("productName");
-			revelon.Productselection();
+			revelon.categoryMenuItem();
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
@@ -46,7 +44,7 @@ public class RHT_ST_User_Checkout_Paypal {
 	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn("edge");
 		  
 	  }*/
 	
@@ -58,3 +56,4 @@ public class RHT_ST_User_Checkout_Paypal {
 	}
 
 }
+

@@ -1,8 +1,8 @@
-package TestExecute.RevlonUK.Sprint1Mob;
+package TestExecute.Revlon.Mob_SystemTC;
 
 import org.testng.annotations.Test;
 
-import TestComponent.RevlonUk.RevlonUKMobileHelper;
+import TestComponent.revlon.RevelonMobHelper;
 import TestLib.Common;
 import TestLib.Login;
 
@@ -12,23 +12,19 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RUK_MOB_ST_ValidatingArticleLinks {
-	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
-	RevlonUKMobileHelper revlon=new RevlonUKMobileHelper(datafile);
-	
+public class RHT_MOB_ST_ForgotPassword {
+	String datafile = "revlon//RevlonTestData.xlsx";	
+	RevelonMobHelper revlon=new RevelonMobHelper(datafile);
 	
 	@Test(priority=1)
-	public void ValidateArticleLink() throws Exception {
+	public void ForgotPassword() throws Exception {
 
 		try {
-			revlon.InstaGramArticle();
-			revlon.FacebookArticle();
-			//revlon.youtubeArticle();
-			//revlon.pinterestArticle();
-			
+			revlon.slider();
+			revlon.Loginpage();
+			revlon.forgotPassword("AccountDetails");
 		}
 		catch (Exception e) {
-			
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
@@ -36,7 +32,7 @@ public class RUK_MOB_ST_ValidatingArticleLinks {
 	@BeforeMethod
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
-		System.setProperty("configFile", "RevlonUK\\config.properties");
+		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome",Device);
 		  
 	  }
@@ -44,15 +40,14 @@ public class RUK_MOB_ST_ValidatingArticleLinks {
 	/*@BeforeMethod
     //@Parameters({"device"})
       public void startTest() throws Exception {
-        System.setProperty("configFile", "RevlonUK\\config.properties");
+        System.setProperty("configFile", "Revelon\\config.properties");
           Login.signIn("chrome","iPad");
          
       }*/
-	
 	@AfterTest
 	public void clearBrowser()
 	{
 		Common.closeAll();
-	}
 
+	}
 }

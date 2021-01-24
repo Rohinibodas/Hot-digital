@@ -21,8 +21,8 @@ public class RUK_ST_ValidatingArticleLinks {
 		try {
 			revlon.InstaGramArticle();
 			revlon.FacebookArticle();
-			revlon.youtubeArticle();
-			revlon.pinterestArticle();
+			//revlon.youtubeArticle();
+			//revlon.pinterestArticle();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

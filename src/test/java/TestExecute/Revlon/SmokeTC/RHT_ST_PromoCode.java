@@ -7,53 +7,57 @@ import TestLib.Common;
 import TestLib.Login;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_SMT_PR_Product_Registration {
+public class RHT_ST_PromoCode {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void NavigationProductRegistration() throws Exception {
+	public void RegisterUserCheckout() throws Exception {
 
 		try {
-			revelon.acceptPrivecy();
-			revelon.navigateProductRegistration();
+			revelon.loginRevlon("AccountDetails");
+			revelon.searchProduct("Promocode");
+			revelon.Productselection();
+			revelon.navigateMinicart();
+			revelon.navigateCartPage();
+			revelon.checkoutPage();
+			revelon.navigateCheckout();
+			revelon.ValidatingPromocode("Promocode");
+			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
+			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
 	
-	@Test(dependsOnMethods="NavigationProductRegistration")
-	  public void ProductRegistrationForm(){
-		  
-		  try{
-			  revelon.ProductRegistration();
-		  }
-		  catch (Exception e) {
-					
-				Assert.fail(e.getMessage(), e);
-			}
-	  }
-	
-	
 	
 	@BeforeMethod
+	@Parameters({"browser"}) 
+	  public void startTest(String browser) throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn(browser);
+		  
+	  }
+	
+	/*@BeforeMethod
 	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("browser");
+		  Login.signIn("firefox");
 		  
-	  }
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()
 	{
 		Common.closeAll();
-	}
 
+	}
 
 }

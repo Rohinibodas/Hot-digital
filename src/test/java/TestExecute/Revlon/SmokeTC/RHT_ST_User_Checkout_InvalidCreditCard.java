@@ -44,10 +44,10 @@ public class RHT_ST_User_Checkout_InvalidCreditCard {
 	  }
 	
 	/*@BeforeMethod
-	@Parameters({"browser"})  
+	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn("edge");
 		  
 	  }*/
 	

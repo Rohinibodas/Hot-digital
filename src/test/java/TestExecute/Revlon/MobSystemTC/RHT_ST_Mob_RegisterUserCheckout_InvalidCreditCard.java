@@ -1,5 +1,9 @@
-package TestExecute.Revlon.SmokeTC;
+package TestExecute.Revlon.Mob_SystemTC;
 
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.revlon.RevelonHelper;
@@ -7,13 +11,7 @@ import TestComponent.revlon.RevelonMobHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-
-public class RHT_ST_Mob_RegisterUserCheckout_Creditcard {
+public class RHT_ST_Mob_RegisterUserCheckout_InvalidCreditCard {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonMobHelper revlon=new RevelonMobHelper(datafile);
 	
@@ -30,7 +28,7 @@ public class RHT_ST_Mob_RegisterUserCheckout_Creditcard {
 			revlon.navigateCartPage();
 			revlon.checkoutPage();
 			revlon.navigateCheckout();
-			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
+			revlon.invalidCreditCard("InvalidCreditCard");
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
@@ -69,3 +67,6 @@ public class RHT_ST_Mob_RegisterUserCheckout_Creditcard {
 	}
 
 }
+
+
+

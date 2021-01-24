@@ -3,80 +3,112 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="TEST_RHT_ST_001_AccountCreation" testid="BTY-454" priority="P1" description="This script will cover Account Registration Process ">
+    <test name="TEST_RHT_ST_001_AccountCreation" testid="BTY-454" priority="P1" description="This test case validates account creation of user with valid details successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_AC_Account_Creation"/>
         </classes>
     </test>
-    
-    <test name="TEST_RHT_ST_004_ForgotPassword" testid="BTY-455" priority="P1" description="This script will cover Forgot password Process ">
+    <test name="TEST_RHT_ST_004_ForgotPassword" testid="BTY-455" priority="P1" description="This test case validates Changing of password to register user successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_FP_Forgot_Password"/>
         </classes>
     </test>
-    
-    <test name="TEST_RHT_ST_005_RegisterUserProductSearch" testid="BTY-457" priority="P1" description="This script will cover user browser search Process">
+    <test name="TEST_RHT_ST_005_RegisterUserProductSearch" testid="BTY-457" priority="P1" description="This test case validates Search for register user for both valid and invalid data successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_BS_User_Browser_search"/>
         </classes>
     </test>
-    
-    <test name="TEST_RHT_ST_006_GuestUserProductSearch" testid="BTY-498" priority="P1" description="This script will cover user Guest Browser search Process">
+    <test name="TEST_RHT_ST_006_GuestUserProductSearch" testid="BTY-498" priority="P1" description="This test case validates Search for Guest user for both valid and invalid data successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_BS_Guest_Browser_Search"/>
         </classes>
     </test>
-    
-    <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard" testid="BTY-462" priority="P1" description="This script will cover Register User Checkout Process with Credit Card">
+    <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard" testid="BTY-462" priority="P1" description="This test case validates registered user Checkout process with valid credit card successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_User_Checkout"/>
         </classes>
     </test>
-    
-    <test name="TEST_RHT_ST_012_GuestUserCheckoutCreditCard" testid="BTY-497" priority="P1" description="This script will cover Guest Checkout Process with Credit Card">
+    <test name="TEST_RHT_ST_012_GuestUserCheckoutCreditCard" testid="BTY-497" priority="P1" description="This test case validates Guest user Checkout process with valid credit card successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_Guest_Checkout"/>
         </classes>
     </test>
-    
-     <test name="TEST_RHT_ST_017_RegisteredUserCheckoutPaypal" testid="BTY-387" priority="P1" description="This script will cover Register User Checkout Process with PayPal">
+    <test name="TEST_RHT_ST_017_RegisteredUserCheckoutPaypal" testid="BTY-387" priority="P1" description="This test case validates Registered user Checkout process with paypal successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_User_Checkout_Paypal"/>
         </classes>
     </test>
-    
-    <test name="TEST_RHT_ST_018_GuestUserCheckoutPayPal" testid="BTY-386" priority="P1" description="This script will cover Guest User Checkout Process with PayPal">
+    <test name="TEST_RHT_ST_018_GuestUserCheckoutPayPal" testid="BTY-386" priority="P1" description="This test case validates Guest user Checkout process with paypal successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Guest_Checkout_Paypal"/>
         </classes>
     </test>
-    
+    <test name="Test_RHT_ST_021_RegisteredUserCategoryCheckout" testid="BTY-629" priority="P1" description="This test case is to verify Revlon hairtools, Category Checkout functionality for user">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_RegCategory_Checkout"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_ST_022_GuestUserCategoryCheckout" testid="BTY-630" priority="P1" description="This test case is to verify Revlon hairtools, Category Checkout functionality for Guest">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_GuestCategory_Checkout"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_ST_024_UserCategoryCheckoutPaypal" testid="BTY-632" priority="P1" description="This test case is to verify Revlon hairtools, Category Checkout Paypal functionality for user">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_User_Category_Checkout_Paypal"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_ST_023_GuestUserCategoryCheckoutPaypal" testid="BTY-631" priority="P1" description="This test case is to verify Revlon hairtools, Category Checkout Paypal  functionality for Guest">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Guest_Category_Checkout_Paypal"/>
+        </classes>
+    </test>
     <test name="Test_RHT_ST_019_RegisterUserCheckoutInvalidCreditCard" testid="BTY-529" priority="P1" description="This test case is to verify Revlon hairtools, browse Checkout functionality with invalid credit card details for user.">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_User_Checkout_InvalidCreditCard"/>
         </classes>
     </test>
-    
     <test name="Test_RHT_ST_020_GuestUserCheckoutInvalidCreditCard" testid="BTY-530" priority="P1" description="This test case is to verify Revlon hairtools, browse Checkout functionality with invalid details for guest user.">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Guest_Checkout_invalidCreditCard"/>
         </classes>
     </test>
-    
-    <test name="TEST_RHT_ST_013_CMSNavigation Links Validation" testid="BTY-463" priority="P1" description="This script will cover user CMS links Process">
+    <test name="Test_RHT_ST_026_ValidateMyOrderConfirmation" testid="BTY-634" priority="P1" description="To verify the My Order Confirmation functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_MyOrders"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_ST_025_ValidatePromocode" testid="BTY-633" priority="P1" description="This test case is to verify Revlon hairtools,Promocode Checkout functionality for user">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_PromoCode"/>
+        </classes>
+    </test>
+    <test name="TEST_RHT_ST_013_CMSNavigation Links Validation" testid="BTY-463" priority="P1" description="This test case validates CMS and Navigation links of footer page successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CMS_CMS_Link"/>
+        </classes>
+    </test>
+    <test name="Test_RHT_ST_027_ValidatingHeaderLinks" testid="BTY-635" priority="P1" description="To verify the Validating Header Links functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidateHeaderLinks"/>
         </classes>
     </test>
   </suite>  

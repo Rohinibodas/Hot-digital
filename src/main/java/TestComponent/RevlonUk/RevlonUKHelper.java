@@ -520,7 +520,7 @@ public class RevlonUKHelper {
 	{
 		String expectedResult="Product Selection from search results";
 		try {
-			if(Common.isElementDisplayed("xpath", "(//div[@class='product-item-info']/div/div/form//button[@title='Add to Bag'])[1]")) {
+			/*if(Common.isElementDisplayed("xpath", "(//div[@class='product-item-info']/div/div/form//button[@title='Add to Bag'])[1]")) {
 				Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
 				Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
 			}else if(Common.isElementDisplayed("xpath", "(//div[@class='product-item-info']/div/div/form//button[@title='Add to Bag'])[2]")) {
@@ -529,7 +529,10 @@ public class RevlonUKHelper {
 			}else {
 				Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[3]");
 				Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[3]");
-			}
+			}*/
+			
+			Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
 			
 			Thread.sleep(3000);
 			Common.isElementDisplayed("xpath", "//h1[@class='page-title']");
@@ -601,6 +604,13 @@ public class RevlonUKHelper {
 			System.out.println(Productname);
 			
 			Thread.sleep(10000);
+			if(Common.isElementDisplayed("xpath", "//button[@id='onetrust-accept-btn-handler']")) {
+				System.out.println("Cookies pop up displayed");
+				Common.clickElementStale("xpath", "//button[@id='onetrust-accept-btn-handler']");
+			}else {
+				System.out.println("Cookies pop up not displayed");
+			}
+			Thread.sleep(2000);
 			
 			report.addPassLog(expectedResult, "Should display Boots Hatch implementation Page", "Boots Hatch implementation Page display successfully", Common.getscreenShotPathforReport("Boots Hatch implementation success"));
 		}catch(Exception |Error e)
@@ -1205,6 +1215,53 @@ public class RevlonUKHelper {
 		}
 
 	}
+	
+	public void ContactUsform(String dataSet) throws Exception
+	{
+		String expectedResult="Contact Us Form submited";
+		
+		Common.textBoxInput("name", "name", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "email", data.get(dataSet).get("Email"));
+		Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+		Common.textBoxInput("name", "comment", data.get(dataSet).get("Message"));
+		report.addPassLog(expectedResult, "Should dispaly Contact us page with data", "Contact Us Page with data displayed successfully", Common.getscreenShotPathforReport("Contact Us Page with data"));
+		Common.clickElement("xpath", "//button[@title='Submit']");
+		Thread.sleep(500);
+	}
+	
+	public void contactus() throws Exception
+	{
+		String expectedResult="Contact Us Submit success page";
+		try {
+			if(Common.isElementEnabled("name", "Contact.Name.First")) {
+
+				System.out.println("Contact Us page Enabled");
+				ContactUsform("Contact_us");
+
+			}else {
+
+				System.out.println("Contact Us page not Enabled");
+
+				Common.refreshpage();
+
+				ContactUsform("Contact_us");
+			}
+
+			Thread.sleep(7000);
+			String s=Common.getText("xpath", "//div[@data-bind='html: message.text']");
+			System.out.println(s);
+			System.out.println("Contact us success page Test cases passed successfully");
+
+			Assert.assertEquals(s, "Thanks for contacting us. We'll respond to you very soon");
+
+			report.addPassLog(expectedResult, "Should display Product Registration success Page", "Product Registration success Page display successfully", Common.getscreenShotPathforReport("Product Registration success page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Product Registration success Page", "Product Registration success Page not displayed", Common.getscreenShotPathforReport("Product Registration success Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
 
 	
 	public void headLinks(String dataSet) throws Exception{
@@ -1228,10 +1285,10 @@ public class RevlonUKHelper {
 			Sync.waitElementPresent("xpath", "//div[@class='copy-right']");
 			Common.scrollIntoView("xpath", "//div[@class='copy-right']");
 			Thread.sleep(2000);
-			Common.clickElement("xpath", "//a[@href='https://www.instagram.com/revlonhairtools/']");
+			Common.clickElement("xpath", "//a[@href='https://www.instagram.com/revlonhairtoolsuk/']");
 			Thread.sleep(2000);
 			Common.switchToSecondTab();
-		   	Thread.sleep(5000);
+		   	Thread.sleep(10000);
 			String s=Common.getText("xpath", "//h1[contains(text(),'Instagram')]");
 		   	System.out.println(s);
 		   	Assert.assertEquals(s, "Instagram");
@@ -1249,13 +1306,14 @@ public class RevlonUKHelper {
 	public void FacebookArticle() throws Exception{
 		String expectedResult="Facebook article page selection";
 		try {
-			Common.clickElement("xpath", "//a[@href='https://www.facebook.com/revlonhairtools/']");
+			Common.clickElement("xpath", "//a[@href='https://www.facebook.com/RevlonHairToolsUK/']");
 			Thread.sleep(2000);
 			Common.switchToSecondTab();
 		   	Thread.sleep(15000);
-		   	String s=Common.getText("xpath", "//a[@href='https://www.facebook.com/revlonhairtools/']");
+		   	//String s=Common.getText("xpath", "//a[@href='https://www.facebook.com/revlonhairtools/']");
+		   	String s=Common.getText("xpath", "(//span[contains(text(),'Revlon Hair Tools_UK')])[1]");
 		   	System.out.println(s);
-		   	Assert.assertEquals(s, "Revlon Hair Tools");
+		   	Assert.assertEquals(s, "Revlon Hair Tools_UK");
 			report.addPassLog(expectedResult, "Should display Facebook page", "Facebook page display successfully", Common.getscreenShotPathforReport("Facebook page success"));
 		}catch(Exception |Error e)
 		{
@@ -1274,7 +1332,7 @@ public class RevlonUKHelper {
 			Thread.sleep(2000);
 			Common.switchToSecondTab();
 		   	Thread.sleep(10000);
-		   	String s=Common.getText("xpath", "//div[@id='text-container']");
+		   	String s=Common.getText("xpath", "(//*[contains(text(),'Revlon Hair Tools')])[1]");
 		   	System.out.println(s);
 			Assert.assertEquals(s, "Revlon Hair Tools");
 			report.addPassLog(expectedResult, "Should display Youtube page", "Youtube page display successfully", Common.getscreenShotPathforReport("Youtube page success"));

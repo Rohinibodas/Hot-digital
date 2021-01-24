@@ -31,6 +31,7 @@ public class RUK_MOB_ST_CMSLinks {
 			revlon.navigateShippingAndReturns();
 			revlon.navigateWarranty();
 			revlon.navigateContactUs();
+			revlon.contactus();
 		}
 		catch (Exception e) {
 			
@@ -50,7 +51,7 @@ public class RUK_MOB_ST_CMSLinks {
     //@Parameters({"device"})
       public void startTest() throws Exception {
         System.setProperty("configFile", "RevlonUK\\config.properties");
-          Login.signIn("chrome","Galaxy S5");
+          Login.signIn("chrome","iPad");
          
       }*/
 	

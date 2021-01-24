@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <!--  <test name="TEST_HT_ST_001_VerifyCustomerRegistrationforRetailerUser" testid="BTY-346" priority="P1" description="This script will cover CustomerRegistrationforRetailerUser page in Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_RG_001_RetialerRegistration"/>
+        </classes>
+    </test> 
+      <test name="TEST_HT_ST_008-OrderSuccesspageforRetailerUser" testid="BTY-398" priority="P1" description="This script will cover OrderSuccesspageforRetailerUser pages in Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_COP_007_Checkout_page"/>
+        </classes>
+    </test> 
+      <test name="TEST_HT_ST_010_ValidateCMSPages" testid="BTY-466" priority="P1" description="This script will cover cms pages in Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.TEST_HT_ST_010_ValidateCMSPages"/>
+        </classes>
+    </test> 
+    <test name="TEST_HT_ST_008_VerifyForgotpasswordforRetailerUser" testid="BTY-474" priority="P1" description="This script will cover VerifyForgotpasswordforRetailerUser pages in Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_LG_004_Forgot_Password"/>
+        </classes>
+    </test> 
+    
+     <test name="TEST_HT_ST_004_VerifyForgotPasswordforDistributorUser" testid="BTY-473" priority="P1" description="This script will cover Forgot password for Distributor of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.DT_ST_009_Distributor_Forgotpassword"/>
+        </classes>
+    </test> 
+   <test name="TEST_HT_MT_019_VerifyCustomerRegistrationForSylistSaloonOwnerUser" testid="BTY-347" priority="P1" description="This script will cover VerifyCustomerRegistrationForSylistSaloonOwnerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_RegistrationForSylistSaloonOwnerUser"/>
+        </classes>
+    </test> 
+    <test name="TEST_HT_ST_011_ValidateGiveUSFeeback" testid="BTY-495" priority="P1" description="This script will GiveUSFeeback of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_GiveUsFeedback"/>
+        </classes>
+    </test> 
+    <test name="TEST_HT_ST_013_ValidateProductRegistration" testid="BTY-487" priority="P1" description="This script will cover ProductRegistration of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_Productregistration"/>
+        </classes>
+    </test> 
+     -->
+    
+    
+    <test name="TEST_HT_MT_003_GlobalsearchafterloginforRetailerUser" testid="BTY-360" priority="P1" description="This script will cover GlobalsearchafterloginforRetailerUser for Retailer of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_GS_003_Global_search_after_login"/>
+        </classes>
+    </test>
+    <test name="TEST_HT_MT_005_MyOrdersforRetailerUser" testid="BTY-362" priority="P1" description="This script will cover MyOrdersforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_MO_005_My_Order"/>
+        </classes>
+     </test>
+    <test name="TEST_HT_MT_004_GlobalSearchBeforeloginforRetailerUser" testid="BTY-361" priority="P1" description="This script will cover Global_search_Before_login for Retailer of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_GS_004_Global_search_Before_login"/>
+        </classes>
+    </test>
+    
+     <test name="TEST_HT_MT_006_MyWishListforRetailerUser" testid="BTY-363" priority="P1" description="This script will cover MyWishListforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_MWL_006_My_Wish_List"/>
+        </classes>
+     </test>
+     <test name="TEST_HT_MT_007_AddressBookforRetailerUser" testid="BTY-364" priority="P1" description="This script will cover AddressBookforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_AB_007_Address_Book"/>
+        </classes>
+        </test>
+        <test name="TEST_HT_MT_008_AccountInformationforRetailerUser" testid="BTY-365" priority="P1" description="This script will cover AccountInformationforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_AI_008_Account_Information"/>
+        </classes>
+     </test>
+      <test name="TEST_HT_MT_009_ProductReviewforRetailerUser" testid="BTY-366" priority="P1" description="This script will cover ProductReviewforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_PR_009_Product_Review"/>
+        </classes>
+     </test>
+     <test name="TEST_HT_MT_010_ProductReviewDetailsforRetailerUser" testid="BTY-367" priority="P1" description="This script will cover ProductReviewforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_PR_010_Product_Review_Details"/>
+        </classes>
+     </test>
+     <test name="TEST_HT_MT_011_NewsLetterSubscriptionforRetailerUser" testid="BTY-368" priority="P1" description="This script will cover NewsLetterSubscriptionforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_PR_011_NewsLetter_Subscription"/>
+        </classes>
+     </test>
+ <test name="TEST_HT_MT_002_DistributorMyAccount" testid="BTY-445" priority="P1" description="This script will cover DistributorMyAccount of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_DMA_002_Distributor_My_Account"/>
+        </classes>
+     </test>
+ <test name="TEST_HT_MT_017_VerifyCartpageforDistributorUser" testid="BTY-489" priority="P1" description="This script will cover Checkout process with Credit card payment for retailer of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_DT_ST_003_Distributor_Addtocart"/>
+        </classes>
+    </test> 
+    <!--  <test name="TEST_HT_MT_003_DistributorAddressBook" testid="BTY-446" priority="P1" description="This script will cover AddressBook for Distributor of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_DAB_003_Distributor_Address_Book"/>
+        </classes>
+    </test> --> 
+    <test name="TEST_HT_MT_004_DistributorAccountInformation" testid="BTY-447" priority="P1" description="This script will cover AccountInformation for Distributor of Hottools">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_DAI_004_Distributor_Account_Information"/>
+        </classes>
+    </test> 
+    <test name="TEST_HT_MT_001_VerifyHomepageforRetailerUser" testid="BTY-479" priority="P1" description="This script will cover HomepageforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_HP_001_Home_Page"/>
+        </classes>
+    </test> 
+    <test name="TEST_HT_MT_002_VerifyMyAccountforRetailerUser" testid="BTY-476" priority="P1" description="This script will cover VerifyMyAccount forRetailerUser of Hottools">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_MA_002_My_Account"/>
+        </classes>
+    </test> 
+      <test name="TEST_HT_MT_005-VerifyMiniCartforRetailerUser" testid="BTY-467" priority="P1" description="This script will cover VerifyMiniCart forRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_MC_005_Mini_Cart"/>
+        </classes>
+    </test> 
+      <test name="TEST_HT_MT_014_VerifyHomepageforDistributorUser" testid="BTY-475" priority="P1" description="This script will cover HomepageforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_DHP_001_Distributor_Home_Page"/>
+        </classes>
+    </test> 
+    <test name="TEST_HT_MT_015_VerifyMyAccountforDistributorUser " testid="BTY-482" priority="P1" description="This script will cover MyAccountforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_DMA_002_Distributor_My_Account"/>
+        </classes>
+    </test> 
+     <test name="TEST_HT_MT_003_VerifyBrowserSearchforDistributorUser" testid="BTY-477" priority="P1" description="This script will cover BrowserSearchforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_DT_ST_002_Distributor_Search"/>
+        </classes>
+    </test> 
+    <test name="TEST_HT_ST_009_VerifyLogoutforRetailerUser" testid="BTY-472" priority="P1" description="This script will cover VerifyLogoutforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_024_Retailer_logout"/>
+        </classes>
+    </test>
+    
+     <test name="TEST_HT_ST_001_ValidateloginforDistributorUser" testid="BTY-469" priority="P1" description="This script will cover loginforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_DT_ST_001_Distributor_login"/>
+        </classes>
+    </test> 
+     <test name="TEST_HT_MT_023_VerifylogoutforDistributorUser" testid="BTY-481" priority="P1" description="This script will coverlogoutforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_DT_ST_008_Distributor_logout"/>
+           </classes> 
+            </test> 
+     <test name="TEST_HT_MT_002_DistributorMyAccount " testid="BTY-445" priority="P1" description="This script will cover DistributorMyAccount of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_DMA_002_Distributor_My_Account"/>
+        </classes>
+    </test> 
+          <test name="TEST_HT_MT_008_Retailer_ProductDetailsPage" testid="BTY-485" priority="P1" description="This script will cover Retailer_ProductDetailsPage of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_008_Retailer_ProductDetailsPage"/>
+        </classes>
+    </test> 
+        <test name="TEST_HT_MT_007_VerifyProductListPageforRetailerUser" testid="BTY-471" priority="P1" description="This script will cover ProductListPageforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_009_Retailer_ProductListPage"/>
+        </classes>
+    </test> 
+     <test name="TEST_HT_MT_020_VerifyProductDetailsPageforDistributorUser" testid="BTY-470" priority="P1" description="This script will cover ProductDetailsPageforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.DT_ST_007_Distributor_PDP"/>
+        </classes>
+    </test>
+     <test name="TEST_HT_MT_021_VerifyProductListPageforDistributorUser" testid="BTY-486" priority="P1" description="This script will cover ProductListPageforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.DT_ST_011_Distributor_PLP"/>
+        </classes>
+    </test>
+    <test name="TEST_HT_ST_012_ValidateContactUs" testid="BTY-493" priority="P1" description="This script will cover ValidateContactUs of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_ST_ContactUs"/>
+        </classes>
+    </test> 
+     <test name="TEST_HT_MT_004_VerifyCartPageforRetailerUser" testid="BTY-468" priority="P1" description="This script will cover CartPageforRetailerUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.HT_MT_004_VerifyCartPageforRetailerUser"/>
+        </classes>
+    </test>
+       <test name="TEST_HT_MT_018_VerifyMiniCartforDistributorUser" testid="BTY-488" priority="P1" description="This script will cover MiniCartforDistributorUser of Hottools">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="TestExecute.hottools.DT_ST_MC_005_Mini_Cart"/>
+        </classes>
+    </test> 
+     
+</suite>  

@@ -29,6 +29,7 @@ public class RUK_ST_CMSLinks {
 			revlon.navigateShippingAndReturns();
 			revlon.navigateWarranty();
 			revlon.navigateContactUs();
+			revlon.contactus();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
@@ -46,7 +47,7 @@ public class RUK_ST_CMSLinks {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("firefox");
 		  
 	  }*/
 	

@@ -42,6 +42,13 @@ public class RHT_SMT_CO_User_Checkout {
 		  Login.signIn(browser);
 		  
 	  }
+	/*@BeforeMethod
+	//@Parameters({"browser"}) 
+	  public void startTest() throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn("edge");
+		  
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()
