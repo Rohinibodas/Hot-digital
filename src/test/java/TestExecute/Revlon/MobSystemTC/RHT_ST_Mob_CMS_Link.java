@@ -1,4 +1,4 @@
-package TestExecute.Revlon.Mob_SystemTC;
+package TestExecute.Revlon.MobSystemTC;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
