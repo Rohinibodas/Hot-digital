@@ -20,6 +20,8 @@ public class RegisteredUser_Checkout_CreditCard {
   
   public void registeredUser_Checkout_CreditCard() {
 		try {
+			  drybar.HomePage();
+			 // drybar.iPadMyAccount();
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
 			  drybar.clickHairProducts();
@@ -49,7 +51,7 @@ public class RegisteredUser_Checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser()
 	{
-   Common.closeAll();
+       Common.closeAll();
 
 	}
 	
@@ -57,7 +59,7 @@ public class RegisteredUser_Checkout_CreditCard {
 	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
+		 Login.signIn("chrome","iPhone X");
 	 }*/
 	@BeforeTest
 	@Parameters({"device"})  

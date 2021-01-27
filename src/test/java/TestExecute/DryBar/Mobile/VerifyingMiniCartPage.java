@@ -51,5 +51,6 @@ catch (Exception e) {
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
-	  }
+	  
+  }
 }

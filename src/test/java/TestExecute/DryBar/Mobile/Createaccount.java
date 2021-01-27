@@ -44,16 +44,16 @@ public class Createaccount {
 
 	}
 	
- /* @BeforeMethod
+ /*@BeforeMethod
   public void startTest() throws Exception {
 	 System.setProperty("configFile", "DryBar\\config.properties");
 	 Login.signIn("chrome","Galaxy S5");
- }*/
+ }
+ */
 @BeforeTest
 @Parameters({"device"})  
   public void startTest(String Device) throws Exception {
 	System.setProperty("configFile", "DryBar\\config.properties");
 	Login.signIn("chrome",Device);
   }
-
 }

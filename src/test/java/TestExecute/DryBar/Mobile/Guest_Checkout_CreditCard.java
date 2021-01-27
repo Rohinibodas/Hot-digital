@@ -59,11 +59,13 @@ public class Guest_Checkout_CreditCard {
 		 Login.signIn("chrome","Galaxy S5");
 	 }*/
 	
-  @BeforeTest
+@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
-	  }
+	  
+
+}
 
 }

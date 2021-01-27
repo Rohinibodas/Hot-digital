@@ -3,6 +3,7 @@ package TestExecute.DryBar.Mobile;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -36,16 +37,22 @@ catch (Exception e) {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	
 
-	
+	 @BeforeMethod
+	  public void startTest() throws Exception {
+		 System.setProperty("configFile", "DryBar\\config.properties");
+		 Login.signIn("chrome","Galaxy S5");
+	 }
+	 /*
 	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
-	  }
+	  }*/
+
 }

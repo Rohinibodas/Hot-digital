@@ -41,12 +41,12 @@ public class ApplyOfferCodeonCheckoutPage {
 	@AfterTest
 	public void clearBrowser()
 	{
-     Common.closeAll();
+    
+		Common.closeAll();
 
 	}
 	
-/*
-	@BeforeMethod
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
 		 Login.signIn("chrome","Galaxy S5");

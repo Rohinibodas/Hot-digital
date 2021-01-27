@@ -102,7 +102,7 @@ public void CreateAccount(String dataSet){
 	Common.textBoxInput("id", "firstname",data.get(dataSet).get("FirstName"));
 	Common.textBoxInput("id", "lastname",data.get(dataSet).get("LastName"));
 	Common.clickElement("xpath", "//input[@id='is_subscribed']");
-	Common.clickElement("xpath", "//input[@id='assistance_allowed_checkbox']");
+	//Common.clickElement("xpath", "//input[@id='assistance_allowed_checkbox']");
 	Common.textBoxInput("id", "email_address",Common.genrateRandomEmail(data.get(dataSet).get("Email")));
 	Common.textBoxInput("id", "password",data.get(dataSet).get("Password"));
 	Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
@@ -110,6 +110,7 @@ public void CreateAccount(String dataSet){
 	
 	}
 	 catch(Exception |Error e) {
+		 e.printStackTrace();
 	        ExtenantReportUtils.addFailedLog("verifying Create Account from", "Account should be created successfully navigate to My Account page", "user faield to create account", Common.getscreenShotPathforReport("createaccountfaield"));
 			Assert.fail();
 		}
@@ -132,11 +133,12 @@ public void clickHairProducts(){
 		
 	Common.clickElement("xpath", "//a[@class='action nav-toggle main']");
 	Common.clickElement("xpath", "//span[text()='Hair Products']");
+	//Common.clickElement("xpath", "//a[@id='ui-id-15']");
 	
-	int sizes=Common.findElements("xpath", "//a[@id='ui-id-16']/span[2]").size();
+	int sizes=Common.findElements("xpath", "//a[@id='ui-id-15']").size();
 	if(sizes>0){
 		
-		Common.clickElement("xpath", "//a[@id='ui-id-16']/span[2]");
+		Common.clickElement("xpath", "//a[@id='ui-id-15']");
 	}
 	System.out.println(Common.getPageTitle());
 	
@@ -646,14 +648,39 @@ public void braintree_creditCard_payment(String dataSet) throws Exception{
 	
 }
 
-public void navigateMyAccount() throws InterruptedException {
+public void iPadMyAccount() throws InterruptedException{
+	Thread.sleep(3000);	
+	Sync.waitElementInvisible("xpath", "//a[@class='account-link top-link']");
+	int name=Common.findElements("xpath", "//a[@class='account-link top-link']").size();		
+	if(name>0){					
+    Thread.sleep(3000);
+	Sync.waitElementClickable("xpath", "//a[@class='account-link top-link']");
+	Common.clickElement("xpath", "//a[@class='account-link top-link']");
+	}
+}
+
+public void HomePage() throws InterruptedException {
 	Thread.sleep(8000);
+	
 	Sync.waitPageLoad();
 	String expectedResult = "User should land on the home page";
 	int size =Common.findElements("xpath", "//a[@class='logo']").size();
 	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
 	 Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
-	try {
+     Thread.sleep(6000);
+     
+    // Thread.sleep(3000);		
+ 	int name=Common.findElements("xpath", "//a[@class='action nav-toggle main']").size();		
+ 	if(name>0){	
+ 		Thread.sleep(3000);
+     //navigateMyAccount();
+ 	}
+}
+   
+    
+    public void navigateMyAccount() throws InterruptedException {
+	 Thread.sleep(6000);
+	 try {
 		Sync.waitPageLoad();
 		Sync.waitElementClickable(30, By.xpath("//a[@class='action nav-toggle main']"));
 		Common.clickElement("xpath", "//a[@class='action nav-toggle main']");
@@ -675,6 +702,7 @@ public void navigateMyAccount() throws InterruptedException {
 
 	
 	}}
+    
 
 public void loginApplication(String dataSet){
 	String expectedResult = "Opens login pop_up";
@@ -1094,15 +1122,17 @@ for(int i=0;i<10;i++){
 public void forgetpasswordPageValidation(String InvalidData){
 
 	try{
-		Common.clickElement("xpath", "//a[@data-se='forgot-password']");
-	    Common.textBoxInput("id", "account-recovery-username",InvalidData);
-		Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
-		Common.actionsKeyPress(Keys.PAGE_UP);
-		int errormessage=Common.findElements("xpath", "//span[contains(@class,'icon error')]/following::p[1]").size();
+		Common.clickElement("xpath", "//a[@class='action remind']");
+	    Common.textBoxInput("xpath", "//input[@id='email_address']",InvalidData);
+		//Common.scrollToElementAndClick("xpath", "//a[text()='Send via Email']");
+		Common.clickElement("xpath", "//button[@class='action submit primary']");
+		//Common.actionsKeyPress(Keys.PAGE_UP);
+		int errormessage=Common.findElements("xpath", "//div[@id='email_address-error']").size();
 		
       Common.assertionCheckwithReport(errormessage>0, "Validating forget password from", "Enter in valid data it must dispaly error message", "User enter "+InvalidData+" in Forgetpassword field", "Failed to display error message ");		
         }
 	catch (Exception | Error e) {
+		e.printStackTrace();
         ExtenantReportUtils.addFailedLog("validating forgot password form with  invalid data","I will showing error message","forgotpassword form faield dispaly  error message",Common.getscreenShotPathforReport("forgetpassword error message"));
         Assert.fail();
         }
