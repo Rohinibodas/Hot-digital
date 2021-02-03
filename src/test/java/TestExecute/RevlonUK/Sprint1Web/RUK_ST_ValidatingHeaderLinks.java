@@ -20,6 +20,7 @@ public class RUK_ST_ValidatingHeaderLinks {
 	public void ValidateHeaderLinks() throws Exception {
 
 		try {
+			revlon.acceptPrivacy();
 			revlon.headLinks("HeaderLinks");
 		}
 		catch (Exception e) {

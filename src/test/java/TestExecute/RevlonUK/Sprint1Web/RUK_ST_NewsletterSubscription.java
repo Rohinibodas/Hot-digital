@@ -19,6 +19,7 @@ public class RUK_ST_NewsletterSubscription {
 	@Test(priority=1)
 	public void NavigationArticleLinks() throws Exception {
 		try {
+			revlon.acceptPrivacy();
 			revlon.FooterNewletterSubcription();
 		}
 		catch (Exception e) {
@@ -26,19 +27,19 @@ public class RUK_ST_NewsletterSubscription {
 		} 
 	}
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn(browser);
-	  }*/
+	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("chrome");
-	  }
+		  Login.signIn("edge");
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

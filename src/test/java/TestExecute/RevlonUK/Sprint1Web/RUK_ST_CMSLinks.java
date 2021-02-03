@@ -19,6 +19,7 @@ public class RUK_ST_CMSLinks {
 	@Test(priority=1)
 	public void NavigationCMSLinks() throws Exception {
 		try {
+			revlon.acceptPrivacy();
 			revlon.navigateCMSLink();
 			revlon.navigateAboutUs();
 			revlon.navigateTermsAndConditions();
@@ -47,7 +48,7 @@ public class RUK_ST_CMSLinks {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn("chrome");
 		  
 	  }*/
 	

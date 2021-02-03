@@ -20,6 +20,7 @@ public class RUK_MOB_ST_GuestUserPDPAmazonHatch {
 	@Test(priority=1)
 	public void GuestUserAmazonHatch() throws Exception {
 		try {
+			revlon.acceptPrivecy();
 			revlon.SearchProduct("productName");
 			revlon.Productselection();
 			revlon.AmazonHatchproduct();
@@ -42,8 +43,8 @@ public class RUK_MOB_ST_GuestUserPDPAmazonHatch {
     //@Parameters({"device"})
       public void startTest() throws Exception {
         System.setProperty("configFile", "RevlonUK\\config.properties");
-          Login.signIn("chrome","Galaxy S5");
-         
+          Login.signIn("chrome","iPad");
+        
       }*/
 	
 	@AfterTest

@@ -21,6 +21,7 @@ public class RUK_ST_GuestUserPDPAmazonHatch {
 	public void GuestUserAmazonHatch() throws Exception {
 
 		try {
+			revlon.acceptPrivacy();
 			revlon.SearchProduct("productName");
 			revlon.Productselection();
 			revlon.AmazonHatchproduct();

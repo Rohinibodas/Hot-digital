@@ -21,6 +21,7 @@ public class RUK_ST_GuestUserPDPBootsHatch {
 	public void GuestUserBootsHatch() throws Exception {
 
 		try {
+			revlon.acceptPrivacy();
 			revlon.SearchProduct("productName");
 			revlon.Productselection();
 			revlon.BootsHatchproduct();

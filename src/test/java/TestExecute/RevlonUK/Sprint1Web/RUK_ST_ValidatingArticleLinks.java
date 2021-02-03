@@ -19,9 +19,10 @@ public class RUK_ST_ValidatingArticleLinks {
 	@Test(priority=1)
 	public void NavigationArticleLinks() throws Exception {
 		try {
+			revlon.acceptPrivacy();
 			revlon.InstaGramArticle();
 			revlon.FacebookArticle();
-			//revlon.youtubeArticle();
+			revlon.youtubeArticle();
 			//revlon.pinterestArticle();
 		}
 		catch (Exception e) {
@@ -40,7 +41,7 @@ public class RUK_ST_ValidatingArticleLinks {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("firefox");
 		  
 	  }*/
 	

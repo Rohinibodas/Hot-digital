@@ -20,6 +20,7 @@ public class RUK_MOB_ST_NewsletterSubscription {
 	@Test(priority=1)
 	public void ValidateNewsSubscription() throws Exception {
 		try {
+			revlon.acceptPrivecy();
 			revlon.FooterNewletterSubcription();
 		}
 		catch (Exception e) {

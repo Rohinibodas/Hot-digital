@@ -21,6 +21,7 @@ public class RUK_ST_GuestUserBrowserSearch {
 	public void validateGuestuserSearch() throws Exception {
 
 		try {
+			revlon.acceptPrivacy();
 			revlon.SearchProduct("productName");
 			revlon.zerosearchProduct("Zero_Search");
 		}

@@ -21,6 +21,7 @@ public class RUK_MOB_ST_CMSLinks {
 	public void NavigationCMSLinks() throws Exception {
 
 		try {
+			revlon.acceptPrivecy();
 			revlon.navigateCMSLink();
 			revlon.navigateAboutUs();
 			revlon.navigateTermsAndConditions();

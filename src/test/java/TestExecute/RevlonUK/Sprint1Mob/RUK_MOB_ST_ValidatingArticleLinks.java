@@ -21,9 +21,10 @@ public class RUK_MOB_ST_ValidatingArticleLinks {
 	public void ValidateArticleLink() throws Exception {
 
 		try {
+			revlon.acceptPrivecy();
 			revlon.InstaGramArticle();
 			revlon.FacebookArticle();
-			//revlon.youtubeArticle();
+			revlon.youtubeArticle();
 			//revlon.pinterestArticle();
 			
 		}

@@ -21,6 +21,7 @@ public class RUK_MOB_ST_GuestUserBrowserSearch {
 	public void validateGuestUserSearch() throws Exception {
 
 		try {
+			revlon.acceptPrivecy();
 			revlon.SearchProduct("productName");
 			revlon.zerosearchProduct("Zero_Search");
 		}
@@ -42,7 +43,7 @@ public class RUK_MOB_ST_GuestUserBrowserSearch {
     //@Parameters({"device"})
       public void startTest() throws Exception {
         System.setProperty("configFile", "RevlonUK\\config.properties");
-          Login.signIn("chrome","Galaxy S5");
+          Login.signIn("chrome","iPad");
          
       }*/
 	
