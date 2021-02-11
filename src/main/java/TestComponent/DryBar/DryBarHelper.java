@@ -1,12 +1,19 @@
 package TestComponent.DryBar;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.hssf.record.PageBreakRecord.Break;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import TestLib.Automation_properties;
@@ -37,6 +44,16 @@ public DryBarHelper(String datafile){
 		this.report=Utilities.TestListener.report;
 	}
 
+	
+}
+public void agree_and_Proceed() throws Exception{
+	
+	Thread.sleep(5000);
+	Common.findElement("id", "truste-consent-required");
+	int size=Common.findElements("id", "truste-consent-required").size();
+	if(size>0){
+		Common.clickElement("id", "truste-consent-required");
+	}
 	
 }
 
@@ -111,8 +128,9 @@ public void CreateAccount(String dataSet){
 
 public void clickHairProducts(){
 	try{
-	Common.clickElement("xpath", "//span[text()='Hair Products']");
-	Common.assertionCheckwithReport(Common.getPageTitle().equals("Hair Products Drybar | Drybar"), "verifying Hair Product category","User navigate to hair product page","user successfully open the Hair Category page", "user faield to click the Hair Product");
+	Common.clickElement("xpath", "//span[text()='Hair Products']"); 
+	
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Hair Products | Drybar"), "verifying Hair Product category","User navigate to hair product page","user successfully open the Hair Category page", "user faield to click the Hair Product");
 }
 	catch(Exception |Error e) {
 	     
@@ -121,6 +139,24 @@ public void clickHairProducts(){
 		}
 	
 }
+public void select_shampoos(){
+	
+	try{
+		
+	
+	Common.clickElement("xpath", "//div[contains(@class,'desktop_only')]//div[contains(text(),'Shampoos')]");
+	String text=Common.getText("xpath", "//h1[@id='page-title-heading']/span");
+	
+	System.out.println(text);
+	Common.assertionCheckwithReport(Common.getText("xpath", "//h1[@id='page-title-heading']/span").equals("SHAMPOOS"), "verifying Hair Product category shampoos","User navigate to Shampoos product page","user successfully open the Hair Category Shampoos page", "user faield to click the Shampoos Product");
+	}
+	catch(Exception |Error e) {
+	     e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying Shampoos Product category", "User navigate to Shampoos product page", "user faield to click the Shampoos Product", Common.getscreenShotPathforReport("Shampoos"));
+		Assert.fail();
+	}
+}
+
 public void increaseProductQuantity(String Quantity) throws Exception{
 	try{
 	Sync.waitPageLoad();
@@ -172,10 +208,9 @@ public void clickAddtoBag() throws Exception{
 public void clickminiCartButton() throws Exception{
 	try{
 		Thread.sleep(3000);
-	Sync.waitElementPresent("xpath", "//a[contains(@class,'showcart')]");
-    Common.clickElement("xpath", "//a[contains(@class,'showcart')]");
-    
-    Sync.waitElementPresent("id", "top-cart-btn-checkout");
+	    Sync.waitElementPresent("xpath", "//a[contains(@class,'showcart')]");
+        Common.clickElement("xpath", "//a[contains(@class,'showcart')]");
+        Sync.waitElementPresent("id", "top-cart-btn-checkout");
    int checkoutbuttonSize= Common.findElements("id", "top-cart-btn-checkout").size();
    
   Common.assertionCheckwithReport(checkoutbuttonSize>0, "verifying mini cart button", "User click mini cart button", "user successfully click mini cart button", "Failed click mini cart button");
@@ -273,7 +308,8 @@ public void guestShippingAddress(String dataSet) throws Exception{
 	Sync.waitElementPresent("xpath", "//input[@name='telephone']");
 	Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(dataSet).get("phone"));
 	
-	select_USPS_StandardGround_shippingMethod();
+	//select_USPS_StandardGround_shippingMethod();
+	select_Standard_shippingMethod();
     Thread.sleep(5000);
 	
 	Common.clickElement("xpath","//span[text()='Next']");
@@ -416,6 +452,32 @@ try{
 		
 
    //Common.clickElement("Xpath","//span[contains(text(),'My billing and shipping address are the same')]");
+
+
+
+
+
+public void select_Standard_shippingMethod() throws Exception{
+	try{
+		
+		
+		//td[text()='USPS - Standard Ground']
+		
+		Sync.waitElementPresent("xpath", "//td[text()='Standard']");
+	    Common.clickElement("xpath", "//td[text()='Standard']");
+		
+
+	//Sync.waitElementPresent("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
+    //Common.clickElement("xpath", "//label[contains(@for,' label_carrier_matrixrate_5_matrixrate')]");
+
+}
+	 catch(Exception |Error e) {
+		   e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("validating the shipping method  Standard", "click the standard shipping methoad", "faield to click standard shipping methoad",  Common.getscreenShotPathforReport("faieldshipingmethoad"));
+			Assert.fail();
+			
+		}
+}
 	public void select_USPS_StandardGround_shippingMethod() throws Exception{
 		try{
 			
@@ -727,8 +789,9 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 					"user will fill the all the shipping", "user fill the shiping address click save button",
 					"faield to add new shipping address");
 			
-			
-			select_USPS_StandardGround_shippingMethod();
+			select_Standard_shippingMethod();
+
+		//	select_USPS_StandardGround_shippingMethod();
             Thread.sleep(5000);
 			Common.clickElement("xpath", "//div[@id='shipping-method-buttons-container']/div/button");
 			
@@ -749,7 +812,12 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 
 	{
 		try {
-			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+			
+			
+			
+			
+			
+			/*Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
 			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
 					data.get(dataSet).get("LastName"));
 			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
@@ -764,8 +832,7 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 				Common.actionsKeyPress(Keys.BACK_SPACE);
 				Thread.sleep(1000);
 				Common.actionsKeyPress(Keys.SPACE);
-				Common.clickElement("xpath",
-						"//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+				Common.clickElement("xpath","//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
 			}
 			if (data.get(dataSet).get("StreetLine2") != null) {
 				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
@@ -812,6 +879,61 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
 			
 			Thread.sleep(3000);
+			*/
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",
+					data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
+					data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
+					data.get(dataSet).get("Street"));
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.SPACE);
+			Thread.sleep(3000);
+			
+			if (data.get(dataSet).get("StreetLine2") != null) {
+				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
+			}
+			if (data.get(dataSet).get("StreetLine3") != null) {
+				Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
+			}
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(3000);
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",
+					data.get(dataSet).get("City"));
+			// Common.mouseOverClick("name", "region_id");
+			try {
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			} catch (ElementClickInterceptedException e) {
+				// TODO: handle exception
+				Thread.sleep(3000);
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+			}
+			Thread.sleep(2000);
+			Common.textBoxInputClear("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']");
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']",
+					data.get(dataSet).get("postcode"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='telephone']",
+					data.get(dataSet).get("phone"));
+
+			ExtenantReportUtils.addPassLog("validating the shipping address", expectedResult,
+					"user add the shipping address",
+					Common.getscreenShotPathforReport("faield to add shipping address"));
+
+
+		//	Common.clickElement("xpath", "//button[contains(@class,'save-address')]");
+
+			int sizeerrormessage = Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+
+			Common.assertionCheckwithReport(sizeerrormessage <= 0, "verifying shipping addres filling ",
+					"user will fill the all the shipping", "user fill the shiping address click save button",
+					"faield to add new shipping address");
+			
+			select_Standard_shippingMethod();
+		//	select_USPS_StandardGround_shippingMethod();
+            Thread.sleep(5000);
+			Common.clickElement("xpath", "//div[@id='shipping-method-buttons-container']/div/button");
+			
+			
 
 		} catch (Exception | Error e) {
 			e.printStackTrace();
@@ -890,8 +1012,8 @@ public void updateProductInMinicart(String Product){
 
 public void click_View_editcart(){
 	try{
-	Sync.waitElementPresent("xpath", "//span[text()='View and Edit Cart']");
-	Common.clickElement("xpath", "//span[text()='View and Edit Cart']");
+	Sync.waitElementPresent("xpath", "//span[text()='View and Edit Bag']");
+	Common.clickElement("xpath", "//span[text()='View and Edit Bag']");
 	ExtenantReportUtils.addPassLog("verifying the view wdit cart button from mincart page","user after click the  view and edit button it navigate to SHOPPING CART page","User navigate to SHOPPING CART page",Common.getscreenShotPathforReport("SHOPPINGCARTPAGE"));
 	}
 	catch (Exception | Error e) {
@@ -972,7 +1094,7 @@ public void gitCard(String dataSet) throws Exception{
 	
 	Thread.sleep(5000);
 
-//	Common.textBoxInput("id","giftcard-code",data.get(dataSet).get("GiftCardCode"));
+	Common.textBoxInput("id","giftcard-code",data.get(dataSet).get("GiftCardCode"));
 	
 	Common.textBoxInput("id","giftcard-pin",data.get(dataSet).get("GiftCardPin"));
 	
@@ -1087,6 +1209,57 @@ public void forgetpasswordPageValidation(String InvalidData){
 	        }
 	
 }
+
+public void linkValidation(){
+	String homePage=automation_properties.getInstance().getProperty(automation_properties.BASEURL);
+	String url="";
+	HttpURLConnection huc = null;
+	int respCode = 200;
+  List<WebElement> links=Common.findElements("tagName", "a");
+  
+  Iterator<WebElement> it = links.iterator();
+
+  while(it.hasNext()){
+
+	  url = it.next().getAttribute("href");
+
+	  System.out.println(url);
+
+	  if(url == null || url.isEmpty()){
+	  System.out.println("URL is either not configured for anchor tag or it is empty");
+	  continue;
+	  }
+	  if(!url.startsWith(homePage)){
+		  System.out.println("URL belongs to another domain, skipping it.");
+		  continue;
+		  }
+
+		  try {
+		  huc = (HttpURLConnection)(new URL(url).openConnection());
+
+		  huc.setRequestMethod("HEAD");
+
+		  huc.connect();
+
+		  respCode = huc.getResponseCode();
+
+		  if(respCode >= 400){
+		  System.out.println(url+" is a broken link");
+		  }
+		  else{
+		  System.out.println(url+" is a valid link");
+		  }
+
+		  } catch (MalformedURLException e) {
+		  // TODO Auto-generated catch block
+		  e.printStackTrace();
+		  } catch (IOException e) {
+		  // TODO Auto-generated catch block
+		  e.printStackTrace();
+		  }
+		  }
+}
+
 public void hairProducts(){
 /*	try{
 	Sync.waitElementClickable("xpath", "//span[text()='Hair Products']");
