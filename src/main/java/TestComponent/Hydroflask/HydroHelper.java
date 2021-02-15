@@ -328,7 +328,7 @@ public class HydroHelper {
 
 			expectedResult = "Product should add to Cart";
 
-			int cartbuttonsize = Common.findElements("xpath", "//button[@title='Add to Cart']").size();
+			int cartbuttonsize = Common.findElements("xpath", "(//button[@title='Add to Cart'])[2]").size();
 			Common.assertionCheckwithReport(cartbuttonsize > 0, "validating the add product to cart", expectedResult,
 					"Added Product to Cart", "User unabel add product to cart");
 			// report.addPassLog(expectedResult,"Added Product to
@@ -336,7 +336,7 @@ public class HydroHelper {
 		} catch (Exception | Error e) {
 
 			ExtenantReportUtils.addFailedLog("validating the product add to cart", expectedResult,
-					"User unabel to add product to cart", Common.getscreenShotPathforReport("faield to add product"));
+					"User unabel to add product to cart", Common.getscreenShotPathforReport("failed to add product"));
 			// ExtenantReportUtils.addFailedLog("User click check out button",
 			// "User unabel click the checkout button",
 			// Common.getscreenShotPathforReport("check out miniCart"));
@@ -1130,6 +1130,7 @@ public class HydroHelper {
 		// home page"));
 
 		String expectedResult = "User should land on the home page";
+	     Thread.sleep(5000);
 		int size = Common.findElements("xpath", "//a[@class='logo']").size();
 		Common.assertionCheckwithReport(size > 0, "Successfully landed on the home page", expectedResult,
 				"User unabel to land on home page");
@@ -1354,6 +1355,7 @@ public class HydroHelper {
 
 	public void clickContact() throws Exception {
 		String expectedResult = "User should land on the home page";
+		Thread.sleep(5000);
 		int size = Common.findElements("xpath", "//a[@class='logo']").size();
 		Common.assertionCheckwithReport(size > 0, "verifying home page", expectedResult,
 				"Successfully landed on the home page", "User unabel to land on home page");
@@ -1468,12 +1470,14 @@ public class HydroHelper {
 			Sync.waitElementPresent("xpath", "//input[contains(@id,'billing_name')]");
 			Common.clickElement("xpath", "//input[contains(@id,'billing_name')]");
 			Common.textBoxInput("xpath", "//input[contains(@id,'billing_name')]", data.get(dataSet).get("BillName"));
-
-			Sync.waitElementPresent("xpath", "//textarea[contains(@id,'TextInputPlaceholder_94')]");
-			Common.clickElement("xpath", "//textarea[contains(@id,'TextInputPlaceholder_94')]");
-			Common.textBoxInput("xpath", "//textarea[contains(@id,'TextInputPlaceholder_94')]",
+            
+			//Sync.waitElementPresent("xpath", "//textarea[contains(@id,'TextInputPlaceholder_94')]");
+			Sync.waitElementPresent("xpath" , "//textarea[contains(@id, 'rn_TextInputPlaceholder_96')]");
+			Common.clickElement("xpath" , "//textarea[contains(@id, 'rn_TextInputPlaceholder_96')]");
+			//Common.clickElement("xpath", "//textarea[contains(@id,'TextInputPlaceholder_94')]");
+			Common.textBoxInput("xpath", "//textarea[contains(@id, 'rn_TextInputPlaceholder_96')]",
 					data.get(dataSet).get("Question*"));
-			Common.clickElement("xpath", "//button[@id='rn_FormSubmit_95_Button']");
+			Common.clickElement("xpath", "//button[@id='rn_FormSubmit_97_Button']");
 			Thread.sleep(7000);
 		}
 
@@ -1535,6 +1539,7 @@ public class HydroHelper {
 
 	public void clickProDeal() throws Exception {
 		String expectedResult = "User should land on the home page";
+		Thread.sleep(5000);
 		int size = Common.findElements("xpath", "//a[@class='logo']").size();
 		Common.assertionCheckwithReport(size > 0, "verifying home page", expectedResult,
 				"Successfully landed on the home page", "User unabel to land on home page");
@@ -1672,6 +1677,7 @@ public class HydroHelper {
 
 		String expectedResult = "User should land on the home page";
 		try {
+			Thread.sleep(5000);
 			int size = Common.findElements("xpath", "//a[@class='logo']").size();
 			Common.assertionCheckwithReport(size > 0, "Successfully landed on the home page", expectedResult,
 					"User unabel to land on home page");
@@ -1786,11 +1792,12 @@ public class HydroHelper {
 			Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[2]/div[1]/button");
 			Thread.sleep(4000);
             Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]/div[1]/button");
-
+            //This code will be commited in production. for jetrails need to uncomment this.
+            
+            
 			Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
 			Thread.sleep(4000);
 			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
-
 			Thread.sleep(5000);
 
 			expectedResult = "It should land successfully on my-hydro-landing page";
@@ -1992,8 +1999,12 @@ public class HydroHelper {
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
 		try {
 
-			Sync.waitElementPresent("xpath", "//img[contains(@src,'hibiscus')]");
-			Common.clickElement("xpath", "//img[contains(@src,'hibiscus')]");
+			//Sync.waitElementPresent("xpath", "//img[contains(@alt,'18 oz Standard Mouth - Pineapple')]");
+			//Common.clickElement("xpath", "//img[contains(@alt,'18 oz Standard Mouth - Pineapple')]");
+			
+			Sync.waitElementPresent("xpath", "//img[contains(@alt,'18 oz Standard Mouth - hibiscus')]");
+			Common.clickElement("xpath", "//img[contains(@alt,'18 oz Standard Mouth - hibiscus')]");
+			
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
@@ -2104,6 +2115,8 @@ public class HydroHelper {
 					"verifying review success message", expectedResult, "Your review was submitted",
 					"User missing filed valied data in review page");
 		} catch (Exception | Error e) {
+			e.printStackTrace();
+		
 			ExtenantReportUtils.addFailedLog("verifying review success message", "User submit the review",
 					"User failed to fill the all the infromation in review page",
 					Common.getscreenShotPathforReport("reviwPagesubmit"));
