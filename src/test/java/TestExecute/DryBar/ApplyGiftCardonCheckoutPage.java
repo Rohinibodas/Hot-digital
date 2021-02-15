@@ -17,7 +17,9 @@ public class ApplyGiftCardonCheckoutPage {
 	//  drybar.clickMyaccount();
 	  try{
 	  drybar.clickHairProducts();
+	  drybar.select_shampoos();
 	  drybar.selectproduct("ProductName");
+	  
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
@@ -43,7 +45,7 @@ public class ApplyGiftCardonCheckoutPage {
   @AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	

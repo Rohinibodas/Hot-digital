@@ -1,5 +1,6 @@
 package TestExecute.DryBar;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -16,10 +17,13 @@ public class Guest_Checkout_CreditCard {
 	//DryBarMobile drybar=new DryBarMobile(datafile);
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void guest_Checkout_CreditCard() throws Exception {
-	   drybar.clickMyaccount();
+  public void guest_Checkout_CreditCard(){
+		  try{
+		drybar.agree_and_Proceed();
+	  // drybar.clickMyaccount();
 	  //drybar.clicktreebarmenu();
 	  drybar.clickHairProducts();
+	  drybar.select_shampoos();
 	  drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
@@ -31,6 +35,13 @@ public class Guest_Checkout_CreditCard {
 	  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 	  drybar.creditCard_payment("PaymentDetails");
 	  drybar.order_Verifying();
+	  
+  }
+	  catch (Exception e) {
+		  e.printStackTrace();
+			
+			Assert.fail(e.getMessage(), e);
+		} 
   }
   
 	//ul[contains(@class,'header links')]/li[2]/a
@@ -38,7 +49,7 @@ public class Guest_Checkout_CreditCard {
   @AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	

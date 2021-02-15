@@ -18,6 +18,7 @@ public class RegisteredUserCheckoutwith_invalid_CC_Credentials {
 		try {
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
+			  drybar.select_shampoos();
 			  drybar.clickHairProducts();
 			  drybar.selectproduct("ProductName");
 			  drybar.increaseProductQuantity("2");

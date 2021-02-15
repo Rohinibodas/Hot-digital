@@ -20,13 +20,13 @@ public class RegisteredUser_Checkout_CreditCard {
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
 			  drybar.clickHairProducts();
+			  drybar.select_shampoos();
 			  drybar.selectproduct("ProductName");
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment("PaymentDetails");
 			  drybar.order_Verifying();
@@ -46,7 +46,7 @@ public class RegisteredUser_Checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	

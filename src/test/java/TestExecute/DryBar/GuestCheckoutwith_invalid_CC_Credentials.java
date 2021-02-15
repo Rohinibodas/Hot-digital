@@ -18,6 +18,7 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
 	  try{
 	  drybar.clickHairProducts();
 	  drybar.selectproduct("ProductName");
+	  drybar.select_shampoos();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();

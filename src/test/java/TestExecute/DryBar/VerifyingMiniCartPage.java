@@ -37,7 +37,7 @@ public class VerifyingMiniCartPage {
   @AfterTest
  	public void clearBrowser()
  	{
- 		Common.closeAll();
+ 		//Common.closeAll();
 
  	}
  	

@@ -17,7 +17,9 @@ public class ApplyOfferCodeonCheckoutPage {
 		 
 		try{
 		  drybar.clickHairProducts();
+		  drybar.select_shampoos();
 		  drybar.selectproduct("ProductName");
+		  //drybar.select_shampoos();
 		  drybar.increaseProductQuantity("2");
 		  drybar.clickAddtoBag();
 		  drybar.clickminiCartButton();
@@ -36,7 +38,7 @@ public class ApplyOfferCodeonCheckoutPage {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+//	Common.closeAll();
 
 	}
 	
