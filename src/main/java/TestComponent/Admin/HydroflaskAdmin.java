@@ -1,18 +1,22 @@
 package TestComponent.Admin;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 
@@ -22,7 +26,11 @@ import TestLib.Login;
 import TestLib.Sync;
 import Utilities.ExcelReader;
 import Utilities.ExtenantReportUtils;
+import Utilities.Listener;
+import Utilities.StatusMail;
+import models.admin.HealthCheck;
 
+//@Listeners(Listener.class)
 public class HydroflaskAdmin {
 
 	Map<String, Map<String, String>> data = new HashMap<>();
@@ -35,64 +43,79 @@ public class HydroflaskAdmin {
 	static  Map<String,String> GoogleInsight=new HashMap<String,String>();
 	static  Map<String,Boolean> helthCheckStatus=new HashMap<String,Boolean>();
 	
+	
+	HealthCheck health=new HealthCheck();
+	
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
+	
 	public void createAccount() throws Exception {
 
 		try {
-	       AdminLogin();
-       
+	      AdminLogin();
+			//dateValidaiton();
+	        health.setSiteName("hydroflask");
 	       
 	       //CronJob Status
-	       navigateCronTaskList();
+	        navigateCronTaskList();
 	        GetCronTaskStatus();
-	        System.out.println(cronJobStatus());
+	        cronJobStatus();
 	        
 	        
 	       //ExportExecutionlog
 	        navigateExportExecutionLog();
 	        GetOrderExportStatus();
-	        System.out.println(OrderExportProcess());
+	        OrderExportProcess();
 	        
 	        
 	        //OrderImport
 	        navigateImportExecutionLog();
 	        GetOrderImportStatus();
-	         System.out.println(OrderExportProcess());
+	        OrderImportProcess();
 	         
 	         //Index management
-	         navigateIndexManagement();
+	        navigateIndexManagement();
 	        GetIndexManagement();
-	        System.out.println(IndexMangementStatus());
+	        IndexMangementStatus();
 	        
 	        //OrdersInformation
-	       navigateOrders();
+	       /* navigateOrders();
 	        Thread.sleep(2000);
 	        GetOrderStatus();
-	        System.out.println(OrderCronStatus());
+	        OrderCronStatus();*/
 	       
 	        //Processing Order
 	        navigateOrders();
-		       GetOrderStatus("Processing","Canada");
-		       System.out.println(OrderCronStatus());
+	        /* GetOrderStatus("Processing","Canada");
+		       System.out.println(OrderCronStatus());*/
 		       
 		       GetOrderStatus("Processing","Default Store View");
-		       System.out.println(OrderCronStatus());
+		       OrderCronStatus();
 		       
-		       GetOrderStatus("Pending","Canada");
+		       GetOrderStatus("Pending","Default Store View");
+		       OrderCronStatus();
+		       
+		      /* GetOrderStatus("Pending","Canada");
 		       System.out.println(OrderCronStatus());
 		       
 		       GetOrderStatus("Pending","Default Store View");
-		       System.out.println(OrderCronStatus());
+		       System.out.println(OrderCronStatus());*/
 		       
 		      //Googleinsight
-	       // checkGoogleInsights("https://www.hydroflask.com/");
+	       checkGoogleInsights("https://www.hydroflask.com/");
+	        //Listener.healthCheck.put("Hydroflask", health);
+	       // System.out.println(Listener.healthCheck);
+	        
 		}
 		catch (Exception e) {
 			
 			Assert.fail(e.getMessage(), e);
 		} 
+		finally {
+			Listener.healthCheck.put("Hydroflask", health);
+			StatusMail.sendHealthCheckReport();
+		}
 	}
 	
 public HydroflaskAdmin() {
@@ -109,19 +132,41 @@ public HydroflaskAdmin() {
 		}
 	}
 
+
+	public long dateValidaiton(String dateValue) throws ParseException
+	{	
+		//String dateValue="Oct 20, 2020 8:16:17 AM";
+		SimpleDateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+		Date date = format.parse(dateValue);
+		Date todayDate = new Date();
+		long diffInMillies = Math.abs(todayDate.getTime() - date.getTime());
+	    long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+	    System.out.println(diff);
+	    return diff;
+		
+	}
 	public void checkGoogleInsights(String url) throws Exception
 	{
+		try {
 		Common.getDriver().get("https://developers.google.com/speed/pagespeed/insights/");
 		Common.textBoxInput("xpath", "//input[@name='url']", url);
 		Common.actionsKeyPress(Keys.ENTER);
-		Common.isElementVisibleOnPage(30, "xpath", "//*[@id=\"page-speed-insights\"]/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[1]/a/div[2]");
+		Common.isElementVisibleOnPage(60, "xpath", "//*[@id=\"page-speed-insights\"]/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[1]/a/div[2]");
 		String mobile=Common.getText("xpath", "//*[@id=\"page-speed-insights\"]/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[1]/a/div[2]");
 		Common.clickElement("xpath", "//div[text()='Desktop']");
 		String desktop=Common.getText("xpath", "//*[@id=\"page-speed-insights\"]/div[2]/div[2]/div[2]/div[2]/div[1]/div/div[1]/a/div[2]");
 		System.out.println("mobile=======>"+mobile);
 		System.out.println("mobile=======>"+desktop);
+		health.setGoogleInsightMobile(Integer.parseInt(mobile));
+		health.setGoogleInsightWeb(Integer.parseInt(desktop));
 		GoogleInsight.put("Mobile", mobile);
 		GoogleInsight.put("Desktop", desktop);
+		}
+		catch(Exception e)
+		{
+			health.setGoogleInsightMobile(0);
+			health.setGoogleInsightWeb(0);
+		}
 	}
 	public void AdminLogin() throws Exception
 	{
@@ -178,6 +223,13 @@ public HydroflaskAdmin() {
 				}
 			}
 			helthCheckStatus.put("cronJobStatus", status);
+			if(status)
+			{	
+			health.setCronJob("Passed");
+			}
+			else {
+				health.setCronJob("Failed");
+			}
 			return status;
 			
 		}
@@ -242,6 +294,13 @@ public HydroflaskAdmin() {
 				}
 			}
 			helthCheckStatus.put("orderExport", status);
+			if(status)
+			{	
+			health.setOrderExport("Passed");
+			}
+			else {
+				health.setOrderExport("Failed");
+			}
 			return status;
 			
 		}
@@ -263,14 +322,26 @@ public HydroflaskAdmin() {
 				}
 			}
 			helthCheckStatus.put("orderExport", status);
+			if(status)
+			{	
+			health.setOrderImport("Passed");
+			}
+			else {
+				health.setOrderImport("Failed");
+			}
 			return status;
 			
 		}
 		
-		public boolean OrderCronStatus()
+		public boolean OrderCronStatus() throws ParseException
 		{
 			boolean status=true;
-			
+			String date=Common.getText("xpath", "//*[@id='container']/div/div[4]/table/tbody/tr[1]/td[4]/div");
+			if(dateValidaiton(date)>5)
+			{
+				return false;
+			}
+		
 			Set<String> keys=orderData.keySet();
 			//DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
 			//Date date = format.parse(string);
@@ -285,6 +356,13 @@ public HydroflaskAdmin() {
 				}
 				
 			}}
+			if(status)
+			{	
+			health.setOrderTrackingStatus("Passed");
+			}
+			else {
+				health.setOrderTrackingStatus("Failed");
+			}
 			helthCheckStatus.put("OrderCronStatus", status);
 			return status;
 			
@@ -308,6 +386,13 @@ public HydroflaskAdmin() {
 				}
 			}
 			helthCheckStatus.put("IndexManagement", status);
+			if(status)
+			{	
+			health.setIndexManagement("Passed");
+			}
+			else {
+				health.setIndexManagement("Failed");
+			}
 			return status;
 			
 		}
@@ -356,9 +441,9 @@ public HydroflaskAdmin() {
 		orderData=cronData;
 	}
 	
-		public int GetOrderStatus(String status, String view) throws Exception
+		public String GetOrderStatus(String status, String view) throws Exception
 		{	
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			String strorevalue="1";
 			if(view.equalsIgnoreCase("Default Store View"))	
 			{
@@ -368,12 +453,28 @@ public HydroflaskAdmin() {
 			{
 				strorevalue="3";
 			}
+			
 			Common.clickElement("xpath", "//button[text()='Filters']");
 			Common.dropdown("xpath", "//select[@name='store_id']", Common.SelectBy.VALUE, strorevalue);
 			//Common.actionsKeyPress(Keys.ARROW_DOWN);
 			//Thread.sleep(2000);
 			Common.dropdown("xpath", "//select[@name='status']", Common.SelectBy.TEXT, status);
 			Common.clickElement("xpath", "//span[text()='Apply Filters']");
+			Thread.sleep(5000);
+			String date=Common.getText("xpath", "//*[@id='container']/div/div[4]/table/tbody/tr[1]/td[4]/div");
+			System.out.println("Date----->"+date);
+			if(dateValidaiton(date)>5)
+			{
+				Common.clickElement("xpath", "//*[@id='container']/div/div[4]/table/thead/tr/th[4]");
+				Thread.sleep(4000);
+				if(Common.getText("xpath", "//*[@id='container']/div/div[4]/table/tbody/tr[1]/td[4]/div")==date)
+				{
+					Common.clickElement("xpath", "//*[@id='container']/div/div[4]/table/thead/tr/th[4]");
+					Thread.sleep(4000);
+				}
+			}
+			String noOfRecords=Common.getText("xpath", "//*[@id='container']/div/div[3]/div/div[1]/div/div[2]");
+			noOfRecords=noOfRecords.split("records found")[0];//.split("records found")[0].trim();
 			List<WebElement> rows=Common.findElements("xpath", "//*[@id='container']/div/div[4]/table/tbody/tr[*]");
 			
 			Map<String, Map<String,String> > cronData=new HashMap<String, Map<String,String>>();
@@ -390,11 +491,22 @@ public HydroflaskAdmin() {
 				cronData.put(data.get("Purchase Point"), data);
 				
 			}
-			String noOfRecords=Common.getText("xpath", "//*[@id='container']/div/div[2]/div[2]/div[2]/div/div[1]/div").split("records found")[0].trim();
+			 noOfRecords=Common.getText("xpath", "//*[@id='container']/div/div[3]/div/div[1]/div/div[2]");
+			noOfRecords=noOfRecords.split("records found")[0];//.split("records found")[0].trim();
+		
 			System.out.println("no of orders=====>"+noOfRecords);
+			noOfRecords=noOfRecords.trim();
+			if(status.equalsIgnoreCase("Pending"))
+			{
+				//health.setOrderTrackingCurrent(Integer.parseInt(noOfRecords));
+				health.setOrderTrackingCurrent(300);
+			}else {
+				health.setOrderTrackingPrevious(250);
+			//health.setOrderTrackingPrevious(Integer.parseInt(noOfRecords));
+				}
 		System.out.println(cronData);
 		orderData=cronData;
-		return Integer.parseInt(noOfRecords);
+		return noOfRecords;
 	}
 	
 	public void navigateCronTaskList() throws InterruptedException

@@ -33,7 +33,7 @@ import TestLib.Driver;
 		public static String DBUName = null, DBPwd = null, DBURL = null, DBDriver = null;
 		public static int SUMMARYFLAG;
 		
-		public static String to=Automation_properties.getInstance().getProperty("ReportEmail"),cc="makoppanadam@helenoftroy.com",subject="Hydroflask Smoke Test Reports",attachmentPath="",attachmentPath1="";
+		public static String to=Automation_properties.getInstance().getProperty("ReportEmail")+",makoppanadam@helenoftroy.com",cc="makoppanadam@helenoftroy.com",subject="Hydroflask Smoke Test Reports",attachmentPath="",attachmentPath1="";
 		
 		
 		
@@ -57,11 +57,19 @@ import TestLib.Driver;
 			triggerSendMail();
 		}
 
+		 public static void sendHealthCheckReport() throws Exception
+	        {
+	            System.out.println(Automation_properties.getInstance().getProperty("ReportEmail"));
+	            subject="Health Check Report";
+	            attachmentPath=System.getProperty("user.dir")+"/src/test/resources/MailTemplates/HealthCheckreport.html" ;
+	            attachmentPath=HTMLPreparation.generateMail("healthReport");           
+	            triggerSendMail();
+	        }
 		
 		public static void triggerSendMail()
 		{
 			String userName="makoppanadam@helenoftroy.com";
-			String passWord= "Alvwabulxry1!";
+			String passWord= "Tiieddbutcy2!";
 			String host="10.10.10.250";
 			String port="25";
 			String starttls="false";

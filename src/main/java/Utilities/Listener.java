@@ -46,6 +46,7 @@ import TestLib.Automation_properties;
 import TestLib.Common;
 import TestLib.Driver;
 import TestLib.Retry;
+import models.admin.HealthCheck;
 
 
 public class Listener implements  ISuiteListener,ITestListener {
@@ -70,6 +71,9 @@ public class Listener implements  ISuiteListener,ITestListener {
 
 	public static volatile int sessionCount=1;
 	public static int totalTestCases=0;
+	 public static Map<String,HealthCheck> healthCheck=new HashMap<String,HealthCheck>();
+	    public static boolean doHealthCheck=false;
+
 	
 	// This belongs to ISuiteListener and will execute before the Suite start
 	@Override
@@ -166,6 +170,9 @@ public class Listener implements  ISuiteListener,ITestListener {
 				}
 				
 			}
+			 if(doHealthCheck) {
+	                StatusMail.sendHealthCheckReport();
+	            }
 //			System.out.println("GetClassNameHitCount"+HA.SeleniumLib.Common.getClassNameHitCount);
 //			System.out.println("GetClassNameMetrics"+HA.SeleniumLib.Common.getClassNameMetrics);
 			logger.info(Suite,"===============================================");
