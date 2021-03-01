@@ -16,6 +16,7 @@ public class ApplyGiftCardonCheckoutPage {
   public void applyGiftCardonCheckoutPage() throws Exception {
 	//  drybar.clickMyaccount();
 	  try{
+		  
 	  drybar.clickHairProducts();
 	  drybar.select_shampoos();
 	  drybar.selectproduct("ProductName");
