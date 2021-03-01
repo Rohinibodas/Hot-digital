@@ -247,6 +247,8 @@ public class VickshumdifierHelper {
 			Common.findElement("xpath", "//button[@class='action submit primary']").click();
 			ExtenantReportUtils.addPassLog("Verfing forgot password", "user can successfully  rest password", "user can successfully  rest password", Common.getscreenShotPathforReport("user  successfully  rested password"));
 		}	
+			
+			
 			catch(Exception |Error e) {
 				e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Verfing forgot password", "user can successfully  rest password", "user can successfully  rest password",Common.getscreenShotPathforReport("faield to rest password"));
