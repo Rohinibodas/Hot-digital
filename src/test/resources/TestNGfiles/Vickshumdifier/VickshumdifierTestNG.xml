@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="VicksSuite Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+
+	<test name="TEST_VK_ST_00- Login for Vicks" testid="OUS23-703"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.Vickshumdifier_login" />
+		</classes>
+	</test>
+	<test name="TEST_VK_ST_00- add to cart" testid="PPH-979"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_addtocart" />
+		</classes>
+
+
+	</test>
+	<test name="TEST_VK_ST_00- Cart Validation" testid="PPH-979"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Cartvalidating" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_00- Click humdifier and vaporizers" testid="PPH-1016"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_clickonHumidifiers_vaporizers" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_00- forgot password" testid="PPH-994"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_forgotpassword" />
+		</classes>
+
+	</test>
+
+	<test name="TEST_VK_ST_00- guest user check out with master card"
+		testid="PPH-1075" priority="P1"
+		description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class
+				name="TestExecute.Vickshumdifier.VK_guestusercheckout_withmastercard" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_00- Logout" testid="PPH-" priority="P1"
+		description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Logout" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_00- mastercard" testid="PPH-"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Mastercard" />
+		</classes>
+
+	</test>
+
+	<test name="TEST_VK_ST_00- my order" testid="PPH-" priority="P1"
+		description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_myordere" />
+		</classes>
+
+	</test>
+
+	<test name="TEST_VK_ST_00- Register user check out with master card"
+		testid="PPH-1068" priority="P1"
+		description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class
+				name="TestExecute.Vickshumdifier.VK_Registerusercheckout_withmastercard" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_00- search" testid="PPH-1002" priority="P1"
+		description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_search" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_selectingproduct" testid="PPH-"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_selectingproduct" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_00- shippingaddress" testid="PPH-"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_shippingaddress" />
+		</classes>
+
+	</test>
+	<test name="TEST_VK_ST_00- New account creation" testid="PPH-979"
+		priority="P1" description="This script will cover guest user checkout for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Newaccountcreation" />
+		</classes>
+
+	</test>
+
+</suite>
