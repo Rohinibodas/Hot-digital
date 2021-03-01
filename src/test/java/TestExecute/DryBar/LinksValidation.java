@@ -11,7 +11,7 @@ public class LinksValidation {
 	DryBarHelper drybar=new DryBarHelper(datafile);
   @Test
   public void f() {
-	  drybar.linkValidation();
+	  //drybar.linkValidation();
 	  
   }
   @BeforeTest
