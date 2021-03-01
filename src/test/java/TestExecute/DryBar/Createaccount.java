@@ -22,7 +22,8 @@ public class Createaccount {
   public void createaccount() throws Exception {
 	//  drybar.clickMyaccount();
 		try{
-	  
+	  drybar.Accept();
+	  drybar.verifyingHomePage();
 	  drybar.CreateAccount("AccountDetails");
 	  
   }
@@ -37,7 +38,7 @@ public class Createaccount {
   @AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

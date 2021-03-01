@@ -14,9 +14,10 @@ public class ValidatingHeaderLinks {
 	DryBarHelper drybar=new DryBarHelper(datafile);
 
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  
   public void validatingHeaderLinks()  {
 	  try {
+	  drybar.Accept();
+	  drybar.verifyingHomePage();
 	  drybar.headLinksValidations("HeaderLinks");
   }
   

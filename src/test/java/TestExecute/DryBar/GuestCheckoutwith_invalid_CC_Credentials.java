@@ -16,9 +16,12 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void guestCheckoutwith_invalid_CC_Credentials() {
 	  try{
-	  drybar.clickHairProducts();
-	  drybar.selectproduct("ProductName");
-	  drybar.select_shampoos();
+	   drybar.Accept();
+	   //drybar.Guestuser_PDP();
+	   drybar.Search_productname("ProductName");
+		  drybar.Verify_PDP();
+	//  drybar.clickHairProducts();
+	  //drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();

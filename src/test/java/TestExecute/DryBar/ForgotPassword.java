@@ -17,9 +17,9 @@ public class ForgotPassword {
   public void forgotPassword() throws Exception {
 	 
 		try{
-			drybar.navigateMyAccount();
-		
-	  drybar.click_forgotpassword();
+			 drybar.Accept();
+			 drybar.navigateMyAccount();
+		     drybar.click_forgotpassword();
   }
 	catch (Exception e) {
 		e.printStackTrace();

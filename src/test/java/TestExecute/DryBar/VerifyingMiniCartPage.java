@@ -16,8 +16,13 @@ public class VerifyingMiniCartPage {
   @Test
   public void verifyingMiniCartPage() throws Exception {
 	try{
-	  drybar.clickHairProducts();
-	  drybar.selectproduct("ProductName");
+		drybar.Accept();
+		drybar.verifyingHomePage();
+		//drybar.Guestuser_PDP();
+		 drybar.Search_productname("ProductName");
+		  drybar.Verify_PDP();
+	  //drybar.clickHairProducts();
+	  //drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("5");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
@@ -25,7 +30,7 @@ public class VerifyingMiniCartPage {
 	  drybar.click_View_editcart();
 	 // drybar.edit_ShopingCart();
 	  drybar.changeQuntity_UpdateProduct("5");
-	  drybar.click_ContinueShopping();
+	  //drybar.click_ContinueShopping();
 	//  drybar.addproductInMiniCartPage();
   }
   catch (Exception e) {
