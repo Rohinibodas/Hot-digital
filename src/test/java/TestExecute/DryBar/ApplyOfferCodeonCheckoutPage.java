@@ -16,10 +16,12 @@ public class ApplyOfferCodeonCheckoutPage {
   public void applyOfferCodeonCheckoutPage() throws Exception {
 		 
 		try{
-		  drybar.clickHairProducts();
-		  drybar.select_shampoos();
-		  drybar.selectproduct("ProductName");
-		  //drybar.select_shampoos();
+		  drybar.Accept();
+		 // drybar.Guestuser_PDP();
+		  drybar.Search_productname("ProductName");
+		  drybar.Verify_PDP();
+		  //drybar.clickHairProducts();
+		  //drybar.selectproduct("ProductName");
 		  drybar.increaseProductQuantity("2");
 		  drybar.clickAddtoBag();
 		  drybar.clickminiCartButton();
@@ -38,7 +40,7 @@ public class ApplyOfferCodeonCheckoutPage {
 	@AfterTest
 	public void clearBrowser()
 	{
-//	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	

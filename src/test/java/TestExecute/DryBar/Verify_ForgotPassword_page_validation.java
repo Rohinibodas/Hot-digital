@@ -22,6 +22,7 @@ public class Verify_ForgotPassword_page_validation {
 
 public void verify_ForgotPassword_page_validation() throws Exception {
 		try{
+	  drybar.Accept();
 	  drybar.navigateMyAccount();
 	  drybar.forgetpasswordPageValidation("123");
 }
