@@ -14,7 +14,7 @@ public class VicksRegisterusercheckoutwithvisacard {
 	VickshumdifierHelper Vickshumdifier=new VickshumdifierHelper(datafile);
 	@Test(priority=1)
 	public void Searchproducr() throws Exception {
-		
+	
 		try {
 			Vickshumdifier.Verifyhomepage();
 			Vickshumdifier.loginVicks("AccountDetails");
