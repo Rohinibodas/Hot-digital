@@ -16,6 +16,7 @@ public class VicksLogout {
 	public void loginApplication() throws Exception {
 
 		try {
+			
 			Vickshumdifier.Verifyhomepage();
 			Vickshumdifier.loginVicks("AccountDetails");
 			Vickshumdifier.Logout();
