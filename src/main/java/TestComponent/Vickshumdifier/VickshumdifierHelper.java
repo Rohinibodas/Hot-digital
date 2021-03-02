@@ -2,11 +2,8 @@ package TestComponent.Vickshumdifier;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
-
 import TestComponent.Vickshumdifier.VickshumdifierHelper;
 import TestLib.Common;
 import TestLib.Sync;
@@ -48,9 +45,9 @@ public class VickshumdifierHelper {
 					Thread.sleep(5000);
 					Sync.waitElementClickable("xpath", "//a[@class='logo']");
 					Common.clickElement("xpath", "//a[@class='logo']");
-					
-				ExtenantReportUtils.addPassLog("Should login with details", "Should display My Account Page with user details", "My Account Pae with user details displayed successfully", Common.getscreenShotPathforReport("Login page with details Failed"));
-			}catch(Exception |Error e)
+					ExtenantReportUtils.addPassLog("Should login with details", "Should display My Account Page with user details", "My Account Pae with user details displayed successfully", Common.getscreenShotPathforReport("Login page with details Failed"));
+			}
+			catch(Exception |Error e)
 			{
 				ExtenantReportUtils.addFailedLog("Should login with details","Should display  My Account Page with user details", "My Account Page with user details not displayed", Common.getscreenShotPathforReport("Login page with details Failed"));
 				Assert.fail();
@@ -62,26 +59,25 @@ public class VickshumdifierHelper {
 			
 			try{
 				Thread.sleep(5000);
-			Common.clickElement("xpath", "//a[@class='header-content__right-link']");
-			Sync.waitElementClickable("xpath", "//a[@class='action create primary']");
-			Common.clickElement("xpath", "//a[@class='action create primary']");
-			ExtenantReportUtils.addPassLog("verifying Create Account button", "It should lands on Create New Customer from Account form Page", "user  lands on Customer Account creation form Page", Common.getscreenShotPathforReport("createaccount"));
-			}
+			    Common.clickElement("xpath", "//a[@class='header-content__right-link']");
+			    Sync.waitElementClickable("xpath", "//a[@class='action create primary']");
+			    Common.clickElement("xpath", "//a[@class='action create primary']");
+			    ExtenantReportUtils.addPassLog("verifying Create Account button", "It should lands on Create New Customer from Account form Page", "user  lands on Customer Account creation form Page", Common.getscreenShotPathforReport("createaccount"));
+			   }
 			catch(Exception |Error e) {
-				e.printStackTrace();
-			        ExtenantReportUtils.addFailedLog("verifying Create Account button", "It should lands on Create New Customer from Account form Page", "user faield lands on Account form Page", Common.getscreenShotPathforReport("createaccount"));
-					Assert.fail();
+			    e.printStackTrace();
+			      ExtenantReportUtils.addFailedLog("verifying Create Account button", "It should lands on Create New Customer from Account form Page", "user faield lands on Account form Page", Common.getscreenShotPathforReport("createaccount"));
+				  Assert.fail();
 				}
 			
 			try{
-			Common.textBoxInput("id", "firstname",data.get(dataSet).get("FirstName"));
-		    Common.textBoxInput("id", "lastname",data.get(dataSet).get("LastName"));
-			Common.textBoxInput("id", "email_address",data.get(dataSet).get("Email"));
-			Common.textBoxInput("id", "password",data.get(dataSet).get("Password"));
-			Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
-			Common.clickElement("xpath", "//button[@title='Create an Account']");
-			
-			}
+			    Common.textBoxInput("id", "firstname",data.get(dataSet).get("FirstName"));
+		        Common.textBoxInput("id", "lastname",data.get(dataSet).get("LastName"));
+			    Common.textBoxInput("id", "email_address",data.get(dataSet).get("Email"));
+			    Common.textBoxInput("id", "password",data.get(dataSet).get("Password"));
+			    Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
+			    Common.clickElement("xpath", "//button[@title='Create an Account']");
+			   }
 			 catch(Exception |Error e) {
 			        ExtenantReportUtils.addFailedLog("verifying Create Account from", "Account should be created successfully navigate to My Account page", "user faield to create account", Common.getscreenShotPathforReport("createaccountfaield"));
 					Assert.fail();
@@ -94,7 +90,7 @@ public class VickshumdifierHelper {
 			Thread.sleep(6000);
 			Sync.waitElementClickable("xpath", "(//a[@class='pagebuilder-button-primary clear'])[1]");
 			Common.clickElement("xpath", "(//a[@class='pagebuilder-button-primary clear'])[1]");
-	ExtenantReportUtils.addPassLog("verifying category Humdifiers & Vaporizers","lands on Humdifiers & Vaporizers", "User lands on the Humdifiers & Vaporizers", Common.getscreenShotPathforReport("faield to click"));
+	        ExtenantReportUtils.addPassLog("verifying category Humdifiers & Vaporizers","lands on Humdifiers & Vaporizers", "User lands on the Humdifiers & Vaporizers", Common.getscreenShotPathforReport("faield to click"));
 			}
 	       catch(Exception |Error e) {
 	    	   e.printStackTrace();

@@ -13,6 +13,7 @@ public class VK_forgotpassword {
 	String datafile = "Vickshumdifier//Vickstestdata.xlsx";	
 	VickshumdifierHelper Vickshumdifier=new VickshumdifierHelper(datafile);
 	@Test(priority=1)
+	
 	public void loginApplication() throws Exception {
 
 		try {
