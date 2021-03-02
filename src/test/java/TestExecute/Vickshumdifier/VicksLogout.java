@@ -14,7 +14,6 @@ public class VicksLogout {
 	VickshumdifierHelper Vickshumdifier=new VickshumdifierHelper(datafile);
 	@Test(priority=1)
 	public void loginApplication() throws Exception {
-
 		try {
 			Vickshumdifier.Verifyhomepage();
 			Vickshumdifier.loginVicks("AccountDetails");
