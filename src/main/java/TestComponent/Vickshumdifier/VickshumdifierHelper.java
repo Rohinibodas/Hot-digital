@@ -3,12 +3,14 @@ package TestComponent.Vickshumdifier;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
 import TestComponent.Vickshumdifier.VickshumdifierHelper;
 import TestLib.Common;
 import TestLib.Sync;
+import TestLib.Common.SelectBy;
 import Utilities.ExcelReader;
 import Utilities.ExtenantReportUtils;
 
@@ -115,7 +117,7 @@ public class VickshumdifierHelper {
 			}	
 			
 			}
-		public void addtocar ()throws Exception{
+		public void addtocart ()throws Exception{
 			String expectedResult="Product should add to cart";
 			try{
 			Thread.sleep(1000);
@@ -155,7 +157,7 @@ public class VickshumdifierHelper {
 				
 				Sync.waitElementPresent("xpath", "//input[@name='street[0]']");
 				Common.textBoxInput("xpath", "//input[@name='street[0]']", data.get(datSet).get("Street"));
-				Thread.sleep(2000);
+				Thread.sleep(8000);
 				Common.clickElement("xpath", "(//a[@class='dropdown-item list-item'])[2]");
 				Thread.sleep(5000);
 				Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(datSet).get("phone"));
@@ -171,29 +173,44 @@ public class VickshumdifierHelper {
 				} 
 		}	
 		public void carddetails(String dataSet){
-			String expectedResult="card details";
-			try{
-				Thread.sleep(3000);
-				//Sync.waitElementClickable("xpath", "//select[@id='c-ct']");
-				Common.clickElement("xpath", "//select[@xi-name='Card Type']");
-				Common.mouseOverClick("xpath", "//option[contains(text(),'MasterCard')]");
-				Common.textBoxInput("xapth", "//input[@id='c-cardnumber']", data.get(dataSet).get("cardNumber"));
+			String expectedResult="Payment With Valid Credit Card";
+			try {
+				Thread.sleep(5000);
+
+				if(Common.isElementDisplayed("xpath", "//div[@id='checkout-loader']")) {
+					Thread.sleep(8000);
+				}else {
+					Thread.sleep(6000);
+					//Sync.waitElementPresent("id", "ime_paymetrictokenize");
+					//Common.clickElement(By.id("ime_paymetrictokenize"));
+					//Thread.sleep(8000);
+				}	
+				Common.switchFrames("paymetric_xisecure_frame");
+				Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
+				Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
+				Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+				
+				Common.clickElement("xpath", "(//select[@id='c-exmth']/option)[6]");
+				//Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
+				
 				//Common.textBoxInput("xpath", "//select[@id='c-exmth']", data.get(dataSet).get("ExpMonth"));
-				//Thread.sleep(2000);
-				//Common.textBoxInput("xpath", "", data.get(dataSet).get("ExpYear"));
-				Thread.sleep(2000);
-				Common.textBoxInput("xpath", "", data.get(dataSet).get("cvv"));
-				ExtenantReportUtils.addPassLog("Verifing guest user checkout with mastercard", "Guest user successfully  entered card details", "Guest user successfully  entered card details", Common.getscreenShotPathforReport("Guest user successfully  entered card details"));
+				Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+				Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
+				Common.switchToDefault();
+
+				Sync.waitElementPresent("xpath", "//button[@class='action primary checkout']");
+				
+				//Common.clickElement(By.xpath("//button[@class='action primary checkout']"));
+				//Common.findElement("xpath", "//button[@class='action primary checkout']").click();
+				
+				Common.javascriptclickElement("xpath", "//button[@class='action primary checkout']");
+				report.addPassLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card successfully", Common.getscreenShotPathforReport("Payment CC success"));
+			}catch(Exception |Error e)
+			{
+				report.addFailedLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card unsuccessfully", Common.getscreenShotPathforReport("Payment CC Failed"));
+				e.printStackTrace();
+				Assert.fail();
 			}
-			
-				catch(Exception |Error e) {
-					e.printStackTrace();
-				ExtenantReportUtils.addFailedLog("Verifing guest user checkout with mastercard", "Guest user successfully  entered card details", "Guest user failed ti  entered card details",Common.getscreenShotPathforReport("faield to enter card details"));
-					Assert.fail();
-				
-				
-			
-		}
 		}
 
 	public void Logout()throws Exception{
@@ -203,8 +220,8 @@ public class VickshumdifierHelper {
 				Sync.waitElementClickable("xpath", "//button[@class='action switch']");
 				Common.clickElement("xpath", "//button[@class='action switch']");
 				Thread.sleep(1000);
-				Sync.waitElementClickable("xpath", "//a[@id='idYEiXpc1r']");
-				Common.clickElement("xpath", "//a[@id='idYEiXpc1r']");
+				Sync.waitElementClickable("xpath", "//a[@id='idSnmfaJIq']");
+				Common.clickElement("xpath", "//a[@id='idSnmfaJIq']");
 				ExtenantReportUtils.addPassLog("Verfing log out of register", "user successfully loged out", "user successfully loged out", Common.getscreenShotPathforReport("user successfully loged out"));
 			}
 			
@@ -289,10 +306,11 @@ public class VickshumdifierHelper {
 		}
 		public void search(String dataset) {
 			try {
+				Thread.sleep(2000);
 				Sync.waitElementPresent("xpath", "//*[@id=\"search_mini_form\"]/div/label");
 				Common.clickElement("xpath", "//*[@id=\"search_mini_form\"]/div/label");
 				Sync.waitElementPresent("xpath", "(//input[@id='search'])");
-				Common.textBoxInput("id", "search",data.get(dataset).get("vicksproductname"));
+				Common.textBoxInput("xpath", "(//input[@id='search'])",data.get(dataset).get("ProductName"));
 				ExtenantReportUtils.addPassLog("To verify the search functionality with full productname","should get the product name in search field","user  successfully Entered the productname", Common.getscreenShotPathforReport("Searched productname Successfully"));
 			}catch(Exception |Error e) {
 				ExtenantReportUtils.addFailedLog("To verify the search functionality with fullproduct name","Should get the productname in search field","user unable to Enter the productname", Common.getscreenShotPathforReport("Failed to search proudctname"));			
@@ -341,7 +359,92 @@ public class VickshumdifierHelper {
 		report.addPassLog("Should display My Orders Page", "My Orders Page displayed successfully", Common.getscreenShotPathforReport("My Orders Page success"));
 		
 		}		
-					
-		
-		
+		public void Verifyhomepage ()  {
+			try {
+				Sync.waitElementPresent("xpath", "//p[@id='YCP3PN0']");
+				String title=Common.findElement("xpath", "//p[@id='YCP3PN0']").getText();
+				title.equals("Promo Banner Information Here");
+				
+				ExtenantReportUtils.addPassLog("To verify search results page","Should land on  product list page","user successfully landed on  product search results page", Common.getscreenShotPathforReport("Successfully landed on PLP Page"));
+			}catch(Exception |Error e) {
+				ExtenantReportUtils.addFailedLog("To verify search results page","Should land on  product list page","user successfully landed on  product search results page", Common.getscreenShotPathforReport("Failed to land on PLP Page"));			
+				Assert.fail();	
+				}
+			
+			
+		}			
+		public void Addnewaddress (String dataSet){
+			try{
+				Thread.sleep(3000);
+				Sync.waitElementClickable("xpath", "//button[@class='action primary add']");
+				Common.findElement("xpath", "//button[@class='action primary add']").click();
+				ExtenantReportUtils.addPassLog("To verify my address page","Should land on my address page","user successfully landed on my address page", Common.getscreenShotPathforReport("Successfully landed on My address Page"));
+				Thread.sleep(2000);
+				Sync.waitElementPresent("xpath", "//input[@id='street_1']");
+				Common.textBoxInput("xpath", "//input[@id='street_1']", data.get(dataSet).get("Street"));
+				Thread.sleep(8000);
+				Common.clickElement("xpath", "//a[@class='dropdown-item list-item']");
+				Thread.sleep(5000);
+				Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(dataSet).get("phone"));
+				Thread.sleep(2000);
+				Sync.waitElementClickable("xpath", "//button[@class='action submit primary']");
+				Common.clickElement("xpath", "//button[@class='action submit primary']");
+				ExtenantReportUtils.addPassLog("Verifing guest user checkout page", "Guest user checkout page success", "Guest user checkout page success", Common.getscreenShotPathforReport("Guest user checkout page success"));
+			}
+			
+				catch(Exception |Error e) {
+					e.printStackTrace();
+					ExtenantReportUtils.addFailedLog("verifying shipping addres filling", "user will fill the all the shipping", "faield to add new shipping address",Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
+					Assert.fail();
+			
 		}
+		}
+		public void myaccount(){
+			try{
+				Thread.sleep(2000);
+				Sync.waitElementClickable("xpath", "(//li[@class='nav item']/a)[4]");
+				Common.findElement("xpath", "(//li[@class='nav item']/a)[4]").click();
+				ExtenantReportUtils.addPassLog("To verify My account page","Should land on my account page","User Should land on my account page", Common.getscreenShotPathforReport("Successfully landed on Myaccount Page"));
+			}
+			catch(Exception |Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("To verify My account page", "Should land on my account page", "faield to land on my account",Common.getscreenShotPathforReport("faield to land on my account page"));
+				Assert.fail();
+		}
+	}
+		public void viewandeditcart (String dataSet){
+			try{
+				Thread.sleep(5000);
+				Sync.waitElementClickable("xpath", "//a[@class='action viewcart']");
+				Common.findElement("xpath", "//a[@class='action viewcart']").click();
+				
+				ExtenantReportUtils.addPassLog("To verify My account page","Should land on my account page","User Should land on my account page", Common.getscreenShotPathforReport("Successfully landed on Myaccount Page"));
+			}
+			catch(Exception |Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("To verify My account page", "Should land on my account page", "faield to land on my account",Common.getscreenShotPathforReport("faield to land on my account page"));
+				Assert.fail();
+					
+			}	
+		}
+		public void PLPvalidation(){
+			try{
+				Thread.sleep(2000);
+				Sync.waitElementClickable("xpath", "//div[@class='filter-options-title']");
+				Common.findElement("xpath", "//div[@class='filter-options-title']").click();
+				Sync.waitElementClickable("xpath", "//a[@data-opt-path='price=40-50']");
+				Common.findElement("xpath", "//a[@data-opt-path='price=40-50']").click();
+				Thread.sleep(3000);
+				Sync.waitElementClickable("xpath", "(//select[@id='sorter']/option)[3]");
+				Common.clickElement("xpath", "(//select[@id='sorter']/option)[3]");
+				
+				ExtenantReportUtils.addPassLog("To verify My account page","Should land on my account page","User Should land on my account page", Common.getscreenShotPathforReport("Successfully landed on Myaccount Page"));
+			}
+			catch(Exception |Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("To verify My account page", "Should land on my account page", "faield to land on my account",Common.getscreenShotPathforReport("faield to land on my account page"));
+				Assert.fail();
+	
+			}
+		}
+	}
