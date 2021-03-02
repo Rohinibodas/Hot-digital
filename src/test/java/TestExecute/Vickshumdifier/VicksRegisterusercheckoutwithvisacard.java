@@ -16,7 +16,6 @@ public class VicksRegisterusercheckoutwithvisacard {
 	public void Searchproducr() throws Exception {
 
 		try {
-			
 			Vickshumdifier.Verifyhomepage();
 			Vickshumdifier.loginVicks("AccountDetails");
 			Vickshumdifier.clickHumidifiers();
