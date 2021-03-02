@@ -18,6 +18,8 @@ public class Guest_Checkout_CreditCard_Mastercard {
 	public void gustUserCheckout_CreditCard_Mastercard() throws Exception {
 
 		try {
+			
+			
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");

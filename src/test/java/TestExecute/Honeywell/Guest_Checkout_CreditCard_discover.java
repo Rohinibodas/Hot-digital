@@ -18,6 +18,7 @@ public class Guest_Checkout_CreditCard_discover {
 	public void gustUserCheckout_CreditCard_discover() throws Exception {
 
 		try {
+			
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");
