@@ -13,7 +13,7 @@ public class TEST_HW_ST_014_Minicart {
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-  public void minicartValidation() {
+  public void  minicartValidation() {
 		try {
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
