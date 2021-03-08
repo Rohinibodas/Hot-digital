@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import TestComponent.oxo.OxoHelper;
 import TestLib.BaseDriver;
+import TestLib.Common;
 import TestLib.Login;
 
 public class LogOut {
@@ -24,13 +25,12 @@ catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-		@AfterTest
-		public void clearBrowser() throws Exception
-		{
-			BaseDriver.setDriver(null);
-			
+	@AfterTest
+	public void clearBrowser()
+	{
+		Common.closeAll();
 
-		}
+	}
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {

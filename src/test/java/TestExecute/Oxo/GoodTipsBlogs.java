@@ -13,13 +13,13 @@ public class GoodTipsBlogs {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
   @Test
-  public void createAccount_GoodTip() throws Exception {
+  public void GoodTipsBlog() throws Exception {
 
 		try {
 			oxo.closetheadd();
 			
 			oxo.CreateAccount_GoodTipsBlog("GoodTipsBlog");
-			oxo.clickGoodTipsBlog();
+			//oxo.clickGoodTipsBlog();
 			oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
 		}
 		catch (Exception e) {
@@ -37,7 +37,5 @@ public class GoodTipsBlogs {
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		  Login.signIn();
-		 
-		  
-	  }
+    }
 }

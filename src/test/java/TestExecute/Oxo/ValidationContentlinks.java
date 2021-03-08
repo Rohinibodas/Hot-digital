@@ -170,10 +170,10 @@ public class ValidationContentlinks {
 			oxo.TrackOrder();
 			oxo.ShippingInformation();
 			oxo.BetterGuarantee();
-			oxo.GoodTipsBlog();
+			//oxo.GoodTipsBlog();
 			oxo.InventorSubmissions();
 			oxo.InvestorRelations();
-		//	oxo.Careers();
+		    //oxo.Careers();
 			}
 		catch (Exception e) {
 			

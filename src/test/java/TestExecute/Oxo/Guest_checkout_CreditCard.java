@@ -19,7 +19,7 @@ public class Guest_checkout_CreditCard {
   public void guest_checkout_CreditCard() {
 		try{
 		oxo.closetheadd();
-		
+		//oxo.PrivacyPolicy();
 		oxo.clickBaby_Toddler();
 		oxo.addproducts("1");
 		oxo.checkout();
@@ -40,10 +40,9 @@ public class Guest_checkout_CreditCard {
 }
 	
 	@AfterTest
-	public void clearBrowser() throws Exception
+	public void clearBrowser()
 	{
-		//BaseDriver.setDriver(null);
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	

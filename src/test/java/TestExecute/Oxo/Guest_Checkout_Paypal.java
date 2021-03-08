@@ -21,6 +21,7 @@ public class Guest_Checkout_Paypal {
 	public void guest_Checkout_Paypal() {
 		try{
 		oxo.closetheadd();
+		
 		oxo.clickBaby_Toddler();
 		oxo.addproducts("1");
 		oxo.checkout();
@@ -38,9 +39,8 @@ public class Guest_Checkout_Paypal {
 }
 	
 	@AfterTest
-	public void clearBrowser() throws Exception
+	public void clearBrowser()
 	{
-		//BaseDriver.setDriver(null);
 		Common.closeAll();
 
 	}

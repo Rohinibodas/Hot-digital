@@ -16,7 +16,7 @@ public class ValidateBrowse_Search_for_Product {
   public void validateBrowse_Search_for_Product() {
 	  try {
 			oxo.closetheadd();
-			oxo.loginOxo("AccountDetails");
+			//oxo.loginOxo("AccountDetails");
 		    oxo.validatingSearchBoxWithOutData();
 		    oxo.validatingSearchBoxWithNumberText("9 cup");
 		    oxo.validatingSearchProductInformation("Nylon Potato Masher");
