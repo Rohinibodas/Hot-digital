@@ -701,7 +701,6 @@ public class OxoMobileLiveHelper {
 					"page missing shipping ordersummary totalprice",
 					Common.getscreenShotPathforReport("faieldsshippingpage"));
 			Assert.fail();
-
 		}
 	}
 
