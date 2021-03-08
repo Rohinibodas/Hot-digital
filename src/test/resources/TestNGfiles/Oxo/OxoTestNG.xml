@@ -23,7 +23,7 @@
             <class name="TestExecute.Oxo.Guest_checkout_CreditCard"/>
         </classes>
         </test>
-      <test name="TEST_OXO_ST_005-Validate Browse/Search for Product" testid="OUS23-761" priority="P1" description="This script will cover browse/search for Product functionality Process of oxo">
+      <test name="TEST_OXO_ST_005-Validate Browse_Search for Product" testid="OUS23-761" priority="P1" description="This script will cover browse/search for Product functionality Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.ValidateBrowse_Search_for_Product"/>
         </classes>
@@ -58,4 +58,60 @@
             <class name="TestExecute.Oxo.LogOut"/>
         </classes>
     </test>
+    <test name="TEST_ST_OXO_020_Guest User Checkout with MasterCard (CC)" testid="OUS23-913" priority="P1" description="This script will cover  Process Guest user Checkout functionality with Creditcard(MasterCard) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestUser_Checkout_MasterCard_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_019_Guest User Checkout with Discover (CC)" testid="OUS23-915" priority="P1" description="This script will cover  Process Guest user Checkout functionality with Creditcard(Discover) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestUser_Checkout_Discover_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_018_Guest User Checkout with American Express (CC)" testid="OUS23-914" priority="P1" description="This script will cover  Process Guest User Checkout with American Express (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestUser_Checkout_AmericanExpress_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_023_Registered User Checkout with AMEX (CC)" testid="OUS23-918" priority="P1" description="This script will cover  Process Registered User Checkout with AMEX (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.RegisteredUser_Checkout_AmericanExpress_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_021_Registered User Checkout with Discover (CC)" testid="OUS23-916" priority="P1" description="This script will cover  Process Registered User Checkout with Discover (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.RegisteredUser_Checkout_Discover_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_022_Registered User Checkout with MasterCard (CC)" testid="OUS23-917" priority="P1" description="This script will cover  Process Registered User Checkout with MasterCard (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.RegisteredUser_Checkout_MasterCard_CC"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_024- Express PayPal checkout as Guest user" testid="OUS23-920" priority="P1" description="This script will cover  Process Express PayPal checkout as Guest user of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestExpressPayPalCheckout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_025- Express PayPal checkout as Registered user" testid="OUS23-921" priority="P1" description="This script will cover  Process Express PayPal checkout as Registered user of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.Registered_ExpressPayPal_Checkout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_026_Registered User Checkout with Promocode" testid="OUS23-922" priority="P1" description="This script will cover  Process Registered User Checkout with Promocode of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.PromoCode_RegisteredUser_Checkout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_027_Guest User Checkout with Promocode" testid="OUS23-923" priority="P1" description="This script will cover  Process Guest User Checkout with Promocode of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.PromoCode_GuestUser_Checkout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_OXO_SP_028- Forgot Password From GoodTipsBlog" testid="OUS23-924" priority="P1" description="This script will cover  Process Forgot Password From GoodTipsBlog of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.ForgotPassword_GoodTipsBlog"/>        
+	    </classes>       
+    </test>
+      
   </suite>
