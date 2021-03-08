@@ -671,6 +671,126 @@ public class Honeywellhelper {
 		}
 		
 		
+		public void update_product_miniCartBag(String productQTY) throws Exception {
+			try{
+			    Common.clickElement("xpath", "//input[contains(@class,'cart-item-qty')]");
+			    Common.actionsKeyPress(Keys.BACK_SPACE);
+				Common.textBoxInput("xpath", "//input[contains(@class,'cart-item-qty')]",productQTY);
+				
+				Common.clickElement("xpath", "//span[text()='Update']");
+				
+			int alermessage=Common.findElements("xpath", "//button[@data-role='action']").size();
+			if(alermessage>0) {
+				Common.clickElement("xpath", "//button[@data-role='action']");
+				
+			}
+			else {
+				clickminicartButton();
+				String productvalue=Common.findElement("xpath", "//input[contains(@class,'cart-item-qty')]").getAttribute("data-item-qty");
+	   Common.assertionCheckwithReport(productvalue.equals(productQTY),"verifying product update in minicart", "update product in mini cart bag page", "successfullyupdate product in minicart bag page ", "faield to update product in cart page");
+			}
+			}
+			catch(Exception |Error e) {
+			 	   
+				ExtenantReportUtils.addFailedLog("verifying product update in minicart", "update product in mini cart bag page", "user faield to updateproducttocartpage", Common.getscreenShotPathforReport("cartpageupdate"));
+				Assert.fail();
+			}
+			
+		}
+		public void removeproductinBagPage() {
+			
+			int size=Common.findElements("xpath", "//span[text()='Remove']").size();
+			for(int i=0;i<=size;i++) {
+				Common.clickElement("xpath", "//span[text()='Remove']");
+			    Common.clickElement("xpath", "//button[@data-role='action']");
+			}
+			int errormessage=Common.findElements("xpath", "//strong[@class='subtitle empty']").size();
+			Common.assertionCheckwithReport(errormessage>0, "validating removeproducts mini cart page", "remove all the products from mini cart","successfully remove the products from mini cart page","faield to remove all the products from cart");
+		}
+		
+		
+		/*
+		 * public void price_range_plp(int minprice,int maxpric) { try {
+		 * Common.clickElement("xpath", "//div[@id='narrow-by-list']/div[2]");
+		 * if(minprice>=0 && maxpric<=100 ) { Common.findElement("xpath",
+		 * "//a[@data-opt-path='price=0-100']").click();
+		 * 
+		 * //String Price=Common.findElement("xpath",
+		 * "//span[@class='price-wrapper ']").getAttribute("data-price-amount");
+		 * List<WebElement> priceranges=Common.findElements("xpath",
+		 * "//span[@class='price-wrapper ']"); for(int i=0;i<priceranges.size();i++) {
+		 * priceranges. } }
+		 * 
+		 * else if(minprice>=0 && maxpric<=200 ) { Common.findElement("xpath",
+		 * "//a[@data-opt-path='price=100-200']").click();
+		 * 
+		 * } else if(minprice>=0 && maxpric<=300 ) { Common.findElement("xpath",
+		 * "//a[@data-opt-path='price=200-300']").click(); } else if(minprice>=0 ||
+		 * maxpric<=1000 ) { Common.findElement("xpath",
+		 * "//a[@data-opt-path='price=600-700']").click();
+		 * 
+		 * 
+		 * } ExtenantReportUtils.addPassLog("validting price rage button in plp page",
+		 * "price Range button click with in range"+
+		 * String.valueOf(minprice)+","+String.valueOf(maxpric),
+		 * "successfully click the price range",
+		 * Common.getscreenShotPathforReport("pricerage")); } catch(Exception |Error e)
+		 * {
+		 * 
+		 * ExtenantReportUtils.addFailedLog("validting price rage button in plp page",
+		 * "price Range button click with in range"+
+		 * String.valueOf(minprice)+","+String.valueOf(maxpric),
+		 * "faield to click the price range",
+		 * Common.getscreenShotPathforReport("pricerage")); Assert.fail(); }
+		 * 
+		 * try { List<WebElement> priceranges=Common.findElements("xpath",
+		 * "//span[@class='price-wrapper ']");
+		 * 
+		 * 
+		 * }
+		 */
+			
+		/*
+		 * }
+		 * 
+		 * public void PriceRangefilter(int PriceRangeBelowGiveValue) {
+		 * //span[@class='price-wrapper ']
+		 * 
+		 * 
+		 * Common.clickElement("xpath", "//div[@id='narrow-by-list']/div[2]");
+		 * 
+		 * if(PriceRangeBelowGiveValue>100) { Common.findElement("xpath",
+		 * "//a[@data-opt-path='price=0-100']"); } else if(PriceRangeBelowGiveValue>200)
+		 * { Common.findElement("xpath", "//a[@data-opt-path='price=100-200']");
+		 * 
+		 * } else if(PriceRangeBelowGiveValue>3000)
+		 * 
+		 * }
+		 */
+		
+		
+		public void customerloginvalidation() {
+			try {
+				
+				
+				// click the sign button  xptah need to implement
+				
+			int emailerrormessage=Common.findElements("xpath", "//div[@id='email-error']").size();
+			int passworderromessage=Common.findElements("xpath", "//div[@id='pass-error']").size();
+			
+			Common.assertionCheckwithReport(emailerrormessage>0&&passworderromessage>0, "verifying error message signpage", "enter with empety data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+			}
+			catch(Exception |Error e) {
+			 	   
+				ExtenantReportUtils.addFailedLog("verifying error message signpage", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("loginpagevalidation"));
+				Assert.fail();
+			}
+			
+		}
+		
+		
+		
+		
 		
 		
 }
