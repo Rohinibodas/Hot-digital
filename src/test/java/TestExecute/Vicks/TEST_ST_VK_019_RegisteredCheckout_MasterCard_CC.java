@@ -18,6 +18,7 @@ public class TEST_ST_VK_019_RegisteredCheckout_MasterCard_CC  {
 	public void Registered_User_Checkout_MasterCard_CC() throws Exception {
 
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
 			vicks.clickHumidifiers();

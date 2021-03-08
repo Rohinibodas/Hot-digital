@@ -17,6 +17,7 @@ public class TEST_ST_VK_006_GuestCheckout_VISA_CC {
 	public void Guest_User_Checkout_VISA_CC() throws Exception {
 	
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.clickHumidifiers();
 			vicks.productselect();

@@ -28,6 +28,7 @@ public class TEST_ST_VK_018_RegisteredCheckout_Discover_CC {
 			vicks.paymentDetails("DiscoverPaymentDetails");
 			vicks.PlaceOrder();
 
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}

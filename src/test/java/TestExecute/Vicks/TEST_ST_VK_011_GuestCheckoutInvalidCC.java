@@ -38,6 +38,7 @@ public class TEST_ST_VK_011_GuestCheckoutInvalidCC {
 		Common.closeAll();
 
 	}
+	
 
 	@BeforeMethod
 	public void startTest() throws Exception {

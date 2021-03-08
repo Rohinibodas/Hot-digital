@@ -16,6 +16,7 @@ public class TEST_ST_VK_013_RegisteredCheckoutInvalidCC {
 	public void Searchproducr() throws Exception {
 
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
 			vicks.clickHumidifiers();

@@ -18,6 +18,7 @@ public class TEST_ST_VK_005_RegisteredCheckout_VISA_CC  {
 	public void Registered_User_Checkout_VISA_CC () throws Exception {
 	
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
 			vicks.clickHumidifiers();

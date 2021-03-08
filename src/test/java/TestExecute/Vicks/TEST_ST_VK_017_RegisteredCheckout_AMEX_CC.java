@@ -18,6 +18,7 @@ public class TEST_ST_VK_017_RegisteredCheckout_AMEX_CC {
 
 		try {
 			
+			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
 			vicks.clickHumidifiers();

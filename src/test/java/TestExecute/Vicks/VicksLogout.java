@@ -32,6 +32,7 @@ public class VicksLogout {
 	public void clearBrowser()
 	{
 		Common.closeAll();
+		
 
 	}
 		

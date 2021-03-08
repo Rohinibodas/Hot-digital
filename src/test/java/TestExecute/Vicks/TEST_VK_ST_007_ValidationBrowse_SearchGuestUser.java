@@ -17,6 +17,7 @@ public class TEST_VK_ST_007_ValidationBrowse_SearchGuestUser {
 	public void TEST_VK_ST_007_ValidationBrowse_SearchGuestUser() throws Exception {
 
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
 			vicks.searchProduct("productname");

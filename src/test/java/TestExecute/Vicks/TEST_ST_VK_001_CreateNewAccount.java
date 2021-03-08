@@ -17,6 +17,7 @@ public class TEST_ST_VK_001_CreateNewAccount {
 	public void CreateNewAccount() {
 
 		try {
+		
 
 			vicks.Verifyhomepage();
 			vicks.CreateAccount("AccountDetails");

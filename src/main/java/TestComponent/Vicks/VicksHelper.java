@@ -759,6 +759,7 @@ public class VicksHelper {
 
 	public void update_product_miniCartBag(String productQTY) throws Exception {
 		try{
+			
 		    Common.clickElement("xpath", "//input[contains(@class,'cart-item-qty')]");
 		    Common.actionsKeyPress(Keys.BACK_SPACE);
 		    Common.actionsKeyPress(Keys.BACK_SPACE);

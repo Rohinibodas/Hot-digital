@@ -31,7 +31,7 @@ public class TEST_ST_VK_008_MiniCart {
 	@AfterTest
 	public void clearBrowser() {
 
-		//Common.closeAll();
+	Common.closeAll();
 
 	}
 

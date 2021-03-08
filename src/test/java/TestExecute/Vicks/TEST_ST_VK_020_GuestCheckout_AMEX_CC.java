@@ -27,6 +27,7 @@ public class TEST_ST_VK_020_GuestCheckout_AMEX_CC {
 			vicks.paymentDetails("AMEXPaymentDetails");
 			vicks.PlaceOrder();
 
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
