@@ -33,6 +33,27 @@ public class VicksHelper {
 		}
 	}
 
+	public void LoginFormValidation(){
+		try {
+			
+		Thread.sleep(4000);	
+		Sync.waitElementClickable("xpath","//a[@class='header-content__right-link']");
+		Common.findElement("xpath", "//a[@class='header-content__right-link']").click();
+		Common.scrollIntoView("xpath", "//button[@class='action login primary']");
+		Sync.waitElementClickable("xpath", "//button[@class='action login primary']");
+		Common.clickElement("xpath", "//button[@class='action login primary']");
+		Thread.sleep(3000);
+		int emailerrormessage=Common.findElements("xpath", "//div[@id='email-error']").size();
+		int passworderromessage=Common.findElements("xpath", "//div[@id='pass-error']").size();
+		Common.assertionCheckwithReport(emailerrormessage>0&&passworderromessage>0, "verifying error message signpage", "enter with empety data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+		}
+		catch(Exception |Error e) {
+		 	   
+			ExtenantReportUtils.addFailedLog("verifying error message signpage", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("loginpagevalidation"));
+			Assert.fail();
+		}
+	}
+	
 	public void loginVicks(String dataSet) throws Exception {
 		String expectedResult = "Land on login page and able to login with credentials";
 		try {
@@ -60,6 +81,78 @@ public class VicksHelper {
 
 	}
 
+	
+	
+	public void AccountCreationFormValidation() {
+		try {
+			Thread.sleep(5000);
+		Common.clickElement("xpath", "//a[@class='header-content__right-link']");
+		Sync.waitElementClickable("xpath", "//a[@class='action create primary']");
+		Common.clickElement("xpath", "//a[@class='action create primary']");
+		ExtenantReportUtils.addPassLog("verifying Create Account button",
+				"It should lands on Create New Customer from Account form Page",
+				"user  lands on Customer Account creation form Page",
+				Common.getscreenShotPathforReport("createaccount"));
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying Create Account button",
+				"It should lands on Create New Customer from Account form Page",
+				"user faield lands on Account form Page", Common.getscreenShotPathforReport("createaccount"));
+		Assert.fail();
+	}
+
+		try{
+			
+			Thread.sleep(4000);
+			Sync.waitElementClickable("xpath", "//button[@title='Create an Account']");
+		    Common.findElement("xpath", "//button[@title='Create an Account']").click();
+		    Sync.waitElementVisible("xpath", "//div[@class='message-error error message']");
+		   /* int sizes =Common.findElements("xpath", "//div[@class='message-error error message']").size();	  
+		    Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land on paymentpage");	
+			*/
+		    int Signuperrormessage=Common.findElements("xpath", "//div[@class='message-error error message']").size();
+			Common.assertionCheckwithReport(Signuperrormessage>0, "verifying error message signuppage", "enter with empety data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+			}
+			catch(Exception |Error e) {
+			 	   
+				ExtenantReportUtils.addFailedLog("verifying error message signpage", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("loginpagevalidation"));
+				Assert.fail();
+			}
+		}
+
+	
+	public void OrderStatus(String dataSet) throws Exception{
+		try{
+	      Thread.sleep(4000);
+	      Sync.waitElementClickable("xpath", "//a[@title='Order Status']");
+	      Common.findElement("xpath","//a[@title='Order Status']").click();
+	      ExtenantReportUtils.addPassLog("verifying Order and Returs button",
+					"It should lands on Order and Returs  Page",
+					"user  lands on Order and Returs form Page",
+					Common.getscreenShotPathforReport("Order and Returs"));
+		}catch (Exception | Error e) {
+			ExtenantReportUtils.addFailedLog("verifying Order and Returs from",
+					"It should be successfully navigate to Order and Returs page",
+					"user failed to navigate Order and Returs", Common.getscreenShotPathforReport("Order and Returs"));
+			Assert.fail();
+		}
+	      
+	      
+	      try {
+	    	    Thread.sleep(4000);
+				Common.textBoxInput("xpath", "//input[@id='oar-order-id']", data.get(dataSet).get("OrderID"));
+				Common.textBoxInput("xpath", "//input[@id='oar-billing-lastname']", data.get(dataSet).get("BillingLastName"));
+				Common.textBoxInput("xpath", "//input[@id='oar_email']", data.get(dataSet).get("Email"));
+				Common.clickElement("xpath", "//button[@class='action submit primary']");
+			} catch (Exception | Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("verifying Order and Returs from",
+						"It should be successfully navigate to Order and Returs page",
+						"user failed to navigate Order and Returs", Common.getscreenShotPathforReport("Order and Returs"));
+				Assert.fail();
+			}
+	}
+	
 	public void CreateAccount(String dataSet) {
 
 		try {
@@ -176,6 +269,30 @@ public class VicksHelper {
 					"Guest user checkout page success",
 					Common.getscreenShotPathforReport("Failed to go geust user checkout"));
 		}
+	}
+	
+	public void ShippingFormValidation() throws Exception{
+		
+		Common.clickElement("xpath", "//button[@class='button action continue primary']");
+		Thread.sleep(4000);
+		try {
+		
+		Sync.waitElementClickable("xpath", "//button[@class='button action continue primary']");	
+		Common.findElement("xpath", "//button[@class='button action continue primary']").click();
+		
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		//Common.actionsKeyPress(Keys.DOWN);
+		int emailerrormessage=Common.findElements("xpath", "//div[@id='customer-email-error']").size();
+		int Streeterromessage=Common.findElements("xpath", "//div[@class='field-error']").size();
+		
+		Common.assertionCheckwithReport(emailerrormessage>0&&Streeterromessage>0, "verifying error message ShippingAddressForm Page", "enter with empty data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+		}
+		catch(Exception |Error e) {
+		 	e.printStackTrace();   
+			ExtenantReportUtils.addFailedLog("verifying error message ShippingAddressForm Page", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("ShippingAddressFormvalidation"));
+			Assert.fail();
+		}
+		
 	}
 
 	public void shippingaddress(String datSet) throws Exception {
@@ -387,6 +504,30 @@ public class VicksHelper {
 
 	}
 
+	public void ForgotPasswordValidation() {
+		try {
+			
+			Thread.sleep(4000);	
+			Sync.waitElementClickable("xpath","//a[@class='header-content__right-link']");
+			Common.findElement("xpath", "//a[@class='header-content__right-link']").click();
+			Thread.sleep(2000);
+			//Common.scrollIntoView("xpath", "//a[@class='action remind']");
+			Sync.waitElementClickable("xpath", "//a[@class='action remind']");
+			Common.findElement("xpath","//a[@class='action remind']").click();
+			Thread.sleep(4000);
+			Sync.waitElementClickable("xpath", "//button[@class='action submit primary']");
+			Common.clickElement("xpath", "//button[@class='action submit primary']");
+			Thread.sleep(3000);
+			int emailerrormessage=Common.findElements("xpath", "//div[@id='email_address-error']").size();
+			Common.assertionCheckwithReport(emailerrormessage>0, "verifying error message ForgotPasswordPage", "enter with empty data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+			}
+			catch(Exception |Error e) {
+			 	   
+				ExtenantReportUtils.addFailedLog("verifying error message ForgotPasswordPage", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("loginpagevalidation"));
+				Assert.fail();
+			}
+		}
+	
 	public void forgotpassword(String dataSet) throws Exception {
 		String expectedResult = "forgotpassword";
 		try {
@@ -531,6 +672,29 @@ public class VicksHelper {
 			Assert.fail();
 		}
 
+	}
+	
+	public void NewsLetterSubscription(String dataSet){
+		
+		try{
+			Thread.sleep(4000);
+			Common.scrollIntoView("xpath", "//input[@id='newsletter']");
+			Common.textBoxInput("xpath", "//input[@id='newsletter']", data.get(dataSet).get("Email"));
+			
+			Sync.waitElementClickable("xpath", "//button[@class='action subscribe primary']");
+			Common.findElement("xpath", "//button[@class='action subscribe primary']").click();
+			Common.actionsKeyPress(Keys.UP);
+		    int NewsLetterSuccessmessage=Common.findElements("xpath", "//div[@class='message-success success message']").size();
+		    int NewsLetterErrormessage=Common.findElements("xpath", "//div[@class='message-error error message']").size();
+				
+		    Common.assertionCheckwithReport(NewsLetterSuccessmessage>0 || NewsLetterErrormessage>0, "verifying error message signuppage", "enter with empety data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+				}
+				catch(Exception |Error e) {
+				 	   
+					ExtenantReportUtils.addFailedLog("verifying error message signpage", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("loginpagevalidation"));
+					Assert.fail();
+				}
+			
 	}
 
 	public void AddNewAddress(String dataSet) throws Exception {
