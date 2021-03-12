@@ -23,6 +23,7 @@ public class AccountCreationFormValidation {
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
+	
 		}
 	}
 

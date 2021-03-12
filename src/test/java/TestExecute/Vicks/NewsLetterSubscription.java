@@ -15,6 +15,7 @@ public class NewsLetterSubscription {
 
 	@Test(priority = 1)
 	public void NewsLetterSubscription() throws Exception {
+		
 
 		try {
 			vicks.Verifyhomepage();

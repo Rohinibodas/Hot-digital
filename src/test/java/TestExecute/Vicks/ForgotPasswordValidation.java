@@ -19,6 +19,7 @@ public class ForgotPasswordValidation {
 		try {
 			vicks.Verifyhomepage();
 			vicks.ForgotPasswordValidation();
+			
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

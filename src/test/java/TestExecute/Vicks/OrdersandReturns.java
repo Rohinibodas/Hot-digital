@@ -29,6 +29,7 @@ public class OrdersandReturns {
 	public void clearBrowser() {
 
 		Common.closeAll();
+		
 
 	}
 	@BeforeMethod

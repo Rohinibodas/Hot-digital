@@ -131,6 +131,7 @@ public class VicksHelper {
 					"user  lands on Order and Returs form Page",
 					Common.getscreenShotPathforReport("Order and Returs"));
 		}catch (Exception | Error e) {
+			
 			ExtenantReportUtils.addFailedLog("verifying Order and Returs from",
 					"It should be successfully navigate to Order and Returs page",
 					"user failed to navigate Order and Returs", Common.getscreenShotPathforReport("Order and Returs"));
