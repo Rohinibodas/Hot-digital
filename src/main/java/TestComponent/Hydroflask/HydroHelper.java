@@ -26,7 +26,7 @@ public class HydroHelper {
 	
 	static Automation_properties automation_properties = Automation_properties.getInstance();
 	public void navigateMyAccount() throws InterruptedException {
-		Thread.sleep(8000);
+		//Thread.sleep(2000);
 		Sync.waitPageLoad();
 		String expectedResult = "User should land on the home page";
 		int size =Common.findElements("xpath", "//a[@class='logo']").size();
@@ -34,10 +34,10 @@ public class HydroHelper {
 		 Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
 		try {
 			Sync.waitPageLoad();
-			Thread.sleep(5000);
+			//Thread.sleep(5000);
 			Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 			Common.findElement("xpath", "//a[@class='social-login']").click();
-			Thread.sleep(3000);
+			//Thread.sleep(3000);
 		} catch (Exception | Error e) {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying my account option", "clcik the my account button",
@@ -157,14 +157,14 @@ public class HydroHelper {
 	}
 
 	public void loginHydroflaskAccount(String dataSet) throws Exception {
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		navigateMyAccount();
 		String expectedResult = "Opens login pop_up";
 
 		Sync.waitElementClickable(30, By.id("social-login-popup-log-in-email"));
 		if (Common.findElement("id", "social-login-popup-log-in-email") == null) {
 			Common.clickElement("xpath", "//a[@class='social-login']");
-			Thread.sleep(2000);
+			//Thread.sleep(2000);
 		}
 		int size = Common.findElements("id", "social-login-popup-log-in-email").size();
 
@@ -270,7 +270,7 @@ public class HydroHelper {
 		// home page", expectedResult,"User unabel to land on home page");
 
 		Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
 		Thread.sleep(3000);
 		expectedResult = "User should click the" + category;
@@ -482,22 +482,12 @@ public class HydroHelper {
 					Common.getscreenShotPathforReport("check out miniCart"));
 			Common.clickElement("id", "top-cart-btn-checkout");
 
-			// Common.assertionCheckwithReport(size>0, "Successfully Clicked the
-			// checkout button", expectedResult,"User unabel click the checkout
-			// button");
-
-			// ExtenantReportUtils.addPassLog(expectedResult, "User land Check
-			// out paga and click checkout button",
-			// Common.getscreenShotPathforReport("check out miniCart"));
-			// Sync.waitElementVisible("className", "checkout-step-title");
-			Thread.sleep(3000);
+			
 		} catch (Exception | Error e) {
 
 			ExtenantReportUtils.addFailedLog("validating the product checkout", expectedResult,
 					"User unabel click the checkout button", Common.getscreenShotPathforReport("check out miniCart"));
-			// ExtenantReportUtils.addFailedLog("User click check out button",
-			// "User unabel click the checkout button",
-			// Common.getscreenShotPathforReport("check out miniCart"));
+			
 			Assert.fail();
 
 		}
@@ -3021,6 +3011,67 @@ public class HydroHelper {
 		
 	}
 	
+	public void verifytheHomepage(){
+		String expectedResult = "User should land on the home page";
+		
+	try{
+		Thread.sleep(4000);
+		
+		int size = Common.findElements("xpath", "//a[@class='logo']").size();
+		Common.assertionCheckwithReport(size > 0, "validating the home page ", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
+	}
+		catch(Exception |Error e){
+	    	ExtenantReportUtils.addFailedLog("validating the home page", expectedResult,"User unabel to land on home page",Common.getscreenShot("homepage"));
+	        Assert.fail();
+	}
+	}
+public void order(String category) throws Exception {
+		
+	    verifytheHomepage();
+		Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
+		Thread.sleep(3000);
+		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
+		Thread.sleep(3000);
+		String expectedResult = "User should click the" + category;
+		try {
+			Common.mouseOver("xpath", "//a[contains(text(),'" + category + "')]");
+		} catch (Exception e) {
+			Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
+		}
+		
+		Common.clickElement("xpath", "//a[contains(text(),'" + category + "')]");
+		expectedResult = "User should select the " + category + "category";
+		int sizebotteles = Common.findElements("xpath", "//a[contains(text(),'" + category + "')]").size();
+		Common.assertionCheckwithReport(sizebotteles > 0,
+				"validating the product category as" + category + "from navigation menu ", expectedResult,
+				"Selected the " + category + " category", "User unabel to click" + category + "");
+
+
+		try {
+			
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			
+			Sync.waitElementClickable("xpath", "//button[@title='Add to Cart']");
+			List<WebElement> element = Common.findElements("xpath", "//button[@title='Add to Cart']");
+            element.get(2).click();
+        	expectedResult = "Product should add to Cart";
+
+			int cartbuttonsize = Common.findElements("xpath", "(//button[@title='Add to Cart'])[2]").size();
+			Common.assertionCheckwithReport(cartbuttonsize > 0, "validating the add product to cart", expectedResult,
+					"Added Product to Cart", "User unabel add product to cart");
+		
+		} catch (Exception | Error e) {
+
+			ExtenantReportUtils.addFailedLog("validating the product add to cart", expectedResult,
+					"User unabel to add product to cart", Common.getscreenShotPathforReport("failed to add product"));
+			
+			e.printStackTrace();
+			Assert.fail();
+
+		}
+	}
+
 	
 	
 	public HydroHelper(String datafile) {
