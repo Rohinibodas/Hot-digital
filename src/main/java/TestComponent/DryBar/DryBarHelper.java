@@ -552,7 +552,7 @@ public void MastercreditCard_payment(String dataSet) throws Exception{
 
 public void DiscovercreditCard_payment(String dataSet) throws Exception{
 	
-	
+
 	try{
 		
 	//	Common.actionsKeyPress(Keys.PAGE_DOWN);
