@@ -18,7 +18,7 @@ public class ValidationofCartPage {
 	  public void registeredUser_Checkout_CreditCard() {
 			try{
 			oxo.closetheadd();
-			oxo.loginOxo("AccountDetails");
+			//oxo.loginOxo("AccountDetails");
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
 		    oxo.clickViewCart();
@@ -32,7 +32,7 @@ catch (Exception e) {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		Common.closeAll();
+	Common.closeAll();
 		
 
 	}

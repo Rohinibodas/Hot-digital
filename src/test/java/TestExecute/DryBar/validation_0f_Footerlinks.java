@@ -1,4 +1,4 @@
-package TestExecute.DryBar.ModularTC;
+package TestExecute.DryBar;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,24 +9,27 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Searchproduct {
-	
+public class validation_0f_Footerlinks {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void Search_function() throws Exception {
+  public void navigation_of_footerlinks() throws Exception {
 
 	  try{
 		  drybar.Aggree_and_proceed();
-		  drybar.clickMyaccount();
-		  drybar.loginApplication("AccountDetails");
-		  drybar.search_product_fullname("ProductName");
-		  drybar.search_product_Fourletters("ProductName");
-		 // drybar.search_product_Dublicate("ProductName");
-		  drybar.search_product_invalid("ProductName");
-		 // drybar.verify_viewproduct_button("ProductName");
-		  drybar.search_product_Threeletters("ProductName");
-		  drybar.searchresultspage_navigation("ProductName"); 
+		  drybar.verifyingHomePage();
+		  drybar.checkorderstatus_footerlink();
+		  drybar.Returns_footerlink();
+		  drybar.Shipping_Delivery_footerlink();
+		  drybar.safetydata_footerlink();
+		  drybar.Special_offers_footerlink();
+		  drybar.warranty_footerlink();
+		  drybar.Glossary_footerlink();
+		  drybar.Blowout_footerlink();
+		  drybar.WheretoBuy_footerlink();
+		  drybar.aboutUs_footerlink();
+		  
+	 
   }
 	  catch (Exception e) {
 			e.printStackTrace();

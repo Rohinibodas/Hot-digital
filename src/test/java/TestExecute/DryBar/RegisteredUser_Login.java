@@ -1,4 +1,4 @@
-package TestExecute.DryBar.ModularTC;
+package TestExecute.DryBar;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;

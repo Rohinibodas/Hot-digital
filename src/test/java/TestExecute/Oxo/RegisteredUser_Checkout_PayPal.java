@@ -41,10 +41,9 @@ public class RegisteredUser_Checkout_PayPal {
 		@AfterTest
 		public void clearBrowser() throws Exception
 		{
-			
-		Common.closeAll();
-			
-
+    
+			Common.closeAll();
+         
 		}
 		
 		@BeforeMethod

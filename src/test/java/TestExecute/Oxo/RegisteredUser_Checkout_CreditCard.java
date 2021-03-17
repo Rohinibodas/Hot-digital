@@ -25,6 +25,7 @@ public class RegisteredUser_Checkout_CreditCard {
 		oxo.addNewAddress("ShippingAddress");
 		oxo.clickAcceptingaddress();
 		oxo.selectGroundShippingMethod();
+		//oxo.Promocode("Promocode");
 		oxo.Click_CreditCard();
 		oxo.Edit_BillingAddress("BiillingAddress");
 		oxo.clickAcceptingaddress();
@@ -43,7 +44,6 @@ catch (Exception e) {
 	{
 		Common.closeAll();
 		
-
 	}
 	
 	@BeforeMethod

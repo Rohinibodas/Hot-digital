@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="VicksSuite Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<test name="TEST_VK_ST_001- Account creation" testid="PPH-979"
+		priority="P1" description="This script will new account creation ">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Newaccountcreation" />
+		</classes>
+	<test name="TEST_VK_ST_00- Login for Vicks" testid="PPH-703"
+		priority="P1" description="This script will cover login for Vicks">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.Vickshumdifier_login" />
+		</classes>
+	</test>
+		<test name="TEST_VK_ST_007- Search a product " testid="PPH-1002"
+		priority="P1" description="This script will cover Serach programs">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_search" />
+		</classes>
+	</test>
+		<test name="TEST_VK_ST_00- logout " testid="PPH-1002"
+		priority="P1" description="This script will cover logt out for user">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Logout" />
+		</classes>
+	</test>
+		<test name="TEST_VK_ST_002- Add new address " testid="PPH-993"
+		priority="P1" description="This script will cover add new address for user">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Addnewaddress" />
+		</classes>
+	</test>
+		<test name="TEST_VK_ST_003- forgot password " testid="PPH-994"
+		priority="P1" description="This script will cover forgot password for user">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_forgotpassword" />
+		</classes>
+	</test>
+		<test name="TEST_VK_ST_006-  Guest user check out " testid="PPH-1003"
+		priority="P1" description="This script will guest user check out">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_guestusercheckout_withmastercard" />
+		</classes>
+	</test>
+		<test name="TEST_VK_ST_005-  Register user check out " testid="PPH-1004"
+		priority="P1" description="This script will register user check out">
+		<classes>
+			<class name="TestExecute.Vickshumdifier.VK_Registerusercheckout_withmastercard" />
+		</classes>
+	</test>
+	
+		</test>
+</suite>
