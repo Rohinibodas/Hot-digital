@@ -27,8 +27,7 @@ public class TEST_VK_ST_007_ValidationBrowse_SearchGuestUser {
 			vicks.changeQuntity_UpdateProduct("2");
 			vicks.clickCheckoutButton_minicart();
 			vicks.addDeliveryAddress_registerUser("ShippingAddress");
-			
-
+		
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
@@ -37,7 +36,7 @@ public class TEST_VK_ST_007_ValidationBrowse_SearchGuestUser {
 	@AfterTest
 	public void clearBrowser() {
 
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

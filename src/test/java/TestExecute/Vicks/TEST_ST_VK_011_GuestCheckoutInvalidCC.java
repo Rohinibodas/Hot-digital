@@ -19,15 +19,15 @@ public class TEST_ST_VK_011_GuestCheckoutInvalidCC {
 
 		try {
 			vicks.Verifyhomepage();
-			vicks.clickHumidifiers();
+			vicks.Humidifiers_Vaporizers();
+			//vicks.clickHumidifiers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();
 			vicks.checkout();
 			vicks.shippingaddress("Address");
 			vicks.invalidData("InvalidPaymentDetails");
-
-		} catch (Exception e) {
+        } catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
 	}

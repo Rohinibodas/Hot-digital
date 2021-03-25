@@ -21,7 +21,8 @@ public class TEST_ST_VK_005_RegisteredCheckout_VISA_CC  {
 			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
-			vicks.clickHumidifiers();
+			vicks.Humidifiers_Vaporizers();
+			//vicks.clickHumidifiers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();
@@ -39,7 +40,7 @@ public class TEST_ST_VK_005_RegisteredCheckout_VISA_CC  {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 		

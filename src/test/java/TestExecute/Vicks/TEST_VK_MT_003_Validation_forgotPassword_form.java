@@ -9,36 +9,32 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_VK_001_CreateNewAccount {
+public class TEST_VK_MT_003_Validation_forgotPassword_form {
 	String datafile = "Vicks//Vickstestdata.xlsx";
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void CreateNewAccount() {
+	public void ForgotPasswordValidation() throws Exception {
 
 		try {
-		
-
+			
 			vicks.Verifyhomepage();
-			vicks.CreateAccount("AccountDetails");
+			vicks.ForgotPasswordValidation();
+			
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
-		
 	}
 
 	@AfterTest
 	public void clearBrowser() {
+
 		Common.closeAll();
-
 	}
-
 	@BeforeMethod
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Vicks\\config.properties");
 		Login.signIn();
-
 	}
-
 }

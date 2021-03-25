@@ -17,9 +17,11 @@ public class TEST_ST_VK_018_RegisteredCheckout_Discover_CC {
 	public void Registered_User_Checkout_Discover_CC() throws Exception {
 
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
-			vicks.clickHumidifiers();
+			vicks.Humidifiers_Vaporizers();
+			//vicks.clickHumidifiers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();

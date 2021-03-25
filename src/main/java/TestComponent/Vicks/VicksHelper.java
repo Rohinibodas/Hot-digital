@@ -136,16 +136,19 @@ public class VicksHelper {
 					"It should be successfully navigate to Order and Returs page",
 					"user failed to navigate Order and Returs", Common.getscreenShotPathforReport("Order and Returs"));
 			Assert.fail();
-		}
-	      
-	      
+		} 
 	      try {
 	    	    Thread.sleep(4000);
 				Common.textBoxInput("xpath", "//input[@id='oar-order-id']", data.get(dataSet).get("OrderID"));
 				Common.textBoxInput("xpath", "//input[@id='oar-billing-lastname']", data.get(dataSet).get("BillingLastName"));
 				Common.textBoxInput("xpath", "//input[@id='oar_email']", data.get(dataSet).get("Email"));
 				Common.clickElement("xpath", "//button[@class='action submit primary']");
-			} catch (Exception | Error e) {
+				ExtenantReportUtils.addPassLog("verifying Order and Returs Page",
+							"It should lands on Order and Returs form Page",
+							"user  lands on Order and Returs form Page",
+							Common.getscreenShotPathforReport("Order and Returs"));
+				
+	      } catch (Exception | Error e) {
 				e.printStackTrace();
 				ExtenantReportUtils.addFailedLog("verifying Order and Returs from",
 						"It should be successfully navigate to Order and Returs page",
@@ -189,6 +192,22 @@ public class VicksHelper {
 
 	}
 
+	public void Humidifiers_Vaporizers(){
+		String expectedResult = "It Should be navigate to Humdifiers & Vaporizers.";		
+		try {			
+			Thread.sleep(6000);			
+			Sync.waitElementClickable("xpath", "//a[@id='ui-id-3']");
+			Common.mouseOver("xpath", "//a[@id='ui-id-3']");
+			Sync.waitElementClickable("xpath", "//a[contains(text(),'Humidifiers & Vaporizers')]");
+			Common.findElement("xpath", "//a[contains(text(),'Humidifiers & Vaporizers')]").click();
+		    ExtenantReportUtils.addPassLog("verifying category Humdifiers & Vaporizers","lands on Humdifiers & Vaporizers", "User lands on the Humdifiers & Vaporizers",Common.getscreenShotPathforReport("faield to click"));		
+			} catch (Exception | Error e) {			
+				e.printStackTrace();			
+				ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult,"user faield to navigate Humdifiers & Vaporizers",Common.getscreenShotPathforReport("faield to navgate categorypage"));			
+				Assert.fail();  		
+				}	
+		}
+
 	public void clickHumidifiers() {
 		String expectedResult = "It Should be navigate to Humdifiers & Vaporizers.";
 		try {
@@ -214,8 +233,8 @@ public class VicksHelper {
 			Thread.sleep(2000);
 			Common.actionsKeyPress(Keys.ARROW_DOWN);
 			Sync.waitElementClickable("xpath",
-					"//ol[@class='products list items product-items']/li[1]/div/a/span/span/img");
-			Common.findElement("xpath", "//ol[@class='products list items product-items']/li[1]/div/a/span/span/img")
+					"//span[@class='product-image-container product-image-container-562_category_page_grid']");
+			Common.findElement("xpath", "//span[@class='product-image-container product-image-container-562_category_page_grid']")
 					.click();
 			ExtenantReportUtils.addPassLog("Verifing product list page", "Should select a product",
 					"Should select a product", Common.getscreenShotPathforReport("Product is selected successfully"));
@@ -232,8 +251,10 @@ public class VicksHelper {
 		try {
 			Thread.sleep(1000);
 			try {
-				Sync.waitElementClickable("xpath", "//button[@id='product-addtocart-button']");
-				Common.findElement("xpath", "//button[@id='product-addtocart-button']").click();
+				
+				Common.scrollIntoView("xpath", "//span[contains(text(),'Add to Cart')]");
+				Sync.waitElementClickable("xpath", "//span[contains(text(),'Add to Cart')]");
+				Common.findElement("xpath", "//span[contains(text(),'Add to Cart')]").click();
 				ExtenantReportUtils.addPassLog("Verifing product to add cart", "Product should add ti cart",
 						"Product should add to cart",
 						Common.getscreenShotPathforReport("Product successfully added to cart"));
@@ -314,6 +335,11 @@ public class VicksHelper {
 			Thread.sleep(2000);
 			Common.clickElement("xpath", "(//a[@class='dropdown-item list-item'])[1]");
 			Thread.sleep(5000);
+			Common.textBoxInput("xpath","//input[@name='city']", data.get(datSet).get("City"));
+			Common.textBoxInput("xpath", "//input[@name='postcode']",  data.get(datSet).get("postcode"));
+			//Common.findElement("xpath", "//select[@name='region_id']").click();
+			Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(datSet).get("Region"));
+			//Common.mouseOverClick("xpath", "//option[contains(text(),'Connecticut')]");
 			Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(datSet).get("phone"));
 			Common.clickElement("xpath", "//button[@class='button action continue primary']");
 			ExtenantReportUtils.addPassLog("Verifing guest user checkout page", "Guest user checkout page success",
@@ -797,10 +823,9 @@ public class VicksHelper {
 			Sync.waitElementClickable("xpath", "//button[@class='action switch']");
 			Common.findElement("xpath", "//button[@class='action switch']");
 			Thread.sleep(4000);
-			Sync.waitElementClickable("id", "idQ6gOVG9M");
-			Common.findElement("id", "idQ6gOVG9M");
-
-			Thread.sleep(2000);
+			Sync.waitElementClickable("xpath", "//a[contains(text(),'My Account')]");
+			Common.findElement("xpath", "//a[contains(text(),'My Account')]");
+            Thread.sleep(2000);
 			// Sync.waitElementClickable("xpath", "(//li[@class='nav
 			// item']/a)[4]");
 			// Common.findElement("xpath", "(//li[@class='nav
@@ -882,9 +907,9 @@ public class VicksHelper {
 		Common.actionsKeyPress(Keys.ENTER);
 		Thread.sleep(2000);
 		try {
-			Common.clickElement("xpath", "//span[@class='toggle']");
+			/*Common.clickElement("xpath", "//span[@class='toggle']");
 			Common.actionsKeyPress(Keys.DOWN);
-			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);*/
 			/*
 			 * //Common.refreshpage(); //Sync.waitElementVisible("xpath",
 			 * "//img[contains(@alt,'"+productname+"')]"); List<WebElement>

@@ -18,10 +18,12 @@ public class TEST_ST_VK_008_MiniCart {
 
 		try {
 		vicks.Verifyhomepage();
-		vicks.clickHumidifiers();
+		vicks.Humidifiers_Vaporizers();
+		//vicks.clickHumidifiers();
 		vicks.productselect();
 		vicks.addtocart();
 		vicks.clickminicartButton();
+		
 		
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

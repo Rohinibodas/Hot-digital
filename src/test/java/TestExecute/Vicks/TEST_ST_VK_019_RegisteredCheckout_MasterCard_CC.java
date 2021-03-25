@@ -21,7 +21,8 @@ public class TEST_ST_VK_019_RegisteredCheckout_MasterCard_CC  {
 			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
-			vicks.clickHumidifiers();
+			vicks.Humidifiers_Vaporizers();
+			//vicks.clickHumidifiers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();
@@ -30,6 +31,7 @@ public class TEST_ST_VK_019_RegisteredCheckout_MasterCard_CC  {
 			vicks.paymentDetails("MasterCardPaymentDetails");
 			vicks.PlaceOrder();
 
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}

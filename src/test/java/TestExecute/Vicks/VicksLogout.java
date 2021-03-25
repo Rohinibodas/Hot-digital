@@ -40,8 +40,8 @@ public class VicksLogout {
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
-			 
-			  
-		  }
+		
+
+		}
 
 }
