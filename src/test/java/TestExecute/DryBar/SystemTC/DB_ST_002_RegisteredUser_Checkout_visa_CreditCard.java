@@ -1,4 +1,4 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.SystemTC;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -10,11 +10,12 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_006_RegisteredUserCheckoutwith_invalid_CC_Credentials {
+public class DB_ST_002_RegisteredUser_Checkout_visa_CreditCard {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void registeredUserCheckoutwith_invalid_CC_Credentials() {
+  
+  public void registeredUser_Checkout_CreditCard() {
 		try {
 			  drybar.Accept();
 			  drybar.navigateMyAccount();
@@ -22,25 +23,33 @@ public class DB_ST_006_RegisteredUserCheckoutwith_invalid_CC_Credentials {
 			 // drybar.Guestuser_PDP();
 			  drybar.Search_productname("ProductName");
 			  drybar.Verify_PDP();
-			 // drybar.clickHairProducts();
-			  //drybar.selectproduct("ProductName");
+			 //drybar.Accept();
+			  //drybar.clickHairProducts();
+			 // drybar.selectproduct("ProductName");
 			  drybar.Select_Size();
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			 // drybar.select_USPS_StandardGround_shippingMethod();
+			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-			  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
-
-  }
+			  drybar.creditCard_payment("CCVisa");
+			  //drybar.creditCard_payment("PaymentDetails");
+			  drybar.order_Success();
+			//  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
+			
+			
+		}
 		catch (Exception e) {
 			e.printStackTrace();
 			
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
+	
+	
+	
 	@AfterTest
 	public void clearBrowser()
 	{
@@ -56,4 +65,6 @@ public class DB_ST_006_RegisteredUserCheckoutwith_invalid_CC_Credentials {
 		 
 		  
 	  }
+
+  
 }

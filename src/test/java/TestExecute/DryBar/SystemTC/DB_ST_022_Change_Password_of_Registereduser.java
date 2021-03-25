@@ -1,4 +1,4 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.SystemTC;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,20 +9,19 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_023_Add_NewAddress {
-	
+public class DB_ST_022_Change_Password_of_Registereduser {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void Add_Address_for_RegisteredUser()throws Exception {
+  public void Chage_Password()throws Exception {
 		try {
 		drybar.Accept();
 	    drybar.navigateMyAccount();
 	   drybar.loginApplication("AccountDetails");
-	   drybar.AddressBook();
-	   drybar.Add_NewAddress("ShippingAddress");
-	 
+	  drybar.AccountInformation();
+	 drybar.change_Password("AccountDetails");
+	  drybar.loginApplication("AccountDetails");
 		
 		  
 		}

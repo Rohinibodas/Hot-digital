@@ -1,4 +1,4 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.SystemTC;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,18 +9,20 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_021_Change_Email_of_Registereduser {
+public class DB_ST_023_Add_NewAddress {
+	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void Change_EmailAddress()throws Exception {
+  public void Add_Address_for_RegisteredUser()throws Exception {
 		try {
 		drybar.Accept();
 	    drybar.navigateMyAccount();
 	   drybar.loginApplication("AccountDetails");
-	  drybar.AccountInformation();
-	  drybar.change_Email("AccountDetails");
+	   drybar.AddressBook();
+	   drybar.Add_NewAddress("ShippingAddress");
+	 
 		
 		  
 		}

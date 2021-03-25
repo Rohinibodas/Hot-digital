@@ -1,27 +1,33 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.Mobile;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
+import TestComponent.DryBar.DryBarMobile;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_024_OrderID_Verification {
+public class Registereduser_checkout_with_Amex_CC {
+	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
-	DryBarHelper drybar=new DryBarHelper(datafile);
+	DryBarMobile drybar=new DryBarMobile(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-  public void To_verify_orderID() {
+  public void registeredUser_Checkout_CreditCard() {
 		try {
-			  drybar.Accept();
-			  drybar.navigateMyAccount();
-			  drybar.loginApplication("AccountDetails");
+			drybar.Accept();
+			drybar.verifyingHomePage();
+			   drybar.clickMyaccount();
+			   drybar.loginApplication("AccountDetails");
 			  drybar.Search_productname("ProductName");
 			  drybar.Verify_PDP();
-			  drybar.Select_Size();
+			 //drybar.Accept();
+			  //drybar.clickHairProducts();
+			  //drybar.selectproduct("ProductName");
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
@@ -29,9 +35,9 @@ public class DB_ST_024_OrderID_Verification {
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
 			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-			  drybar.creditCard_payment("CCVisa");
-			  drybar.order_Success();
-			  drybar.order_verification();
+			  drybar.AmexcreditCard_payment("PaymentDetails");
+			  drybar.order_Verifying();
+			//  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
 			
 			
 		}
@@ -47,15 +53,15 @@ public class DB_ST_024_OrderID_Verification {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	
 
-	@BeforeTest
+	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
-		  Login.signIn();
+		 Login.signIn("chrome","iPad");
 		 
 		  
 	  }

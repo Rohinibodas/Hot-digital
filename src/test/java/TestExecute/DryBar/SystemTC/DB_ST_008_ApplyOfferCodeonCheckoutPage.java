@@ -1,4 +1,4 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.SystemTC;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,24 +9,35 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_010_ForgotPassword {
+public class DB_ST_008_ApplyOfferCodeonCheckoutPage {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
- 
-  public void forgotPassword() throws Exception {
-	 
+  public void applyOfferCodeonCheckoutPage() throws Exception {
+		 
 		try{
-			 drybar.Accept();
-			 drybar.navigateMyAccount();
-		     drybar.click_forgotpassword();
+		  drybar.Accept();
+		 // drybar.Guestuser_PDP();
+		  drybar.Search_productname("ProductName");
+		  //drybar.clickHairProducts();
+		  //drybar.selectproduct("ProductName");
+		  drybar.Verify_PDP();
+		  drybar.Select_Size();
+		  drybar.increaseProductQuantity("2");
+		  drybar.clickAddtoBag();
+		  drybar.clickminiCartButton();
+		  drybar.clickCheckoutButton();
+		  drybar.click_GuestCheckOut();
+		  drybar.guestShippingAddress("ShippingAddress");
+		  drybar.couponCode("couponCode");
+	 // drybar.select_USPS_StandardGround_shippingMethod();
   }
 	catch (Exception e) {
 		e.printStackTrace();
 		
 		Assert.fail(e.getMessage(), e);
 	} 
-	}
+}
 	@AfterTest
 	public void clearBrowser()
 	{
@@ -42,5 +53,4 @@ public class DB_ST_010_ForgotPassword {
 		 
 		  
 	  }
-
 }

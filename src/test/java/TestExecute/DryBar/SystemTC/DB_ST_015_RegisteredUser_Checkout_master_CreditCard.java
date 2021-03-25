@@ -1,4 +1,4 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.SystemTC;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,7 +9,7 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_014_RegisteredUser_Checkout_Amex_CreditCard {
+public class DB_ST_015_RegisteredUser_Checkout_master_CreditCard {
 	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
@@ -30,8 +30,7 @@ public class DB_ST_014_RegisteredUser_Checkout_Amex_CreditCard {
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
 			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-			  drybar.creditCard_payment("ccamex");
-			  //drybar.AmexcreditCard_payment("PaymentDetails");
+			  drybar.creditCard_payment("CCmastercard");
 			  drybar.order_Success();
 			
 			

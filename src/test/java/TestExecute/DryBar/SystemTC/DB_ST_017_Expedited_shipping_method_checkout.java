@@ -1,4 +1,4 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.SystemTC;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;

@@ -1,4 +1,4 @@
-package TestExecute.DryBar;
+package TestExecute.DryBar.SystemTC;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,21 +9,18 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_020_Product_Wishlist {
+public class DB_ST_021_Change_Email_of_Registereduser {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void Product_Wishlist()throws Exception {
+  public void Change_EmailAddress()throws Exception {
 		try {
 		drybar.Accept();
 	    drybar.navigateMyAccount();
 	   drybar.loginApplication("AccountDetails");
-	   drybar.Search_productname("ProductName");
-		  drybar.Verify_PDP();
-		  drybar.Add_product_to_Wishlist();
-		  drybar.remove_from_wishlist();
-		  
+	  drybar.AccountInformation();
+	  drybar.change_Email("AccountDetails");
 		
 		  
 		}
