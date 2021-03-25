@@ -251,8 +251,7 @@ public class VicksHelper {
 		try {
 			Thread.sleep(1000);
 			try {
-			
-				Common.scrollIntoView("xpath", "//span[contains(text(),'Add to Cart')]");
+			    Common.scrollIntoView("xpath", "//span[contains(text(),'Add to Cart')]");
 				Sync.waitElementClickable("xpath", "//span[contains(text(),'Add to Cart')]");
 				Common.findElement("xpath", "//span[contains(text(),'Add to Cart')]").click();
 				ExtenantReportUtils.addPassLog("Verifing product to add cart", "Product should add ti cart",

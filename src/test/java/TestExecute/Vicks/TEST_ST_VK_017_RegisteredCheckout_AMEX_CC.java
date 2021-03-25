@@ -17,8 +17,6 @@ public class TEST_ST_VK_017_RegisteredCheckout_AMEX_CC {
 	public void Registered_User_Checkout_AmericanExpress_CC() throws Exception {
 
 		try {
-			
-			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
 			vicks.Humidifiers_Vaporizers();

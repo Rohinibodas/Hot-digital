@@ -37,8 +37,7 @@ public class TEST_ST_VK_021_GuestCheckout_MasterCard_CC {
 	@AfterTest
 	public void clearBrowser() {
 		Common.closeAll();
-     
-	}
+     }
 
 	@BeforeMethod
 	public void startTest() throws Exception {

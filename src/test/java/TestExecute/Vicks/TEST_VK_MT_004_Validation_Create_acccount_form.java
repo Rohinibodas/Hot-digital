@@ -17,6 +17,7 @@ public class TEST_VK_MT_004_Validation_Create_acccount_form{
 	public void AccountCreationFormValidation() throws Exception {
 
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.AccountCreationFormValidation();
 

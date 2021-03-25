@@ -41,5 +41,4 @@ public class VicksLogout {
 			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
 		}
-
 }

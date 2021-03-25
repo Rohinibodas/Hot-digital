@@ -32,6 +32,7 @@ public class TEST_ST_VK_011_GuestCheckoutInvalidCC {
 		}
 	}
 	
+	
 
 	@AfterTest
 	public void clearBrowser() {
