@@ -19,12 +19,13 @@ public class TEST_ST_VK_021_GuestCheckout_MasterCard_CC {
 		try {
 			
 			vicks.Verifyhomepage();
-			vicks.clickHumidifiers();
+			vicks.Humidifiers_Vaporizers();
+			//vicks.clickHumidifiers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();
 			vicks.checkout();
-			vicks.shippingaddress("Address");
+			vicks.shippingaddress("ShippingAddress");
 			vicks.paymentDetails("MasterCardPaymentDetails");
 			vicks.PlaceOrder();
 
@@ -36,8 +37,7 @@ public class TEST_ST_VK_021_GuestCheckout_MasterCard_CC {
 	@AfterTest
 	public void clearBrowser() {
 		Common.closeAll();
-
-	}
+     }
 
 	@BeforeMethod
 	public void startTest() throws Exception {

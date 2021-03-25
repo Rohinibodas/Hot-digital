@@ -17,8 +17,10 @@ public class TEST_ST_VK_020_GuestCheckout_AMEX_CC {
 	public void Guest_User_Checkout_AmericanExpress_CC() throws Exception {
 
 		try {
+			
 			vicks.Verifyhomepage();
-			vicks.clickHumidifiers();
+			vicks.Humidifiers_Vaporizers();
+			//vicks.clickHumidifiers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();

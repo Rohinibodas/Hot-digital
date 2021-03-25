@@ -19,8 +19,6 @@ public class LoginFormValidation {
 		try {
 			vicks.Verifyhomepage();
 			vicks.LoginFormValidation();
-			
-
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
    

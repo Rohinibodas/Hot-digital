@@ -9,27 +9,27 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_VK_001_CreateNewAccount {
+public class TEST_VK_MT_004_Validation_Create_acccount_form{
 	String datafile = "Vicks//Vickstestdata.xlsx";
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void CreateNewAccount() {
+	public void AccountCreationFormValidation() throws Exception {
 
 		try {
-		
-
+			
 			vicks.Verifyhomepage();
-			vicks.CreateAccount("AccountDetails");
+			vicks.AccountCreationFormValidation();
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
+	
 		}
-		
 	}
 
 	@AfterTest
 	public void clearBrowser() {
+
 		Common.closeAll();
 
 	}

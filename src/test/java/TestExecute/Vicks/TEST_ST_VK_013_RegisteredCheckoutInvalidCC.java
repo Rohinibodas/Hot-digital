@@ -16,10 +16,10 @@ public class TEST_ST_VK_013_RegisteredCheckoutInvalidCC {
 	public void Searchproducr() throws Exception {
 
 		try {
-			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
-			vicks.clickHumidifiers();
+			vicks.Humidifiers_Vaporizers();
+			//vicks.clickHumidifiers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();
@@ -30,6 +30,8 @@ public class TEST_ST_VK_013_RegisteredCheckoutInvalidCC {
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
+		
+		
 		} 
 	}
 
