@@ -31,6 +31,7 @@ public class TEST_ST_VK_011_GuestCheckoutInvalidCC {
 			Assert.fail(e.getMessage(), e);
 		}
 	}
+	
 
 	@AfterTest
 	public void clearBrowser() {

@@ -17,7 +17,6 @@ public class TEST_VK_MT_003_Validation_forgotPassword_form {
 	public void ForgotPasswordValidation() throws Exception {
 
 		try {
-			
 			vicks.Verifyhomepage();
 			vicks.ForgotPasswordValidation();
 			

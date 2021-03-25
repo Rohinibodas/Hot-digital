@@ -24,8 +24,7 @@ public class TEST_ST_VK_001_CreateNewAccount {
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
-		}
-		
+		}	
 	}
 
 	@AfterTest

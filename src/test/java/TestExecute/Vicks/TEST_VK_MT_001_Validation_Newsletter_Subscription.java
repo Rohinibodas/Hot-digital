@@ -32,7 +32,6 @@ public class TEST_VK_MT_001_Validation_Newsletter_Subscription {
 	@AfterTest
 	public void clearBrowser() {
 
-	   
 		Common.closeAll();
 
 	}

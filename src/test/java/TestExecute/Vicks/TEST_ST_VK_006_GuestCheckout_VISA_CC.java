@@ -46,8 +46,7 @@ public class TEST_ST_VK_006_GuestCheckout_VISA_CC {
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Vicks\\config.properties");
 			 Login.signIn();
-			 
-			  
+		  
 		  }
 
 

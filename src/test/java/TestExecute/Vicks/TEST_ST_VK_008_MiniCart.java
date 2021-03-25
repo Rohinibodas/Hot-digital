@@ -23,8 +23,6 @@ public class TEST_ST_VK_008_MiniCart {
 		vicks.productselect();
 		vicks.addtocart();
 		vicks.clickminicartButton();
-		
-		
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}

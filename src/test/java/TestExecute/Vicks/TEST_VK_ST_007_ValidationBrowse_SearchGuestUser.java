@@ -28,6 +28,7 @@ public class TEST_VK_ST_007_ValidationBrowse_SearchGuestUser {
 			vicks.clickCheckoutButton_minicart();
 			vicks.addDeliveryAddress_registerUser("ShippingAddress");
 		
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}

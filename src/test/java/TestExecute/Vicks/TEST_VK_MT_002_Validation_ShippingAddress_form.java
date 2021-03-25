@@ -17,6 +17,7 @@ public class TEST_VK_MT_002_Validation_ShippingAddress_form {
 	public void ShippingAddressFormValidation() throws Exception {
 
 		try {
+			
             vicks.Verifyhomepage();
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();

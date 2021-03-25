@@ -18,6 +18,7 @@ public class TEST_ST_VK_018_RegisteredCheckout_Discover_CC {
 
 		try {
 			
+			
 			vicks.Verifyhomepage();
 			vicks.loginVicks("AccountDetails");
 			vicks.Humidifiers_Vaporizers();

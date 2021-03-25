@@ -30,6 +30,7 @@ public class TEST_ST_VK_013_RegisteredCheckoutInvalidCC {
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
+		
 		} 
 	}
 
