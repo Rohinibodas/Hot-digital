@@ -25,6 +25,8 @@ public class Createaccount {
   public void createaccount() throws Exception {
 	//  drybar.clickMyaccount();
 	  try{
+		  drybar.Accept();
+		  drybar.verifyingHomePage();
 	  drybar.CreateAccount("AccountDetails");
 	  }
 		catch (Exception e) {
@@ -40,20 +42,21 @@ public class Createaccount {
   @AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	
- /*@BeforeMethod
+ @BeforeMethod
   public void startTest() throws Exception {
 	 System.setProperty("configFile", "DryBar\\config.properties");
-	 Login.signIn("chrome","Galaxy S5");
+	 Login.signIn("chrome","iPad");
  }
- */
-@BeforeTest
+}
+ 
+/*@BeforeTest
 @Parameters({"device"})  
   public void startTest(String Device) throws Exception {
 	System.setProperty("configFile", "DryBar\\config.properties");
 	Login.signIn("chrome",Device);
   }
-}
+}*/

@@ -19,14 +19,19 @@ public class ApplyGiftCardonCheckoutPage {
   public void applyGiftCardonCheckoutPage() throws Exception {
 	//  drybar.clickMyaccount();
 	  try{
-	  drybar.clickHairProducts();
-	  drybar.selectproduct("ProductName");
+		  drybar.Accept();
+		//  drybar.Guestuser_PDP();
+		  drybar.verifyingHomePage();
+		  drybar.Search_productname("ProductName");
+		  drybar.Verify_PDP();
+	  //drybar.clickHairProducts();
+	  //drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
 	  drybar.clickCheckoutButton();
 	  drybar.click_GuestCheckOut();
-	  drybar.guestShippingAddress("ShippingAddress");
+	  drybar.guestShipingAddress("ShippingAddress");
 	  drybar.gitCard();
 	  drybar.click_place_order_button();
 	drybar.order_Verifying();
@@ -46,21 +51,23 @@ public class ApplyGiftCardonCheckoutPage {
   @AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
-		
+		//Common.closeAll();
+
 	}
 	
 	
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
-	 }*/
-	@BeforeTest
+		 Login.signIn("chrome","iPad");
+	 }
+}
+	/*@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
-}
+}*/
+

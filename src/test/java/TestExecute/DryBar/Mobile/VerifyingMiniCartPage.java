@@ -20,16 +20,23 @@ public class VerifyingMiniCartPage {
   public void verifyingMiniCartPage() throws Exception {
 
 try{
-drybar.clickHairProducts();
-	  drybar.selectproduct("ProductName");
+	  drybar.Accept();
+	  //drybar.Guestuser_PDP();
+	   drybar.Search_productname("ProductName");
+	  drybar.Verify_PDP();
+         //drybar.clickHairProducts();
+	     // drybar.selectproduct("ProductName");
 	  drybar.increaseProductQuantity("5");
+	   // drybar.Accept();
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
-	  drybar.updateProductInMinicart("2");
-	  drybar.click_View_editcart();
-	//  drybar.edit_ShopingCart();
-	  drybar.changeQuntity_UpdateProduct("5");
+	  drybar.increaseProductQuantity("2");
+	  drybar.Update_Cart();
 	  drybar.click_ContinueShopping();
+	  
+	 // drybar.updateProductInMinicart("2");
+	// drybar.click_View_editcart();
+	 // drybar.click_ContinueShopping();
 	//  drybar.addproductInMiniCartPage();
   }
 
@@ -42,15 +49,20 @@ catch (Exception e) {
   @AfterTest
  	public void clearBrowser()
  	{
- 	Common.closeAll();
+ 	//Common.closeAll();
 
  	}
  	
-  @BeforeTest
+  /*@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
 	  
-  }
+  }*/
+  @BeforeMethod
+  public void startTest() throws Exception {
+	 System.setProperty("configFile", "DryBar\\config.properties");
+	 Login.signIn("chrome","iPad");
+ }
 }

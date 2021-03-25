@@ -19,7 +19,6 @@ package TestExecute.DryBar.ModularTC;
 					  drybar.Accept();
 					  drybar.verifyingHomePage();
 					  drybar.Search_productname("ProductName");
-					 // drybar.Accept();
 					  drybar.Verify_PDP();
 					  	
 				}

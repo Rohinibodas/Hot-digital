@@ -13,8 +13,6 @@ import TestLib.Login;
 		String datafile = "DryBar//DryBarTestData.xlsx";	
 		DryBarHelper drybar=new DryBarHelper(datafile);
 		
-		//DryBarMobile drybar=new DryBarMobile(datafile);
-		
 		@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	  public void Loginuser_PDP()throws Exception {
 			try {
@@ -22,9 +20,8 @@ import TestLib.Login;
 		   drybar.clickMyaccount();
 		   drybar.loginApplication("AccountDetails");
 		   drybar.Search_productname("ProductName");
-		  // drybar.Accept();
 			  drybar.Verify_PDP();
-		 //  drybar.Loginuser_PDP();
+		
 			}
 			 catch (Exception e) {
 					e.printStackTrace();

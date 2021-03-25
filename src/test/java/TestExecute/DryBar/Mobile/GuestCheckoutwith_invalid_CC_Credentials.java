@@ -19,8 +19,10 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void guestCheckoutwith_invalid_CC_Credentials() {
 	  try{
-	  drybar.clickHairProducts();
-	  drybar.selectproduct("ProductName");
+		  drybar.Accept();
+		  drybar.verifyingHomePage();
+		  drybar.Search_productname("ProductName");
+		  drybar.Verify_PDP();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
@@ -38,11 +40,11 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
 			Assert.fail(e.getMessage(), e);
 		} 
 }
- /* @BeforeMethod
+ @BeforeMethod
   public void startTest() throws Exception {
 	 System.setProperty("configFile", "DryBar\\config.properties");
-	 Login.signIn("chrome","Galaxy S5");
- }*/
+	 Login.signIn("chrome","iPad");
+ }
   
   @AfterTest
 	public void clearBrowser()
@@ -51,10 +53,11 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
 	  Common.closeAll();
 
 	}
-@BeforeTest
+}
+/*@BeforeTest
 @Parameters({"device"})  
   public void startTest(String Device) throws Exception {
 	System.setProperty("configFile", "DryBar\\config.properties");
 	Login.signIn("chrome",Device);
   }
-}
+}*/

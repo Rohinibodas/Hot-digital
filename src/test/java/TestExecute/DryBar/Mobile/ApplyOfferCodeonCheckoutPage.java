@@ -18,8 +18,10 @@ public class ApplyOfferCodeonCheckoutPage {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void applyOfferCodeonCheckoutPage() throws Exception {
 		try{ 
-		drybar.clickHairProducts();
-		  drybar.selectproduct("ProductName");
+			 drybar.Accept();
+			 drybar.verifyingHomePage();
+			 drybar.Search_productname("ProductName");
+			 drybar.Verify_PDP();
 		  drybar.increaseProductQuantity("2");
 		  drybar.clickAddtoBag();
 		  drybar.clickminiCartButton();
@@ -42,20 +44,21 @@ public class ApplyOfferCodeonCheckoutPage {
 	public void clearBrowser()
 	{
     
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
-	 }*/
-	@BeforeTest
+		 Login.signIn("chrome","iPad");
+	 }
+}
+	/*@BeforeTest
 	
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
-}
+}*/

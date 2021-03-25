@@ -19,6 +19,8 @@ public class ForgotPassword {
  
   public void forgotPassword() throws Exception {
 		try{
+			drybar.Accept();
+			drybar.verifyingHomePage();
 	  drybar.navigateMyAccount();
 	  drybar.click_forgotpassword();
   }
@@ -37,16 +39,17 @@ public class ForgotPassword {
 
 	}
 	
-     /*@BeforeMethod
+     @BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
 		 Login.signIn("chrome","iPhone X");
-	 }*/
-	@BeforeTest
+	 }
+}
+	/*@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
 	  }
 
-}
+}*/

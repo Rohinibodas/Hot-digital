@@ -21,10 +21,10 @@ public class Guest_Checkout_CreditCard {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void guest_Checkout_CreditCard() throws Exception {
 		try{
-	 //  drybar.clickMyaccount();
-	  drybar.clicktreebarmenu();
-	  drybar.clickHairProducts();
-	  drybar.selectproduct("ProductName");
+	drybar.Accept();
+	drybar.verifyingHomePage();
+	 drybar.Search_productname("ProductName");
+	 drybar.Verify_PDP();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
@@ -49,23 +49,23 @@ public class Guest_Checkout_CreditCard {
   @AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome","Galaxy S5");
-	 }*/
+		 Login.signIn("chrome","iPad");
+	 }
 	
-@BeforeTest
+/*@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "DryBar\\config.properties");
 		Login.signIn("chrome",Device);
 	  
 
-}
+}*/
 
 }
