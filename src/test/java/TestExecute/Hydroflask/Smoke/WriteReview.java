@@ -30,7 +30,7 @@ public class WriteReview {
 	public void clearBrowser()
 	{
 		
-    Common.closeAll();
+   Common.closeAll();
 
 	}
 	

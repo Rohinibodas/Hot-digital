@@ -22,9 +22,10 @@ public class RegisteredUser_Checkout_CreditCard {
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress_registerUser("Address");
-			Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
+			Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 			
 			Assert.fail(e.getMessage(), e);
 		} 
@@ -44,6 +45,7 @@ public class RegisteredUser_Checkout_CreditCard {
 		 System.setProperty("configFile", "Hydroflask\\config.properties");
 		  Login.signIn();
 		  Hydro.acceptPrivecy();
+		  Hydro.ClosADD();
 		  
 	  }
 

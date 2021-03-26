@@ -35,7 +35,7 @@ public class GuestCheckoutwith_invalid_CC_Credentials {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+       Common.closeAll();
 
 	}
 	

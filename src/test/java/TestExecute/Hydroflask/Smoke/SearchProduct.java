@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class SearchProduct {
@@ -29,7 +30,7 @@ public class SearchProduct {
 	public void clearBrowser()
 	{
 		
-    // Common.closeAll();
+     Common.closeAll();
 
 	}
 	

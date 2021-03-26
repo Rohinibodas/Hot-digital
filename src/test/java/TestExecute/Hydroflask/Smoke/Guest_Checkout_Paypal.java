@@ -23,7 +23,7 @@ public class Guest_Checkout_Paypal {
 			 Hydro.payPal_Payment("PaypalDetails");
 		}
 		catch (Exception e) {
-			
+			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);
 		} 
 	}

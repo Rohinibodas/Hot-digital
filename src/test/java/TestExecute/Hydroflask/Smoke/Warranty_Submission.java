@@ -38,7 +38,7 @@ public class Warranty_Submission {
 	public void clearBrowser()
 	{
 		
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

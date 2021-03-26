@@ -9,26 +9,34 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class EditAccounInfromation {
+public class TEST_ST_HF_028_Checkout_with_credit_card_as_registered_user_with_bundle_product {
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-	  public void EditAccounInfromation() {
+  public void Checkout_with_credit_card_as_registered_user_with_bundle_product() {
+	  
+	  try{
+			Hydro.loginHydroflaskAccount("AccountDetails");
 
-			try {
-				Hydro.edit_Accountinfo("editAccountInformation");
-				Hydro.logOut();
-		        
+			Hydro.serachproduct_addtocart("Adventure Bundle");
+			Hydro.checkOut();
+			Hydro.addDeliveryAddress_registerUser("Address");
+			Hydro.payPal_Payment("PaypalDetails");
+			Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
+			
 			}
 			catch (Exception e) {
+				e.printStackTrace();
 				
 				Assert.fail(e.getMessage(), e);
 			} 
-	}
+	  }
+		
+
 		@AfterTest
 		public void clearBrowser()
 		{
-			Common.closeAll();
+	    Common.closeAll();
 
 		}
 		
@@ -37,7 +45,7 @@ public class EditAccounInfromation {
 			 System.setProperty("configFile", "Hydroflask\\config.properties");
 			  Login.signIn();
 			  Hydro.acceptPrivecy();
-			  Hydro.ClosADD();
-			  
+			  Hydro.ClosADD();		  
 		  }
+  
 }

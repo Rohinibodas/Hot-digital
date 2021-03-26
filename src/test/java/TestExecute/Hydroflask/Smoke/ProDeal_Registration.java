@@ -35,7 +35,7 @@ public class ProDeal_Registration {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

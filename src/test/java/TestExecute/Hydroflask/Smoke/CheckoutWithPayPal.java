@@ -16,7 +16,8 @@ public class CheckoutWithPayPal {
 
   public void checkoutWithPayPal() {
 		try {
-			Hydro.loginHydroflaskAccount("AccountDetails");
+			//Hydro.loginHydroflaskAccount("AccountDetails");
+			Hydro.verifytheHomepage();
 			Hydro.orderSubmit("Bottles");
 			Hydro.CheckOutPaypal("PaypalDetails");
 			

@@ -44,7 +44,7 @@ public class Registered_Checkout_Paypal {
 		 System.setProperty("configFile", "Hydroflask\\config.properties");
 		  Login.signIn();
 		  Hydro.acceptPrivecy();
-		  
+		  Hydro.ClosADD();
 	  }
 
 }
