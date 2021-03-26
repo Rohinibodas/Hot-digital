@@ -530,7 +530,7 @@ public class HydroHelper {
 
 	public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 
-		closeFreeGift();
+		//closeFreeGift();
 		String expectedResult = "shipping address is entering in the fields";
 
 		int size = Common.findElements(By.xpath("//span[contains(text(),'Add New Address')]")).size();
@@ -627,7 +627,7 @@ public class HydroHelper {
 				// section",Common.getscreenShotPathforReport("land on the
 				// payment section"));
 
-				closeFreeGift();
+				//closeFreeGift();
 			} catch (Exception | Error e) {
 				e.printStackTrace();
 
@@ -1462,12 +1462,12 @@ public class HydroHelper {
 			Common.textBoxInput("xpath", "//input[contains(@id,'billing_name')]", data.get(dataSet).get("BillName"));
             
 			//Sync.waitElementPresent("xpath", "//textarea[contains(@id,'TextInputPlaceholder_94')]");
-			Sync.waitElementPresent("xpath" , "//textarea[contains(@id, 'rn_TextInputPlaceholder_96')]");
-			Common.clickElement("xpath" , "//textarea[contains(@id, 'rn_TextInputPlaceholder_96')]");
+			Sync.waitElementPresent("xpath" , "//textarea[contains(@id, 'rn_TextInputPlaceholder')]");
+			Common.clickElement("xpath" , "//textarea[contains(@id, 'rn_TextInputPlaceholder')]");
 			//Common.clickElement("xpath", "//textarea[contains(@id,'TextInputPlaceholder_94')]");
-			Common.textBoxInput("xpath", "//textarea[contains(@id, 'rn_TextInputPlaceholder_96')]",
+			Common.textBoxInput("xpath", "//textarea[contains(@id, 'rn_TextInputPlaceholder')]",
 					data.get(dataSet).get("Question*"));
-			Common.clickElement("xpath", "//button[@id='rn_FormSubmit_97_Button']");
+			Common.clickElement("xpath", "//button[contains(@id,'rn_FormSubmit')]");
 			Thread.sleep(7000);
 		}
 
@@ -1884,8 +1884,8 @@ public class HydroHelper {
 			Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80263']");
 			Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80263']");
 
-			Sync.waitElementPresent("xpath", "//fieldset[@id='fc-ca-swatch-80263-fieldset']//div[5]/span");
-			Common.clickElement("xpath", "//fieldset[@id='fc-ca-swatch-80263-fieldset']//div[5]/span");
+			Sync.waitElementPresent("xpath", "//fieldset[@id='fc-ca-swatch-90031-fieldset']//div[5]/span");
+			Common.clickElement("xpath", "//fieldset[@id='fc-ca-swatch-90031-fieldset']//div[5]/span");
 
 			Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80268']");
 			Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80268']");
@@ -1904,6 +1904,7 @@ public class HydroHelper {
 			Assert.assertTrue(colorofbottle > 0);
 
 		} catch (Exception | Error e) {
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", expectedResult,
 					"User unabel to change bottele color ",
 					Common.getscreenShotPathforReport("faield change the color myhydro"));
@@ -2271,7 +2272,7 @@ public class HydroHelper {
 
 	public void overallRating(String OverallRating) throws Exception{
 	Thread.sleep(3000);
-	if(Common.getCurrentURL().contains("stg")){
+	/*if(Common.getCurrentURL().contains("stg")){
 	 switch (OverallRating) {
 	case "poor":
 	Sync.waitElementPresent("xpath", "//a[contains(@id,'rating-1')]");
@@ -2295,8 +2296,8 @@ public class HydroHelper {
 	Common.clickElement("xpath", "//a[contains(@id,'rating-5')]");
 	break;
 	}
-	}
-	else{
+	}*/
+	//else{
 	switch (OverallRating) {
 	case "poor":
 	Sync.waitElementPresent("xpath", "//span[contains(@id,'rating-1')]");
@@ -2321,33 +2322,9 @@ public class HydroHelper {
 	break;
 	}
 	}
-	}
+	//}
 	    public void qualityof_ProductRating(String ProductRating) throws Exception{
-	if(Common.getCurrentURL().contains("stg")){
-	switch (ProductRating) {
-	case "poor":
-	Sync.waitElementPresent("xpath", "//a[contains(@id,'Quality-1')]");
-	Common.clickElement("xpath", "//a[contains(@id,'Quality-1')]");
-	break;
-	case "Fair":
-	Sync.waitElementPresent("xpath", "//a[contains(@id,'Quality-2')]");
-	Common.clickElement("xpath", "//a[contains(@id,'rating-2')]");
-	break;
-	case "Average":
-	Sync.waitElementPresent("xpath", "//a[contains(@id,'Quality-3')]");
-	Common.clickElement("xpath", "//a[contains(@id,'Quality-3')]");;
-	break;
-	case "Good":
-	Sync.waitElementPresent("xpath", "//a[contains(@id,'Quality-4')]");
-	Common.clickElement("xpath", "//a[contains(@id,'Quality-4')]");
-	break;
-	case "Excellent":
-	Sync.waitElementPresent("xpath", "//a[contains(@id,'Quality-5')]");
-	Common.clickElement("xpath", "//a[contains(@id,'Quality-5')]");
-	break;
-	}
-	}
-	else{
+	/*//*/
 	switch (ProductRating) {
 	case "poor":
 	Sync.waitElementPresent("xpath", "//span[contains(@id,'Quality-1')]");
@@ -2371,9 +2348,9 @@ public class HydroHelper {
 	break;
 	}
 	}
-	}
+	//}
 	public void valueof_productRating(String valueofProductRating) throws Exception{
-	if(Common.getCurrentURL().contains("stg")){
+	/*if(Common.getCurrentURL().contains("stg")){
 	switch (valueofProductRating) {
 	case "poor":
 	Sync.waitElementPresent("xpath", "//a[contains(@id,'rating_Value-1')]");
@@ -2397,7 +2374,7 @@ public class HydroHelper {
 	break;
 	}
 	}
-	else{
+	else{*/
 	switch (valueofProductRating) {
 	case "poor":
 	Sync.waitElementPresent("xpath", "//span[contains(@id,'rating_Value-1')]");
@@ -2421,7 +2398,7 @@ public class HydroHelper {
 	break;
 	}
 	}
-	}
+	//}
 	
 	
 	
@@ -2675,7 +2652,37 @@ public class HydroHelper {
 			}
 		}
 	}
+public void serachproduct_addtocart(String dataSet){
+	
+	try {
+		Thread.sleep(8000);
+		Sync.waitElementVisible("xpath", "//form[@id='search_mini_form']//label");
+		Thread.sleep(8000);
+		Common.clickElement("xpath", "//form[@id='search_mini_form']//label");
+		Common.textBoxInput("xpath", "//input[@id='search']", dataSet);
+		Common.actionsKeyPress(Keys.ENTER);
+		
+		Common.clickElement("xpath", "//a[text()='Adventure Bundle']");
+		Thread.sleep(4000);
 
+		Common.clickElement("xpath", "//button[@title='Add to Cart']");
+	//	Common.clickElement("xpath", "//a[text()='Adventure Bundle']//following::form[1]//button");
+		
+		ExtenantReportUtils.addPassLog("validating Search box", "enter product name will display in search box",
+				"user enter the product name in  search box", Common.getscreenShotPathforReport("searchproduct"));
+		
+		
+		
+		
+	} catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("validating Search box", "enter product name will display in search box",
+				"User failed to enter product name", Common.getscreenShotPathforReport("searchproduct"));
+		Assert.fail();
+
+	}
+
+	
+}
 	public void SampleSearchProduct(String dataSet) throws Exception {
 		Thread.sleep(8000);
 		try {
