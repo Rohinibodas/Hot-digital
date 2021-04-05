@@ -191,11 +191,18 @@ public class Honeywellhelper {
 		{
 			clickShopButton();
 			try{
+				Sync.waitElementClickable("xpath", "//a[@title='Air Purifiers']");
+				Common.clickElement("xpath", "//a[@title='Air Purifiers']");
+				Common.assertionCheckwithReport(Common.getPageTitle().equals("Air Purifiers - Shop"),"Verifying Air Purifiers page","it shoud navigate to Air Purifiers", "successfully  navigate to Air Purifiers", "airpurifires");	
+
 				
+				
+				
+				/*
 				Sync.waitElementClickable("xpath", "//a[@title='Thermometers']");
 				Common.clickElement("xpath", "//a[@title='Thermometers']");
 				Common.assertionCheckwithReport(Common.getPageTitle().equals("Air Purifiers - Shop"),"Verifying Air Purifiers page","it shoud navigate to Air Purifiers", "successfully  navigate to Air Purifiers", "airpurifires");	
-				
+				*/
 			}
 			catch(Exception |Error e) {
 			ExtenantReportUtils.addFailedLog("verifying airpurifiers Product category", "User navigate to airpurifiers product page", "user not able to click airpurifiers Product", Common.getscreenShotPathforReport("productincr"));		
