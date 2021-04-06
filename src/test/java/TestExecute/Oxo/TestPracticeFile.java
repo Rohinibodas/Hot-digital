@@ -23,9 +23,8 @@ public class TestPracticeFile {
 		try{
 			
 			oxo.closetheadd();
-			
-			
-	  }
+
+		}
 	catch (Exception e) {
 			
 			Assert.fail(e.getMessage(), e);
