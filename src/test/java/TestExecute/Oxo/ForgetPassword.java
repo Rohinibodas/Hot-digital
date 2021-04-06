@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import TestComponent.oxo.OxoHelper;
 import TestLib.BaseDriver;
+import TestLib.Common;
 import TestLib.Login;
 
 public class ForgetPassword {
@@ -27,10 +28,9 @@ public class ForgetPassword {
 }
 	
 	@AfterTest
-	public void clearBrowser() throws Exception
+	public void clearBrowser()
 	{
-		BaseDriver.setDriver(null);
-		
+		Common.closeAll();
 
 	}
 	

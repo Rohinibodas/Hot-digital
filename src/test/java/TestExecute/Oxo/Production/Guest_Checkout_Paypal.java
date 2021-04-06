@@ -18,8 +18,9 @@ public class Guest_Checkout_Paypal {
 		try{
 			oxo.closetheadd();
 			oxo.acceptPrivecy();
-			oxo.clickBaby_Toddler();
-			oxo.addproducts("1");
+			//oxo.clickBaby_Toddler();
+			oxo.Beverage();
+			oxo.addproducts("2");
 			oxo.checkout();
 			oxo.ShippingAddress("ShippingAddress");
 			oxo.selectGroundShippingMethod();
@@ -38,7 +39,7 @@ public class Guest_Checkout_Paypal {
 	public void clearBrowser() throws Exception
 	{
 		
-		Common.closeAll();
+		//Common.closeAll();
     }
 	
 	@BeforeMethod

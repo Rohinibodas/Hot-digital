@@ -23,7 +23,8 @@
   			oxo.closetheadd();
   			oxo.acceptPrivecy();
 			oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
+			//oxo.clickBaby_Toddler();
+			oxo.Beverage();
 			oxo.addproducts("1");
 		    oxo.clickViewCart();
 			oxo.CheckPost();

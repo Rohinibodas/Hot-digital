@@ -22,12 +22,13 @@ public class Registered_Checkout_CC {
 
   public void Registered_Checkout_CC() {
 		try{
-			oxo.closetheadd();
+			//oxo.closetheadd();
 			oxo.NavigationToggle();
 			//oxo.OXOLogin();
             oxo.login();
 			oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
+			//oxo.clickBaby_Toddler();
+			oxo.HomePageProductSelect();
 			oxo.addproducts("1");
 			oxo.checkout();
 			oxo.addNewAddress("ShippingAddress");
@@ -49,7 +50,7 @@ public class Registered_Checkout_CC {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		Common.closeAll();
+		//Common.closeAll();
 		
 
 	}

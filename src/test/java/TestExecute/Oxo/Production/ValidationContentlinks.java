@@ -22,7 +22,7 @@ public class ValidationContentlinks {
 			oxo.FAQ();
 			oxo.ProductRegistration();
 			oxo.VoluntaryRecall();
-			oxo.PrivacyPolicy();
+			//oxo.PrivacyPolicy();
 			oxo.TermsandConditions();
 			oxo.TrackOrder();
 			oxo.ShippingInformation();

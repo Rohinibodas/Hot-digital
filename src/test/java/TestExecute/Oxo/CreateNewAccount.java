@@ -20,6 +20,7 @@ public class CreateNewAccount {
 
 		try {
 			oxo.closetheadd();
+			
 			oxo.CreateNewAccount("AccountDetails");
 		}
 		catch (Exception e) {

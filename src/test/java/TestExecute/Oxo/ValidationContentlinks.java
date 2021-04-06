@@ -13,6 +13,35 @@ import TestLib.Login;
 public class ValidationContentlinks {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
+	
+	@Test (priority=1) //(retryAnalyzer = Utilities.RetryAnalyzer.class)
+	public void OxoLinkValidation() {
+		
+		try {
+			oxo.closetheadd();
+			oxo.ContactUS();
+			oxo.FAQ();
+			oxo.VoluntaryRecall();
+			oxo.ProductRegistration();
+			//oxo.ProductRegistrationLinkValidation();
+			oxo.PrivacyPolicy();
+			oxo.TermsandConditions();
+			oxo.TrackOrder();
+			oxo.ShippingInformation();
+			oxo.BetterGuarantee();
+			//oxo.GoodTipsBlog();
+			oxo.InventorSubmissions();
+			oxo.InvestorRelations();
+		    //oxo.Careers();
+			}
+		catch (Exception e) {
+			
+			Assert.fail(e.getMessage(), e);
+		}
+	}
+	
+	
+	
 	//@Test (priority=14) //(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	/*public void OxoContactUS() {
 		
@@ -156,30 +185,6 @@ public class ValidationContentlinks {
 			Assert.fail(e.getMessage(), e);
 		}
 	}*/
-	@Test (priority=1) //(retryAnalyzer = Utilities.RetryAnalyzer.class)
-	public void OxoLinkValidation() {
-		
-		try {
-			oxo.closetheadd();
-			oxo.ContactUS();
-			oxo.FAQ();
-			oxo.ProductRegistration();
-			oxo.VoluntaryRecall();
-			oxo.PrivacyPolicy();
-			oxo.TermsandConditions();
-			oxo.TrackOrder();
-			oxo.ShippingInformation();
-			oxo.BetterGuarantee();
-			//oxo.GoodTipsBlog();
-			oxo.InventorSubmissions();
-			oxo.InvestorRelations();
-		    //oxo.Careers();
-			}
-		catch (Exception e) {
-			
-			Assert.fail(e.getMessage(), e);
-		}
-	}
 	
 	
 	@AfterTest

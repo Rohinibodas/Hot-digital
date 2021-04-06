@@ -20,8 +20,8 @@ public class GoodTipsBlogs {
 			oxo.closetheadd();
             oxo.acceptPrivecy();
 			oxo.CreateAccount_GoodTipsBlog("GoodTipsBlog");
-			oxo.clickGoodTipsBlog();
-			oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
+		//	oxo.clickGoodTipsBlog();
+			//oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
 			
   }
 	catch (Exception e) {

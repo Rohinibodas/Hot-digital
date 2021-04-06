@@ -42,7 +42,7 @@ public class Guest_checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

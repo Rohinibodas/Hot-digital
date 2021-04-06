@@ -640,6 +640,26 @@ public class OxoMobileHelper {
 		Common.clickElement("id", "top-cart-btn-checkout");
 	}
 
+	public void HomePageProductSelect(){					
+		String expectedResult="It Should navigate to the product details page";			
+		try{	       
+			Common.scrollIntoView("xpath", "//h3[contains(text(),'Swivel Peeler')]");
+			Sync.waitElementClickable("xpath", "//h3[contains(text(),'Swivel Peeler')]");	
+			Common.clickElement("xpath", "//h3[contains(text(),'Swivel Peeler')]");			
+			System.out.println(Common.getPageTitle());			
+			Thread.sleep(5000);			
+			System.out.println(Common.getPageTitle());		 
+			Common.assertionCheckwithReport(Common.getPageTitle().equals("Swivel Peeler For Apples & Potatoes | OXO Good Grips"), "validating the product details page", expectedResult, "sucessfully navigated to product details page", "faield to navigate product details page");			
+			}			
+		catch(Exception |Error e) {				
+			e.printStackTrace();					
+			ExtenantReportUtils.addFailedLog("validating the product details page",expectedResult, "user faield to navigate product detiles page",  Common.getscreenShotPathforReport("faield product detiles page"));			
+			Assert.fail();				
+			}				
+		}        
+	
+
+
 	public void clickBaby_Toddler() throws Exception {
 
 		String expectedResult = "It Should be navigate to the Baby_Toddler category page.";
@@ -655,10 +675,11 @@ public class OxoMobileHelper {
 
 			// Common.clickElement("xpath","//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15184']‌");
 
-			// Common.clickElement("xpath", "//a[@data-menu='menu-15184']");
-
-			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15185']");
+			Thread.sleep(4000);
 			Common.clickElement("xpath", "//a[@data-menu='menu-15185']");
+
+			Sync.waitElementClickable("xpath", "//ul[@data-menu='menu-15185']//a[contains(text(),'Shop All')]");
+			Common.clickElement("xpath", "//ul[@data-menu='menu-15185']//a[contains(text(),'Shop All')]");
 
 			try {
 				Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15186']");
@@ -669,7 +690,7 @@ public class OxoMobileHelper {
 			}
 			ExtenantReportUtils.addPassLog("verifying category Baby_Toddler", "lands on Baby_Toddler options",
 					"User lands on the Baby_Toddler options", Common.getscreenShotPathforReport("faield to click"));
-			Common.mouseOverClick("xpath", "//a[@data-menu='menu-15186']");
+			//Common.mouseOverClick("xpath", "//a[@data-menu='menu-15186']");
 		} catch (Exception | Error e) {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult,

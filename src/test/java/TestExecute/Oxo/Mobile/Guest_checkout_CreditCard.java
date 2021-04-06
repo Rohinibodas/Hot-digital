@@ -21,7 +21,7 @@ public class Guest_checkout_CreditCard {
 
   public void guest_checkout_CreditCard() {
 		try{
-		oxo.closetheadd();
+		//oxo.closetheadd();
 		
 		oxo.clickBaby_Toddler();
 		oxo.addproducts("2");
@@ -48,16 +48,16 @@ public class Guest_checkout_CreditCard {
 
 	}
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		 Login.signIn("chrome","iPhone X");
-   }*/
+		 Login.signIn("chrome","iPad");
+   }/*
 	@BeforeTest
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn("chrome",Device);
-	  }
+	  }*/
 
 }

@@ -9,25 +9,28 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class GuestExpressPayPalCheckout {
+public class MyAccountValidation {
+	
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
 	@Test(priority = 1)
 
-	public void NewTestPractice() throws Exception {
+	public void MyAccountValidation() throws Exception {
 
 		try {
-			//oxo.closetheadd();
-			oxo.clickBaby_Toddler();
-			oxo.addproducts("1");
-			oxo.checkout();
-			oxo.clickViewCart();
-            oxo.Express_payPal_payment("PaypalDetails");
-            oxo.Express_PayPal_GroundShippingMethod();
-            oxo.PlaceorderButton();
-           // oxo.VerifyaingConformationPage();
-
+			
+			oxo.closetheadd();
+			oxo.loginOxo("AccountDetails");
+			oxo.click_MyAccount();
+			oxo.Myaccount_validation();
+			oxo.MyOrders();
+			oxo.MyWishlist();	
+			oxo.Address_Book();
+	         oxo.AddAddress("ShippingAddress");
+			oxo.My_Information();
+			oxo.ChangeMyInformation("AccountDetails");
+			
 			
 			
 		} catch (Exception e) {
@@ -38,7 +41,7 @@ public class GuestExpressPayPalCheckout {
 
 	@AfterTest
 	public void clearBrowser() {
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 
@@ -48,4 +51,5 @@ public class GuestExpressPayPalCheckout {
 		Login.signIn();
 
 	}
+
 }

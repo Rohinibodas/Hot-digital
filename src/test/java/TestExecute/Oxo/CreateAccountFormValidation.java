@@ -9,26 +9,17 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class GuestExpressPayPalCheckout {
+public class CreateAccountFormValidation {
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
 	@Test(priority = 1)
 
-	public void NewTestPractice() throws Exception {
+	public void  CreateAccountFormValidation() throws Exception {
 
 		try {
-			//oxo.closetheadd();
-			oxo.clickBaby_Toddler();
-			oxo.addproducts("1");
-			oxo.checkout();
-			oxo.clickViewCart();
-            oxo.Express_payPal_payment("PaypalDetails");
-            oxo.Express_PayPal_GroundShippingMethod();
-            oxo.PlaceorderButton();
-           // oxo.VerifyaingConformationPage();
-
-			
+			oxo.closetheadd();
+			oxo.AccountCreationFormValidation();
 			
 		} catch (Exception e) {
 
@@ -38,7 +29,7 @@ public class GuestExpressPayPalCheckout {
 
 	@AfterTest
 	public void clearBrowser() {
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

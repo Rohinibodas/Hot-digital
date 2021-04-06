@@ -21,15 +21,16 @@ public class Guest_checkout_CreditCard {
 		try{
 		oxo.closetheadd();
 		oxo.acceptPrivecy();
-		oxo.clickBaby_Toddler();
+		//oxo.clickBaby_Toddler();
+		oxo.Beverage();
 		oxo.addproducts("2");
 		oxo.checkout();
 		oxo.ShippingAddress("ShippingAddress");
 		oxo.selectGroundShippingMethod();
 		oxo.clickAcceptingaddress();
 		oxo.Click_CreditCard();
-		oxo.Edit_BillingAddress("BiillingAddress");
-		oxo.clickAcceptingaddress();
+		//oxo.Edit_BillingAddress("BiillingAddress");
+		//oxo.clickAcceptingaddress();
 		oxo.creditCard_payment("PaymentDetails");
   }
 	catch (Exception e) {

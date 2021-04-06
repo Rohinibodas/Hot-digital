@@ -1,35 +1,33 @@
-package TestExecute.Oxo;
+package TestExecute.Oxo.Production;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import TestComponent.oxo.OxoHelper;
+import TestComponent.oxo.OxoHelperLive;
 import TestLib.Common;
 import TestLib.Login;
 
 public class GuestExpressPayPalCheckout {
 	String datafile = "oxo//OxoTestData.xlsx";
-	OxoHelper oxo = new OxoHelper(datafile);
+	OxoHelperLive oxo = new OxoHelperLive(datafile);
 
-	@Test(priority = 1)
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-	public void NewTestPractice() throws Exception {
-
+	public void GuestExpressPayPalCheckout() {
 		try {
-			//oxo.closetheadd();
-			oxo.clickBaby_Toddler();
+			oxo.closetheadd();
+			//oxo.PrivacyPolicy();
+			oxo.acceptPrivecy();
+			oxo.Beverage();
 			oxo.addproducts("1");
 			oxo.checkout();
 			oxo.clickViewCart();
             oxo.Express_payPal_payment("PaypalDetails");
-            oxo.Express_PayPal_GroundShippingMethod();
-            oxo.PlaceorderButton();
-           // oxo.VerifyaingConformationPage();
+            //oxo.Express_PayPal_GroundShippingMethod();
+			
 
-			
-			
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -37,14 +35,14 @@ public class GuestExpressPayPalCheckout {
 	}
 
 	@AfterTest
-	public void clearBrowser() {
-		//Common.closeAll();
-
+	public void clearBrowser() throws Exception {
+		Common.closeAll();
 	}
 
 	@BeforeMethod
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
+
 		Login.signIn();
 
 	}

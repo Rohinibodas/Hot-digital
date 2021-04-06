@@ -9,26 +9,21 @@ import TestComponent.oxo.OxoHelperLive;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_PayPal {
+public class ValidationofBlogs_Article_Links {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelperLive oxo=new OxoHelperLive(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
-  public void RegisteredUser_Checkout_PayPal() {
+  public void ValidationofBlogs_Article_Links() {
 		try{
 			
 			oxo.closetheadd();
 			oxo.acceptPrivecy();
-			oxo.loginOxo("AccountDetails");
-			//oxo.clickBaby_Toddler();
-			oxo.Beverage();
-			oxo.addproducts("1");
-			oxo.checkout();
-			oxo.addNewAddress("ShippingAddress");
-			oxo.clickAcceptingaddress();
-			oxo.selectGroundShippingMethod();
-			oxo.payPal_payment("PaypalDetails");
-			//oxo.VerifyaingConformationPage();
+			//oxo.Instagram();
+			oxo.Facebook();
+			oxo.pinterest();
+			oxo.Twitter();
+			//oxo.YouTube();
 			
   }
 	catch (Exception e) {
@@ -40,7 +35,9 @@ public class RegisteredUser_Checkout_PayPal {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		Common.closeAll();
+ 
+	Common.closeAll();
+	
 	}
 	
 	@BeforeMethod
@@ -48,7 +45,8 @@ public class RegisteredUser_Checkout_PayPal {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		
 		  Login.signIn();
-
-	}
+		 
+		  
+	  }
 
 }
