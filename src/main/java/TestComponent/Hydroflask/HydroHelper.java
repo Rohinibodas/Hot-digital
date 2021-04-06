@@ -19,6 +19,7 @@ import Utilities.ExtenantReportUtils;
 
 public class HydroHelper {
 
+	
 	String datafile;
 	ExcelReader excelData;
 	Map<String, Map<String, String>> data = new HashMap<>();
@@ -379,7 +380,7 @@ public class HydroHelper {
 				Common.clickElement("id", "acceptAllButton");
 			}
 	
-			if(!url.contains("stg")){
+			if(!url.contains("stg")& !url.contains("dev")){
 				
 				int sizeofelement=Common.findElements("id", "email").size();
 				Common.assertionCheckwithReport(sizeofelement > 0, "verifying the paypal payment ", expectedResult,"open paypal site window", "faild to open paypal account");
@@ -417,7 +418,7 @@ public class HydroHelper {
 					"User failed to proceed with paypal payment", Common.getscreenShotPathforReport(expectedResult));
 			Assert.fail();
 		}
-		if(!url.contains("stg")){
+		if(!url.contains("stg")& !url.contains("dev")){
 			
 			int sizeofelement=Common.findElements("id", "email").size();
 			Common.assertionCheckwithReport(sizeofelement > 0, "verifying the paypal payment ", expectedResult,"open paypal site window", "faild to open paypal account");
@@ -530,20 +531,15 @@ public class HydroHelper {
 
 	public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 
-		//closeFreeGift();
+		
 		String expectedResult = "shipping address is entering in the fields";
-
-		int size = Common.findElements(By.xpath("//span[contains(text(),'Add New Address')]")).size();
+        int size = Common.findElements(By.xpath("//span[contains(text(),'Add New Address')]")).size();
 		if (size > 0) {
-
-			try {
+        	try {
 				Common.clickElement("xpath", "//span[contains(text(),'Add New Address')]");
-				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",
-						data.get(dataSet).get("FirstName"));
-				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
-						data.get(dataSet).get("LastName"));
-				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
-						data.get(dataSet).get("Street"));
+				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",	data.get(dataSet).get("LastName"));
+				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",data.get(dataSet).get("Street"));
 				Thread.sleep(2000);
 				Common.actionsKeyPress(Keys.SPACE);
 				Thread.sleep(3000);
@@ -586,57 +582,25 @@ public class HydroHelper {
 						"user add the shipping address",
 						Common.getscreenShotPathforReport("faield to add shipping address"));
 
-				// ExtenantReportUtils.addPassLog("enter the shipping address in
-				// to the fields without skipping any mandatory fields",
-				// expectedResult, "Filled the shipping address",
-				// Common.getscreenShotPathforReport("failed to add a
-				// address"));
-				//Sync.waitElementClickable("xpath", "//span[contains(text(),'Continue To Payment')]");
-				//Common.clickElement("xpath", "//span[contains(text(),'Continue To Payment')]");
+			
+                Common.clickElement("xpath", "//div[@id='opc-new-shipping-address']//following::button[1]");
 
-				Common.clickElement("xpath", "//div[@id='opc-new-shipping-address']//following::button[1]");
-//Common.javascriptclickElement("xpath", "//button[contains(@class,'save-address')]");
 				int sizeerrormessage = Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
 
 				Common.assertionCheckwithReport(sizeerrormessage <= 0, "verifying shipping addres filling ",
 						"user will fill the all the shipping", "user fill the shiping address click save button",
 						"faield to add new shipping address");
-
-				// Common.assertionCheckwithReport(sizeerrormessage<=0, "Filled
-				// the shipping address", expectedResult, "failed to add a
-				// address");
-				// Common.assertionCheckwithReport(sizeerrormessage<=0,"enter
-				// the shipping address in to the fields without skipping any
-				// mandatory fields", expectedResult, "Filled the shipping
-				// address", "failed to add a address");
-
-				// Common.assertionCheckwithReport(sizeerrormessage<=0, "Filled
-				// the shipping address", expectedResult, "failed to add a
-				// address");
-
-				Thread.sleep(3000);
+				
 				Common.clickElement("xpath", "//input[@id='label_method_bestway']");
 				Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
-				Thread.sleep(3000);
-				/*
-				 * need to implement
-				 * 
-				 */
-
-				// report.addPassLog("clicked on the proceed to payment
-				// section",Common.getscreenShotPathforReport("land on the
-				// payment section"));
-
-				//closeFreeGift();
+				
 			} catch (Exception | Error e) {
 				e.printStackTrace();
 
 				ExtenantReportUtils.addFailedLog("validating adding  address", expectedResult,
 						"User unabel add shipping address",
 						Common.getscreenShotPathforReport("shipping address faield"));
-				// ExtenantReportUtils.addFailedLog("User click check out
-				// button", "User unabel click the checkout button",
-				// Common.getscreenShotPathforReport("check out miniCart"));
+			
 				Assert.fail();
 
 			}
@@ -675,7 +639,7 @@ public class HydroHelper {
 				Thread.sleep(3000);
 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",
 						data.get(dataSet).get("City"));
-				// Common.mouseOverClick("name", "region_id");
+				
 				try {
 					Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
 				} catch (ElementClickInterceptedException e) {
@@ -687,26 +651,16 @@ public class HydroHelper {
 				Common.textBoxInputClear("name", "postcode");
 				Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
 				Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
-
 				Sync.waitElementClickable("xpath", "//span[contains(text(),'Continue To Payment')]");
 				Common.clickElement("xpath", "//span[contains(text(),'Continue To Payment')]");
-
-			
-				ExtenantReportUtils.addPassLog("verifying shipping addres filling ", expectedResult,
-						"user enter the shipping address ",
-						Common.getscreenShotPathforReport("fill the shipping address first time"));
+                int errorsize=Common.findElements("xpath", "//div[@class='field-error']").size();
+				Common.assertionCheckwithReport(errorsize>0, "verifying shipping addres filling ", expectedResult, "user enter the shipping address", "mandatory data");			
+				//ExtenantReportUtils.addPassLog("verifying shipping addres filling ", expectedResult,"user enter the shipping address ",
+				//Common.getscreenShotPathforReport("fill the shipping address first time"));
 
 				//Common.findElements("xpath", "").size();
 				expectedResult = "shipping address is filled in to the fields";
-				// report.addPassLog(expectedResult,"Filled the shipping
-				// address",Common.getscreenShotPathforReport("fill the shipping
-				// address"));
-				
-				//Common.mouseOverClick("xpath", "//input[@id='label_method_bestway']");
-				//Sync.waitElementClickable("xpath","//input[@id='label_method_bestway']");
-				//Common.clickElement("xpath", "//input[@id='label_method_bestway']");
 				Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
-				
 				Thread.sleep(3000);
 
 			} catch (Exception | Error e) {
@@ -715,18 +669,13 @@ public class HydroHelper {
 				ExtenantReportUtils.addFailedLog("validating adding  address", expectedResult,
 						"User unabel add shipping address",
 						Common.getscreenShotPathforReport("shipping address faield"));
-				// ExtenantReportUtils.addFailedLog("User click check out
-				// button", "User unabel click the checkout button",
-				// Common.getscreenShotPathforReport("check out miniCart"));
+				
 				Assert.fail();
 
 			}
 		}
 
-		// report.addPassLog("clicked on the proceed to payment
-		// section",Common.getscreenShotPathforReport("land on the payment
-		// section"));
-		closeFreeGift();
+		
 	}
 
 	public void addDeliveryAddress(String dataSet) throws Exception {
@@ -738,31 +687,17 @@ public class HydroHelper {
 			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
 
 		}
-		Thread.sleep(3000);
 		String expectedResult = "email field will have email address";
 		try {
-			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",
-					data.get(dataSet).get("FirstName"));
-
-			int size = Common.findElements("id", "customer-email-address").size();
-
-			Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,
-					"Filled Email address", "unabel to fill the email address");
-
-			// Common.assertionCheckwithReport(size>0, "Filled Email address",
-			// expectedResult, "unabel to fill the email address");
-			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
-					data.get(dataSet).get("LastName"));
-			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
-					data.get(dataSet).get("Street"));
-			Thread.sleep(2000);
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+            int size = Common.findElements("id", "customer-email-address").size();
+            Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
+            Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",data.get(dataSet).get("Street"));
 			String Text=Common.getText("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']");
 			
-			System.out.println(Text);
-			//Common.actionsKeyPress(Keys.SPACE);
 			
-			
-			Thread.sleep(3000);
+
 			try {
 				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
 			} catch (Exception e) {
@@ -1077,7 +1012,7 @@ public class HydroHelper {
 			}
 			String url=automation_properties.getInstance().getProperty(automation_properties.BASEURL);
 			
-			if(!url.contains("stg")){
+			if(!url.contains("stg") &!url.contains("dev")){
 				
 				int sizeofelement=Common.findElements("id", "email").size();
 				Common.assertionCheckwithReport(sizeofelement > 0, "verifying the paypal payment ", expectedResult,"open paypal site window", "faild to open paypal account");
@@ -2045,8 +1980,7 @@ public class HydroHelper {
 			// ",Common.getscreenShotPathforReport("write review button"));
 			Thread.sleep(4000);
 			expectedResult = "It should shows My Review Pop-up";
-			// report.addPassLog(expectedResult,"Review pop-up open
-			// ",Common.getscreenShotPathforReport("Review Page"));
+			
 			overallRating(data.get(dataSet).get("OverallRating"));
 
 			Sync.waitElementPresent("id", "bv-text-field-title");
@@ -2099,10 +2033,12 @@ public class HydroHelper {
 		}
 
 		try {
-			Thread.sleep(3000);
-			String sucesstext = Common.getText("xpath", "//span[contains(@class,'bv-submission-text')]");
+			Thread.sleep(4000);
+			String sucesstext = Common.getText("xpath", "//*[contains(@class,'bv-submission-text')]");
+			System.out.println(sucesstext+"********************************");
+			
 			expectedResult = "Click on post review button, it shouldshows Pop-up with text Your review was Submitted!";
-			Common.assertionCheckwithReport(sucesstext.equals("Your review was submitted!"),
+			Common.assertionCheckwithReport(sucesstext.contains("Your review was submitted!"),
 					"verifying review success message", expectedResult, "Your review was submitted",
 					"User missing filed valied data in review page");
 		} catch (Exception | Error e) {
