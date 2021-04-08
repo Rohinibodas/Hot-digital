@@ -20,6 +20,7 @@ public class HT_ST_RG_001_RetialerRegistration {
   @Test(priority=1)
   public void CreateAnAccountRetailCustomer() {
 	  try {
+		  //Hottools.agreeCookiesbanner();
 		  Hottools.createNewCustomerAccount_RetailCustomer("Retailer_registration");
 	} catch (Exception e) {
 		Assert.fail(e.getMessage(), e);
@@ -38,7 +39,7 @@ public class HT_ST_RG_001_RetialerRegistration {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn("chrome");
 		  
 	  }*/
 	

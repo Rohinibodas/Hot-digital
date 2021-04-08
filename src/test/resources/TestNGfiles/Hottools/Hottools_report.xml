@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+   <test name="Test_HT_ST_054_GuestUserCreditCard(AMEX)" testid="BTY-1566" priority="P1" description="To verify the Guest user Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GuestUserCheckoutCCAMEX"/>
+        </classes>
+    </test>
+</suite>  

@@ -18,9 +18,10 @@ public class HT_ST_COP_007_Checkout_page {
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void SigIn(){
+	public void RetailerUsercheckout(){
 
 		try{
+			//Hottools.agreeCookiesbanner();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
@@ -35,22 +36,21 @@ public class HT_ST_COP_007_Checkout_page {
 		}
 	}
 	
-	 
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }*/
+	  }
 	
-	@BeforeMethod
+      /*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn("edge");
 		  
-	  }
+	  }*/
 
 	@AfterTest
 	public void clearBrowser()

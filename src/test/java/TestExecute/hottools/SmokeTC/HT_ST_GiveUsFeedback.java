@@ -21,6 +21,7 @@ public class HT_ST_GiveUsFeedback {
 	@Test(priority=1)
 	public void giveUsFeedbackValidation(){
 		try {
+			//Hottools.agreeCookiesbanner();
 			Hottools.validateNavigateGiveUsFeedback("GiveUsFeedback");
 		}
 		catch (Exception e) {

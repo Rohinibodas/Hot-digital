@@ -17,15 +17,16 @@ public class HT_ST_DistributorCheckoutPurchaseOrder {
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void SigIn(){
+	public void DistributorUserCheckoutPurchaseOrder(){
 
 		try{
+			//Hottools.agreeCookiesbanner();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
-			Hottools.miniCart("productName");
 			Hottools.checkoutpage();
-			//Hottools.orderSuccesspage();
+			Hottools.PurchaseOrder("PurchaseOrderDetails");
+			Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 
@@ -34,26 +35,26 @@ public class HT_ST_DistributorCheckoutPurchaseOrder {
 	}
 	
 	 
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }*/
+	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
-
+	  }*/
+	
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

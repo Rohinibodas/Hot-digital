@@ -21,6 +21,7 @@ public class HT_ST_LG_004_Forgot_Password {
 	public void forgotPassword(){
 
 		try{
+		    //Hottools.agreeCookiesbanner();
 			Hottools.forgotPassword("RetailCustomerAccountDetails");
 		}
 		catch (Exception e) {
@@ -41,7 +42,7 @@ public class HT_ST_LG_004_Forgot_Password {
 		@Parameters({"browser"})  
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Hottools\\config.properties");
-			  Login.signIn("chrome");
+			  Login.signIn("edge");
 			  
 		  }*/
 

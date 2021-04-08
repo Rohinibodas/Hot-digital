@@ -23,6 +23,7 @@ public class TEST_HT_ST_010_ValidateCMSPages
 		public void ValidateCMSPages() throws Exception {
 
 			try {
+				//Hottools.agreeCookiesbanner();
 				Hottools.validateAboutUsLink();
 				Hottools.validateNavigateFAQ();
 				Hottools.validateNavigateContactUs("ContactUs");
@@ -35,7 +36,7 @@ public class TEST_HT_ST_010_ValidateCMSPages
 			} 
 		}
 		
-   @BeforeMethod
+  @BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
@@ -44,10 +45,10 @@ public class TEST_HT_ST_010_ValidateCMSPages
 	  }
 	
    /*@BeforeMethod
-	@Parameters({"browser"})  
+	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn("chrome");
 		  
 	  }*/
 

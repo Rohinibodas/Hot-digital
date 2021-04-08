@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="HottoolsMob Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_HTGC_MOB_034_Premiere access page" testid="BTY-983" priority="P1" description="To  verify Premiere access coupon place order Functionality">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_GoldCardPremiereAccess"/>
+        </classes>
+    </test>
+    <test name="Test_HTGC_MOB_033_Artist access page" testid="BTY-982" priority="P1" description="To  verify Artist access coupon place order Functionality">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_GoldCardArtistAccess"/>
+        </classes>
+    </test>
+     <test name="Test_HTGC_MOB_032_Creative access page" testid="BTY-981" priority="P1" description="To  verify Creative access coupon place order Functionality">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_GoldCardCreativeAccess"/>
+        </classes>
+    </test>
+    <test name="Test_HTGC_MOB_031_Inspo access page" testid="BTY-980" priority="P1" description="To  verify Inspo access coupon place order Functionality">
+         <parameter name="device" value="iPhone X" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_GoldCardInspoAccess"/>
+        </classes>
+    </test>
+</suite>  
