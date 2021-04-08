@@ -36,7 +36,8 @@ public class VicksLogout {
 
 	}
 		
-		@BeforeMethod
+		
+	@BeforeMethod
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
