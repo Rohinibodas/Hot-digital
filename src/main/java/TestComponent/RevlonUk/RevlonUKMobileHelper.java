@@ -1151,8 +1151,13 @@ public class RevlonUKMobileHelper {
 				System.out.println("Cookies pop up not displayed");
 			}
 			
-			String Productname=Common.getText("xpath", "//span[contains(text(),'Salon Straight Copper')]");
-			System.out.println(Productname);
+			if(Common.isElementDisplayed("xpath", "//span[@id='title']")) {	
+				String Productname=Common.getText("xpath", "//span[@id='title']");
+				System.out.println(Productname);
+			}else{
+				String Productname=Common.getText("xpath", "//span[@id='productTitle']");
+				System.out.println(Productname);
+			}		
 			
 			Thread.sleep(3000);
 			

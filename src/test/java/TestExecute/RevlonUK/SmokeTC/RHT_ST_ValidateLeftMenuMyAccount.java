@@ -12,24 +12,22 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_ST_MyOrderConfirmation {
+public class RHT_ST_ValidateLeftMenuMyAccount {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
 	RevlonUKHelper revlon=new RevlonUKHelper(datafile);
-	
-	
-	@Test(priority=1)
-	public void ValidateMyOrderConfirmation() throws Exception {
+		
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
+	public void ValidateMyAccountLeftMenu() throws Exception {
 
 		try {
 			revlon.loginRevlonUK("AccountDetails");
-			revlon.SearchProduct("productName");
-			revlon.Productselection();
-			revlon.navigateMinicart();
-			revlon.checkoutPage();
-			revlon.navigateCheckout();
-			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
-			revlon.navigateMyAccount();
-			revlon.navigateMyorders();
+			revlon.ValidateMyOrder();
+			revlon.ValidateAddressBook();
+			revlon.ValidateAccountInformation();
+			revlon.ValidateProductReview();
+			revlon.ValidateNewSubscription();
+			revlon.Validatestocksubscription();
+			revlon.ValidateProductquestion();
 		}
 		catch (Exception e) {
 			
@@ -49,8 +47,7 @@ public class RHT_ST_MyOrderConfirmation {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("chrome");
-		  
+		  Login.signIn("chrome"); 
 	  }*/
 	
 	@AfterTest

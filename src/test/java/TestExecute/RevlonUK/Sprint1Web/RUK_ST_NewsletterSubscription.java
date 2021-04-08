@@ -17,7 +17,7 @@ public class RUK_ST_NewsletterSubscription {
 	RevlonUKHelper revlon=new RevlonUKHelper(datafile);
 	
 	@Test(priority=1)
-	public void NavigationArticleLinks() throws Exception {
+	public void NavigationNewsletterSubscription() throws Exception {
 		try {
 			revlon.acceptPrivacy();
 			revlon.FooterNewletterSubcription();
@@ -27,19 +27,19 @@ public class RUK_ST_NewsletterSubscription {
 		} 
 	}
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn(browser);
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("edge");
-	  }*/
+		  Login.signIn("chrome");
+	  }
 	
 	@AfterTest
 	public void clearBrowser()

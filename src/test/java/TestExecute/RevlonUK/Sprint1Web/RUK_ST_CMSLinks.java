@@ -25,32 +25,32 @@ public class RUK_ST_CMSLinks {
 			revlon.navigateTermsAndConditions();
 			revlon.navigatePrivacyPolicy();
 			revlon.navigateCookiePolicy();
-			revlon.navigateFAQ();
-			revlon.navigateTermsofSale();
-			revlon.navigateShippingAndReturns();
-			revlon.navigateWarranty();
-			revlon.navigateContactUs();
-			revlon.contactus();
+			//revlon.navigateFAQ();
+			//revlon.navigateTermsofSale();
+			//revlon.navigateShippingAndReturns();
+			//revlon.navigateWarranty();
+			//revlon.navigateContactUs();
+			//revlon.contactus();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn(browser);
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
+	  }
 	
 	@AfterTest
 	public void clearBrowser()

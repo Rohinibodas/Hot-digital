@@ -9,7 +9,7 @@
             <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_GuestUserBrowserSearch"/>
         </classes>
     </test>
-    <test name="Test_RUK_ST_002_GuestUserAmazonHatch" testid="RU-274" priority="P1" description="To verify the Amazon Hatch for Guest user functionality in Revlon web site">
+   <!--   <test name="Test_RUK_ST_002_GuestUserAmazonHatch" testid="RU-274" priority="P1" description="To verify the Amazon Hatch for Guest user functionality in Revlon web site">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_GuestUserPDPAmazonHatch"/>
@@ -44,5 +44,5 @@
         <classes>
             <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_ValidatingArticleLinks"/>
         </classes>
-    </test>
+    </test>-->
 </suite>  

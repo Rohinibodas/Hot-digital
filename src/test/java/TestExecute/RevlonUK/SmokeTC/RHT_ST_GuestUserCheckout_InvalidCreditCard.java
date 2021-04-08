@@ -46,8 +46,7 @@ public class RHT_ST_GuestUserCheckout_InvalidCreditCard {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("chrome");
-		  
+		  Login.signIn("chrome");  
 	  }*/
 	
 	@AfterTest

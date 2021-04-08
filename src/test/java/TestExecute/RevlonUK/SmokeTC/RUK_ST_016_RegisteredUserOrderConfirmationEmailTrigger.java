@@ -28,7 +28,7 @@ public class RUK_ST_016_RegisteredUserOrderConfirmationEmailTrigger {
 			revlon.checkoutPage();
 			revlon.navigateCheckout();
 			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
-			revlon.EmailOrderTrigger();
+			//revlon.EmailOrderTrigger();
 		}
 		catch (Exception e) {
 			

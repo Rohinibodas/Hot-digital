@@ -12,24 +12,16 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_ST_MyOrderConfirmation {
+public class RUK_ST_AccountCreationEmailTrigger {
 	String datafile = "revlonUK//RevlonUKTestData.xlsx";	
 	RevlonUKHelper revlon=new RevlonUKHelper(datafile);
 	
 	
 	@Test(priority=1)
-	public void ValidateMyOrderConfirmation() throws Exception {
+	public void CreateAccountEmailTrigger() throws Exception {
 
 		try {
-			revlon.loginRevlonUK("AccountDetails");
-			revlon.SearchProduct("productName");
-			revlon.Productselection();
-			revlon.navigateMinicart();
-			revlon.checkoutPage();
-			revlon.navigateCheckout();
-			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
-			revlon.navigateMyAccount();
-			revlon.navigateMyorders();
+			revlon.CreateNewAccount("AccountCreation");
 		}
 		catch (Exception e) {
 			
