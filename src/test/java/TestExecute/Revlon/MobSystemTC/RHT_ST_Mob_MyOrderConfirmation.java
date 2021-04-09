@@ -28,9 +28,9 @@ public class RHT_ST_Mob_MyOrderConfirmation {
 			revlon.checkoutPage();
 			revlon.navigateCheckout();
 			revlon.updatePaymentAndSubmitOrder("PaymentDetails");
-			revlon.slider();
+			/*revlon.slider();
 			revlon.MyAccount();
-			revlon.NavigateMyOrder();
+			revlon.NavigateMyOrder();*/
 			
 		}
 		catch (Exception e) {

@@ -1,4 +1,4 @@
-package TestExecute.Revlon.ModularTC;
+package TestExecute.Revlon.SmokeTC;
 
 import org.testng.annotations.Test;
 
@@ -12,17 +12,18 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_MT_ValidateReviewCategoryLinks {
+public class RHT_ST_ValidatePDPProductReview {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void ValidateProductDetailsPageTitle() throws Exception {
+	public void ValidatePDPProductReview() throws Exception {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.selectioncategory();
-			revelon.Productdetails();
+			revelon.loginRevlon("AccountDetails");
+			revelon.searchProduct("productName");
+			revelon.Productselection();
 			revelon.ProductReview("ProductReview");
 		}
 		catch (Exception e) {
@@ -34,15 +35,15 @@ public class RHT_MT_ValidateReviewCategoryLinks {
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn(browser);
-		  
+		  Login.signIn(browser); 
 	  }
 	
 	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("chrome"); 
+		  Login.signIn("chrome");
+		  
 	  }*/
 	
 	@AfterTest

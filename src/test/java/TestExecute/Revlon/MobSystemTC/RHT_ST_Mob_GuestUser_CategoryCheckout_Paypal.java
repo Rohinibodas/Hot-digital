@@ -25,7 +25,7 @@ public class RHT_ST_Mob_GuestUser_CategoryCheckout_Paypal {
 			revlon.navigateCartPage();
 			revlon.checkoutPage();
 			revlon.navigateCheckoutGuest("Guest_shipping");
-			revlon.updatePaypalPaymentAndSubmitOrder("Paypal");
+			//revlon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
@@ -53,7 +53,7 @@ public class RHT_ST_Mob_GuestUser_CategoryCheckout_Paypal {
     //@Parameters({"device"})
       public void startTest() throws Exception {
         System.setProperty("configFile", "Revelon\\config.properties");
-          Login.signIn("chrome","iPhone X");
+          Login.signIn("chrome","iPad");
          
       }*/
 	

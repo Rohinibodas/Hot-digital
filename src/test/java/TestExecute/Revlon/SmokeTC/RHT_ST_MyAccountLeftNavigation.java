@@ -1,4 +1,4 @@
-package TestExecute.Revlon.ModularTC;
+package TestExecute.Revlon.SmokeTC;
 
 import org.testng.annotations.Test;
 
@@ -12,43 +12,49 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
-public class RHT_MT_ValidateReviewCategoryLinks {
+public class RHT_ST_MyAccountLeftNavigation {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void ValidateProductDetailsPageTitle() throws Exception {
+	public void MyAccountLeftNavigation() throws Exception {
 
 		try {
-			revelon.acceptPrivecy();
-			revelon.selectioncategory();
-			revelon.Productdetails();
-			revelon.ProductReview("ProductReview");
+			revelon.loginRevlon("AccountDetails");
+			revelon.ValidateMyOrder();
+			revelon.ValidateAddressBook();
+			revelon.ValidateAddressinformation();
+			revelon.ValidateProductReview();
+			revelon.ValidateNewsletterSubscription();
+			revelon.Validatebacktostock();
+			revelon.ValidateQuestion();	
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-		
-	@BeforeMethod
+
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
-	@Parameters({"browser"})  
+	@BeforeMethod
+	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("chrome"); 
-	  }*/
+		  Login.signIn("chrome");
+		  
+	  }
 	
 	@AfterTest
 	public void clearBrowser()
 	{
 		Common.closeAll();
+
 	}
 
 }

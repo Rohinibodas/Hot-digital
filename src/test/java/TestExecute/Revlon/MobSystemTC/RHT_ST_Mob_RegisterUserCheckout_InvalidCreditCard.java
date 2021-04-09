@@ -59,6 +59,7 @@ public class RHT_ST_Mob_RegisterUserCheckout_InvalidCreditCard {
           Login.signIn("chrome","iPad");
          
       }*/
+	
 	@AfterTest
 	public void clearBrowser()
 	{

@@ -1,37 +1,40 @@
 package TestExecute.Revlon.MobSystemTC;
 
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.revlon.RevelonMobHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RHT_ST_Mob_GuestUserCheckout_Paypal {
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+
+public class RHT_MOB_ST_ArticleLinks {
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonMobHelper revlon=new RevelonMobHelper(datafile);
-	
 	@Test(priority=1)
-	public void GuestPayPalCheckout() throws Exception {
+	public void ValidatingArticleLinks() throws Exception {
 
 		try {
-			revlon.searchProduct("productName");
-			revlon.Productselection();
-			revlon.navigateMinicart();
-			revlon.navigateCartPage();
-			revlon.checkoutPage();
-			revlon.navigateCheckoutGuest("Guest_shipping");
-			//revlon.updatePaypalPaymentAndSubmitOrder("Paypal");
+			revlon.acceptPrivecy();
+			revlon.navigateCMSLink();
+			revlon.pinterestArticle();
+			revlon.FacebookArticle();
+			revlon.InstaGramArticle();
+			revlon.youtubeArticle();
+			
+			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
 	
-		
+	
+	
 	@BeforeMethod
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
@@ -47,7 +50,6 @@ public class RHT_ST_Mob_GuestUserCheckout_Paypal {
           Login.signIn("chrome","Galaxy S5");
          
       }*/
-	
 	@AfterTest
 	public void clearBrowser()
 	{
@@ -56,4 +58,3 @@ public class RHT_ST_Mob_GuestUserCheckout_Paypal {
 	}
 
 }
-
