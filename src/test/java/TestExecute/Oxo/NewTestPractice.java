@@ -19,10 +19,8 @@ public class NewTestPractice {
 
 		try {
 			oxo.closetheadd();
-			//oxo.PrivacyPolicy();
-			oxo.Beverage();
-			oxo.addproducts("1");
-			oxo.checkout();
+			oxo.loginOxo("AccountDetails");
+			
 			
 		} catch (Exception e) {
 
@@ -32,6 +30,7 @@ public class NewTestPractice {
 
 	@AfterTest
 	public void clearBrowser() {
+		
 		//Common.closeAll();
 
 	}

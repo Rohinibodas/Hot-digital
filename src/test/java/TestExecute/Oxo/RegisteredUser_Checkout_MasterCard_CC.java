@@ -37,7 +37,7 @@ public class RegisteredUser_Checkout_MasterCard_CC {
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

@@ -21,7 +21,7 @@ public class Registered_ExpressPayPal_Checkout {
 			oxo.loginOxo("AccountDetails");
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
-			oxo.checkout();
+			//oxo.checkout();
 			oxo.clickViewCart();
             oxo.Express_payPal_payment("PaypalDetails");
             oxo.Express_PayPal_GroundShippingMethod();

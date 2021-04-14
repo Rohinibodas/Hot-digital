@@ -21,6 +21,7 @@ public class RegisteredUser_Checkout_PayPal {
 
   public void registeredUser_Checkout_PayPal() {
 		try{
+			
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
 			oxo.clickBaby_Toddler();
