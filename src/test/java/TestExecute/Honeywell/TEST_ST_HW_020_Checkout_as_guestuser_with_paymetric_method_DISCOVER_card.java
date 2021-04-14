@@ -10,7 +10,7 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_Checkout_CreditCard_discover {
+public class TEST_ST_HW_020_Checkout_as_guestuser_with_paymetric_method_DISCOVER_card {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)

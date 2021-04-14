@@ -1,4 +1,3 @@
-
 package TestExecute.Honeywell;
 
 import org.testng.Assert;
@@ -7,28 +6,25 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Honeywell.Honeywellhelper;
-
 import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_CreditCard_Mastercard {
+public class TEST_HW_MT_024_Validation_of_Shipping_page {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void registeredUser_Checkout_CreditCard_Mastercard() throws Exception {
+	public void validatingShipping_Page() throws Exception {
 
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
+			honeyWell.adding_product_toCart("ProductName");
 			honeyWell.clickAddtoBag();
-			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
-			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
-			honeyWell.creditCard_payment("ccamex");
-			honeyWell.order_Verifying();
+			honeyWell.ShippingFormValidation();
+			
+			
 		}
 		catch (Exception e) {
 			
@@ -41,7 +37,7 @@ public class RegisteredUser_Checkout_CreditCard_Mastercard {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	
@@ -52,5 +48,4 @@ public class RegisteredUser_Checkout_CreditCard_Mastercard {
 		 
 		  
 	  }
-
 }

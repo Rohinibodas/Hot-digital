@@ -9,7 +9,7 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class SearchProduct {
+public class TEST_HW_ST_012_Search_a_product {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
@@ -17,7 +17,8 @@ public class SearchProduct {
  
   public void searchproduct() {
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
+			
+		honeyWell.loginHoneywell("AccountDetails");
 		honeyWell.searchProduct("ProductName");
 		honeyWell.clickminicartButton();
 		honeyWell.click_View_editcart();

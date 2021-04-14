@@ -11,12 +11,12 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_CreditCard_VISA {
+public class TEST_ST_HW_017_Checkout_as_loggedin_user_with_paymetric_method_Discover_card {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void registeredUser_Checkout_CreditCard_VISA() throws Exception {
+	public void registeredUser_Checkout_CreditCard_discover() throws Exception {
 
 		try {
 			honeyWell.loginHoneywell("AccountDetails");

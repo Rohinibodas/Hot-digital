@@ -6,38 +6,22 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Honeywell.Honeywellhelper;
-import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_Checkout_CreditCard_Mastercard {
+public class TEST_HW_MT_022_Validation_of_forgot_password_form {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-	
-	public void gustUserCheckout_CreditCard_Mastercard() throws Exception {
-
+  public void forgetpasswordfromvalidation() {
 		try {
-			
-			
-			honeyWell.verifyingHomePage();
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("ProductName");
-			honeyWell.clickAddtoBag();
-			honeyWell.clickminicartcheckout();
-			honeyWell.guestShippingAddress("ShippingAddress");
-			honeyWell.creditCard_payment("CCmastercard");
-			honeyWell.order_Verifying();
-			
-		}
-		catch (Exception e) {
-			
-			Assert.fail(e.getMessage(), e);
-		} 
+		honeyWell.verifyingHomePage();
+		honeyWell.ForgotPasswordValidation();
+	} catch (Exception e) {
+		Assert.fail(e.getMessage(), e);
 	}
-	
-	
-	
+  }
+
 	@AfterTest
 	public void clearBrowser()
 	{
@@ -52,5 +36,4 @@ public class Guest_Checkout_CreditCard_Mastercard {
 		 
 		  
 	  }
-
 }
