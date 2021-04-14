@@ -7,3 +7,4 @@ public class TEST_HW_ST_005_footer_links_validation {
   public void f() {
   }
 }
+

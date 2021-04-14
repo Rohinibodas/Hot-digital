@@ -7,3 +7,4 @@ public class TEST_HW_ST_011_CheckoutDiscount {
   public void f() {
   }
 }
+

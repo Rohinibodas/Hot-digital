@@ -16,6 +16,7 @@ public class TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa {
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
+	
 	public void gustUserCheckout_CreditCard_Visa() throws Exception {
 
 		try {

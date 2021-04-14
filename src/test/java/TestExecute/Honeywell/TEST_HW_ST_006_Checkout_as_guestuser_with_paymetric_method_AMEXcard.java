@@ -16,6 +16,7 @@ public class TEST_HW_ST_006_Checkout_as_guestuser_with_paymetric_method_AMEXcard
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
 	
+	
 	public void gustUserCheckout_CreditCard_amex() throws Exception {
 
 		try {

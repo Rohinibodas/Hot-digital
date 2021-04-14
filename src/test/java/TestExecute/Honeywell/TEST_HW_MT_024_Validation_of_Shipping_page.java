@@ -14,6 +14,7 @@ public class TEST_HW_MT_024_Validation_of_Shipping_page {
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
+	
 	public void validatingShipping_Page() throws Exception {
 
 		try {
