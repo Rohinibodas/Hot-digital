@@ -24,7 +24,7 @@ public class RHT_ST_NewLetterUnSubscription {
 			revlon.loginRevlonUK("AccountDetails");
 			revlon.NavigateNewsLetterSubscription();
 			revlon.NewsLetterUnSubscription();
-			revlon.NewsLetterUnSubscriptionMail();
+			//revlon.NewsLetterUnSubscriptionMail();
 		}
 		catch (Exception e) {
 			

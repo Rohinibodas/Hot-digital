@@ -20,6 +20,7 @@ public class HT_ST_RegistrationForSylistSaloonOwnerUser {
 	@Test(priority=1)
 	public void CreateAnAccountStylistSalonOwner() {
 		try {
+			//Hottools.agreeCookiesbanner();
 			Hottools.createNewCustomerAccount_Stylist_SalonOwner("Stylist_registration");
 		} catch (Exception e) {
 

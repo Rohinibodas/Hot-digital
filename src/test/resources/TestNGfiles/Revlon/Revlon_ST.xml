@@ -3,7 +3,7 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="TEST_RHT_ST_001_AccountCreation" testid="BTY-454" priority="P1" description="This test case validates account creation of user with valid details successfully">
+   <test name="TEST_RHT_ST_001_AccountCreation" testid="BTY-454" priority="P1" description="This test case validates account creation of user with valid details successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_AC_Account_Creation"/>
@@ -111,4 +111,62 @@
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidateHeaderLinks"/>
         </classes>
     </test>
-  </suite>  
+    
+    <test name="Test_RHT_ST_036_GuestUserCheckoutAMEX" testid="BTY-1584" priority="P1" description="This test case validates Guest user Checkout process with credit card type AMEX successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_GUEST_Checkout_AMEX"/>
+        </classes>
+    </test>
+   
+    <test name="Test_RHT_ST_037_GuestUserCheckoutDiscover" testid="BTY-1586" priority="P1" description="This test case validates Guest user Checkout process with credit card type Discover successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_Guest_Checkout_Discover"/>
+        </classes>
+    </test>
+    
+    <test name="Test_RHT_ST_037_GuestUserCheckoutMaster" testid="BTY-1585" priority="P1" description="This test case validates Guest user Checkout process with credit card type Master successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_Guest_Checkout_Master"/>
+        </classes>
+    </test>
+   
+    <test name="Test_RHT_ST_033_RegisterUserCheckoutAMEX" testid="BTY-1579" priority="P1" description="This test case validates registered user Checkout process with  credit card type AMEX successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_User_Checkout_AMEX"/>
+        </classes>
+    </test>
+    
+   
+    <test name="Test_RHT_ST_033_RegisterUserCheckoutAMEX" testid="BTY-1581" priority="P1" description="This test case validates registered user Checkout process with credit card type Discover successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_User_Checkout_Discover"/>
+        </classes>
+    </test>
+    
+    <test name="Test_RHT_ST_034_RegisterUserCheckoutMaster" testid="BTY-1580" priority="P1" description="This test case validates registered user Checkout process with credit card type Master successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_CO_User_Checkout_Mastercard"/>
+        </classes>
+    </test>
+    
+    <test name="Test_RHT_ST_039_ValidateMyAccountAddressBookAVS" testid="BTY-1587" priority="P1" description="This test case is to verify Revlon hairtools, AVS functionality in My Account Address Book.">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_MyAccountAVSVerification"/>
+        </classes>
+    </test>
+    
+    <test name="Test_RHT_ST_040_PDPProductReview" testid="BTY-1588" priority="P1" description="This test case is to verify Register user PDP Product Review functionality in Revlon US">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidatePDPProductReview"/>
+        </classes>
+    </test>
+    
+ </suite>

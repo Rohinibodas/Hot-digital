@@ -3,29 +3,34 @@
    <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="Test_RHT_ST_003_GuestUserCheckoutCreditCard" testid="RU-126" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site">
+    <test name="Test_RUK_ST_002_GuestUserAmazonHatch" testid="RU-274" priority="P1" description="To verify the Amazon Hatch for Guest user functionality in Revlon web site">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_GuestUserCheckoutCreditCard"/>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_GuestUserPDPAmazonHatch"/>
         </classes>
     </test>
-    <test name="Test_RHT_MOB_ST_003_GuestUserCheckoutCreditCard_iPhone X" testid="RU-129" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site in iPhone X">
-         <parameter name="device" value="iPhone X" />
+    <test name="Test_RUK_ST_003_GuestUserPDPBootsHatch" testid="RU-275" priority="P1" description="To verify the Boots Hatch for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_GuestUserPDPBootsHatch"/>
         </classes>
     </test>
-    <test name="Test_RHT_MOB_ST_003_GuestUserCheckoutCreditCard_iPad" testid="RU-129" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site in iPad">
-         <parameter name="device" value="iPad" />
+    <test name="Test_RUK_ST_005_CMSPage" testid="RU-277" priority="P1" description="To verify the CMS Links and Navigations functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
-        </classes>
-     </test>
-     <test name="Test_RHT_MOB_ST_003_GuestUserCheckoutCreditCard_Galaxy S5" testid="RU-129" priority="P1" description="To verify the Checkout for Guest user functionality in Revlon web site in Galaxy S5">
-         <parameter name="device" value="Galaxy S5" />
-        <classes>
-            <class name="TestExecute.RevlonUK.Mob_SystemTC.RHT_MOB_ST_GuestUserCheckoutCreditCard"/>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_CMSLinks"/>
         </classes>
     </test>
-    
-</suite>
+    <test name="Test_RUK_ST_006_NewsLetterSubscription" testid="RU-278" priority="P1" description="To verify the News Letter Subscription functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_NewsletterSubscription"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_007_ArticleLinks" testid="RU-279" priority="P1" description="To verify the Article Links functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.Sprint1Web.RUK_ST_ValidatingArticleLinks"/>
+        </classes>
+    </test>
+ </suite>

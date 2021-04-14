@@ -24,6 +24,7 @@ public class DT_ST_009_Distributor_Forgotpassword {
 	public void forgotPassword1(){
 
 		try{
+			//Hottools.agreeCookiesbanner();
 			Hottools.DistributorforgotPassword("DistributorAccountDetails");
 		}
 		catch (Exception e) {
@@ -45,9 +46,9 @@ public class DT_ST_009_Distributor_Forgotpassword {
 		@Parameters({"browser"})  
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Hottools\\config.properties");
-			  Login.signIn("firefox");
+			  Login.signIn("chrome");
 
-		  }*/
+     }*/
 
 	@AfterTest
 	public void clearBrowser()

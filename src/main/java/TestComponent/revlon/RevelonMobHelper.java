@@ -432,14 +432,14 @@ public class RevelonMobHelper {
 				addPaymentDetails(dataSet);
 			}
 
-			Common.clickElement("xpath", "//button[@id='paymetrictokenize_place_order']");
+			/*Common.clickElement("xpath", "//button[@id='paymetrictokenize_place_order']");
 			Thread.sleep(2000);
 
 			//String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']");
-			String sucessMessage=Common.getText("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
+			//String sucessMessage=Common.getText("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
 
 			System.out.println(sucessMessage);
-			Assert.assertEquals(sucessMessage, "THANK YOU FOR YOUR PURCHASE");
+			Assert.assertEquals(sucessMessage, "THANK YOU FOR YOUR PURCHASE");*/
 			report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
 		}catch(Exception |Error e)
 		{
@@ -1008,8 +1008,8 @@ public class RevelonMobHelper {
 			Sync.waitElementPresent("xpath", "//span[contains(text(), 'Dryer')]");
 			Common.clickElement("xpath", "//span[contains(text(), 'Dryer')]");
 			Thread.sleep(3000);
-			Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
-			Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[8]");
+			Common.clickElement("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[8]");
 			Thread.sleep(5000);
 			report.addPassLog(expectedResult, "Should display item from  menucategory", "product display successfully", Common.getscreenShotPathforReport(" product display success"));
 
@@ -1420,6 +1420,167 @@ public class RevelonMobHelper {
 		}
 	}
 	
+	public void newsletterSubscription() throws Exception
+	{
+		String expectedResult="Should Enter Email id for newsletter subscription";
+		try {
+			
+			Common.textBoxInput("name", "email", Utils.getEmailid());
+			Thread.sleep(5000);
+			Common.clickElement("xpath", "//*[@id='weltpixel_newsletter']/div/button/span");
+			
+			Thread.sleep(7000);
+			
+			String s=Common.getText("xpath", "//div[@data-bind='html: message.text']");
+			System.out.println(s);
+			Assert.assertEquals(s, "Thank you for your subscription.");
+			report.addPassLog(expectedResult, "Should display Email in Newsletter subscription", "Email in Newsletter subscription display successfully", Common.getscreenShotPathforReport("Newsletter success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Email in Newsletter subscription", "Email in Newsletter subscription not displayed", Common.getscreenShotPathforReport("Newsletter Failed"));
+			Assert.fail();
+		}
+
+
+	}
 	
+	public void InstaGramArticle() throws Exception{
+		String expectedResult="Instagram article page selection";
+		try {
+			
+			Common.clickElement("xpath", "//a[@href='https://www.instagram.com/revlonhairtools/']");
+			Thread.sleep(2000);
+			Common.switchToSecondTab();
+		   	Thread.sleep(10000);
+			if(Common.isElementDisplayed("xpath", "//h1[contains(text(),'Instagram')]")) {
+				String s=Common.getText("xpath", "//h1[contains(text(),'Instagram')]");
+			   	System.out.println(s);
+			   	Assert.assertEquals(s, "Instagram");
+			}else {
+				String s=Common.getText("xpath", "//h2[contains(text(),'revlonhairtools')]");
+			   	System.out.println(s);
+			   	Assert.assertEquals(s, "revlonhairtools");
+			}
+			report.addPassLog(expectedResult, "Should display Instagram page", "Instagram page display successfully", Common.getscreenShotPathforReport("Instagram page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Instagram page", "Instagram page not displayed", Common.getscreenShotPathforReport("Instagram page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+	}
+	
+	public void FacebookArticle() throws Exception{
+		String expectedResult="Facebook article page selection";
+		try {
+			Common.clickElement("xpath", "//a[@href='https://www.facebook.com/revlonhairtools/']");
+			Thread.sleep(2000);
+			Common.switchToSecondTab();
+		   	Thread.sleep(15000);
+		   	//String s=Common.getText("xpath", "//a[@href='https://www.facebook.com/revlonhairtools/']");
+		   	String s=Common.getText("xpath", "(//span[contains(text(),'Revlon Hair Tools')])[1]");
+		   	System.out.println(s);
+		   	Assert.assertEquals(s, "Revlon Hair Tools");
+			report.addPassLog(expectedResult, "Should display Facebook page", "Facebook page display successfully", Common.getscreenShotPathforReport("Facebook page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Facebook page", "Facebook page not displayed", Common.getscreenShotPathforReport("Facebook page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+	}
+	
+	public void youtubeArticle() throws Exception{
+		String expectedResult="Youtube article page selection";
+		try {
+			Common.clickElement("xpath", "//a[@href='https://www.youtube.com/user/RevlonHairTools']");
+			Thread.sleep(2000);
+			Common.switchToSecondTab();
+		   	Thread.sleep(13000);
+		   	String s=Common.getText("xpath", "(//*[contains(text(),'Revlon Hair Tools')])[1]");
+		   	System.out.println(s);
+			Assert.assertEquals(s, "Revlon Hair Tools");
+			report.addPassLog(expectedResult, "Should display Youtube page", "Youtube page display successfully", Common.getscreenShotPathforReport("Youtube page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Youtube page", "Youtube page not displayed", Common.getscreenShotPathforReport("Youtube page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+
+	}
+	
+	public void pinterestArticle() throws Exception{
+		String expectedResult="Pinterest article page selection";
+		try {
+			Common.clickElement("xpath", "//a[@href='https://co.pinterest.com/revlonhairtools/']");
+			Thread.sleep(2000);
+			Common.switchToSecondTab();
+		   	Thread.sleep(10000);
+		   	String s=Common.getText("xpath", "//h1[contains(text(),'Revlon Hair Tools')]");
+		   	System.out.println(s);
+			Assert.assertEquals(s, "Revlon Hair Tools");
+			report.addPassLog(expectedResult, "Should display Pinterest page", "Pinterest page display successfully", Common.getscreenShotPathforReport("Pinterest page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Pinterest page", "Pinterest page not displayed", Common.getscreenShotPathforReport("Pinterest page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+
+	}
+	
+	public void shipping_Address_AVS(String dataSet) throws Exception
+	{
+		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		Thread.sleep(10000);
+		Common.actionsKeyPress(Keys.DOWN);
+		Common.actionsKeyPress(Keys.ENTER);
+		Thread.sleep(10000);
+		Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+
+	}
+	
+	public void ValidateAVS(String dataSet) throws Exception
+	{
+		String expectedResult="Checkout page with payment for Guest user";
+		String expectedResult1="Email page of shipping address";
+		String expectedResult2="Shipping address of Checkout page";
+		try {
+			Thread.sleep(5000);
+			Sync.waitElementPresent("xpath", "//div[contains(text(),'Email')]");
+			Thread.sleep(12000);
+			//Sync.waitPageLoad(10);
+			Common.clickElement("id", "customer-email");
+			Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']/div/div//input[@type='email']", data.get(dataSet).get("Email"));
+			report.addPassLog(expectedResult1, "Should dispaly Shipping address page", "shipping address Page displayed successfully", Common.getscreenShotPathforReport("shipping address page"));
+
+			Sync.waitElementPresent("xpath", "//span[contains(text(),'Next')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Next')]");
+
+			Thread.sleep(300);
+
+			shipping_Address_AVS("Guest_shipping");
+			report.addPassLog(expectedResult2, "Should dispaly Shipping address page", "shipping address Page displayed successfully", Common.getscreenShotPathforReport("Shipping address"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+
+	}
 
 }

@@ -20,8 +20,10 @@ public class HT_ST_Productregistration {
   @Test(priority=1)
   public void ProductRegistration() {
 	  try {
+		  //Hottools.agreeCookiesbanner();
 		  Hottools.ProductRegistration();
 		  Hottools.productRegistration("ProductRegistration");
+		  
 		
 		
 	} catch (Exception e) {
@@ -44,9 +46,9 @@ public class HT_ST_Productregistration {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn("edge");
 		  
-	  }*/
+	}*/
 	
 	@AfterTest
 	public void clearBrowser()

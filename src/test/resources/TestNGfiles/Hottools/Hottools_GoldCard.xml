@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hottools Gold Card Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+     <test name="Test_HTGC_ST_045_Inspo access page" testid="BTY-984" priority="P1" description="To  verify Inspo access coupon place order Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardInspoAccess"/>
+        </classes>
+    </test>
+    <test name="Test_HTGC_ST_046_Creative access page" testid="BTY-987" priority="P1" description="To  verify Creative access coupon place order Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardCreativeAccess"/>
+        </classes>
+    </test>
+    <test name="Test_HTGC_ST_047_Artist access page" testid="BTY-988" priority="P1" description="To  verify Artist access coupon place order Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardArtistAccess"/>
+        </classes>
+    </test>
+    <test name="Test_HTGC_ST_048_Premiere access page" testid="BTY-989" priority="P1" description="To  verify Premiere access coupon place order Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardPremiereAccess"/>
+        </classes>
+    </test>
+    
+</suite>  

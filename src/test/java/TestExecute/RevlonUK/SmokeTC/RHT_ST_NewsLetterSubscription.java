@@ -24,7 +24,7 @@ public class RHT_ST_NewsLetterSubscription {
 			revlon.loginRevlonUK("AccountDetails");
 			revlon.NavigateNewsLetterSubscription();
 			revlon.NewsLetterSubscription();
-			revlon.NewsLetterSubscriptionMail();
+			//revlon.NewsLetterSubscriptionMail();
 		}
 		catch (Exception e) {
 			
@@ -44,7 +44,7 @@ public class RHT_ST_NewsLetterSubscription {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn("firefox");
 		  
 	  }*/
 	

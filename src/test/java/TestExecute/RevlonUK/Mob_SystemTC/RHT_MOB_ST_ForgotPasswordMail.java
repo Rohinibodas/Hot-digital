@@ -32,21 +32,21 @@ public class RHT_MOB_ST_ForgotPasswordMail {
 		} 
 	}
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"device"})  
 	  public void startTest(String Device) throws Exception {
 		System.setProperty("configFile", "RevlonUK\\config.properties");
 		  Login.signIn("chrome",Device);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
     //@Parameters({"device"})
       public void startTest() throws Exception {
         System.setProperty("configFile", "RevlonUK\\config.properties");
           Login.signIn("chrome","iPhone X");
          
-      }*/
+      }
 	
 	@AfterTest
 	public void clearBrowser()

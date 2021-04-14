@@ -27,12 +27,12 @@ public class RUK_MOB_ST_CMSLinks {
 			revlon.navigateTermsAndConditions();
 			revlon.navigatePrivacyPolicy();
 			revlon.navigateCookiePolicy();
-			revlon.navigateFAQ();
-			revlon.navigateTermsofSale();
-			revlon.navigateShippingAndReturns();
-			revlon.navigateWarranty();
-			revlon.navigateContactUs();
-			revlon.contactus();
+			//revlon.navigateFAQ();
+			//revlon.navigateTermsofSale();
+			//revlon.navigateShippingAndReturns();
+			//revlon.navigateWarranty();
+			//revlon.navigateContactUs();
+			//revlon.contactus();
 		}
 		catch (Exception e) {
 			

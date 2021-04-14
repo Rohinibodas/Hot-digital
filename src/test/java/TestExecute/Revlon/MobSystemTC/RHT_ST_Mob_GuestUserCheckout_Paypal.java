@@ -24,7 +24,7 @@ public class RHT_ST_Mob_GuestUserCheckout_Paypal {
 			revlon.navigateCartPage();
 			revlon.checkoutPage();
 			revlon.navigateCheckoutGuest("Guest_shipping");
-			revlon.updatePaypalPaymentAndSubmitOrder("Paypal");
+			//revlon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

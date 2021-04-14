@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="HottoolsMob Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_HT_MOB_ST_009_DistributorBrowserSearch" testid="BTY-672" priority="P1" description="To verify the Distributor Browser Search functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_DistributorBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_HT_MOB_ST_005_DistributorForgotPassword" testid="BTY-668" priority="P1" description="To verify the Distributor Forgot Password functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_DistributorForgotPassword"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_MOB_ST_003_ForgotPassword" testid="BTY-666" priority="P1" description="To verify the Forgot Password functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_Forgot_Password"/>
+        </classes>
+    </test> 
+     <test name="Test_HT_MOB_ST_008_GiveUSFeedbackForm" testid="BTY-671" priority="P1" description="To verify the Give Us Feedback functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_GiveUsFeedBack"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_MOB_ST_014_GuestUserCheckout" testid="BTY-677" priority="P1" description="To verify the Checkout for Guest user functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_GuestCheckoutCreditCard"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_MOB_ST_011_GuestUserBrowserSearch" testid="BTY-674" priority="P1" description="To verify the Guest Browser Search functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_GuestUserBrowserSearch"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_MOB_ST_007_ProductRegistration" testid="BTY-670" priority="P1" description="To verify the Product Registration functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_ProductRegistration"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_MOB_ST_002_SylistsalonOwnerUserAccountCreation" testid="BTY-665" priority="P1" description="To verify the Sylist saloon owner User Account Creation functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_RegistrationForSylistSaloonOwnerUser"/>
+        </classes>
+    </test>
+    <test name="Test_HT_MOB_ST_004_RegisteredUserCheckoutCreditCard" testid="BTY-667" priority="P1" description="To verify the Resgieted User Checkout Credit Card functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_RetailerCheckoutCreditCard"/>
+        </classes>
+    </test>
+    <test name="Test_HT_MOB_ST_010_RetailerBrowserSearch" testid="BTY-673" priority="P1" description="To verify the Retailer Browser Search functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_RetailerUserBrowserSearch"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_MOB_ST_001_RetailUserAccountCreation" testid="BTY-664" priority="P1" description="To verify the Retailer User Account Creation functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_RetialerRegistration"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_MOB_ST_006_ValidateCMSLinks" testid="BTY-669" priority="P1" description="To verify the CMS Link functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_ValidateCMSPages"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_021_Mob_StylistBrowserSearch" testid="BTY-755" priority="P1" description="Validating the browser search for Stylist user">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_StylistUserBrowserSearch"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_026_Mob_StylistCheckoutCreditCard" testid="BTY-758" priority="P1" description="To verify the Checkout with CreditCard For Stylist User functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_StylistUserCheckout"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_025_Mob_StylistCategoryCheckoutCreditCard" testid="BTY-759" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_StylistUserCategoryCheckout"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_024_Mob_StylistMyorderconfirmation" testid="BTY-760" priority="P1" description="To verify the StylistuserMy Order Confirmation Checkout with Credit Card functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_StylistUserMyOrderConfirmation"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_027_Mob_Become Influencer" testid="BTY-761" priority="P1" description="To verify the Become an Influencer functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_BecameInfluencer"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_028_Mob_NewsLetterSubscription" testid="BTY-762" priority="P1" description="To verify the News Letter Subscription functionalit">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_NewsletterSubscription"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_029_Mob_ValidateHeaderLinks" testid="BTY-763" priority="P1" description="To verify the Header Links functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_ValidatingHeaderLinks"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_023_MobCategoryCheckoutCreditCard" testid="BTY-757" priority="P1" description="To verify the Category Checkout with CreditCard for Retailer functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_Category_Checkout_page"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_022_Mob_Myorderconfirmation" testid="BTY-756" priority="P1" description="To verify the My Order Confirmation for Retailer User Checkout with Credit Card functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_MyOrderConfirmation"/>
+        </classes>
+    </test>
+    
+   
+    <test name="Test_HT_ST_MOB_056_DistributorCheckoutCreditCard" testid="BTY-1003" priority="P1" description="This test case validates logged in distributor user searching for a product, adding it to mini cart, checking out and processing payment with credit card successfully">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_DistributorCheckoutCreditCard"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_MOB_055_DistributorCheckoutPurchaseOrder" testid="BTY-1002" priority="P1" description="This test case is to verify hottools, browse Registered user Checkout with payment method as Purchase order in checkout page functionality for user">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_DistributorCheckoutPurchaseOrder"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_MOB_050_DistributorQuickOrderUnits" testid="BTY-998" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderUnits functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_DistributorQuickOrder"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_MOB_051_DistributorQuickOrderCases" testid="BTY-999" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderCases functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_MOB_DistributorQuickOrderCases"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_MOB_052_DistributorQuickOrderMultipleSkus" testid="BTY-1000" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderMultipleSkus functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_DistributorQuickMultipleSkus"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_MOB_053_DistributorQuickOrderAddFromFile" testid="BTY-1001" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderAddFromFile User functionality">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_DistributorQuickOrderAddFromFile"/>
+        </classes>
+    </test>
+    
+    <!-- <test name="Test_HT_Mob_ST_036_PromocodeCheckout" testid="BTY-1144" priority="P1" description="This test case is to verify  Hottools, Promocode Checkout functionality for user">
+         <parameter name="device" value="iPad" />
+        <classes>
+            <class name="TestExecute.hottools.MobSystemTC.HT_ST_Mob_Promocode"/>
+        </classes>
+    </test> -->
+    
+</suite>  
