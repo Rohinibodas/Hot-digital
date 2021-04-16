@@ -366,21 +366,31 @@ public class Honeywellhelper {
 				
 			}  
 		}
-		/*public void CouponCodeinCheckoutpage(String dataSet){
+		public void CouponCodeinCheckoutpage(String dataSet){
 			try{
+				Common.actionsKeyPress(Keys.END);
 			Sync.waitElementPresent("id", "block-discount-heading");
 			Common.scrollIntoView("id", "block-discount-heading");
 			Sync.waitElementPresent("id", "discount-code");
-
-			Common.textBoxInput("id", "discount-code", data.get(dataSet).get("Promationcode"));
-			
+            Common.textBoxInput("id", "discount-code", data.get(dataSet).get("Promationcode"));
 			Common.clickElement("xpath", "//span[text()='Apply Discount']");
-			}
+		    Sync.waitPageLoad();
+		    Common.actionsKeyPress(Keys.HOME);
+			int Discountcopuon=Common.findElements("xpath", "//tr[@class='totals discount']").size();
+			Common.assertionCheckwithReport(Discountcopuon>0,"verifying pomocode", "It should apply discount If user enters valid promocode", "promotion code working as expected","Promation code is not applied");
+
 			
+			}
+			catch(Exception |Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("verifying shipping addres filling", "user will fill the all the shipping", "faield to add new shipping address",Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
+				Assert.fail();
+				
+			}  
 		}
 		
 		
-*/		
+		
 		
 		public void creditCard_payment(String dataSet) throws Exception{
 			
