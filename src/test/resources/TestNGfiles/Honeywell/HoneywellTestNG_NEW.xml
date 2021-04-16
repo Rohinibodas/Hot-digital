@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="HoneywellSuite Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<test name="TEST_HW_ST_001_account_creation" testid="PPH-978"
+		priority="P1" description="This script will new account creation ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_001_account_creation" />
+		</classes>
+	<test name="TEST_HW_ST_002_Forgotpassword" testid="PPH-1014"
+		priority="P1" description="This script will cover to verify the forgot password">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_002_Forgotpassword" />
+		</classes>
+	</test>
+		<test name="TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa " testid="PPH-1015"
+		priority="P1" description="This script will cover Registered user check out">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa" />
+		</classes>
+	</test>
+		<test name="TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa" testid="PPH-1017"
+		priority="P1" description="This script will cover guest user check out">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa" />
+		</classes>
+	</test>
+		<test name="TEST_HW_ST_006_Checkout_as_guestuser_with_paymetric_method_AMEXcard " testid="PPH-1081"
+		priority="P1" description="This script will cover guest user check out with AMEX card">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_006_Checkout_as_guestuser_with_paymetric_method_AMEXcard" />
+		</classes>
+	</test>
+		<test name="TEST_HW_ST_007_Checkout_as_loggedin_user_with_In_valid_credit_card" testid="PPH-1020"
+		priority="P1" description="This script will cover Check out for registered user with Invalid Credentials">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_007_Checkout_as_loggedin_user_with_In_valid_credit_card" />
+		</classes>
+	</test>
+	<test name="TEST_HW_ST_008_Checkout_as_guestuser_with_invalid_credit_card" testid="PPH-1021"
+		priority="P1" description="This script will cover Check out for guest user with Invalid Credentials">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_008_Checkout_as_guestuser_with_invalid_credit_card" />
+		</classes>
+	</test>
+	<test name="TEST_HW_ST_012_Search_a_product" testid="PPH-1025"
+		priority="P1" description="This script will cover Search a product through the Search box">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_012_Search_a_product" />
+		</classes>
+	</test>
+	<test name="TEST_HW_ST_014_Minicart" testid="PPH-1122"
+		priority="P1" description="This script will cover validation of Mini card detailes">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_014_Minicart" />
+		</classes>
+	</test>
+	<test name="TEST_HW_ST_015_PLP_page" testid="PPH-1028"
+		priority="P1" description="This script will cover all functionality in Product List Page (PLP)">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_015_PLP_page" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_016_Checkout_as_logged_in_user_with_paymetric_method_Mastercard" testid="PPH-1055"
+		priority="P1" description="This script will register user check out with MASTER card">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_016_Checkout_as_logged_in_user_with_paymetric_method_Mastercard" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_017_Checkout_as_loggedin_user_with_paymetric_method_Discover_card" testid="PPH-1060"
+		priority="P1" description="This script will register user check out with DISCOVER card">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_017_Checkout_as_loggedin_user_with_paymetric_method_Discover_card" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_018_Checkout_as_loggedin_user_with_paymetric_method_AMEXcard" testid="PPH-1065"
+		priority="P1" description="This script will register user check out with AMEX card">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_018_Checkout_as_loggedin_user_with_paymetric_method_AMEXcard" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_0019_Checkout_as_guest_user_with_paymetric_method_MASTER_card" testid="PPH-1071"
+		priority="P1" description="This script will guest user check out with MASTER card ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_0019_Checkout_as_guest_user_with_paymetric_method_MASTER_card" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_020_Checkout_as_guestuser_with_paymetric_method_DISCOVER_card" testid="PPH-1077"
+		priority="P1" description="This script will guest user check out with DISCOVER card ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_020_Checkout_as_guestuser_with_paymetric_method_DISCOVER_card" />
+		</classes>
+	</test>	
+	<test name="TEST_HW_MT_021_Validation_of_newsletter_subscription" testid="PPH-1095"
+		priority="P1" description="This script will cover validation newsletter subscription">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_MT_021_Validation_of_newsletter_subscription" />
+		</classes>
+	</test>	
+	<test name="TEST_HW_MT_022_Validation_of_forgot_password_form" testid="PPH-1097"
+		priority="P1" description="This script will cover validation of forgot password form">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_MT_022_Validation_of_forgot_password_form" />
+		</classes>
+	</test>	
+	<test name="TEST_HW_MT_024_Validation_of_Shipping_page" testid="PPH-1098"
+		priority="P1" description="This script will cover validation of shipping page">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_MT_024_Validation_of_Shipping_page" />
+		</classes>
+
+</test>	
+</test>	
+</suite>
