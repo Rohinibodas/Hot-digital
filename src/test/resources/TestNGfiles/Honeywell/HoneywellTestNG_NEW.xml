@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <suite name="HoneywellSuite Suite">
 	<listeners>
+	
 		<listener class-name="Utilities.TestListener" />
 	</listeners>
 	<test name="TEST_HW_ST_001_account_creation" testid="PPH-978"
