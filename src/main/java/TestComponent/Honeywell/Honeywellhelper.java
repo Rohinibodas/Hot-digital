@@ -328,7 +328,7 @@ public class Honeywellhelper {
 			
 			Sync.waitElementPresent("xpath", "//input[@name='city']");
 			Common.textBoxInput("xpath", "//input[@name='city']", data.get(dataSet).get("City"));
-			
+			Common.actionsKeyPress(Keys.ESCAPE);
 			Sync.waitElementPresent("xpath", "//input[@name='postcode']");
 			Common.textBoxInput("xpath", "//input[@name='postcode']", data.get(dataSet).get("postcode"));
 			
@@ -350,7 +350,9 @@ public class Honeywellhelper {
 			//select_USPS_StandardGround_shippingMethod();
 		    Thread.sleep(5000);
 			
-			Common.clickElement("xpath","//span[text()='Next']");
+		    Common.clickElement("xpath","//div[@id='shipping-method-buttons-container']/div/button");
+		    
+			//Common.clickElement("xpath","//span[text()='Next']");
 			//div[contains(@class,'error')]
 			Sync.waitPageLoad();
 			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
@@ -637,7 +639,12 @@ public class Honeywellhelper {
 				Thread.sleep(2000);
 				try {
 					List<WebElement> product=Common.findElements("xpath", "//img[contains(@alt,'"+productname+"')]");
-					product.get(0).click();
+					System.out.println(product.size());
+					Common.scrollIntoView(product.get(1));
+					Thread.sleep(3000);
+					String Attributr=product.get(1).getAttribute("src");
+					Common.javascriptclickElement("xpath", "//img[@src='"+Attributr+"']");
+				//	product.get(1).click();
 					System.out.println(product.size());
 					Thread.sleep(3000);
 					clickAddtoBag();

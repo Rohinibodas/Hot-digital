@@ -42,7 +42,7 @@ public class TEST_ST_HW_018_Checkout_as_loggedin_user_with_paymetric_method_AMEX
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

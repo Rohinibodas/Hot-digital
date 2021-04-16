@@ -42,7 +42,7 @@ public class TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

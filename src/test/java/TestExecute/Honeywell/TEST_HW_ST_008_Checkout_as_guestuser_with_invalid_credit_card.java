@@ -17,7 +17,7 @@ public class TEST_HW_ST_008_Checkout_as_guestuser_with_invalid_credit_card {
 	
   public void In_valid_credit_card_Gust() {
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
+	//	honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("productnameRegester");

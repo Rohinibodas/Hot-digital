@@ -26,7 +26,7 @@ public class TEST_HW_ST_012_Search_a_product {
 		honeyWell.changeQuntity_UpdateProduct("2");
 		honeyWell.clickCheckoutButton_minicart();
 		honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
-		honeyWell.creditCard_payment("ccamex");
+		honeyWell.creditCard_payment("CCVisa");
 		honeyWell.order_Verifying();
 		}
 		catch (Exception e) {
@@ -41,7 +41,7 @@ public class TEST_HW_ST_012_Search_a_product {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

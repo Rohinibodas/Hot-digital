@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Honeywell.Honeywellhelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_HW_ST_014_Minicart {
@@ -32,7 +33,7 @@ catch (Exception e) {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	
