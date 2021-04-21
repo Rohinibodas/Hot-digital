@@ -9,26 +9,23 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_HW_ST_014_Minicart {
+
+public class TEST_HW_MT_021_Validation_of_newsletter_subscription {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-	
-  public void  minicartValidation() {
+  public void NewsletterSubscription()  {
+		
 		try {
-			honeyWell.verifyingHomePage();
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
-			honeyWell.clickminicartButton();
-			honeyWell.update_product_miniCartBag("2");
-			honeyWell.clickminicartButton();
-			honeyWell.removeproductinBagPage();
-		}
-catch (Exception e) {
-			
-			Assert.fail(e.getMessage(), e);
-		} 
+			honeyWell.stayIntouch("NewsletterSubscription");
+		        
+		        
+			}
+			catch (Exception e) {
+				
+				Assert.fail(e.getMessage(), e);
+			} 
   }
 	@AfterTest
 	public void clearBrowser()
@@ -44,4 +41,5 @@ catch (Exception e) {
 		 
 		  
 	  }
+
 }

@@ -297,6 +297,18 @@ public class Honeywellhelper {
 		
 		
 		
+		public void validating_Shippingpage(String dataSet){
+			try{
+			Sync.waitElementPresent("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']");
+			Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']",data.get(dataSet).get("Email"));
+			}
+			catch(Exception |Error e) {
+				ExtenantReportUtils.addFailedLog("verifying mini cart checkout button", "User click mini cart checkout button", "user failed to click mini cart checkout button", Common.getscreenShotPathforReport("failedminicartcheckoutbutton")); 
+				Assert.fail();
+		}
+			}
+		
+		
 		public void guestShippingAddress(String dataSet) throws Exception{
 			try{
 			Sync.waitElementPresent("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']");
@@ -316,7 +328,7 @@ public class Honeywellhelper {
 			
 			Sync.waitElementPresent("xpath", "//input[@name='city']");
 			Common.textBoxInput("xpath", "//input[@name='city']", data.get(dataSet).get("City"));
-			
+			Common.actionsKeyPress(Keys.ESCAPE);
 			Sync.waitElementPresent("xpath", "//input[@name='postcode']");
 			Common.textBoxInput("xpath", "//input[@name='postcode']", data.get(dataSet).get("postcode"));
 			
@@ -338,7 +350,9 @@ public class Honeywellhelper {
 			//select_USPS_StandardGround_shippingMethod();
 		    Thread.sleep(5000);
 			
-			Common.clickElement("xpath","//span[text()='Next']");
+		    Common.clickElement("xpath","//div[@id='shipping-method-buttons-container']/div/button");
+		    
+			//Common.clickElement("xpath","//span[text()='Next']");
 			//div[contains(@class,'error')]
 			Sync.waitPageLoad();
 			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
@@ -352,6 +366,31 @@ public class Honeywellhelper {
 				
 			}  
 		}
+		public void CouponCodeinCheckoutpage(String dataSet){
+			try{
+				Common.actionsKeyPress(Keys.END);
+			Sync.waitElementPresent("id", "block-discount-heading");
+			Common.scrollIntoView("id", "block-discount-heading");
+			Sync.waitElementPresent("id", "discount-code");
+            Common.textBoxInput("id", "discount-code", data.get(dataSet).get("Promationcode"));
+			Common.clickElement("xpath", "//span[text()='Apply Discount']");
+		    Sync.waitPageLoad();
+		    Common.actionsKeyPress(Keys.HOME);
+			int Discountcopuon=Common.findElements("xpath", "//tr[@class='totals discount']").size();
+			Common.assertionCheckwithReport(Discountcopuon>0,"verifying pomocode", "It should apply discount If user enters valid promocode", "promotion code working as expected","Promation code is not applied");
+
+			
+			}
+			catch(Exception |Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("verifying shipping addres filling", "user will fill the all the shipping", "faield to add new shipping address",Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
+				Assert.fail();
+				
+			}  
+		}
+		
+		
+		
 		
 		public void creditCard_payment(String dataSet) throws Exception{
 			
@@ -610,7 +649,12 @@ public class Honeywellhelper {
 				Thread.sleep(2000);
 				try {
 					List<WebElement> product=Common.findElements("xpath", "//img[contains(@alt,'"+productname+"')]");
-					product.get(0).click();
+					System.out.println(product.size());
+					Common.scrollIntoView(product.get(1));
+					Thread.sleep(3000);
+					String Attributr=product.get(1).getAttribute("src");
+					Common.javascriptclickElement("xpath", "//img[@src='"+Attributr+"']");
+				//	product.get(1).click();
 					System.out.println(product.size());
 					Thread.sleep(3000);
 					clickAddtoBag();
@@ -795,11 +839,140 @@ public class Honeywellhelper {
 			
 		}
 		
+		public void stayIntouch(String dataSet) throws Exception {
+
+			String expectedResult = "User should land on the home page";
+			try {
+				verifyingHomePage();
+
+				Common.actionsKeyPress(Keys.END);
+				Thread.sleep(5000);
+
+				Sync.waitElementPresent("id", "newsletter");
+				Common.clickElement("id", "newsletter");
+
+				String email = Common.genrateRandomEmail(data.get(dataSet).get("Email"));
+
+				Common.textBoxInput("id", "newsletter", email);
+				Thread.sleep(3000);
+				Common.clickElement("xpath", "//button[contains(@class,'action subscribe primary')]");
+				Common.actionsKeyPress(Keys.PAGE_UP);
+				Thread.sleep(5000);
+				String Text = Common.getText("xpath", "//div[contains(@data-ui-id,'message')]/div");
+				expectedResult = "User gets confirmation message that it was submitted";
+				ExtenantReportUtils.addPassLog("verifying newsletter subscription",
+						"User get confirmation message if new email if it used mail it showing error message ", Text,
+						Common.getscreenShotPathforReport("NewsLetter Subscrptionsuccess"));
+
+			} catch (Exception | Error e) {
+				
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("verifying newsletter subscription", "NewsLetter Subscrption success",
+						"User faield to subscrption for newLetter  ",
+						Common.getscreenShotPathforReport("NewsLetter Subscrptionsuccess"));
+				Assert.fail();
+	     	}
+					}
+	public void creditCard_payment_Invalid(String dataSet) throws Exception{
+			
+			try{
+				
 		
+				Thread.sleep(7000);
+				Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
+				int size=Common.findElements("xpath", "//select[@id='c-ct']").size();
+				Common.switchToDefault();
+				Common.assertionCheckwithReport(size>0, "validating Creditcard option", "click the creadit card label", "clicking credit card label and open the card fields", "user faield to open credit card form");
+				}
+			   catch(Exception |Error e) {
+				   e.printStackTrace();
+					ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label", "faield to click Credit Card option",  Common.getscreenShotPathforReport("Cardinoption"));
+					Assert.fail();
+					
+				}
+			
+			
+			try{
+			
+			Thread.sleep(2000);
+			Common.switchFrames("id", "paymetric_xisecure_frame");
+			Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+			Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpMonth"));
+			Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+			Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));	
+			Thread.sleep(2000);
+			
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			Common.switchToDefault();
+			Thread.sleep(1000);
+			Common.clickElement("xpath", "//span[contains(text(),'Place Order')]");
+			Common.switchFrames("id", "paymetric_xisecure_frame");
+			String expectedResult="credit card fields are filled with the data";
+		    String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
+		    Common.switchToDefault();
+		    Common.assertionCheckwithReport(!errorTexts.isEmpty(), "validating the credit card information with invalid  data", expectedResult, "Filled the Card detiles with in valid data", "missing the showinng error message");
+		    	
+			Sync.waitPageLoad();
+			}
+			catch(Exception |Error e) {
+				e.printStackTrace();
+			    ExtenantReportUtils.addFailedLog("validating the Credit Card infromation", "credit card fields are filled with the data", "faield  to fill the Credit Card infromation",  Common.getscreenShotPathforReport("Cardinfromationfail"));
+				Assert.fail();
+				
+			}
+			
+			
+			
+		}
+	
+	public void ShippingFormValidation() throws Exception{
 		
+		Common.clickElement("xpath", "//button[@class='button action continue primary']");
+		Thread.sleep(4000);
+		try {
 		
+		Sync.waitElementClickable("xpath", "//button[@class='button action continue primary']");	
+		Common.findElement("xpath", "//button[@class='button action continue primary']").click();
 		
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		//Common.actionsKeyPress(Keys.DOWN);
+		int emailerrormessage=Common.findElements("xpath", "//div[@id='customer-email-error']").size();
+		int Streeterromessage=Common.findElements("xpath", "//div[@class='field-error']").size();
 		
+		Common.assertionCheckwithReport(emailerrormessage>0&&Streeterromessage>0, "verifying error message ShippingAddressForm Page", "enter with empty data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+		}
+		catch(Exception |Error e) {
+		 	e.printStackTrace();   
+			ExtenantReportUtils.addFailedLog("verifying error message ShippingAddressForm Page", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("ShippingAddressFormvalidation"));
+			Assert.fail();
+		}
+		
+	}
+	public void ForgotPasswordValidation() {
+		try {
+			
+			Thread.sleep(4000);	
+			Sync.waitElementClickable("xpath","//a[@class='header-content__right-link']");
+			Common.findElement("xpath", "//a[@class='header-content__right-link']").click();
+			Thread.sleep(2000);
+			//Common.scrollIntoView("xpath", "//a[@class='action remind']");
+			Sync.waitElementClickable("xpath", "//a[@class='action remind']");
+			Common.findElement("xpath","//a[@class='action remind']").click();
+			Thread.sleep(4000);
+			Sync.waitElementClickable("xpath", "//button[@class='action submit primary']");
+			Common.clickElement("xpath", "//button[@class='action submit primary']");
+			Thread.sleep(3000);
+			int emailerrormessage=Common.findElements("xpath", "//div[@id='email_address-error']").size();
+			Common.assertionCheckwithReport(emailerrormessage>0, "verifying error message ForgotPasswordPage", "enter with empty data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+			}
+			catch(Exception |Error e) {
+			 	   
+				ExtenantReportUtils.addFailedLog("verifying error message ForgotPasswordPage", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("loginpagevalidation"));
+				Assert.fail();
+			}
+		}
+	
 }
 
 

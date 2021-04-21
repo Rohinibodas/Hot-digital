@@ -7,28 +7,29 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Honeywell.Honeywellhelper;
-
+import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_CreditCard_amex {
+public class TEST_ST_HW_0019_Checkout_as_guest_user_with_paymetric_method_MASTER_card {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void registeredUser_Checkout_CreditCard_amex() throws Exception {
+	public void gustUserCheckout_CreditCard_Mastercard() throws Exception {
 
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
+			
+			
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
+			honeyWell.adding_product_toCart("ProductName");
 			honeyWell.clickAddtoBag();
-			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
-			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
-			honeyWell.creditCard_payment("ccamex");
+			honeyWell.guestShippingAddress("ShippingAddress");
+			honeyWell.creditCard_payment("CCmastercard");
 			honeyWell.order_Verifying();
+			
 		}
 		catch (Exception e) {
 			
@@ -41,7 +42,7 @@ public class RegisteredUser_Checkout_CreditCard_amex {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

@@ -9,27 +9,35 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_HW_ST_014_Minicart {
+public class TEST_HW_ST_012_Search_a_product {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  
 	
-  public void  minicartValidation() {
+ 
+	
+  public void searchproduct() {
 		try {
-			honeyWell.verifyingHomePage();
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
-			honeyWell.clickminicartButton();
-			honeyWell.update_product_miniCartBag("2");
-			honeyWell.clickminicartButton();
-			honeyWell.removeproductinBagPage();
+			
+		honeyWell.loginHoneywell("AccountDetails");
+		honeyWell.searchProduct("ProductName");
+		honeyWell.clickminicartButton();
+		honeyWell.click_View_editcart();
+		honeyWell.changeQuntity_UpdateProduct("2");
+		honeyWell.clickCheckoutButton_minicart();
+		honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+		honeyWell.creditCard_payment("CCVisa");
+		honeyWell.order_Verifying();
 		}
-catch (Exception e) {
+		catch (Exception e) {
 			
 			Assert.fail(e.getMessage(), e);
 		} 
+		
   }
+  
+  
+	
 	@AfterTest
 	public void clearBrowser()
 	{

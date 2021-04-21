@@ -1,42 +1,39 @@
-
 package TestExecute.Honeywell;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import TestComponent.DryBar.DryBarHelper;
+import TestComponent.DryBar.DryBarMobile;
 import TestComponent.Honeywell.Honeywellhelper;
-
 import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_CreditCard_Mastercard {
+public class TEST_HW_ST_002_Forgotpassword {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void registeredUser_Checkout_CreditCard_Mastercard() throws Exception {
-
-		try {
-			honeyWell.loginHoneywell("AccountDetails");
-			honeyWell.verifyingHomePage();
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
-			honeyWell.clickAddtoBag();
-			honeyWell.clickminicartButton();
-			honeyWell.clickminicartcheckout();
-			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
-			honeyWell.creditCard_payment("ccamex");
-			honeyWell.order_Verifying();
-		}
-		catch (Exception e) {
+	
+	
+	
+ 
+  public void forgotPassword() throws Exception {
+		try{
+			honeyWell.Forgetpassword("AccountDetails");
 			
-			Assert.fail(e.getMessage(), e);
-		} 
+  }
+	
+	catch (Exception e) {
+		e.printStackTrace();
+		
+		Assert.fail(e.getMessage(), e);
+	} 
 	}
-	
-	
 	
 	@AfterTest
 	public void clearBrowser()

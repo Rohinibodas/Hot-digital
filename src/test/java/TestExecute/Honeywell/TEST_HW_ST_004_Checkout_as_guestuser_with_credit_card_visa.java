@@ -10,23 +10,23 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_Checkout_CreditCard_Mastercard {
+
+public class TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void gustUserCheckout_CreditCard_Mastercard() throws Exception {
+	
+	public void gustUserCheckout_CreditCard_Visa() throws Exception {
 
 		try {
-			
-			
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");
 			honeyWell.clickAddtoBag();
 			honeyWell.clickminicartcheckout();
 			honeyWell.guestShippingAddress("ShippingAddress");
-			honeyWell.creditCard_payment("CCmastercard");
+			honeyWell.creditCard_payment("CCVisa");
 			honeyWell.order_Verifying();
 			
 		}

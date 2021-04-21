@@ -1,5 +1,6 @@
 package TestExecute.Honeywell;
 
+
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -10,22 +11,22 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-
-public class Guest_Checkout_CreditCard_VISA {
+public class TEST_ST_HW_020_Checkout_as_guestuser_with_paymetric_method_DISCOVER_card {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void gustUserCheckout_CreditCard_Visa() throws Exception {
+	public void gustUserCheckout_CreditCard_discover() throws Exception {
 
 		try {
+			
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");
 			honeyWell.clickAddtoBag();
 			honeyWell.clickminicartcheckout();
 			honeyWell.guestShippingAddress("ShippingAddress");
-			honeyWell.creditCard_payment("CCVisa");
+			honeyWell.creditCard_payment("ccdiscover");
 			honeyWell.order_Verifying();
 			
 		}

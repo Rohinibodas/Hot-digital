@@ -9,27 +9,20 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_HW_ST_014_Minicart {
+
+public class TEST_HW_MT_022_Validation_of_forgot_password_form {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  
-	
-  public void  minicartValidation() {
+  public void forgetpasswordfromvalidation() {
 		try {
-			honeyWell.verifyingHomePage();
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
-			honeyWell.clickminicartButton();
-			honeyWell.update_product_miniCartBag("2");
-			honeyWell.clickminicartButton();
-			honeyWell.removeproductinBagPage();
-		}
-catch (Exception e) {
-			
-			Assert.fail(e.getMessage(), e);
-		} 
+		honeyWell.verifyingHomePage();
+		honeyWell.ForgotPasswordValidation();
+	} catch (Exception e) {
+		Assert.fail(e.getMessage(), e);
+	}
   }
+
 	@AfterTest
 	public void clearBrowser()
 	{
