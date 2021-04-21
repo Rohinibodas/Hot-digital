@@ -18,6 +18,7 @@ public class NewsLetterSubscription {
 		
 
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.NewsLetterSubscription("AccountDetails");
 
