@@ -35,7 +35,6 @@ public class VicksHelper {
 
 	public void LoginFormValidation(){
 		try {
-			
 		Thread.sleep(4000);	
 		Sync.waitElementClickable("xpath","//a[@class='header-content__right-link']");
 		Common.findElement("xpath", "//a[@class='header-content__right-link']").click();

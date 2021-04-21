@@ -17,7 +17,6 @@ public class ShippingAddressFormValidation {
 	public void ShippingAddressFormValidation() throws Exception {
 
 		try {
-
 			
 			vicks.Verifyhomepage();
 			vicks.clickHumidifiers();

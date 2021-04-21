@@ -17,6 +17,7 @@ public class ForgotPasswordValidation {
 	public void ForgotPasswordValidation() throws Exception {
 
 		try {
+			
 			vicks.Verifyhomepage();
 			vicks.ForgotPasswordValidation();
 			
