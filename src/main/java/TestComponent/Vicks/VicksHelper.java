@@ -35,6 +35,7 @@ public class VicksHelper {
 
 	public void LoginFormValidation(){
 		try {
+			
 		Thread.sleep(4000);	
 		Sync.waitElementClickable("xpath","//a[@class='header-content__right-link']");
 		Common.findElement("xpath", "//a[@class='header-content__right-link']").click();
@@ -105,14 +106,15 @@ public class VicksHelper {
 			Thread.sleep(4000);
 			Sync.waitElementClickable("xpath", "//button[@title='Create an Account']");
 		    Common.findElement("xpath", "//button[@title='Create an Account']").click();
-		    Sync.waitElementVisible("xpath", "//div[@class='message-error error message']");
+		   // Sync.waitElementVisible("xpath", "//div[@class='message-error error message']");
 		   /* int sizes =Common.findElements("xpath", "//div[@class='message-error error message']").size();	  
 		    Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land on paymentpage");	
 			*/
-		    int Signuperrormessage=Common.findElements("xpath", "//div[@class='message-error error message']").size();
+		    int Signuperrormessage=Common.findElements("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']").size();
 			Common.assertionCheckwithReport(Signuperrormessage>0, "verifying error message signuppage", "enter with empety data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
 			}
 			catch(Exception |Error e) {
+				e.printStackTrace();
 			 	   
 				ExtenantReportUtils.addFailedLog("verifying error message signpage", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("loginpagevalidation"));
 				Assert.fail();
@@ -250,7 +252,7 @@ public class VicksHelper {
 		try {
 			Thread.sleep(1000);
 			try {
-			    Common.scrollIntoView("xpath", "//span[contains(text(),'Add to Cart')]");
+			    //Common.scrollIntoView("xpath", "//span[contains(text(),'Add to Cart')]");
 				Sync.waitElementClickable("xpath", "//span[contains(text(),'Add to Cart')]");
 				Common.findElement("xpath", "//span[contains(text(),'Add to Cart')]").click();
 				ExtenantReportUtils.addPassLog("Verifing product to add cart", "Product should add ti cart",
@@ -417,6 +419,25 @@ public class VicksHelper {
 		 * e.printStackTrace(); Assert.fail(); }
 		 */
 	}
+	 public void Promocode(String dataSet) throws Exception{
+	    	
+	    	try{
+	    	Common.actionsKeyPress(Keys.ARROW_DOWN);	
+	    	Sync.waitElementClickable("id", "block-discount-heading");
+	    	Thread.sleep(3000);
+	    	Common.findElement("xpath", "//span[@id='block-discount-heading']").click();
+	    	Sync.waitElementPresent("xpath", "//input[@id='discount-code']");
+	    	Common.textBoxInput("xpath", "//input[@id='discount-code']",data.get(dataSet).get("Promocode"));
+	    	Common.clickElement("xpath", "//button[@class='action action-apply']");
+	    	Thread.sleep(4000);
+	    	ExtenantReportUtils.addPassLog("Apply Promocode on Checkout Page", "Promocode Should be applied on Checkout Page", "Promo Code added successfully and applied discount to Order Summary", Common.getscreenShotPathforReport("Promocode"));
+	    	//Thread.sleep(2000);
+	    }catch(Exception |Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("Apply Promocode on Checkout Page", "Promocode Should be applied on Checkout Page", "Failed to apply Promocode", Common.getscreenShotPathforReport("Promocode"));
+	     	Assert.fail();
+	    }
+	    }
 
 	public void invalidData(String dataSet) {
 		// String expectedResult="Payment With Invalid Credit Card";
@@ -687,12 +708,12 @@ public class VicksHelper {
 			String title = Common.findElement("xpath", "//p[@id='YCP3PN0']").getText();
 			title.equals("Promo Banner Information Here");
 
-			ExtenantReportUtils.addPassLog("To verify search results page", "Should land on  product list page",
-					"user successfully landed on  product search results page",
-					Common.getscreenShotPathforReport("Successfully landed on PLP Page"));
+			ExtenantReportUtils.addPassLog("To verify home page", "Should land home page",
+					"user successfully landed on  home page",
+					Common.getscreenShotPathforReport("Successfully landed on home Page"));
 		} catch (Exception | Error e) {
-			ExtenantReportUtils.addFailedLog("To verify search results page", "Should land on  product list page",
-					"user successfully landed on  product search results page",
+			ExtenantReportUtils.addFailedLog("To verify home page", "Should not land home page",
+					"user successfully not landed on  home page",
 					Common.getscreenShotPathforReport("Failed to land on PLP Page"));
 			Assert.fail();
 		}
@@ -929,6 +950,218 @@ public class VicksHelper {
 			Assert.fail();
 		}
 	}
+	public void clickonproduct (){
+		try {
+			Sync.waitPageLoad();
+			Common.clickElement("xpath", "//a[@class='product-item-link']");
+			ExtenantReportUtils.addPassLog("verifying click on product", "User click on product",
+					"user successfully click on product", Common.getscreenShotPathforReport("Clickonproduct"));
+		} catch (Exception | Error e) {
+
+			ExtenantReportUtils.addFailedLog("verifying click on product", "User click on product ",
+					"user failed to click on product", Common.getscreenShotPathforReport("failedtoclickonproduct"));
+			Assert.fail();
+		}
+	}
+	public void contactUS(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("ContactUS"));
+		String bannerText = Common.getText("xpath", "//h1[@data-content-type='heading']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Contact Us"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Contact Us"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void Humdifiers(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Humdifiers"));
+		String bannerText = Common.getText("xpath", "//h1[@id='page-title-heading']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Humidifiers & Vaporizers"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Humidifiers & Vaporizers"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void Blog(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Blog"));
+		String bannerText = Common.getText("xpath", "//span[@data-ui-id='page-title-wrapper']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Health & Wellness Blog"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Health & Wellness Blog"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void Ourhistory(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Ourhistory"));
+		String bannerText = Common.getText("xpath", "//a[@class='x-brand img']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Our 52 year history"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Our 52 year history"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void Heleoftroy(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Ourcompany"));
+		String bannerText = Common.getText("xpath", "//h1[@class='visually-hidden']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Helen of Troy"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Helen of Troy"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void FiltersAccessories(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Filters"));
+		String bannerText = Common.getText("xpath", "//h1[@id='page-title-heading']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Filters & Accessories"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Filters & Accessories"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void SinusInhalers(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Sinus"));
+		String bannerText = Common.getText("xpath", "//h1[@id='page-title-heading']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Sinus Inhalers"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Sinus Inhalers"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void ProductSupport (String DataSet){
+	Common.oppenURL(data.get(DataSet).get("ProductSupport"));
+	String bannerText = Common.getText("xpath", "//li[@class='item cms_page']");
+	Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+	Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+			"give url contains https", "give url missing  https");
+
+	Assert.assertTrue(bannerText.equals("Vicks Support"));
+
+	Common.assertionCheckwithReport(bannerText.equals("Vicks Support"), "Give URL Contains Expected Templat ",
+			"give url Navigating to new Arrivals link", "give url failed lo load");
+
+	Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+	Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+			"Give URL Contains valid title ", "title checking");
+}
+	public void Insta(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Insta"));
+		String bannerText = Common.getText("xpath", "//div[@class='nZSzR']/h2");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("Vicks Devices"));
+
+		Common.assertionCheckwithReport(bannerText.equals("Vicks Devices"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void PUR(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("Pur"));
+		String bannerText = Common.getText("xpath", "//a[@class='logo']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("PUR®"));
+
+		Common.assertionCheckwithReport(bannerText.equals("PUR®"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+	public void FAQS(String DataSet){
+		Common.oppenURL(data.get(DataSet).get("FAQs"));
+		String bannerText = Common.getText("xpath", "//li[@class='item cms_page']");
+		Assert.assertTrue(Common.getCurrentURL().contains("https"));
+
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "this url contains https ",
+				"give url contains https", "give url missing  https");
+
+		Assert.assertTrue(bannerText.equals("FAQ Humidifers General - Vicks"));
+
+		Common.assertionCheckwithReport(bannerText.equals("FAQ Humidifers General - Vicks"), "Give URL Contains Expected Templat ",
+				"give url Navigating to new Arrivals link", "give url failed lo load");
+
+		Assert.assertTrue(Common.getPageTitle().contains(bannerText));
+
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(bannerText), "Give URL Contains Expected title ",
+				"Give URL Contains valid title ", "title checking");
+	}
+		
 
 	public void clickAddtoBag() {
 		try {
