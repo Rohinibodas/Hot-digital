@@ -37,6 +37,6 @@ public class ProductRegistration {
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
-    
+
 	}
 }

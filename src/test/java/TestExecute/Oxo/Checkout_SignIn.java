@@ -21,12 +21,10 @@ public class Checkout_SignIn {
 			oxo.closetheadd();
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
-			//oxo.checkout();
+			// oxo.checkout();
 			oxo.clickViewCart();
 			oxo.SignIn_CheckoutPage("AccountDetails");
-			
-			
-			
+
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -35,7 +33,7 @@ public class Checkout_SignIn {
 
 	@AfterTest
 	public void clearBrowser() {
-		
+
 		Common.closeAll();
 
 	}

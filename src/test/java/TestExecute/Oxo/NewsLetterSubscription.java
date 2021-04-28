@@ -18,10 +18,10 @@ public class NewsLetterSubscription {
 	public void NewsLetterSubscription() throws Exception {
 
 		try {
-			
+
 			oxo.closetheadd();
 			oxo.NewsletterSubscription("NewsLetterSubscription");
-			
+
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -30,8 +30,8 @@ public class NewsLetterSubscription {
 
 	@AfterTest
 	public void clearBrowser() {
-		
-	Common.closeAll();
+
+		Common.closeAll();
 
 	}
 

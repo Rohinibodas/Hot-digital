@@ -18,10 +18,10 @@ public class Voluntary_Recall {
 	public void Voluntary_Recall() throws Exception {
 
 		try {
-			
+
 			oxo.closetheadd();
 			oxo.Voluntary_Recall("ProductRecall");
-			
+
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -30,7 +30,7 @@ public class Voluntary_Recall {
 
 	@AfterTest
 	public void clearBrowser() {
-		
+
 		Common.closeAll();
 
 	}

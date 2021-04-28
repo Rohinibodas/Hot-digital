@@ -19,7 +19,7 @@ public class MultiProductCheckout {
 
 		try {
 			oxo.closetheadd();
-			//oxo.PrivacyPolicy();
+			// oxo.PrivacyPolicy();
 			oxo.Beverage();
 			oxo.addproducts("1");
 			oxo.clickBaby_Toddler();
@@ -32,11 +32,11 @@ public class MultiProductCheckout {
 			oxo.ShippingAddress("ShippingAddress");
 			oxo.selectGroundShippingMethod();
 			oxo.clickAcceptingaddress();
-		    oxo.Click_CreditCard();
+			oxo.Click_CreditCard();
 			oxo.creditCard_payment("DiscoverPaymentDetails");
 			oxo.VerifyaingConformationPage();
-		    //Common.refreshpage();
-			
+			// Common.refreshpage();
+
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -45,7 +45,7 @@ public class MultiProductCheckout {
 
 	@AfterTest
 	public void clearBrowser() {
-		
+
 		Common.closeAll();
 
 	}
