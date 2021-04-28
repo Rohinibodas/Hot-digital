@@ -18,6 +18,7 @@ public class NewsLetterSubscription {
 	public void NewsLetterSubscription() throws Exception {
 
 		try {
+			
 			oxo.closetheadd();
 			oxo.NewsletterSubscription("NewsLetterSubscription");
 			

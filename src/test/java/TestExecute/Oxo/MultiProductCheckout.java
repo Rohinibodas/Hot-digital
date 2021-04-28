@@ -9,18 +9,33 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Voluntary_Recall {
+public class MultiProductCheckout {
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
 	@Test(priority = 1)
 
-	public void Voluntary_Recall() throws Exception {
+	public void MultiProductCheckout() throws Exception {
 
 		try {
-			
 			oxo.closetheadd();
-			oxo.Voluntary_Recall("ProductRecall");
+			//oxo.PrivacyPolicy();
+			oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.CleaningandOrganization();
+			oxo.addproducts("1");
+			oxo.CookingAndBaking();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.ShippingAddress("ShippingAddress");
+			oxo.selectGroundShippingMethod();
+			oxo.clickAcceptingaddress();
+		    oxo.Click_CreditCard();
+			oxo.creditCard_payment("DiscoverPaymentDetails");
+			oxo.VerifyaingConformationPage();
+		    //Common.refreshpage();
 			
 		} catch (Exception e) {
 

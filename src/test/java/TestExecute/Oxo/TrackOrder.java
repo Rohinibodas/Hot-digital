@@ -9,18 +9,18 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Voluntary_Recall {
+public class TrackOrder {
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
 	@Test(priority = 1)
 
-	public void Voluntary_Recall() throws Exception {
+	public void TrackOrder() throws Exception {
 
 		try {
-			
 			oxo.closetheadd();
-			oxo.Voluntary_Recall("ProductRecall");
+			oxo.Track_order("TrackOrder");
+			
 			
 		} catch (Exception e) {
 

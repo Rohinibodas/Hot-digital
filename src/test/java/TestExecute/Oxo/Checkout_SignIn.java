@@ -9,18 +9,23 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Voluntary_Recall {
+public class Checkout_SignIn {
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
 	@Test(priority = 1)
 
-	public void Voluntary_Recall() throws Exception {
+	public void Checkout_SignIn() throws Exception {
 
 		try {
-			
 			oxo.closetheadd();
-			oxo.Voluntary_Recall("ProductRecall");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			//oxo.checkout();
+			oxo.clickViewCart();
+			oxo.SignIn_CheckoutPage("AccountDetails");
+			
+			
 			
 		} catch (Exception e) {
 
