@@ -17,16 +17,16 @@ public class TEST_HW_ST_011_CheckoutDiscount {
 
 	  public void couponcode() {
 			try {
-				honeyWell.loginHoneywell("AccountDetails");
+				honeyWell.loginHoneywell("Promationcode");
 				honeyWell.verifyingHomePage();
 				honeyWell.click_Airpurifiers();
 				honeyWell.adding_product_toCart("productnameRegester");
-				honeyWell.clickAddtoBag();
+				//honeyWell.clickAddtoBag();
 				honeyWell.clickminicartButton();
 				honeyWell.clickminicartcheckout();
 				honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
 				honeyWell.CouponCodeinCheckoutpage("Promationcode");
-				honeyWell.creditCard_payment_Invalid("InvalidCC");
+				//honeyWell.creditCard_payment_Invalid("InvalidCC");
 				//honeyWell.order_Verifying();
 			}
 			catch (Exception e) {

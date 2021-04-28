@@ -174,8 +174,8 @@ public class Honeywellhelper {
 		public void clickShopButton() {
 			try{
 				Thread.sleep(4000);
-				Common.clickElement("id","ui-id-3");
-				
+				//Common.clickElement("id","ui-id-3");
+				Common.mouseOver("id", "ui-id-3");
 				ExtenantReportUtils.addPassLog("verifying Shop button in Header", "User navigate to shop category", "User successfully  navigate to shop category", Common.getscreenShotPathforReport("shopbutton"));
 				
 			}
@@ -368,15 +368,19 @@ public class Honeywellhelper {
 		}
 		public void CouponCodeinCheckoutpage(String dataSet){
 			try{
+			//	Sync.waitPageLoad();
+				Thread.sleep(3000);
 				Common.actionsKeyPress(Keys.END);
 			Sync.waitElementPresent("id", "block-discount-heading");
 			Common.scrollIntoView("id", "block-discount-heading");
+			Common.clickElement("id", "block-discount-heading");
 			Sync.waitElementPresent("id", "discount-code");
             Common.textBoxInput("id", "discount-code", data.get(dataSet).get("Promationcode"));
 			Common.clickElement("xpath", "//span[text()='Apply Discount']");
 		    Sync.waitPageLoad();
 		    Common.actionsKeyPress(Keys.HOME);
 			int Discountcopuon=Common.findElements("xpath", "//tr[@class='totals discount']").size();
+		System.out.println(Discountcopuon);
 			Common.assertionCheckwithReport(Discountcopuon>0,"verifying pomocode", "It should apply discount If user enters valid promocode", "promotion code working as expected","Promation code is not applied");
 
 			
@@ -415,7 +419,12 @@ public class Honeywellhelper {
 			
 			Thread.sleep(2000);
 			Common.switchFrames("id", "paymetric_xisecure_frame");
+			
+			System.out.println(data.get(dataSet).get("cardType"));
 			Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+			
+			
+			
 			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
 			Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpMonth"));
 			Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
@@ -551,65 +560,53 @@ public class Honeywellhelper {
 
 			{
 				try {
-					Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
-					Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",
-							data.get(dataSet).get("LastName"));
-					Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",
-							data.get(dataSet).get("Street"));
-					Thread.sleep(2000);
-					Common.actionsKeyPress(Keys.SPACE);
-					Thread.sleep(3000);
-					try {
-						Common.clickElement("xpath",
-								"//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
-					} catch (Exception e) {
-						Common.actionsKeyPress(Keys.BACK_SPACE);
-						Thread.sleep(1000);
-						Common.actionsKeyPress(Keys.SPACE);
-						Common.clickElement("xpath",
-								"//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
-					}
-					if (data.get(dataSet).get("StreetLine2") != null) {
-						Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
-					}
-					if (data.get(dataSet).get("StreetLine3") != null) {
-						Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
-					}
-					Common.actionsKeyPress(Keys.PAGE_DOWN);
-					Thread.sleep(3000);
-					Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",
-							data.get(dataSet).get("City"));
-					// Common.mouseOverClick("name", "region_id");
-					try {
-						Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
-					} catch (ElementClickInterceptedException e) {
-						// TODO: handle exception
-						Thread.sleep(3000);
-						Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
-					}
-					Thread.sleep(2000);
-					Common.textBoxInputClear("name", "postcode");
-					Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
-					Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
-
-					Sync.waitElementClickable("xpath", "//span[contains(text(),'Continue To Payment')]");
-					Common.clickElement("xpath", "//span[contains(text(),'Continue To Payment')]");
-
-				
-					ExtenantReportUtils.addPassLog("verifying shipping addres filling ", expectedResult,
-							"user enter the shipping address ",
-							Common.getscreenShotPathforReport("fill the shipping address first time"));
-
-				
-					expectedResult = "shipping address is filled in to the fields";
+					Sync.waitElementPresent("xpath", "//input[@name='firstname']");
+					Common.textBoxInput("xpath", "//input[@name='firstname']", data.get(dataSet).get("FirstName"));
 					
-				//	select_USPS_StandardGround_shippingMethod();
-		            Thread.sleep(5000);
-					Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+					Sync.waitElementPresent("xpath", "//input[@name='lastname']");
+					Common.textBoxInput("xpath", "//input[@name='lastname']", data.get(dataSet).get("LastName"));
 					
-					Thread.sleep(3000);
+					
 
-				} catch (Exception | Error e) {
+					Sync.waitElementPresent("xpath", "//input[@name='street[0]']");
+					Common.textBoxInput("xpath", "//input[@name='street[0]']", data.get(dataSet).get("Street"));
+					
+					Sync.waitElementPresent("xpath", "//input[@name='city']");
+					Common.textBoxInput("xpath", "//input[@name='city']", data.get(dataSet).get("City"));
+					Common.actionsKeyPress(Keys.ESCAPE);
+					Sync.waitElementPresent("xpath", "//input[@name='postcode']");
+					Common.textBoxInput("xpath", "//input[@name='postcode']", data.get(dataSet).get("postcode"));
+					
+					
+					Sync.waitElementPresent("xpath", "//select[@name='region_id']");
+					Common.dropdown("xpath", "//select[@name='region_id']", SelectBy.TEXT, data.get(dataSet).get("Region"));
+					
+					/*
+					 * Sync.waitElementPresent("xpath", "//select[@name='country_id']");
+					 * Common.dropdown("xpath", "//select[@name='country_id']", SelectBy.TEXT,
+					 * data.get(dataSet).get("Countryname"));
+					 */
+					
+					
+					
+					Sync.waitElementPresent("xpath", "//input[@name='telephone']");
+					Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(dataSet).get("phone"));
+					
+					//select_USPS_StandardGround_shippingMethod();
+				    Thread.sleep(5000);
+					
+				    Common.clickElement("xpath","//div[@id='shipping-method-buttons-container']/div/button");
+				    
+					//Common.clickElement("xpath","//span[text()='Next']");
+					//div[contains(@class,'error')]
+					Sync.waitPageLoad();
+					int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+				    Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying shipping addres filling ", "user will fill the all the shipping", "user fill the shiping address click save button", "faield to add new shipping address");
+				   
+				
+					
+				}
+				 catch (Exception | Error e) {
 					e.printStackTrace();
 
 					ExtenantReportUtils.addFailedLog("validating adding  address", expectedResult,
@@ -973,7 +970,239 @@ public class Honeywellhelper {
 			}
 		}
 	
-}
+
+	
+	public void headLinksValidations_Shop(String dataSet) throws Exception{
+		Thread.sleep(3000);
+		Sync.waitPageLoad();
+		Common.mouseOver("xpath", "//span[text()='Shop']");
+		
+		String Hederlinks=data.get(dataSet).get("HeaderNames");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//a[@title='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//a[@title='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.mouseOver("xpath", "//span[text()='Shop']");	
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			Assert.fail();
+
+		}
+	}
+	
+	public void Worre(String dataSet) throws Exception{
+		try {
+			Sync.waitElementPresent("xpath", "//input[contains(@name,'Contact.Name.First')]");
+			Common.textBoxInput("xpath", "//input[contains(@name,'Contact.Name.First')]",
+					data.get(dataSet).get("FirstName"));
+		} catch (Exception e) {
+			try {
+				Common.textBoxInput("xpath", "//input[contains(@name,'Contact.Name.First')]",data.get(dataSet).get("FirstName"));
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
+		}
+		try {
+			Sync.waitElementPresent("xpath", "//input[@name='Contact.Name.Last']");
+			Common.textBoxInput("xpath", "//input[@name='Contact.Name.Last']", data.get(dataSet).get("LastName"));
+
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'Emails')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'Emails')]", data.get(dataSet).get("Email"));
+
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'Street')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'Street')]", data.get(dataSet).get("Street"));
+
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'City')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'City')]", data.get(dataSet).get("City"));
+
+			Common.clickElement(By.xpath("//select[contains(@id,'Country')]"));
+
+			Sync.waitElementPresent("xpath", "//select[contains(@id,'Country')]");
+			Common.dropdown("xpath", "//select[contains(@id,'Country')]", SelectBy.TEXT,
+					data.get(dataSet).get("Country"));
+
+			Sync.waitElementPresent("xpath", "//select[contains(@id,'StateOrProvince')]");
+			Common.clickElement(By.xpath("//select[contains(@id,'StateOrProvince')]"));
+			Thread.sleep(5000);
+			Common.dropdown("xpath", "//select[contains(@id,'StateOrProvince')]", SelectBy.TEXT,
+					data.get(dataSet).get("State"));
+
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'PostalCode')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'PostalCode')]", data.get(dataSet).get("postcode"));
+
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'MOBILE')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'MOBILE')]", data.get(dataSet).get("phone"));
+
+			Thread.sleep(3000);
+			// Common.actionsKeyPress(Keys.PAGE_DOWN);
+
+			Sync.waitElementPresent("xpath", "//i[@class='all_button_arrow fa fa-arrow-down']");
+			// Common.clickElement(By.xpath("//span[text()='View All']"));
+			// Common.clickElement(By.xpath("//i[@class='all_button_arrow fa
+			// fa-arrow-down']"));
+			Common.javascriptclickElement("xpath", "//i[@class='all_button_arrow fa fa-arrow-down']");
+			// Common.mouseOverClick("xpath", "//i[@class='all_button_arrow fa
+			// fa-arrow-down']");
+			// Common.clickElement("xpath","//i[@class='all_button_arrow fa
+			// fa-arrow-down']");
+			// Common.mouseOverClick("xpath","//span[text()='View All']");
+			Thread.sleep(5000);
+			List<WebElement> Productselemts = Common.findElements("xpath", "//div[contains(@class,'nameset')]");
+
+			for (int i = 0; i < Productselemts.size(); i++) {
+
+				if (Productselemts.get(i).getAttribute("title").equals(data.get(dataSet).get("productname"))) {
+					Productselemts.get(i).click();
+					break;
+				}
+
+			}
+			Common.dropdown("xpath", "//select[@name='Asset.CustomFields.HOT.store_purchased']", SelectBy.TEXT,data.get(dataSet).get("productname"));
+			// input[contains(@class,'product_quantity')]
+
+			Sync.waitElementPresent("xpath", "//input[contains(@class,'product_quantity')]");
+			Common.textBoxInput("xpath", "//input[contains(@class,'product_quantity')]",
+					data.get(dataSet).get("ProductQuantity"));
+
+			Sync.waitElementPresent("xpath", "//input[contains(@class,'problem_description')]");
+			Common.textBoxInput("xpath", "//input[contains(@class,'problem_description')]",
+					data.get(dataSet).get("ProblemDescription"));
+
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'FileInput')]");
+			String path = System.getProperty("user.dir")
+					+ ("\\src\\test\\resources\\TestData\\Hydroflask\\TestScreen.jpg");
+			try {
+				Common.fileUpLoad("xpath", "//input[contains(@id,'FileInput')]", path);
+			} catch (Exception e) {
+				// ExtenantReportUtils.addFailedLog("warrenty from file upload
+				// ", "warrenty from unabel to uppload file",
+				// Common.getscreenShotPathforReport("warrenty from
+				// uploadfile"));
+				// Assert.fail();
+			}
+			// expectedResult="No validation errors";
+			// report.addPassLog(expectedResult,"Enter the warrenty from
+			// infromation with out any validation
+			// ",Common.getscreenShotPathforReport("Filling the Warranty from
+			// "));
+			Thread.sleep(5000);
+			Sync.waitElementPresent("xpath", "//button[contains(@id,'CustomFormSubmit')]");
+			Common.javascriptclickElement("xpath", "//button[contains(@id,'CustomFormSubmit')]");
+			// Common.clickElement("xpath",
+			// "//button[contains(@id,'CustomFormSubmit')]");
+
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying warranty form field data",
+					"warrenty from infromation with out any validation", "warrenty from with invalid data",
+					Common.getscreenShotPathforReport("warrenty from invalid data"));
+			e.printStackTrace();
+			Assert.fail();
+
+		}
+
+		int sizeerrormessage = Common.findElements("xpath", "//div[contains(@id,'ErrorLocation')]").size();
+		Common.assertionCheckwithReport(sizeerrormessage > 0, "verifying warranty form field data",
+				"Enter the warrenty from infromation with out any validation", "mandatory data missing in the from",
+				Common.getscreenShotPathforReport("mandatory data missing in the from"));
+		// (sizeerrormessage>0, "Enter the warrenty from infromation with out
+		// any validation ", expectedResult, "mandatory data missing in the
+		// from");
+		Common.actionsKeyPress(Keys.HOME);
+		Thread.sleep(6000);
+
+		String sucessMessage = Common.getText("xpath", "//body[@id='rn_BlankBody']//h1").trim();
+		// Assert.assertEquals(sucessMessage, "Your warranty request has been
+		// submitted!");
+		String expectedResult = "User gets redirected to confirmation page, it includes a reference number and email is sent to email provided. No validation errors.";
+		Common.assertionCheckwithReport(sucessMessage.equals("Your warranty request has been submitted!"),
+				"warranty applied  successfull,and redirected to confirmation page", expectedResult,
+				"submit the warranty but confirmation page  message missing");
+		// report.addPassLog(expectedResult,"warranty applied successfull,and
+		// redirected to confirmation
+		// page",Common.getscreenShotPathforReport("warranty submitted "));
+
+	}
+
+	
+	public void productsupport(){
+		try{
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+	    Common.clickElement("xpath", "//span[@class='mobile-accordion-link-text' and text()='Product Support']");
+		Sync.waitPageLoad();
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("Support & FAQs Page - Honeywell"), "verifying the product support page", "after click the productsupport page it will navigate to product support page ", "sucessfully navigate to product support page", "faield to open product support page");
+		}
+		
+		
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating product support page","open the product supportpage","User failed to open productsupportpage",Common.getscreenShotPathforReport("supportpage"));
+		
+			Assert.fail();
+
+		}
+	
+	}
+	
+	public void fottorValidations_Shop(String dataSet) throws Exception{
+		Thread.sleep(3000);
+		Sync.waitPageLoad();
+		
+		Common.actionsKeyPress(Keys.END);
+		String Hederlinks=data.get(dataSet).get("HeaderNames");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//span[@class='mobile-accordion-link-text' and text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//span[@class='mobile-accordion-link-text' and text()='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.actionsKeyPress(Keys.END);	
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			Assert.fail();
+
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+
+
 
 
 
