@@ -24,6 +24,8 @@ public class RegisteredUser_Checkout_CreditCard {
 		oxo.checkout();
 		oxo.addNewAddress("ShippingAddress");
 		oxo.clickAcceptingaddress();
+		oxo.addNewAddress("ShippingAddress");
+		oxo.clickAcceptingaddress();
 		oxo.selectGroundShippingMethod();
 		//oxo.Promocode("Promocode");
 		oxo.Click_CreditCard();

@@ -16,6 +16,7 @@ public class RegisteredUser_Checkout_CreditCard {
 
   public void RegisteredUser_Checkout_CreditCard() {
 		try{
+			
 			oxo.closetheadd();
 			oxo.acceptPrivecy();
 			oxo.loginOxo("AccountDetails");

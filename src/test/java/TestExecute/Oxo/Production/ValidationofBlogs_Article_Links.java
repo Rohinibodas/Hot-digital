@@ -20,7 +20,7 @@ public class ValidationofBlogs_Article_Links {
 			oxo.closetheadd();
 			oxo.acceptPrivecy();
 			//oxo.Instagram();
-			oxo.Facebook();
+			//oxo.Facebook();
 			oxo.pinterest();
 			oxo.Twitter();
 			//oxo.YouTube();

@@ -40,7 +40,7 @@ public class RegisteredUser_Checkout_Discover_CC {
 
 	@AfterTest
 	public void clearBrowser() throws Exception {
-		//Common.closeAll();
+		Common.closeAll();
 	}
 
 	@BeforeMethod

@@ -9,18 +9,31 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TrackOrder {
+public class RegisteredUserCheckoutInvalidCC {
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
 	@Test(priority = 1)
 
-	public void TrackOrder() throws Exception {
+	public void RegisteredUserCheckoutInvalidCC() throws Exception {
 
 		try {
+			
 			oxo.closetheadd();
-			oxo.Track_order("TrackOrder");
-
+	
+			oxo.loginOxo("AccountDetails");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.addNewAddress("ShippingAddress");
+			oxo.clickAcceptingaddress();
+            oxo.selectGroundShippingMethod();
+			oxo.Click_CreditCard();
+			//oxo.creditCard_payment("InvalidPaymentDetails");
+			//oxo.InvalidCCErrormessage();
+			oxo.invalidCC_data("InvalidPaymentDetails");
+			
+			
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -29,7 +42,7 @@ public class TrackOrder {
 
 	@AfterTest
 	public void clearBrowser() {
-
+		
 		Common.closeAll();
 
 	}

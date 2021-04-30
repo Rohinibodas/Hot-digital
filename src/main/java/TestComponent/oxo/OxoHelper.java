@@ -1263,6 +1263,69 @@ public class OxoHelper {
 		}
 	}
 
+	public void invalidCC_data(String dataSet)throws Exception {
+		
+		try {
+
+			// Common.actionsKeyPress(Keys.PAGE_DOWN);
+			// Common.clickElement("xpath",
+			// "//label[@for='ime_paymetrictokenize']");
+			Thread.sleep(2000);
+			Common.switchFrames("id", "paymetric_xisecure_frame");
+			Thread.sleep(4000);
+			int size = Common.findElements("xpath", "//select[@id='c-ct']").size();
+			Common.switchToDefault();
+			Common.assertionCheckwithReport(size > 0, "validating Creditcard option", "click the creadit card label",
+					"clicking credit card label and open the card fields", "user faield to open credit card form");
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label",
+					"faield to click Credit Card option", Common.getscreenShotPathforReport("Cardinoption"));
+			Assert.fail();
+
+		}
+
+		try {
+
+			Thread.sleep(2000);
+			Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
+			Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+			Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT,
+					data.get(dataSet).get("ExpMonth"));
+			Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+			Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));
+			Thread.sleep(2000);
+
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			Common.switchToDefault();
+			Thread.sleep(1000);
+			Common.clickElement("xpath", "//span[contains(text(),'Place Order')]");
+			
+			Thread.sleep(3000);
+		   //  Sync.waitElementVisible("xpath", "//div[contains(text(),'Please enter a valid card number')]");
+		     //int InvalidCCErrormessage = Common.findElements("xpath", "//div[contains(text(),'Please enter a valid card number')]").size();			
+	        // Common.assertionCheckwithReport(InvalidCCErrormessage > 0, "verifying error message invalid CC data","enter with empety data it must show invalid CC error message", "sucessfully display the invalid CC error message","faield to dispaly invalid CC errormessage");
+			
+			
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating the Credit Card infromation",
+				"credit card fields are filled with the data", "faield  to fill the Credit Card infromation",
+				Common.getscreenShotPathforReport("Cardinfromationfail"));
+		Assert.fail();
+	}
+		
+			
+	/*	} catch (Exception | Error e) {
+            e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying invalid CC error message",
+					"enter with invalid CC data it must show error message", "faield to dispaly invalid CC errormessage",
+					Common.getscreenShotPathforReport("invalid CC data"));
+			Assert.fail();
+		}*/
+		}
+	
 	public void creditCard_payment(String dataSet) throws Exception {
 
 		try {
@@ -1318,6 +1381,21 @@ public class OxoHelper {
 
 		}
 
+	}
+	public void InvalidCCErrormessage(){
+		
+		try{
+	     int InvalidCCErrormessage = Common.findElements("xpath", "//div[@id='c-cardnumber-error']").size();			
+         Common.assertionCheckwithReport(InvalidCCErrormessage > 0, "verifying error message invalid CC data",
+				"enter with empety data it must show invalid CC error message", "sucessfully display the invalid CC error message",
+				"faield to dispaly invalid CC errormessage");
+	} catch (Exception | Error e) {
+
+		ExtenantReportUtils.addFailedLog("verifying invalid CC error message",
+				"enter with invalid CC data it must show error message", "faield to dispaly invalid CC errormessage",
+				Common.getscreenShotPathforReport("invalid CC data"));
+		Assert.fail();
+	}
 	}
 
 	public void payPal_payment(String dataSet) {
@@ -2286,7 +2364,7 @@ public class OxoHelper {
 			Thread.sleep(5000);
 			Sync.waitElementPresent("xpath", "//li[contains(@class,'customer-welcome')]//li[2]/a");
 			Common.mouseOverClick("xpath", "//li[contains(@class,'customer-welcome')]//li[2]/a");
-			ExtenantReportUtils.addPassLog("verifying logoout", "Log out from aplication",
+		    ExtenantReportUtils.addPassLog("verifying logoout", "Log out from aplication",
 					"User log out from aplication", Common.getscreenShotPathforReport("logout"));
 
 		} catch (Exception | Error e) {
