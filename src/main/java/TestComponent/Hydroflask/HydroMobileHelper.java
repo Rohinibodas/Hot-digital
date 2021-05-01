@@ -44,9 +44,12 @@ public class HydroMobileHelper {
 		report.addPassLog(expectedResult,"click on the 'My Acount' link",Common.getscreenShotPathforReport("my account"));*/
 	}
 
-	public void acceptPrivecy()
-	{
-		Common.clickElementStale("xpath", "//button[text()='AGREE & PROCEED']");
+	public void acceptPrivecy() throws InterruptedException
+	{	
+		Thread.sleep(3000);
+		if(Common.findElements("xpath", "//button[@id='truste-consent-required']").size()>0) {
+		Common.clickElement("xpath", "//button[@id='truste-consent-required']");
+		}
 	}
 	public void CreateNewAccount(String dataSet) throws Exception
 	{	
@@ -737,7 +740,9 @@ catch(Exception |Error e) {
 				Common.actionsKeyPress(Keys.ARROW_DOWN);
 				Common.switchToDefault();
 				Thread.sleep(1000);
-				Common.clickElement("xpath", "//button[@title='Place Order']");
+				expectedResult="credit card details should able update";
+		        Common.assertionCheckwithReport(true, "Updated the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+				
                 
             }
             
@@ -748,11 +753,15 @@ catch(Exception |Error e) {
     			Assert.fail();
     			
     		}
+           try {
+        	   Common.clickElement("xpath", "//button[@title='Place Order']");
+           }
+           catch(Exception |Error e) {
            
-                expectedResult="credit card fields are filled with the data";
-		    	String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
-		        Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
-		    	
+           String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
+	        Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data", expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+                
+           }
 		   
 		}
 		
@@ -763,7 +772,7 @@ catch(Exception |Error e) {
 	public void updatePaymentAndSubmitOrder(String dataSet) throws Exception
 	{
 		addPaymentDetails(dataSet);
-		String expectedResult="It redirects to order confirmation page";
+		String expectedResult="It redirects to order confirmation page and Order should place";
 		
 		
 		
@@ -781,7 +790,7 @@ catch(Exception |Error e) {
 		    String sucessMessage=Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
 			//Assert.assertEquals(sucessMessage, "Your order has been received","Sucess message validations");
 		    int sizes=Common.findElements("xpath", "//h1[@class='checkout-success-title']").size();
-		    Common.assertionCheckwithReport(sucessMessage.equals("Your order has been received"), "verifying the product confirmation", expectedResult, "Successfully It redirects to order confirmation page Order Placed", "User unabel to go orderconformation page");
+		    Common.assertionCheckwithReport(sucessMessage.equals("Your order has been received"), "verifying the product confirmation", expectedResult, "Successfully It redirects to order confirmation page and Order Placed", "User unabel to go orderconformation page");
 			// Common.assertionCheckwithReport(sizes>0, "Successfully It redirects to order confirmation page Order Placed", expectedResult,"User unabel to go orderconformation page");
 			
 			 //report.addPassLog(expectedResult," ",Common.getscreenShotPathforRepoYour order has been received
