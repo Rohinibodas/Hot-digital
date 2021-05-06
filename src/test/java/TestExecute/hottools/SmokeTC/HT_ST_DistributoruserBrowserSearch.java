@@ -21,7 +21,8 @@ public class HT_ST_DistributoruserBrowserSearch {
 
 		try{
 			Thread.sleep(2000);
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.ZerosearchProducts("productName");

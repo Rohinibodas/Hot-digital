@@ -20,7 +20,8 @@ public class HT_ST_Productregistration {
   @Test(priority=1)
   public void ProductRegistration() {
 	  try {
-		  //Hottools.agreeCookiesbanner();
+		  Hottools.agreeCookiesbanner();
+		  Hottools.Newslettersignup();
 		  Hottools.ProductRegistration();
 		  Hottools.productRegistration("ProductRegistration");
 		  

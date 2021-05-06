@@ -19,7 +19,8 @@ public class HT_ST_StylistUserCheckoutCreditcardAMEX {
 	public void StylistUserCheckoutccAMEX(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();

@@ -19,7 +19,8 @@ public class HT_ST_GuestUserCheckout {
 	@Test(priority=1)
 	public void GuestCheckoutwithCreditCard(){
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
 			Hottools.miniCart("productName");
@@ -33,20 +34,20 @@ public class HT_ST_GuestUserCheckout {
 	}
 	
 	 
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome"); 
-	}*/
+	}
 
 	@AfterTest
 	public void clearBrowser()

@@ -17,7 +17,7 @@ public class HT_ST_GoldCardArtistAccess {
 	public void GoldCardArtist(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.GoldCardVideoClose();
 			Hottools.GoldCardArtist("GoldCardDetails");
 			Hottools.Checkout();

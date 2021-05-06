@@ -19,6 +19,8 @@ public class HT_ST_GuestCheckoutPaypal {
 	@Test(priority=1)
 	public void GuestCheckoutwithPaypal(){
 		try{
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
 			Hottools.miniCart("productName");

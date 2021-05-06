@@ -19,7 +19,8 @@ public class HT_ST_RetailerCheckoutCCAMEX {
 	public void RetailerCheckoutCreditCardAMEX(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();

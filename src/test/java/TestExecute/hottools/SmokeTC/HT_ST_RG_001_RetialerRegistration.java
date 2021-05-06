@@ -20,7 +20,8 @@ public class HT_ST_RG_001_RetialerRegistration {
   @Test(priority=1)
   public void CreateAnAccountRetailCustomer() {
 	  try {
-		  //Hottools.agreeCookiesbanner();
+		  Hottools.agreeCookiesbanner();
+		  Hottools.Newslettersignup();
 		  Hottools.createNewCustomerAccount_RetailCustomer("Retailer_registration");
 	} catch (Exception e) {
 		Assert.fail(e.getMessage(), e);

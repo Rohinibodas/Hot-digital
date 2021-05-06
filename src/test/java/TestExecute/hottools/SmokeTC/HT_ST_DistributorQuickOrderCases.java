@@ -19,7 +19,8 @@ public class HT_ST_DistributorQuickOrderCases {
 	public void QuickorderCases(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.QuickOrder();
 			Hottools.QuickOrderDetailsCases("QuickOrderDetails");
@@ -35,25 +36,24 @@ public class HT_ST_DistributorQuickOrderCases {
 	}
 	
 	 
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome");
-	}*/
-
+		 Login.signIn("chrome");
+	}
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 }

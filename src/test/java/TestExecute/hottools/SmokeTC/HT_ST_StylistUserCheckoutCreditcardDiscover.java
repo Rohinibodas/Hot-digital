@@ -19,7 +19,8 @@ public class HT_ST_StylistUserCheckoutCreditcardDiscover {
 	public void SigIn(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();

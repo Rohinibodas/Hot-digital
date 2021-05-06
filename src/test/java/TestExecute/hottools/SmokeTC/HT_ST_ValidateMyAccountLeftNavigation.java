@@ -18,7 +18,8 @@ public class HT_ST_ValidateMyAccountLeftNavigation {
 	public void Validatesocialmedialinks(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.navigateMyOrder();
 			Hottools.navigateMyWishList();
@@ -35,21 +36,21 @@ public class HT_ST_ValidateMyAccountLeftNavigation {
 		}
 	}
 
-	@BeforeMethod
+	/*@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "Hottools\\config.properties");
 			  Login.signIn(browser);
 			  
-		  }
+		  }*/
 		
-		/*@BeforeMethod
+		@BeforeMethod
 		@Parameters({"browser"})  
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Hottools\\config.properties");
 			  Login.signIn("chrome");
 			  
-		  }*/
+		  }
 
 	@AfterTest
 	public void clearBrowser()

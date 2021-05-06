@@ -19,7 +19,8 @@ public class HT_ST_StylistUserCheckoutCreditcardMastercard {
 	public void StylistUserCheckoutCCMastercard(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();
@@ -35,21 +36,21 @@ public class HT_ST_StylistUserCheckoutCreditcardMastercard {
 	}
 	
 	 
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
+	  }
 
 	@AfterTest
 	public void clearBrowser()

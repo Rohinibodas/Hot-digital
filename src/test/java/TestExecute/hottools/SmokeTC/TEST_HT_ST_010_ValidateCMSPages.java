@@ -23,7 +23,8 @@ public class TEST_HT_ST_010_ValidateCMSPages
 		public void ValidateCMSPages() throws Exception {
 
 			try {
-				//Hottools.agreeCookiesbanner();
+				Hottools.agreeCookiesbanner();
+				Hottools.Newslettersignup();
 				Hottools.validateAboutUsLink();
 				Hottools.validateNavigateFAQ();
 				Hottools.validateNavigateContactUs("ContactUs");

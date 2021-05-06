@@ -21,7 +21,8 @@ public class HT_ST_LG_004_Forgot_Password {
 	public void forgotPassword(){
 
 		try{
-		    //Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.forgotPassword("RetailCustomerAccountDetails");
 		}
 		catch (Exception e) {

@@ -20,7 +20,8 @@ public class HT_ST_DistributorCheckoutCreditCard {
 	public void Distributorcheckout(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.distributorminicartProduct("productName");
@@ -47,7 +48,7 @@ public class HT_ST_DistributorCheckoutCreditCard {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn("Chrome");
 		  
 	  }*/
 

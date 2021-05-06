@@ -20,7 +20,8 @@ public class HT_ST_Promocode {
 	public void Promocode(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.searchingProducts("PromocodeproductName");
 			Hottools.minicartProduct("PromocodeproductName");
 			Hottools.miniCart("PromocodeproductName");

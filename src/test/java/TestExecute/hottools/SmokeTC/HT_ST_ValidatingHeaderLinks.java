@@ -20,7 +20,8 @@ public class HT_ST_ValidatingHeaderLinks {
 	public void ValidatingHeaderLinks(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.headLinks("HeaderLinks");
 		}
 		catch (Exception e) {

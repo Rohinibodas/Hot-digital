@@ -20,7 +20,8 @@ public class HT_ST_BecameInfluencer {
   @Test(priority=1)
   public void ValidateBecameInfluencer() {
 	  try {
-		  //Hottools.agreeCookiesbanner();
+		  Hottools.agreeCookiesbanner();
+		  Hottools.Newslettersignup();
 		  Hottools.BecomeInfluencer();
 		  Hottools.BecomeInfluencerpage("BecomeInfluencer");
 		

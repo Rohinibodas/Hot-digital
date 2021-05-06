@@ -19,7 +19,8 @@ public class HT_ST_MyOrderConfirmation {
 	public void MyOrderConfirmation(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");

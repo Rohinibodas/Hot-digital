@@ -19,7 +19,8 @@ public class HT_ST_StylistuserBrowserSearch {
 
 		try{
 			Thread.sleep(2000);
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.ZerosearchProducts("productName");

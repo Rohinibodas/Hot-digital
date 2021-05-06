@@ -19,7 +19,8 @@ public class HT_ST_ValidateArticleLinks {
 	public void Validatesocialmedialinks(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.twitterArticle();
 			//Hottools.FacebookArticle();
 			Hottools.youtubeArticle();

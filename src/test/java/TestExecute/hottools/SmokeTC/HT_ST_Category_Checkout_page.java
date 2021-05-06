@@ -19,7 +19,8 @@ public class HT_ST_Category_Checkout_page {
 	public void RetailerCategoryCheckout(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.categoryMenuItem();
 			Hottools.minicartProduct("productName");

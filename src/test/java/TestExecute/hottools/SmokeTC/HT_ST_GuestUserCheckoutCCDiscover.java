@@ -18,7 +18,8 @@ public class HT_ST_GuestUserCheckoutCCDiscover {
 	@Test(priority=1)
 	public void GuestCheckoutwithCreditCard(){
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
 			Hottools.miniCart("productName");

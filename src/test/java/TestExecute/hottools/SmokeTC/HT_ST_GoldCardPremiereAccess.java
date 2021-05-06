@@ -18,7 +18,7 @@ public class HT_ST_GoldCardPremiereAccess {
 	public void GoldCardPremiere(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.GoldCardVideoClose();
 			Hottools.GoldCardPremiere("GoldCardDetails");
 			Hottools.Checkout();

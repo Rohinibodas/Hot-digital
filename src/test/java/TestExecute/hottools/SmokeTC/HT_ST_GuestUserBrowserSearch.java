@@ -20,7 +20,8 @@ public class HT_ST_GuestUserBrowserSearch {
 	public void GuestUserBrowserSearch(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.searchingProducts("productName");
 			Hottools.ZerosearchProducts("productName");
 		}
@@ -42,7 +43,7 @@ public class HT_ST_GuestUserBrowserSearch {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("chrome");
 		  
 	  }*/
 

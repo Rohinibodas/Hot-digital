@@ -19,7 +19,8 @@ public class HT_ST_DistributorQuickOrderCCDiscover {
 	public void DistributorQuickOrderCasesD(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.QuickOrder();
 			Hottools.QuickOrderDetailsCases("QuickOrderDetails");

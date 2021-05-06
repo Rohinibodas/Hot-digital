@@ -21,7 +21,8 @@ public class HT_ST_COP_007_Checkout_page {
 	public void RetailerUsercheckout(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");

@@ -272,33 +272,25 @@
         </classes>
     </test>
     
+    <test name="Test_HT_ST_029_GuestUserCheckoutPaypal" testid="BTY-662" priority="P1" description="To verify the Guest User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GuestCheckoutPaypal"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_028_RegisteredUserCheckoutPaypal" testid="BTY-661" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_RegisteredUserPaypal"/>
+        </classes>
+    </test>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    
-   
-   
     <!--  <test name="Test_HT_ST_020_PromocodeCheckout" testid="BTY-1143" priority="P1" description="This test case is to verify  Hottools ,Promocode Checkout functionality for user">
         <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.hottools.SmokeTC.HT_ST_Promocode"/>
         </classes>
     </test> -->
-    
-    
-    
-    
-    
     
     
     <!--  <test name="Test_HTGC_ST_047_Artist access page" testid="BTY-988" priority="P1" description="To  verify Artist access coupon place order Functionality">
@@ -325,24 +317,6 @@
             <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardPremiereAccess"/>
         </classes>
     </test> --> 
-    
-    
-    
-    
-    
-    
-    <!-- <test name="Test_HT_ST_029_GuestUserCheckoutPaypal" testid="BTY-662" priority="P1" description="To verify the Guest User Checkout with paypal functionality">
-        <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_GuestCheckoutPaypal"/>
-        </classes>
-    </test> -->
-    <!-- <test name="Test_HT_ST_028_RegisteredUserCheckoutPaypal" testid="BTY-661" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
-        <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_RegisteredUserPaypal"/>
-        </classes>
-    </test> -->
     
     
 </suite>  

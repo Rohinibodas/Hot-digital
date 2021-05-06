@@ -20,7 +20,8 @@ public class HT_ST_NewsletterSubscription {
 	public void ValidatingNewsletterSubscription(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.FooterNewletterSubcription();
 		}
 		catch (Exception e) {

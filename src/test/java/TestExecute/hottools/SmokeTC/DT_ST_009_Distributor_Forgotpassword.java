@@ -24,7 +24,8 @@ public class DT_ST_009_Distributor_Forgotpassword {
 	public void forgotPassword1(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.DistributorforgotPassword("DistributorAccountDetails");
 		}
 		catch (Exception e) {

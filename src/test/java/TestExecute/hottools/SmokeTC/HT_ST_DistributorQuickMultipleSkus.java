@@ -19,6 +19,8 @@ public class HT_ST_DistributorQuickMultipleSkus {
 	public void QuickMultipleSkus(){
 
 		try{
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.QuickOrder();
 			Hottools.QuickOrderDetailsMultipleSkus("MultipleQuickOrderDetails");

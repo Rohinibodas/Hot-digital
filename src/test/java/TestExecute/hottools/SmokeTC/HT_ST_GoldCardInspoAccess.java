@@ -17,7 +17,7 @@ public class HT_ST_GoldCardInspoAccess {
 	public void GoldCardInspo(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.GoldCardVideoClose();
 			Hottools.GoldCardInspo("GoldCardDetails");
 			Hottools.Checkout();

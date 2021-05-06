@@ -19,6 +19,8 @@ public class HT_ST_RegisteredUserPaypal {
 	@Test(priority=1)
 	public void RegisteredUserCheckoutwithPaypal(){
 		try{
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");

@@ -19,7 +19,8 @@ public class HT_ST_RetailerCheckoutCCMastercard {
 	public void RetailerCCMastercard(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();

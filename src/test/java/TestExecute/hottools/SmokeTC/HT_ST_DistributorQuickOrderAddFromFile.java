@@ -20,7 +20,8 @@ public class HT_ST_DistributorQuickOrderAddFromFile {
 	public void QuickOrderAddFromFile(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.QuickOrder();
 			Hottools.AddfromFile();

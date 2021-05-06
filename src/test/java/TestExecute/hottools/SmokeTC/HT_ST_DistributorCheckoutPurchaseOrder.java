@@ -20,7 +20,8 @@ public class HT_ST_DistributorCheckoutPurchaseOrder {
 	public void DistributorUserCheckoutPurchaseOrder(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");

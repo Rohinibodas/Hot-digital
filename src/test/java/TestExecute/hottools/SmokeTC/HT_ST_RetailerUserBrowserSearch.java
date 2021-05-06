@@ -20,7 +20,8 @@ public class HT_ST_RetailerUserBrowserSearch {
 	public void RetailerBrowserSearch(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.ZerosearchProducts("productName");

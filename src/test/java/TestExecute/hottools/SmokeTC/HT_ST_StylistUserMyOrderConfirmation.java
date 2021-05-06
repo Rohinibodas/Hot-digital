@@ -20,7 +20,8 @@ public class HT_ST_StylistUserMyOrderConfirmation {
 	public void StylistMyorderconfirmation(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");

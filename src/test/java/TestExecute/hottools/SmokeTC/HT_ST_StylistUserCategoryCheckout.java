@@ -20,7 +20,8 @@ public class HT_ST_StylistUserCategoryCheckout {
 	public void StylistUserCategoryCheckoutCreditcard(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();
