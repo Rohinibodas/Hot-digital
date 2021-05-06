@@ -20,9 +20,12 @@ public class RegisteredUser_Checkout_MasterCard_CC {
 		try {
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
+			//oxo.clickBaby_Toddler();
+			oxo.Beverage();
 			oxo.addproducts("1");
 			oxo.checkout();
+			oxo.addNewAddress("ShippingAddress");
+			oxo.clickAcceptingaddress();
             oxo.selectGroundShippingMethod();
 			oxo.Click_CreditCard();
 			oxo.creditCard_payment("MasterCardPaymentDetails");
@@ -37,7 +40,7 @@ public class RegisteredUser_Checkout_MasterCard_CC {
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

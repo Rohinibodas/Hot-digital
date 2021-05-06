@@ -9,37 +9,37 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class SearchProduct {
+public class TEST_HW_ST_008_Checkout_as_guestuser_with_invalid_credit_card {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
- 
-  public void searchproduct() {
+	
+  public void In_valid_credit_card_Gust() {
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
-		honeyWell.searchProduct("ProductName");
-		honeyWell.clickminicartButton();
-		honeyWell.click_View_editcart();
-		honeyWell.changeQuntity_UpdateProduct("2");
-		honeyWell.clickCheckoutButton_minicart();
-		honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
-		honeyWell.creditCard_payment("ccamex");
-		honeyWell.order_Verifying();
+	//	honeyWell.loginHoneywell("AccountDetails");
+			honeyWell.verifyingHomePage();
+			honeyWell.click_Airpurifiers();
+			honeyWell.adding_product_toCart("productnameRegester");
+			honeyWell.clickAddtoBag();
+			honeyWell.clickminicartButton();
+			honeyWell.clickminicartcheckout();
+			honeyWell.guestShippingAddress("ShippingAddress");
+			honeyWell.creditCard_payment_Invalid("InvalidCC");
+			//honeyWell.order_Verifying();
 		}
 		catch (Exception e) {
 			
 			Assert.fail(e.getMessage(), e);
 		} 
-		
-  }
-  
-  
+	}
+	
+	
 	
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	
@@ -50,4 +50,5 @@ public class SearchProduct {
 		 
 		  
 	  }
+
 }

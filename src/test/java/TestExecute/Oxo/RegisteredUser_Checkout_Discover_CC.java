@@ -23,6 +23,8 @@ public class RegisteredUser_Checkout_Discover_CC {
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
 			oxo.checkout();
+			oxo.addNewAddress("ShippingAddress");
+			oxo.clickAcceptingaddress();
             oxo.selectGroundShippingMethod();
 			oxo.Click_CreditCard();
 			oxo.creditCard_payment("DiscoverPaymentDetails");

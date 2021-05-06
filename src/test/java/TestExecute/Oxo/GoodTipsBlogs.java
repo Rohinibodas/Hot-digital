@@ -20,7 +20,7 @@ public class GoodTipsBlogs {
 			
 			oxo.CreateAccount_GoodTipsBlog("GoodTipsBlog");
 			//oxo.clickGoodTipsBlog();
-			oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
+			//oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
 		}
 		catch (Exception e) {
 			

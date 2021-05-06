@@ -39,7 +39,7 @@ public class Guest_Checkout_Paypal {
 	public void clearBrowser() throws Exception
 	{
 		
-		//Common.closeAll();
+		Common.closeAll();
     }
 	
 	@BeforeMethod

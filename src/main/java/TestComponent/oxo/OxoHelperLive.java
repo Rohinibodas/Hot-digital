@@ -641,10 +641,10 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		String expectedResult = "It Should navigate to the product details page";		
 		try {			
 			Sync.waitPageLoad();			
-			// Common.actionsKeyPress(Keys.PAGE_DOWN);			
-			// Common.actionsKeyPress(Keys.PAGE_DOWN);			
+		 Common.actionsKeyPress(Keys.PAGE_DOWN);			
+			 Common.actionsKeyPress(Keys.PAGE_DOWN);			
 			Thread.sleep(3000);		
-			// Common.actionsKeyPress(Keys.PAGE_DOWN);  			
+			 Common.actionsKeyPress(Keys.PAGE_DOWN);  			
 			Common.scrollIntoView("xpath", "//a[contains(text(),'" + productname + "')]");	
 			Sync.waitElementClickable("xpath","//a[@class='product-item-link'and contains(text(),'" + productname + "')]");	
 			Common.clickElement("xpath", "//a[contains(text(),'" + productname + "')]");			
@@ -688,7 +688,7 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 				Common.getscreenShotPathforReport("faield to navgate categorypage"));							
 				Assert.fail();  						
 				}				
-		selectBeverageproduct("8-Cup Coffee Maker");		
+		selectBeverageproduct("No-Spill Ice Cube Tray");		
 		}
 		
 	
@@ -749,13 +749,14 @@ public void  validatingSearchProductInformation(String productName) throws Excep
 		
 		
 		String totalamount=Common.getText("xpath","//tr[@class='grand totals']/td/strong/span");
-	
+	Thread.sleep(4000);
 		
 	Common.assertionCheckwithReport(Order.equals("Order Summary")&&shippingsize>0&&totalamount!=null, "Verifying Shippingpage", expectedResult, "page contain shipping address ordersummary totalprice", "page missing shipping ordersummary totalprice");
 		
 		//Assert.assertEquals(actual, expected);
 	}
 	catch(Exception |Error e) {
+		e.printStackTrace();
 		ExtenantReportUtils.addFailedLog("Verifying Shippingpage", expectedResult, "page missing shipping ordersummary totalprice",  Common.getscreenShotPathforReport("faieldsshippingpage"));
 		Assert.fail();
 		
@@ -1117,10 +1118,70 @@ catch(Exception |Error e) {
 			Assert.fail();
 			
 		}
+}
+public void invalidCC_data(String dataSet)throws Exception {
 		
-		
-		
+		try {
+
+			// Common.actionsKeyPress(Keys.PAGE_DOWN);
+			// Common.clickElement("xpath",
+			// "//label[@for='ime_paymetrictokenize']");
+			Thread.sleep(2000);
+			Common.switchFrames("id", "paymetric_xisecure_frame");
+			Thread.sleep(4000);
+			int size = Common.findElements("xpath", "//select[@id='c-ct']").size();
+			Common.switchToDefault();
+			Common.assertionCheckwithReport(size > 0, "validating Creditcard option", "click the creadit card label",
+					"clicking credit card label and open the card fields", "user faield to open credit card form");
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label",
+					"faield to click Credit Card option", Common.getscreenShotPathforReport("Cardinoption"));
+			Assert.fail();
+
+		}
+
+		try {
+
+			Thread.sleep(2000);
+			Common.switchFrames("xpath", "//iframe[@id='paymetric_xisecure_frame']");
+			Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+			Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT,
+					data.get(dataSet).get("ExpMonth"));
+			Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+			Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));
+			Thread.sleep(2000);
+
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			Common.switchToDefault();
+			Thread.sleep(1000);
+			Common.clickElement("xpath", "//span[contains(text(),'Place Order')]");
+			
+			Thread.sleep(3000);
+		   //  Sync.waitElementVisible("xpath", "//div[contains(text(),'Please enter a valid card number')]");
+		     //int InvalidCCErrormessage = Common.findElements("xpath", "//div[contains(text(),'Please enter a valid card number')]").size();			
+	        // Common.assertionCheckwithReport(InvalidCCErrormessage > 0, "verifying error message invalid CC data","enter with empety data it must show invalid CC error message", "sucessfully display the invalid CC error message","faield to dispaly invalid CC errormessage");
+			
+			
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating the Credit Card infromation",
+				"credit card fields are filled with the data", "faield  to fill the Credit Card infromation",
+				Common.getscreenShotPathforReport("Cardinfromationfail"));
+		Assert.fail();
 	}
+		
+			
+	/*	} catch (Exception | Error e) {
+            e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying invalid CC error message",
+					"enter with invalid CC data it must show error message", "faield to dispaly invalid CC errormessage",
+					Common.getscreenShotPathforReport("invalid CC data"));
+			Assert.fail();
+		}*/
+		}
+	
 
 	
 	public void payPal_payment(String dataSet){
@@ -2441,6 +2502,137 @@ Thread.sleep(5000);
 	   Assert.fail();   
   }}
 
+public void NewsletterSubscription(String dataSet) throws Exception{ 
+	try{	
+		Thread.sleep(3000);   
+		Common.scrollIntoView("xpath","//input[@id='newsletter']");
+		Sync.waitElementPresent("xpath", "//input[@id='newsletter']");	
+		Common.textBoxInput("xpath", "//input[@id='newsletter']",data.get(dataSet).get("Email"));        	
+		Sync.waitElementClickable("xpath", "//button[@id='newsletter-signup-button']");	
+		Common.javascriptclickElement("xpath", "//button[@id='newsletter-signup-button']");  
+		if(Common.findElement("xpath", "//button[@id='newsletter-signup-button']")==null)	{		
+			Thread.sleep(3000);		
+			Sync.waitElementClickable("xpath","//button[@class='signup__submit']");		
+			Common.mouseOverClick("xpath", "//button[@class='signup__submit']");	
+			Common.javascriptclickElement("xpath", "//button[@class='signup__submit']");	
+			}        
+		ExtenantReportUtils.addPassLog("NewLetterSubscription", "NewLetterSubscription Should be successfull", "Successfully Subscribed for NewLetterSubscription", Common.getscreenShotPathforReport("NewLetterSubscription"));     
+		} catch(Exception e) {	  
+			e.printStackTrace();	 
+			ExtenantReportUtils.addFailedLog("Validation of NewLetterSubscription", "NewLetterSubscription Should be successfull", "Successfully Subscribed for NewLetter", Common.getscreenShotPathforReport("NewLetterSubscription"));  
+			Assert.fail();     	 
+			}
+	}
+
+
+
+public void Voluntary_Recall(String dataSet) throws InterruptedException{
+
+	Thread.sleep(3000);
+	 	try {
+	 	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14904']");
+	 	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14904']"));
+	 	ExtenantReportUtils.addPassLog("Validating VoluntaryRecall Link","VoluntaryRecall link should be able to click" ,"Clicked on VoluntaryRecall Link",Common.getscreenShotPathforReport("VoluntaryRecallLink"));
+	 	Common.clickElement("xpath","//a[@data-menu='menu-14904']");
+	 	Thread.sleep(3000);
+	 	WebElement element=Common.findElement("xpath","//h2[contains(text(),'Replacement Straps Registration')]");
+	 	String text=element.getText();
+	 	if(text.contains("Replacement Straps Registration")){
+	       ExtenantReportUtils.addPassLog("Validating Webtext of VoluntaryRecall Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("VoluntaryRecallText") );
+	       }
+	   else{
+	         ExtenantReportUtils.addFailedLog("Validating Webelement of Voluntary Recall Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation VoluntaryRecall");
+	          Assert.fail();            
+	      }
+	 	} catch(Exception e) {
+	 		 ExtenantReportUtils.addFailedLog("Validating Webelement of Voluntary Recall Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation VoluntaryRecall");
+	         Assert.fail();    
+	  	 } 
+	 	
+	 	try{
+	 		Common.textBoxInput("xpath", "//input[@id='textinput-1543451237847']",data.get(dataSet).get("FullName"));
+			Common.textBoxInput("xpath", "//input[@id='textinput-1543451299203']",data.get(dataSet).get("phone"));
+			Common.textBoxInput("xpath", "//input[@id='textinput-1543451318343']",data.get(dataSet).get("Email"));
+			Common.textBoxInput("xpath", "//input[@id='textinput-1543451474572']",data.get(dataSet).get("Street"));
+			
+			Common.textBoxInput("xpath", "//input[@id='textinput-1543451474609']",data.get(dataSet).get("City"));
+			Common.textBoxInput("xpath", "//input[@id='textinput-1543451474622']",data.get(dataSet).get("postcode"));
+			Common.textBoxInput("xpath", "//input[@id='textinput-1543451474614']",data.get(dataSet).get("Region"));
+		   Sync.waitElementClickable("xpath", "//button[@class='amcform-submit action submit primary ']");
+	 	   Common.findElement("xpath", "//button[@class='amcform-submit action submit primary ']").click();
+			//int VoluntaryRecallmessage=Common.findElements("xpath", " //div[@class='message message-success success']").size();
+		//Common.assertionCheckwithReport(VoluntaryRecallmessage>0, "verifying Product Registration Success message ", "Success message should be Displayed","Product Registration Success message displayed ", "failed to dispaly success message");
+	    ExtenantReportUtils.addPassLog("VoluntaryRecall for the Product", "Product should be Successfully Registered", "Successfully Registered for the Product", Common.getscreenShotPathforReport("VoluntaryRecall"));  
+	    
+	 } catch(Exception e) {
+		    e.printStackTrace();
+	  		ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Product Registration");
+	  		Assert.fail();    
+	  	 } 	 	
+}
+
+public void NewProductRegistration (String dataSet) throws Exception{
+	 Thread.sleep(3000);
+	 	try {
+	 	Sync.scrollDownToView("xpath","//a[@data-menu='menu-14903']");
+	 	Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14903']"));
+	 	ExtenantReportUtils.addPassLog("Validating ProductRegistration Link","ProductRegistration link should be able to click" ,"Clicked on ProductRegistration Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
+	 	Common.clickElement("xpath","//a[@data-menu='menu-14903']");
+	 	Thread.sleep(3000);
+	 	WebElement element=Common.findElement("xpath","//h2[contains(text(),'Product Registration')]");
+	 	String text=element.getText();
+	 	if(text.contains("Product Registration")){
+	       ExtenantReportUtils.addPassLog("Validating Webtext of Product Registration Page", "Expected text should be obtained","Expected text is obtained",Common.getscreenShotPathforReport("ProductRegistrationText") );
+	       }
+	   else{
+	         ExtenantReportUtils.addFailedLog("Validating Webelement of Product Registration Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Product Registration");
+	          Assert.fail();            
+	      }
+	 	} catch(Exception e) {
+	 		e.printStackTrace();
+	  		ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Product Registration");
+	  		Assert.fail();    
+	  	 } 
+	 try{
+		 Thread.sleep(4000);
+		 Common.actionsKeyPress(Keys.DOWN);
+		 Common.actionsKeyPress(Keys.ARROW_DOWN);
+		 Common.actionsKeyPress(Keys.ARROW_DOWN);
+		 Common.scrollIntoView("xpath", "//div[@class='all_button']");
+		 Sync.waitElementClickable("xpath", "//div[@class='all_button']");
+		 Common.findElement("xpath", "//div[@class='all_button']").click();
+		 Sync.waitElementVisible("xpath", "//div[contains(text(),'1059649N2 (OXO MIXING BOWL - BLACK HANDLE)')]");
+		 Common.findElement("xpath", "//div[contains(text(),'1059649N2 (OXO MIXING BOWL - BLACK HANDLE)')]").click();
+		//Common.mouseOverClick("xpath","//option[@value='sprout-chair']");
+		 Common.actionsKeyPress(Keys.ENTER);
+		 
+		 
+		Sync.waitElementClickable("xpath", "//input[@id='model']");
+		Common.textBoxInput("xpath", "//input[@id='model']",data.get(dataSet).get("Model#"));
+		Common.textBoxInput("xpath", "//input[@id='serial']",data.get(dataSet).get("Serial#"));
+		//Common.textBoxInput("xpath", "//input[@id='manufacturing_date']",data.get(dataSet).get("ManufacturingDate"));
+		//Common.textBoxInput("xpath", "//input[@id='purchase_date']",data.get(dataSet).get("PurchaseDate"));
+		Common.textBoxInput("xpath", "//input[@id='location_purchased']",data.get(dataSet).get("Location Purchased"));
+		Common.textBoxInput("xpath", "//input[@id='city']",data.get(dataSet).get("City"));
+		Common.textBoxInput("xpath", "//input[@id='full_name']",data.get(dataSet).get("FullName"));
+		Common.textBoxInput("xpath", "//input[@id='email_39']",data.get(dataSet).get("Email"));
+		Common.textBoxInput("xpath", "//input[@id='ph_no']",data.get(dataSet).get("phone"));
+		Common.textBoxInput("xpath", "//input[@id='address']",data.get(dataSet).get("Street"));
+		Common.textBoxInput("xpath", "//input[@id='city_user']",data.get(dataSet).get("City"));
+		Common.textBoxInput("xpath", "//input[@id='state']",data.get(dataSet).get("Region"));
+		Common.textBoxInput("xpath", "//input[@id='zip']",data.get(dataSet).get("postcode"));
+	    Thread.sleep(4000);
+	    Common.findElement("xpath", "//button[@class='action submit primary']").click();
+	    int ProductRegistrationmessage=Common.findElements("xpath", " //div[@class='message message-success success']").size();
+		Common.assertionCheckwithReport(ProductRegistrationmessage>0, "verifying Product Registration Success message ", "Success message should be Displayed","Product Registration Success message displayed ", "failed to dispaly success message");
+	    ExtenantReportUtils.addPassLog("New Product Registeration", "Product Should be successfully Registered", "Product Registered Successfully", Common.getscreenShotPathforReport("ProductRegistration"));  
+	    
+	 } catch(Exception e) {
+		    e.printStackTrace();
+	  		ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page", "Expected text should not be obtained","Expected text is not obtained", "LinkValidation Product Registration");
+	  		Assert.fail();    
+	  	 } 
+}
 
 	
 	public  OxoHelperLive(String datafile)

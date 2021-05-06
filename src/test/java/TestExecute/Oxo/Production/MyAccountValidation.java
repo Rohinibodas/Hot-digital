@@ -26,8 +26,8 @@ public class MyAccountValidation {
 			oxo.myaccount_validation();
 			oxo.myOrders();
 			oxo.Mywishlist();	
-			oxo.AddressBook();
-	        oxo.Add_Address("ShippingAddress");
+			//oxo.AddressBook();
+	        //oxo.Add_Address("ShippingAddress");
 			oxo.MyInformation();
 			oxo.Change_MyInformation("AccountDetails");
 
@@ -40,7 +40,7 @@ public class MyAccountValidation {
 	@AfterTest
 	public void clearBrowser() {
 		
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

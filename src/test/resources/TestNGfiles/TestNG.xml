@@ -1,214 +1,137 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="Hydroflask smoke Suite"  >
-
+<suite name="OxoSuite Suite">
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-     
-     
-     
-     
+    
      <test name="TEST_OXO_ST_001-Account Creation" testid="OUS23-703" priority="P1" description="This script will cover Creating New Account Process of oxo">
        <classes>
             <class name="TestExecute.Oxo.CreateNewAccount"/>
         </classes>
-        </test> 
-     
-     
+        </test>
+         <test name="TEST_OXO_ST_002-Validate Forgot Password" testid="OUS23-760" priority="P1" description="This script will cover forgot tpassword process of oxo">
+       <classes>
+            <class name="TestExecute.Oxo.ForgetPassword"/>
+        </classes>
+        </test>
       <test name="TEST_OXO_ST_003-Guest Checkout Paypal" testid="OUS23-762" priority="P1" description="This script will cover guest user order using paypal submit Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.Guest_Checkout_Paypal"/>
         </classes>
-        </test> 
-     
-     
+        </test>
      <test name="TEST_OXO_ST_004-Guest Checkout Creditcard" testid="OUS23-759" priority="P1" description="This script will cover guest user order using Creditcard submit Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.Guest_checkout_CreditCard"/>
         </classes>
-        </test> 
-     
-     
+        </test>
+      <test name="TEST_OXO_ST_005-Validate Browse_Search for Product" testid="OUS23-761" priority="P1" description="This script will cover browse/search for Product functionality Process of oxo">
+        <classes>
+            <class name="TestExecute.Oxo.ValidateBrowse_Search_for_Product"/>
+        </classes>
+    </test>
      <test name="TEST_OXO_ST_006-Registered Checkout Paypal" testid="OUS23-764" priority="P1" description="This script will cover Registered User  order using paypal submit Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.RegisteredUser_Checkout_PayPal"/>
         </classes>
     </test>
-     
-     
        <test name="TEST_OXO_ST_007-Registered Checkout Creditcard" testid="OUS23-763" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of oxo">
         <classes>
             <class name="TestExecute.Oxo.RegisteredUser_Checkout_CreditCard"/>
         </classes>
     </test>
-     
-      
-       <test name="TEST_OXO_ST_010-Validation of Cart Page" testid="OUS23-765" priority="P1" description="This script will cover Validation of Cart Page of oxo">
+      <test name="TEST_OXO_ST_008-Validation CMS Content links" testid="OUS23-769" priority="P1" description="This script will cover Validation of footer links  of oxo">
         <classes>
-            <class name="TestExecute.Oxo.RegisteredUser_Checkout_CreditCard"/>
+            <class name="TestExecute.Oxo.ValidationContentlinks"/>
         </classes>
     </test>
-      <!--  <test name="Test_HF_ST_001_Guest Checkout with Creditcard_chrome" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
-        <parameter name="browser" value="chrome" />
+    <test name="TEST_OXO_ST_009-Validation of Blogs/Article Links" testid="OUS23-768" priority="P1" description="This script will cover Validation of Blogs/Article Links of oxo">
         <classes>
-            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
-        </classes>
-        </test>
-         -->
-       <!--  <test name="Test_HF_ST_001_Guest Checkout with Creditcard_firefox" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
-        <parameter name="browser" value="firefox" />
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
-        </classes>
-        </test> -->
-        
-        
-        <!-- <test name="Test_HF_ST_001_Guest Checkout with Creditcard_chrome" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
-        <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
-        </classes>
-        </test> -->
-     
-     <!-- <test name="Test_HF_ST_007_Produc to Review by Guest user" testid="HMF2-1068" priority="P1" description="This script will cover  WriteReview of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.WriteReview"/>
-        </classes>
-    </test> -->
-     
-      <!--   <test name="Test_HF_ST_001_Guest Checkout with Creditcard" testid="HMF2-975" priority="P1" description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
-        <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_CreditCard"/>
-        </classes>
-        </test>
-     
-        <test name="Test_HF_ST_002_My Hydro Order Submission" testid="HMF2-977" priority="P1" description="This script will cover Cusome order  Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.MyHydro_Order_Submission"/>
-        </classes>
-    </test> -->
-    
-     
-    
-    
-<!--     
-    <test name="Test_HF_ST_013-Change_Password" testid="HFM2-1066" priority="P1" description="This script will cover Registered user reset his password and login with new password and log out for HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.EditAccounInfromation"/>
-        </classes>
-    </test> 
-  -->
-     
-    
-    
-    
-    
-    
- <!--   
-    
-    <test name="Test_HF_ST_003_Guest Checkout with Paypal" testid="HMF2-1074" priority="P1" description="This script will cover guest user order using paypal order submit Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Guest_Checkout_Paypal"/>
+            <class name="TestExecute.Oxo.ValidationofBlogs_Article_Links"/>
         </classes>
     </test>
-    
-   
-    <test name="Test_HF_ST_004_Registered Checkout with Credit card" testid="HMF2-1077" priority="P1" description="This script will cover Registered User  order using creditcard submit Process of HydroFlesk">
+     	 <test name="TEST_OXO_ST_010-Validation of Cart Page" testid="OUS23-765" priority="P1" description="This script will cover Validation of Cart Page of oxo">
         <classes>
-            <class name="TestExecute.HydroflaskSmoke.RegisteredUser_Checkout_CreditCard"/>
-        </classes>
-    </test> 
-    
-    
-    
-      <test name="Test_HF_ST_005_Registered Checkout with PayPal" testid="HMF2-1078" priority="P1" description="This script will cover Registered order user using paypal order submit Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Registered_Checkout_Paypal"/>
+            <class name="TestExecute.Oxo.ValidationofCartPage"/>
         </classes>
     </test>
-    
-     <test name="Test_HF_ST_006_Guest user Checkout using Promo Code" testid="HMF2-1076" priority="P1" description="This script will cover applying promo code  of HydroFlesk">
+     <test name="TEST_OXO_MT_016-ValidateLogout" testid="OUS23-705" priority="P1" description="This script will cover logout from oxo">
         <classes>
-            <class name="TestExecute.HydroflaskSmoke.Promo_Code"/>
+            <class name="TestExecute.Oxo.LogOut"/>
         </classes>
     </test>
-    
-    
-    
-      	<test name="Test_HF_ST_007_Product Review by Guest user" testid="HMF2-1068" priority="P1" description="This script will cover  WriteReview of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.WriteReview"/>
-        </classes>
+    <test name="TEST_ST_OXO_020_Guest User Checkout with MasterCard (CC)" testid="OUS23-913" priority="P1" description="This script will cover  Process Guest user Checkout functionality with Creditcard(MasterCard) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestUser_Checkout_MasterCard_CC"/>        
+	    </classes>       
     </test>
-    
-      <test name="Test_HF_ST_008_Contact_Us" testid="HMF2-980" priority="P1" description="This script will cover Countact Us Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Contact_Us"/>
-        </classes>
-    </test>    
-
-   <test name="Test_HF_ST_009_Newsletter_Subscription" testid="HMF2-982" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Newsletter_Subscription"/>
-        </classes>
+     <test name="TEST_ST_OXO_019_Guest User Checkout with Discover (CC)" testid="OUS23-915" priority="P1" description="This script will cover  Process Guest user Checkout functionality with Creditcard(Discover) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestUser_Checkout_Discover_CC"/>        
+	    </classes>       
     </test>
-    
-
-
-  <test name="Test_HF_ST_010_Reset_Password" testid="HMF2-983" priority="P1" description="This script will cover User reset password by using forgot password option of HydroFlesk	">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Fogetpassword"/>
-        </classes>
+     <test name="TEST_ST_OXO_018_Guest User Checkout with American Express (CC)" testid="OUS23-914" priority="P1" description="This script will cover  Process Guest User Checkout with American Express (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestUser_Checkout_AmericanExpress_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_023_Registered User Checkout with AMEX (CC)" testid="OUS23-918" priority="P1" description="This script will cover  Process Registered User Checkout with AMEX (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.RegisteredUser_Checkout_AmericanExpress_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_021_Registered User Checkout with Discover (CC)" testid="OUS23-916" priority="P1" description="This script will cover  Process Registered User Checkout with Discover (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.RegisteredUser_Checkout_Discover_CC"/>        
+	    </classes>       
+    </test>
+     <test name="TEST_ST_OXO_022_Registered User Checkout with MasterCard (CC)" testid="OUS23-917" priority="P1" description="This script will cover  Process Registered User Checkout with MasterCard (CC) of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.RegisteredUser_Checkout_MasterCard_CC"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_024- Express PayPal checkout as Guest user" testid="OUS23-920" priority="P1" description="This script will cover  Process Express PayPal checkout as Guest user of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.GuestExpressPayPalCheckout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_025- Express PayPal checkout as Registered user" testid="OUS23-921" priority="P1" description="This script will cover  Process Express PayPal checkout as Registered user of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.Registered_ExpressPayPal_Checkout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_026_Registered User Checkout with Promocode" testid="OUS23-922" priority="P1" description="This script will cover  Process Registered User Checkout with Promocode of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.PromoCode_RegisteredUser_Checkout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_ST_OXO_027_Guest User Checkout with Promocode" testid="OUS23-923" priority="P1" description="This script will cover  Process Guest User Checkout with Promocode of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.PromoCode_GuestUser_Checkout"/>        
+	    </classes>       
+    </test>
+    <test name="TEST_OXO_SP_028- Forgot Password From GoodTipsBlog" testid="OUS23-924" priority="P1" description="This script will cover  Process Forgot Password From GoodTipsBlog of oxo">       
+        <classes>            
+              <class name="TestExecute.Oxo.ForgotPassword_GoodTipsBlog"/>        
+	    </classes>       
     </test>  
-  
-    
-       <test name="Test_HF_ST_011_Account_Creation" testid="HMF2-973" priority="P1" description="This script will cover Account Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Account_Creation"/>
-        </classes>
-    </test>
-
- <test name="Test_HF_ST_012_Warranty submission" testid="HMF2-978" priority="P1" description="This script will cover Warranty_submission  Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Warranty_Submission"/>
-        </classes>
-    </test>
-     
-
-    <test name="Test_HF_ST_013-Change_Password" testid="HFM2-1066" priority="P1" description="This script will cover Registered user reset his password and login with new password and log out for HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.EditAccounInfromation"/>
-        </classes>
-    </test> 
- 
-
-     <test name="Test_HF_ST_014_ProDeal Registration" testid="HMF2-981" priority="P1" description="This script will cover deal registration Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.ProDeal_Registration"/>
-        </classes>
-    </test> 
-    
-    
-    
-    <test name="Test_HF_ST_015_Combined Order Submission" testid="HMF2-976" priority="P1" description="This script will cover Customize order and noraml order submit Process of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.Combined_Order_Submission"/>
-        </classes>
-    </test>
-    
-    
-    <test name="Test_HF_ST_016-WebPageLinkValidation" testid="HMF2-1094" priority="P1" description="This script will Link validation of HydroFlesk">
-        <classes>
-            <class name="TestExecute.Hydroflask.URLS.URLSCheck"/>
-        </classes>
-    </test> -->
-    <!-- 
-     <test name="Test_HF_ST_017" testid="HMF2-1094" priority="P1" description="This script will Link validation of HydroFlesk">
-        <classes>
-            <class name="TestExecute.HydroflaskSmoke.UpdateMyAddress"/>
-        </classes>
-    </test> -->
-    
-    
-        </suite>  
+      <test name="TEST_OXO_ST_032- New Product Registration" testid="OUS23-935" priority="P1" description="This script will cover New Product Registration of oxo">   
+          <classes>                              
+                <class name="TestExecute.Oxo.ProductRegistration"/>  
+         </classes>
+       </test> 
+       <test name="TEST_OXO_ST_036-Voluntary Registration" testid="OUS23-940" priority="P1" description="This script will cover registering for the Product Recall of oxo">   
+          <classes>                              
+                <class name="TestExecute.Oxo.Voluntary_Recall"/>  
+         </classes>
+       </test> 
+        <test name="TEST_OXO_ST_014-MyAccountValidation" testid="OUS23-720" priority="P1" description="This script will cover Validation of My Account Page of oxo">   
+          <classes>                              
+                <class name="TestExecute.Oxo.MyAccountValidation"/>  
+         </classes>
+       </test>
+        <test name="TEST_OXO_ST_035-NewsLetterSubscription" testid="OUS23-937" priority="P1" description="This script will cover News Letter Subscription of oxo">   
+          <classes>                              
+                <class name="TestExecute.Oxo.NewsLetterSubscription"/>  
+         </classes>
+       </test>   
+ </suite>

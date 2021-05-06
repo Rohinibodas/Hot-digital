@@ -11,10 +11,11 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_CreditCard_VISA {
+public class TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
+	
 	
 	public void registeredUser_Checkout_CreditCard_VISA() throws Exception {
 
@@ -27,7 +28,7 @@ public class RegisteredUser_Checkout_CreditCard_VISA {
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
 			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
-			honeyWell.creditCard_payment("ccamex");
+			honeyWell.creditCard_payment("CCVisa");
 			honeyWell.order_Verifying();
 		}
 		catch (Exception e) {
@@ -41,7 +42,7 @@ public class RegisteredUser_Checkout_CreditCard_VISA {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

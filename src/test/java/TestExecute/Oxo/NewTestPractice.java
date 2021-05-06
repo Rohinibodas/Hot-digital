@@ -19,10 +19,38 @@ public class NewTestPractice {
 
 		try {
 			oxo.closetheadd();
-			//oxo.PrivacyPolicy();
-			oxo.Beverage();
+			oxo.loginOxo("AccountDetails");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			
+			/*oxo.checkout();
+			oxo.addNewAddress("ShippingAddress");
+			oxo.clickAcceptingaddress();
+            oxo.selectGroundShippingMethod();
+			oxo.Click_CreditCard();*/
+			//oxo.creditCard_payment("InvalidPaymentDetails");
+			//oxo.InvalidCCErrormessage();
+			oxo.invalidCC_data("InvalidPaymentDetails");
+			//oxo.VerifyaingConformationPage();
+			//Common.refreshpage();
+			
+			
+			/*oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.CleaningandOrganization();
+			oxo.addproducts("1");
+			oxo.CookingAndBaking();
 			oxo.addproducts("1");
 			oxo.checkout();
+			oxo.ShippingAddress("ShippingAddress");
+			oxo.selectGroundShippingMethod();
+			oxo.clickAcceptingaddress();
+		    oxo.Click_CreditCard();
+			oxo.creditCard_payment("DiscoverPaymentDetails");
+			oxo.VerifyaingConformationPage();
+		    //Common.refreshpage(); */
 			
 		} catch (Exception e) {
 
@@ -32,6 +60,7 @@ public class NewTestPractice {
 
 	@AfterTest
 	public void clearBrowser() {
+		
 		//Common.closeAll();
 
 	}

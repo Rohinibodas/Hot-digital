@@ -14,14 +14,15 @@ public class Registered_ExpressPayPal_Checkout {
 
 	@Test(priority = 1)
 
-	public void NewTestPractice() throws Exception {
+	public void Registered_ExpressPayPal_Checkout() throws Exception {
 
 		try {
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
 			oxo.clickBaby_Toddler();
+			//oxo.Beverage();
 			oxo.addproducts("1");
-			oxo.checkout();
+			//oxo.checkout();
 			oxo.clickViewCart();
             oxo.Express_payPal_payment("PaypalDetails");
             oxo.Express_PayPal_GroundShippingMethod();
@@ -39,7 +40,7 @@ public class Registered_ExpressPayPal_Checkout {
 	@AfterTest
 	public void clearBrowser() {
 	  
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

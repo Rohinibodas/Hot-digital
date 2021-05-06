@@ -11,12 +11,13 @@ import TestComponent.Honeywell.Honeywellhelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RegisteredUser_Checkout_CreditCard_discover {
+
+public class TEST_ST_HW_016_Checkout_as_logged_in_user_with_paymetric_method_Mastercard {
 	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void registeredUser_Checkout_CreditCard_discover() throws Exception {
+	public void registeredUser_Checkout_CreditCard_Mastercard() throws Exception {
 
 		try {
 			honeyWell.loginHoneywell("AccountDetails");
@@ -41,7 +42,7 @@ public class RegisteredUser_Checkout_CreditCard_discover {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

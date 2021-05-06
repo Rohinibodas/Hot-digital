@@ -24,13 +24,15 @@ public class RegisteredUser_Checkout_CreditCard {
 		oxo.checkout();
 		oxo.addNewAddress("ShippingAddress");
 		oxo.clickAcceptingaddress();
+		oxo.addNewAddress("ShippingAddress");
+		oxo.clickAcceptingaddress();
 		oxo.selectGroundShippingMethod();
 		//oxo.Promocode("Promocode");
 		oxo.Click_CreditCard();
 		oxo.Edit_BillingAddress("BiillingAddress");
 		oxo.clickAcceptingaddress();
 		oxo.creditCard_payment("PaymentDetails");
-		oxo.VerifyaingConformationPage();
+		//oxo.VerifyaingConformationPage();
 		
 		
   }
@@ -42,7 +44,7 @@ catch (Exception e) {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		//Common.closeAll();
+		Common.closeAll();
 	}
 	
 	@BeforeMethod

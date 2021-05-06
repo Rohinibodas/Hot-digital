@@ -17,7 +17,6 @@ public class AccountCreationFormValidation {
 	public void AccountCreationFormValidation() throws Exception {
 
 		try {
-
 			vicks.Verifyhomepage();
 			vicks.AccountCreationFormValidation();
 

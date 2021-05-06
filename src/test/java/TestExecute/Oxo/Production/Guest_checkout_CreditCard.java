@@ -31,7 +31,8 @@ public class Guest_checkout_CreditCard {
 		oxo.Click_CreditCard();
 		//oxo.Edit_BillingAddress("BiillingAddress");
 		//oxo.clickAcceptingaddress();
-		oxo.creditCard_payment("PaymentDetails");
+		//oxo.creditCard_payment("PaymentDetails");
+		oxo.invalidCC_data("InvalidPaymentDetails");
   }
 	catch (Exception e) {
 		
@@ -42,7 +43,7 @@ public class Guest_checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		Common.closeAll();
+		//Common.closeAll();
     }
 	
 	@BeforeMethod
