@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BraunUK Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="BrowseSearchFunctionality" testid="BTY-454" priority="P1" description="This script will cover BrowseSearch Functionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKNL.Test_ST_UKNL_BrowseSearchFunctionality"/>
+        </classes>
+    </test>
+     <test name="NewsletterSubscription" testid="BTY-454" priority="P1" description="This script will cover NewsLetterSubscription of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKNL.Test_ST_UKNL_NewsletterSubscription"/>
+        </classes>
+    </test>
+    </suite>
