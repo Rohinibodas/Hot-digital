@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="RevlonUK Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+     
+     <test name="BraunHC_WarrantyRegistration_FooterLink"
+		testid="PPH-000" priority="P1"
+		description="This test case  Validating BarunHC_WarrantyRegistration_FooterLink">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_WarrantyRegistration_FooterLink" />
+		</classes>
+     </test>
+ </suite>
