@@ -34,13 +34,11 @@ public class DT_ST_009_Distributor_Forgotpassword {
 		}
 	}
 
-
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		Login.signIn(browser);
-
 	}
 
 	/*@BeforeMethod
@@ -48,14 +46,12 @@ public class DT_ST_009_Distributor_Forgotpassword {
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Hottools\\config.properties");
 			  Login.signIn("chrome");
-
      }*/
 
 	@AfterTest
 	public void clearBrowser()
 	{
 		Common.closeAll();
-
 	}
 
 

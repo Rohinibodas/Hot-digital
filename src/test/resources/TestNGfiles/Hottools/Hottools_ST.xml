@@ -285,6 +285,7 @@
         </classes>
     </test>
     
+    
     <!--  <test name="Test_HT_ST_020_PromocodeCheckout" testid="BTY-1143" priority="P1" description="This test case is to verify  Hottools ,Promocode Checkout functionality for user">
         <parameter name="browser" value="chrome" />
         <classes>

@@ -42,7 +42,6 @@ public class TEST_HT_ST_010_ValidateCMSPages
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
-		  
 	  }
 	
    /*@BeforeMethod

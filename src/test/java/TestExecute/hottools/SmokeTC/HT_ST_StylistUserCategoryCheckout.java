@@ -41,8 +41,7 @@ public class HT_ST_StylistUserCategoryCheckout {
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn(browser);
-		  
+		  Login.signIn(browser); 
 	  }
 	
 	/*@BeforeMethod

@@ -39,8 +39,7 @@ public class HT_ST_Category_Checkout_page {
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn(browser);
-		  
+		  Login.signIn(browser); 
 	  }
 	
       /*@BeforeMethod
@@ -48,7 +47,6 @@ public class HT_ST_Category_Checkout_page {
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("edge");
-		  
 	  }*/
 
 	@AfterTest

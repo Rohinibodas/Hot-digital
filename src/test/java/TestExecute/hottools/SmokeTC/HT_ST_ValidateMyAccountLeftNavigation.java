@@ -27,8 +27,7 @@ public class HT_ST_ValidateMyAccountLeftNavigation {
 			Hottools.navigateAccountInformation();
 			Hottools.navigateProductReviews();
 			Hottools.navigateNewsLetterSubscription();
-				
-			
+
 		}
 		catch (Exception e) {
 
@@ -36,21 +35,21 @@ public class HT_ST_ValidateMyAccountLeftNavigation {
 		}
 	}
 
+	@BeforeMethod
+	@Parameters({"browser"}) 
+	public void startTest(String browser) throws Exception {
+		System.setProperty("configFile", "Hottools\\config.properties");
+		Login.signIn(browser);
+
+	}
+
 	/*@BeforeMethod
-		@Parameters({"browser"}) 
-		  public void startTest(String browser) throws Exception {
-			System.setProperty("configFile", "Hottools\\config.properties");
-			  Login.signIn(browser);
-			  
-		  }*/
-		
-		@BeforeMethod
 		@Parameters({"browser"})  
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "Hottools\\config.properties");
 			  Login.signIn("chrome");
-			  
-		  }
+
+		  }*/
 
 	@AfterTest
 	public void clearBrowser()

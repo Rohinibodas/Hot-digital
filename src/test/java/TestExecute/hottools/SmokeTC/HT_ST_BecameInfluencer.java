@@ -23,9 +23,7 @@ public class HT_ST_BecameInfluencer {
 		  Hottools.agreeCookiesbanner();
 		  Hottools.Newslettersignup();
 		  Hottools.BecomeInfluencer();
-		  Hottools.BecomeInfluencerpage("BecomeInfluencer");
-		
-		
+		  Hottools.BecomeInfluencerpage("BecomeInfluencer");		
 	} catch (Exception e) {
 	
 		

@@ -36,7 +36,6 @@ public class HT_ST_StylistuserBrowserSearch {
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
-		  
 	  }
 	
 	/*@BeforeMethod

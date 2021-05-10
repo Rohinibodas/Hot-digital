@@ -24,8 +24,6 @@ public class HT_ST_Productregistration {
 		  Hottools.Newslettersignup();
 		  Hottools.ProductRegistration();
 		  Hottools.productRegistration("ProductRegistration");
-		  
-		
 		
 	} catch (Exception e) {
 	

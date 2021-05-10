@@ -35,13 +35,11 @@ public class HT_ST_DistributorCheckoutPurchaseOrder {
 		}
 	}
 	
-	 
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn(browser);
-		  
+		  Login.signIn(browser);  
 	  }
 	
 	/*@BeforeMethod

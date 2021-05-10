@@ -402,7 +402,7 @@ public class HottoolsHelpr {
 				System.out.println("Cookies popup not displayed");
 			}
 
-			Thread.sleep(6000);
+			Thread.sleep(3000);
 			Sync.waitElementPresent("xpath", "//button[@title='Back To Top']");
 
 			Sync.waitElementPresent("xpath", "//a[@href='#search-mod']");
@@ -452,7 +452,7 @@ public class HottoolsHelpr {
 				System.out.println("Cookies popup not displayed");
 			}
 
-			Thread.sleep(6000);
+			Thread.sleep(3000);
 			Sync.waitElementPresent("xpath", "//button[@title='Back To Top']");
 
 			Sync.waitElementPresent("xpath", "//a[@href='#search-mod']");
@@ -1784,9 +1784,9 @@ public class HottoolsHelpr {
 				Thread.sleep(8000);
 			}else {
 				Thread.sleep(6000);
-				/*Sync.waitElementPresent("id", "ime_paymetrictokenize");
+				Sync.waitElementPresent("id", "ime_paymetrictokenize");
 				Common.clickElement(By.id("ime_paymetrictokenize"));
-				Thread.sleep(8000);*/
+				Thread.sleep(8000);
 			}	
 			Common.switchFrames("paymetric_xisecure_frame");
 			Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
@@ -3451,8 +3451,8 @@ public class HottoolsHelpr {
 			Sync.waitElementPresent("xpath", "//div[@class='copyrights']");
 			Common.scrollIntoView("xpath", "//div[@class='copyrights']");
 			Thread.sleep(5000);
-			Common.clickElement("xpath", "//div[@id='wpn-lightbox-close-newsletter']");
-			Thread.sleep(5000);
+			//Common.clickElement("xpath", "//div[@id='wpn-lightbox-close-newsletter']");
+			//Thread.sleep(5000);
 			Common.clickElement("xpath", "//i[@alt='hottools twitter']");
 			Thread.sleep(2000);
 			Common.switchToSecondTab();
@@ -3504,8 +3504,9 @@ public class HottoolsHelpr {
 		String expectedResult="Navigating to Subscription Popup in Home Page";
 		try{
 			Thread.sleep(20000);
-			Common.switchFrames("id", "LL_DataServer");
-			if(Common.isElementDisplayed("id", "wpn-lightbox-close-newsletter")) {
+			Common.switchWindows();
+			//Common.switchFrames("xpath", "//iframe[@id='LL_DataServer']");
+			if(Common.isElementDisplayed("id", "wpn-lightbox-content")) {
 				Thread.sleep(5000);
 				Common.clickElement("id", "wpn-lightbox-close-newsletter");
 			}else {

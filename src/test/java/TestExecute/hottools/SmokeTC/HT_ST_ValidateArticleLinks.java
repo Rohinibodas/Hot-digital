@@ -20,7 +20,6 @@ public class HT_ST_ValidateArticleLinks {
 
 		try{
 			Hottools.agreeCookiesbanner();
-			Hottools.Newslettersignup();
 			Hottools.twitterArticle();
 			//Hottools.FacebookArticle();
 			Hottools.youtubeArticle();

@@ -33,7 +33,6 @@ public class HT_ST_RG_001_RetialerRegistration {
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
-		  
 	  }
 	
 	/*@BeforeMethod
