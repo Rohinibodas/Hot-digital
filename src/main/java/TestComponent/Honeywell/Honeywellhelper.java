@@ -260,11 +260,13 @@ public class Honeywellhelper {
 		public void clickAddtoBag() {
 			try{
 			Sync.waitPageLoad();
+			Thread.sleep(5000);
+			Common.scrollIntoView("id", "product-addtocart-button");
 			Common.clickElement("id", "product-addtocart-button");
 			ExtenantReportUtils.addPassLog("verifying add to cart button", "User click add to card button", "user successfully click add to cart button", Common.getscreenShotPathforReport("Clickaadtocart"));
 			}
 			catch(Exception |Error e) {
-			   
+			   e.printStackTrace();
 				ExtenantReportUtils.addFailedLog("verifying add to cart button", "User click add to card button", "user failed to click add to cart button", Common.getscreenShotPathforReport("failedtoclickutton"));
 				Assert.fail();
 			}

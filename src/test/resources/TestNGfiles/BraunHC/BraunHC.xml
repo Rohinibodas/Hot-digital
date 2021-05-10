@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="BraunHC Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+
+	<test name="Test_BraunUS_ST_009_AccountCreation" testid="PPH-1078"
+		priority="P1"
+		description="This test case validates account creation of user with valid details ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Account_Creation"/>
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_015_ValidateAddressBook" testid="PPH-1087"
+		priority="P1"
+		description="This script will cover to Validate Address Book 
+		of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Address_Book" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_005_ValidateQuntityChangeInCart"
+		testid="PPH-1072" priority="P1"
+		description="This test case validates to Change QTY in Mini Cart of user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_ChangeQTYMini_Cart" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_006_GuestUserCategoryCheckoutCC"
+		testid="PPH-1072" priority="P1"
+		description="This test case is to verify Guest user Category Checkout Creditcart functionality of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_GuestCategoryCheckoutCC" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_008_GuestUserCheckout" testid="PPH-1076"
+		priority="P1"
+		description="This test case validates Guest user Checkout functionality of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_GuestUserCheckout" />
+		</classes>
+	</test>
+	<!--  <test name="Test_BraunUS_ST_002_ValidateNewsletterSubscribeInvalid"
+		testid="PPH-1067" priority="P1"
+		description="This script will cover Validate Newsletter Subscribe Invalid of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_invalidSubscribe" />
+		</classes>
+	</test> -->
+	<!--  <test name="Test_BraunUS_ST_010_ST_My Product Reviews" testid="PPH-1080"
+		priority="P1"
+		description="This test case validates My_Product_Reviews of user with valid details for BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHc_My_Product_Reviews" />
+		</classes>
+	</test>-->
+	<test name="Test_BraunUS_ST_011_ValidateMyOrder" testid="PPH-1082"
+		priority="P1" description="This test case validates MyOrderPage of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_MyOrderPage" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_024_ValidateOrderStatus" testid="PPH-1111"
+		priority="P1" description="This script will cover OrderStatus of a Product">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_OrderStatus" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_004_RegisteredUserCategoryCheckout"
+		testid="PPH-1070" priority="P1"
+		description="This test case is to verify Braun US, Category Checkout functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegCategoryCheckoutCC" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_019_RegisteredUserCheckoutCC" testid="PPH-1106"
+		priority="P1"
+		description="This test case validates registered user Checkout process with valid credit card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegisteredUserCheckout" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_007_ValidateRegisterUserMiniCart" testid="PPH-1074"
+		priority="P1" description="This test case validates Registeruser MiniCartof BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegisteruserMiniCart" />
+		</classes>
+	</test>
+	<!-- <test name="Test_BraunUS_ST_001_ ValidateNewsletterSubscribe"
+		testid="PPH-1066" priority="P1"
+		description="This test case validate news letter subscription">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Subscribe" />
+		</classes>
+	</test>
+	  <test name="Test_BraunUS_ST_018_ValidateNewsletterUnSubscription"
+		testid="1106" priority="P1"
+		description="This test case validates Newsletter_UnSubscription Functionality for BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Newsletter_UnSubscription" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_017_ValidateNewsletterSubscription"
+		testid="PPH-1105" priority="P1"
+		description="This script will cover Validate Newsletter Subscribe Invalid of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunUS_Newsletter_Subscription" />
+		</classes>
+	</test> -->
+	
+	<test name="Test_BraunUS_ST_016_ValidateAccountInformation"
+		testid="PPH-1104" priority="P1"
+		description="This test case validates Braun HC Account information of user with valid details ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Accountinformation" />
+		</classes>
+	</test>
+	 <test name="Test_BraunUS_ST_026_ValidateRegisteredUserCheckoutAmexCredit"
+		testid="PPH-1114" priority="P1"
+		description="This test case is to verify 
+		Braun US, Amex Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegCheckoutAMEX" />
+		</classes>
+	</test>
+	 <test
+		name="Test_BraunUS_ST_027_ValidateRegisteredUserCheckoutDiscoverCredit"
+		testid="PPH-1115" priority="P1"
+		description="This test case is to verify 
+		Braun US, Discover Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegCheckoutDiscover" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_028_ValidateRegisteredUserCheckoutMasterCredit"
+		testid="PPH-1116" priority="P1"
+		description="This test case is to verify 
+		Braun US, Master Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegCheckoutMaster" />
+		</classes>
+	</test> 
+     
+      <test name="Test_BraunUS_ST_029_ValidateGuestuserRegisteredUserCheckoutAmexCredit"
+		testid="PPH-1114" priority="P1"
+		description="This test case is to verify 
+		Braun US, Amex Guest user Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_GuestUserRegCheckoutAMEX" />
+		</classes>
+	</test>
+	 <test
+		name="Test_BraunUS_ST_030_ValidateGuestuserRegisteredUserCheckoutDiscoverCredit"
+		testid="PPH-1115" priority="P1"
+		description="This test case is to verify 
+		Braun US, Discover Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_GeustUserRegCheckoutDiscover" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_031_ValidateGuestUserRegisteredUserCheckoutMasterCredit"
+		testid="PPH-1116" priority="P1"
+		description="This test case is to verify 
+		Braun US, Master Guest user Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_GuestUserRegCheckoutMaster" />
+		</classes>
+	</test> 
+	
+	<test name="Test case-Test_BraunUS_ST_020_GuestUserBrowserSearch"
+		testid="PPH-1108" priority="P1"
+		description="This test case validate Guest User Browser Search">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Guest_UserBrowser_Search" />
+		</classes>
+	</test> 	
+		<test name="Test case-Test_BraunUS_ST_021_RegisteredUserBrowserSearch"
+		testid="PPH-1109" priority="P1"
+		description="This test case validate Guest User Browser Search">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Guest_UserBrowser_Search" />
+		</classes>
+     </test> 
+	<test name="Test case-Test_BraunUS_ST_003_ValidatingContentLinks"
+		testid="PPH-1069" priority="P1"
+		description="This test case  Validating Content ssLinks">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_CMSlink" />
+		</classes>
+     </test>
+     <test name="BraunHC_GuestUserCheckout_CC_apply_promocode"
+		testid="PPH-1807" priority="P1"
+		description="This test case  Validating BarunHC_Guest_CheckoutCC_applypromo_code">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_GuestUserCheckout_CC_apply_promocode" />
+		</classes>
+     </test>  
+     <test name="BarunHC_RegUser_CheckoutCC_applypromo_code"
+		testid="PPH-1808" priority="P1"
+		description="This test case  Validating BarunHC_RegUser_CheckoutCC_applypromo_code">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BarunHC_RegUser_CheckoutCC_applypromo_code" />
+		</classes>
+     </test>
+      <test name="BarunHC_Article_Linkes"
+		testid="PPH-1809" priority="P1"
+		description="This test case  Validating BarunHC_Article_Linkes">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_Article_Linkes" />
+		</classes>
+     </test>
+     <test name="BraunHC_WarrantyRegistration_FooterLink"
+		testid="PPH-1810" priority="P1"
+		description="This test case  Validating BarunHC_WarrantyRegistration_FooterLink">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_WarrantyRegistration_FooterLink" />
+		</classes>
+     </test>
+     <test name="BraunHC_ContactUs_FooterLink"
+		testid="PPH-1811" priority="P1"
+		description="This test case  Validating BarunHC_ContactUs_FooterLink">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_ContactUs_FooterLink" />
+		</classes>
+     </test>
+     
+     
+
+	<!-- <test name="Test_BraunUS_ST_013_ValiadateMyDownloadableProducts" testid="PPH-1084" 
+		priority="P1" description="This script will cover My Downloadable Products 
+		of BraunUS"> <parameter name="browser" value="chrome" /> <classes> <class 
+		name="TestExecute.BraunHC.BraunHC_DownloadableProduct"/> </classes> </test> 
+		<test name="Test_BraunUS_ST_023_ValidateGiftCard" testid="PPH-1111" priority="P1" 
+		description="This test case Valiadate Gift Card for a Product of BraunUS"> 
+		<parameter name="browser" value="chrome" /> <classes> <class name="TestExecute.BraunHC.BraunHC_GiftCard"/> 
+		</classes> </test> -->
+	<!-- <test name="Test_BraunUS_ST_014_ValidateMyWhishList" testid="PPH-1085" 
+		priority="P1" description="This test case validates My_Wish_List Functionality 
+		for BraunUS"> <parameter name="browser" value="chrome" /> <classes> <class 
+		name="TestExecute.BraunHC.BraunHC_My_Wish_List"/> </classes> </test> -->
+	<!-- <test name="Test_BraunUS_ST_012_ValidateOrdersbySKU" testid="PPH-1083" 
+		priority="P1" description="This test will validates OrderbySKU Page"> <parameter 
+		name="browser" value="chrome" /> <classes> <class name="TestExecute.BraunHC.BraunHC_OrderbySKU"/> 
+		</classes> </test> 
+	<test name="Test_BraunUS_ST_026_ValidateRegisteredUserCheckoutAmexCredit"
+		testid="PPH-1114" priority="P1"
+		description="This test case is to verify 
+		Braun US, Amex Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegCheckoutAMEX" />
+		</classes>
+	</test>
+	<test
+		name="Test_BraunUS_ST_027_ValidateRegisteredUserCheckoutDiscoverCredit"
+		testid="PPH-1115" priority="P1"
+		description="This test case is to verify 
+		Braun US, Discover Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegCheckoutDiscover" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_028_ValidateRegisteredUserCheckoutMasterCredit"
+		testid="PPH-1116" priority="P1"
+		description="This test case is to verify 
+		Braun US, Master Checkout Credit Card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.BraunHC_RegCheckoutMaster" />
+		</classes>
+	</test>
+	 <test name="Test_BraunUS_ST_025_ValidateStoreCredit" testid="PPH-1113" 
+		priority="P1" description="This test case validates StoreCredit of BraunUS"> 
+		<parameter name="browser" value="chrome" /> <classes> <class name="TestExecute.BraunHC.BraunHC_StoreCredit"/> 
+		</classes> </test> -->
+</suite> 
+ 
