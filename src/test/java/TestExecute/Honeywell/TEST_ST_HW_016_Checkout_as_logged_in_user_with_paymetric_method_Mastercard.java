@@ -42,7 +42,7 @@ public class TEST_ST_HW_016_Checkout_as_logged_in_user_with_paymetric_method_Mas
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+//	Common.closeAll();
 
 	}
 	
