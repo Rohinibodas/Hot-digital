@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BraunUK Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="BrowseSearchFunctionality" testid="BTY-454" priority="P1" description="This script will cover BrowseSearchFunctionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunUKENP.Test_ST_UKEN_BrowseSearchFunctionality"/>
+        </classes>
+    </test>
+     <test name="NewsLetterSubscription" testid="BTY-454" priority="P1" description="This script will cover NewsLetterSubscription of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunUKENP.Test_ST_UKEN_NewsLetterSubscription"/>
+        </classes>
+    </test>
+    <test name="HeaderLinks" testid="BTY-454" priority="P1" description="This test case validates HeadeLinks for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunUKENP.Test_ST_UKEN_HeaderLinks"/>
+        </classes>
+    </test>
+    <test name="FooterLinksValidation" testid="BTY-454" priority="P1" description="This test case validates Footerlinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunUKENP.Test_ST_UKEN_FooterLinksValidation"/>
+        </classes>
+    </test>
+    <!-- <test name="ArticalLinks" testid="BTY-454" priority="P1" description="This test case validates ArticalLinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunUKENP.Test_ST_UKEN_ArticalLinks"/>
+        </classes>
+    </test>
+     --> 
+    </suite>
