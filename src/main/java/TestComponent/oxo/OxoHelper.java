@@ -1,5 +1,9 @@
 package TestComponent.oxo;
 
+import org.testng.AssertJUnit;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.AssertJUnit;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.By;
@@ -41,7 +45,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying logo button", "click logo button land on home page",
 					"User failed to click logo", Common.getscreenShotPathforReport("oxologo"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -59,7 +63,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying Sign in link", "lands on the account creation popup",
 					"User failed lands on the account creation popup", Common.getscreenShotPathforReport("signbutton"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -79,7 +83,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying Create account button", "lands on the signin popup",
 					"User failed lands signin popup", Common.getscreenShotPathforReport("creatnow"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 		try {
@@ -103,7 +107,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("verifying sign up page with valid field data",
 						"see the fields populated with the data", "User failed to proceed signUp form",
 						Common.getscreenShotPathforReport("signupissue"));
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 			Common.actionsKeyPress(Keys.ESCAPE);
@@ -112,7 +116,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying sign up page to Create new account",
 					"Sign up popup with valid Data", "User failed to proceed signUp form ",
 					Common.getscreenShotPathforReport("signupissue"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -136,7 +140,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating search box", expectedResult,
 					"user faield to Click on the search button",
 					Common.getscreenShotPathforReport("faieldopensearchbox"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 		try {
@@ -159,7 +163,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the search with empty data", expectedResult,
 					"user faield eneter empty data in search or redirect to home page",
 					Common.getscreenShotPathforReport("emptysearch"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -182,7 +186,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating search box", expectedResult,
 					"user faield to Click on the search button",
 					Common.getscreenShotPathforReport("faieldopensearchbox"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -203,7 +207,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the search with combination of latter Numbers data",
 					expectedResult, "user faield allowing combination of latter Numbers data",
 					Common.getscreenShotPathforReport("serchnumbertext"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -226,7 +230,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating search box", expectedResult,
 					"user faield to Click on the search button",
 					Common.getscreenShotPathforReport("faieldopensearchbox"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -244,7 +248,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the search rueslt contines homeTab", expectedResult,
 					"faield to display hometab", Common.getscreenShotPathforReport("homeTab"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 		String errormessage = "product Namesis";
@@ -254,14 +258,14 @@ public class OxoHelper {
 			int totalproductscount = Common.findElements("xpath", "//li[@class='item product product-item ']").size();
 
 			int producttitles = Common.findElements("xpath", "//a[@class='product-item-link']").size();
-			Assert.assertTrue(totalproductscount == producttitles);
+			AssertJUnit.assertTrue(totalproductscount == producttitles);
 			errormessage = "wishlist button";
 			int totlWishList = Common.findElements("xpath", "//a[@class='action towishlist']").size();
-			Assert.assertTrue(totalproductscount == totlWishList);
+			AssertJUnit.assertTrue(totalproductscount == totlWishList);
 
 			errormessage = "product price";
 			int productprice = Common.findElements("xpath", "//span[contains(@id,'product-price')]").size();
-			Assert.assertTrue(totalproductscount == productprice);
+			AssertJUnit.assertTrue(totalproductscount == productprice);
 
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
 			ExtenantReportUtils.addPassLog("validating the search rueslt", expectedResult,
@@ -269,7 +273,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the search rueslt", expectedResult,
 					"faield to display " + errormessage + "", Common.getscreenShotPathforReport("resultissues"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -363,7 +367,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the product details page", expectedResult,
 					"user faield to navigate product detiles page",
 					Common.getscreenShotPathforReport("faield product detiles page"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -392,7 +396,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("validating the product to Cart", "user add the product to cart",
 						"user faield to add the product to cart",
 						Common.getscreenShotPathforReport("user faield to add the product to cart"));
-				Assert.fail();
+				AssertJUnit.fail();
 
 			}
 
@@ -418,7 +422,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("validating the product to Cart", "user add the product to cart",
 						"user faield to add the product to cart",
 						Common.getscreenShotPathforReport("user faield to add the product to cart"));
-				Assert.fail();
+				AssertJUnit.fail();
 
 			}
 		}
@@ -439,7 +443,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the mini cart icon", "user click cartbutton",
 					"user faield to click cart", Common.getscreenShotPathforReport("fairldcart"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -468,7 +472,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating viewCart button",
 					"Click on View cart link and navigate to Cart page", "user faield to click View cart",
 					Common.getscreenShotPathforReport("Viewcart"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -495,7 +499,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("verifying login page with fieldData",
 						"see the fields populated with the data", "User failed to proceed login form",
 						Common.getscreenShotPathforReport("logindata"));
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 			try {
 				Thread.sleep(4000);
@@ -515,14 +519,14 @@ public class OxoHelper {
 					ExtenantReportUtils.addFailedLog("Validating UserName from Header on Home Page",
 							"User Should Failed Sign-In to User Account", "Failed to Sign-In to User Account",
 							Common.getscreenShotPathforReport("MyAccount"));
-					Assert.fail();
+					AssertJUnit.fail();
 				}
 			} catch (Exception | Error e) {
 				e.printStackTrace();
 				ExtenantReportUtils.addFailedLog("Validating UserName from Header on Home Page",
 						"User Should Failed Sign-In to User Account", "Failed to Sign-In to User Account",
 						Common.getscreenShotPathforReport("MyAccount"));
-				Assert.fail();
+				AssertJUnit.fail();
 
 			}
 		} catch (Exception | Error e) {
@@ -530,7 +534,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Sign-In in Checkout Page",
 					"User Should Failed Sign-In to User Account from Checkout Page", "Failed to Sign-In to User Account  from Checkout Page",
 					Common.getscreenShotPathforReport("Sign-In in Checkout Page"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -542,19 +546,19 @@ public class OxoHelper {
 		try {
 			ErrorMessage = "failed to display image";
 			int productimage = Common.findElements("xpath", "//tr[@class='item-info']/td[1]//img").size();
-			Assert.assertTrue(productimage > 0);
+			AssertJUnit.assertTrue(productimage > 0);
 
 			ErrorMessage = "failed to display productName";
 			String productName = Common.findElement("xpath", "//strong[@class='product-item-name']/a").getText();
-			Assert.assertTrue(productName != null);
+			AssertJUnit.assertTrue(productName != null);
 
 			ErrorMessage = "failed to display SkuID ";
 			String SkuID = Common.findElement("xpath", "//div[@class='item-sku']/span[2]").getText();
-			Assert.assertTrue(SkuID != null);
+			AssertJUnit.assertTrue(SkuID != null);
 
 			ErrorMessage = "failed to display sub tota ";
 			int subtotlas = Common.findElements("xpath", "//td[contains(@class,'subtotal')]").size();
-			Assert.assertTrue(subtotlas > 0);
+			AssertJUnit.assertTrue(subtotlas > 0);
 			ExtenantReportUtils.addPassLog("validating the Cart page with image SKU id Product title sub tota",
 					Expectedresult, "this page display image SKUid Product title sub tota",
 					Common.getscreenShotPathforReport("fairldcarrrt"));
@@ -563,7 +567,7 @@ public class OxoHelper {
 		catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the Cart page with image SKU id Product title sub tota",
 					Expectedresult, ErrorMessage, Common.getscreenShotPathforReport("fairldcarrrt"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -577,7 +581,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the Cart page with increase or decrease of products",
 					Expectedresult, ErrorMessage, Common.getscreenShotPathforReport("dropdown"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -586,13 +590,13 @@ public class OxoHelper {
 			ErrorMessage = "page missing Discount codes";
 			Common.clickElement("xpath", "//strong[@id='block-discount-heading']");
 			int sizecoupon = Common.findElements("id", "coupon_code").size();
-			Assert.assertTrue(sizecoupon > 0);
+			AssertJUnit.assertTrue(sizecoupon > 0);
 			ExtenantReportUtils.addPassLog("validating the Cart page with Coupon Code", Expectedresult,
 					"this page contain Discount codes ", Common.getscreenShotPathforReport("discount"));
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the Cart page with Coupon Code", Expectedresult, ErrorMessage,
 					Common.getscreenShotPathforReport("discount"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -638,7 +642,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the product details page", expectedResult,
 					"user faield to navigate product detiles page",
 					Common.getscreenShotPathforReport("faield product detiles page"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -673,7 +677,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the CleaningAndOrganization category page.", expectedResult,
 					"user faield to navigate CleaningAndOrganization category",
 					Common.getscreenShotPathforReport("faield to navgate categorypage"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		selectproduct("Large Expandable Utensil Organizer");
 
@@ -706,7 +710,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult,
 					"user faield to navigate Baby Toddler category",
 					Common.getscreenShotPathforReport("faield to navgate categorypage"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		selectproduct("Dough Whisk");
 	}
@@ -738,7 +742,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult,
 					"user faield to navigate Baby Toddler category",
 					Common.getscreenShotPathforReport("faield to navgate categorypage"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		selectproduct("Compact Cold Brew Coffee Maker");
 	}
@@ -776,7 +780,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult,
 					"user faield to navigate Baby Toddler category",
 					Common.getscreenShotPathforReport("faield to navgate categorypage"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 		selectproduct("Perch Booster Seat with Straps");
@@ -807,7 +811,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Verifying Shippingpage", expectedResult,
 					"page missing shipping ordersummary totalprice",
 					Common.getscreenShotPathforReport("faieldsshippingpage"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -855,7 +859,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("verifying shipping addres filling",
 						"user will fill the all the shipping", "faield to add new shipping address",
 						Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
-				Assert.fail();
+				AssertJUnit.fail();
 
 			}
 
@@ -905,7 +909,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying shipping addres filling", "user will fill the all the shipping",
 					"faield to add new shipping address",
 					Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -928,7 +932,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying Shipping Methods", "user select the Ground shipping method",
 					"faield to select shippingmethod", Common.getscreenShotPathforReport("faieldsshippingmethod"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -955,11 +959,30 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying Shipping Methods", "user select the Ground shipping method",
 					"faield to select shippingmethod", Common.getscreenShotPathforReport("faieldsshippingmethod"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
-
+	public void selectExpress_StandardMethod() throws Exception {
+		try {
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Sync.waitPageLoad();
+			Thread.sleep(5000);
+			Sync.waitElementPresent("xpath", "//label[contains(@id,'label_method_shippingrates1_shippingrates')]");
+			Common.scrollIntoView("xpath", "//label[contains(@id,'label_method_shippingrates1_shippingrates')]");
+			Common.javascriptclickElement("xpath", "//label[contains(@id,'label_method_shippingrates1_shippingrates')]");
+			Sync.waitPageLoad();
+			//Sync.waitElementPresent("xpath", "//button[contains(@class,'continue primary')]");
+			//Common.clickElement("xpath", "//button[contains(@class,'continue primary')]");
+			ExtenantReportUtils.addPassLog("verifying Shipping Methods", "user select the Ground shipping method",
+					" selected the Ground shipping method", Common.getscreenShotPathforReport("faieldsshippingmethod"));
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying Shipping Methods", "user select the Ground shipping method",
+					"faield to select shippingmethod", Common.getscreenShotPathforReport("faieldsshippingmethod"));
+			AssertJUnit.fail();
+		}
+		}
 	public void PlaceorderButton() throws InterruptedException {
 		Thread.sleep(1000);
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
@@ -1009,7 +1032,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Apply Promocode on Checkout Page",
 					"Promocode Should be applied on Checkout Page", "Failed to apply Promocode",
 					Common.getscreenShotPathforReport("Promocode"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -1025,7 +1048,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying confirmation address", "user acceptance given address",
 					"faield to acceptance given address", Common.getscreenShotPathforReport("faieldcceptance"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -1101,7 +1124,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying Billing addres filling",
 					"user will fill the all the Billing address", "faield to add new billing address",
 					Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -1117,7 +1140,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying CreditCardbutton", "user click CreditCard ",
 					"faield to click CreditCard option", Common.getscreenShotPathforReport("creditfaeild"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -1166,7 +1189,7 @@ public class OxoHelper {
 				e.printStackTrace();
 				ExtenantReportUtils.addFailedLog("verifying Sign in link", "lands on sign popup",
 						"User failed lands on sign popup", Common.getscreenShotPathforReport("signpop"));
-				Assert.fail();
+				AssertJUnit.fail();
 
 			}
 			try {
@@ -1183,7 +1206,7 @@ public class OxoHelper {
 					ExtenantReportUtils.addFailedLog("verifying login page with fieldData",
 							"see the fields populated with the data", "User failed to proceed login form",
 							Common.getscreenShotPathforReport("logindata"));
-					Assert.fail();
+					AssertJUnit.fail();
 				}
 				try {
 					Thread.sleep(4000);
@@ -1203,14 +1226,14 @@ public class OxoHelper {
 						ExtenantReportUtils.addFailedLog("Validating UserName from Header on Home Page",
 								"User Should Failed Sign-In to User Account", "Failed to Sign-In to User Account",
 								Common.getscreenShotPathforReport("MyAccount"));
-						Assert.fail();
+						AssertJUnit.fail();
 					}
 				} catch (Exception | Error e) {
 					e.printStackTrace();
 					ExtenantReportUtils.addFailedLog("Validating UserName from Header on Home Page",
 							"User Should Failed Sign-In to User Account", "Failed to Sign-In to User Account",
 							Common.getscreenShotPathforReport("MyAccount"));
-					Assert.fail();
+					AssertJUnit.fail();
 
 				}
 
@@ -1218,7 +1241,7 @@ public class OxoHelper {
 				e.printStackTrace();
 				ExtenantReportUtils.addFailedLog("verifying login page", "lands on sign popup",
 						"User failed lands on sign popup", Common.getscreenShotPathforReport("signpoptt"));
-				Assert.fail();
+				AssertJUnit.fail();
 
 			}
 		}
@@ -1259,7 +1282,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying CreditCardType Dropdown",
 					"User should able select Credit card Type", "User failed to select CreditCard Type",
 					Common.getscreenShotPathforReport("CreditcardType"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -1281,7 +1304,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label",
 					"faield to click Credit Card option", Common.getscreenShotPathforReport("Cardinoption"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -1313,7 +1336,7 @@ public class OxoHelper {
 		ExtenantReportUtils.addFailedLog("validating the Credit Card infromation",
 				"credit card fields are filled with the data", "faield  to fill the Credit Card infromation",
 				Common.getscreenShotPathforReport("Cardinfromationfail"));
-		Assert.fail();
+		AssertJUnit.fail();
 	}
 		
 			
@@ -1344,7 +1367,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label",
 					"faield to click Credit Card option", Common.getscreenShotPathforReport("Cardinoption"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -1377,7 +1400,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the Credit Card infromation",
 					"credit card fields are filled with the data", "faield  to fill the Credit Card infromation",
 					Common.getscreenShotPathforReport("Cardinfromationfail"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -1394,7 +1417,7 @@ public class OxoHelper {
 		ExtenantReportUtils.addFailedLog("verifying invalid CC error message",
 				"enter with invalid CC data it must show error message", "faield to dispaly invalid CC errormessage",
 				Common.getscreenShotPathforReport("invalid CC data"));
-		Assert.fail();
+		AssertJUnit.fail();
 	}
 	}
 
@@ -1447,7 +1470,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying the paypal payment ", expectedResult,
 					"User failed to proceed with paypal payment", Common.getscreenShotPathforReport(expectedResult));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -1500,7 +1523,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying the paypal payment ", expectedResult,
 					"User failed to proceed with paypal payment", Common.getscreenShotPathforReport(expectedResult));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -1603,7 +1626,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying Sign in link", "lands on sign popup",
 					"User failed lands on sign popup", Common.getscreenShotPathforReport("signpopf"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -1632,7 +1655,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying forgetpassword option", "clcik the forget password option",
 					"User failed to clcik the forget password button",
 					Common.getscreenShotPathforReport("forgetpasswordbuttonfaield"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		/*
@@ -1667,7 +1690,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying forgetpassword email",
 					"clcik the forget password link in email", "User not getting EMail",
 					Common.getscreenShotPathforReport("emailFaield"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -1694,13 +1717,13 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of Product Registration Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation Product Registration");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation Product Registration");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
@@ -1739,7 +1762,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of ContactUS Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation ContactUS");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -1748,7 +1771,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of ContactUS Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation ContactUS");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
@@ -1785,12 +1808,12 @@ public class OxoHelper {
 				System.out.println("Expected text is not obtained");
 				ExtenantReportUtils.addFailedLog("Validating Webelement of FAQ Page",
 						"Expected text should not be obtained", "Expected text is not obtained", "LinkValidation FAQ");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of FAQ Page",
 					"Expected text should not be obtained", "Expected text is not obtained", "LinkValidation FAQ");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
@@ -1836,7 +1859,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of VoluntaryRecall Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation VoluntaryRecall");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -1845,7 +1868,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of VoluntaryRecall Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation VoluntaryRecall");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
 				"VoluntaryRecall URL should Contains https", "VoluntaryRecall URL contains https",
@@ -1883,7 +1906,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of PrivacyPolicy Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation PrivacyPolicy");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -1891,7 +1914,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of PrivacyPolicy Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation PrivacyPolicy");
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -1937,7 +1960,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of TermsandConditions Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation TermsandConditions");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -1946,7 +1969,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of TermsandConditions Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation TermsandConditions");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
@@ -1991,7 +2014,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of TrackOrder Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation TrackOrder");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -2000,7 +2023,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of TrackOrder Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation TrackOrder");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
 				"TrackOrder URL should Contains https", "TrackOrder URL contains https",
@@ -2046,7 +2069,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of ShippingInformation Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation ShippingInformation");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -2054,7 +2077,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of ShippingInformation Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation ShippingInformation");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
 				"ShippingInformation URL should Contains https", "ShippingInformation URL contains https",
@@ -2099,7 +2122,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of BetterGuarantee Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation BetterGuarantee");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -2108,7 +2131,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of BetterGuarantee Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation BetterGuarantee");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
 				"BetterGuarantee URL should Contains https", "BetterGuarantee URL contains https",
@@ -2157,7 +2180,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of GoodTipsBlog Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"GoodTipsBlog Product Registration");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -2166,7 +2189,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of GoodTipsBlog Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"GoodTipsBlog Product Registration");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Thread.sleep(2000);
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
@@ -2214,7 +2237,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of InventorSubmissions Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation InventorSubmissions");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -2222,7 +2245,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of InventorSubmissions Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation InventorSubmissions");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
 				"InventorSubmissions URL should Contains https", "InventorSubmissions URL contains https",
@@ -2271,7 +2294,7 @@ public class OxoHelper {
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation Careers");
 				Common.switchToFirstTab();
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -2279,7 +2302,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of Careers Page",
 					"Expected text should not be obtained", "Expected text is not obtained", "LinkValidation Careers");
 			Common.switchToFirstTab();
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Thread.sleep(2000);
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
@@ -2330,7 +2353,7 @@ public class OxoHelper {
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation InvestorRelations");
 				Common.switchToFirstTab();
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -2339,7 +2362,7 @@ public class OxoHelper {
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation InvestorRelations");
 			Common.switchToFirstTab();
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"), "Validating URL contains https",
@@ -2370,7 +2393,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying logoout", "user log from application",
 					"User failed to log out from aplication", Common.getscreenShotPathforReport("logoutfailed"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -2395,7 +2418,7 @@ public class OxoHelper {
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"Instagram LinkValidation");
 				Common.switchToFirstTab();
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -2448,7 +2471,7 @@ public class OxoHelper {
 		catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating  of YouTube Channel", "Expected text should not be obtained",
 					"Expected text is not obtained", "YouTube LinkValidation");
-			Assert.fail();
+			AssertJUnit.fail();
 			Common.switchToFirstTab();
 		}
 		// Assert.assertTrue(Common.getCurrentURL().contains("https"));
@@ -2488,7 +2511,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webtext of pinterest",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"pinterest LinkValidation");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -2496,7 +2519,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Validating Webtext of pinterest", "Expected text should not be obtained",
 					"Expected text is not obtained", "pinterest LinkValidation");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"),
 				"Validating pinterest URL which contains https", "This URL Contains https", "give url contains https",
@@ -2531,14 +2554,14 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of Twitter Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"Twitter LinkValidation");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
 		catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of Twitter Page",
 					"Expected text should not be obtained", "Expected text is not obtained", "Twitter LinkValidation");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(Common.getPageTitle());
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"),
@@ -2579,7 +2602,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of Facebook Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"Facebook LinkValidation");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		}
 
@@ -2588,7 +2611,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of Facebook Page",
 					"Expected text should not be obtained", "Expected text is not obtained", "Facebook LinkValidation");
 
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"),
@@ -2621,7 +2644,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying my account link", "lands on AccountPage",
 					"User failed lands on my accountpage", Common.getscreenShotPathforReport("account"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -2641,7 +2664,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my account option", "it open the my account Dashboard",
 					"it faield open the myaccount dashboard", Common.getscreenShot("faieldmyaccount"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2659,7 +2682,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating myaOrders option", "it open the myaOrders Dashboard",
 					"it faield open the myaOrders dashboard", Common.getscreenShot("faieldmyaOrders"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2696,7 +2719,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying logoout", "user log from application",
 					"User failed to log out from aplication", Common.getscreenShotPathforReport("logoutfailed"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -2718,7 +2741,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog page.", expectedResult,
 					"user failed to navigate GoodTipsBlog", Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -2737,7 +2760,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog sign button.", expectedResult,
 					"user failed to navigate GoodTipsBlog", Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2762,7 +2785,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("verifying login page with fieldData",
 						"see the fields populated with the data", "User failed to proceed login form",
 						Common.getscreenShotPathforReport("logindata"));
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -2770,7 +2793,7 @@ public class OxoHelper {
 		catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying login page", "lands on sign popup",
 					"User failed lands on sign popup", Common.getscreenShotPathforReport("signpoptt"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -2788,7 +2811,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying Create account button", "lands on the  Creating account",
 					"User failed lands Creating account popup", Common.getscreenShotPathforReport("creatnow"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		try {
 			// Sync.waitElementClickable("xpath", "//span[text()='Create
@@ -2815,7 +2838,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("verifying Createaccount up page with valid field data",
 						"see the fields populated with the data", "User failed to proceed Create account form",
 						Common.getscreenShotPathforReport("signupissuecr"));
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 			Common.actionsKeyPress(Keys.ESCAPE);
@@ -2825,7 +2848,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying sign up page to Create new account",
 					"Sign up popup with valid Data", "User failed to proceed Create account form ",
 					Common.getscreenShotPathforReport("signupissuecr"));
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 	}
@@ -2839,7 +2862,7 @@ public class OxoHelper {
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult, "user failed to navigate",
 					Common.getscreenShotPathforReport("failed to navigate categorypage"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		// Thread.sleep(3000);
@@ -2879,7 +2902,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying forgetpassword option", "clcik the forget password option",
 					"User failed to clcik the forget password button",
 					Common.getscreenShotPathforReport("forgetpasswordbuttonfaield"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2900,7 +2923,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying my account link", "lands on AccountPage",
 					"User failed lands on my accountpage", Common.getscreenShotPathforReport("account"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2919,7 +2942,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my account option", "it open the my account Dashboard",
 					"it faield open the myaccount dashboard", Common.getscreenShot("faieldmyaccount"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2936,7 +2959,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating myaOrders option", "it open the myaOrders Dashboard",
 					"it faield open the myaOrders dashboard", Common.getscreenShot("faieldmyaOrders"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2952,7 +2975,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my wishlist option", "it open the my wishlist Dashboard",
 					"it faield open the my wishlist dashboard", Common.getscreenShot("faieldmywishlist"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -2968,7 +2991,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my AddressBook option", "it open the AddressBook Dashboard",
 					"it faield open the AddressBook dashboard", Common.getscreenShot("faieldAddressBook"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3028,7 +3051,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my AddressBook option", "it open the AddressBook Dashboard",
 					"it faield open the AddressBook dashboard", Common.getscreenShot("faieldAddressBook"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3044,7 +3067,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating My Information option", "it open the My Information Dashboard",
 					"it faield open the My Information dashboard", Common.getscreenShot("faieldMy Information"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3057,7 +3080,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating My Information option", "it open the My Information Dashboard",
 					"it faield open the My Information dashboard", Common.getscreenShot("faieldMy Information"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -3085,7 +3108,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Validating My Information option", "it open the My Information Dashboard",
 					"it faield open the My Information dashboard", Common.getscreenShot("faieldMy Information"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3109,13 +3132,13 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of Product Registration Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation Product Registration");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation Product Registration");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		try {
 			Thread.sleep(4000);
@@ -3158,7 +3181,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation Product Registration");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3185,7 +3208,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying error message ForgotPasswordPage",
 					"enter with empty data it must show error message", "faield to dispalyerrormessage",
 					Common.getscreenShotPathforReport("loginpagevalidation"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3204,7 +3227,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying Create Account button",
 					"It should lands on Create New Customer from Account form Page",
 					"user faield lands on Account form Page", Common.getscreenShotPathforReport("createaccount"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		try {
 
@@ -3228,7 +3251,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying error message signpage",
 					"enter with empty data it must show error message", "faield to dispalyerrormessage",
 					Common.getscreenShotPathforReport("loginpagevalidation"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3249,7 +3272,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying my account link", "lands on AccountPage",
 					"User failed lands on my accountpage", Common.getscreenShotPathforReport("account"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3268,7 +3291,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my account option", "it open the my account Dashboard",
 					"it faield open the myaccount dashboard", Common.getscreenShot("faieldmyaccount"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3285,7 +3308,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating myaOrders option", "it open the myaOrders Dashboard",
 					"it faield open the myaOrders dashboard", Common.getscreenShot("faieldmyaOrders"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3301,7 +3324,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my wishlist option", "it open the my wishlist Dashboard",
 					"it faield open the my wishlist dashboard", Common.getscreenShot("faieldmywishlist"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3317,7 +3340,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my AddressBook option", "it open the AddressBook Dashboard",
 					"it faield open the AddressBook dashboard", Common.getscreenShot("faieldAddressBook"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3378,7 +3401,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating my AddressBook option", "it open the AddressBook Dashboard",
 					"it faield open the AddressBook dashboard", Common.getscreenShot("faieldAddressBook"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3394,7 +3417,7 @@ public class OxoHelper {
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating My Information option", "it open the My Information Dashboard",
 					"it faield open the My Information dashboard", Common.getscreenShot("faieldMy Information"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3421,7 +3444,7 @@ public class OxoHelper {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Validating My Information option", "it open the My Information Dashboard",
 					"it faield open the My Information dashboard", Common.getscreenShot("faieldMy Information"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3452,7 +3475,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validation of NewLetterSubscription",
 					"NewLetterSubscription Should be successfull", "Successfully Subscribed for NewLetter",
 					Common.getscreenShotPathforReport("NewLetterSubscription"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3478,13 +3501,13 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of Voluntary Recall Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation VoluntaryRecall");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 		} catch (Exception e) {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of Voluntary Recall Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation VoluntaryRecall");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		try {
@@ -3510,7 +3533,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating  of Voluntary Recall Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation  Voluntary Recall");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -3538,7 +3561,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("validating the category page.", expectedResult,
 					"user faield to navigate Baby Toddler category",
 					Common.getscreenShotPathforReport("faield to navgate categorypage"));
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
 
@@ -3568,7 +3591,7 @@ public class OxoHelper {
 				ExtenantReportUtils.addFailedLog("Validating Webelement of TrackOrder Page",
 						"Expected text should not be obtained", "Expected text is not obtained",
 						"LinkValidation TrackOrder");
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -3577,7 +3600,7 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("Validating Webelement of TrackOrder Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation TrackOrder");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		try {
@@ -3599,10 +3622,210 @@ public class OxoHelper {
 			ExtenantReportUtils.addFailedLog("verifying TrackOrder Status message",
 					"TrackOrder Status should not be obtained", "TrackOrder Status is not obtained",
 					"TrackOrder Status");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 	}
+	public void fottorValidations_Help(String dataSet) throws Exception{
+		//Thread.sleep(3000);
+		Sync.waitPageLoad();
+		
+		Common.actionsKeyPress(Keys.END);
+		String Hederlinks=data.get(dataSet).get("Help");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+			Thread.sleep(3000);
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//a[text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+		
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.actionsKeyPress(Keys.END);
+			
+			
+			if (hedrs[i].contains("Product Recall")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Product Recall"), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			}
+			else if (hedrs[i].contains("Terms and Conditions")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Terms and Conditions"), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			}
+			}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
 
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			AssertJUnit.fail();
+
+		}
+	}
+	public void Add_product_to_Wishlist_PLP() {
+		
+		try {
+			Thread.sleep(4000);
+
+			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15184']");
+			Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15184']");
+			Sync.waitElementClickable("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
+			Common.clickElement("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
+			Thread.sleep(3000);
+			Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[1]");
+			Common.clickElement("xpath", "(//a[@class='action towishlist'])[1]");
+			Thread.sleep(4000);
+			//int message=Common.findElements("xpath", "(//div[@class='message-success success message'])").size();
+
+			 //Common.assertionCheckwithReport(message>0, "To verify the product added to My Wishlist", "Should add product to  My wishlist page","Product sucessfully added to My wishlist", "faield to add product to Wishlist");
+			ExtenantReportUtils.addPassLog("To verify the product added to My Wishlist", "Should add product to wishlist", "Product sucessfully added to My wishlist", Common.getscreenShotPathforReport("Product added to wish list sucessfully"));
+			Common.clickElement("xpath", "//img[@title='OXO']");
+		}
+		
+		catch(Exception |Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("To verify the  the PDP Page with out of stock","Should land on ou of stock PDP page", "user unable to land on PDP page", Common.getscreenShotPathforReport("failed to land on out of stock PDP page"));			
+			AssertJUnit.fail();	
+			}
+		
+	}
+public void Add_product_to_Wishlist_PDP() {
+		
+		try {
+			Sync.waitPageLoad();
+			Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
+			Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
+			Thread.sleep(4000);
+			//int message=Common.findElements("xpath", "(//div[@class='message-success success message'])").size();
+
+			 //Common.assertionCheckwithReport(message>0, "To verify the product added to My Wishlist", "Should add product to  My wishlist page","Product sucessfully added to My wishlist", "faield to add product to Wishlist");
+			ExtenantReportUtils.addPassLog("To verify the product added to My Wishlist", "Product should add to wishlist in PDP", "Product sucessfully added to wish list", Common.getscreenShotPathforReport("Product is added to wish list in PDP"));
+		}
+		
+		catch(Exception |Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("To verify the  the PDP Page with out of stock","Should land on ou of stock PDP page", "user unable to land on PDP page", Common.getscreenShotPathforReport("failed to land on out of stock PDP page"));			
+			AssertJUnit.fail();	
+			}
+		
+	}
+public void remove_from_wishlist() throws Exception {
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "//img[@title='OXO']");
+	Sync.waitElementPresent("xpath", "(//li[@class='link wishlist'])[1]");
+	Common.clickElement("xpath", "(//li[@class='link wishlist'])[1]");
+	Sync.waitPageLoad();
+	Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])[7]");
+	Common.clickElement("xpath", "(//a[@title='Remove Item'])[7]");
+	Sync.waitPageLoad();
+	Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])[6]");
+	Common.clickElement("xpath", "(//a[@title='Remove Item'])[6]");
+	
+	
+}
+	public void Tax()throws Exception {
+		Sync.waitPageLoad();
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		/*WebElement a;
+		WebElement b;
+		float c,total,tax;
+		a=Common.findElement("xpath", "(//span[text()='$29.99'])[3]");
+		b=Common.findElement("xpath", "(//span[text()='$22.17'])[1]");
+		c=a+b;*/
+		float a= ParseFloat(Common.findElement("xpath", "//span[@data-th='Cart Subtotal']"));
+		float b= PraseFloat(Common.findElement("xpath", "//span[@data-th='Shipping']"));
+		float c= a+b;
+		System.out.println(c);
+		
+	}
+
+	private float PraseFloat(WebElement findElement) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private float ParseFloat(WebElement findElement) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private float Prase2(WebElement findElement) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private float Parse(WebElement findElement) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public void Header_Link(String dataSet) throws InterruptedException {
+		//Thread.sleep(3000);
+		Sync.waitPageLoad();
+		//Common.actionsKeyPress(Keys.END);
+		//Common.mouseOver("xpath", "(//img[@alt='Cooking & Baking'])[1]");
+		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+		//Common.clickElement("xpath", "(//img[@alt='Cooking & Baking'])[1]");
+		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+		String Hederlinks=data.get(dataSet).get("Cookin & Baking");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//a[text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			//Common.actionsKeyPress(Keys.END);
+			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			Assert.fail();
+
+		}
+	}
+	public void Heade_Beverage(String dataSet) throws InterruptedException {
+		Sync.waitPageLoad();
+		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[2]");
+		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[2]");
+		String Hederlinks=data.get(dataSet).get("Beverage");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//a[text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[2]");
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			Assert.fail();
+
+		}
+		if (hedrs[i].contains("Beverage ")){
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			
+		}
+	}
+		
+	
 	public OxoHelper(String datafile) {
 		excelData = new ExcelReader(datafile);
 		data = excelData.getExcelValue();
