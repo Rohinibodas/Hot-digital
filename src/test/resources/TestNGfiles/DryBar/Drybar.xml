@@ -1,58 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="drybar Suite">
+<suite name="Drybar Suite">
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
     
-    <test name="Test_DB_ST_001-Create Account iPhone X" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar website">
+     <!--  <test name="Test_DB_ST_001_Createaccount" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar website">
        <classes>
-            <class name="TestExecute.DryBar.Createaccount"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_001_Createaccount"/>
         </classes>
         </test>
         
-         <test name="Test_DB_ST_002-Registered user Checkout with Paymetric Payment Method" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout CreditCard drybar">
+          <test name="Test_DB_ST_002-Registered user Checkout with Visa Credit Card" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard drybar">
        <classes>
-            <class name="TestExecute.DryBar.RegisteredUser_Checkout_CreditCard"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_002_RegisteredUser_Checkout_visa_CreditCard"/>
         </classes>
         </test>
         
         
-      <test name="TEST_DB_ST_003-Guest Checkout with CreditCard" testid="DRY-21" priority="P1" description="This script will cover guest user order product using Credi card in drybar">
+        <test name="TEST_DB_ST_003-Guest Checkout with CreditCard" testid="DRY-21" priority="P1" description="This script will cover guestuser order product using Credit card in drybar">
         <classes>
-            <class name="TestExecute.DryBar.Guest_Checkout_CreditCard"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_003_Guest_Checkout_CreditCard"/>
         </classes>
         </test>
         
-        
-        
-     <test name="Test_DB_ST_008-Cart Page Validation " testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website">
+     <test name="Test_DB_ST_004_Cart_page_Validation" testid="DRY-23" priority="P1" description="To Verify Cart Page functionality in Darbar website">
         <classes>
-            <class name="TestExecute.DryBar.VerifyingMiniCartPage"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_004_Cart_page_Validation"/>
         </classes>
         </test>
-      <test name="Test_DB_ST_013-Guest user Checkout with Invalid Credit card " testid="DRY-26" priority="P1" description="To Verify the Guest User Checkout with invalid CC Data functionality in Daybar">
+      <test name="Test_DB_ST_005-Guest user Checkout with Invalid Credit card " testid="DRY-26" priority="P1" description="To Verify the Guest User Checkout with invalid CC Data functionality in Daybar">
         <classes>
-            <class name="TestExecute.DryBar.GuestCheckoutwith_invalid_CC_Credentials"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_005_GuestCheckoutwith_invalid_CC_Credentials"/>
         </classes>
     </test>
     
-     <test name="Test_DB_ST_014-Registered Checkout with Invalid Creditcard" testid="DRY-25" priority="P1" description="To Verify the Registered User Checkout with invalid CC Data functionality in Daybar">
+     <test name="Test_DB_ST_006-Registered Checkout with Invalid Creditcard" testid="DRY-25" priority="P1" description="To Verify the Registered User Checkout with invalid CC Data functionality in Daybar">
         <classes>
-            <class name="TestExecute.DryBar.RegisteredUserCheckoutwith_invalid_CC_Credentials"/>
-        </classes>
-    </test>
-    
-    
-       <test name="Test_DB_ST_015-Apply Gift Card on Checkout Page" testid="DRY-34" priority="P1" description="To Verify the Checkout with applying Gift Card functionality in Daybar">
-        <classes>
-            <class name="TestExecute.DryBar.ApplyGiftCardonCheckoutPage"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_006_RegisteredUserCheckoutwith_invalid_CC_Credentials"/>
         </classes>
     </test>
     
     
-      <test name="Test_DB_ST_016-Apply Offer Code on Checkout Page" testid="DRY-33" priority="P1" description="To Verify the Checkout with applying Offer Code functionality in Daybar">
+       <test name="Test_DB_ST_007-Apply Gift Card on Checkout Page" testid="DRY-34" priority="P1" description="To Verify the Checkout with applying Gift Card functionality in Daybar">
         <classes>
-            <class name="TestExecute.DryBar.ApplyOfferCodeonCheckoutPage"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_007_ApplyGiftCardonCheckoutPage"/>
+        </classes>
+    </test>
+    
+    
+      <test name="Test_DB_ST_008-Apply Offer Code on Checkout Page" testid="DRY-33" priority="P1" description="To Verify the Checkout with applying Offer Code functionality in Daybar">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_008_ApplyOfferCodeonCheckoutPage"/>
         </classes>
     </test>
     
@@ -60,21 +58,207 @@
     
     
     
-    <test name="TEST_DB_ST_018-Verify Forgot Password page validation" testid="DRY-38" priority="P1" description="This Test case is to Verify Forgot Password page validation in Drybar">
+   <test name="TEST_DB_ST_009-Verify Forgot Password page validation" testid="DRY-38" priority="P1" description="This Test case is to Verify Forgot Password page validation in Drybar">
         <classes>
-            <class name="TestExecute.DryBar.Verify_ForgotPassword_page_validation"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_009_Verify_ForgotPassword_page_validation"/>
         </classes>
     </test>
     
     
-     	 <test name="TEST_DB_ST_0017-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
+     	 <test name="TEST_DB_ST_010-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
         <classes>
-            <class name="TestExecute.DryBar.ForgotPassword"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_010_ForgotPassword"/>
+        </classes>
+    </test>  
+    
+      <test name="Test_DB_ST_011-Verification of Footerlinks" testid="DRY-46" priority="P1" description="This Test case is to verify Drybar Footerlinks.">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_011_validation_0f_Footerlinks"/>
         </classes>
     </test>
-     <test name="Test_DB_ST_010-Header Validation" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user.">
+     <test name="Test_DB_ST_012-Header Validation" testid="DRY-40" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user.">
         <classes>
-            <class name="TestExecute.DryBar.ValidatingHeaderLinks"/>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_012_ValidatingHeaderLinks"/>
         </classes>
     </test>
-  </suite>
+    
+     <test name="Test_DB_ST_013-Communication preferences subscription" testid="DRY-552" priority="P1" description="This Test case is to verify communication preferences subscription functionality.">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_013_Communication_preferences_subscription"/>
+        </classes>
+    </test>
+    
+    <test name="Test_DB_ST_014-Registered user Checkout with Amex paymetric Method" testid="DRY-556" priority="P1" description="This script will cover RegisteredUser Checkout with Amex CreditCard drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_014_RegisteredUser_Checkout_Amex_CreditCard"/>
+        </classes>
+        </test>
+        
+          <test name="Test_DB_ST_015-Registered user Checkout with Mastercard paymetric Method" testid="DRY-557" priority="P1" description="This script will cover RegisteredUser Checkout with Master CreditCard drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_015_RegisteredUser_Checkout_master_CreditCard"/>
+        </classes>
+        </test>
+         
+    <test name="Test_DB_ST_016-Registered user Checkout with Discover paymetric Method" testid="DRY-558" priority="P1" description="This script will cover RegisteredUser Checkout with Discover CreditCard drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_016_RegisteredUser_Checkout_Discover_CreditCard"/>
+        </classes>
+        </test>
+        
+         
+        
+          <test name="Test_DB_ST_017-Validate Expedited shipping method" testid="DRY-560" priority="P1" description="This script will cover Expedited shipping method of Drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_017_Expedited_shipping_method_checkout"/>
+        </classes>
+        </test>
+        
+         <test name="Test_DB_ST_018-Validate Express shipping method" testid="DRY-561" priority="P1" description="This script will cover Express shipping method of Drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_018_Express_shipping_method_checkout"/>
+        </classes>
+        </test>
+        
+      
+        <test name="Test_DB_ST_019-Verification of Product Review Functionality" testid="DRY-638" priority="P1" description="This Test case is to verify the Product Review Functionality.">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_019_Product_Review"/>
+        </classes>
+    </test>
+    <test name="Test_DB_ST_020-Verification of Product Wishlist Functionality" testid="DRY-639" priority="P1" description="This Test case is to verify the Product wishlist Functionality.">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_020_Product_Wishlist"/>
+        </classes>
+    </test>
+     <test name="Test_DB_ST_021_Change_Email_of_Registereduser" testid="DRY-640" priority="P1" description="This Test case is to change the Email Address of Registereduser">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_021_Change_Email_of_Registereduser"/>
+        </classes>
+    </test>
+    
+    <test name="Test_DB_ST_022_Change_Password_of_Registereduser" testid="DRY-641" priority="P1" description="This Test case is to change the Password of Registereduser">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_022_Change_Password_of_Registereduser"/>
+        </classes>
+    </test>
+     <test name="Test_DB_ST_023_Add_NewAddress" testid="DRY-642" priority="P1" description="This Test case is to add new address in Addressbook page">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_023_Add_NewAddress"/>
+        </classes>
+    </test>
+     <test name="Test_DB_ST_024_Order_Verification" testid="DRY-643" priority="P1" description="This Test case is to verify ordered id with Myorders order id">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_024_OrderID_Verification"/>
+        </classes>
+    </test>-->
+    
+      <test name="Test_DB_ST_025_Articlelinks_validations" testid="DRY-757" priority="P1" description="This Test case is to verify Article links in Homepage">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_025_Articlelinks_validations"/>
+        </classes>
+    </test>
+    
+    <test name="Test_DB_ST_026_PrivacyPolicy_TermsOfUse" testid="DRY-758" priority="P1" description="This Test case is to verify Privacy policy and Terms of use pages">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_026_PrivacyPolicy_TermsOfUse"/>
+        </classes>
+    </test>
+    
+     <test name="Test_DB_ST_027_Change_product_Quantity" testid="DRY-758" priority="P1" description="This Test case is to used to Change the Quantity of Product in PDP">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_027_Change_product_Quantity"/>
+        </classes>
+    </test>
+    
+    <test name="Test_DB_ST_028_Sort_options_in_PLP" testid="DRY-775" priority="P1" description="This Test case is to used to change/verify the sort options in PLP">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_028_Validation_of_Sort_options_in_PLP"/>
+        </classes>
+    </test>  
+    
+    <test name="Test_DB_ST_029_Validation_of_How_To_Use_Functionality" testid="DRY-781" priority="P1" description="This Test case is to used to verify the how to use step by step button  in PDP">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_029_Validation_of_How_To_Use_Functionality"/>
+        </classes>
+    </test> 
+    
+     <test name="Test_DB_ST_030_Product_Back_in_Stock_Subscription" testid="DRY-782" priority="P1" description="This Test case is to used to Subscribe for Product back in Stock alert Message">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_030_Product_Back_in_Stock_Subscription"/>
+        </classes>
+    </test> 
+    
+     <test name="Test_DB_ST_031_ValidatingHeaderLinks_RegisteredUser" testid="DRY-805" priority="P1" description="This Test case is to used to validate the headerlinks for Registered User">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_031_ValidatingHeaderLinks_RegisteredUser"/>
+        </classes>
+    </test>
+    
+     <test name="Test_DB_ST_032_Megamenu_Navigations" testid="DRY-806" priority="P1" description="This Test case is to used to navigate for Sub-categorties of Megamenu">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_032_Megamenu_Navigations"/>
+        </classes>
+    </test>
+    
+    <test name="Test_DB_ST_033_Add_to_cart_from_PLP" testid="DRY-808" priority="P1" description="This Test case is to used to Add the product from PLP">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_033_Add_to_cart_from_PLP"/>
+        </classes>
+    </test>
+    
+     <test name="Test_DB_ST_034_Validation_of_Category_listingpage" testid="DRY-807" priority="P1" description="This Test case is to used to Validate the Category list of Hearlinks">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_034_Validation_of_Category_listingpage"/>
+        </classes>
+    </test>
+        
+        <test name="Test_DB_ST_035_Email_To_A_Friend" testid="DRY-850" priority="P1" description="This Test case is to used to share the product through an Email">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_035_Email_To_A_Friend"/>
+        </classes>
+    </test>
+        
+    
+    <!--  <test name="Test_DB_MT_001-Guest user verification of PDP" testid="DRY-288" priority="P1" description="This Test case is to verify Drybar PDP Page functionality for Guestuser.">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.DB_MT_001_Guest_user_verificationofpdp"/>
+        </classes>
+    </test>
+    
+        <test name="Test_DB_MT_002-Verification of out of stock product" testid="DRY-289" priority="P1" description="This Test case is to verify Drybar PDP page with out of stock product.">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.DB_MT_002_PDP_For_OutofStock"/>
+        </classes>
+    </test>
+    
+    <test name="Test_DB_MT_003-Registereduser verification of PDP" testid="DRY-290" priority="P1" description="This Test case is to verify Drybar PDP Page functionality for Loginuser.">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.DB_MT_003_Registereduser_verificationOf_PDP"/>
+        </classes>
+    </test>
+    
+    
+    
+     <test name="Test_DB_MT_004-Verification of Search Functionality" testid="DRY-292" priority="P1" description="This Test case is to verify Drybar Search Function.">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.DB_MT_004_Searchproduct"/>
+        </classes>
+    </test>
+    
+    <test name="Test_DB_MT_005-Verification My account page functionalities" testid="DRY-439" priority="P1" description="This Test case is to verify My account page functionalities navigations.">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.DB_MT_005_Validate_My_Account_Navigation"/>
+        </classes>
+    </test>-->
+    
+     <test name="Test_DB_MT_006_Add_to_cart_from_Homepage" testid="DRY-809" priority="P1" description="This Test case is used to add the product to the bag from Homepage">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.DB_MT_006_Add_to_cart_from_Homepage"/>
+        </classes>
+    </test>
+    
+   
+    </suite>
+    
+ 

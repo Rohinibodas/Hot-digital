@@ -118,11 +118,475 @@ public void clickHairProducts(){
 	try{
 		Sync.waitElementPresent("xpath", "//span[text()='Hair Products']");
 	Common.clickElement("xpath", "//span[text()='Hair Products']");
-	Common.assertionCheckwithReport(Common.getPageTitle().equals("Hair Products Drybar | Drybar"), "verifying Hair Product category","User navigate to hair product page","user successfully open the Hair Category page", "user faield to click the Hair Product");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Hair Products | Drybar"), "verifying Hair Product category","User navigate to hair product page","user successfully open the Hair Category page", "user faield to click the Hair Product");
 }
 	catch(Exception |Error e) {
 	     
 			ExtenantReportUtils.addFailedLog("verifying Hair Product category", "User navigate to hair product page", "user faield to click the Hair Product", Common.getscreenShotPathforReport("hairproduct"));
+			Assert.fail();
+		}
+	
+}
+
+public void Hair_ProductsMegamenuValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "(//span[contains(text(),'Hair Products')])[1]");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])");
+		Common.clickElement("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "(//span[contains(text(),'Hair Products')])[1]");	
+	}
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Hair_ToolsMegamenuValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "(//span[contains(text(),'Hair Tools')])");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])");
+		Common.clickElement("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "(//span[contains(text(),'Hair Tools')])[1]");	
+	}
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Benefits_MegamenuValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "(//span[contains(text(),'Benefits')])");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])[1]");
+		Common.clickElement("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])[1]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "(//span[contains(text(),'Benefits')])");	
+	}
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Gifts_MegamenuValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "(//span[contains(text(),'Gifts')])[1]");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])[1]");
+		Common.clickElement("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])[1]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "(//span[contains(text(),'Gifts')])[1]");	
+	}
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Inspo_MegamenuValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "(//span[contains(text(),'How To & Inspo')])");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])[1]");
+		Common.clickElement("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])[1]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "(//span[contains(text(),'How To & Inspo')])");	
+	}
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void New_MegamenuValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "(//span[contains(text(),'New')])");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//a[contains(text(),'"+hedrs[i]+"')])[1]");
+		Common.clickElement("xpath", "(//a[contains(text(),'"+hedrs[i]+"')])[1]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "(//span[contains(text(),'New')])");	
+	}
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+	
+	
+
+	
+public void SelectShampoos(){
+	try{
+		Thread.sleep(5000);
+		Sync.waitElementPresent("xpath", "(//li[@class=\"item category-item\"])[7]");
+	Common.clickElement("xpath", "(//li[@class=\"item category-item\"])[7]");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Shampoos - Sulfate-Free Shampoo & Hair Products | Drybar"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			ExtenantReportUtils.addFailedLog("verifying Hair Product category", "User navigate to hair product page", "user faield to click the Hair Product", Common.getscreenShotPathforReport("hairproduct"));
+			Assert.fail();
+		}
+	
+}
+
+public void Hair_Products_CategoryValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "(//span[contains(text(),'Hair Products')])[1]");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Common.clickElement("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.clickElement("xpath", "(//span[contains(text(),'Hair Products')])[1]");	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Hair_Tools_CategoryValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "(//span[contains(text(),'Hair Tools')])[1]");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Common.clickElement("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.clickElement("xpath", "(//span[contains(text(),'Hair Tools')])[1]");	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Benefits_CategoryValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "(//span[contains(text(),'Benefits')])[1]");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Common.clickElement("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.clickElement("xpath", "(//span[contains(text(),'Benefits')])[1]");	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Gifts_CategoryValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "(//span[contains(text(),'Gifts & Kits')])[1]");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Common.clickElement("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.clickElement("xpath", "(//span[contains(text(),'Gifts & Kits')])[1]");	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+public void Inspo_CategoryValidations(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "(//span[contains(text(),'How To & Inspo')])[1]");
+	
+	String Hederlinks2=data.get(dataSet).get("Megamenu");
+	String[] hedrs=Hederlinks2.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Common.clickElement("xpath", "(//div[contains(text(),'"+hedrs[i]+"')])[2]");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.clickElement("xpath", "(//span[contains(text(),'How To & Inspo')])[1]");	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+
+
+
+public void Select_sort(String dataSet){
+	
+	
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("id", "sorter");
+		Common.dropdown("id", "sorter", Common.SelectBy.TEXT, data.get(dataSet).get("Most Viewed"));
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("verifying Most Viewed sort option", "User should select Most Viewed sort", "user faield to Select the Most Viewed sort option", Common.getscreenShotPathforReport("Most Viewed"));
+		
+	 // Common.assertionCheckwithReport(name.equals("Blonde Ale Brightening Shampoo"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			ExtenantReportUtils.addFailedLog("verifying  Most Viewed sort option", "User should  select Most Viewed sort option", "user faield to Select the Most Viewed Sort option", Common.getscreenShotPathforReport("Most Viewed"));
+			Assert.fail();
+		}
+	
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("id", "sorter");
+		Common.dropdown("id", "sorter", Common.SelectBy.TEXT, data.get(dataSet).get("Top Rated"));
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("verifying Top Rated sort option", "User should select Top Rated sort", "user faield to Select the Top Rated sort option", Common.getscreenShotPathforReport("Top Rated"));
+		
+	 // Common.assertionCheckwithReport(name.equals("Blonde Ale Brightening Shampoo"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			ExtenantReportUtils.addFailedLog("verifying Top Rated sort option", "User should  select Top Rated sort option", "user faield to Select the Top Rated Sort option", Common.getscreenShotPathforReport("Top Rated"));
+			Assert.fail();
+		}
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("id", "sorter");
+		Common.dropdown("id", "sorter", Common.SelectBy.TEXT, data.get(dataSet).get("New"));
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("verifying New sort option", "User should select New sort", "user faield to Select the New sort option", Common.getscreenShotPathforReport("New"));
+		
+	 // Common.assertionCheckwithReport(name.equals("Blonde Ale Brightening Shampoo"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			ExtenantReportUtils.addFailedLog("verifying New sort option", "User should  select New sort option", "user faield to Select the  New Sort option", Common.getscreenShotPathforReport("New"));
+			Assert.fail();
+		}
+	
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("id", "sorter");
+		Common.dropdown("id", "sorter", Common.SelectBy.TEXT, data.get(dataSet).get("low to high"));
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("verifying low to high sort option", "User should select low to high sort", "user faield to Select the low to high sort option", Common.getscreenShotPathforReport("low to high"));
+		
+	 // Common.assertionCheckwithReport(name.equals("Blonde Ale Brightening Shampoo"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			ExtenantReportUtils.addFailedLog("verifying low to high sort option", "User should  select low to high sort option", "user faield to Select the low to high Sort option", Common.getscreenShotPathforReport("low to high"));
+			Assert.fail();
+		}
+	
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("id", "sorter");
+		Common.dropdown("id", "sorter", Common.SelectBy.TEXT, data.get(dataSet).get("high to low"));
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("verifying high to low sort option", "User should select high to low sort", "user faield to Select the high to low sort option", Common.getscreenShotPathforReport("high to low"));
+		
+	 // Common.assertionCheckwithReport(name.equals("Blonde Ale Brightening Shampoo"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			ExtenantReportUtils.addFailedLog("verifying high to low sort option", "User should  select high to low sort option", "user faield to Select the high to low Sort option", Common.getscreenShotPathforReport("high to low"));
+			Assert.fail();
+		}
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("id", "sorter");
+		Common.dropdown("id", "sorter", Common.SelectBy.TEXT, data.get(dataSet).get("Best Sellers"));
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("verifying Best Sellers sort option", "User should select Best Sellers sort", "user faield to Select the best sellers sort option", Common.getscreenShotPathforReport("Best Sellers"));
+		
+	 // Common.assertionCheckwithReport(name.equals("Blonde Ale Brightening Shampoo"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			ExtenantReportUtils.addFailedLog("verifying Best Sellers sort option", "User should  select Best sellers sort option", "user faield to Select the best sellers Sort option", Common.getscreenShotPathforReport("Best Sellers"));
+			Assert.fail();
+		}
+	
+}
+public void Selectproduct(){
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("xpath", "(//a[@class='product-item-link'])[1]");
+	Common.clickElement("xpath", "(//a[@class='product-item-link'])[1]");
+	//Common.assertionCheckwithReport(Common.getPageTitle().equals("Shampoos - Sulfate-Free Shampoo & Hair Products | Drybar"), "verifying Hair Product sub-category","User navigate to hair product sub-category page","user successfully open the Hair sub-Category page", "user faield to click the Hair Product sub-category");
+}
+	catch(Exception |Error e) {
+	     
+			//ExtenantReportUtils.addFailedLog("verifying Hair Product category", "User navigate to hair product page", "user faield to click the Hair Product", Common.getscreenShotPathforReport("hairproduct"));
 			Assert.fail();
 		}
 	
@@ -180,6 +644,35 @@ public void clickAddtoBag() throws Exception{
 	}
 	
 }
+public void How_To_Use() throws Exception{
+	try{
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("To view How to step by step button","Should display How to step by step button ", "user unable to view How to step by step button", Common.getscreenShotPathforReport("How to step by step button"));			
+		
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To verify the warranty footer link","Should navigate to warranty footerlink page", "userunable to  navigate to warranty foterlink", Common.getscreenShotPathforReport("failed to "));			
+		Assert.fail();	
+		}
+	
+	
+	try {
+		
+		//Sync.waitPageLoad();
+		//Sync.waitElementPresent("xpath", "(//span[contains(text(),'contact@drybar.com')])");
+		Common.clickElement("xpath", "(//button[@data-action='show-how-to'])");
+		//Common.switchToSecondTab();
+		//Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("To verify the How to use step by step Functionality","Should diaply How to use pop-up page", "user unable to  navigate to  How to Use pop-up page", Common.getscreenShotPathforReport("failed to land on How to Use pop-up page"));			
+		
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the How to use step by step Functionality ","should land on How to Use pop-up page", "user unable to navigate to How to Use pop-up page", Common.getscreenShotPathforReport("failed to land on How to Use pop-up page"));			
+			Assert.fail();	
+			}
+		}
+		
+
 
 public void clickminiCartButton() throws Exception{
 	try{
@@ -220,8 +713,12 @@ catch(Exception |Error e) {
 
 public void clickCheckoutButton(){
 	try{
-		Thread.sleep(3000);
+		Thread.sleep(6000);
+		//Common.actionsKeyPress(Keys.PAGE_DOWN);
+		//Common.actionsKeyPress(Keys.PAGE_DOWN);
+		//Sync.scrollSideToView("xpath", "(//button[@class='action primary checkout'])");
 	 Sync.waitElementPresent("xpath", "(//button[@class='action primary checkout'])");
+	 Thread.sleep(4000);
 	   Common.findElement("xpath", "(//button[@class='action primary checkout'])").click();
 	   
 	  //Common.assertionCheckwithReport(checkoutbuttonSize>0, "verifying mini cart button", "User click mini cart button", "user successfully click mini cart button", "Failed click mini cart button");
@@ -284,11 +781,12 @@ public void guestShippingAddress(String dataSet) throws Exception{
 	
 	Sync.waitElementPresent("xpath", "//input[@name='telephone']");
 	Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(dataSet).get("phone"));
-	
+	Thread.sleep(7000);
 	select_USPS_StandardGround_shippingMethod();
-    Thread.sleep(5000);
-	
-	Common.clickElement("xpath","//span[text()='Next']");
+    Thread.sleep(10000);
+    //click_Next();
+    Sync.waitElementPresent("xpath", "(//span[contains(text(),'Next')])[2]");
+	Common.mouseOverClick("xpath","(//span[contains(text(),'Next')])[2]");
 	//div[contains(@class,'error')]
 	Sync.waitPageLoad();
 	int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
@@ -392,12 +890,15 @@ try{
      	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='lastname']",data.get(dataSet).get("LastName"));
      	Sync.waitElementPresent("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='firstname']");
      	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='firstname']",data.get(dataSet).get("FirstName"));
-     	Sync.waitElementPresent("xp	ath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='company']");
+     	Sync.waitElementPresent("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='company']");
      	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='company']",data.get(dataSet).get("CompanyName"));
      	Sync.waitElementPresent("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='street[0]']");
      	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='street[0]']", data.get(dataSet).get("Street"));
-     	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='city']", data.get(dataSet).get("City"));
      	Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+     	Thread.sleep(4000);
+     	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='city']", data.get(dataSet).get("City"));
+     	//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+     	//Thread.sleep(4000);
      	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='postcode']", data.get(dataSet).get("postcode"));
      	Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='telephone']", data.get(dataSet).get("phone"));
      	Common.actionsKeyPress(Keys.PAGE_DOWN);
@@ -433,6 +934,7 @@ try{
 			
 			
 			//td[text()='USPS - Standard Ground']
+			
 			
 			Sync.waitElementPresent("xpath", "//input[@id='s_method_tablerate_bestway']");
 		    Common.clickElement("xpath", "//input[@id='s_method_tablerate_bestway']");
@@ -472,6 +974,7 @@ public void creditCard_payment(String dataSet) throws Exception{
 	try{
 	
 	Thread.sleep(2000);
+	//Common.refreshpage();
 	Common.switchFrames("id", "paymetric_xisecure_frame");
 	Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
 	Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
@@ -483,7 +986,8 @@ public void creditCard_payment(String dataSet) throws Exception{
 	Common.actionsKeyPress(Keys.ARROW_DOWN);
 	Common.switchToDefault();
 	Thread.sleep(1000);
-	Common.clickElement("xpath", "//span[contains(text(),'Place Order')]");
+	//Common.clickElement("xpath", "//span[contains(text(),'Place Order')]");
+	Common.clickElement("xpath", "(//button[@title='Place Order'])");
 	Common.switchFrames("id", "paymetric_xisecure_frame");
 	String expectedResult="credit card fields are filled with the data";
     String errorTexts=	Common. findElement("xpath", "//div[contains(@id,'error')]").getText();
@@ -704,7 +1208,7 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 			if (data.get(dataSet).get("StreetLine2") != null) {
 				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
 			}
-			if (data.get(dataSet).get("StreetLine3") != null) {
+		if (data.get(dataSet).get("StreetLine3") != null) {
 				Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
 			}
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
@@ -776,8 +1280,8 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 				Common.actionsKeyPress(Keys.BACK_SPACE);
 				Thread.sleep(1000);
 				Common.actionsKeyPress(Keys.SPACE);
-				Common.clickElement("xpath",
-						"//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div");
+				//Common.clickElement("xpath","//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
 			}
 			if (data.get(dataSet).get("StreetLine2") != null) {
 				Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
@@ -802,8 +1306,8 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
 			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
 
-			Sync.waitElementClickable("xpath", "//span[contains(text(),'Continue To Payment')]");
-			Common.clickElement("xpath", "//span[contains(text(),'Continue To Payment')]");
+			//Sync.waitElementClickable("xpath", "//span[contains(text(),'Continue To Payment')]");
+			//Common.clickElement("xpath", "//span[contains(text(),'Continue To Payment')]");
 
 		
 			ExtenantReportUtils.addPassLog("verifying shipping addres filling ", expectedResult,
@@ -821,7 +1325,7 @@ public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
 			//Common.clickElement("xpath", "//input[@id='label_method_bestway']");
 			select_USPS_StandardGround_shippingMethod();
             Thread.sleep(5000);
-			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+			Common.clickElement("xpath", "//button[@data-role='opc-continue']");
 			
 			Thread.sleep(3000);
 
@@ -874,6 +1378,32 @@ public void headLinksValidations(String dataSet) throws Exception{
 
 	
 }
+
+public void Validation_of_categorylist(String dataSet) throws Exception{
+	String Hederlinks=data.get(dataSet).get("MegaMenu");
+	String[] hedrs=Hederlinks.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "//span[text()='"+hedrs[i]+"']");
+		Common.clickElement("xpath", "//span[text()='"+hedrs[i]+"']");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(Common.getPageTitle()), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
 
 public void updateProductInMinicart(String Product){
 	try {
@@ -1097,6 +1627,192 @@ public void order_verification() throws Exception {
 		}
 	}
 
+public void Facebook() {
+	try{
+		 Common.actionsKeyPress(Keys.END);
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("To view the  Article links","should land at End of the page with displaying Article links", "Sucessfully displayed footer Article links", Common.getscreenShotPathforReport("Successfully landed at end of the page with displaying Article links"));			
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To view the  Article links","should land at End of the page with displaying Article links", "user unable to display footer Article links", Common.getscreenShotPathforReport("failed to land at end of the page with displaying Article links"));			
+		Assert.fail();	
+		}
+	try {
+		Common.clickElement("xpath", "(//a[@title='Like Us On Facebook'])[2]");
+		Thread.sleep(5000);
+		Common.switchToSecondTab();
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+         String URL=Common.getCurrentURL();
+		Common.assertionCheckwithReport(URL.contains("facebook"),"To Verify the  Facebook Article link","it shoud navigate to facebook page", "successfully  navigated to Facebook page", "Facebook");
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Facebook Article link","should land on Facebook Articlelink page", "user unable to navigate to Facebook Articlelink", Common.getscreenShotPathforReport("failed to land on Facebook page"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+		}
+public void Instagram() {
+	try{
+		 //Common.actionsKeyPress(Keys.END);
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("To view the Article links","should land at End of the page with displaying Article links", "Sucessfully displayed footer Article links", Common.getscreenShotPathforReport("Successfully landed at end of the page with displaying Article links"));			
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To view the  Article links","should land at End of the page with displaying Article links", "user unable to display footer Article links", Common.getscreenShotPathforReport("failed to land at end of the page with displaying Article links"));			
+		Assert.fail();	
+		}
+	try {
+		Common.clickElement("xpath", "(//a[@title='Check Us Out On Instagram'])[2]");
+		Common.switchToSecondTab();
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+         String Title=Common.getPageTitle();
+		Common.assertionCheckwithReport(Title.contains("Instagram"),"To Verify the  Instagram Article link","It should navigate to Instagram page", "successfully  navigated to Instagram page", "Instagram");
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Instagram Article link","should land on Instagram Articlelink page", "user unable to navigate to Instagram Articlelink", Common.getscreenShotPathforReport("failed to land on Instagram page"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+		}
+
+public void Twitter () {
+	try{
+		 //Common.actionsKeyPress(Keys.END);
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("To view the Article links","should land at End of the page with displaying Article links", "Sucessfully displayed footer Article links", Common.getscreenShotPathforReport("Successfully landed at end of the page with displaying Article links"));			
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To view the  Article links","should land at End of the page with displaying Article links", "user unable to display footer Article links", Common.getscreenShotPathforReport("failed to land at end of the page with displaying Article links"));			
+		Assert.fail();	
+		}
+	try {
+		Common.clickElement("xpath", "(//a[@title='Follow Us On Twitter'])[2]");
+		Common.switchToSecondTab();
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+         String URL=Common.getCurrentURL();
+		Common.assertionCheckwithReport(URL.contains("https://twitter.com/thedrybar"),"To Verify the  Twitter Article link","It should navigate to Twitter page", "successfully  navigated to Twitter page", "Twitter");
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Twitter Article link","should land on Twitter Articlelink page", "user unable to navigate to Twitter Articlelink", Common.getscreenShotPathforReport("failed to land on Twitter page"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+		}
+
+public void Pinterest() {
+	try{
+		 //Common.actionsKeyPress(Keys.END);
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("To view the Article links","should land at End of the page with displaying Article links", "Sucessfully displayed footer Article links", Common.getscreenShotPathforReport("Successfully landed at end of the page with displaying Article links"));			
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To view the  Article links","should land at End of the page with displaying Article links", "user unable to display footer Article links", Common.getscreenShotPathforReport("failed to land at end of the page with displaying Article links"));			
+		Assert.fail();	
+		}
+	try {
+		Common.clickElement("xpath", "(//a[@title='Follow Us On Pinterest'])[2]");
+		Common.switchToSecondTab();
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+         String Title=Common.getPageTitle();
+		Common.assertionCheckwithReport(Title.contains("Drybar (thedrybar) - Profile | Pinterest"),"To Verify the  Pinterest Article link","It should navigate to Pinterest page", "successfully  navigated to Pinterest page", "Pinterest");
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Pinterest Article link","should land on Pinterest Articlelink page", "user unable to navigate to Pinterest Articlelink", Common.getscreenShotPathforReport("failed to land on Pinterest page"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+		}
+
+public void Youtube() {
+	try{
+		 //Common.actionsKeyPress(Keys.END);
+		Sync.waitPageLoad();
+		ExtenantReportUtils.addPassLog("To view the Article links","should land at End of the page with displaying Article links", "Sucessfully displayed footer Article links", Common.getscreenShotPathforReport("Successfully landed at end of the page with displaying Article links"));			
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To view the  Article links","should land at End of the page with displaying Article links", "user unable to display footer Article links", Common.getscreenShotPathforReport("failed to land at end of the page with displaying Article links"));			
+		Assert.fail();	
+		}
+	try {
+		Common.clickElement("xpath", "(//a[@title='Check Us Out On YouTube'])[2]");
+		Common.switchToSecondTab();
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+         String Title=Common.getPageTitle();
+         System.out.println(Title);
+		Common.assertionCheckwithReport(Title.contains("Drybar - YouTube"),"To Verify the  Youtube Article link","It should navigate to Youtube page", "successfully  navigated to Youtube page", "Youtube");
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Youtube Article link","should land on youtube Articlelink page", "user unable to navigate to Youtube Articlelink", Common.getscreenShotPathforReport("failed to land on Youtube page"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+		}
+
+public void privacy_and_policy() {
+	try{
+		Thread.sleep(5000);
+		 Common.actionsKeyPress(Keys.END);
+		Sync.waitPageLoad();
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		//Common.scrollIntoView("xpath", "(//a[@title='Privacy Policy'])");
+		Thread.sleep(4000);
+		ExtenantReportUtils.addPassLog("To view privacy policy button", "Should land on privacy policy button", "User successfully navigated to privacy policy button", Common.getscreenShotPathforReport("Successfully landed on privacy button"));
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To view privacy policy button","should land on Privacy policy button", "user unable to navigate to privacy policy button", Common.getscreenShotPathforReport("failed to land on privacy button"));			
+			Assert.fail();	
+			}
+
+try{
+	
+	
+	Common.clickElement("xpath", "(//a[@title='Privacy Policy'])");
+	Sync.waitPageLoad();
+	Thread.sleep(5000);
+    String Title=Common.getPageTitle();
+    System.out.println(Title);
+	Common.assertionCheckwithReport(Title.equals("Privacy Policy | Drybar"),"To Verify the Privacy policy Page","It should navigate to Privacy policy page", "successfully  navigated to Privacy policy page", "Privacy policy");
+	
+	//ExtenantReportUtils.addPassLog("To view privacy policy button", "Should land on privacy policy button", "User successfully navigated to privacy policy button", Common.getscreenShotPathforReport("Successfully landed on privacy button"));
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To view privacy policy button","should land on Privacy policy button", "user unable to navigate to privacy policy button", Common.getscreenShotPathforReport("failed to land on privacy button"));			
+		Assert.fail();	
+		}
+
+}
+
+public void Terms_Of_Use() {
+	try{
+		 //Common.actionsKeyPress(Keys.END);
+		Sync.waitPageLoad();
+		Common.scrollIntoView("xpath", "(//a[@title='Privacy Policy'])");
+		Thread.sleep(4000);
+		ExtenantReportUtils.addPassLog("To view Terms of use button", "Should land on Terms of use button", "User successfully navigated to terms of use button", Common.getscreenShotPathforReport("Successfully landed on terms of use button"));
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To view terms of use button","should land on Terms of use button", "user unable to navigate to terms of use button", Common.getscreenShotPathforReport("failed to land on terms of use button"));			
+			Assert.fail();	
+			}
+
+try{
+	
+	
+	Common.clickElement("xpath", "(//a[@title='Terms of Use'])");
+	Sync.waitPageLoad();
+	Thread.sleep(5000);
+    String Title=Common.getPageTitle();
+    System.out.println(Title);
+	Common.assertionCheckwithReport(Title.equals("Terms of Use | Drybar"),"To Verify the terms of use page","It should navigate to terms of use page", "successfully  navigated to terms of use page ", "terms of use");
+	
+	//ExtenantReportUtils.addPassLog("To view privacy policy button", "Should land on privacy policy button", "User successfully navigated to privacy policy button", Common.getscreenShotPathforReport("Successfully landed on privacy button"));
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To view terms of use Page","should land on terms of use page", "user unable to navigate to terms of use page", Common.getscreenShotPathforReport("failed to land on terms of use page"));			
+		Assert.fail();	
+		}
+
+}
+
+
+
+
 
 public void forgetpasswordPageValidation(String InvalidData){
 
@@ -1271,6 +1987,108 @@ public void aboutUs_footerlink() {
 			Assert.fail();	
 			}
 		}
+
+public void Email_To__a_Friend(String dataset) {
+	try {
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		
+		ExtenantReportUtils.addPassLog("To verify the Email a Friend icon","should display Email a Friend icon", "unable to display Email a Friend icon", Common.getscreenShotPathforReport("failed to display email a Friend icon"));			
+
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To verify the Email a  Friend icon","should display Email a Friend icon", "userunable to view Email a Friend icon", Common.getscreenShotPathforReport("failed to view Email a Friend icon"));			
+		Assert.fail();	
+		}
+	
+	try {
+		Sync.waitElementPresent("xpath", "(//a[@title='Share by Email'])");
+		Common.clickElement("xpath", "(//a[@title='Share by Email'])");
+		String Title=Common.getText("xpath", "(//span[contains(text(),'Email to a Friend')])");	
+		Common.assertionCheckwithReport(Title.equals("EMAIL TO A FRIEND"),"Verifying Email to a Friend page","it shoud navigate to Email to a Friend page", "successfully  navigated to Email to a Friend Page", "Email to a Friend");	
+		
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To verify the Email to a Friend icon ","should navigate to Email to a Friend page", "userunable to navigate to Email to a Friend page", Common.getscreenShotPathforReport("failed to navigate to Email to a Friend page"));			
+		Assert.fail();	
+		}
+	try {
+		Sync.waitElementPresent("id", "recipients-name0");
+		Common.textBoxInput("id", "recipients-name0",data.get(dataset).get("FirstName"));
+		Sync.waitElementPresent("id", "recipients-email0");
+		Common.textBoxInput("id", "recipients-email0",data.get(dataset).get("Email"));
+		Sync.waitElementPresent("id", "sender-message");
+		Common.textBoxInput("id", "sender-message",data.get(dataset).get("Message"));
+	}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To verify the about us footer link","should navigate to about us footerlink", "userunable to navigate to about us foterlink", Common.getscreenShotPathforReport("failed to navigate to about us footerlinkpage"));			
+		Assert.fail();	
+		}
+	try {
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.clickElement("xpath", "(//span[contains(text(),'Send Email')])");
+		Sync.waitPageLoad();
+		int message=Common.findElements("xpath", "(//div[@class='message-success success message'])").size();
+        
+		 Common.assertionCheckwithReport(message>0, "To verify the Email to a Friend success message", "Should Successfully send the Email with success message","sucessfully sent the message through Email a Friend", "faield to click sent email button");
+	}catch(Exception |Error e) {
+		Assert.fail();	
+	}
+}
+
+public void add_to_cart() {
+	
+	try{
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+	    Common.scrollIntoView("xpath", "(//span[contains(text(),'Liquid Glass Smoothing Shampoo')])");
+	    Thread.sleep(2000);
+	    Common.mouseOver("xpath", "(//img[@class='product-image-photo'])[1]");
+	    Thread.sleep(4000);
+	   // Common.clickElement("xpath", "");
+	    Sync.waitElementPresent("xpath", "(//button[@title='Add to Bag'])[1]");
+		Common.mouseOverClick("xpath", "(//button[@title='Add to Bag'])[1]");
+		Thread.sleep(5000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		int message=Common.findElements("xpath", "(//div[@class='message-success success message'])[2]").size();
+
+		 Common.assertionCheckwithReport(message>0, "To verify the product added to My Wishlist", "Should add product to  My wishlist page","Product sucessfully added to My wishlist", "faield to add product to Wishlist");
+	
+		//ExtenantReportUtils.addPassLog("verifying add to cart button in Homepage", "User click add to card button on Homepage", "user successfully click add to cart button in Homepage", Common.getscreenShotPathforReport("faieldtoclickaddtocartbuttonin Homepage"));
+		}
+		catch(Exception |Error e) {
+		   
+			ExtenantReportUtils.addFailedLog("verifying add to cart button", "User click add to card button", "user faield to click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
+			Assert.fail();
+		}
+		
+	}
+
+public void add_to_cart_from_Homepage() {
+	
+	try{
+		Sync.waitPageLoad();
+		Thread.sleep(5000);
+	    Common.scrollIntoView("xpath", "(//div[@class='product-item-info'])[3]");
+	    Thread.sleep(2000);
+	    Common.mouseOver("xpath", "(//img[@class='product-image-photo'])[3]");
+	    Thread.sleep(4000);
+	   // Common.clickElement("xpath", "");
+	    Sync.waitElementPresent("xpath", "(//button[@title='Add to Bag'])[1]");
+		Common.mouseOverClick("xpath", "(//button[@title='Add to Bag'])[1]");
+		Thread.sleep(5000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(10000);
+		Sync.waitPageLoad();
+		int message=Common.findElements("xpath", "(//div[@class='message-success success message'])[2]").size();
+
+		 Common.assertionCheckwithReport(message>0, "To verify the product added to My Wishlist", "Should add product to  My wishlist page","Product sucessfully added to My wishlist", "faield to add product to Wishlist");
+	
+		//ExtenantReportUtils.addPassLog("verifying add to cart button in Homepage", "User click add to card button on Homepage", "user successfully click add to cart button in Homepage", Common.getscreenShotPathforReport("faieldtoclickaddtocartbuttonin Homepage"));
+		}
+		catch(Exception |Error e) {
+		   
+			ExtenantReportUtils.addFailedLog("verifying add to cart button", "User click add to card button", "user faield to click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
+			Assert.fail();
+		}
+}
+
 
 
 	public void search_product_fullname(String dataset) {
@@ -1522,6 +2340,29 @@ e.printStackTrace();
       
 
 }
+public void vara(){
+
+try {
+
+Thread.sleep(5000);
+
+Sync.waitElementPresent("xpath", "//button[@id='truste-consent-required']");
+
+      Common.clickElement("xpath", "//button[@id='truste-consent-required']");
+
+} catch (Exception e) {
+
+// TODO Auto-generated catch block
+
+e.printStackTrace();
+
+}
+
+ 
+
+      
+
+}
 
        
 
@@ -1600,11 +2441,13 @@ Thread.sleep(2000);
     try {
     	 Sync.waitPageLoad();
           Thread.sleep(2000);
-          Common.clickElement("xpath", "(//a[@class='see-more-link clearfix'])[2]");
+          //Common.clickElement("xpath", "(//a[@class='see-more-link clearfix'])[1]");
          Thread.sleep(5000);
+       //  Sync.waitElementPresent("xpath", "(//a[@class='ltkpopup-close'])");
+        // Common.clickElement("xpath", "(//a[@class='ltkpopup-close'])");
   		String Title= Common.getPageTitle();
   		System.out.println(Title);
-  		Common.assertionCheckwithReport(Title.equals("Clarifying Charcoal Shampoo - On The Rocks | Drybar"),"Verifying PDP page","it shoud navigate to PDP page", "successfully  navigated to PDP Page", "PDP Page");
+  		Common.assertionCheckwithReport(Title.equals("Liquid Glass Smoothing Shampoo | Drybar"),"Verifying PDP page","it shoud navigate to PDP page", "successfully  navigated to PDP Page", "PDP Page");
    }catch(Exception |Error e) {
 		ExtenantReportUtils.addFailedLog("To verify the  the PDP Page","Should land on PDP page", "user unable to land on PDP page", Common.getscreenShotPathforReport("failed to land on PDP page"));			
 		Assert.fail();	
@@ -1674,7 +2517,7 @@ public void Search_productname(String dataset) {
 try {
 		Common.actionsKeyPress(Keys.ENTER);
 	     Sync.waitPageLoad();
-	    Common.scrollIntoView("xpath", "(//a[@class='see-more-link clearfix'])[2]");
+	    ///Common.scrollIntoView("xpath", "(//div[@class='result-content'])[1]");
 	   // Common.clickElement("xpath", "//*[@id=\\\"instant-search-results-container\\\"]/div/div/ol/li[1]/div/div/div[2]/a/span\");");
 	  //  Common.clickElement("xpath", "//*[@id=\\\"instant-search-results-container\\\"]/div/div/ol/li[1]/div/div/div[2]/a/span\"");
 	    //String viewcartbutton=Common.findElement("xpath", "(//h3[@itemprop='name'])[1]").getText();
@@ -1693,15 +2536,45 @@ public void Verify_OutofStockPDP(){
 Thread.sleep(2000);
 Common.clickElement("xpath", "(//a[@class='see-more-link clearfix'])[1]");
 Thread.sleep(3000);
-//String Page=Common.findElement("xpath", "/html/body/div[3]").getText();
-ExtenantReportUtils.addPassLog("To verify the Product description page with out of stock", "Should land on out of stock Product description page", "user successfully landed on out of stock product description page", Common.getscreenShotPathforReport("Successfully landed on  out of stock PDP page"));
+//Common.actionsKeyPress(Keys.PAGE_DOWN);
+String OSS=Common.findElement("xpath","(//span[contains(text(),'Out of stock')])").getText();
+Common.assertionCheckwithReport(OSS.equals("OUT OF STOCK"), "To verify the PDP with out of stock", "Should land on out of stock PDP page","User unable to land on Out of Stock PDP", "faield to land on out of stock PDP page");
+//ExtenantReportUtils.addPassLog("To verify the Product description page with out of stock", "Should land on out of stock Product description page", "user successfully landed on out of stock product description page", Common.getscreenShotPathforReport("Successfully landed on  out of stock PDP page"));
 
 	//Common.assertionCheckwithReport(Addtobag.equals("Add to Bag"), "To verify the PDP Page", "Should land on  PDP page", "user successfully landed on PDP page", Common.getscreenShotPathforReport(""));
 }catch(Exception |Error e) {
-		ExtenantReportUtils.addFailedLog("To verify the  the PDP Page with out of stock","Should land on ou of stock PDP page", "user unable to land on PDP page", Common.getscreenShotPathforReport("failed to land on out of stock PDP page"));			
+		ExtenantReportUtils.addFailedLog("To verify the  the PDP Page with out of stock","Should land on out of stock PDP page", "user unable to land on  Out of Stock PDP", Common.getscreenShotPathforReport("failed to land on out of stock PDP page"));			
 		Assert.fail();	
 		}
 	}
+
+public void Out_Of_Stock_Subscription(String DataSet){
+
+    try {
+          Sync.waitPageLoad();
+          Common.actionsKeyPress(Keys.PAGE_DOWN);
+          Sync.waitElementPresent("xpath", "(//input[@name='guest_email'])");
+          Common.textBoxInput("xpath", "(//input[@name='guest_email'])",data.get(DataSet).get("Email"));
+          Thread.sleep(3000);
+         ExtenantReportUtils.addPassLog("To verify the Email text field", "Should enter the email address in the email text field", "user successfully entered the Email address", Common.getscreenShotPathforReport("Successfully Entered Email address"));
+
+	//Common.assertionCheckwithReport(Addtobag.equals("Add to Bag"), "To verify the PDP Page", "Should land on  PDP page", "user successfully landed on PDP page", Common.getscreenShotPathforReport(""));
+}catch(Exception |Error e) {
+		ExtenantReportUtils.addFailedLog("To verify the Email text field","Should enter the email address in the email text field ", "user unable to Enter Email address", Common.getscreenShotPathforReport("failed to enter Email address"));			
+		Assert.fail();	
+		}
+try {
+    Common.clickElement("xpath", "(//button[@class='action submit primary'])"); 
+    Thread.sleep(4000);
+    int message=Common.findElements("xpath", "(//div[@class='message-success success message'])").size();
+
+	 Common.assertionCheckwithReport(message>0, "To verify the product added to My Wishlist", "Should add product to  My wishlist page","Product sucessfully added to My wishlist", "faield to add product to Wishlist");
+
+    }catch(Exception |Error e) {
+	ExtenantReportUtils.addFailedLog("To verify the Email text field","Should enter the email address in the email text field ", "user unable to Enter Email address", Common.getscreenShotPathforReport("failed to enter Email address"));			
+	Assert.fail();	
+	}
+}
 
 public void Add_product_to_Wishlist() {
 	
@@ -1838,8 +2711,9 @@ try {
 public void Add_NewAddress(String dataSet) throws Exception {
 	
 	try {
-	Common.scrollIntoView("xpath", "(//button[@title='Add New Address'])");
-	Common.clickElement("xpath", "(//button[@title='Add New Address'])");
+		Sync.waitPageLoad();
+	Common.scrollIntoView("xpath","(//button[@title='Add New Address'])");
+	Common.clickElement("xpath","(//button[@title='Add New Address'])");
 	
 	Sync.waitElementPresent("xpath", "//input[@name='firstname']");
 	Common.textBoxInput("xpath", "//input[@name='firstname']", data.get(dataSet).get("FirstName"));
@@ -1915,7 +2789,7 @@ public void Communication_Preferences(){
 		Common.clickElement("xpath","(//a[text()='Communication Preferences'])");
 		Sync.waitPageLoad();
 		 String Title=Common.getPageTitle();
-		Common.assertionCheckwithReport(Title.equals("Communication Preferences | Drybar"),"Verifying Communication preferences page","it shoud navigate to communication preferences page", "successfully  navigated to Communication preferences page", "Communication preferences");		
+		Common.assertionCheckwithReport(Title.equals("Communication Preferences | Drybar"),"Verifying Communication preferences page","it should navigate to communication preferences page", "successfully  navigated to Communication preferences page", "Communication preferences");		
     }
     
     	catch(Exception |Error e) {
@@ -1994,7 +2868,9 @@ public void Expediated_shippingmethod(){
 
     try {
     	Sync.waitElementPresent("xpath", "(//input[@class='radio'])[2]");
+    	Thread.sleep(5000);
     	Common.scrollIntoView("xpath", "(//input[@class='radio'])[2]");
+    	Thread.sleep(5000);
          Common.clickElement("xpath", "(//input[@class='radio'])[2]");
           Thread.sleep(3000);
           ExtenantReportUtils.addPassLog("To verify the Expedited shipping method", "Should click on expediated shipping method", "user successfully clicked on expediated shipping method", Common.getscreenShotPathforReport("Successfully clicked on Expediated shipping method"));
@@ -2006,8 +2882,20 @@ public void Expediated_shippingmethod(){
 }
 public void click_Next() {
     try {
-          Common.clickElement("xpath", "(//button[@type='submit'])[2]");
-          //Thread.sleep(4000);
+    	Sync.waitPageLoad();
+    	Thread.sleep(10000);
+
+    	   //click_Next();
+
+    	   Sync.waitElementPresent("xpath", "(//span[contains(text(),'Next')])[2]");
+
+    	Common.mouseOver("xpath","(//span[contains(text(),'Next')])[2]");
+    	Thread.sleep(5000);
+    	Common.clickElement("xpath", "(//span[contains(text(),'Next')])[2]");
+
+    	       //div[contains(@class,'error')]
+
+    	Sync.waitPageLoad();
           //String message=Common.findElement("xpath", "(//div[@class='message-success success message'])").getText();
           //message.equals("We have saved your subscription.");
          ExtenantReportUtils.addPassLog("To verify the payment page", "Should land on payment page", "user successfully landed on payment page", Common.getscreenShotPathforReport("Successfully land on payment page"));
@@ -2019,12 +2907,27 @@ Thread.sleep(6000);
 		}
 	}
 
+public void select_CC(){
+	try{
+		Sync.waitPageLoad();
+		Sync.waitElementPresent("xpath", "(//input[@id='ime_paymetrictokenize'])");
+		Common.clickElement("xpath", "(//input[@id='ime_paymetrictokenize'])");
+		
+	}catch(Exception |Error e) {
+		//ExtenantReportUtils.addFailedLog("To verify the payment page","Should land on payment page", "user unableto land on payment page", Common.getscreenShotPathforReport("failed to land on payment page"));			
+		Assert.fail();	
+		}
+	}
+
+
 public void Express_shippingmethod(){
 
     try {
     	
     	Sync.waitElementPresent("xpath", "(//input[@class='radio'])[3]");
+    	Thread.sleep(3000);
     	Common.scrollIntoView("xpath", "(//input[@class='radio'])[3]");
+    	Thread.sleep(5000);
          Common.clickElement("xpath", "(//input[@class='radio'])[3]");
           Thread.sleep(3000);
           ExtenantReportUtils.addPassLog("To verify the Express shipping method", "Should click on express shipping method", "user successfully clicked on Express shipping method", Common.getscreenShotPathforReport("Successfully clicked on Express shipping method"));
@@ -2039,24 +2942,25 @@ public void Express_shippingmethod(){
 public void Product_Review (String dataSet) throws Exception{
 
     try {
+    	Thread.sleep(5000);
     	
     	Sync.waitElementPresent("xpath", "(//button[@class='TTteaser__write-review'])");
     	//Common.scrollIntoView("xpath", "(");
          Common.clickElement("xpath", "(//button[@class='TTteaser__write-review'])");
          
           Thread.sleep(3000);
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[1]/div/span[5]");
+          Common.clickElement("xpath", "(//span[contains(text(),'Select to rate 5 stars')])");
           
           Common.textBoxInput("id", "tt-review-form-text", data.get(dataSet).get("Review"));
           Common.textBoxInput("id", "tt-review-form-title", data.get(dataSet).get("Reviewtitle"));
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[1]/div/span[5]");
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[2]/div/span[5]");
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[3]/div/div[1]/div[3]/label");
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[4]/div/div[1]/div[5]/label");
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[5]/div/div[1]/div[3]/label");
-          Common.clickElement("xpath","//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[6]/div/div[1]/div[3]/label");
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[7]/div/div[2]/label");
-          Common.clickElement("xpath", "//*[@id=\"tt-submission-modal\"]/div[1]/div[2]/div/div/form/fieldset/fieldset[2]/fieldset[8]/div/div[3]/label");
+          Common.clickElement("xpath", "(//span[contains(text(),'Select to rate 5 out of 5')])[1]");
+          Common.clickElement("xpath", "(//span[contains(text(),'Select to rate 5 out of 5')])[2]");
+          Common.clickElement("xpath", "(//span[contains(text(),'Thick/Coarse')])[2]");
+          Common.clickElement("xpath", "(//span[contains(text(),'Curly')])[1]");
+         Common.clickElement("xpath", "(//span[contains(text(),'Thin')])[1]");
+          Common.clickElement("xpath","(//span[contains(text(),'Long')])[1]");
+          Common.clickElement("xpath", "(//label[contains(text(),'Texture')])[1]");
+          Common.clickElement("xpath", "(//label[contains(text(),'Hot')])[1]");
           
           
           
@@ -2088,7 +2992,7 @@ public void profile(String dataset) {
 	    Common.textBoxInput("xpath", "(//input[@name='lastName'])",data.get(dataset).get("LastName"));
 		//Common.clickElement("xpath", "//input[@id='is_subscribed']");
 		//Common.clickElement("xpath", "//input[@id='assistance_allowed_checkbox']");
-		Common.textBoxInput("xpath","(//input[@name='email'])",data.get(dataset).get("Email"));
+		Common.textBoxInput("xpath","(//input[@name='email'])[2]",data.get(dataset).get("Email"));
 		
 		Common.scrollIntoView("xpath", "(//button[@class='tt-c-auth__email-submit tt-o-button tt-o-button--primary'])");
  	   Thread.sleep(5000);
