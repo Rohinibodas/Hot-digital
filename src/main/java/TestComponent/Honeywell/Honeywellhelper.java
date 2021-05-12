@@ -1,5 +1,6 @@
 package TestComponent.Honeywell;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -1190,8 +1191,72 @@ public class Honeywellhelper {
 		}
 	}
 	
+
+  public void headerlinkLearnEducation(String dataSet) throws Exception{
+	  try{
+	  
+	 Common.mouseOver("xpath", "//span[text()='Learn']");
+	 String Blogpagetitle= data.get(dataSet).get("Blog");
+	 String CleanAirMatterspagetitle=data.get(dataSet).get("CleanAirMatters");
+     String DreamWeaverSleepFanpagetitle= data.get(dataSet).get("DreamWeaverSleepFan");
+	 String SafetyMatterspagetitle=data.get(dataSet).get("SafetyMatters");
+	 String WhyHumidifypagetitle=data.get(dataSet).get("WhyHumidify");
 	
-	
+	 ArrayList<String> elemtstext=new ArrayList<String>();
+     List<WebElement> LearnEductionLinks=Common.findElements("xpath", "//ul[@data-menu='menu-67']//li//span");
+     for(int j=0;j<LearnEductionLinks.size();j++){
+    	  elemtstext.add(LearnEductionLinks.get(j).getText());
+     }
+
+  
+    int i=0;
+     for(i=0;i<elemtstext.size();i++){
+    	 Thread.sleep(4000);
+    	 System.out.println(elemtstext.get(i));
+    	 
+    	if(elemtstext.get(i).equals("Blog")){
+    		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+    	//	LearnEductionLinks.get(i).click();
+    	    Thread.sleep(2000);
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(Blogpagetitle), "validating header ling blog page", "after click the blog page in header it must navigate to blog page", "sucessfully navigate to blog page", "Failed to navigate to blogpage");
+    	    Common.mouseOver("xpath", "//span[text()='Learn']");
+    	}
+    	else if(elemtstext.get(i).equals("Clean Air Matters")){
+    		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+    	    Thread.sleep(2000);
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(CleanAirMatterspagetitle), "validating header ling Clean Air Matters page", "after click the Clean Air Matters page in header it must navigate to Clean Air Matters page", "sucessfully navigate to Clean Air Matters page", "Failed to navigate to Clean Air Matters");
+    	    Common.mouseOver("xpath", "//span[text()='Learn']");
+    	}
+    	
+    	else if(elemtstext.get(i).equals("DreamWeaver Sleep Fan")){
+    		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+    	    Thread.sleep(2000);
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(DreamWeaverSleepFanpagetitle), "validating header ling DreamWeaverSleepFan page", "after click the DreamWeaverSleepFan page in header it must navigate to DreamWeaverSleepFan page", "sucessfully navigate to DreamWeaverSleepFan page", "Failed to navigate to DreamWeaverSleepFan");
+    	    Common.mouseOver("xpath", "//span[text()='Learn']");
+    	}
+    	else if(elemtstext.get(i).equals("Safety Matters")){
+    		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+    	    Thread.sleep(2000);
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(SafetyMatterspagetitle), "validating header ling SafetyMatters page", "after click the SafetyMatters page in header it must navigate to SafetyMatters page", "sucessfully navigate to SafetyMatters page", "Failed to navigate to SafetyMatters");
+    	    Common.mouseOver("xpath", "//span[text()='Learn']");
+    	}
+    	else if(elemtstext.get(i).equals("Why Humidify")){
+    		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+    	    Thread.sleep(2000);
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(WhyHumidifypagetitle), "validating header link WhyHumidify page", "after click the WhyHumidify page in header it must navigate to WhyHumidify page", "sucessfully navigate WhyHumidify page", "Failed to navigate to WhyHumidify");
+    	    Common.mouseOver("xpath", "//span[text()='Learn']");
+    	}
+     }
+	  }
+	  catch(Exception  | Error e){
+		  e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating header link learn ","user open the Lean option from header ","User unabel open the header link Learn",Common.getscreenShotPathforReport("Learnheaderlink"));
+		
+			Assert.fail();
+	  }
+	  
+  }
 	
 	
 	

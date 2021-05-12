@@ -10,7 +10,7 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_HW_ST_009_header_link_validation {
-	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
+	String datafile = "Honeywell\\HoneyWellLinks.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 
@@ -19,6 +19,7 @@ public class TEST_HW_ST_009_header_link_validation {
 
 				honeyWell.verifyingHomePage();
 				honeyWell.headLinksValidations_Shop("HeaderLinksShops");
+				honeyWell.headerlinkLearnEducation("PageTitle");
 				
 			}
 			catch (Exception e) {
@@ -32,7 +33,7 @@ public class TEST_HW_ST_009_header_link_validation {
 		@AfterTest
 		public void clearBrowser()
 		{
-		Common.closeAll();
+		//Common.closeAll();
 
 		}
 		
