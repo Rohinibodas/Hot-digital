@@ -3733,53 +3733,48 @@ public void remove_from_wishlist() throws Exception {
 		a=Common.findElement("xpath", "(//span[text()='$29.99'])[3]");
 		b=Common.findElement("xpath", "(//span[text()='$22.17'])[1]");
 		c=a+b;*/
-		float a= ParseFloat(Common.findElement("xpath", "//span[@data-th='Cart Subtotal']"));
+		float a= PraseFloat(Common.findElement("xpath", "//span[@data-th='Cart Subtotal']"));
 		float b= PraseFloat(Common.findElement("xpath", "//span[@data-th='Shipping']"));
 		float c= a+b;
 		System.out.println(c);
 		
 	}
 
+	
 	private float PraseFloat(WebElement findElement) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	private float ParseFloat(WebElement findElement) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	private float Prase2(WebElement findElement) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	private float Parse(WebElement findElement) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	public void Header_Link(String dataSet) throws InterruptedException {
-		//Thread.sleep(3000);
+		/*
+		 //Thread.sleep(3000);
 		Sync.waitPageLoad();
-		//Common.actionsKeyPress(Keys.END);
-		//Common.mouseOver("xpath", "(//img[@alt='Cooking & Baking'])[1]");
 		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
-		//Common.clickElement("xpath", "(//img[@alt='Cooking & Baking'])[1]");
 		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
 		String Hederlinks=data.get(dataSet).get("Cookin & Baking");
 		String[] hedrs=Hederlinks.split(",");
 		int i=0;
 		
+		String ProductTitle=data.get(dataSet).get("Cookin & Baking Page Title");
+		String[] Title=ProductTitle.split(",");
+		//int j=0;
+		
+		
 		try{
 		for(i=0;i<hedrs.length;i++){
+			
 			System.out.println(hedrs[i]);
-			Sync.waitElementClickable("xpath", "//a[text()='"+hedrs[i]+"']");
-			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
-			Thread.sleep(3000);
+			Sync.waitElementClickable("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
+			Common.clickElement("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
+			Thread.sleep(2000);
 			System.out.println(Common.getPageTitle());
-			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
-			//Common.actionsKeyPress(Keys.END);
+			System.out.println(Title[i]);
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+			Thread.sleep(2000);
+			clickLogo();
+			Sync.waitPageLoad();
 			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
 		}
 		}
@@ -3787,10 +3782,48 @@ public void remove_from_wishlist() throws Exception {
 			e.printStackTrace();
 
 			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		    Assert.fail();
+
+		}*/
 		
-			Assert.fail();
+		
+		
+		Thread.sleep(4000);
+		Sync.waitPageLoad();
+		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+		
+		String Hederlinks=data.get(dataSet).get("Cookin & Baking");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		String ProductTitle=data.get(dataSet).get("Cookin & Baking Page Title");
+		String[] Title=ProductTitle.split(",");
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
+			Common.clickElement("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[2]");
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+            ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		    Assert.fail();
 
 		}
+		
+		
+		
+		
+		
+		
+		
 	}
 	public void Heade_Beverage(String dataSet) throws InterruptedException {
 		Sync.waitPageLoad();
@@ -3800,6 +3833,10 @@ public void remove_from_wishlist() throws Exception {
 		String[] hedrs=Hederlinks.split(",");
 		int i=0;
 		
+		String ProductTitle=data.get(dataSet).get("Beverage Page Title");
+		String[] Title=ProductTitle.split(",");
+		//int j=0;
+		
 		try{
 		for(i=0;i<hedrs.length;i++){
 			System.out.println(hedrs[i]);
@@ -3807,7 +3844,7 @@ public void remove_from_wishlist() throws Exception {
 			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
 			Thread.sleep(3000);
 			System.out.println(Common.getPageTitle());
-			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
 			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[2]");
 		}
 		}
@@ -3818,10 +3855,6 @@ public void remove_from_wishlist() throws Exception {
 		
 			Assert.fail();
 
-		}
-		if (hedrs[i].contains("Beverage ")){
-		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
-			
 		}
 	}
 		
