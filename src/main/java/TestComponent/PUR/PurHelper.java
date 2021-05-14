@@ -647,8 +647,8 @@ public class PurHelper {
 		String expectedResult="Product adding to mini cart";
 		try {
 			Thread.sleep(4000);
-			Sync.waitElementPresent("xpath", "(//img[@class='product-image-photo'])[1]");
-			Common.clickElement("xpath", "(//img[@class='product-image-photo'])[1]");
+			Sync.waitElementPresent("xpath", "(//img[@class='product-image-photo'])[5]");
+			Common.clickElement("xpath", "(//img[@class='product-image-photo'])[5]");
 			Thread.sleep(5000);
 			Sync.waitElementPresent("xpath", "(//span[contains(text(), 'Add to Cart')])[1]");
 			Common.clickElement("xpath", "(//span[contains(text(), 'Add to Cart')])[1]");
@@ -1172,13 +1172,13 @@ String expectedResult="warrantyregistration";
  Common.assertionCheckwithReport(home>0, "verifying home page", "Home page contines Logo of product", "sucessfully lands on home page ", "faield to land on Home page");
  Thread.sleep(4000);
  Common.actionsKeyPress(Keys.END); 
- String footers=Common.getText("xpath", "//span[contains(text(),'Warranty Registration')]");
+ String footers=Common.getText("xpath", "(//span[contains(text(),'Warranty Registration')])[2]");
  System.out.println(footers); 
- Common.assertionCheckwithReport(footers.equals("Warranty Registration"), "Verifying footer page", "It should navigate to Warranty Registration", "successfully lands on Warranty Registration footer links ","Warranty Registration");
- Sync.waitElementPresent("xpath", "//span[contains(text(),'Warranty Registration')]"); 
+ Common.assertionCheckwithReport(footers.contains("Warranty Registration"), "Verifying footer page", "It should navigate to Warranty Registration", "successfully lands on Warranty Registration footer links ","Warranty Registration");
+ //Sync.waitElementPresent("(//span[contains(text(),'Warranty Registration')])[2]"); 
  Thread.sleep(4000);
 
-  Common.clickElement("xpath", "//span[contains(text(),'Warranty Registration')]");
+  Common.clickElement("xpath", "(//span[contains(text(),'Warranty Registration')])[2]");
   Sync.waitPageLoad();
   Thread.sleep(5000);
  
@@ -1211,12 +1211,16 @@ String expectedResult="warrantyregistration";
 
   Common.textBoxInput("xpath", "//input[@placeholder='mm/dd/yyyy']", data.get(DataSet).get("date"));
   Common.clickElement("xpath", "//button[@class='rn_DisplayButton']");
+  //Common.scrollIntoView("xpath", "//h1[@style='font-size:16px;']");
+  Thread.sleep(10000);
+  Common.actionsKeyPress(Keys.PAGE_UP);
+  Common.actionsKeyPress(Keys.PAGE_UP);
 
-  String submitted=Common.getText("xpath", "//h1[@style='font-size:16px;']");
+String submitted=Common.getText("xpath", "//div[@id='rn_ProdRegConfirmDiv']");
   System.out.println(submitted);
 
   Common.assertionCheckwithReport(submitted.equals("Thank you for registering your product! Your request has been processed."), "Verifying Warranty Registration submitted page", "It should navigate to Warranty Registration  submitted page", "successfully lands on Warranty Registration  submitted page ","Warranty Registration  submitted page");
-
+ // Common.isElementDisplayed("xpath", "//h1[@style='font-size:16px;']");
   report.addPassLog(expectedResult, "Should display Warrantay Registration page", "Warrantay Registration page display successfully", Common.getscreenShotPathforReport("Warrantay Registration page display successfully"));
 
 }catch(Exception |Error e)
@@ -1231,7 +1235,7 @@ String expectedResult="warrantyregistration";
 
  
 
-       report.addFailedLog(expectedResult,"Should display Warranty Registration  submitted  page", "Warranty Registration  submitted Page not displayed", Common.getscreenShotPathforReport("Warranty Registration submitted page display Failed"));
+      report.addFailedLog(expectedResult,"Should display Warranty Registration  submitted  page", "Warranty Registration  submitted Page not displayed", Common.getscreenShotPathforReport("Warranty Registration submitted page display Failed"));
 
  
 
@@ -1359,10 +1363,491 @@ report.addPassLog(expectedResult, "Should display contact Us submitted page", "C
 
 }
 
+public void productsupportFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to product support";
+	try {
+		
+		int home= Common.findElements("xpath", "//span[@class='icon-search action open']").size();
+		System.out.println(home);
+		Common.assertionCheckwithReport(home>0, "verifying home page", "Home page contines Logo of product", "sucessfully lands on home page ", "faield to land on Home page");
+		Thread.sleep(4000);
+
+		Common.actionsKeyPress(Keys.END);
+		Thread.sleep(4000);		
+		Sync.waitElementPresent("xpath", "(//span[contains(text(),'Product Support')])[2]");
+		Common.clickElement("xpath", "(//span[contains(text(),'Product Support')])[2]");
+		
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("support"),"Verifying product support page","it shoud navigate to product support page", "successfully  navigated to product support Page", "product support");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify theproduct support footer link","should navigate to product support footerlink", "userunable to navigate to product support foterlink", Common.getscreenShotPathforReport("failed to navigate to product support footerlinkpage"));			
+			Assert.fail();	
+			}
+		
+}
+public void faqFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to FAQ";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[2]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[2]");
+		
+		String s=Common.getText("xpath", "//h4[@class='collapsible-title']");
+		Common.assertionCheckwithReport(s.equals("FAQs"),"Verifying FAQs page","it shoud navigate to FAQs page", "successfully  navigated to FAQs Page", "FAQs");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the FAQs footer link","should navigate to FAQs footerlink", "userunable to navigate to FAQs foterlink", Common.getscreenShotPathforReport("failed to navigate FAQs footerlinkpage"));			
+			Assert.fail();	
+			}
+		
+}
+public void warrantyregistrationFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to WarrantyRegistration";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[3]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[3]");
+		
+		String title=Common.getPageTitle();
+		Common.assertionCheckwithReport(title.equals("Product Registration"),"Verifying Product Registration page","it shoud navigate to Product Registration page", "successfully  navigated to Product Registration Page", "Product Registration");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Product Registration footer link","should navigate to Product Registration footerlink", "userunable to navigate to Product Registration foterlink", Common.getscreenShotPathforReport("failed to navigate to Product Registration footerlinkpage"));			
+			Assert.fail();	
+			}
+
+
 }
 
-       
+public void contactusFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to contactus";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Contact Us')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Contact Us')]");
+		
+		String title=Common.getPageTitle();
+		Common.assertionCheckwithReport(title.equals("Contact Us"),"Verifying Contact Us page","it shoud navigate to Contact Us page", "successfully  navigated to Contact Us Page", "Contact Us");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Contact Us footer link","should navigate toContact Us footerlink", "userunable to navigate to Contact Us foterlink", Common.getscreenShotPathforReport("failed to navigate to Contact Us footerlinkpage"));			
+			Assert.fail();	
+			}
 
+
+}
+
+public void municipalitiesFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to municipalities";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[5]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[5]");
+		Common.switchWindows();
+		String u=Common.getPageTitle();
+		Common.assertionCheckwithReport(u.contains("Community"),"Verifying PUR Community page","it shoud navigate to PUR Community page", "successfully  navigated to PUR Community Page", "PUR Community");	
+		}catch(Exception |Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("To verify the PUR Community footer link","should navigate to PUR Community footerlink", "userunable to navigate to PUR Community foterlink", Common.getscreenShotPathforReport("failed to navigate to PUR Community footerlinkpage"));			
+			Assert.fail();	
+			}
+
+Common.closeCurrentWindow();
+Common.switchToFirstTab();
+}
+
+public void faucetsystemFooterlink() throws Exception
+{
+	
+	String expectedResult="It should navigate to  faucetsystem";
+	try {
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Faucet Systems')]");
+		//Common.clickElement("xpath", "//span[contains(text(),'Faucet Systems')]");
+		Common.javascriptclickElement("xpath", "//span[contains(text(),'Faucet Systems')]");
+		String u=Common.getText("xpath", "//span[@class='base']");
+		Common.assertionCheckwithReport(u.equals("Faucet Systems"),"Verifying Faucet System page","it shoud navigate to Faucet Systems  page", "successfully  navigated to Faucet Systems Page", "Faucet Systems");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Faucet System footer link","should navigate to Faucet System footerlink", "userunable to navigate to Faucet Systems  foterlink", Common.getscreenShotPathforReport("failed to navigate to Faucet Systems footerlinkpage"));			
+			Assert.fail();	
+			}
+
+
+
+}
+public void pitcherfiltrationFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to  pitcherfiltrationpitcherfiltration";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[7]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[7]");
+		
+		String title=Common.getPageTitle();
+		Common.assertionCheckwithReport(title.equals("PUR Pitcher Filtration"),"Verifying PUR Pitcher Filtration page","it shoud navigate to PUR Pitcher Filtration  page", "successfully  navigated to Faucet Systems Page", "Faucet Systems");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the PUR Pitcher Filtration footer link","should navigate toPUR Pitcher Filtration footerlink", "userunable to navigate to PUR Pitcher Filtration footerlink", Common.getscreenShotPathforReport("failed to navigate to PUR Pitcher Filtration footerlinkpage"));			
+			Assert.fail();	
+			}
+
+
+
+}
+public void replacementfilterFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to replacementfilter";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[8]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[8]");
+		
+		String title=Common.getPageTitle();
+		Common.assertionCheckwithReport(title.equals("Replacement Water Filters"),"Verifying Replacement  Filter page","it shoud navigate to Replacement Filters page", "successfully  navigated to Replacement Filters Page", "Replacement Filters");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Replacement Filters footer link","should navigate to Replacement  Filter footerlink", "userunable to navigate to Replacement  Filtersn footerlink", Common.getscreenShotPathforReport("failed to navigate to Replacement Filters footerlinkpage"));			
+			Assert.fail();	
+			}
+}
+public void undersinkFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to undersink";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[9]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[9]");
+		
+		String title=Common.getPageTitle();
+		Common.assertionCheckwithReport(title.equals("Under Sink (GHP Products) - Shop"),"Verifying Under Sink page","it shoud navigate to Under Sink page", "successfully  navigated to Under Sink Page", "Under Sink");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the Under Sink footer link","should navigate to Under Sink footerlink", "userunable to navigate to Under Sink footerlink", Common.getscreenShotPathforReport("failed to navigate to Under Sink footerlinkpage"));			
+			Assert.fail();	
+			}
+}
+    
+
+
+
+public void ourcompanyFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to our company";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Our Company')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Our Company')]");
+		Common.switchWindows();
+		String url=Common.getText("xpath", "(//span[contains(text(),'Brands')])[1]");
+		Common.assertionCheckwithReport(url.contains("Brands"),"Verifying our company page","it shoud navigate to our company page", "successfully  navigated to our company Page", "our company");	
+		}catch(Exception |Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("To verify the our company footer link","should navigate to our company footerlink", "userunable to navigate to our company footerlink", Common.getscreenShotPathforReport("failed to navigate to our company footerlinkpage"));			
+			Assert.fail();	
+	Common.closeCurrentWindow();		}
+	Common.switchToFirstTab();
+}
+    
+
+public void ourhistoryFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to our history";
+	try {
+		
+		//Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Our History')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Our History')]");
+		Common.switchWindows();
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("helenoftroy"),"Verifying our history page","it shoud navigate to our history page", "successfully  navigated to Under Sink Page", "Under Sink");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the our history footer link","should navigate to our history footerlink", "userunable to navigate to Under Sink footerlink", Common.getscreenShotPathforReport("failed to navigate to Under Sink footerlinkpage"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+}
+   
+public void blogFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to blog";
+	try {
+		
+		//Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Blog')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Blog')]");
+		
+		String s=Common.getText("xpath", "//span[contains(text(),'Health & Wellness Blog')]");
+		Common.assertionCheckwithReport(s.contains("Health & Wellness Blog"),"Verifying blog page","it shoud navigate to blog  page", "successfully  navigated to blog Page", "Under Sink");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the blog footer link","should navigate to blog footerlink", "userunable to navigate to blog footerlink", Common.getscreenShotPathforReport("failed to navigate to blog footerlinkpage"));			
+			Assert.fail();	
+			}
+	
+}
+public void careersFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to careers page";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[13]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[13]");
+		Common.switchWindows();
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("careers"),"Verifying careers page","it shoud navigate to careers  page", "successfully  navigated to careers Page", "careers");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the careers footer link","should navigate to career footerlink", "userunable to navigate to careers footerlink", Common.getscreenShotPathforReport("failed to navigate to careers footerlinkpage"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+}
+
+
+
+public void  honeywellFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to honeywell page";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Honeywell')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Honeywell')]");
+		Common.switchWindows();
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("honeywellpluggedin"),"Verifying honeywell page","it shoud navigate to honeywell  page", "successfully  navigated to honeywell Page", "honeywell");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the honeywell footer link","should navigate to honeywell footerlink", "userunable to navigate to honeywell footerlink", Common.getscreenShotPathforReport("failed to navigate to honeywell footerlinkpage"));			
+			Assert.fail();	
+			}
+	Common.closeCurrentWindow();
+	Common.switchToFirstTab();
+}
+
+
+public void  braunFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to braun page";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Braun')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Braun')]");
+		Common.switchWindows();
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("braunhealthcare"),"Verifying braun page","it shoud navigate to braun  page", "successfully  navigated to braun Page", "braun");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the braun footer link","should navigate to braun footerlink", "userunable to navigate to braun footerlink", Common.getscreenShotPathforReport("failed to navigate to braun footerlinkpage"));			
+			Assert.fail();	
+			}
+	Common.switchToFirstTab();
+}
+
+
+public void  vicksFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to vicks page";
+	try {
+		
+		Common.actionsKeyPress(Keys.END);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Vicks')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Vicks')]");
+		Common.switchWindows();
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("vickshumidifiers"),"Verifying vicks page","it shoud navigate to vicks  page", "successfully  navigated to vicks Page", "vicks");	
+		}catch(Exception |Error e) {
+			ExtenantReportUtils.addFailedLog("To verify the vicks footer link","should navigate to vicks footerlink", "userunable to navigate to vicks footerlink", Common.getscreenShotPathforReport("failed to navigate to vicks footerlinkpage"));			
+			Assert.fail();	
+			}
+	Common.switchToFirstTab();
+}
+
+
+
+public void instagramFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to instagram page";
+	try {
+		
+		int home= Common.findElements("xpath", "//span[@class='icon-search action open']").size();
+		System.out.println(home);
+		Common.assertionCheckwithReport(home>0, "verifying home page", "Home page contines Logo of product", "sucessfully lands on home page ", "faield to land on Home page");
+		Thread.sleep(4000);
+		Common.actionsKeyPress(Keys.END);
+		Thread.sleep(5000);
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Instagram')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Instagram')]");
+		Common.switchWindows();
+		/*if(Common.isElementDisplayed("xpath", "//h1[contains(text(),'Instagram')]")) {
+		String s=Common.getText("xpath", "//h1[contains(text(),'Instagram')]");
+	   	System.out.println(s);
+	   	Assert.assertEquals(s, "Instagram");
+		}else {*/
+		Thread.sleep(5000);
+		/*String s=Common.getText("xpath", "//h1[contains(text(),'Instagram')]");
+		System.out.println(s);
+		Assert.assertEquals(s, "Instagram");*/
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("instagram"),"Verifying instagram page","it shoud navigate to instagram  page", "successfully  navigated to instagram Page", "instagram");	
+		//Common.switchToFirstTab();
+		
+		
+	}catch(Exception |Error e) {
+		e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("To verify the instagram link","should navigate to instagram page", "userunable to navigate to instagram page", Common.getscreenShotPathforReport("failed to navigate to instagram page"));			
+		Assert.fail();	
+		}
+	Common.closeCurrentWindow();
+Common.switchToFirstTab();
+}
+
+public void facebookFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to facebook page";
+	try {
+		
+		
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Facebook')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Facebook')]");
+		Common.switchWindows();
+		
+		Thread.sleep(10000);
+		
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("facebook"),"Verifying facebook page","it shoud navigate to facebook  page", "successfully  navigated to facebook Page", "facebook");	
+		//Common.switchToFirstTab();
+		
+		
+	}catch(Exception |Error e) {
+		e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("To verify the facebook link","should navigate to facebook page", "userunable to navigate to facebook page", Common.getscreenShotPathforReport("failed to navigate to facebook page"));			
+		Assert.fail();	
+		}
+	Common.closeCurrentWindow();
+Common.switchToFirstTab();
+}
+public void twitterFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to twitter page";
+	try {
+		
+		
+		Thread.sleep(2000);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Twitter')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Twitter')]");
+		Common.switchWindows();
+		
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.equals("https://twitter.com/PURtweets"),"Verifying twitter page","it shoud navigate to twitter  page", "successfully  navigated to twitter Page", "twitter");	
+		//Common.switchToFirstTab();
+		
+		
+	}catch(Exception |Error e) {
+		e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("To verify the twitter link","should navigate to twitter page", "userunable to navigate to twitter page", Common.getscreenShotPathforReport("failed to navigate to twitter page"));			
+		Assert.fail();	
+		}
+	Common.closeCurrentWindow();
+Common.switchToFirstTab();
+}
+public void youtubeFooterlink() throws Exception
+{
+	String expectedResult="It should navigate to youtube page";
+	try {
+		
+		
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Youtube')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Youtube')]");
+		Common.switchWindows();
+		Thread.sleep(5000);
+		String url=Common.getCurrentURL();
+		Common.assertionCheckwithReport(url.contains("youtube"),"Verifying youtube page","it shoud navigate to youtube  page", "successfully  navigated to youtube Page", "youtube");	
+		Common.switchToFirstTab();
+		
+		
+	}catch(Exception |Error e) {
+		e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("To verify the youtube link","should navigate to youtube page", "userunable to navigate to youtube page", Common.getscreenShotPathforReport("failed to navigate to youtube page"));			
+		Assert.fail();	
+		}
+Common.switchToFirstTab();
+}
+
+
+
+
+
+
+
+public void Applypromocode(String DataSet) {
+	// TODO Auto-generated method stub
+	String expectedResult="Validating Apply promo code ";
+	try {
+		Common.scrollIntoView("xpath", "//span[@id='block-discount-heading']");
+		
+		Sync.waitElementPresent("xpath", "//span[@id='block-discount-heading']");
+		Common.findElement("xpath", "//span[@id='block-discount-heading']").click();
+		
+		Common.textBoxInput("xpath", "//input[@id='discount-code']", data.get(DataSet).get("PromoCode"));
+		
+		Common.findElement("xpath", "//button[@class='action action-apply']").click();
+		
+
+		ExtenantReportUtils.addPassLog(expectedResult,"Should display  Apply promo code page", "Apply promo code page display successfully", Common.getscreenShotPathforReport("Apply promo code page success"));
+
+	}
+	catch(Exception |Error e)
+	{
+		ExtenantReportUtils.addFailedLog(expectedResult,"Should display Apply promo code page", "Apply promo code page display successfully", Common.getscreenShotPathforReport("Apply promo code page Failed"));
+		e.printStackTrace();
+		Assert.fail();
+		
+
+}
+}
+
+
+
+
+
+public void GuestUserApplyPromocode(String DataSet) {
+	String expectedResult="Validating Apply promo code ";
+	try {
+		
+		Common.actionsKeyPress(Keys.ARROW_DOWN);	
+    	Sync.waitElementClickable("id", "block-discount-heading");
+    	Thread.sleep(3000);
+    	Common.findElement("xpath", "//span[@id='block-discount-heading']").click();
+    	Sync.waitElementPresent("xpath", "//input[@id='discount-code']");
+    	Common.textBoxInput("xpath", "//input[@id='discount-code']",data.get(DataSet).get("PromoCode"));
+    	Common.clickElement("xpath", "//button[@class='action action-apply']");
+    	Thread.sleep(4000);
+		
+		ExtenantReportUtils.addPassLog(expectedResult,"Should display  Apply promo code page", "Apply promo code page display successfully", Common.getscreenShotPathforReport("Apply promo code page success"));
+
+	}
+	catch(Exception |Error e)
+	{
+		ExtenantReportUtils.addFailedLog(expectedResult,"Should display Apply promo code page", "Apply promo code page display successfully", Common.getscreenShotPathforReport("Apply promo code page Failed"));
+		e.printStackTrace();
+		Assert.fail();
+		
+
+}
+}
+
+}
  
 
 

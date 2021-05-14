@@ -231,4 +231,29 @@
     </test>
     
     
+    <test name="Test_PUR_ST_026_SocialMedialinks" testid="PPH-1725" priority="P1" description="To verify the socialmedialinks functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_SocialMediaLinks"/>
+        </classes>
+    </test>
+    <test name="Test_PUR_017_ValidationContentlinks" testid="PPH-1053" priority="P1" description="To verify the contentlinks functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_ValidateContentlinks"/>
+        </classes>
+    </test>
+     <test name="Test_PUR_ST_031_RegistereduserPromocodecheckout" testid="PPH-1726" priority="P1" description="To verify Apply PromoCode for Registereduser functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_RegistereduserPromocodecheckout"/>
+        </classes>
+    </test>
+     <test name="Test_PUR_ST_032_GusetuserPromocodecheckout" testid="PPH-1727" priority="P1" description="To verify Apply PromoCode for Guestuser functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_GusetuserPromocodecheckout"/>
+        </classes>
+    </test>
+    
 </suite> 
