@@ -1004,9 +1004,12 @@ public class Honeywellhelper {
 
 		}
 	}
-	
-	public void Worre(String dataSet) throws Exception{
+
+	public void warranty(String dataSet) throws Exception{
 		try {
+			Common.clickElement("xpath","//a[text()='Warranty Registration']");
+			Thread.sleep(4000);
+			Common.switchFrames("xpath","//iframe[contains(@src,'product_registration')]");
 			Sync.waitElementPresent("xpath", "//input[contains(@name,'Contact.Name.First')]");
 			Common.textBoxInput("xpath", "//input[contains(@name,'Contact.Name.First')]",
 					data.get(dataSet).get("FirstName"));
@@ -1031,12 +1034,12 @@ public class Honeywellhelper {
 			Sync.waitElementPresent("xpath", "//input[contains(@id,'City')]");
 			Common.textBoxInput("xpath", "//input[contains(@id,'City')]", data.get(dataSet).get("City"));
 
-			Common.clickElement(By.xpath("//select[contains(@id,'Country')]"));
+	/*		Common.clickElement(By.xpath("//select[contains(@id,'Country')]"));
 
 			Sync.waitElementPresent("xpath", "//select[contains(@id,'Country')]");
 			Common.dropdown("xpath", "//select[contains(@id,'Country')]", SelectBy.TEXT,
 					data.get(dataSet).get("Country"));
-
+*/
 			Sync.waitElementPresent("xpath", "//select[contains(@id,'StateOrProvince')]");
 			Common.clickElement(By.xpath("//select[contains(@id,'StateOrProvince')]"));
 			Thread.sleep(5000);
@@ -1052,18 +1055,18 @@ public class Honeywellhelper {
 			Thread.sleep(3000);
 			// Common.actionsKeyPress(Keys.PAGE_DOWN);
 
-			Sync.waitElementPresent("xpath", "//i[@class='all_button_arrow fa fa-arrow-down']");
+			Sync.waitElementPresent("xpath", "//i[contains(@class,'fa-arrow-down')]");
 			// Common.clickElement(By.xpath("//span[text()='View All']"));
 			// Common.clickElement(By.xpath("//i[@class='all_button_arrow fa
 			// fa-arrow-down']"));
-			Common.javascriptclickElement("xpath", "//i[@class='all_button_arrow fa fa-arrow-down']");
+			Common.javascriptclickElement("xpath", "//i[contains(@class,'fa-arrow-down')]");
 			// Common.mouseOverClick("xpath", "//i[@class='all_button_arrow fa
 			// fa-arrow-down']");
 			// Common.clickElement("xpath","//i[@class='all_button_arrow fa
 			// fa-arrow-down']");
 			// Common.mouseOverClick("xpath","//span[text()='View All']");
 			Thread.sleep(5000);
-			List<WebElement> Productselemts = Common.findElements("xpath", "//div[contains(@class,'nameset')]");
+			List<WebElement> Productselemts = Common.findElements("xpath", "//div[contains(@class,'resultset')]");
 
 			for (int i = 0; i < Productselemts.size(); i++) {
 
@@ -1073,39 +1076,22 @@ public class Honeywellhelper {
 				}
 
 			}
-			Common.dropdown("xpath", "//select[@name='Asset.CustomFields.HOT.store_purchased']", SelectBy.TEXT,data.get(dataSet).get("productname"));
+			Common.dropdown("xpath", "//select[@name='Asset.CustomFields.HOT.store_purchased']", SelectBy.TEXT,data.get(dataSet).get("placeofpurchese"));
 			// input[contains(@class,'product_quantity')]
 
-			Sync.waitElementPresent("xpath", "//input[contains(@class,'product_quantity')]");
-			Common.textBoxInput("xpath", "//input[contains(@class,'product_quantity')]",
+			Sync.waitElementPresent("xpath", "//input[contains(@name,'date_code')]");
+			Common.textBoxInput("xpath", "//input[contains(@name,'date_code')]",
 					data.get(dataSet).get("ProductQuantity"));
 
-			Sync.waitElementPresent("xpath", "//input[contains(@class,'problem_description')]");
-			Common.textBoxInput("xpath", "//input[contains(@class,'problem_description')]",
+			Sync.waitElementPresent("xpath", "//input[contains(@class,'hasDatepicker')]");
+			Common.textBoxInput("xpath", "//input[contains(@class,'hasDatepicker')]",
 					data.get(dataSet).get("ProblemDescription"));
 
-			Sync.waitElementPresent("xpath", "//input[contains(@id,'FileInput')]");
-			String path = System.getProperty("user.dir")
-					+ ("\\src\\test\\resources\\TestData\\Hydroflask\\TestScreen.jpg");
-			try {
-				Common.fileUpLoad("xpath", "//input[contains(@id,'FileInput')]", path);
-			} catch (Exception e) {
-				// ExtenantReportUtils.addFailedLog("warrenty from file upload
-				// ", "warrenty from unabel to uppload file",
-				// Common.getscreenShotPathforReport("warrenty from
-				// uploadfile"));
-				// Assert.fail();
-			}
-			// expectedResult="No validation errors";
-			// report.addPassLog(expectedResult,"Enter the warrenty from
-			// infromation with out any validation
-			// ",Common.getscreenShotPathforReport("Filling the Warranty from
-			// "));
+			
 			Thread.sleep(5000);
 			Sync.waitElementPresent("xpath", "//button[contains(@id,'CustomFormSubmit')]");
 			Common.javascriptclickElement("xpath", "//button[contains(@id,'CustomFormSubmit')]");
-			// Common.clickElement("xpath",
-			// "//button[contains(@id,'CustomFormSubmit')]");
+			
 
 		} catch (Exception | Error e) {
 			e.printStackTrace();
@@ -1116,6 +1102,8 @@ public class Honeywellhelper {
 			Assert.fail();
 
 		}
+		
+	//	Common.actionsKeyPress(Keys.HOME);
 
 		int sizeerrormessage = Common.findElements("xpath", "//div[contains(@id,'ErrorLocation')]").size();
 		Common.assertionCheckwithReport(sizeerrormessage > 0, "verifying warranty form field data",
@@ -1126,12 +1114,14 @@ public class Honeywellhelper {
 		// from");
 		Common.actionsKeyPress(Keys.HOME);
 		Thread.sleep(6000);
-
-		String sucessMessage = Common.getText("xpath", "//body[@id='rn_BlankBody']//h1").trim();
+System.out.println("pr");
+		String sucessMessage = Common.getText("xpath", "//div[@id='rn_ProdRegConfirmDiv']/div/h1");
+		
+		System.out.println(sucessMessage);
 		// Assert.assertEquals(sucessMessage, "Your warranty request has been
 		// submitted!");
 		String expectedResult = "User gets redirected to confirmation page, it includes a reference number and email is sent to email provided. No validation errors.";
-		Common.assertionCheckwithReport(sucessMessage.equals("Your warranty request has been submitted!"),
+		Common.assertionCheckwithReport(sucessMessage.equals("Thank you for registering your product! Your request has been processed."),
 				"warranty applied  successfull,and redirected to confirmation page", expectedResult,
 				"submit the warranty but confirmation page  message missing");
 		// report.addPassLog(expectedResult,"warranty applied successfull,and
@@ -1148,18 +1138,15 @@ public class Honeywellhelper {
 		Sync.waitPageLoad();
 		Common.assertionCheckwithReport(Common.getPageTitle().equals("Support & FAQs Page - Honeywell"), "verifying the product support page", "after click the productsupport page it will navigate to product support page ", "sucessfully navigate to product support page", "faield to open product support page");
 		}
-		
-		
 		catch (Exception | Error e) {
-			e.printStackTrace();
-
-			ExtenantReportUtils.addFailedLog("validating product support page","open the product supportpage","User failed to open productsupportpage",Common.getscreenShotPathforReport("supportpage"));
-		
-			Assert.fail();
+			 e.printStackTrace();
+             ExtenantReportUtils.addFailedLog("validating product support page","open the product supportpage","User failed to open productsupportpage",Common.getscreenShotPathforReport("supportpage"));
+             Assert.fail();
 
 		}
 	
 	}
+	
 	
 	public void fottorValidations_Shop(String dataSet) throws Exception{
 		Thread.sleep(3000);
@@ -1183,16 +1170,14 @@ public class Honeywellhelper {
 		}
 		catch (Exception | Error e) {
 			e.printStackTrace();
-
-			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
-		
-			Assert.fail();
+            ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+            Assert.fail();
 
 		}
 	}
 	
 
-  public void headerlinkLearnEducation(String dataSet) throws Exception{
+  public void headerlinkLearnEducation(String dataSet) {
 	  try{
 	  
 	 Common.mouseOver("xpath", "//span[text()='Learn']");
@@ -1201,7 +1186,6 @@ public class Honeywellhelper {
      String DreamWeaverSleepFanpagetitle= data.get(dataSet).get("DreamWeaverSleepFan");
 	 String SafetyMatterspagetitle=data.get(dataSet).get("SafetyMatters");
 	 String WhyHumidifypagetitle=data.get(dataSet).get("WhyHumidify");
-	
 	 ArrayList<String> elemtstext=new ArrayList<String>();
      List<WebElement> LearnEductionLinks=Common.findElements("xpath", "//ul[@data-menu='menu-67']//li//span");
      for(int j=0;j<LearnEductionLinks.size();j++){
@@ -1216,58 +1200,189 @@ public class Honeywellhelper {
     	 
     	if(elemtstext.get(i).equals("Blog")){
     		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
-    	//	LearnEductionLinks.get(i).click();
-    	    Thread.sleep(2000);
-    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(Blogpagetitle), "validating header ling blog page", "after click the blog page in header it must navigate to blog page", "sucessfully navigate to blog page", "Failed to navigate to blogpage");
+            Thread.sleep(2000);
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(Blogpagetitle), "validating header ling blog page in linkLearnEducation", "after click the blog page in header it must navigate to blog page", "sucessfully navigate to blog page", "Failed to navigate to blogpage");
     	    Common.mouseOver("xpath", "//span[text()='Learn']");
     	}
     	else if(elemtstext.get(i).equals("Clean Air Matters")){
     		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
     	    Thread.sleep(2000);
-    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(CleanAirMatterspagetitle), "validating header ling Clean Air Matters page", "after click the Clean Air Matters page in header it must navigate to Clean Air Matters page", "sucessfully navigate to Clean Air Matters page", "Failed to navigate to Clean Air Matters");
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(CleanAirMatterspagetitle), "validating header ling Clean Air Matters page in linkLearnEducation", "after click the Clean Air Matters page in header it must navigate to Clean Air Matters page", "sucessfully navigate to Clean Air Matters page", "Failed to navigate to Clean Air Matters");
     	    Common.mouseOver("xpath", "//span[text()='Learn']");
     	}
     	
     	else if(elemtstext.get(i).equals("DreamWeaver Sleep Fan")){
     		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
     	    Thread.sleep(2000);
-    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(DreamWeaverSleepFanpagetitle), "validating header ling DreamWeaverSleepFan page", "after click the DreamWeaverSleepFan page in header it must navigate to DreamWeaverSleepFan page", "sucessfully navigate to DreamWeaverSleepFan page", "Failed to navigate to DreamWeaverSleepFan");
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(DreamWeaverSleepFanpagetitle), "validating header ling DreamWeaverSleepFan page in linkLearnEducation", "after click the DreamWeaverSleepFan page in header it must navigate to DreamWeaverSleepFan page", "sucessfully navigate to DreamWeaverSleepFan page", "Failed to navigate to DreamWeaverSleepFan");
     	    Common.mouseOver("xpath", "//span[text()='Learn']");
     	}
     	else if(elemtstext.get(i).equals("Safety Matters")){
     		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
     	    Thread.sleep(2000);
-    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(SafetyMatterspagetitle), "validating header ling SafetyMatters page", "after click the SafetyMatters page in header it must navigate to SafetyMatters page", "sucessfully navigate to SafetyMatters page", "Failed to navigate to SafetyMatters");
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(SafetyMatterspagetitle), "validating header ling SafetyMatters page in linkLearnEducation", "after click the SafetyMatters page in header it must navigate to SafetyMatters page", "sucessfully navigate to SafetyMatters page", "Failed to navigate to SafetyMatters");
     	    Common.mouseOver("xpath", "//span[text()='Learn']");
     	}
     	else if(elemtstext.get(i).equals("Why Humidify")){
     		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
     	    Thread.sleep(2000);
-    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(WhyHumidifypagetitle), "validating header link WhyHumidify page", "after click the WhyHumidify page in header it must navigate to WhyHumidify page", "sucessfully navigate WhyHumidify page", "Failed to navigate to WhyHumidify");
+    	    Common.assertionCheckwithReport(Common.getPageTitle().equals(WhyHumidifypagetitle), "validating header link WhyHumidify page linkLearnEducation", "after click the WhyHumidify page in header it must navigate to WhyHumidify page", "sucessfully navigate WhyHumidify page", "Failed to navigate to WhyHumidify");
     	    Common.mouseOver("xpath", "//span[text()='Learn']");
     	}
-     }
-	  }
+        }
+	    }
 	  catch(Exception  | Error e){
 		  e.printStackTrace();
-
-			ExtenantReportUtils.addFailedLog("validating header link learn ","user open the Lean option from header ","User unabel open the header link Learn",Common.getscreenShotPathforReport("Learnheaderlink"));
-		
-			Assert.fail();
+		  ExtenantReportUtils.addFailedLog("validating header link learn in linkLearnEducation","user open the Lean option from header ","User unabel open the header link Learn",Common.getscreenShotPathforReport("Learnheaderlink"));
+		  Assert.fail();
+	  }
 	  }
 	  
-  }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+public void headLinksValidations_LeanBy_Products(String dataSet) throws Exception{
+	int i=0;
+	String Hederlinks=data.get(dataSet).get("HeaderNames");
+	String[] hedrs=Hederlinks.split(",");
+	System.out.println(hedrs.length);
+	try{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "//span[text()='Learn']");
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		//ul[@data-menu='menu-70']/li[1]/a
+		int j=i+1;
+		Sync.waitElementClickable("xpath", "//ul[@data-menu='menu-70']/li["+j+"]/a");
+		Common.clickElement("xpath", "//ul[@data-menu='menu-70']/li["+j+"]/a");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i]+"for LeanBy_Shop","user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "//span[text()='Learn']");	
 	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" LeanBy_Shop","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		Assert.fail();
+
+	}
+}
+
+public void headerlink_Support_GeneralSupport(String dataSet) {
+	  try{
+	  
+	 Common.mouseOver("xpath", "//a[@data-menu='menu-79']");
+	 String FAQstitle= data.get(dataSet).get("FAQs");
+	 String ProductSupportpagetitle=data.get(dataSet).get("ProductSupport");
+     String WarrantyRegistrationpagetitle= data.get(dataSet).get("WarrantyRegistration");
+	 String OrderStatuspagetitle=data.get(dataSet).get("OrderStatus");
+	 
+	 ArrayList<String> elemtstext=new ArrayList<String>();
+	 List<WebElement> LearnEductionLinks=Common.findElements("xpath", "//ul[@data-menu='menu-79']//li//span");
+	 for(int j=0;j<LearnEductionLinks.size();j++){
+  	  elemtstext.add(LearnEductionLinks.get(j).getText());
+   }
+
+
+  int i=0;
+   for(i=0;i<elemtstext.size();i++){
+  	 Thread.sleep(4000);
+  	 System.out.println(elemtstext.get(i));
+  	 
+  	if(elemtstext.get(i).equals("FAQs")){
+  		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+          Thread.sleep(2000);
+  	    Common.assertionCheckwithReport(Common.getPageTitle().equals(FAQstitle), "validating header ling"+elemtstext.get(i)+"page in GeneralSupport", "after click the "+elemtstext.get(i)+"page in header it must navigate to "+elemtstext.get(i)+" page", "sucessfully navigate to "+elemtstext.get(i)+" page", "Failed to navigate to "+elemtstext.get(i)+"");
+  	  Common.mouseOver("xpath", "//a[@data-menu='menu-79']");
+  	}
+  	else if(elemtstext.get(i).equals("Product Support")){
+  		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+  	    Thread.sleep(2000);
+  	    Common.assertionCheckwithReport(Common.getPageTitle().equals(ProductSupportpagetitle), "validating header ling"+elemtstext.get(i)+"page in GeneralSupport", "after click the "+elemtstext.get(i)+"page in header it must navigate to "+elemtstext.get(i)+" page", "sucessfully navigate to "+elemtstext.get(i)+" page", "Failed to navigate to "+elemtstext.get(i)+"");
+  	  Common.mouseOver("xpath", "//a[@data-menu='menu-79']");
+  	}
+  	
+  	else if(elemtstext.get(i).equals("Warranty Registration")){
+  		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+  	    Thread.sleep(2000);
+  	    Common.assertionCheckwithReport(Common.getPageTitle().equals(WarrantyRegistrationpagetitle), "validating header ling"+elemtstext.get(i)+"page in GeneralSupport", "after click the "+elemtstext.get(i)+"page in header it must navigate to "+elemtstext.get(i)+" page", "sucessfully navigate to "+elemtstext.get(i)+" page", "Failed to navigate to "+elemtstext.get(i)+"");
+  	  Common.mouseOver("xpath", "//a[@data-menu='menu-79']");
+
+  	}
+  	else if(elemtstext.get(i).equals("Order Status")){
+  		Common.clickElement("xpath", "//span[text()='"+elemtstext.get(i)+"']");
+  	    Thread.sleep(2000);
+  	    Common.assertionCheckwithReport(Common.getPageTitle().equals(OrderStatuspagetitle), "validating header ling"+elemtstext.get(i)+"page in GeneralSupport", "after click the "+elemtstext.get(i)+"page in header it must navigate to "+elemtstext.get(i)+" page", "sucessfully navigate to "+elemtstext.get(i)+" page", "Failed to navigate to "+elemtstext.get(i)+"");
+  	  Common.mouseOver("xpath", "//a[@data-menu='menu-79']");
+  	}
+  	
+      }
+	    }
+	  catch(Exception  | Error e){
+		  e.printStackTrace();
+		  ExtenantReportUtils.addFailedLog("validating header link learn in support","user open the support option from header ","User unabel open the header link Support",Common.getscreenShotPathforReport("supportLink"));
+		  Assert.fail();
+	  }
+	  }
+
+
+public void headLinksValidations_SupportbyProduct(String dataSet) {
+	int i=0;
+	String Hederlinks=data.get(dataSet).get("HeaderNames");
+	String[] hedrs=Hederlinks.split(",");
+	try{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "//a[@data-menu='menu-79']");
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		//ul[@data-menu='menu-70']/li["+j+"]/a
+		int j=i+1;
+		Sync.waitElementClickable("xpath", "//ul[@data-menu='menu-86']/li["+j+"]/a");
+		Common.clickElement("xpath", "//ul[@data-menu='menu-86']/li["+j+"]/a");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		if(hedrs[i].equals("Humidifiers")){
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(""), "verifying Header link of "+hedrs[i]+"for SupportbyProduct","user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);	
+		 break;
+		}
+		
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i]+"for SupportbyProduct","user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "//a[@data-menu='menu-79']");
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" for SupportbyProduct","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		Assert.fail();
+
+	}
+}
+
+
+
+	
+
+ /*public void OrderStatus(){
+	 try{
+	 Common.clickElement("xpath", "//a[text()='Order Status']");
+	 
+	 
+	 Common.textBoxInput("id", "oar-order-id","");
+	 Common.textBoxInput("id", "oar_billing_lastname","");
+	 Common.dropdown("id", "quick-search-type-id", SelectBy.VALUE, "email");
+	 Common.textBoxInput("id", "oar_email","");
+	 Common.textBoxInput("id", "oar-order-id","");
+ }
+*/
+public void agree_proceed(){
+	int size=Common.findElements("id", "truste-consent-required").size();
+	if(size>0){
+		Common.findElement("id", "truste-consent-required").click();
+	}
+}
+}
 
 
 

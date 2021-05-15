@@ -20,6 +20,9 @@ public class TEST_HW_ST_009_header_link_validation {
 				honeyWell.verifyingHomePage();
 				honeyWell.headLinksValidations_Shop("HeaderLinksShops");
 				honeyWell.headerlinkLearnEducation("PageTitle");
+				honeyWell.headLinksValidations_LeanBy_Products("HeaderLinksLearn");
+				honeyWell.headerlink_Support_GeneralSupport("PageTitle");
+				honeyWell.headLinksValidations_SupportbyProduct("HeaderLinksSupport");
 				
 			}
 			catch (Exception e) {
