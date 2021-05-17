@@ -16,7 +16,7 @@ public class RHT_SMT_MyOrders {
 	@Test(priority=1)
 	public void UserCheckoutandMyOrder() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");

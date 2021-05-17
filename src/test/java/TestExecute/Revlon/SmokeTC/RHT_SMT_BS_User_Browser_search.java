@@ -20,6 +20,7 @@ public class RHT_SMT_BS_User_Browser_search {
 	public void RegisterUserProductSearch() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.zerosearchProduct("Zero_Search");

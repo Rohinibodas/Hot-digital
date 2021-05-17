@@ -20,6 +20,7 @@ public class RHT_SMT_CMS_CMS_Link {
 	public void NavigationAboutUs() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.navigateCMSLink();
 			revelon.navigateAboutUs();

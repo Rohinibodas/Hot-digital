@@ -19,7 +19,7 @@ public class RHT_ST_MyAccountLeftNavigation {
 	@Test(priority=1)
 	public void MyAccountLeftNavigation() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.ValidateMyOrder();
 			revelon.ValidateAddressBook();
@@ -34,21 +34,21 @@ public class RHT_ST_MyAccountLeftNavigation {
 		} 
 	}
 
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
-		  
-	  }*/
+	}	  
+	  
 	
-	@BeforeMethod
-	//@Parameters({"browser"})  
+	/*@BeforeMethod
+	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

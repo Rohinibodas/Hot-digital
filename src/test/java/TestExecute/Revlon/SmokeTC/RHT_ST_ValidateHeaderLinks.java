@@ -16,7 +16,7 @@ public class RHT_ST_ValidateHeaderLinks {
 	@Test(priority=1)
 	public void ValidateHeaderLinks() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.headLinks("HeaderLinks");
 

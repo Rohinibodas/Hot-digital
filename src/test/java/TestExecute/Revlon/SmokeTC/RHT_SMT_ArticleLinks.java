@@ -20,8 +20,9 @@ public class RHT_SMT_ArticleLinks {
 	public void ValidateArticleLinks() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
-			revelon.navigateCMSLink();
+	       revelon.navigateCMSLink();
 			revelon.pinterestArticle();
 			revelon.FacebookArticle();
 			revelon.InstaGramArticle();
@@ -40,8 +41,8 @@ public class RHT_SMT_ArticleLinks {
 		  Login.signIn(browser);
 		  
 	  }
-	
-	/*@BeforeMethod
+	/*
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
@@ -52,7 +53,7 @@ public class RHT_SMT_ArticleLinks {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

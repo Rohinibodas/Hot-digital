@@ -18,7 +18,7 @@ public class RHT_ST_User_Category_Checkout_Paypal {
 	@Test(priority=1)
 	public void UserCategoryPayPalCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.categoryMenuItem();
 			revelon.navigateMinicart();

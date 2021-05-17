@@ -19,7 +19,7 @@ public class RHT_SMT_FP_Forgot_Password {
 	@Test(priority=1)
 	public void forgotPassword() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.forgotPassword("AccountDetails");
 		}

@@ -22,6 +22,7 @@ public class RHT_SMT_AC_Account_Creation {
 	public void createAccount() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.CreateNewAccount("AccountCreation");
 		}

@@ -18,7 +18,7 @@ public class RHT_ST_RegCategory_Checkout {
 	@Test(priority=1)
 	public void UserCategoryCreditCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.categoryMenuItem();
 			revelon.navigateMinicart();

@@ -19,7 +19,7 @@ public class RHT_SMT_NewsletterSubscription {
 	@Test(priority=1)
 	public void ValidatingNewsLetterSubscription() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.navigateCMSLink();
 			revelon.newsletterSubscription();

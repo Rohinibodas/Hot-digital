@@ -18,7 +18,7 @@ public class RHT_SMT_CO_User_Checkout_Mastercard {
 	@Test(priority=1)
 	public void RegisterUserCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();

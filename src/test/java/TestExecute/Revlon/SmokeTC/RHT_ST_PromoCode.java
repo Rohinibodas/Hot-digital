@@ -19,7 +19,7 @@ public class RHT_ST_PromoCode {
 	@Test(priority=1)
 	public void RegisterUserCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("Promocode");
 			revelon.Productselection();

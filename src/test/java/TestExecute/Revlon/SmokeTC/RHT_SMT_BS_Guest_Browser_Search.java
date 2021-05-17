@@ -20,6 +20,7 @@ public class RHT_SMT_BS_Guest_Browser_Search {
 	public void searchProduct() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.searchProduct("productName");
 			revelon.zerosearchProduct("Zero_Search");

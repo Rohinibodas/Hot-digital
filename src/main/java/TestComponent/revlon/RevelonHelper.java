@@ -302,12 +302,14 @@ public class RevelonHelper {
 
 			Common.clickElement("xpath", "//button[@id='paymetrictokenize_place_order']");
 			Thread.sleep(2000);
-
+			
+           Sync.waitElementPresent("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
 			//String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']");
 			String sucessMessage=Common.getText("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
-
+Thread.sleep(3000);
 			System.out.println(sucessMessage);
-			Assert.assertEquals(sucessMessage, "THANK YOU FOR YOUR PURCHASE");
+			Thread.sleep(2000);
+			Assert.assertEquals(sucessMessage, "Thank you for your purchase");
 			report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
 		}catch(Exception |Error e)
 		{
@@ -410,32 +412,38 @@ public class RevelonHelper {
 		Sync.waitElementClickable("xpath", "//label[@for='paypal_express']");
 		Common.clickElement("xpath", "//label[@for='paypal_express']");
 		Thread.sleep(3000);
-		Common.scrollIntoView("xpath", "//ul[@class='opc-progress-bar']");
-		Thread.sleep(1000);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'Continue to PayPal')]");
+		Common.clickElement("xpath", "//span[contains(text(),'Continue to PayPal')]");
+		Thread.sleep(3000);
+		//Common.scrollIntoView("xpath", "//ul[@class='opc-progress-bar']");
+		//Thread.sleep(1000);
 		
-		Common.switchFrames("xpath", "//iframe[@title='PayPal']");
+		//Common.switchFrames("xpath", "//iframe[@title='PayPal']");
 		//Common.actionsKeyPress(Keys.DOWN);
 		Thread.sleep(5000);
 		
 		//*[@id='paypal-animation-content']/div[1]/div[1]/div/img[1]
-		Sync.waitElementClickable("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
+		//Sync.waitElementClickable("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
 		//Common.clickElement("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
-		Common.javascriptclickElement("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
+		//Common.javascriptclickElement("xpath", "//*[@id='paypal-animation-content']/div[1]/div[1]/div");
 
-		Common.switchToDefault();
+		//Common.switchToDefault();
 		Thread.sleep(10000);
-		Common.switchWindows();
+		//Common.switchWindows();
 		//Common.switchWindows("Log in to your PayPal account");
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		Common.clickElementStale("xpath", "//button[text()='Accept Cookies']");
+		Thread.sleep(2000);
 		Common.textBoxInputClear("name", "login_email");
 		Common.textBoxInput("name", "login_email", data.get(dataSet).get("UserName"));
+		Thread.sleep(2000);
 		Common.textBoxInput("name", "login_password", data.get(dataSet).get("Password"));
+		Thread.sleep(3000);
 		Common.clickElement("xpath", "//button[@id='btnLogin']");
 		Thread.sleep(5000);
 		Common.actionsKeyPress(Keys.END);
 		Thread.sleep(5000);
-		//Common.scrollIntoView("xpath", "//button[contains(text(),'Pay Now')]");
+		Common.scrollIntoView("xpath", "//button[contains(text(),'Pay Now')]");
 		Common.clickElement("id", "payment-submit-btn");
 		Thread.sleep(8000);
 		Common.switchToFirstTab();
@@ -454,11 +462,11 @@ public class RevelonHelper {
 
 			Thread.sleep(8000);
 
-			//String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']");
-			String sucessMessage=Common.getText("xpath", "//h1[contains(text(),'Thank you for your purchase')]");
+			String url=Common.getCurrentURL();
 
-			System.out.println(sucessMessage);
-			Assert.assertEquals(sucessMessage, "THANK YOU FOR YOUR PURCHASE");
+			System.out.println(url);
+		Common.assertionCheckwithReport(url.contains("success"), "order sucess page is displayed", expectedResult, "order sucess page not displayed");
+			
 			report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
 		}catch(Exception |Error e)
 		{
@@ -1418,8 +1426,8 @@ public class RevelonHelper {
 		String expectedResult="Product adding to mini cart";
 		try {
 			Thread.sleep(4000);
-			Sync.waitElementPresent("xpath", "//button[@id='product-addtocart-button']");
-			Common.clickElement("xpath", "//button[@id='product-addtocart-button']");
+			Sync.waitElementPresent("xpath", "(//button[@title='Buy Now'])[1]");
+			Common.clickElement("xpath", "(//button[@title='Buy Now'])[1]");
 			Thread.sleep(5000);
 			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']"));
 			Common.isElementDisplayed("xpath", "//strong[@class='product-item-name']");
@@ -1587,7 +1595,7 @@ public class RevelonHelper {
 			Thread.sleep(5000);
 			Sync.waitElementPresent("xpath", "//div[contains(text(),'Email')]");
 			Thread.sleep(12000);
-			//Sync.waitPageLoad(10);
+			Sync.waitPageLoad(10);
 			Common.clickElement("id", "customer-email");
 			Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']/div/div//input[@type='email']", data.get(dataSet).get("Email"));
 			report.addPassLog(expectedResult1, "Should dispaly Shipping address page", "shipping address Page displayed successfully", Common.getscreenShotPathforReport("shipping address page"));
@@ -1629,6 +1637,8 @@ public class RevelonHelper {
 			}
 			Common.isElementDisplayed("xpath", "//div[contains(text(),'Payment Method')]");
 			report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
+			Thread.sleep(3000);
+			
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
@@ -1707,7 +1717,9 @@ public class RevelonHelper {
 				Common.clickElement("xpath", "//button[@class='action-primary action-accept']");
 			}
 			Common.isElementDisplayed("xpath", "//div[contains(text(),'Payment Method')]");
+			
 			report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
+		Common.clickElement("xpath", "//span[contains(text(),'Continue to PayPal')]");
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
@@ -2451,9 +2463,9 @@ public class RevelonHelper {
 			Common.switchToSecondTab();
 		   	Thread.sleep(15000);
 		   	//String s=Common.getText("xpath", "//a[@href='https://www.facebook.com/revlonhairtools/']");
-		   	String s=Common.getText("xpath", "(//span[contains(text(),'Revlon Hair Tools')])[1]");
+		   	String s=Common.getCurrentURL();
 		   	System.out.println(s);
-		   	Assert.assertEquals(s, "Revlon Hair Tools");
+		   	Common.assertionCheckwithReport(s.contains("facebook"), "to verify the facebook page", "should display the facebook page", "Facebook page is displayed", "facebook page not displayed");
 			report.addPassLog(expectedResult, "Should display Facebook page", "Facebook page display successfully", Common.getscreenShotPathforReport("Facebook page success"));
 		}catch(Exception |Error e)
 		{
@@ -2494,14 +2506,17 @@ public class RevelonHelper {
 			Thread.sleep(2000);
 			Common.switchToSecondTab();
 		   	Thread.sleep(10000);
-		   	String s=Common.getText("xpath", "//h1[contains(text(),'Revlon Hair Tools')]");
+		   //	String s=Common.getText("xpath", "//h1[contains(text(),'Revlon Hair Tools')]");
+		   	String s=Common.getCurrentURL();
 		   	System.out.println(s);
-			Assert.assertEquals(s, "Revlon Hair Tools");
+		   	Common.assertionCheckwithReport(s.contains("pinterest"), "should navigate topinterest page ", expectedResult, "not navigated to pinterest page");
+			//Assert.assertEquals(s, "Revlon Hair Tools");
 			report.addPassLog(expectedResult, "Should display Pinterest page", "Pinterest page display successfully", Common.getscreenShotPathforReport("Pinterest page success"));
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display Pinterest page", "Pinterest page not displayed", Common.getscreenShotPathforReport("Pinterest page Failed"));
 			e.printStackTrace();
+			;
 			Assert.fail();
 		}
 		Common.closeCurrentWindow();
@@ -2557,11 +2572,12 @@ public class RevelonHelper {
 			Thread.sleep(5000);
 			Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/customer/account/edit/']")));
 			Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/customer/account/edit/']")).click();
+			
 			Thread.sleep(3000);
 			
 			String addressinformation=Common.getText("xpath", "//h1[@class='page-title']");
 			System.out.println(addressinformation);
-			Assert.assertEquals(addressinformation, "Address Book");
+			Assert.assertEquals(addressinformation, "Edit Account Information");
 			report.addPassLog(expectedResult, "Should display Addressinformation page", "Addressinformation page display successfully", Common.getscreenShotPathforReport("Addressinformation Page success"));
 		}catch(Exception |Error e)
 		{
@@ -2622,9 +2638,11 @@ public class RevelonHelper {
 			Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/xnotif/stock/index/']")).click();
 			Thread.sleep(3000);
 			
-			String backtostock=Common.getText("xpath", "//h1[@class='page-title']");
-			System.out.println(backtostock);
-			Assert.assertEquals(backtostock, "My Back in Stock Subscriptions");
+			//String backtostock=Common.getText("xpath", "//h1/span[contains(text(),'My Back in Stock Subscriptions')]");
+			//System.out.println(backtostock);
+//			Assert.assertEquals(backtostock, "My Back in Stock Subscriptions");
+			String s = Common.getCurrentURL();
+			Common.assertionCheckwithReport(s.contains("stock"), "My back in stock subscription page will be displayed", expectedResult, "Back to stock page not displayed");
 			report.addPassLog(expectedResult, "Should display Back to stock page", "Back to stock page display successfully", Common.getscreenShotPathforReport("Back to stock Page success"));
 		}catch(Exception |Error e)
 		{
@@ -2685,4 +2703,33 @@ public class RevelonHelper {
 			Assert.fail();
 		}
 	}
+	public void Newslettersignup() throws Exception
+	{
+		String expectedResult="Navigating to Subscription Popup in Home Page";
+		try{
+			Thread.sleep(20000);
+			Common.switchWindows();
+			//Common.switchFrames("xpath", "//iframe[@id='LL_DataServer']");
+			if(Common.isElementDisplayed("id", "wpn-lightbox-content")) {
+				Thread.sleep(5000);
+				Common.clickElement("id", "wpn-lightbox-close-newsletter");
+			}else {
+				System.out.println("Newsletter signup popup not displayed");
+				Common.switchToDefault();
+			}
+			report.addPassLog(expectedResult,"Should Navigating to Subscription Popup in Home Page", "Navigating to Subscription Popup in Home Page successfully", Common.getscreenShotPathforReport("HomePage Popup passed"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should Navigating to Subscription Popup in Home Page", "Not Navigating to Subscription Popup in Home Page", Common.getscreenShotPathforReport("HomePage Popup failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+
+	}
+
+
+
+
+
 }

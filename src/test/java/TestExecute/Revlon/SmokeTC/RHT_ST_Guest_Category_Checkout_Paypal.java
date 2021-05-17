@@ -19,6 +19,7 @@ public class RHT_ST_Guest_Category_Checkout_Paypal {
 	public void GuestCategoryPayPalCheckout() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.categoryMenuItem();
 			revelon.navigateMinicart();
@@ -32,26 +33,27 @@ public class RHT_ST_Guest_Category_Checkout_Paypal {
 		} 
 	}
 
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
-	/*@BeforeMethod
-	//@Parameters({"browser"})  
+	@BeforeMethod
+	  @Parameters({"browser"})  
+	 
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
+	  }
 	
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

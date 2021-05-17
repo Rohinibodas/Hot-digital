@@ -19,7 +19,7 @@ public class RHT_SMT_CO_User_Checkout {
 	@Test(priority=1)
 	public void RegisterUserCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
@@ -42,11 +42,11 @@ public class RHT_SMT_CO_User_Checkout {
 		  Login.signIn(browser);
 		  
 	  }
-	/*@BeforeMethod
-	//@Parameters({"browser"}) 
+/*@BeforeMethod
+	@Parameters({"browser"}) 
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("chrome");
 		  
 	  }*/
 	

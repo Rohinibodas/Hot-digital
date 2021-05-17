@@ -18,7 +18,7 @@ public class RHT_ST_GuestCategory_Checkout {
 	@Test(priority=1)
 	public void GuestCategoryCreditCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.categoryMenuItem();
 			revelon.navigateMinicart();

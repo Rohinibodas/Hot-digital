@@ -19,7 +19,7 @@ public class RHT_ST_ShippingAddressAVS {
 	@Test(priority=1)
 	public void ValidateAVS() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.searchProduct("productName");
 			revelon.Productselection();

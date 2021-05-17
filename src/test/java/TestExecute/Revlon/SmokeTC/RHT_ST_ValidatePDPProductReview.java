@@ -19,7 +19,7 @@ public class RHT_ST_ValidatePDPProductReview {
 	@Test(priority=1)
 	public void ValidatePDPProductReview() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");

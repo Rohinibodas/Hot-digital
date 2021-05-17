@@ -10,7 +10,7 @@ import TestComponent.revlon.RevelonHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RHT_SMT_CO_User_Checkout_Discover {
+public class RHT_SMT_CO_User_Checkout_AMEX2 {
 	
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
@@ -18,8 +18,7 @@ public class RHT_SMT_CO_User_Checkout_Discover {
 	@Test(priority=1)
 	public void RegisterUserCheckout() throws Exception {
 
-		try {
-			revelon.Newslettersignup(); 
+		try {revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
@@ -27,7 +26,7 @@ public class RHT_SMT_CO_User_Checkout_Discover {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
+			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

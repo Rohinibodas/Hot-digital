@@ -17,7 +17,7 @@ public class RHT_ST_MyAccountAVSVerification {
 	@Test(priority=1)
 	public void MyAccountAVSValidate() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.ValidateAddressBook();
@@ -28,21 +28,21 @@ public class RHT_ST_MyAccountAVSVerification {
 		} 
 	}
 
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }*/
+	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

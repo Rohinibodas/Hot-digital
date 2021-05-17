@@ -20,6 +20,7 @@ public class RHT_SMT_CO_Guest_Checkout {
 	public void GuestCheckout() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.searchProduct("productName");
 			revelon.Productselection();
@@ -34,13 +35,13 @@ public class RHT_SMT_CO_Guest_Checkout {
 		} 
 	}
 
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }*/
+	  }/*
 	
 	@BeforeMethod
 	@Parameters({"browser"})  
@@ -48,7 +49,7 @@ public class RHT_SMT_CO_Guest_Checkout {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
+	  }*/
 	
 	@AfterTest
 	public void clearBrowser()

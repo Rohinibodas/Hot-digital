@@ -20,6 +20,7 @@ public class RHT_ST_Guest_Checkout_Paypal {
 	public void GuestPayPalCheckout() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.searchProduct("productName");
 			revelon.Productselection();
@@ -43,10 +44,10 @@ public class RHT_ST_Guest_Checkout_Paypal {
 	  }
 	
 	/*@BeforeMethod
-	//@Parameters({"browser"})  
+	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("firefox");
+		  Login.signIn("chrome");
 		  
 	  }*/
 	
@@ -55,6 +56,7 @@ public class RHT_ST_Guest_Checkout_Paypal {
 	{
 		Common.closeAll();
 
-	}
+	
 
+}
 }

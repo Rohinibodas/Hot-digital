@@ -19,6 +19,7 @@ public class RHT_SMT_CO_GUEST_Checkout_AMEX {
 	public void GuestCheckout() throws Exception {
 
 		try {
+			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.searchProduct("productName");
 			revelon.Productselection();
