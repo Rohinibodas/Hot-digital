@@ -10,7 +10,7 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_HW_ST_005_footer_links_validation {
-	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
+	String datafile = "Honeywell\\HoneyWellLinks.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
@@ -20,7 +20,10 @@ public class TEST_HW_ST_005_footer_links_validation {
 		try {
 	
 			honeyWell.verifyingHomePage();
-			honeyWell.productsupport();	
+			//honeyWell.productsupport();	
+			//honeyWell.footerLinkalidations_Shop("footerLinkShop");
+		//	honeyWell.footerValidations_aboutUs("footerLinkAboutUs");
+			honeyWell.fotterValidations_HelenOfTroy("footerLinkHelenoftroyfamily");
 			
 		}
 		catch (Exception e) {

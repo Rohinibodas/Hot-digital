@@ -1005,6 +1005,147 @@ public class Honeywellhelper {
 		}
 	}
 
+	
+	public void footerLinkalidations_Shop(String dataSet) throws Exception{
+		Thread.sleep(3000);
+		Sync.waitPageLoad();
+		//Common.mouseOver("xpath", "//span[text()='Shop']");
+		Common.actionsKeyPress(Keys.END);
+		
+		String Hederlinks=data.get(dataSet).get("FooterLink");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//button[contains(text(),'Shop')]//following::span[text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//button[contains(text(),'Shop')]//following::span[text()='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.actionsKeyPress(Keys.END);	
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			Assert.fail();
+
+		}
+	}
+	public void footerValidations_aboutUs(String dataSet) throws Exception{
+		
+		Sync.waitPageLoad();
+		
+		Common.actionsKeyPress(Keys.END);
+		String Hederlinks=data.get(dataSet).get("FooterLink");
+		String[] hedrs=Hederlinks.split(",");
+		System.out.println(hedrs);
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//span[@class='mobile-accordion-link-text' and text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//span[@class='mobile-accordion-link-text' and text()='"+hedrs[i]+"']");
+			
+			String title=Common.getPageTitle();
+			if(title.contains("Home - Helen of Troy")){
+				
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Home - Helen of Troy"), "verifying Footor link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the Footor link "+hedrs[i],"Failed open the Footor link "+hedrs[i]);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.END);
+			Common.closeCurrentWindow();
+	           Common.switchToFirstTab();
+			}
+		else if(title.contains("Our 52 year history - Helen of Troy")){
+			
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Our 52 year history - Helen of Troy"), "verifying Footor link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the Footor link "+hedrs[i],"Failed open the Footor link "+hedrs[i]);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.END);
+			Common.closeCurrentWindow();
+	           Common.switchToFirstTab();
+			}
+		else if(title.contains("Health & Wellness Blog")){
+			
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Health & Wellness Blog"), "verifying Footor link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the Footor link "+hedrs[i],"Failed open the Footor link "+hedrs[i]);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.END);
+			}
+		else if(title.contains("Careers | Helen Of Troy")){
+			
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Careers | Helen Of Troy"), "verifying Footor link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the Footor link "+hedrs[i],"Failed open the Footor link "+hedrs[i]);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.END);
+			Common.closeCurrentWindow();
+	           Common.switchToFirstTab();
+		}
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Footor Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the Footor link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the Footorlink"));
+		
+			Assert.fail();
+
+		}
+	}
+
+	public void fotterValidations_HelenOfTroy(String dataSet) throws Exception{
+	
+		Sync.waitPageLoad();
+		Common.actionsKeyPress(Keys.END);
+		String Hederlinks=data.get(dataSet).get("FooterLink");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//span[@class='mobile-accordion-link-text' and text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//span[@class='mobile-accordion-link-text' and text()='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+			String title=Common.getPageTitle();
+			if(title.contains("PUR® Water Filters and Water Filtration Systems  | Welcome to PUR | PUR")) {
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("PUR® Water Filters and Water Filtration Systems  | Welcome to PUR | PUR"), "verifying Footor link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the Footor link "+hedrs[i],"Failed open the Footor link "+hedrs[i]);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.END);
+			Common.closeCurrentWindow();
+	           Common.switchToFirstTab();
+		}
+		
+			else if(title.contains("Braun Healthcare US | Accurately. Confidently. Braun.")) {
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Braun Healthcare US | Accurately. Confidently. Braun."), "verifying Footor link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the Footor link "+hedrs[i],"Failed open the Footor link "+hedrs[i]);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.END);
+			Common.closeCurrentWindow();
+	           Common.switchToFirstTab();
+		}
+		
+		else if(title.contains("Vickshumidifiers Home Page")) {
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Vickshumidifiers Home Page"), "verifying Footor link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the Footor link "+hedrs[i],"Failed open the Footor link "+hedrs[i]);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.END);
+			Common.closeCurrentWindow();
+	           Common.switchToFirstTab();
+		}
+		
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Footor Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the Footor link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the Footorlink"));
+		
+			Assert.fail();
+
+		}
+	}
+
 	public void warranty(String dataSet) throws Exception{
 		try {
 			Common.clickElement("xpath","//a[text()='Warranty Registration']");
@@ -1361,7 +1502,113 @@ public void headLinksValidations_SupportbyProduct(String dataSet) {
 }
 
 
+public void Contact_Us(String dataSet) throws Exception {
+	try {	
+		Thread.sleep(1000);
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		//Common.findElement("xpath", "(//span[@class='mobile-accordion-link-text'])[3]");
+		Thread.sleep(3000);
+		Common.clickElement("xpath", "//span[contains(text(), 'Contact Us')]");
+		
+		Thread.sleep(3000);
+		String Title= Common.getPageTitle();
+  		System.out.println(Title);
+  		Common.assertionCheckwithReport(Title.equals("Contact Us"),"Verifying Contact Us page","it should navigate to Contact Us page", "successfully  lands on Contact Us Page", "Contact Us Page");
 
+	}catch(Exception |Error e) {
+	 	   
+		ExtenantReportUtils.addFailedLog("verifying error Contact Us message Page", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("Contact pagevalidation"));
+		Assert.fail();
+	}
+try {
+		Common.switchFrames("xpath", "//*[@id='maincontent']/div[2]//iframe");
+		Thread.sleep(2000);
+		Common.textBoxInput("id","rn_TextInput_3_Contact.Name.First", data.get(dataSet).get("FirstName"));	
+	
+		Common.textBoxInput("id","rn_TextInput_5_Contact.Name.Last", data.get(dataSet).get("LastName"));	
+		Common.textBoxInput("id","rn_TextInput_7_Contact.CustomFields.c.company", data.get(dataSet).get("COMPANY"));	
+		Thread.sleep(1000);
+		Common.textBoxInput("id","rn_TextInput_9_Contact.Phones.MOBILE.Number", data.get(dataSet).get("phone"));
+		
+		Common.textBoxInput("id","rn_TextInput_11_Contact.Emails.PRIMARY.Address", data.get(dataSet).get("Email"));
+		//Common.findElement("id","rn_SelectionInput_13_Contact.Address.Country").click();
+	    Thread.sleep(1000);
+		//Common.dropdown("id", "rn_SelectionInput_13_Contact.Address.Country", Common.SelectBy.TEXT, data.get(dataSet).get("country"));
+		//Thread.sleep(3000);
+		Common.textBoxInput("id","rn_TextInput_15_Contact.Address.PostalCode", data.get(dataSet).get("postcode"));
+        Common.findElement("id","rn_SelectionInput_17_Contact.Address.StateOrProvince").click();
+		Thread.sleep(3000);
+		Common.dropdown("id", "rn_SelectionInput_17_Contact.Address.StateOrProvince", Common.SelectBy.TEXT, data.get(dataSet).get("State"));
+		Thread.sleep(1000);
+		Common.textBoxInput("id","rn_TextInput_19_Contact.Address.City", data.get(dataSet).get("City"));
+		Common.textBoxInput("id","rn_TextInput_21_Contact.Address.Street", data.get(dataSet).get("Street"));
+		Common.textBoxInput("id","rn_TextInput_23_Incident.CustomFields.c.ordernumber", data.get(dataSet).get("ORDER NUMBER"));
+		
+	/*	List<WebElement> Productselemts = Common.findElements("id", "all_button_arrow");
+
+		for (int i =0; i < Productselemts.size(); i++) {
+
+			if (Productselemts.get(i).getAttribute("title").equals(data.get(dataSet).get("productname"))) {
+				Productselemts.get(i).click();
+				break;
+			}
+
+		}*/
+		
+		//Common.findElement("id","all_button_arrow").click();
+		//Thread.sleep(3000);
+		//Common.mouseOver("xpath", "//div[@title='10200 (AIR PURIFIER REPLACEMENT FILTER FOR 85L)']");
+		//Common.dropdown("xpath", "//i[@id='all_button_arrow']", Common.SelectBy.TEXT, data.get(dataSet).get("productname"));
+		//Common.findElement("xpath","//div[@title='10200 (AIR PURIFIER REPLACEMENT FILTER FOR 85L)']");
+		
+		Sync.waitElementClickable(30, By.xpath("//i[@id='all_button_arrow']"));
+		Common.findElement("xpath", "//i[@id='all_button_arrow']").click();
+		Common.findElement("xpath", "//div[@title='10200 (AIR PURIFIER REPLACEMENT FILTER FOR 85L)']").click();
+		/*Thread.sleep(3000);
+		Sync.waitElementClickable("id", "all_button_arrow");
+		Common.findElement("id", "all_button_arrow").click();
+		Thread.sleep(3000);
+		Common.javascriptclickElement("xpath", "//div[@title='10200 (AIR PURIFIER REPLACEMENT FILTER FOR 85L)']");
+		*/
+		
+		//Common.dropdown("id", "all_button_arrow", Common.SelectBy.TEXT, data.get(dataSet).get("productname"));
+		Common.findElement("id","rn_ProductCategoryInput_27_Category_Button").click();
+		Thread.sleep(3000);
+		Common.javascriptclickElement("id", "ygtvlabelel2");
+       //Common.dropdown("id", "rn_ProductCategoryInput_27_Category_Button", Common.SelectBy.TEXT, data.get(dataSet).get("TOPIC"));
+		Thread.sleep(3000);
+	
+		String path = System.getProperty("user.dir")
+				+ ("\\src\\test\\resources\\TestData\\Honeywell\\TestScreen.jpg");
+			try{	
+		Common.fileUpLoad("xpath", "//input[contains(@id,'FileInput')]", path);
+			}
+			catch(Exception e){
+				
+			}
+		Thread.sleep(12000);
+       /*	String productname= data.get(dataSet).get("MESSAGE");
+       	System.out.println(productname);
+		Common.textBoxInput("xpath", "//textarea[@id='rn_TextInput_30_Incident.Threads']", productname);
+		Thread.sleep(3000);*/
+		
+		Sync.waitElementPresent("xpath","//textarea[@id='rn_TextInput_30_Incident.Threads']");
+		Common.textBoxInput("xpath","//textarea[@id='rn_TextInput_30_Incident.Threads']", data.get(dataSet).get("Message"));
+		
+		Common.findElement("id","rn_CustomFormSubmit_53_Button").click();
+		Thread.sleep(2000);	
+		//Common.actionsKeyPress(Keys.PAGE_UP);
+		Common.actionsKeyPress(Keys.HOME);
+		
+		String ContactUs=Common.getText("xpath", "//h1[text()='Your question has been submitted!']");
+		System.out.println(ContactUs);
+		Assert.assertEquals(ContactUs, "Your question has been submitted!");
+}catch(Exception |Error e) {
+	   e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("verifying error message Page", "enter with empty data it must show error message", "faield to dispalyerrormessage", Common.getscreenShotPathforReport("ContactUs pagevalidation"));
+	Assert.fail();
+}
+}
 	
 
  /*public void OrderStatus(){
