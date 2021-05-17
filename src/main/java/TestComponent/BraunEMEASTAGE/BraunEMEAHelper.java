@@ -436,18 +436,387 @@ public class BraunEMEAHelper {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void canadaproductname(String dataSet) throws Exception
+
+	{
+
+	String expectedResult="Search with Product name :"+data.get(dataSet).get("ProductName");
+
+	try {
+
+	Thread.sleep(1000);
+
+	Common.clickElement("xpath", "(//span[@class='braun-icons m_hide'])[2]");
+
+	Sync.waitElementPresent("id", "search");
+
+	try {
+
+	Common.textBoxInput("id", "search", data.get(dataSet).get("CanadaProduct"));
+
+	report.addPassLog(expectedResult, "Should display Browse search Page", "Browse search Page display successfully", Common.getscreenShotPathforReport("Browse search page success"));
+
+	 
+
+	}catch(Exception e)
+
+	{
+
+	Common.clickElement("xpath", "(//span[@class='braun-icons m_hide'])[2]");
+
+	Thread.sleep(3000);
+
+	Common.textBoxInput("id", "search", data.get(dataSet).get("ProductName"));
+
+	}
+
+	Common.actionsKeyPress(Keys.ENTER);
+
+	Thread.sleep(10000);
+
+	Common.actionsKeyPress(Keys.DOWN);
+
+	 
+
+	Sync.waitElementPresent("xpath", "//img[@class='product-image-photo ']");
+
+	Common.clickElement("xpath", "//img[@class='product-image-photo ']");
+
+	//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+
+	report.addPassLog(expectedResult, "Should display Search Results Page", "Search results Page display successfully", Common.getscreenShotPathforReport("Search results success"));
+
+	}catch(Exception |Error e)
+
+	{
+
+	report.addFailedLog(expectedResult,"Should display Search Results Page", "Search results Page not display", Common.getscreenShotPathforReport("Search result Failed"));
+
+	e.printStackTrace();
+
+	Assert.fail();
+
+	}
+
+	 
+
+	}
 
 
+	
+	
+	
+	
+	public void NavigateCanadaYourhealth(String dataset) throws Exception
+
+	{
+
+	String expectedResult="Lands on Your health page";
+
+	String linkText=data.get(dataset).get("CanadaHealthlinkText");
+
+	try {
+
+	Sync.waitElementPresent("xpath", "//a[@title='"+linkText+"']");
+
+	Common.scrollToElementAndClick("xpath", "//a[@title='"+linkText+"']");
+
+	 
+
+	Thread.sleep(300);
+
+	String s=Common.getText("xpath", "//a[contains(text(), '"+linkText+"')]");
+
+	System.out.println(s +" navigated successfully");
+
+	Assert.assertEquals(s, linkText);
+
+
+
+
+	report.addPassLog(expectedResult, "Should display Your health Page", "Your health Page display successfully", Common.getscreenShotPathforReport("Your health page success"));
+
+	}catch(Exception |Error e)
+
+	{
+
+	e.printStackTrace();
+
+	report.addFailedLog(expectedResult,"Should display Your health Page", "Your health Page not displayed", Common.getscreenShotPathforReport("Your health Failed"));
+
+	Assert.fail();
+
+	}
+
+	 
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void CanadaYourhealth(String dataset) throws Exception
+
+	{
+
+	String expectedResult="Lands on Your health page";
+
+	String linkText=data.get(dataset).get("CanadahealthText");
+
+	try {
+
+	Sync.waitElementPresent("xpath", "//a[@title='"+linkText+"']");
+
+	Common.scrollToElementAndClick("xpath", "//a[@title='"+linkText+"']");
+
+	 
+
+	Thread.sleep(300);
+
+	String s=Common.getText("xpath", "//a[contains(text(), '"+linkText+"')]");
+
+	System.out.println(s +" navigated successfully");
+
+	Assert.assertEquals(s, linkText);
+
+
+
+
+	report.addPassLog(expectedResult, "Should display Your health Page", "Your health Page display successfully", Common.getscreenShotPathforReport("Your health page success"));
+
+	}catch(Exception |Error e)
+
+	{
+
+	e.printStackTrace();
+
+	report.addFailedLog(expectedResult,"Should display Your health Page", "Your health Page not displayed", Common.getscreenShotPathforReport("Your health Failed"));
+
+	Assert.fail();
+
+	}
+
+	 
+
+	}
+	
+	
+	public void CanadaHeaderLinks(String dataSet) throws Exception{
+
+		String expectedResult="Header Link validations";
+
+		String Headerlinks=data.get(dataSet).get("CanadaHeaders");
+
+		String[] headers=Headerlinks.split(",");
+
+		for(int i=0;i<headers.length;i++){
+
+		Sync.waitElementClickable("xpath", "//span[text()='"+headers[i]+"']");
+
+		Common.clickElement("xpath", "//span[text()='"+headers[i]+"']");
+
+		Thread.sleep(10000);
+
+		System.out.println(Common.getPageTitle());
+
+		report.addPassLog(expectedResult, "Should display "+headers[i]+" success Page", ""+headers[i]+" Page display successfully", Common.getscreenShotPathforReport("Product Registration success page success"));
+
+
+		}
+
+
+		}
+
+
+
+
+		public void CanadaNewslettersubscription(String dataset) throws Exception
+
+		{
+
+		String expectedResult="Should display Newsletter subscription page";
+
+		try {
+
+
+		//Common.textBoxInput("id", "newsletter", data.get(dataset).get("Email"));
+
+
+		Common.textBoxInput("id", "newsletter",Utils.getEmailid());
+
+
+		Common.clickElement("xpath", "//span[@class='checkmark']");
+
+
+		Thread.sleep(1000);
+
+
+		Common.clickElement("xpath", "//button[@class='action subscribe primary']");
+
+
+		String s=Common.getText("xpath", "//div[@class='message-success success message']");
+
+		System.out.println(s);
+
+		if(s.contentEquals("Vielen Dank für Ihre Anmeldung."))
+
+		{
+
+		Assert.assertEquals(s, "Vielen Dank für Ihre Anmeldung.");
+
+		Thread.sleep(1000);
+
+		//System.out.println("Forgot password successpage");
+
+		}
+
+		/*else {
+
+		Assert.assertEquals(s, "S'il y a un compte associé à l’adresse pavani.tumati@gmail.com, vous recevrez un email avec un lien pour réinitialiser votre mot de passe");
+
+
+		}*/
+
+		       
+
+		/* String title=Common.findElement("xpath", "//div[@class='message-error error message']").getText();
+
+		title=("Diese E-Mail-Adresse ist bereits abonniert.");*/
+
+		 
+
+		report.addPassLog(expectedResult, "Should display  Newsletter subscription page", "Newsletter subscription Page display successfully", Common.getscreenShotPathforReport("Newsletter subscription page success"));
+
+
+		}catch(Exception |Error e)
+
+
+
+		{
+
+		report.addFailedLog(expectedResult,"Should display Newsletter subscription Page", "Newsletter subscription Page not displayed", Common.getscreenShotPathforReport("Newletter subscription page display Failed"));
+
+		Assert.fail();
+
+		}
+
+		 
+
+		}
+
+
+
+		public void CanadafrFacebook() throws Exception
+
+		{
+
+		String expectedResult="Validate Facebook Link in Canadafr store";
+
+		try {
+
+		Sync.waitElementPresent("xpath", "//a[@class='social-icons si-borderless si-facebook']");
+
+		Common.scrollToElementAndClick("xpath", "//a[@class='social-icons si-borderless si-facebook']");
+
+		Thread.sleep(2000);
+
+		Common.switchToSecondTab();
+
+		   Thread.sleep(15000);
+
+		   String s=Common.getCurrentURL();
+
+		   System.out.println(s);
+
+		   Common.assertionCheckwithReport(s.contains("facebook"),"Verifying facebook page","it shoud navigate to facebook  page", "successfully  navigated to facebook Page", "facebook");
+
+		report.addPassLog(expectedResult, "Should display Facebook Page", "Facebook Page display successfully", Common.getscreenShotPathforReport("Facebook page success"));
+
+		}catch(Exception |Error e)
+
+		{
+
+		report.addFailedLog(expectedResult,"Should display Facebook Page", "Facebook Page not displayed", Common.getscreenShotPathforReport("Facebook Failed"));
+
+		e.printStackTrace();
+
+		Assert.fail();
+
+		}
+
+		Common.closeCurrentWindow();
+
+		Common.switchToFirstTab();
+
+		}
+
+		       
+
+
+
+
+
+
+		public void CanadaYoutube() throws Exception
+
+		{
+
+		String expectedResult="Validate Youtube Link in Canadafr store";
+
+		try {
+
+		Sync.waitElementPresent("xpath", "//a[@class='social-icons si-borderless si-youtube']");
+
+		Common.scrollToElementAndClick("xpath", "//a[@class='social-icons si-borderless si-youtube']");
+
+		Thread.sleep(3000);
+
+		Common.switchToSecondTab();
+
+		   Thread.sleep(13000);
+
+		String s=Common.getCurrentURL();
+
+		   System.out.println(s);
+
+		   Common.assertionCheckwithReport(s.contains("youtube"),"Verifying youtube page","it shoud navigate to youtube  page", "successfully  navigated to youtube Page", "youtube");
+
+		report.addPassLog(expectedResult, "Should display Youtube Page", "Youtube Page display successfully", Common.getscreenShotPathforReport("Youtube page success"));
+
+		}catch(Exception |Error e)
+
+		{
+
+		report.addFailedLog(expectedResult,"Should display Youtube Page", "Youtube Page not displayed", Common.getscreenShotPathforReport("Youtube Failed"));
+
+		e.printStackTrace();
+
+		Assert.fail();
+
+		}
+
+		Common.closeCurrentWindow();
+
+		Common.switchToFirstTab();
+
+		}
+
+		       
 
 	public void Productlistingpage() throws Exception
 	{
@@ -610,6 +979,49 @@ public class BraunEMEAHelper {
 
 	}
 	
+	
+	public void CanadaENNewslettersubscription(String dataset) throws Exception
+	{
+		String expectedResult="Should display Newsletter subscription page";
+		try {
+			
+			//Common.textBoxInput("id", "newsletter", data.get(dataset).get("Email"));
+			
+			Common.textBoxInput("id", "newsletter",Utils.getEmailid());
+			
+			Common.clickElement("xpath", "//span[@class='checkmark']");
+			
+			Thread.sleep(1000);
+			
+			Common.clickElement("xpath", "//button[@class='action subscribe primary']");
+			
+			String s=Common.getText("xpath", "//div[@class='message-success success message']");
+			System.out.println(s);
+			if(s.contentEquals("Thank you for your subscription."))
+			{
+			Assert.assertEquals(s, "Thank you for your subscription.");
+			Thread.sleep(1000);
+			//System.out.println("Forgot password successpage");
+			}
+			/*else {
+				Assert.assertEquals(s, "S'il y a un compte associé à l’adresse pavani.tumati@gmail.com, vous recevrez un email avec un lien pour réinitialiser votre mot de passe");
+				
+			}*/
+	
+		/*	String title=Common.findElement("xpath", "//div[@class='message-error error message']").getText();
+			title=("Diese E-Mail-Adresse ist bereits abonniert.");*/
+
+			report.addPassLog(expectedResult, "Should display  Newsletter subscription page", "Newsletter subscription Page display successfully", Common.getscreenShotPathforReport("Newsletter subscription page success"));
+			
+		}catch(Exception |Error e)
+		
+		
+		{
+			report.addFailedLog(expectedResult,"Should display Newsletter subscription Page", "Newsletter subscription Page not displayed", Common.getscreenShotPathforReport("Newletter subscription page display Failed"));
+			Assert.fail();
+		}
+
+	}
 	public void SOUAFNewslettersubscription(String dataset) throws Exception
 	{
 		String expectedResult="Should display Newsletter subscription page";
@@ -1052,6 +1464,39 @@ public class BraunEMEAHelper {
 		}
 
 	}
+	
+	public void CanadaENBabyRegistry(String dataset) throws Exception
+	{
+		String expectedResult="Lands on Your health page";
+		String linkText=data.get(dataset).get("BabyRegistry");
+		try {
+			/*Sync.waitElementPresent("xpath", "//div[@class='bag-subscription-panel-body']//a//a[@title='"+linkText+"']");
+			Common.clickElement("xpath" , "//div[@class='bag-subscription-panel-body']//a[@title='"+linkText+"']");*/
+			/*Common.scrollToElementAndClick("xpath", "//a[@title='"+linkText+"']");
+			Common.clickElement("xpath" , "//a[@title='"+linkText+"']");*/
+			//Common.clickElement("xpath" , "//a[@title='"+linkText+"']");
+			
+			/*Sync.waitElementPresent("xpath", "//div[@class='bag-subscription-panel-body']//a[@title='Building Your Baby Registry']");
+			Common.clickElement("xpath" , "//div[@class='bag-subscription-panel-body']//a[@title='Building Your Baby Registry']");*/
+	        
+			Sync.waitElementPresent("xpath", "//a[contains(text(), 'Building Your Baby Registry')]");
+			Common.clickElement("xpath" , "//a[contains(text(), 'Building Your Baby Registry')]");
+			Thread.sleep(4000);
+			String s=Common.getText("xpath", "//a[contains(text(), '"+linkText+"')]");
+			System.out.println(s +" navigated successfully");
+			Assert.assertEquals(s, linkText);
+		
+			report.addPassLog(expectedResult, "Should display Your health Page", "Your health Page display successfully", Common.getscreenShotPathforReport("Your health page success"));
+		}catch(Exception |Error e)
+		{
+			e.printStackTrace();
+			report.addFailedLog(expectedResult,"Should display Your health Page", "Your health Page not displayed", Common.getscreenShotPathforReport("Your health Failed"));
+			Assert.fail();
+		}
+
+	}
+	
+	
 
 
 	public void health() throws Exception
@@ -1273,7 +1718,21 @@ public class BraunEMEAHelper {
 	
 	
 	
-	
+	public void CanadaenHeaderLinks(String dataSet) throws Exception{
+		String expectedResult="Header Link validations";
+		String Headerlinks=data.get(dataSet).get("CanadaHeaderlinks");
+		String[] headers=Headerlinks.split(",");
+		for(int i=0;i<headers.length;i++){
+			Sync.waitElementClickable("xpath", "//span[text()='"+headers[i]+"']");
+			Common.clickElement("xpath", "//span[text()='"+headers[i]+"']");
+			Thread.sleep(10000);
+			System.out.println(Common.getPageTitle());
+			report.addPassLog(expectedResult, "Should display "+headers[i]+" success Page", ""+headers[i]+" Page display successfully", Common.getscreenShotPathforReport("Product Registration success page success"));
+			
+		}
+		
+	}
+			
 	
 	
 	public void SOUAFHeaderThermometer() throws Exception
@@ -4987,6 +5446,100 @@ catch(Exception |Error e)
 		}
 
 	}
+	
+	public void CanadaenProductname(String dataSet) throws Exception
+	{
+		String expectedResult="Search with Product name :"+data.get(dataSet).get("ProductName");
+		try {
+			Thread.sleep(1000);
+			Common.clickElement("xpath", "//div[@class='block block-search search-visible-md minisearch-v2']");
+			Sync.waitElementPresent("id", "search");
+			try {
+				Common.textBoxInput("id", "search", data.get(dataSet).get("ProductName"));
+				report.addPassLog(expectedResult, "Should display Browse search Page", "Browse search Page display successfully", Common.getscreenShotPathforReport("Browse search page success"));
+
+			}catch(Exception e)
+			{
+				Common.clickElement("xpath", "//div[@class='block block-search search-visible-md minisearch-v2']");
+				Thread.sleep(3000);
+				Common.textBoxInput("id", "search", data.get(dataSet).get("ProductName"));
+			}
+			Common.actionsKeyPress(Keys.ENTER);
+			Thread.sleep(10000);
+			Common.actionsKeyPress(Keys.DOWN);
+
+			Sync.waitElementPresent("xpath", "//img[@class='product-image-photo ']");
+			Common.clickElement("xpath", "//img[@class='product-image-photo ']");
+			//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			report.addPassLog(expectedResult, "Should display Search Results Page", "Search results Page display successfully", Common.getscreenShotPathforReport("Search results success"));
+		}catch(Exception |Error e)
+		{
+			e.printStackTrace();
+			report.addFailedLog(expectedResult,"Should display Search Results Page", "Search results Page not display", Common.getscreenShotPathforReport("Search result Failed"));
+			Assert.fail();
+		}
+
+	}
+	
+	public void CanadaFacebook() throws Exception
+	{
+		String expectedResult="Validate Facebook Link in Canada store";
+		try {
+			Sync.waitElementPresent("xpath", "//a[@class='social-icons si-borderless si-facebook']");
+			Common.scrollToElementAndClick("xpath", "//a[@class='social-icons si-borderless si-facebook']");
+			Thread.sleep(2000);
+			Common.switchToSecondTab();
+		   	Thread.sleep(15000);
+		   	
+		   	if(Common.isElementDisplayed("xpath", "//span[contains(text(), 'Braun Healthcare')]")) {
+				String s=Common.getText("xpath", "//span[contains(text(), 'Braun Healthcare')]");
+			   	System.out.println(s);
+			   	Assert.assertEquals(s, "Braun Healthcare");
+			}else {
+				String s=Common.getText("xpath", "//u[contains(text(), 'Facebook')]");
+			   	System.out.println(s);
+			   	Assert.assertEquals(s, "Facebook");
+			}
+		   	/*String s=Common.getText("xpath", "(//span[contains(text(),'Braun Healthcare')])[1]");
+		   	System.out.println(s);
+		   	Assert.assertEquals(s, "Braun Healthcare");*/
+			report.addPassLog(expectedResult, "Should display Facebook Page", "Facebook Page display successfully", Common.getscreenShotPathforReport("Facebook page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Facebook Page", "Facebook Page not displayed", Common.getscreenShotPathforReport("Facebook Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+	}
+
+
+	
+	public void CanadafrYoutube() throws Exception
+	{
+		String expectedResult="Validate Youtube Link in Canada store";
+		try {
+			Sync.waitElementPresent("xpath", "//a[@class='social-icons si-borderless si-youtube']");
+			Common.scrollToElementAndClick("xpath", "//a[@class='social-icons si-borderless si-youtube']");
+			Thread.sleep(3000);
+			Common.switchToSecondTab();
+		   	Thread.sleep(13000);
+		   	String s=Common.getText("xpath", "//yt-formatted-string[contains(text(), 'Braun Healthcare Canada')]");
+		   	System.out.println(s);
+			Assert.assertEquals(s, "Braun Healthcare Canada");
+			report.addPassLog(expectedResult, "Should display Youtube Page", "Youtube Page display successfully", Common.getscreenShotPathforReport("Youtube page success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Youtube Page", "Youtube Page not displayed", Common.getscreenShotPathforReport("Youtube Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+	}
+
+
 	
 	
 	public void SOUAFproductname(String dataSet) throws Exception
