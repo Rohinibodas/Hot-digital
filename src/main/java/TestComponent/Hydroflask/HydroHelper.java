@@ -27,12 +27,12 @@ public class HydroHelper {
 	
 	static Automation_properties automation_properties = Automation_properties.getInstance();
 	public void navigateMyAccount() throws InterruptedException {
-		//Thread.sleep(2000);
+		Thread.sleep(2000);
 		Sync.waitPageLoad();
 		String expectedResult = "User should land on the home page";
 		int size =Common.findElements("xpath", "//a[@class='logo']").size();
 		Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
-		 Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
+		Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
 		try {
 			Sync.waitPageLoad();
 			//Thread.sleep(5000);
@@ -56,7 +56,7 @@ public class HydroHelper {
 
 	public void acceptPrivecy() {
 		
-		Common.clickElementStale("xpath", "//button[text()='AGREE & PROCEED']");
+		Common.clickElementStale("id", "truste-consent-required");
 	}
 
 	public void CreateNewAccount(String dataSet) throws Exception {
@@ -265,8 +265,7 @@ public class HydroHelper {
 		Thread.sleep(5000);
 		String expectedResult = "User should land on the home page";
 		int size = Common.findElements("xpath", "//a[@class='logo']").size();
-		Common.assertionCheckwithReport(size > 0, "validating the home page ", expectedResult,
-				"Successfully landed on the home page", "User unabel to land on home page");
+		Common.assertionCheckwithReport(size > 0, "validating the home page ", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
 		// Common.assertionCheckwithReport(size>0, "Successfully landed on the
 		// home page", expectedResult,"User unabel to land on home page");
 
@@ -314,9 +313,7 @@ public class HydroHelper {
 			Thread.sleep(4000);
 			List<WebElement> element = Common.findElements("xpath", "//button[@title='Add to Cart']");
 
-			// Common.scrollIntoView(element.get(2));
-
-			// Common.javascriptclickElement(elemfindBY, elemfindText);
+			
 			element.get(2).click();
 
 			// Common.clickElement("xpath", "//button[@title='Add to Cart']");
@@ -1755,16 +1752,15 @@ public class HydroHelper {
 
 		try {
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
-			Sync.waitElementPresent("xpath", "//div[text()='Standard Mouth Bottle']/following::a[1]");
-			WebElement linkEnabel = Common.findElementBy("xpath",
-					"//div[text()='Standard Mouth Bottle']/following::a[1]");
+			Sync.waitElementPresent("xpath", "//div[contains(text(),'Standard')]/following::a[1]");
+			WebElement linkEnabel = Common.findElementBy("xpath","//div[contains(text(),'Standard')]/following::a[1]");
 			for (int i = 1; i < 10; i++) {
 				Thread.sleep(2000);
 				String attribute = linkEnabel.getAttribute("href");
 				attribute.length();
 				if (attribute.contains("hydro")) {
 					expectedResult = "It should land successfully on the my hydro configurator";
-					Sync.waitElementPresent("xpath", "//div[text()='Standard Mouth Bottle']/following::a[1]");
+					Sync.waitElementPresent("xpath", "//div[contains(text(),'Standard')]/following::a[1]");
 					// int buttonsize=Common.findElements("xpath",
 					// "//div[text()='Standard Mouth
 					// Bottle']/following::a[1]").size();
@@ -1778,13 +1774,14 @@ public class HydroHelper {
 					// "successfully opean the my hydro configurator page",
 					// expectedResult,"User unabel to land on
 					// my-hydro-configurator page ");
-					Common.clickElement("xpath", "//div[text()='Standard Mouth Bottle']/following::a[1]");
+					Common.clickElement("xpath", "//div[contains(text(),'Standard')]/following::a[1]");
 					break;
 				}
 
 			}
 
 		} catch (Exception | Error e) {
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating my hydro configuration page",
 					"It should land successfully on the my hydro configurator and select Standard Mouth Bottle ",
 					"User Faield to select My Hydro configurator or botttle option",
@@ -3015,8 +3012,577 @@ public void order(String category) throws Exception {
 		}
 	}
 
+public void Customize_Bottle_Standed() throws Exception {
+
+	String expectedResult = "User should land on the home page";
+	Thread.sleep(8000);
+	int size = Common.findElements("xpath", "//a[@class='logo']").size();
+	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
+	
+	try {
+		
+         Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+		 Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+    
+        int customeButton=Common.findElements("xpath", "//span[contains(text(),'Create Yours Now')]").size();
+        if(customeButton>0) {
+        	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
+        }
+		 
+        expectedResult = "It should land successfully on my-hydro-landing page";
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("My Hydro™ by Hydro Flask | Customized & Personalized Hydro Flasks"), "validating My hydro-Landing page", expectedResult,
+				"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
+
+		
+		
+		
+	} 
+	catch (Exception | Error e) {
+         e.printStackTrace();
+		report.addFailedLog("validating My hydro-Landing page", expectedResult,
+				"User Faield to select My Hydro option", Common.getscreenShotPathforReport("Myhydropage"));
+		
+		Assert.fail();
+
+	}
+
+	try {
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Sync.waitElementClickable("xpath", "//div[contains(text(),'Standard')]/following::a[1]");
+		Common.clickElement("xpath", "//div[contains(text(),'Standard')]/following::a[1]");
+		
+		
+		Thread.sleep(8000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("MyHydro STANDARD MOUTH"), "It should land on the my hydro standard mouth configurator", "successfully opean the  my hydro standard configurator page", "my-hydro-configurator");
+		
+
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating my hydro configuration page",
+				"It should land successfully on the my hydro configurator and select Standard Mouth Bottle ",
+				"User Faield to select My Hydro configurator or botttle option",
+				Common.getscreenShotPathforReport("My hydro options"));
+		Assert.fail();
+
+	}
+
+	Thread.sleep(18000);
+
+	
+	try {
+		Thread.sleep(18000);
+		
+		Common.actionsKeyPress(Keys.ESCAPE);
+		
+		selectSide_standard_mouthbottle("24oz");
+		select_Capcolor_standardMouthBottle("Black");
+		select_Strapcolor_standardMouthBottle("Black");
+		select_Bottlecolor_standardMouthBottle("Black");
+		select_Bootcolor_standardMouthBottle("Stone");
+
+	
+		
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", expectedResult,"User unabel to change bottele color ",Common.getscreenShotPathforReport("faield change the color myhydro"));
+		Assert.fail();
+
+	}
+	
+	try {
+		Sync.waitElementPresent("xpath", "//span[text()='Add To Cart']");
+		Common.clickElement("xpath", "//span[text()='Add To Cart']");
+		ExtenantReportUtils.addPassLog("verifying myhydro configuration page", "user click add to cart button",
+				"user click the add to cart button",
+				Common.getscreenShotPathforReport("faield to click add to cart button"));
+	} catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", "click add to cart",
+				"User faield to click add to cart ", Common.getscreenShotPathforReport("add to cart button"));
+		Assert.fail();
+
+	}
 	
 	
+}
+
+
+
+public void selectSide_standard_mouthbottle(String Bottlesize) {
+	try {
+	Sync.waitElementPresent("xpath", "//div[@id='fc-nav-flyout-header-80251']");
+	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80251']");
+
+	if(Bottlesize.equals("21oz")) {
+		Sync.waitElementPresent("xpath", "//div[contains(@aria-label,'21 oz')]");
+		Common.clickElement("xpath", "//div[contains(@aria-label,'21 oz')]");
+		ExtenantReportUtils.addPassLog("verifying myhydro standard mouth bottle size", "selecting the standad moth bottle size is "+Bottlesize,
+				"User successfully click add to cartstandard mouth bottle size is "+Bottlesize, Common.getscreenShotPathforReport("BottleSize"));
+	}
+	else if(Bottlesize.equals("24oz")) {
+		Sync.waitElementPresent("xpath", "//div[contains(@aria-label,'24 oz')]");
+		Common.clickElement("xpath", "//div[contains(@aria-label,'24 oz')]");
+		ExtenantReportUtils.addPassLog("verifying myhydro standard mouth bottle size", "selecting the standad moth bottle size is "+Bottlesize,
+				"User successfully click add to cartstandard mouth bottle size is "+Bottlesize, Common.getscreenShotPathforReport("BottleSize"));
+	}
+}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying myhydro standard mouth bottle size", "selecting the standad moth bottle size is "+Bottlesize,
+				"User faield to click add to cartstandard mouth bottle size is "+Bottlesize, Common.getscreenShotPathforReport("BottleSize"));
+		Assert.fail();
+
+	}
+}
+
+
+
+
+public void select_Capcolor_standardMouthBottle(String Color) {
+try {
+	Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80263']");  
+
+	Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-90031-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
+    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH CAP COLOR", "selecting the standad moth bottle cap color is "+Color,"User successfully click standard mouth bottle cap color "+Color, Common.getscreenShotPathforReport("capcolor"));
+
+
+}
+
+catch (Exception | Error e) {
+	ExtenantReportUtils.addFailedLog("verifying myhydro standard moutH CAP COLOR", "selecting the standad moth bottle cap color is "+Color,
+			"User faield to click standard mouth bottle cap color is "+Color, Common.getscreenShotPathforReport("capcolor"));
+	Assert.fail();
+
+}
+}
+
+public void select_Strapcolor_standardMouthBottle(String Color) {
+	try {
+		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80262']");  
+        Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80262-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
+	    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH strap COLOR", "selecting the standad  bottle strap cap color is "+Color,"User successfully click standard mouth bottle strap color "+Color, Common.getscreenShotPathforReport("strap"));
+	
+	}
+
+	catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying myhydro standard moutH CAP COLOR", "selecting the standad moth bottle cap color is "+Color,
+				"User faield to click standard mouth bottle cap color is "+Color, Common.getscreenShotPathforReport("capcolor"));
+		Assert.fail();
+
+	}
+	}
+	
+public void select_Bottlecolor_standardMouthBottle(String Color) {
+	try {
+		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80268']");  
+        Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80268-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
+	    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH bottle COLOR", "selecting the standad  bottle  color is "+Color,"User successfully click standard mouth bottle  color "+Color, Common.getscreenShotPathforReport("bottle"));
+	
+	}
+
+	catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying myhydro standard moutH bottle COLOR", "selecting the standad moth bottle bottle color is "+Color,
+				"User faield to click standard mouth bottle  color is "+Color, Common.getscreenShotPathforReport("bottle"));
+		Assert.fail();
+
+	}
+	}
+
+public void select_Bootcolor_standardMouthBottle(String Color) {
+	try {
+		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80270']");  
+        Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80270-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
+	    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH bottle COLOR", "selecting the standad  bottle boot  color is "+Color,"User successfully click standard mouth bottle boot color "+Color, Common.getscreenShotPathforReport("boot"));
+	
+	}
+
+	catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying myhydro standard moutH bottle boot COLOR", "selecting the standad moth bottle boot color is "+Color,
+				"User faield to click standard mouth boot color is "+Color, Common.getscreenShotPathforReport("boot"));
+		Assert.fail();
+
+	}
+	}
+public void searchproduct_addtocart(String dataSet) throws Exception {
+	Thread.sleep(5000);
+
+	try {
+		Sync.waitElementVisible("xpath", "//form[@id='search_mini_form']//label");
+	
+		Common.clickElement("xpath", "//form[@id='search_mini_form']//label");
+		Common.textBoxInput("xpath", "//input[@id='search']", dataSet);
+		ExtenantReportUtils.addPassLog("validating Search box", "enter product name will display in search box",
+				"user enter the product name in  search box", Common.getscreenShotPathforReport("searchproduct"));
+	} catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("validating Search box", "enter product name will display in search box",
+				"User failed to enter product name", Common.getscreenShotPathforReport("searchproduct"));
+		Assert.fail();
+
+	}
+	try {
+		
+		Common.actionsKeyPress(Keys.ENTER);
+		Sync.waitElementClickable("xpath","//a[text()='"+dataSet+"']");
+		Common.scrollIntoView("xpath","//a[text()='"+dataSet+"']");
+		Common.clickElement("xpath","//a[text()='"+dataSet+"']");
+		
+		
+		Thread.sleep(3000);
+		int sizeaddtocart=Common.findElements("id", "product-addtocart-button").size();
+		Common.clickElement("id", "product-addtocart-button");
+		Common.assertionCheckwithReport(sizeaddtocart>0, "Verifying the add to cart button in PDP page", "user click the add to cart button", "user successfully click the add to cart button", "user failed click the add to cart button");
+		
+		}
+
+	 catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("validating search product", "user find  product in search",
+				"User failed find  product in search",
+				Common.getscreenShotPathforReport("searchproduct"));
+		Assert.fail();
+
+	}
+}
+
+
+public void verifying_letsGo(){
+	try{
+	Thread.sleep(5000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]/div[1]");
+	Common.clickElement("xpath", "//span[text()='Let’s Go!']");
+	//Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]//ul/li[1]/a");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Let’s Go! | Hydro Flask - One lifetime. Fill Often"), "verifying Header link of Lets go","user open the Lets go page", "user successfully open the header link lets go","Failed open the header link lets go");
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+        ExtenantReportUtils.addFailedLog("validating Header Links Lets go ","user open the lets go option","User unabel open the header link lets go",Common.getscreenShotPathforReport("letsgo"));
+	    Assert.fail();
+
+	}
+}
+public void verifying_Parks_For_All(){
+	try{
+	Thread.sleep(5000);
+	Sync.waitPageLoad();
+	
+	
+    Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]/div[1]");
+    Common.clickElement("xpath", "//span[text()='Parks For All']");
+	//Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]//ul/li[2]/a");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Parks For All | Hydro Flask"), "verifying Header link of Parks For All","user open the Parks For All page", "user successfully open the header link Parks For All","Failed open the header link Parks For All");
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+        ExtenantReportUtils.addFailedLog("validating Header Links Parks For All","user open the Parks For All option","User unabel open the header link Parks For All",Common.getscreenShotPathforReport("Parks For All"));
+	    Assert.fail();
+
+	}
+}
+
+public void verifying_OurStory(){
+	try{
+	Thread.sleep(5000);
+	Sync.waitPageLoad();
+	
+	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]/div[1]");
+	//Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]//ul/li[3]/a");
+	Common.clickElement("xpath", "//span[text()='Our Story']");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("We are Hydro Flask"), "verifying Header link of Our Story","user open the Our Story page", "user successfully open the header link Our Story","Failed open the header link Our Story");
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+        ExtenantReportUtils.addFailedLog("validating Header Links Our Story","user open the Our Story option","User unabel open the header Our Story",Common.getscreenShotPathforReport("Our Story"));
+	    Assert.fail();
+
+	}
+}
+
+public void verifying_WSL_Partnership(){
+	try{
+	Thread.sleep(5000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]/div[1]");
+	
+	Common.clickElement("xpath", "//span[text()='WSL Partnership']");
+	//Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]//ul/li[4]/a");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("World Surf League Partnership | Hydro Flask®"), "verifying Header link WSL Partnership","user open the WSL Partnership", "user successfully open the header link WSL Partnership","Failed open the WSL Partnership");
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+        ExtenantReportUtils.addFailedLog("validating Header Links WSL Partnership","user open the WSL Partnership","User unabel open the WSL Partnership",Common.getscreenShotPathforReport("WSL Partnership"));
+	    Assert.fail();
+
+	}
+}
+
+public void verifying_Contact(){
+	try{
+	Thread.sleep(5000);
+	Sync.waitPageLoad();
+	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]/div[1]");
+	Common.clickElement("xpath", "//span[text()='Contact']");
+	//Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[5]//ul/li[5]/a");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Contact Hydro Flask"), "verifying Header link contact","user open the contact header link", "user successfully open the header link contact","Failed open the contact");
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+        ExtenantReportUtils.addFailedLog("validating Header Links contact link","user open the contact headerlink","User unabel open the contact link",Common.getscreenShotPathforReport("contact"));
+	    Assert.fail();
+
+	}
+}
+
+public void click_trackorder(){
+	try{
+	Common.actionsKeyPress(Keys.END);
+	Common.clickElement("xpath", "//a[text()='Track Your Order']");
+	
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Track Order"), "Verifying trackorder page", "after click the tracker order button it will navigate ttack order page", "successfully open the track order page", "Failed to opean the track order page");
+}
+catch (Exception | Error e) {
+	e.printStackTrace();
+    ExtenantReportUtils.addFailedLog("validating trackorder","user open the trackorder page","User unabel open the trackorder",Common.getscreenShotPathforReport("trackorder"));
+    Assert.fail();
+
+}
+}
+
+public void Tack_orderPage_form(String dataSet){
+
+try{
+  Sync.waitElementPresent("id", "order_id");
+  Common.textBoxInput("id", "order_id",data.get(dataSet).get("oderId"));
+  
+  Sync.waitElementPresent("id", "billing_last_name");
+  Common.textBoxInput("id", "billing_last_name",data.get(dataSet).get("Billinglastname"));
+  
+  Sync.waitElementPresent("id", "email");
+  Common.textBoxInput("id", "email",data.get(dataSet).get("billingemail"));
+  
+  Sync.waitElementPresent("xpath", "//button[@title='See Status']");
+  Common.clickElement("xpath", "//button[@title='See Status']");
+  Thread.sleep(6000);
+  int sizeelement= Common.findElements("xpath", "//a[text()='Order Details']").size();
+  Common.assertionCheckwithReport(sizeelement>0, "verifying order status form", "order tracking information page navigation","successfully order tracking information page ", "Failed to navigate tracking order page infromation");
+	
+  
+  
+}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+	    ExtenantReportUtils.addFailedLog("verifying order status form","order tracking information page navigation","User unabel to navigate track ordepage",Common.getscreenShotPathforReport("trackorderpag"));
+	    Assert.fail();
+
+	}
+}
+
+public void gustuserorderStatus(){
+	click_trackorder();
+	Tack_orderPage_form("GustUserOrderdetiles");
+	
+	try{
+		
+	Common.clickElement("xpath", "//a[text()='Order Details']");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Customer Login"), "validating gust user view order option", "after view order it will navigate to login page", "sucessfully navigate login page", "Failed to nivigate login page");
+    
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+	    ExtenantReportUtils.addFailedLog("validating gust user view order option","order tracking information page navigation","User unabel to navigate login page",Common.getscreenShotPathforReport("loginpage"));
+	    Assert.fail();
+
+	}
+}
+public void loginorderfrom(String dataSet){
+	try{
+		Thread.sleep(5000);
+	Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+	Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
+	Common.clickElement("id", "send2");
+	Thread.sleep(5000);
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("My Orders"), "validating order status", "it will navigate to my order page", "successfully navigate to my orders page", "Failed navigate to my orders page");
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+	    ExtenantReportUtils.addFailedLog("validating order status page","it will navigate to my order page","User unabel to navigate my orders page",Common.getscreenShotPathforReport("myorderpageS"));
+	    Assert.fail();
+
+	}
+}
+
+public void registereduserStatus(String Logininfromatiom){
+	click_trackorder();
+	Tack_orderPage_form("registereduserOrderdetiles");
+	
+	try{
+		
+	Common.clickElement("xpath", "//a[text()='Order Details']");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Customer Login"), "validating registered user view order option", "after view order it will navigate to login page", "sucessfully navigate login page", "Failed to nivigate login page");
+	loginorderfrom(Logininfromatiom);
+	
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+	    ExtenantReportUtils.addFailedLog("validating gegistered user view order option","order tracking information page navigation","User unabel to navigate login page",Common.getscreenShotPathforReport("loginpage"));
+	    Assert.fail();
+
+	}
+
+}
+
+public void socialLinkValidation(String dataSet){
+	
+	String socalLinks =data.get(dataSet).get("Links");
+	String [] socallinksarry=socalLinks.split(",");
+	int i=0;
+	try{
+	for(i=0;i<socallinksarry.length;i++){
+		Common.actionsKeyPress(Keys.END);
+		Common.clickElement("xpath", "//a[text()='"+socallinksarry[i]+"']");
+		Common.switchWindows();
+		System.out.println(Common.getCurrentURL());
+		
+		if(socallinksarry[i].equals("Twitter")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Hydro Flask (@HydroFlask) / Twitter"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else if(socallinksarry[i].equals("Instagram")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Login • Instagram"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else	if(socallinksarry[i].equals("Facebook")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Hydro Flask - Home | Facebook"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else	if(socallinksarry[i].equals("Pinterest")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Pinterest"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else	if(socallinksarry[i].equals("Youtube")){
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("hydroflask"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+	}
+		
+		//Common.switchToDefault();
+	}
+	}
+	catch(Exception | Error e){
+		e.printStackTrace();
+	    ExtenantReportUtils.addFailedLog("Verifying Social link ","click the socal links it will navigating to particular page","User unabel to navigate Social page",Common.getscreenShotPathforReport("socialpage"));
+	    Assert.fail();
+	}
+	
+	
+}
+
+public void verifying_account_dashboard(){
+	
+		Sync.waitPageLoad();
+		
+		try {
+			Thread.sleep(4000);
+			Common.mouseOverClick("xpath", "//div[@id='account-menu']//li[1]");
+			Thread.sleep(2000);
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("My Account"), "Validate accountdashboard", "user should land on account dashboard", "successfully navigate to accountdashborad page", "Failed to navigate accountdashboard page");
+			
+			
+		} catch (Exception |Error e){
+			e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("Validate accountdashboard",
+				"User should land on accountdashboard", "User unable to landed on accountdashboard",
+				Common.getscreenShotPathforReport("Failed to land on My Account page"));
+		Assert.fail();
+		} 
+	}
+
+public void Account_information() {
+	
+	Sync.waitPageLoad();
+	  try {
+		  Thread.sleep(4000);
+		Sync.waitElementClickable("xpath", "(//a[contains(text(),'Account Information')])");
+		Common.clickElement("xpath", "(//a[contains(text(),'Account Information')])");
+		Common.assertionCheckwithReport(Common.getPageTitle().contains("Account Information"), "Validate my account information page", "user should land on my account information page", "successfully navigate to myaccount  page", "Failed to navigate myaccount page");
+			
+		} catch (Exception |Error e){
+		
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("TO validating my account information page",
+		"user should land on my account information page", "user unable to landed on my account information page ",
+		Common.getscreenShotPathforReport("failed to land on my account_information page"));
+		Assert.fail();
+			
+			}
+			}
+public void Adress_Book(){
+	try {
+		 Sync.waitElementClickable("xpath", "(//a[contains(text(),'Address Book')])");
+    	 Common.clickElement("xpath", "(//a[contains(text(),'Address Book')])");
+    	
+ 		Common.assertionCheckwithReport(Common.getPageTitle().contains("Address Book"), "Validate my adress book page", "user should land on Adress book page", "successfully navigate to adress  page", "Failed to navigate address page");
+
+    	
+    			
+    	
+    	} catch (Exception |Error e){
+    		
+    	e.printStackTrace();
+    	ExtenantReportUtils.addFailedLog("To validating my adress book page",
+    	"user should land on my adress book page", "user unable to landed the adress book page ",
+    	Common.getscreenShotPathforReport("failed to land on my adress book page"));
+    	Assert.fail();
+    		}
+    	
+        }
+public void my_orders() {
+	try {
+	 Sync.waitElementClickable("xpath", "(//a[contains(text(),'My Orders')])");
+     Common.clickElement("xpath", "(//a[contains(text(),'My Orders')])");
+	 Common.assertionCheckwithReport(Common.getPageTitle().contains("My Orders"), "Validate my order page", "user should land on my order page", "successfully navigate to my order page", "Failed to navigate my order page");
+
+     }
+	catch (Exception |Error e) {
+				
+    		
+    e.printStackTrace();
+    ExtenantReportUtils.addFailedLog("To validating my order page",
+    "user should land on my order page ", " user unable to landed on my order page",
+    Common.getscreenShotPathforReport("failed to land on my orders page"));
+    Assert.fail();
+    }
+			}
+		
+
+public void Newsletter_subscription() {
+	try {
+	Sync.waitElementClickable("xpath", "(//a[contains(text(),'Newsletter Subscription')])");
+    Common.clickElement("xpath", "(//a[contains(text(),'Newsletter Subscription')])");
+    
+	 Common.assertionCheckwithReport(Common.getPageTitle().contains("Newsletter Subscription"), "Validate my newsletter subscription page", "user should land on my newsletter subscription page", "successfully navigate to my newsletter subscription page", "Failed to navigate my newsletter subscription page");
+
+     }
+    catch (Exception |Error e) {
+		e.printStackTrace();
+    ExtenantReportUtils.addFailedLog("To validating my newsletter subscription page ",
+    "user should land on my newsletter subscription page", "user unable to land the newsletter subscription ",
+    Common.getscreenShotPathforReport("failed to land on my newsletter subscription"));
+    Assert.fail();
+                 }
+                 }
+
 	public HydroHelper(String datafile) {
 		
 		
