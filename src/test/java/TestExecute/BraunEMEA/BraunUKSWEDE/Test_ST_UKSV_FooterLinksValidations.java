@@ -31,8 +31,8 @@ public class Test_ST_UKSV_FooterLinksValidations {
 				//BraunUK.UKSVnavigateHealthMagazine();(navigating to UK store)
 				
 				BraunUK.NavigateYourhealth("LinkText");
-				/*BraunUK.NavigateYourhearthealth("LinkText");
-				BraunUK.NavigateHealthMagazine("LinkText");*/
+				BraunUK.NavigateYourhearthealth("LinkText");
+				//BraunUK.NavigateHealthMagazine("LinkText");
 			
 			}
 			catch (Exception e) {
@@ -49,14 +49,14 @@ public class Test_ST_UKSV_FooterLinksValidations {
 			  
 		  }
 		
-		/*@BeforeMethod
+	/*	@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn(browser);
-			  }*/
+			  }
 		
-		
+		*/
 
 		@AfterTest
 		public void clearBrowser()

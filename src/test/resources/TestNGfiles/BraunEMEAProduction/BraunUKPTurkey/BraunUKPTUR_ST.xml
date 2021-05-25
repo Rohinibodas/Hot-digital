@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BraunUK Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="BrowseSearchFunctionality" testid="BTY-454" priority="P1" description="This script will cover BrowseSearchFunctionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunTURP.Test_ST_TUR_BrowseSearchFunctionality"/>
+        </classes>
+    </test>
+     <test name="NewsLetterSubscription" testid="BTY-454" priority="P1" description="This script will cover NewsLetterSubscription of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunTURP.Test_ST_TUR_NewsLetterSubscription"/>
+        </classes>
+    </test>
+    <test name="Headerlinks" testid="BTY-454" priority="P1" description="This test case validates HeadeLinks for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunTURP.Test_ST_TUR_Headerlinks"/>
+        </classes>
+    </test>
+    <test name="ArticalLinks" testid="BTY-454" priority="P1" description="This test case validates ArticalLinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunTURP.Test_ST_TUR_ArticalLinks"/>
+        </classes>
+    </test>
+    
+    </suite>

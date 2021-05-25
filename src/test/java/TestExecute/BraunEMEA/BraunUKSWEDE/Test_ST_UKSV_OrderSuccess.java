@@ -6,28 +6,37 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import TestComponent.BraunEMEA.BraunUKHelper;
 import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_UKSV_NewsletterSubscription {
-		
+public class Test_ST_UKSV_OrderSuccess {
+
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		
 		
 		@Test(priority=1)
-		public void NewsletterSubscription() throws Exception {
+		public void BrowseSearchFunctionality() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
+				//BraunUK.Storeselection();
 				BraunUK.StoreSelection("Sweden");
 				//BraunUK.UKSVStoreSelection();
-				BraunUK.UKSVNewslettersubscription("Newsletter");
-					
+				BraunUK.SDProductselection();
+				//BraunUK.SDnavigateMinicart();
+				BraunUK.SwedennavigateMinicart();
+				BraunUK.SDcheckoutPage();
+				BraunUK.Swedenshipping_Address("GuestEmail");
+				BraunUK.SwedenCreditcardPayment("PaymentcardDetails");
+				//BraunUK.SDorder_Verifying();
+		       
+		      
+		    // BraunUK.CreditcardPayment("PaymentcardDetails");
+				
 			}
 			catch (Exception e) {
 				
@@ -35,7 +44,7 @@ public class Test_ST_UKSV_NewsletterSubscription {
 			} 
 		}
 		
-	/*@BeforeMethod
+	/*	@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
@@ -43,21 +52,21 @@ public class Test_ST_UKSV_NewsletterSubscription {
 			  
 		  }*/
 		
-@BeforeMethod
+		@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn(browser);
 			  }
-	
+		
+		@AfterTest
+		public void clearBrowser()
+		{
+			Common.closeAll();
 
-	@AfterTest
-	public void clearBrowser()
-	{
-		Common.closeAll();
-
+		}
 	}
 
 
-}
+
 

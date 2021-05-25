@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BraunUK Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+     <test name="Test_BraunUK_ST_001_UserBrouserSearch" testid="BNSI-909" priority="P1" description="This script will cover BrowseSearch Functionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunCanadaEN.Test_ST_BrowseSearchFunctionality"/>
+        </classes>
+    </test>
+    
+   <test name="Test_BraunUK_ST_002_ValidateHeaderLinks" testid="BNSI-910" priority="P1" description="This script will cover HeaderLinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunCanadaEN.Test_ST_HearderLinks"/>
+        </classes>
+    </test>
+    <!--   <test name="Test_BraunUK_ST_004_FooterLinks Validation" testid="BNSI-916" priority="P1" description="This script will cover FooterLinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunCanadaEN.Test_ST_FooterLinks"/>
+        </classes>
+    </test>
+    -->
+   
+    <test name="Test_BraunUK_ST_003_Newsletter Subscription" testid="BSNI-911" priority="P1" description="This test case validates Newsletter Subscription for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunCanadaEN.Test_ST_NewsletterSubscription"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_005_ArticalLinks" testid="BNSI-917" priority="P1" description="This test case validates ArticalLinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunCanadaEN.Test_ST_ArticalLinks"/>
+        </classes>
+    </test>
+    
+    
+    </suite>

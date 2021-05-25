@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BraunUK Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_ST_NONO_BrowseSearchFunctionality" testid="BTY-454" priority="P1" description="This script will cover BrowseSearchFunctionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKNOR.Test_ST_NONO_BrowseSearchFunctionality"/>
+        </classes>
+    </test>
+     <test name="Test_ST_NONO_NewsletterSubscription" testid="BTY-454" priority="P1" description="This script will cover NewsletterSubscription Functionality of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKNOR.Test_ST_NONO_NewsletterSubscription"/>
+        </classes>
+    </test>
+     <test name="Test_ST_MONO_HeaderLinks" testid="BTY-454" priority="P1" description="This test case validates HeaderLinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKNOR.Test_ST_MONO_HeaderLinks"/>
+        </classes>
+    </test>
+    <test name="Test_ST_NONO_FooterLinksValidation" testid="BTY-454" priority="P1" description="This test case validates Footerlinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKNOR.Test_ST_NONO_FooterLinksValidation"/>
+        </classes>
+    </test>
+  <!--  <test name="Test_ST_NONO_ArticalLinks" testid="BTY-454" priority="P1" description="This test case validates ArticalLinks for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKNOR.Test_ST_NONO_ArticalLinks"/>
+        </classes>
+    </test>
+     -->
+  
+    </suite>

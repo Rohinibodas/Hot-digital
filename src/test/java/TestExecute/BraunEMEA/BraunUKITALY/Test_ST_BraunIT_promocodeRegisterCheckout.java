@@ -1,33 +1,40 @@
-package TestExecute.BraunEMEA.BraunUKSWEDE;
-
+package TestExecute.BraunEMEA.BraunUKITALY;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import TestComponent.BraunEMEA.BraunUKHelper;
 import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_UKSV_NewsletterSubscription {
-		
+public class Test_ST_BraunIT_promocodeRegisterCheckout {
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
-		
-		
 		@Test(priority=1)
-		public void NewsletterSubscription() throws Exception {
+		
+		public void BrowseSearchFunctionality() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
-				BraunUK.StoreSelection("Sweden");
-				//BraunUK.UKSVStoreSelection();
-				BraunUK.UKSVNewslettersubscription("Newsletter");
-					
+				BraunUK.StoreSelection("Italy");
+				BraunUK.Italysingin("ItalyLogin");
+				BraunUK.ItalyProductselection();
+				BraunUK.ITnavigateMinicart();
+				BraunUK.ITshippingAddressDetails();
+				//BraunUK.ItalyshippingAddressDetails();
+				BraunUK.ItalyValidatingPromocode("Promocode");
+				//BraunUK.FRValidatingPromocode("Promocode");
+						
+				
+			/*	BraunUK.checkoutPage();
+				BraunUK.shipping_Address("GuestEmail");
+				BraunUK.ValidatingPromocode("Promocode");*/
+			
+				
 			}
 			catch (Exception e) {
 				
@@ -35,7 +42,7 @@ public class Test_ST_UKSV_NewsletterSubscription {
 			} 
 		}
 		
-	/*@BeforeMethod
+		/*@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
@@ -43,21 +50,21 @@ public class Test_ST_UKSV_NewsletterSubscription {
 			  
 		  }*/
 		
-@BeforeMethod
+		@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn(browser);
 			  }
-	
+		
+		
+		@AfterTest
+		public void clearBrowser()
+		{
+			Common.closeAll();
 
-	@AfterTest
-	public void clearBrowser()
-	{
-		Common.closeAll();
-
+		}
 	}
 
 
-}
 

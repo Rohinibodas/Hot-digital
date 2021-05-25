@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BraunUK Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_ST_SOUAF_NewsLetterSubscription" testid="BNSI-911" priority="P1" description="This script will cover NewsLetterSubscription for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSOUAF.Test_ST_SOUAF_NewsLetterSubscription"/>
+        </classes>
+    </test>
+     <test name="Test_ST_UKSOUAF_BrowseSearchFunctionality" testid="BNSI-909" priority="P1" description="This script will cover BrowseSearchFunctionality of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSOUAF.Test_ST_UKSOUAF_BrowseSearchFunctionality"/>
+        </classes>
+    </test>
+    <test name=" Test_ST_UKSOUAF_ArticalLinks" testid="BNSI-917" priority="P1" description="This test case validates Artical Links for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSOUAF.Test_ST_UKSOUAF_ArticalLinks"/>
+        </classes>
+    </test>
+    <test name="Test_ST_UKSOUAF_FooterLinksValidation" testid="BNSI-916" priority="P1" description="This test case validates Footerlinks of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSOUAF.Test_ST_UKSOUAF_FooterLinksValidation"/>
+        </classes>
+    </test>
+    <test name="Test_ST_UKSOUAF_HeaderLinksValidation" testid="BNSI-910" priority="P1" description="This test case HeaderLinksValidation for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSOUAF.Test_ST_UKSOUAF_HeaderLinksValidation"/>
+        </classes>
+    </test>
+    
+    </suite>

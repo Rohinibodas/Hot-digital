@@ -29,7 +29,7 @@ public class Test_ST_UKSV_GuestUserApotekHatch {
 				//BraunUK.FranceStoreSelection();
 				BraunUK.HatchSearchProduct("Hatchproduct");
 				BraunUK.HatchProductselection();
-				BraunUK.ApotekHatchproduct();
+				//BraunUK.ApotekHatchproduct();
 				//BraunUK.UKSVproductname("productName");
 		       
 		       
@@ -40,25 +40,25 @@ public class Test_ST_UKSV_GuestUserApotekHatch {
 			} 
 		}
 		
-		@BeforeMethod
+	/*	@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn("chrome");
 			  
-		  }
+		  }*/
 		
-	/*@BeforeMethod
+   @BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn(browser);
-			  }*/
-		
+			  }
+	
 		@AfterTest
 		public void clearBrowser()
 		{
-			Common.closeAll();
+		Common.closeAll();
 
 		}
 	}

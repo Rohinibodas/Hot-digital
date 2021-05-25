@@ -44,16 +44,14 @@ public class Test_ST_UKSV_ArticalLinks {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn("chrome");
 			  
-		  }
-*/
-		
+		  }*/
+
 		@BeforeMethod
 		@Parameters({"browser"}) 
-		  public void startTest() throws Exception {
-			System.setProperty("configFile", "BraunEMAE\\config.properties");
-			  Login.signIn("broswer");
-			  
-		  }
+		  public void startTest(String browser) throws Exception {
+			System.setProperty("configFile", "BraunEMEA\\config.properties");
+			  Login.signIn(browser);
+			  }
 		
 		/*@BeforeMethod
 		@Parameters({"browser"}) 

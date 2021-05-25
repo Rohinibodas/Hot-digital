@@ -35,7 +35,7 @@ public class Test_ST_UKSV_BrowseSearchFunctionality {
 			} 
 		}
 		
-		/*@BeforeMethod
+	/*	@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
