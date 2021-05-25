@@ -29,7 +29,7 @@ public class Test_ST_UKSV_HeaderLinksValidations {
 			    BraunUK.UKSVHeaderThermometer(); 
 			    BraunUK.UKSVHeaderBloodPressureMonitor();
 			    BraunUK.UKSVNasalAspirator();
-			    Thread.sleep(2000);
+			    
 			}
 			catch (Exception e) {
 				

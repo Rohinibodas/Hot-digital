@@ -17,7 +17,7 @@ String datafile = "BraunEMEA//BraunUKTestData.xlsx";
 BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 	@Test(priority=1)
 	
-	public void HeaderLinks() throws Exception {
+	public void HeaderLinksValidation() throws Exception {
 
 		try {
 			Thread.sleep(6000);

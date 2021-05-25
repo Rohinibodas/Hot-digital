@@ -17,25 +17,19 @@ public class Test_ST_UKSV_OrderSuccess {
 		
 		
 		@Test(priority=1)
-		public void BrowseSearchFunctionality() throws Exception {
+		public void OrderSuccess() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
-				//BraunUK.Storeselection();
 				BraunUK.StoreSelection("Sweden");
-				//BraunUK.UKSVStoreSelection();
 				BraunUK.SDProductselection();
-				//BraunUK.SDnavigateMinicart();
 				BraunUK.SwedennavigateMinicart();
 				BraunUK.SDcheckoutPage();
 				BraunUK.Swedenshipping_Address("GuestEmail");
 				BraunUK.SwedenCreditcardPayment("PaymentcardDetails");
 				//BraunUK.SDorder_Verifying();
-		       
-		      
-		    // BraunUK.CreditcardPayment("PaymentcardDetails");
 				
 			}
 			catch (Exception e) {
@@ -44,7 +38,7 @@ public class Test_ST_UKSV_OrderSuccess {
 			} 
 		}
 		
-	/*	@BeforeMethod
+		/*@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");

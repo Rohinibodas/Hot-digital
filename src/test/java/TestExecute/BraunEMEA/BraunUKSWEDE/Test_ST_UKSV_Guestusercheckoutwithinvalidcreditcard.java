@@ -18,7 +18,7 @@ public class Test_ST_UKSV_Guestusercheckoutwithinvalidcreditcard {
 		
 		
 	@Test(priority = 1)
-	public void BrowseSearchFunctionality() throws Exception {
+	public void GuestUserCheckoutWithInvalidCreditcard() throws Exception {
 
 		try {
 			Thread.sleep(6000);
@@ -26,7 +26,6 @@ public class Test_ST_UKSV_Guestusercheckoutwithinvalidcreditcard {
 			BraunUK.closepopup();
 			BraunUK.StoreSelection("Sweden");
 			BraunUK.SD_productname("ItalyProductname");
-			//BraunUK.UKSVproductname("productName");
 			BraunUK.Addtocart();
             BraunUK.SDnavigateMinicart();
             BraunUK.SDcheckoutPage();

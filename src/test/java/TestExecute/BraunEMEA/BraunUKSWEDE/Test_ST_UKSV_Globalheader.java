@@ -18,7 +18,7 @@ public class Test_ST_UKSV_Globalheader {
 		
 		
 		@Test(priority=1)
-		public void GuestUserApotekHatch() throws Exception {
+		public void GlobalHeader() throws Exception {
 
 			try {
 				
@@ -26,7 +26,6 @@ public class Test_ST_UKSV_Globalheader {
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
 				BraunUK.StoreSelection("Sweden");
-				//BraunUK.UKSVproductname("productName");
 				BraunUK.SDNavigatetoPLPpage();
 				BraunUK.UKSVproductname("productName");
 		       

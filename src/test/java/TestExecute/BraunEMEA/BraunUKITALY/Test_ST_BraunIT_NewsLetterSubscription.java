@@ -10,8 +10,6 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class Test_ST_BraunIT_NewsLetterSubscription {
-	/*String datafile = "BraunUK//BraunUKTestData.xlsx";	
-	BraunUKHelper BraunUK=new BraunUKHelper(datafile);*/
 	
 String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
 BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);

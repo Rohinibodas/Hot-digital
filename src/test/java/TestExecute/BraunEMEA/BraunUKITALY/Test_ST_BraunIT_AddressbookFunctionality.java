@@ -14,7 +14,7 @@ public class Test_ST_BraunIT_AddressbookFunctionality {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
 		
-		public void BrowseSearchFunctionality() throws Exception {
+		public void AddressbookFunctionality() throws Exception {
 
 			try {
 				Thread.sleep(6000);
@@ -52,7 +52,7 @@ public class Test_ST_BraunIT_AddressbookFunctionality {
 		@AfterTest
 		public void clearBrowser()
 		{
-			//Common.closeAll();
+			Common.closeAll();
 
 		}
 	}

@@ -5064,8 +5064,8 @@ catch(Exception |Error e)
 			Sync.waitElementPresent("xpath", "//button[@class='action action-apply']");
 			Common.clickElement("xpath", "//button[@class='action action-apply']");
 			
-			String success=Common.getText("xpath", "(//div[@data-ui-id='checkout-cart-validationmessages-message-success'])[1]");
-			System.out.println(success);
+			/*String success=Common.getText("xpath", "(//div[@data-ui-id='checkout-cart-validationmessages-message-success'])[1]");
+			System.out.println(success);*/
 			report.addPassLog(expectedResult, "Should display Success message for promocode", "Success of promocode displayed successfully", Common.getscreenShotPathforReport("Promocode success"));
 		}catch(Exception |Error e)
 		{
@@ -5704,7 +5704,8 @@ catch(Exception |Error e)
 			//Common.clickElement("xpath", "//button[@id='hatchCart']");
 			
 			Common.clickElement("xpath", "//button[@class='vendor-dropdown-btn']");
-			Common.clickElement("xpath", "(//a[@class='vendor-dropdown-item'])[2]");
+			//Common.clickElement("xpath", "(//a[@class='vendor-dropdown-item'])[2]");
+			Common.clickElement("xpath", "//a[@id='Power']");
 			
 			//Common.isElementDisplayed("xpath", "//h1[@class='page-title']");
 			report.addPassLog(expectedResult, "Should display Apotek Hatch Page", "Apotek Hatch Page display successfully", Common.getscreenShotPathforReport("Apotek Hatch page success"));
@@ -5719,24 +5720,27 @@ catch(Exception |Error e)
 	
 	public void ApotekHatchproduct() throws Exception
 	{
-		String expectedResult="Apotek Hatch implementation process from Revlon site";
+		String expectedResult="Apotek Hatch implementation process from BraunEMEA site";
 		try {
 			Thread.sleep(3000);
-			Common.clickElement("xpath", "//a[@id='Apotek Hjärtat']");
+			//Common.clickElement("xpath", "//a[@id='Apotek Hjärtat']");
+			//Common.clickElement("xpath", "//a[@class='vendor-dropdown-item']");
+			Common.javascriptclickElement("xpath" , "//a[@id='Power']");
 			
 			Thread.sleep(5000);
 			
 			Common.switchWindows();
 			
 			Thread.sleep(5000);
-			if(Common.isElementDisplayed("xpath", "//div[@class='banner-actions-container']")) {
+			//if(Common.isElementDisplayed("xpath", "//div[@class='banner-actions-container']")) {
+				if(Common.isElementDisplayed("xpath", "(//button[contains(text(), 'Acceptera alla')])[1]")) {
 				System.out.println("Cookies pop up displayed");
-				Common.clickElementStale("xpath", "//div[@class='banner-actions-container']");
+				//Common.clickElementStale("xpath", "//div[@class='banner-actions-container']");
 			}else {
 				System.out.println("Cookies pop up not displayed");
 			}
 			
-			String Productname=Common.getText("xpath", "//h1[contains(text(), 'Braun High Speed Thermometer PRT1000')]");
+			String Productname=Common.getText("xpath", "(//h1[contains(text(), 'BRAUN PRT1000CE DIGITAL TERMOMETER')])[2]");
 			System.out.println(Productname);
 			
 			Thread.sleep(3000);

@@ -18,7 +18,7 @@ public class Test_ST_UKSV_Guestusercheckoutwithcreditcard {
 		
 		
 	@Test(priority = 1)
-	public void BrowseSearchFunctionality() throws Exception {
+	public void GuestUserCheckoutWithCreditcard() throws Exception {
 
 		try {
 			Thread.sleep(6000);

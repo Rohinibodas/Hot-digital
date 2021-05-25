@@ -24,8 +24,6 @@ public class Test_ST_BraunIT_RegisterUserCheckout_WithCreditcard {
 				BraunUK.Italysingin("ItalyLogin");
 				BraunUK.ItalyProductselection();
 				BraunUK.ItalynavigateMinicart();
-				//BraunUK.checkoutPage();
-				//BraunUK.Italyshipping_AddressRE("UserEmail");
 				BraunUK.ITshippingAddressDetails();
 				BraunUK.ItalyCreditcardPayment("PaymentcardDetails");
 				

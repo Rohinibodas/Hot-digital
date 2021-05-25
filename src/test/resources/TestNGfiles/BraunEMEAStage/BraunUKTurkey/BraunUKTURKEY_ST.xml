@@ -3,19 +3,19 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-   <!--   <test name="Test_ST_UKTUR_BrowseSearchFunctionality" testid="BNSI-909" priority="P1" description="This script will cover BrowseSearch Functionality for BraunUK">
+   <test name="Test_ST_UKTUR_BrowseSearchFunctionality" testid="BNSI-909" priority="P1" description="This script will cover BrowseSearch Functionality for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunUKTUR.Test_ST_UKTUR_BrowseSearchFunctionality"/>
         </classes>
-    </test>-->
+    </test>
        <test name="Test_ST_UKTUR_NewsletterSubscription" testid="BNSI-911" priority="P1" description="This script will cover NewsletterSubscription of BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunUKTUR.Test_ST_UKTUR_NewsletterSubscription"/>
         </classes>
     </test> 
-   <!-- <test name="Test_ST_UKTUR_HeaderLinksValidation" testid="BNSI-910" priority="P1" description="This test case validates HeaderLinksValidation for BraunUK">
+    <test name="Test_ST_UKTUR_HeaderLinksValidation" testid="BNSI-910" priority="P1" description="This test case validates HeaderLinksValidation for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunUKTUR.Test_ST_UKTUR_HeaderLinksValidation"/>
@@ -26,16 +26,12 @@
         <classes>
             <class name="TestExecute.BraunEMEA.BraunUKTUR.Test_ST_UKTUR_FooterLinksValidation"/>
         </classes>
-    </test> -->
-    
-    
-    
-    <!--  <test name="Test_ST_UKTUR_ArticalLinks" testid="BTY-454" priority="P1" description="This script will cover VerifyForgotpassword for BraunUK">
+    </test>
+      <test name="Test_ST_UKTUR_ArticalLinks" testid="BTY-454" priority="P1" description="This script will cover VerifyForgotpassword for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunUKTUR.Test_ST_UKTUR_ArticalLinks"/>
         </classes>
     </test>
-    -->
     
     </suite>

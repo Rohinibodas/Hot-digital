@@ -16,13 +16,12 @@
             <class name="TestExecute.BraunEMEAProduction.BraunCanadaEN.Test_ST_HearderLinks"/>
         </classes>
     </test>
-    <!--   <test name="Test_BraunUK_ST_004_FooterLinks Validation" testid="BNSI-916" priority="P1" description="This script will cover FooterLinks of BraunUK">
+     <test name="Test_BraunUK_ST_004_FooterLinks Validation" testid="BNSI-916" priority="P1" description="This script will cover FooterLinks of BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEAProduction.BraunCanadaEN.Test_ST_FooterLinks"/>
         </classes>
     </test>
-    -->
    
     <test name="Test_BraunUK_ST_003_Newsletter Subscription" testid="BSNI-911" priority="P1" description="This test case validates Newsletter Subscription for BraunUK">
          <parameter name="browser" value="chrome" />

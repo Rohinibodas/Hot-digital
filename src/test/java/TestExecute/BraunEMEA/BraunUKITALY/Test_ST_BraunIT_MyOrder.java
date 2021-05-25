@@ -14,7 +14,7 @@ public class Test_ST_BraunIT_MyOrder {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
 		
-		public void HeaderLinks() throws Exception {
+		public void MyOders() throws Exception {
 
 			try {
 				Thread.sleep(6000);
@@ -22,7 +22,6 @@ public class Test_ST_BraunIT_MyOrder {
 				BraunUK.closepopup();
 				BraunUK.StoreSelection("Italy");
 				BraunUK.Italysingin("ItalyLogin");
-				//BraunUK.ITsingin("ItalyLogin");
 				BraunUK.ITMyaccountInformation();
 				
 			}

@@ -21,7 +21,6 @@ public class Test_ST_BraunIT_AccountCreation {
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
 				BraunUK.StoreSelection("Italy");
-				//BraunUK.verifyingHomePage();
 				BraunUK.ItalyAccountAccountCreateation("ItalyAccountDetails");
 				
 				

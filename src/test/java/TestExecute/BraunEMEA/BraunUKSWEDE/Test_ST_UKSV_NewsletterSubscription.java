@@ -25,7 +25,6 @@ public class Test_ST_UKSV_NewsletterSubscription {
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
 				BraunUK.StoreSelection("Sweden");
-				//BraunUK.UKSVStoreSelection();
 				BraunUK.UKSVNewslettersubscription("Newsletter");
 					
 			}

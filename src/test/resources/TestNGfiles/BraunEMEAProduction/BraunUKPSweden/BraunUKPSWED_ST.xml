@@ -27,12 +27,11 @@
             <class name="TestExecute.BraunEMEAProduction.BraunSWEDEN.Test_ST_SWE_NewsLatterSubscription"/>
         </classes>
     </test>
-   <!--  <test name="ArticalLinks" testid="BTY-454" priority="P1" description="This test case validates ArticalLinks for BraunUK">
+    <test name="ArticalLinks" testid="BTY-454" priority="P1" description="This test case validates ArticalLinks for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEAProduction.BraunSWEDEN.Test_ST_SWE_ArticalLinks"/>
         </classes>
     </test>
-     -->
     
     </suite>

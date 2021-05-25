@@ -14,7 +14,7 @@ public class Test_ST_BraunIT_RegisterUserPromocode {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
 		
-		public void BrowseSearchFunctionality() throws Exception {
+		public void RegisterPromocode() throws Exception {
 
 			try {
 				Thread.sleep(6000);
@@ -26,8 +26,7 @@ public class Test_ST_BraunIT_RegisterUserPromocode {
 				BraunUK.ITnavigateMinicart();
 				BraunUK.ITshippingAddressDetails();
 				BraunUK.ValidatingRegisterPromocode("Promocode");
-				//BraunUK.CreditcardPayment("PaymentcardDetails");
-			
+				
 				
 			}
 			catch (Exception e) {
@@ -54,7 +53,7 @@ public class Test_ST_BraunIT_RegisterUserPromocode {
 		@AfterTest
 		public void clearBrowser()
 		{
-			//Common.closeAll();
+			Common.closeAll();
 
 		}
 	}

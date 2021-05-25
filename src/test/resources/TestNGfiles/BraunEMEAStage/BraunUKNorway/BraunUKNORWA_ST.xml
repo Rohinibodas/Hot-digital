@@ -27,12 +27,11 @@
             <class name="TestExecute.BraunEMEA.BraunUKNOR.Test_ST_NONO_FooterLinksValidation"/>
         </classes>
     </test>
-  <!--  <test name="Test_ST_NONO_ArticalLinks" testid="BTY-454" priority="P1" description="This test case validates ArticalLinks for BraunUK">
+   <test name="Test_ST_NONO_ArticalLinks" testid="BTY-454" priority="P1" description="This test case validates ArticalLinks for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunUKNOR.Test_ST_NONO_ArticalLinks"/>
         </classes>
     </test>
-     -->
   
     </suite>

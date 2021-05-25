@@ -14,7 +14,7 @@ public class Test_ST_BraunIT_ChangeproductQuantity {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
 		
-		public void BrowseSearchFunctionality() throws Exception {
+		public void ChangeProductquantity() throws Exception {
 
 			try {
 				Thread.sleep(6000);

@@ -14,7 +14,7 @@ public class Test_ST_BraunIT_promocodeRegisterCheckout {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
 		
-		public void BrowseSearchFunctionality() throws Exception {
+		public void PromocodeRegisterCheckout() throws Exception {
 
 			try {
 				Thread.sleep(6000);
@@ -25,14 +25,7 @@ public class Test_ST_BraunIT_promocodeRegisterCheckout {
 				BraunUK.ItalyProductselection();
 				BraunUK.ITnavigateMinicart();
 				BraunUK.ITshippingAddressDetails();
-				//BraunUK.ItalyshippingAddressDetails();
 				BraunUK.ItalyValidatingPromocode("Promocode");
-				//BraunUK.FRValidatingPromocode("Promocode");
-						
-				
-			/*	BraunUK.checkoutPage();
-				BraunUK.shipping_Address("GuestEmail");
-				BraunUK.ValidatingPromocode("Promocode");*/
 			
 				
 			}

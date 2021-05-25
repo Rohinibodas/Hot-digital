@@ -18,7 +18,7 @@ public class Test_ST_UKSV_Minicardfunctionality {
 		
 		
 		@Test(priority=1)
-		public void GuestUserApotekHatch() throws Exception {
+		public void MinicartFunctionality() throws Exception {
 
 			try {
 				BraunUK.Acceptcookies();

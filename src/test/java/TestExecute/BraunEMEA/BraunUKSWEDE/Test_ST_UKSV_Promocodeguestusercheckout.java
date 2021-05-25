@@ -28,9 +28,8 @@ public class Test_ST_UKSV_Promocodeguestusercheckout {
 				BraunUK.svNavigateMinicart();
 				BraunUK.svCheckoutPage();
 				BraunUK.svShipping_Address("GuestEmail");
-				//BraunUK.ValidatingPromocode("Promocode");
-				//BraunUK.CreditcardPayment("PaymentcardDetails");
-				//BraunUK.order_Verifying();
+				BraunUK.ValidatingPromocode("Promocode");
+				
 		       
 		       
 			}
@@ -40,7 +39,7 @@ public class Test_ST_UKSV_Promocodeguestusercheckout {
 			} 
 		}
 		
-	/*	@BeforeMethod
+		/*@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
@@ -48,7 +47,7 @@ public class Test_ST_UKSV_Promocodeguestusercheckout {
 			  
 		  }*/
 		
-	@BeforeMethod
+	   @BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
