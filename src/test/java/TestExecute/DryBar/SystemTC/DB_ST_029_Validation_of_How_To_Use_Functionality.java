@@ -24,7 +24,6 @@ public class DB_ST_029_Validation_of_How_To_Use_Functionality {
 			  drybar.clickHairProducts();
 			  drybar.SelectShampoos();
 			  drybar.Selectproduct();
-			  //drybar.Search_productname("ProductName");
 			  drybar.Verify_PDP();
 			  drybar.How_To_Use();
 			 

@@ -16,23 +16,19 @@ public class DB_ST_004_Cart_page_Validation {
   @Test
   public void verifyingMiniCartPage() throws Exception {
 	try{
-		drybar.Accept();
+		//drybar.Accept();
 		drybar.verifyingHomePage();
-		//drybar.Guestuser_PDP();
-		 drybar.Search_productname("ProductName");
+		 drybar.clickHairProducts();
+		  drybar.SelectShampoos();
+		  drybar.Selectproduct();
+		  drybar.Accept();
 		  drybar.Verify_PDP();
-	  //drybar.clickHairProducts();
-	  //drybar.selectproduct("ProductName");
-		  drybar.Select_Size();
 	  drybar.increaseProductQuantity("5");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
 	  drybar.updateProductInMinicart("2");
 	  drybar.click_View_editcart();
-	 // drybar.edit_ShopingCart();
 	  drybar.changeQuntity_UpdateProduct("5");
-	  //drybar.click_ContinueShopping();
-	//  drybar.addproductInMiniCartPage();
   }
   catch (Exception e) {
 		e.printStackTrace();

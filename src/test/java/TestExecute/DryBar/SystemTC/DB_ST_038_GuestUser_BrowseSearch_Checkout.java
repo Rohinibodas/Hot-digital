@@ -9,33 +9,30 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_024_OrderID_Verification {
+public class DB_ST_038_GuestUser_BrowseSearch_Checkout {
+	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-  public void To_verify_orderID() {
+  public void GuestUser_SearchCheckout_CreditCard() {
 		try {
-			  drybar.Accept();
 			  drybar.verifyingHomePage();
-			  drybar.navigateMyAccount();
-			  drybar.loginApplication("AccountDetails");
-			  drybar.clickHairProducts();
-			  drybar.SelectShampoos();
-			 // drybar.Accept();
-			  drybar.Selectproduct();
-			 // drybar.Accept();
-			  drybar.Verify_PDP();
+			  drybar.Search_productname("ProductName");
+			  drybar.Accept();
+			  drybar.Click_View_Product();
+			  drybar.Accept();
+			 // drybar.Verify_PDP();
 			  drybar.increaseProductQuantity("2");
-			  drybar.clickAddtoBag();
-			  drybar.clickminiCartButton();
-			  drybar.clickCheckoutButton();
-			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			  drybar.select_USPS_StandardGround_shippingMethod();
-			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-			  drybar.creditCard_payment("CCVisa");
-			  drybar.order_Success();
-			  drybar.order_verification();
+		      drybar.clickAddtoBag();
+		     drybar.clickminiCartButton();
+		    drybar.clickCheckoutButton();
+		    drybar.click_GuestCheckOut();
+		    drybar.guestShippingAddress("ShippingAddress");
+		    drybar.Click_PaymetricPaymentMethod();
+		    drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
+		    drybar.creditCard_payment("CCVisa");
+		    drybar.order_Success();
 			
 			
 		}
@@ -64,4 +61,8 @@ public class DB_ST_024_OrderID_Verification {
 		  
 	  }
 
+  
 }
+
+
+

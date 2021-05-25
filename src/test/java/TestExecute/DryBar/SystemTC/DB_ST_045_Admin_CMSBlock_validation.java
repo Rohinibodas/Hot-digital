@@ -9,19 +9,18 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_026_PrivacyPolicy_TermsOfUse {
-	
+public class DB_ST_045_Admin_CMSBlock_validation {
+
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-  public void Privacypolicy_and_TermsOfuse() {
+  public void Admin_CMSpage_validation() {
 		try {
-			  drybar.Accept();
-			  drybar.verifyingHomePage();
-			  drybar.privacy_and_policy(); 
-			  drybar.Terms_Of_Use();
-			  
+			  drybar.verifyingMagentoLoginPage();
+			  drybar.Admin_Login("MagentoAccountDetails");
+			  drybar.verifyingMagentoHomepage();
+			  drybar.CMS_Block();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -29,19 +28,25 @@ public class DB_ST_026_PrivacyPolicy_TermsOfUse {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-		@AfterTest
-		public void clearBrowser()
-		{
-		Common.closeAll();
+	
+	
+	
+	@AfterTest
+	public void clearBrowser()
+	{
+	Common.closeAll();
 
-		}
-		
+	}
+	
 
-		@BeforeTest
-		  public void startTest() throws Exception {
-			 System.setProperty("configFile", "DryBar\\config.properties");
-			  Login.signIn();
-			 
-			  
-		  }
+	@BeforeTest
+	  public void startTest() throws Exception {
+		 System.setProperty("configFile", "DryBarMagento\\config.properties");
+		  Login.signIn();
+		 
+		  
+	  }
+
+
 }
+

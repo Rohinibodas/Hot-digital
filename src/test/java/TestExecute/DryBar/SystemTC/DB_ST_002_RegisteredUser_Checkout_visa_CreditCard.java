@@ -18,26 +18,27 @@ public class DB_ST_002_RegisteredUser_Checkout_visa_CreditCard {
   public void registeredUser_Checkout_CreditCard() {
 		try {
 			  drybar.Accept();
+			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
+			 // drybar.Accept();
 			  drybar.loginApplication("AccountDetails");
-			 // drybar.Guestuser_PDP();
-			  drybar.Search_productname("ProductName");
-			  drybar.Verify_PDP();
-			 //drybar.Accept();
-			  //drybar.clickHairProducts();
-			 // drybar.selectproduct("ProductName");
-			  drybar.Select_Size();
+			  drybar.clickHairProducts();
+			 // drybar.Close_popup();
+			  //drybar.Accept();
+			 // Thread.sleep(4000);
+			  drybar.SelectShampoos();
+			  drybar.Selectproduct();
+			 // drybar.Verify_PDP();
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			  drybar.select_USPS_StandardGround_shippingMethod();
-			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
+			    //drybar.click_Next();
+			    //drybar.select_CC();
+			 // drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment("CCVisa");
-			  //drybar.creditCard_payment("PaymentDetails");
 			  drybar.order_Success();
-			//  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
 			
 			
 		}

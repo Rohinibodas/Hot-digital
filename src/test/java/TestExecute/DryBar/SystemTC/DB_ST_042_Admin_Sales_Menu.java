@@ -9,20 +9,18 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_028_Validation_of_Sort_options_in_PLP {
+public class DB_ST_042_Admin_Sales_Menu {
 	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-  public void Validation_of_Sort_options_Functionality() {
+  public void Admin_sales_menu() {
 		try {
-			  drybar.Accept();
-			  drybar.verifyingHomePage();
-			  drybar.clickHairProducts();
-			  drybar.SelectShampoos();
-			  drybar.Select_sort("SelectsortOptions");
-			 
+			  drybar.verifyingMagentoLoginPage();
+			  drybar.Admin_Login("MagentoAccountDetails");
+			  drybar.verifyingMagentoHomepage();
+			  drybar.Salesmenu_navigations("SalesMenu");
 			  
 		}
 		catch (Exception e) {
@@ -31,20 +29,24 @@ public class DB_ST_028_Validation_of_Sort_options_in_PLP {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-		@AfterTest
-		public void clearBrowser()
-		{
-	   //  Common.closeAll();
+	
+	
+	
+	@AfterTest
+	public void clearBrowser()
+	{
+	Common.closeAll();
 
-		}
-		
+	}
+	
 
-		@BeforeTest
-		  public void startTest() throws Exception {
-			 System.setProperty("configFile", "DryBar\\config.properties");
-			  Login.signIn("edge");
-			 
-			  
-		  }
+	@BeforeTest
+	  public void startTest() throws Exception {
+		 System.setProperty("configFile", "DryBarMagento\\config.properties");
+		  Login.signIn();
+		 
+		  
+	  }
+
 
 }

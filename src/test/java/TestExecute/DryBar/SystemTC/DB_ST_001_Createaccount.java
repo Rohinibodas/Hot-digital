@@ -9,13 +9,11 @@ import TestLib.Login;
 
 public class DB_ST_001_Createaccount {
 	
-	//String datafile = "DryBar//OxoTestData.xlsx";	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void createaccount() throws Exception {
-	//  drybar.clickMyaccount();
 		try{
 	  drybar.Accept();
 	  drybar.verifyingHomePage();

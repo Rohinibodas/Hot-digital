@@ -16,7 +16,7 @@ public class DB_ST_011_validation_0f_Footerlinks {
   public void navigation_of_footerlinks() throws Exception {
 
 	  try{
-		  drybar.Aggree_and_proceed();
+		 // drybar.Aggree_and_proceed();
 		  drybar.verifyingHomePage();
 		  drybar.checkorderstatus_footerlink();
 		  drybar.Returns_footerlink();
@@ -28,6 +28,8 @@ public class DB_ST_011_validation_0f_Footerlinks {
 		  drybar.Blowout_footerlink();
 		  drybar.WheretoBuy_footerlink();
 		  drybar.aboutUs_footerlink();
+		  drybar.Close_popup();
+		  drybar.Accept();
 		  
 	 
   }

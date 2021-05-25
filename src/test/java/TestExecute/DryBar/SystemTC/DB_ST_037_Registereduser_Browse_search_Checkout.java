@@ -9,33 +9,35 @@ import TestComponent.DryBar.DryBarHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class DB_ST_024_OrderID_Verification {
+public class DB_ST_037_Registereduser_Browse_search_Checkout {
+	
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-  public void To_verify_orderID() {
+  public void registeredUser_SearchCheckout_CreditCard() {
 		try {
-			  drybar.Accept();
+			  
 			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
+			  drybar.Accept();
 			  drybar.loginApplication("AccountDetails");
-			  drybar.clickHairProducts();
-			  drybar.SelectShampoos();
-			 // drybar.Accept();
-			  drybar.Selectproduct();
-			 // drybar.Accept();
-			  drybar.Verify_PDP();
+			  //drybar.Accept();
+				drybar.Search_productname("ProductName");
+				drybar.Click_View_Product();
+				 // drybar.Verify_PDP();
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
 			  drybar.select_USPS_StandardGround_shippingMethod();
+			    drybar.click_Next();
+			    //drybar.select_CC();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment("CCVisa");
 			  drybar.order_Success();
-			  drybar.order_verification();
+			
 			
 			
 		}
@@ -51,7 +53,7 @@ public class DB_ST_024_OrderID_Verification {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	
@@ -65,3 +67,6 @@ public class DB_ST_024_OrderID_Verification {
 	  }
 
 }
+
+
+

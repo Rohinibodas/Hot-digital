@@ -17,12 +17,12 @@ public class DB_ST_008_ApplyOfferCodeonCheckoutPage {
 		 
 		try{
 		  drybar.Accept();
-		 // drybar.Guestuser_PDP();
-		  drybar.Search_productname("ProductName");
-		  //drybar.clickHairProducts();
-		  //drybar.selectproduct("ProductName");
-		  drybar.Verify_PDP();
-		  drybar.Select_Size();
+		  drybar.verifyingHomePage();
+			 drybar.clickHairProducts();
+			  drybar.SelectShampoos();
+			  drybar.Selectproduct();
+			  drybar.Accept();
+			  drybar.Verify_PDP();
 		  drybar.increaseProductQuantity("2");
 		  drybar.clickAddtoBag();
 		  drybar.clickminiCartButton();
@@ -30,7 +30,8 @@ public class DB_ST_008_ApplyOfferCodeonCheckoutPage {
 		  drybar.click_GuestCheckOut();
 		  drybar.guestShippingAddress("ShippingAddress");
 		  drybar.couponCode("couponCode");
-	 // drybar.select_USPS_StandardGround_shippingMethod();
+		  drybar.creditCard_payment("CCVisa");
+		  drybar.order_Success();
   }
 	catch (Exception e) {
 		e.printStackTrace();

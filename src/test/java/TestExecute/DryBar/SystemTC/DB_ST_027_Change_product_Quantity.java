@@ -21,15 +21,10 @@ public class DB_ST_027_Change_product_Quantity {
 			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
-			  //drybar.Search_productname("ProductName");
-			 
-			 //drybar.Accept();
 			  drybar.clickHairProducts();
 			  drybar.SelectShampoos();
 			  drybar.Selectproduct();
 			  drybar.Verify_PDP();
-			 // drybar.selectproduct("ProductName");
-			  //drybar.Select_Size();
 			  drybar.increaseProductQuantity("4");
 			  drybar.clickAddtoBag();
 			  

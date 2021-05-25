@@ -16,13 +16,13 @@ public class DB_ST_007_ApplyGiftCardonCheckoutPage {
   public void applyGiftCardonCheckoutPage() throws Exception {
 	//  drybar.clickMyaccount();
 	  try{
-	  drybar.Accept();
-	 // drybar.Guestuser_PDP();
-	  drybar.Search_productname("ProductName");
-	  drybar.Verify_PDP();
-	 // drybar.clickHairProducts();
-	  //drybar.selectproduct("ProductName");
-	  drybar.Select_Size();
+	 // drybar.Accept();
+	  drybar.verifyingHomePage();
+		 drybar.clickHairProducts();
+		  drybar.SelectShampoos();
+		  drybar.Selectproduct();
+		  drybar.Accept();
+		  drybar.Verify_PDP();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();
@@ -32,9 +32,6 @@ public class DB_ST_007_ApplyGiftCardonCheckoutPage {
 	  drybar.gitCard("GiftCard");
 	  drybar.click_place_order_button();
 	  drybar.order_Success();
-	  //  drybar.Click_PaymetricPaymentMethod();
-	 // drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-	  //drybar.creditCard_payment("PaymentDetails");
   }
 	  catch (Exception e) {
 			e.printStackTrace();

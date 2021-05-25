@@ -17,12 +17,12 @@ public class DB_ST_005_GuestCheckoutwith_invalid_CC_Credentials {
   public void guestCheckoutwith_invalid_CC_Credentials() {
 	  try{
 	   drybar.Accept();
-	   //drybar.Guestuser_PDP();
-	   drybar.Search_productname("ProductName");
+	     drybar.verifyingHomePage();
+		 drybar.clickHairProducts();
+		  drybar.SelectShampoos();
+		  drybar.Selectproduct();
+		  drybar.Accept();
 		  drybar.Verify_PDP();
-	//  drybar.clickHairProducts();
-	  //drybar.selectproduct("ProductName");
-		  drybar.Select_Size();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();

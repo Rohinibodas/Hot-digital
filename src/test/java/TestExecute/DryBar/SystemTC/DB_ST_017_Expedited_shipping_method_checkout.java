@@ -18,9 +18,11 @@ public class DB_ST_017_Expedited_shipping_method_checkout {
   public void Expediated_ShippingMethod() throws Exception {
 		 drybar.Accept();
 		 drybar.verifyingHomePage();
-	     drybar.Search_productname("ProductName");
+		 drybar.clickHairProducts();
+		  drybar.SelectShampoos();
+		  drybar.Selectproduct();
+		  drybar.Accept();
 		  drybar.Verify_PDP();
-		  drybar.Select_Size();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();

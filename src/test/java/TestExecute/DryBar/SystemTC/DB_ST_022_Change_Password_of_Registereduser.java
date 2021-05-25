@@ -17,6 +17,7 @@ public class DB_ST_022_Change_Password_of_Registereduser {
   public void Chage_Password()throws Exception {
 		try {
 		drybar.Accept();
+		drybar.verifyingHomePage();
 	    drybar.navigateMyAccount();
 	   drybar.loginApplication("AccountDetails");
 	  drybar.AccountInformation();

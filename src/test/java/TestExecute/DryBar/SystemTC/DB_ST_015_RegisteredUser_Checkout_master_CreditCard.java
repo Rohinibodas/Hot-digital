@@ -18,11 +18,14 @@ public class DB_ST_015_RegisteredUser_Checkout_master_CreditCard {
   public void registeredUser_Checkout_CreditCard() {
 		try {
 			  drybar.Accept();
+			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
-			  drybar.Search_productname("ProductName");
-			  drybar.Verify_PDP();
-			  drybar.Select_Size();
+				 drybar.clickHairProducts();
+				  drybar.SelectShampoos();
+				  drybar.Selectproduct();
+				  drybar.Accept();
+				  drybar.Verify_PDP();
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();

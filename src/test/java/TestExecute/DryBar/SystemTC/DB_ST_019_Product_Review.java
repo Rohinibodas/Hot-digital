@@ -17,9 +17,13 @@ public class DB_ST_019_Product_Review {
   public void Loginuser_PDP()throws Exception {
 		try {
 		drybar.Accept();
+		drybar.verifyingHomePage();
 	    drybar.navigateMyAccount();
 	   drybar.loginApplication("AccountDetails");
-	   drybar.Search_productname("ProductName");
+	   drybar.clickHairProducts();
+		  drybar.SelectShampoos();
+		  drybar.Selectproduct();
+		  drybar.Accept();
 		  drybar.Verify_PDP();
 		  drybar.Product_Review("ProductReview");
 		  drybar.profile("AccountDetails");

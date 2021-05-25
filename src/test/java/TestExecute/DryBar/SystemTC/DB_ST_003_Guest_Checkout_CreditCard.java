@@ -17,25 +17,27 @@ public class DB_ST_003_Guest_Checkout_CreditCard {
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void guest_Checkout_CreditCard() throws Exception {
-		 drybar.Accept();
-	   //drybar.clickMyaccount();
-	  // drybar.Guestuser_PDP();
-	   drybar.Search_productname("ProductName");
-		  drybar.Verify_PDP();
-	  //drybar.clicktreebarmenu();
-	  //drybar.clickHairProducts();
-	  //drybar.selectproduct("ProductName");
-		  drybar.Select_Size();
-	  drybar.increaseProductQuantity("2");
-	  drybar.clickAddtoBag();
-	  drybar.clickminiCartButton();
-	  drybar.clickCheckoutButton();
-	  drybar.click_GuestCheckOut();
-	  drybar.guestShippingAddress("ShippingAddress");
-	  drybar.Click_PaymetricPaymentMethod();
-	  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-	  drybar.creditCard_payment("CCVisa");
-	 // drybar.creditCard_payment("PaymentDetails");
+		 
+		drybar.Accept();
+		drybar.verifyingHomePage();
+		  drybar.clickHairProducts();
+		  //drybar.Close_popup();
+		  drybar.SelectShampoos();
+		 // drybar.Accept();
+		  drybar.Selectproduct();
+		  //drybar.Accept();
+		//  drybar.Verify_PDP();
+	      drybar.increaseProductQuantity("2");
+	     // drybar.Accept();
+	      drybar.clickAddtoBag();
+	     drybar.clickminiCartButton();
+	    drybar.clickCheckoutButton();
+	    drybar.click_GuestCheckOut();
+	    drybar.guestShippingAddress("ShippingAddress");
+	    drybar.Click_PaymetricPaymentMethod();
+	    //drybar.select_CC();
+	    //drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
+	    drybar.creditCard_payment("CCVisa");
 	  drybar.order_Success();
   }
   

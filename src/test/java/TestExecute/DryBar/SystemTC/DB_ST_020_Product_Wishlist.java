@@ -17,9 +17,13 @@ public class DB_ST_020_Product_Wishlist {
   public void Product_Wishlist()throws Exception {
 		try {
 		drybar.Accept();
+		drybar.verifyingHomePage();
 	    drybar.navigateMyAccount();
 	   drybar.loginApplication("AccountDetails");
-	   drybar.Search_productname("ProductName");
+	   drybar.clickHairProducts();
+	   drybar.Accept();
+		  drybar.SelectShampoos();
+		  drybar.Selectproduct();
 		  drybar.Verify_PDP();
 		  drybar.Add_product_to_Wishlist();
 		  drybar.remove_from_wishlist();

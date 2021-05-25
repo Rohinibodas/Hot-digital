@@ -16,21 +16,20 @@ public class DB_ST_006_RegisteredUserCheckoutwith_invalid_CC_Credentials {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void registeredUserCheckoutwith_invalid_CC_Credentials() {
 		try {
-			  drybar.Accept();
+			 // drybar.Accept();
+			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
-			 // drybar.Guestuser_PDP();
-			  drybar.Search_productname("ProductName");
-			  drybar.Verify_PDP();
-			 // drybar.clickHairProducts();
-			  //drybar.selectproduct("ProductName");
-			  drybar.Select_Size();
+				 drybar.clickHairProducts();
+				  drybar.SelectShampoos();
+				  drybar.Selectproduct();
+				  drybar.Accept();
+				  drybar.Verify_PDP();
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			 // drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
 

@@ -18,9 +18,11 @@ public class DB_ST_018_Express_shipping_method_checkout {
   public void Express_shipping_method() throws Exception {
 		 drybar.Accept();
 		 drybar.verifyingHomePage();
-	   drybar.Search_productname("ProductName");
-	   drybar.Verify_PDP();
-	   drybar.Select_Size();
+		 drybar.clickHairProducts();
+		  drybar.SelectShampoos();
+		  drybar.Selectproduct();
+		  drybar.Accept();
+		  drybar.Verify_PDP();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
 	  drybar.clickminiCartButton();

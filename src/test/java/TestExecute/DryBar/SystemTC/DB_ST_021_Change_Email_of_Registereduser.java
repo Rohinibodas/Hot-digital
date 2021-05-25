@@ -17,6 +17,7 @@ public class DB_ST_021_Change_Email_of_Registereduser {
   public void Change_EmailAddress()throws Exception {
 		try {
 		drybar.Accept();
+		drybar.verifyingHomePage();
 	    drybar.navigateMyAccount();
 	   drybar.loginApplication("AccountDetails");
 	  drybar.AccountInformation();
