@@ -19,13 +19,15 @@ public class Test_PUR_ValidateContentlinks {
 	public void navigation_of_footerlinks(){
 
 		try{
+			//PUR.AgreeAndProceed();
 			PUR.productsupportFooterlink();
 			PUR.faqFooterlink();
 			PUR.warrantyregistrationFooterlink();
 			PUR.contactusFooterlink();
-			PUR.municipalitiesFooterlink();
+			//PUR.municipalitiesFooterlink();
 			PUR.faucetsystemFooterlink();
-			PUR.pitcherfiltrationFooterlink();
+			PUR.pitcherFooterlink();
+			PUR.dispensersFooterlink();
 			PUR.replacementfilterFooterlink();
 			PUR.undersinkFooterlink();
 			PUR.ourcompanyFooterlink();
@@ -45,10 +47,10 @@ public class Test_PUR_ValidateContentlinks {
 	}
 	
 	
-    /* @BeforeMethod
+  /*   @BeforeMethod
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "PUR//config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("firefox");
 		   }
 */
 	
