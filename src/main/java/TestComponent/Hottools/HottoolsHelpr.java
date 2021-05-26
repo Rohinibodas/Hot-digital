@@ -123,12 +123,12 @@ public class HottoolsHelpr {
 			Thread.sleep(10000);
 			Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName"));
 			Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName"));
-			//Common.textBoxInput("id", "date_field", data.get(dataSet).get("License Expiration Date"));
+			Common.textBoxInput("id", "date_field", data.get(dataSet).get("License Expiration Date"));
 			Common.clickElement("id", "date_field");
 			Thread.sleep(5000);
 			if(Common.isElementDisplayed("xpath", "//span[@class='ui-datepicker-month']")) {
 				//Thread.sleep(1000);
-				Common.javascriptclickElement("xpath", "//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[1]/a");
+				//Common.javascriptclickElement("xpath", "//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[1]/a");
 				//Common.clickElement("xpath", "//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[1]/a");
 			}else {
 				Common.clickElement("id", "date_field");
@@ -2592,11 +2592,11 @@ public class HottoolsHelpr {
 			if(Common.isElementDisplayed("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='https://stage.hottools.com/checkout/cart/']")) {
 				Sync.waitElementPresent("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='https://stage.hottools.com/checkout/cart/']");
 				Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='https://stage.hottools.com/checkout/cart/']");
-				System.out.println("Mini cark in Popup clicked");
+				System.out.println("Mini car in Popup clicked");
 			}else {
 				Sync.waitElementPresent("xpath", "//a[@title='Cart']");
 				Common.clickElement("xpath", "//a[@title='Cart']");
-				System.out.println("Mini cark in Header clicked");
+				System.out.println("Mini cart in Header clicked");
 				Thread.sleep(1000);
 				Sync.waitElementPresent("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@class='action viewcart']");
 				Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@class='action viewcart']");
@@ -2819,6 +2819,7 @@ public class HottoolsHelpr {
 			Common.javascriptclickElement("xpath", "(//input[@title='Qty'])[2]");
 			Common.textBoxInput("xpath", "(//input[@title='Qty'])[2]",  data.get(dataSet).get("Qty"));
 			Thread.sleep(1000);
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
 			Sync.waitElementPresent("xpath","//span[contains(text(), 'Update Shopping Cart')]");
 			Common.clickElement("xpath", "//span[contains(text(), 'Update Shopping Cart')]");
 		}catch(Exception |Error e)
@@ -3253,18 +3254,18 @@ public class HottoolsHelpr {
 			//Common.clickElement("id", "block-discount-heading");
 
 			Thread.sleep(4000);
-			Sync.waitElementPresent("name", "discount_code_fake");
-			Common.clickElement("name", "discount_code_fake");
+			Sync.waitElementPresent("xpath", "(//input[@placeholder='Enter Your discount code'])[1]");
+			Common.clickElement("xpath", "(//input[@placeholder='Enter Your discount code'])[1]");
 
-			Common.textBoxInput("name", "discount_code_fake", data.get(dataSet).get("Promocode"));
+			Common.textBoxInput("xpath", "(//input[@placeholder='Enter Your discount code'])[1]", data.get(dataSet).get("Promocode"));
 
 			Thread.sleep(2000);
 
-			Sync.waitElementPresent("xpath", "(//button[@class='action action-apply']/span)[1]");
-			Common.clickElement("xpath", "(//button[@class='action action-apply']/span)[1]");
+			Sync.waitElementPresent("xpath", "(//span[contains(text(), 'Apply Discount')])[2]");
+			Common.clickElement("xpath", "(//span[contains(text(), 'Apply Discount')])[2]");
 
-			//String success=Common.getText("xpath", "//div[@data-ui-id='checkout-cart-validationmessages-message-success']");
-			//System.out.println(success);
+			String success=Common.getText("xpath", "(//span[@data-bind='text: getTitle()'])[3]");
+			System.out.println(success);
 
 			Thread.sleep(3000);
 			report.addPassLog(expectedResult, "Should display Success message for promocode", "Success of promocode displayed successfully", Common.getscreenShotPathforReport("Promocode success"));
@@ -3503,7 +3504,9 @@ public class HottoolsHelpr {
 	{
 		String expectedResult="Navigating to Subscription Popup in Home Page";
 		try{
-			Thread.sleep(20000);
+			Thread.sleep(2000);
+			Common.refreshpage();
+			
 			Common.switchWindows();
 			//Common.switchFrames("xpath", "//iframe[@id='LL_DataServer']");
 			if(Common.isElementDisplayed("id", "wpn-lightbox-content")) {
@@ -3523,8 +3526,359 @@ public class HottoolsHelpr {
 
 
 	}
+	
+	public void LightboxNewslettersignup(String dataSet) throws Exception
+	{
+		String expectedResult="Navigating to Subscription Popup in Home Page";
+		try{
+			Thread.sleep(5000);
+			Common.refreshpage();
+			
+			Common.switchWindows();
+			//Common.switchFrames("xpath", "//iframe[@id='LL_DataServer']");
+			if(Common.isElementDisplayed("id", "wpn-lightbox-content")) {
+				Thread.sleep(5000);
+				Sync.waitElementPresent("id", "popup_newsletter_firstname");
+				Common.textBoxInput("id", "popup_newsletter_firstname", data.get(dataSet).get("FirstName"));
+				Common.textBoxInput("id", "popup_newsletter_lastname", data.get(dataSet).get("LastName"));
+				Common.textBoxInput("id", "popup_newsletter_email", Utils.getEmailid());
+				Thread.sleep(2000);
+				Sync.waitElementPresent("xpath", "(//span[contains(text(), 'Sign Up')])[2]");
+				Common.clickElement("xpath", "(//span[contains(text(), 'Sign Up')])[2]");
+				Thread.sleep(2000);
+				String Success1=Common.getText("xpath", "(//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)'])[1]");
+				System.out.println(Success1);
+				Assert.assertEquals(Success1, "Thank you for your subscription.");
+				
+				
+				}else {
+				System.out.println("Newsletter signup popup not displayed");
+				Common.switchToDefault();
+			}
+			report.addPassLog(expectedResult,"Should Navigating to Subscription Popup in Home Page", "Navigating to Subscription Popup in Home Page successfully", Common.getscreenShotPathforReport("HomePage Popup passed"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should Navigating to Subscription Popup in Home Page", "Not Navigating to Subscription Popup in Home Page", Common.getscreenShotPathforReport("HomePage Popup failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
 
 
+	}
+	public void invalid_Creditcard(String dataSet) {
+
+		// TODO Auto-generated method stub
+
+		String expectedResult="Guest Payment with invalid credit card";
+
+		try {
+
+		Thread.sleep(4000);
+
+		if(Common.isElementDisplayed("xpath", "//div[@id='checkout-loader']")) {
+
+		Thread.sleep(5000);
+
+		}else {
+
+		Thread.sleep(3000);
+
+		Sync.waitElementPresent("id", "ime_paymetrictokenize");
+
+		Common.clickElement(By.id("ime_paymetrictokenize"));
+
+		Thread.sleep(4000);
+
+		}
+
+		Common.switchFrames("paymetric_xisecure_frame");
+
+		Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
+
+		Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
+
+		Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("invalidCreditcard"));
+
+		Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
+
+		Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+
+		Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
+
+		 
+
+		Common.switchToDefault();
+
+		Thread.sleep(2000);
+
+		report.addPassLog(expectedResult,"Should make payment with valid credit card successfully", "Make payment with valid credit card successfully", Common.getscreenShotPathforReport("validcreditcard success"));
+
+		Sync.waitElementPresent("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+
+		Common.clickElement(By.xpath("//div[@class='iosc-place-order-container']//button[@title='Place Order']"));
+
+		if(Common.isElementVisibleOnPage(30, "xpath", "//div[contains(text(),'Shipping Address is not verified. Do you want to continue ?')]")) {
+
+		System.out.println("Address not verified pop up displayed");
+
+		Sync.waitElementPresent("xpath", "//button[@class='action-primary action-accept']");
+
+		Common.clickElement("xpath", "//button[@class='action-primary action-accept']");
+
+		}
+
+		Thread.sleep(2000);
+
+		Common.switchFrames("paymetric_xisecure_frame");
+
+		String s=Common.getText("xpath", "//div[text()='Please enter a valid card number']");
+
+		System.out.println(s);
+
+		 
+
+		Assert.assertEquals(s, "Please enter a valid card number");
+
+		Common.switchToDefault();
+
+		report.addPassLog(expectedResult,"Should make payment with valid credit card successfully", "Make payment with valid credit card successfully", Common.getscreenShotPathforReport("validcreditcard success"));
+
+		}catch(Exception |Error e)
+
+		{
+
+		report.addFailedLog(expectedResult,"Should make payment with valid credit card successfully", "Payment with valid credit card failed", Common.getscreenShotPathforReport("cvalidcreditcardart Failed"));
+
+		e.printStackTrace();
+
+		Assert.fail();
+
+		}
+
+	}
+	
+	public void AddNewShippingAddress(String dataSet) {
+
+		// TODO Auto-generated method stub
+
+
+		String expectedResult="Guest Checkout shipping address form";
+
+		try {
+
+		Thread.sleep(6000);
+
+		//Common.actionsKeyPress(Keys.DOWN);
+
+		//Common.scrollIntoView("xpath", "//button[@title='Proceed to Checkout']/span");
+
+		 
+
+		Sync.waitElementPresent("xpath", "//button[@title='Proceed to Checkout']/span");
+
+		Common.clickElement("xpath", "//button[@title='Proceed to Checkout']/span");
+
+		Common.actionsKeyPress(Keys.DOWN);
+
+		Common.actionsKeyPress(Keys.DOWN);
+
+		Common.actionsKeyPress(Keys.DOWN);
+
+		Common.actionsKeyPress(Keys.DOWN);
+
+
+		Sync.waitElementPresent("xpath", "//span[text()='Add new shipping address']");
+
+		Common.clickElement("xpath", "//span[text()='Add new shipping address']");
+
+
+
+		 
+
+		Thread.sleep(12000);
+
+		//Common.textBoxInput("name", "username", data.get(dataSet).get("Email"));
+
+		//Common.textBoxInput("xpath", "//*[@id='customer-email']", data.get(dataSet).get("Email"));
+
+		 
+
+		Thread.sleep(6000);
+
+		 
+
+		shipping_Address("Guestshippingaddress");
+
+		 
+
+		Sync.waitElementPresent("xpath", "//span[text()='Use this address']");
+
+		Common.clickElement("xpath", "//span[text()='Use this address']");
+
+		Thread.sleep(6000);
+
+		 
+
+		if(Common.checkBoxIsSelected("xpath", "//td[@class='col col-method']")) {
+
+		 
+
+		System.out.println("Shipping method is selected");
+
+		 
+
+		}else {
+
+		 
+
+		Common.clickElement("xpath", "//td[@class='col col-method']");
+
+		}
+
+		 
+
+		Common.clickElement("xpath", "//td[@class='col col-method']");
+
+		 
+
+		Thread.sleep(10000);
+
+		 
+
+		report.addPassLog(expectedResult,"Should display Retiler checkout page successfully", "Retailer Checkout Page display successfully", Common.getscreenShotPathforReport("Retailer Checkout success"));
+
+		if(Common.isElementVisibleOnPage(30, "xpath", "//div[contains(text(),'Shipping Address is not verified. Do you want to continue ?')]")) {
+
+		 
+
+		System.out.println("Address not verified pop up displayed");
+
+		 
+
+		Sync.waitElementPresent("xpath", "//button[@class='action-primary action-accept']");
+
+		Common.clickElement("xpath", "//button[@class='action-primary action-accept']");
+
+		}
+
+		}catch(Exception |Error e)
+
+		{
+
+		report.addFailedLog(expectedResult,"Should display Retailer checkout page successfully", "Retailer Checkout Page display successfully", Common.getscreenShotPathforReport("Retailer Checkout Failed"));
+
+		e.printStackTrace();
+
+		Assert.fail();
+
+		}
+	}
+	
+	public void TwoCategoryProductSelection() throws Exception{
+
+		String expectedResult="Selecting the Product from Category";
+		try {
+			Thread.sleep(6000);
+			Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div[2]/h2//a[@class='product-item-link'])[1]");
+			//Common.clickElement("xpath", "(//div[@class='product-item-info']/div[2]/h2//a[@class='product-item-link'])[1]");
+            Common.clickElement("xpath", "(//button[@title='Add to Cart'])[1]");
+            Thread.sleep(2000);
+            Sync.waitElementPresent("xpath", "(//div[@class='product-item-info']/div[2]/h2//a[@class='product-item-link'])[2]");
+            Common.clickElement("xpath", "(//button[@title='Add to Cart'])[2]");
+			report.addPassLog(expectedResult,"Should select Product from selected category successfully", "Selected Product from selected category successfully", Common.getscreenShotPathforReport("Product selection success"));
+		}catch(Exception |Error e)
+		{
+			report.addPassLog(expectedResult,"Should select Product from selected category successfully", "Not Selected Product from selected category successfully", Common.getscreenShotPathforReport("Product selection failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void TwoproductCategoryMincart() throws Exception{
+
+		String expectedResult="Adding the product to cart and validating the product name";
+		try {
+			Thread.sleep(6000);
+			/*String Productname=Common.getText("xpath", "//h1[@class='page-title']/span");
+			System.out.println(Productname);
+			Thread.sleep(6000);
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(3000);
+
+			Common.scrollIntoView("xpath", "//span[@id='product-price-432']");
+			Thread.sleep(3000);
+			Sync.waitElementPresent("id", "product-addtocart-button");
+			Common.clickElement(By.id("product-addtocart-button"));*/
+
+			//Thread.sleep(4000);
+
+			if(Common.isElementDisplayed("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='https://stage.hottools.com/checkout/cart/']")) {
+				Sync.waitElementPresent("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='https://stage.hottools.com/checkout/cart/']");
+				Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='https://stage.hottools.com/checkout/cart/']");
+				System.out.println("Mini cart in Popup clicked");
+			}else {
+				Sync.waitElementPresent("xpath", "//a[@title='Cart']");
+				Common.clickElement("xpath", "//a[@title='Cart']");
+				System.out.println("Mini cart in Header clicked");
+				Thread.sleep(1000);
+				Sync.waitElementPresent("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@class='action viewcart']");
+				Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@class='action viewcart']");
+			}
+
+			Thread.sleep(5000);
+
+			Sync.waitElementPresent("xpath", "(//*[@id='shopping-cart-table']/tbody/tr/td[1]/div/strong)[2]");
+			Thread.sleep(5000);
+			String s=Common.getText("xpath", "(//*[@id='shopping-cart-table']/tbody/tr/td[1]/div/strong)[2]");
+			System.out.println(s);
+			Sync.waitElementPresent("xpath", "(//*[@title='BLACK GOLD CURLING IRON 3/4\"'])[2]");
+			Thread.sleep(5000);
+			String s1=Common.getText("xpath", "(//*[@title='BLACK GOLD CURLING IRON 3/4\"'])[2]");
+			System.out.println(s1);
+			//Assert.assertTrue(s.equalsIgnoreCase(Productname));
+			//System.out.println("Mini cart Test cases passed successfully");
+			report.addPassLog(expectedResult,"Should Add the product to cart and verify product name successfully", "Added product to cart and verified product name successfully", Common.getscreenShotPathforReport("Category mini cart success"));
+		}catch(Exception |Error e)
+		{
+			report.addPassLog(expectedResult,"Should Add the product to cart and verify product name successfully", "Not Added product to cart successfully", Common.getscreenShotPathforReport("Category mini cart failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void CreditcardPayment_promocde(String dataSet) {
+		// TODO Auto-generated method stub
+		{
+			String expectedResult="Payment With Valid Credit Card";
+			try {
+				Thread.sleep(5000);
+
+				if(Common.isElementDisplayed("xpath", "//div[@id='checkout-loader']")) {
+					Thread.sleep(8000);
+				}else {
+					Thread.sleep(6000);
+					Sync.waitElementPresent("id", "ime_paymetrictokenize");
+					Common.clickElement(By.id("ime_paymetrictokenize"));
+					Thread.sleep(8000);
+				}	
+				Common.switchFrames("paymetric_xisecure_frame");
+				Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
+				Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
+				Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+				Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
+				Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+				Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
+				Common.switchToDefault();
+				report.addPassLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card successfully", Common.getscreenShotPathforReport("Payment CC success"));
+			}catch(Exception |Error e)
+			{
+				report.addFailedLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card unsuccessfully", Common.getscreenShotPathforReport("Payment CC Failed"));
+				e.printStackTrace();
+				Assert.fail();
+			}
+		}
+	}
+	
 
 
 

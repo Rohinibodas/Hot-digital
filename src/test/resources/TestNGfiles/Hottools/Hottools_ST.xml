@@ -278,10 +278,60 @@
             <class name="TestExecute.hottools.SmokeTC.HT_ST_GuestCheckoutPaypal"/>
         </classes>
     </test>
-    <test name="Test_HT_ST_028_RegisteredUserCheckoutPaypal" testid="BTY-661" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+    
+    
+      <test name="Test_HT_ST_066_Signup_NewsLetter" testid="BTY-545" priority="P1" description="To verify Sign up NewsLetter functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_RegisteredUserPaypal"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_SignUpforNewsletterfromLightBox"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_067_AddnewshippingaddresstofRetailerCheckout" testid="BTY-546" priority="P1" description="To verify Add news hipping address of Retailer Checkout functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_AddNewShippingAddresstoRetailerUserCheckout"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_068_HT_ST_Retailer_invalidCheckoutCreaditCard" testid="BTY-547" priority="P1" description="To verify the Retailer nvalid Checkout Creadit Card functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_Retailer_invalidCheckoutCreaditCard"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_072_HT_ST_Retailer_User_promocode" testid="BTY-557" priority="P1" description="To verify  Retailer_User_promocodel functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_Retailer_User_promocode"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_069_HT_ST_GuestCheckout_invalidCreditCard" testid="BTY-548" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GuestCheckout_invalidCreditCard"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_070_HT_ST_RetailerCheckoutwith_Adding_two_products" testid="BTY-549" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_RetailerCheckoutwith_Adding_two_products"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_071_HT_ST_GuestCheckoutwithtwoproducts" testid="BTY-556" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_Guestuser_checkout_withadding_two_Products"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_073_Stylist_User_promocode" testid="BTY-558" priority="P1" description="To verify the Stylist_User_promocode functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_Stylist_User_promocode"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_074_Distributor_User_promocode" testid="BTY-559" priority="P1" description="To verify Distributor_User_promocode functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_Distributor_User_promocode"/>
         </classes>
     </test>
     
