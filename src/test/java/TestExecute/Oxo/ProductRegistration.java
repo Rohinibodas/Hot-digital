@@ -19,6 +19,7 @@ public class ProductRegistration {
 
 		try {
 			oxo.closetheadd();
+			oxo.acceptPrivecy();
 			oxo.NewProductRegistration("ProductRegistration");
 
 		} catch (Exception e) {

@@ -31,7 +31,7 @@ public class ValidationofBlogs_Article_Links {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		Common.closeAll();
+	Common.closeAll();
 	
 	}
 	

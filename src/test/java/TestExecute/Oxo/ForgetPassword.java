@@ -18,7 +18,8 @@ public class ForgetPassword {
   public void forgetPassword() {
 		try{
 		oxo.closetheadd();
-		
+	    //oxo.acceptPrivecy();
+		//oxo.PrivacyPolicy();
 		oxo.ForgotPassword("Forgetpassoword");
   }
 	catch (Exception e) {

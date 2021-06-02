@@ -18,6 +18,7 @@ public class MultiProductCheckout {
 	public void MultiProductCheckout() throws Exception {
 
 		try {
+			
 			oxo.closetheadd();
 			// oxo.PrivacyPolicy();
 			oxo.Beverage();

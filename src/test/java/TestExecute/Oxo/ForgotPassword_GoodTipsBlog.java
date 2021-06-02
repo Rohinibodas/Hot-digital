@@ -16,7 +16,7 @@ public class ForgotPassword_GoodTipsBlog {
   public void ForgotPassword_GoodTipsBlog() throws Exception {
 
 		try {
-			//oxo.closetheadd();
+		oxo.closetheadd();
 			//oxo.clickGoodTipsBlog();
 			oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
 		}

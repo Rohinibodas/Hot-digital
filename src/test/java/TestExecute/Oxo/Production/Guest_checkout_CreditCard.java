@@ -43,7 +43,7 @@ public class Guest_checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		//Common.closeAll();
+	Common.closeAll();
     }
 	
 	@BeforeMethod

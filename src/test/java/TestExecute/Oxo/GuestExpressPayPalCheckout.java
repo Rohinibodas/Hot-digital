@@ -18,7 +18,7 @@ public class GuestExpressPayPalCheckout {
 	public void NewTestPractice() throws Exception {
 
 		try {
-			//oxo.closetheadd();
+			oxo.closetheadd();
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
 			//oxo.checkout();

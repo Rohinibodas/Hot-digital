@@ -31,6 +31,7 @@ public class GuestUser_Checkout_Discover_CC {
 			oxo.VerifyaingConformationPage();
 			Common.refreshpage();
 			
+			
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);

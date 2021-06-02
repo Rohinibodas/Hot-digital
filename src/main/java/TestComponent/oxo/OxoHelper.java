@@ -4,6 +4,8 @@ import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.AssertJUnit;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.By;
@@ -411,8 +413,8 @@ public class OxoHelper {
 				Sync.waitElementPresent("xpath", "//button[@id='product-addtocart-button']");
 				Common.clickElement("xpath", "//button[@id='product-addtocart-button']");
 				Thread.sleep(3000);
-				Sync.waitElementPresent("xpath", "//span[text()='close']");
-				Common.clickElement("xpath", "//span[text()='close']");
+				//Sync.waitElementPresent("xpath", "//span[text()='close']");
+				//Common.clickElement("xpath", "//span[text()='close']");
 
 				ExtenantReportUtils.addPassLog("validating the product to Cart", "user add the product to cart",
 						"user successfully add the product to cart",
@@ -432,8 +434,8 @@ public class OxoHelper {
 		Thread.sleep(6000);
 		try {
 			Sync.waitPageLoad();
-			Sync.waitElementPresent("xpath", "//a[@class='action showcart']");
-			Common.clickCheckBox("xpath", "//a[@class='action showcart']");
+			//Sync.waitElementPresent("xpath", "//a[@class='action showcart']");
+			//Common.clickCheckBox("xpath", "//a[@class='action showcart']");
 			int Subtotal = Common.findElements("xpath", "//div[@class='subtotal']").size();
 			int productdetails = Common.findElements("xpath", "//div[@class='product-item-details']").size();
 			Common.assertionCheckwithReport(Subtotal > 0 && productdetails > 0, "validating the mini cart HomePage",
@@ -451,12 +453,23 @@ public class OxoHelper {
 	public void clickViewCart() throws Exception {
 		Thread.sleep(6000);
 		try {
+			
+			
+			
 			Sync.waitPageLoad();
-			Sync.waitElementPresent("xpath", "//a[@class='action showcart']");
-			Common.mouseOver("xpath", "//a[@class='action showcart']");
+			//Sync.waitElementPresent("xpath", "//a[@class='action showcart']");
+			//Common.mouseOver("xpath", "//a[@class='action showcart']");
 			// Common.clickCheckBox("xpath", "//a[@class='action showcart']");
 			Sync.waitElementPresent("xpath", "//a[@class='action viewcart']");
 			Common.javascriptclickElement("xpath", "//a[@class='action viewcart']");
+			
+			
+			
+			
+			
+			
+			
+			
 			// Common.mouseOverClick("xpath",
 			// "//a[contains(@class,'viewcart')]");
 			// Common.assertionCheckwithReport(Subtotal>0&&productdetails>0,
@@ -480,6 +493,7 @@ public class OxoHelper {
 	public void SignIn_CheckoutPage(String dataSet) throws Exception {
 		try {
 			Thread.sleep(4000);
+			
 			Sync.waitElementClickable("xpath", "//li//button[@class='action primary checkout']");
 			// Common.findElement("xpath", "//li//button[@class='action primary
 			// checkout']").click();
@@ -612,8 +626,8 @@ public class OxoHelper {
 
 	public void checkout() throws Exception {
 		Thread.sleep(4000);
-		Sync.waitElementPresent("xpath", "//a[@class='action showcart']");
-		Common.clickCheckBox("xpath", "//a[@class='action showcart']");
+		//Sync.waitElementPresent("xpath", "//a[@class='action showcart']");
+		//Common.clickCheckBox("xpath", "//a[@class='action showcart']");
 		Sync.waitElementPresent("id", "top-cart-btn-checkout");
 		Common.clickElement("id", "top-cart-btn-checkout");
 	}
@@ -783,7 +797,7 @@ public class OxoHelper {
 			AssertJUnit.fail();
 
 		}
-		selectproduct("Perch Booster Seat with Straps");
+		selectproduct("Silicone Plate");
 
 	}
 
@@ -937,6 +951,34 @@ public class OxoHelper {
 		}
 	}
 
+	
+	public void selectExpressStandardOvernightShippingMethod() throws Exception {
+		try {
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Sync.waitPageLoad();
+			Thread.sleep(5000);
+			Sync.waitElementPresent("xpath", "//label[contains(@id,'shippingrates1_shippingrates')]");
+			Common.scrollIntoView("xpath", "//label[contains(@id,'shippingrates1_shippingrates')]");
+			Common.javascriptclickElement("xpath", "//label[contains(@id,'shippingrates1_shippingrates')]");
+			Sync.waitPageLoad();
+			Sync.waitElementPresent("xpath", "//button[contains(@class,'continue primary')]");
+			Common.clickElement("xpath", "//button[contains(@class,'continue primary')]");
+			ExtenantReportUtils.addPassLog("verifying Shipping Methods", "user select the Express Standard Overnight shipping method",
+					" selected the Express Standard Overnight shipping method", Common.getscreenShotPathforReport("faieldsshippingmethod"));
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying Shipping Methods", "user select the Express Standard Overnight shipping method",
+					"faield to select  shippingmethod", Common.getscreenShotPathforReport("faieldsshippingmethod"));
+			AssertJUnit.fail();
+
+		}
+	}
+	
+	
+	
+	
+	
+	
 	public void Express_PayPal_GroundShippingMethod() throws Exception {
 		try {
 
@@ -1017,6 +1059,7 @@ public class OxoHelper {
 			Common.actionsKeyPress(Keys.ARROW_DOWN);
 			Sync.waitElementClickable("id", "block-discount-heading");
 			Thread.sleep(3000);
+		    Common.scrollIntoView("xpath", "//span[@id='block-discount-heading']");
 			Common.findElement("xpath", "//span[@id='block-discount-heading']").click();
 			Sync.waitElementPresent("xpath", "//input[@id='discount-code']");
 			Common.textBoxInput("xpath", "//input[@id='discount-code']", data.get(dataSet).get("Promocode"));
@@ -1208,13 +1251,14 @@ public class OxoHelper {
 							Common.getscreenShotPathforReport("logindata"));
 					AssertJUnit.fail();
 				}
-				try {
+			/*	try {
 					Thread.sleep(4000);
 					Common.refreshpage();
 					Sync.waitElementVisible("xpath", "//span[@class='customer-name']");
 					WebElement element = Common.findElement("xpath", "//span[@class='customer-name']");
 					String text = element.getText();
 					System.out.println("Text Obtained is..." + text);
+					Thread.sleep(5000);
 					if (text.contains("Hi,mahendra")) {
 						System.out.println("Expected text is obtained");
 						ExtenantReportUtils.addPassLog("Validating UserName from Header on Home Page",
@@ -1235,7 +1279,7 @@ public class OxoHelper {
 							Common.getscreenShotPathforReport("MyAccount"));
 					AssertJUnit.fail();
 
-				}
+				}*/
 
 			} catch (Exception | Error e) {
 				e.printStackTrace();
@@ -1499,7 +1543,7 @@ public class OxoHelper {
 
 			Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
 
-			// Common.findElement("xpath", "//button[@id='btnNext']").click();
+			Common.findElement("xpath", "//button[@id='btnNext']").click();
 			Thread.sleep(3000);
 			Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
 			int sizeemail = Common.findElements("id", "email").size();
@@ -1608,7 +1652,19 @@ public class OxoHelper {
 			Common.switchToDefault();
 
 		}
+		acceptPrivecy();
 	}
+	
+	
+	 public void acceptPrivecy(){
+			int sizeofbutton= Common.findElements("xpath", "//button[@id='truste-consent-required']").size();
+			if(sizeofbutton>0){
+				
+				Common.clickElement("xpath", "//button[@id='truste-consent-required']");
+				
+			}
+		 }
+	
 
 	public void ForgotPassword(String dataset) throws Exception {
 
@@ -2484,7 +2540,7 @@ public class OxoHelper {
 		// (@oxo) • Instagram photos and videos"));
 
 		Common.assertionCheckwithReport(
-				Common.getCurrentURL().equals("https://www.youtube.com/channel/UCDvReUBDSrDnfH-0m4qUVow")
+				Common.getCurrentURL().equals("https://www.youtube.com/oxo")
 						&& Common.getPageTitle().equals("OXO - YouTube"),
 				"Validating Page  YouTube Title and URL", "Actual and Current URL&Page Title Should be Same",
 				"Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
@@ -3142,12 +3198,13 @@ public class OxoHelper {
 		}
 		try {
 			Thread.sleep(4000);
-			Sync.waitElementClickable("xpath", "//select[@id='product_name']");
+			acceptPrivecy();
+			/*Sync.waitElementClickable("xpath", "//select[@id='product_name']");
 			Common.findElement("xpath", "//select[@id='product_name']").click();
 			Sync.waitElementVisible("xpath", "//option[@value='sprout-chair']");
 			Common.findElement("xpath", "//option[@value='sprout-chair']").click();
-			// Common.mouseOverClick("xpath","//option[@value='sprout-chair']");
-			Common.actionsKeyPress(Keys.ENTER);
+			// Common.mouseOverClick("xpath","//option[@value='sprout-chair']");*/
+		//	Common.actionsKeyPress(Keys.ENTER);
 
 			Sync.waitElementClickable("xpath", "//input[@id='model']");
 			Common.textBoxInput("xpath", "//input[@id='model']", data.get(dataSet).get("Model#"));
@@ -3747,9 +3804,10 @@ public void remove_from_wishlist() throws Exception {
 	}
 
 	public void Header_Link(String dataSet) throws InterruptedException {
-		/*
+		
 		 //Thread.sleep(3000);
 		Sync.waitPageLoad();
+		acceptPrivecy();
 		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
 		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
 		String Hederlinks=data.get(dataSet).get("Cookin & Baking");
@@ -3765,8 +3823,21 @@ public void remove_from_wishlist() throws Exception {
 		for(i=0;i<hedrs.length;i++){
 			
 			System.out.println(hedrs[i]);
-			Sync.waitElementClickable("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
-			Common.clickElement("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
+			try {
+			Sync.waitElementClickable("xpath", "//a[text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
+			
+			
+			} catch (Exception e) {
+				if (Common.findElement("xpath", "//a[text()='"+hedrs[i]+"']") == null) {
+					
+					Sync.waitElementClickable("xpath", "//a[contains(text(),'"+hedrs[i]+"')]");
+					Common.clickElement("xpath", "//a[contains(text(),'"+hedrs[i]+"')]");
+					Thread.sleep(2000);
+				}
+			}
+			
+			
 			Thread.sleep(2000);
 			System.out.println(Common.getPageTitle());
 			System.out.println(Title[i]);
@@ -3774,9 +3845,10 @@ public void remove_from_wishlist() throws Exception {
 				
 			Thread.sleep(2000);
 			clickLogo();
-			Sync.waitPageLoad();
+			//Sync.waitPageLoad();
 			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
 		}
+		
 		}
 		catch (Exception | Error e) {
 			e.printStackTrace();
@@ -3784,47 +3856,80 @@ public void remove_from_wishlist() throws Exception {
 			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
 		    Assert.fail();
 
-		}*/
-		
-		
-		
-		Thread.sleep(4000);
+		}
+	}
+	
+	
+	
+	public void Heade_BabyAndToddler(String dataSet) throws InterruptedException {
 		Sync.waitPageLoad();
-		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
-		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
-		
-		String Hederlinks=data.get(dataSet).get("Cookin & Baking");
+		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[4]");
+		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[4]");
+		String Hederlinks=data.get(dataSet).get("Baby&Toddler");
 		String[] hedrs=Hederlinks.split(",");
 		int i=0;
 		
-		String ProductTitle=data.get(dataSet).get("Cookin & Baking Page Title");
+		String ProductTitle=data.get(dataSet).get("Baby&Toddler PageTitle");
 		String[] Title=ProductTitle.split(",");
+		//int j=0;
 		
 		try{
 		for(i=0;i<hedrs.length;i++){
 			System.out.println(hedrs[i]);
-			Sync.waitElementClickable("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
-			Common.clickElement("xpath", "//ul[@class='navigation__inner-list navigation__inner-list--level1']//a[contains(text(),'"+hedrs[i]+"')]");
+			Sync.waitElementClickable("xpath", "//strong[text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//strong[text()='"+hedrs[i]+"']");
 			Thread.sleep(3000);
 			System.out.println(Common.getPageTitle());
 			Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
-			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[2]");
+			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[4]");
 		}
 		}
 		catch (Exception | Error e) {
 			e.printStackTrace();
-            ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
-		    Assert.fail();
+
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			Assert.fail();
 
 		}
-		
-		
-		
-		
-		
-		
-		
 	}
+	
+	
+	
+	public void Heade_CleaningAndOrganization(String dataSet) throws InterruptedException {
+		Sync.waitPageLoad();
+		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[3]");
+		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[3]");
+		String Hederlinks=data.get(dataSet).get("Cleaning&Organization");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		String ProductTitle=data.get(dataSet).get("Cleaning&Organization PageTitle");
+		String[] Title=ProductTitle.split(",");
+		//int j=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Sync.waitElementClickable("xpath", "//a[text()='"+hedrs[i]+"']");
+			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
+			Thread.sleep(3000);
+			System.out.println(Common.getPageTitle());
+			Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[3]");
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		
+			Assert.fail();
+
+		}
+	}
+	
+	
 	public void Heade_Beverage(String dataSet) throws InterruptedException {
 		Sync.waitPageLoad();
 		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[2]");
@@ -3857,7 +3962,127 @@ public void remove_from_wishlist() throws Exception {
 
 		}
 	}
+	
+	public void HomePageMLP_Validation(String dataSet)throws Exception{
+
+		Thread.sleep(3000);
+		Sync.waitPageLoad();
+		String Hederlinks=data.get(dataSet).get("HomePageMSP");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
 		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			acceptPrivecy();
+			Common.scrollIntoView("xpath", "//section[@class='featured-product']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			Sync.waitElementClickable("xpath", "//section[@class='featured-product']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			String MSP= Common.getText("xpath", "//section[@class='featured-product']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			System.out.println(MSP);
+			Common.clickElement("xpath", "//section[@class='featured-product']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			Thread.sleep(3000);
+			String HeadName = Common.getText("xpath", "//div[@class='product-info-main-container']//h1[@class='page-title']//span");
+		    System.out.println(HeadName);
+			Thread.sleep(3000);
+			System.out.println(MSP.equalsIgnoreCase(HeadName));
+		
+			Assert.assertEquals(MSP, HeadName);
+			
+			ExtenantReportUtils.addPassLog("verifying Homepage Blog Post of "+MSP, "user open the "+MSP+" Blog", "user successfully open the Blog post of "+MSP, Common.getscreenShotPathforReport("HomePageBlogs"));
+			Thread.sleep(3000);
+			clickLogo();
+			
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Homepage Blog post Link " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the Homepage Blog post Link  "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the Homepage Blog post Link "));
+		
+			Assert.fail();
+
+		}
+	}
+		
+	public void HomePageMSP_Validation(String dataSet)throws Exception{
+		
+		Thread.sleep(3000);
+		Sync.waitPageLoad();
+		String Hederlinks=data.get(dataSet).get("HomePageMSP");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			acceptPrivecy();
+		    Sync.waitElementClickable("xpath", "//li[@class='popular-searches__item']["+hedrs[i]+"]");
+			String MSP= Common.getText("xpath", "//li[@class='popular-searches__item']["+hedrs[i]+"]");
+			System.out.println(MSP);
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			Common.clickElement("xpath", "//li[@class='popular-searches__item']["+hedrs[i]+"]");
+			Thread.sleep(3000);
+			String HeadName = Common.getText("xpath", "//div[@class='product-info-main-container']//h1[@class='page-title']//span");
+		    System.out.println(HeadName);
+			Thread.sleep(3000);
+			System.out.println(MSP.equalsIgnoreCase(HeadName));
+		
+			Assert.assertEquals(MSP, HeadName);
+			ExtenantReportUtils.addPassLog("verifying Homepage Blog Post of "+MSP, "user open the "+MSP+" Blog", "user successfully open the Blog post of "+MSP, Common.getscreenShotPathforReport("HomePageBlogs"));
+			Thread.sleep(3000);
+			clickLogo();
+			
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Homepage Blog post Link " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the Homepage Blog post Link  "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the Homepage Blog post Link "));
+		
+			Assert.fail();
+
+		}
+	
+		
+	}
+	public void HomePageValidation(String dataSet) throws Exception{
+		Thread.sleep(3000);
+		Sync.waitPageLoad();
+		String Hederlinks=data.get(dataSet).get("HomePageMSP");
+		String[] hedrs=Hederlinks.split(",");
+		int i=0;
+		
+		try{
+		for(i=0;i<hedrs.length;i++){
+			System.out.println(hedrs[i]);
+			Common.scrollIntoView("xpath", "//section[@class='featured-blog']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			Sync.waitElementClickable("xpath", "//section[@class='featured-blog']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			String MSP= Common.getText("xpath", "//section[@class='featured-blog']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			System.out.println(MSP);
+			Common.clickElement("xpath", "//section[@class='featured-blog']//div[@data-slick-index='"+hedrs[i]+"']//h3");
+			Thread.sleep(3000);
+			String HeadName = Common.getText("xpath", "//div[@class='head']//h2");
+		    System.out.println(HeadName);
+			Thread.sleep(3000);
+			System.out.println(MSP.equalsIgnoreCase(HeadName));
+		
+			Assert.assertEquals(MSP, HeadName);
+			
+			ExtenantReportUtils.addPassLog("verifying Homepage Blog Post of "+MSP, "user open the "+MSP+" Blog", "user successfully open the Blog post of "+MSP, Common.getscreenShotPathforReport("HomePageBlogs"));
+			Thread.sleep(3000);
+			Common.oppenURL("https://oxo-stg.heledigital.com/");
+			//clickLogo();
+		}
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+
+			ExtenantReportUtils.addFailedLog("validating Homepage Blog post Link " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the Homepage Blog post Link  "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the Homepage Blog post Link "));
+		
+			Assert.fail();
+
+		}
+	}
 	
 	public OxoHelper(String datafile) {
 		excelData = new ExcelReader(datafile);

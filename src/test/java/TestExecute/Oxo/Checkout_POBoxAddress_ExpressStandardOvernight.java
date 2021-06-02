@@ -9,13 +9,13 @@ import TestComponent.oxo.OxoHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class GuestUser_Checkout_MasterCard_CC {
+public class Checkout_POBoxAddress_ExpressStandardOvernight {
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
 	@Test(priority = 1)
 
-	public void GuestUser_Checkout_MasterCard_CC () throws Exception {
+	public void Checkout_POBoxAddress_ExpressStandardOvernight() throws Exception {
 
 		try {
 			oxo.closetheadd();
@@ -23,13 +23,14 @@ public class GuestUser_Checkout_MasterCard_CC {
 			oxo.Beverage();
 			oxo.addproducts("1");
 			oxo.checkout();
-			oxo.ShippingAddress("ShippingAddress");
-			oxo.selectGroundShippingMethod();
+			oxo.ShippingAddress("POBoxAddress");
+			oxo.selectExpressStandardOvernightShippingMethod();
 			oxo.clickAcceptingaddress();
 		    oxo.Click_CreditCard();
 			oxo.creditCard_payment("DiscoverPaymentDetails");
 			oxo.VerifyaingConformationPage();
 			Common.refreshpage();
+			
 			
 		} catch (Exception e) {
 
@@ -42,7 +43,7 @@ public class GuestUser_Checkout_MasterCard_CC {
 		Common.closeAll();
 
 	}
-	
+
 	@BeforeMethod
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");

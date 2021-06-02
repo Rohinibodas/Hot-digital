@@ -6,30 +6,25 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import TestComponent.oxo.OxoHelper;
+import TestLib.BaseDriver;
 import TestLib.Common;
 import TestLib.Login;
 
-public class GuestUser_Checkout_MasterCard_CC {
+public class Validation_PLP {
+
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
-	@Test(priority = 1)
+	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class, invocationCount = 1)
 
-	public void GuestUser_Checkout_MasterCard_CC () throws Exception {
-
+	public void Validation_PLP() {
 		try {
 			oxo.closetheadd();
-			//oxo.PrivacyPolicy();
-			oxo.Beverage();
+			// oxo.PrivacyPolicy();
+			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
 			oxo.checkout();
-			oxo.ShippingAddress("ShippingAddress");
-			oxo.selectGroundShippingMethod();
-			oxo.clickAcceptingaddress();
-		    oxo.Click_CreditCard();
-			oxo.creditCard_payment("DiscoverPaymentDetails");
-			oxo.VerifyaingConformationPage();
-			Common.refreshpage();
+			
 			
 		} catch (Exception e) {
 
@@ -42,11 +37,12 @@ public class GuestUser_Checkout_MasterCard_CC {
 		Common.closeAll();
 
 	}
-	
+
 	@BeforeMethod
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
 
 	}
+
 }

@@ -19,6 +19,8 @@ public class Checkout_SignIn {
 
 		try {
 			oxo.closetheadd();
+			oxo.acceptPrivecy();
+			//oxo.acceptPrivecy();
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
 			// oxo.checkout();

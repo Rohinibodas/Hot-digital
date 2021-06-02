@@ -19,6 +19,7 @@ public class PromoCode_GuestUser_Checkout {
 
 		try {
 			oxo.closetheadd();
+			oxo.acceptPrivecy();
 			//oxo.PrivacyPolicy();
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
@@ -26,6 +27,7 @@ public class PromoCode_GuestUser_Checkout {
 			oxo.ShippingAddress("ShippingAddress");
 			oxo.selectGroundShippingMethod();
 			oxo.clickAcceptingaddress();
+			oxo.acceptPrivecy();
 			oxo.Promocode("Promocode");
 			oxo.Click_CreditCard();
 			oxo.creditCard_payment("PaymentDetails");
@@ -39,7 +41,7 @@ public class PromoCode_GuestUser_Checkout {
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

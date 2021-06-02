@@ -45,6 +45,5 @@ public class PromoCode_RegisteredUser_Checkout {
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
-
 	}
 }

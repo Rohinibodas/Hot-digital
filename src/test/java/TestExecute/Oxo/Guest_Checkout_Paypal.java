@@ -14,14 +14,12 @@ public class Guest_Checkout_Paypal {
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
 	
-	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class,invocationCount = 1)
 
 
 	public void guest_Checkout_Paypal() {
 		try{
 		oxo.closetheadd();
-		
 		oxo.clickBaby_Toddler();
 		oxo.addproducts("1");
 		oxo.checkout();
@@ -48,9 +46,7 @@ public class Guest_Checkout_Paypal {
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		  Login.signIn();
-		 
+		 Login.signIn();
 		  
 	  }
-
 }

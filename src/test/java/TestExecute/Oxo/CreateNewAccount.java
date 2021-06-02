@@ -20,8 +20,7 @@ public class CreateNewAccount {
 
 		try {
 			oxo.closetheadd();
-			
-			oxo.CreateNewAccount("AccountDetails");
+			oxo.CreateNewAccount("AccountDetails");	
 		}
 		catch (Exception e) {
 			
@@ -38,8 +37,6 @@ public class CreateNewAccount {
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		  Login.signIn();
-		 
-		  
+		  Login.signIn();  
 	  }
 }

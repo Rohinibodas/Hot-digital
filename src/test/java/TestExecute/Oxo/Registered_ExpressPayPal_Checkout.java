@@ -40,7 +40,7 @@ public class Registered_ExpressPayPal_Checkout {
 	@AfterTest
 	public void clearBrowser() {
 	  
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

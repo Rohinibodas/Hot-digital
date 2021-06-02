@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import TestComponent.oxo.OxoHelperLive;
 import TestLib.Common;
 import TestLib.Login;
@@ -21,6 +20,7 @@ public class GuestUser_Checkout_MasterCard_CC {
 			//oxo.PrivacyPolicy();
 			oxo.acceptPrivecy();
 			//oxo.ProdclickBaby_Toddler();
+		
 			oxo.Beverage();
 			oxo.addproducts("1");
 			oxo.checkout();
@@ -29,9 +29,7 @@ public class GuestUser_Checkout_MasterCard_CC {
 			oxo.clickAcceptingaddress();
 		    oxo.Click_CreditCard();
 			oxo.creditCard_payment("AMEXPaymentDetails");
-			
-			
-
+		
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);

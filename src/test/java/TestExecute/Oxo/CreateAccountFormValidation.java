@@ -19,6 +19,7 @@ public class CreateAccountFormValidation {
 
 		try {
 			oxo.closetheadd();
+			//oxo.acceptPrivecy();
 			oxo.AccountCreationFormValidation();
 			
 		} catch (Exception e) {

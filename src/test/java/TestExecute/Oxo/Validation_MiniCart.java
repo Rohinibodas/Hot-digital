@@ -6,34 +6,40 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import TestComponent.oxo.OxoHelper;
+import TestLib.BaseDriver;
 import TestLib.Common;
 import TestLib.Login;
 
-public class WishList {
+public class Validation_MiniCart {
+	
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class,invocationCount = 1)
 
-  public void registeredUser_Checkout_CreditCard() {
+  public void Validation_MiniCart() {
 		try{
 		oxo.closetheadd();
-		oxo.loginOxo("AccountDetails");
-		//oxo.clickBaby_Toddler();
-		oxo.Add_product_to_Wishlist_PLP();
+		oxo.acceptPrivecy();
 		oxo.clickBaby_Toddler();
-		oxo.Add_product_to_Wishlist_PDP();
-		oxo.remove_from_wishlist();
-
-		}
-catch (Exception e) {
+		oxo.addproducts("2");
+		oxo.clickMiniCart();
+		
+		
+		//oxo.checkout();
+		
+		
+  }
+	catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);
 	} 
 }
+	
 	@AfterTest
-	public void clearBrowser() throws Exception
+	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
+
 	}
 	
 	@BeforeMethod
@@ -41,5 +47,7 @@ catch (Exception e) {
 		 System.setProperty("configFile", "Oxo\\config.properties");
 		  Login.signIn();
 		 
-	 }
+		  
+	  }
+
 }

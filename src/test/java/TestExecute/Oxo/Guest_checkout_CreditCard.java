@@ -19,8 +19,9 @@ public class Guest_checkout_CreditCard {
   public void guest_checkout_CreditCard() {
 		try{
 		oxo.closetheadd();
-		//oxo.PrivacyPolicy();
-		oxo.clickBaby_Toddler();
+		oxo.PrivacyPolicy();
+		//oxo.clickBaby_Toddler();
+		oxo.CookingAndBaking();
 		oxo.addproducts("1");
 		oxo.checkout();
 		oxo.ShippingAddress("ShippingAddress");
@@ -32,6 +33,7 @@ public class Guest_checkout_CreditCard {
 		oxo.creditCard_payment("PaymentDetails");
 		oxo.VerifyaingConformationPage();
 		Common.refreshpage();
+		
   }
 	catch (Exception e) {
 		

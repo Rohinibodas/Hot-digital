@@ -1,216 +1,602 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
 <suite name="OxoSuite Suite">
+
 	<listeners>
+
 		<listener class-name="Utilities.TestListener" />
+
 	</listeners>
 
+
+
+
+
 	<test name="TEST_OXO_ST_001-Account Creation" testid="OUS23-703"
+
 		priority="P1" description="This script will cover Creating New Account Process of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.CreateNewAccount" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_002-Validate Forgot Password" testid="OUS23-760"
+
 		priority="P1" description="This script will cover forgot tpassword process of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.ForgetPassword" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_003-Guest Checkout Paypal" testid="OUS23-762"
+
 		priority="P1"
+
 		description="This script will cover guest user order using paypal submit Process of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.Guest_Checkout_Paypal" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_004-Guest Checkout Creditcard" testid="OUS23-759"
+
 		priority="P1"
+
 		description="This script will cover guest user order using Creditcard submit Process of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.Guest_checkout_CreditCard" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_005-Validate Browse_Search for Product"
+
 		testid="OUS23-761" priority="P1"
+
 		description="This script will cover browse/search for Product functionality Process of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.ValidateBrowse_Search_for_Product" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_006-Registered Checkout Paypal" testid="OUS23-764"
+
 		priority="P1"
+
 		description="This script will cover Registered User  order using paypal submit Process of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.RegisteredUser_Checkout_PayPal" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_007-Registered Checkout Creditcard"
+
 		testid="OUS23-763" priority="P1"
+
 		description="This script will cover Registered User  order using creditcard submit Process of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.RegisteredUser_Checkout_CreditCard" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_008-Validation CMS Content links" testid="OUS23-769"
+
 		priority="P1" description="This script will cover Validation of footer links  of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.ValidationContentlinks" />
+
 		</classes>
+
 	</test>
-	<test name="TEST_OXO_ST_009-Validation of Blogs/Article Links"
+
+	<test name="TEST_OXO_ST_009-Validation of Blogs_Article Links"
+
 		testid="OUS23-768" priority="P1"
+
 		description="This script will cover Validation of Blogs/Article Links of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.ValidationofBlogs_Article_Links" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_010-Validation of Cart Page" testid="OUS23-765"
+
 		priority="P1" description="This script will cover Validation of Cart Page of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.ValidationofCartPage" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_MT_016-ValidateLogout" testid="OUS23-705"
+
 		priority="P1" description="This script will cover logout from oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.LogOut" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_020_Guest User Checkout with MasterCard (CC)"
+
 		testid="OUS23-913" priority="P1"
+
 		description="This script will cover  Process Guest user Checkout functionality with Creditcard(MasterCard) of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.GuestUser_Checkout_MasterCard_CC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_019_Guest User Checkout with Discover (CC)"
+
 		testid="OUS23-915" priority="P1"
+
 		description="This script will cover  Process Guest user Checkout functionality with Creditcard(Discover) of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.GuestUser_Checkout_Discover_CC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_018_Guest User Checkout with American Express (CC)"
+
 		testid="OUS23-914" priority="P1"
+
 		description="This script will cover  Process Guest User Checkout with American Express (CC) of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.GuestUser_Checkout_AmericanExpress_CC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_023_Registered User Checkout with AMEX (CC)"
+
 		testid="OUS23-918" priority="P1"
+
 		description="This script will cover  Process Registered User Checkout with AMEX (CC) of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.RegisteredUser_Checkout_AmericanExpress_CC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_021_Registered User Checkout with Discover (CC)"
+
 		testid="OUS23-916" priority="P1"
+
 		description="This script will cover  Process Registered User Checkout with Discover (CC) of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.RegisteredUser_Checkout_Discover_CC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_022_Registered User Checkout with MasterCard (CC)"
+
 		testid="OUS23-917" priority="P1"
+
 		description="This script will cover  Process Registered User Checkout with MasterCard (CC) of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.RegisteredUser_Checkout_MasterCard_CC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_024- Express PayPal checkout as Guest user"
+
 		testid="OUS23-920" priority="P1"
+
 		description="This script will cover  Process Express PayPal checkout as Guest user of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.GuestExpressPayPalCheckout" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_025- Express PayPal checkout as Registered user"
+
 		testid="OUS23-921" priority="P1"
+
 		description="This script will cover  Process Express PayPal checkout as Registered user of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.Registered_ExpressPayPal_Checkout" />
+
 		</classes>
+
 	</test>
+	
+
 	<test name="TEST_ST_OXO_026_Registered User Checkout with Promocode"
+
 		testid="OUS23-922" priority="P1"
+
 		description="This script will cover  Process Registered User Checkout with Promocode of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.PromoCode_RegisteredUser_Checkout" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_ST_OXO_027_Guest User Checkout with Promocode"
+
 		testid="OUS23-923" priority="P1"
+
 		description="This script will cover  Process Guest User Checkout with Promocode of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.PromoCode_GuestUser_Checkout" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_SP_028- Forgot Password From GoodTipsBlog"
+
 		testid="OUS23-924" priority="P1"
+
 		description="This script will cover  Process Forgot Password From GoodTipsBlog of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.ForgotPassword_GoodTipsBlog" />
+
 		</classes>
+
 	</test>
+
+
+
+	<test name="TEST_OXO_SP_017-Create New Account From Good Tips Blog Page"
+
+		testid="OUS23-786" priority="P1"
+
+		description="This script will cover New Account Creation from Good tips blogs page of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.GoodTipsBlogs" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_ST_013-Validation of Mini Cart" testid="OUS23-767"
+		priority="P1"
+
+		description="This script will cover Validation of Mini Cart Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Validation_MiniCart" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_ST_012-Validation of Product List Page"
+
+		testid="OUS23-766" priority="P1"
+
+		description="This script will cover Validation of Product List Page of Selected Category Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Validation_PLP" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_MT_029-Validation of Account Creation Form"
+
+		testid="OUS23-931" priority="P1"
+
+		description="This script will cover Validation of Account Creation Form Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CreateAccountFormValidation" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_MT_046-Validation of Forgot Password Form"
+
+		testid="OUS23-932" priority="P1"
+
+		description="This script will cover Validation of Forgot Password Form Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.ForgotPasswordFormValidation" />
+
+		</classes>
+
+	</test>
+
+
+
+
+
+
+
+
+
+
+
 	<test name="TEST_OXO_ST_032- New Product Registration" testid="OUS23-935"
+
 		priority="P1" description="This script will cover New Product Registration of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.ProductRegistration" />
+
 		</classes>
+
 	</test>
+
+
+
 	<test name="TEST_OXO_ST_036-Voluntary Registration" testid="OUS23-940"
+
 		priority="P1"
+
 		description="This script will cover registering for the Product Recall of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.Voluntary_Recall" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_014-MyAccountValidation" testid="OUS23-720"
+
 		priority="P1" description="This script will cover Validation of My Account Page of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.MyAccountValidation" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_035-NewsLetterSubscription" testid="OUS23-937"
+
 		priority="P1" description="This script will cover News Letter Subscription of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.NewsLetterSubscription" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_033-TrackOrder" testid="OUS23-934"
+
 		priority="P1"
+
 		description="This script will cover Validation of Track Order(Order and Returns Page) Functionality  of OXO">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.TrackOrder" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_039-RegisteredUserCheckoutInvalidCC"
+
 		testid="OUS23-943" priority="P1"
+
 		description="This script will cover Registered user checkout process with invalid Creditcard data of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.RegisteredUserCheckoutInvalidCC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_038-GuestUserCheckoutInvalidCC" testid="OUS23-942"
+
 		priority="P1"
+
 		description="This script will cover Guest user checkout process with invalid Creditcard data of oxo">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.GuestUserCheckoutInvalidCC" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_034-MultiProductCheckout" testid="OUS23-936"
+
 		priority="P1"
+
 		description="This script will cover Checkout with Multiple products from different categories of OXO.">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.MultiProductCheckout" />
+
 		</classes>
+
 	</test>
+
 	<test name="TEST_OXO_ST_037-SignIn from Cart Page" testid="OUS23-941"
+
 		priority="P1"
+
 		description="This script will cover Validation Sign-In functionality on Cart page of OXO ">
+
 		<classes>
+
 			<class name="TestExecute.Oxo.Checkout_SignIn" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_ST_042-Checkout_POBoxAddress_Ground" testid="OUS23-941"
+
+		priority="P1"
+
+		description="This script will cover Checkout with POBoxAddress using Ground shipping method of OXO ">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Checkout_POBoxAdress_Ground" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_ST_043-Checkout_POBoxAddress_ExpressStandardOvernight"
+		testid="OUS23-941" priority="P1"
+
+		description="This script will cover Checkout with POBoxAddress using ExpressStandardOvernight shipping method of OXO ">
+
+		<classes>
+
+			<class
+				name="TestExecute.Oxo.Checkout_POBoxAddress_ExpressStandardOvernight" />
+
+		</classes>
+
+	</test>
+
+
+
+	<test name="Test_OXO_ST_042-Validation Header links of Beverage"
+		testid="OUS23-948" priority="P1"
+		description="This script will cover Validation of Beverage Category headerlinks of OXO ">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Validation_Beverage_Header" />
+
+		</classes>
+
+	</test>
+	<test
+		name="Test_OXO_ST_043-Validating Header Links of Cleaning and Organization"
+		testid="OUS23-949" priority="P1"
+		description="This script will cover Validation of Cleaning and Organization Category headerlinks of OXO ">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Validation_CleaningAndOrganization_Header" />
+
+		</classes>
+
+	</test>
+	
+	<test name="Test_OXO_ST_044-Validating Header Links of Baby and Toddler" testid="OUS23-950" priority="P1"
+		description="This script will cover Validation of Baby and Toddler Category headerlinks of OXO ">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Validation_BabyAndToddler_Header" />
+
+		</classes>
+
+	</test>
+	<test name="Test_OXO_ST_041-Validation of Cooking and Baking Header links"
+		testid="OUS23-951" priority="P1"
+		description="This script will cover Validation of Cooking and Baking Category headerlinks of OXO ">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Validation_CookingAndBaking_Header" />
+
+		</classes>
+
+	</test>
+	<test name="Test_OXO_ST_038-Checkout with Configurable Product"
+		testid="OUS23-944" priority="P1"
+		description="This script will cover Checkout process with configurable product of OXO ">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Checkout_ConfigurableProduct" />
+
 		</classes>
 	</test>
 </suite>

@@ -39,7 +39,7 @@ public class RegisteredUser_Checkout_AmericanExpress_CC {
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 
