@@ -10,38 +10,31 @@ import TestComponent.revlon.RevelonHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RHT_SMT_CO_Guest_Checkout_Discover {
-	
+public class RHT_ST_ValidateLightboxNewsletterSignup {
+
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void GuestCheckout() throws Exception {
-
-		try {revelon.Newslettersignup();
-			revelon.acceptPrivecy();
-			revelon.searchProduct("productName");
-			revelon.Productselection();
-			revelon.navigateMinicart();
-			revelon.navigateCartPage();
-			revelon.checkoutPage();
-			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
-		}
-		catch (Exception e) {
+	public void validatelightbox() {
+		try {
+			revelon.Newslettersignup("AccountCreation");
+		
+		}catch(Exception | Error e) {
 			Assert.fail(e.getMessage(), e);
-		} 
-	}
 
+			
+		}
+	}
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }/*
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
@@ -55,6 +48,5 @@ public class RHT_SMT_CO_Guest_Checkout_Discover {
 		Common.closeAll();
 
 	}
-
 
 }

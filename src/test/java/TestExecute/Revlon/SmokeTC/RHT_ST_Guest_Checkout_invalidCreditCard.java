@@ -19,7 +19,7 @@ public class RHT_ST_Guest_Checkout_invalidCreditCard {
 	@Test(priority=1)
 	public void GuestCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.searchProduct("productName");
 			revelon.Productselection();

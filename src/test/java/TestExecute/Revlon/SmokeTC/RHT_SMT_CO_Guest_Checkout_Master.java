@@ -18,7 +18,7 @@ public class RHT_SMT_CO_Guest_Checkout_Master {
 	@Test(priority=1)
 	public void GuestCheckout() throws Exception {
 
-		try {
+		try {revelon.Newslettersignup();
 			revelon.acceptPrivecy();
 			revelon.searchProduct("productName");
 			revelon.Productselection();

@@ -3,12 +3,12 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <!--  <test name="TEST_RHT_ST_001_AccountCreation" testid="BTY-454" priority="P1" description="This test case validates account creation of user with valid details successfully">
+      <test name="TEST_RHT_ST_001_AccountCreation" testid="BTY-454" priority="P1" description="This test case validates account creation of user with valid details successfully">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_SMT_AC_Account_Creation"/>
         </classes>
-    </test> 
+    </test>  
      <test name="TEST_RHT_ST_004_ForgotPassword" testid="BTY-455" priority="P1" description="This test case validates Changing of password to register user successfully">
          <parameter name="browser" value="chrome" />
         <classes>
@@ -50,14 +50,14 @@
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Guest_Checkout_Paypal"/>
         </classes>
-    </test>-->
+    </test>
      <test name="Test_RHT_ST_021_RegisteredUserCategoryCheckout" testid="BTY-629" priority="P1" description="This test case is to verify Revlon hairtools Category Checkout functionality for user">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_RegCategory_Checkout"/>
         </classes>
     </test>
- <!--    <test name="Test_RHT_ST_022_GuestUserCategoryCheckout" testid="BTY-630" priority="P1" description="This test case is to verify Revlon hairtools, Category Checkout functionality for Guest">
+  <test name="Test_RHT_ST_022_GuestUserCategoryCheckout" testid="BTY-630" priority="P1" description="This test case is to verify Revlon hairtools, Category Checkout functionality for Guest">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_GuestCategory_Checkout"/>
@@ -202,6 +202,71 @@
         <classes>
             <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidatePDPProductReview"/>
         </classes>
-    </test> -->
-        
+    </test> 
+         <test name="Test_RHT_ST_043_ValdiateRegisterUserProductQuantityincreaseCartpage" testid="BTY-541" priority="P1" description="This test case verifies product Quantity increase in viewcart page for register user  successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_CO_ValidateRegisterUserProductQuantityincreaseCartpage"/>
+        </classes>
+    </test>
+   
+    <test name="Test_RHT_ST_041_ValidateLightboxNewsletterSignup" testid="BTY-539" priority="P1" description="This test case  user Checkout process with  credit card type AMEX successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidateLightboxNewsletterSignup"/>
+        </classes>
+    </test>
+    
+   
+    <test name="Test_RHT_ST_042_ValidateAddNewAddressShippingAddressPage" testid="BTY-540" priority="P1" description="This test case validates registered user Checkout process with credit card type Discover successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidateAddNewAddressShippingAddresspage"/>
+        </classes>
+    </test>
+    
+    <test name="Test_RHT_ST_044_validateGuestuserProductQuantityIncreaseCartPage" testid="BTY-542" priority="P1" description="This test case validates registered user Checkout process with credit card type Master successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidateGuestUserProductQuantityIncreaseCartPage"/>
+        </classes>
+    </test>
+    
+       <test name="Test_RUK_ST_045_ValidateRegisteredUserCheckoutWithtwoProduct" testid="BTY-568" priority="P1" description="This test case is to verify Revlon hairtools, AVS functionality in My Account Address Book.">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_RegisterUsercheckoutwithtwoproductaddtocart"/>
+        </classes>
+    </test>
+    
+    <test name="Test_RUK_ST_046_ValidateGuestUserCheckoutWithtwoProduct" testid="BTY-569" priority="P1" description="This test case is to verify Register user PDP Product Review functionality in Revlon US">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_ValidateGuestusercheckoutwith2products"/>
+        </classes>
+    </test> 
+      <test name="Test_RUK_ST_047 _ValidateRegisteredUserCheckoutwithhomepageAddtocart" testid="BTY-570" priority="P1" description="This test case is to verify Register user PDP Product Review functionality in Revlon US">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_RegisteruserHomepageAddtocart"/>
+        </classes>
+    </test> 
+    <test name="Test_RHT_ST_048_ValidateGuestUserCheckoutwithhomepageAddtocart" testid="BTY-571" priority="P1" description="This test case is to verify Register user PDP Product Review functionality in Revlon US">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_GuestuserHomepageaddtocart"/>
+        </classes>
+    </test>
+      <test name="Test_RHT_ST_049_ValidateRegisterusernewbillingaddress" testid="BTY-572" priority="P1" description="This test case is to verify Register user PDP Product Review functionality in Revlon US">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_RegisterUserNewBillingAddress"/>
+        </classes>
+    </test>   
+     <test name="Test_RHT_ST_050_ValidateGuestUserNewBillingAddress" testid="BTY-573" priority="P1" description="This test case is to verify Register user PDP Product Review functionality in Revlon US">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_GuestuserNewBillingAddress"/>
+        </classes>
+    </test>
  </suite>
