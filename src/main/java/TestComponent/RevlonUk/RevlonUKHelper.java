@@ -1,5 +1,7 @@
 package TestComponent.RevlonUk;
 
+import static org.testng.Assert.fail;
+
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Point;
@@ -208,8 +210,8 @@ public class RevlonUKHelper {
 			Sync.waitElementClickable(30, By.xpath("//a[@title='My Account']"));
 			Common.findElement("xpath", "//a[@title='My Account']").click();
 			report.addPassLog(expectedResult1, "Should display login page", "Login page displayed successfully", Common.getscreenShotPathforReport("Login page"));
-			Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/forgotpassword/']")));
-			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/customer/account/forgotpassword/']"));
+			Sync.waitElementClickable(30, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"customer/account/forgotpassword/']")));
+			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"customer/account/forgotpassword/']"));
 			int i=0;
 			do{  
 				Common.textBoxInput("id", "email_address", data.get(dataSet).get("Email"));
@@ -545,6 +547,55 @@ public class RevlonUKHelper {
 		}
 
 	}
+	public void twoproductsaddtocart(){
+		try {
+			
+			Common.scrollIntoView("xpath", "(//span[contains(text(),'Add to Bag')])[5]");
+					String s = Common.getText("xpath", "(//div[@class='rev_product']//h2[@class='title'])[5]");
+					System.out.println(s);
+					Common.javascriptclickElement("xpath", "(//span[contains(text(),'Add to Bag')])[5]");
+					Thread.sleep(3000);
+					
+					Common.actionsKeyPress(Keys.HOME);
+					Common.isElementDisplayed("xpath", "//div[@data-bind='html: message.text']");
+					String s1 = Common.getText("xpath", "//div[@data-bind='html: message.text']");
+				System.out.println(s1);
+				//Common.assertionCheckwithReport(s1.contains("Turbo Ionic Hair Dryer"), "Should add products to cart from plp", "products added successfully", "failed to add products to cart");
+
+					if(Common.isElementDisplayed("xpath", "//div[@class='quickcart-top']")) {
+						Common.clickElement("xpath", "(//button[@type='button'])[1]");
+					}
+					
+					
+					Common.scrollIntoView("xpath", "(//span[contains(text(),'Add to Bag')])[9]");
+					String s2 = Common.getText("xpath", "(//div[@class='rev_product']//h2[@class='title'])[9]");
+					System.out.println(s2);
+					Common.javascriptclickElement("xpath", "(//span[contains(text(),'Add to Bag')])[9]");
+					Thread.sleep(3000);
+					
+					Common.actionsKeyPress(Keys.HOME);
+					 Common.isElementDisplayed("xpath", "//div[@data-bind='html: message.text']");
+					
+					 String s3 = Common.getText("xpath", "//div[@data-bind='html: message.text']");
+						System.out.println(s3);
+					//Common.assertionCheckwithReport(s3.contains("Styler"), "Should add products to cart from plp", "products added successfully", "failed to add products to cart");
+		   Sync.waitElementPresent("xpath", "//div[contains(@class,'minicart-wrapper')]");
+Common.clickElement("xpath", "//div[contains(@class,'minicart-wrapper')]");
+						Sync.waitElementPresent("xpath", "//a[contains(@class,'action viewcart')]/span");
+						Common.clickElement("xpath", "//a[contains(@class,'action viewcart')]/span");
+						
+					
+					
+					
+				}catch(Exception | Error e) {
+					report.addFailedLog("should add two products to the cart", "products not added to cart", Common.getscreenShotPathforReport("failed to add the products"));
+					Assert.fail();
+				}
+			}	
+	
+	
+	
+	
 	
 	public void closeCurrentTabandSwitchtoHome() throws Exception
 	{
@@ -642,22 +693,25 @@ public class RevlonUKHelper {
 		String expectedResult="Product adding to mini cart";
 		try {
 			Thread.sleep(4000);
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
 			Sync.waitElementPresent("xpath", "//button[@id='product-addtocart-button']");
 			Common.clickElement("xpath", "//button[@id='product-addtocart-button']");
 			Thread.sleep(7000);
 			String qty=Common.getText("xpath", "//span[@class='qty']");
 			System.out.println("YOUR BAG - "+qty);
-			Thread.sleep(3000);
-			if(Common.isElementDisplayed("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/']"))) {
+			Thread.sleep(6000);
+			/*if(Common.isElementDisplayed("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/']"))) {
 				Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/']"));
 				
 			}else {
+				Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div/a//div[@class='actions action-viewcart bottom-aligned']/div/a");
 				Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/']"));
 				Thread.sleep(3000);
 				Common.clickElement("xpath", "//div[@class='actions action-viewcart bottom-aligned']/div//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/']"));
 			
-			}
+			}*/
 			//Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"uk_en/checkout/cart/']"));
+			Common.clickElement("xpath", "//a[@class='action viewcart hvr-sweep-to-right rev-checkout-btn rev-cart-view']");
 			Thread.sleep(3000);
 			Common.isElementDisplayed("xpath", "//strong[@class='product-item-name']");
 			report.addPassLog(expectedResult, "Should display Mini Cart Page", "Mini Cart Page display successfully", Common.getscreenShotPathforReport("Mini Cart page success"));
@@ -725,8 +779,9 @@ public class RevlonUKHelper {
 	{
 		String expectedResult="Product adding to checkout page";
 		try {
-			Sync.waitElementPresent("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/']/button"));
-			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/']/button"));
+			Common.actionsKeyPress(Keys.PAGE_DOWN);			
+			Sync.waitElementPresent("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/']"));
+			Common.clickElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/']"));
 			Thread.sleep(1000);
 			Common.isElementDisplayed("xpath", "//div[contains(text(),'Shipping Address')]");
 			Thread.sleep(2000);
@@ -848,6 +903,7 @@ public class RevlonUKHelper {
 
 	}
 	
+	
 	public void shipping_Address(String dataSet) throws Exception
 	{
 
@@ -855,7 +911,7 @@ public class RevlonUKHelper {
 		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
 		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
 		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
-		Thread.sleep(3000);
+	Thread.sleep(3000);
 		Sync.waitElementPresent("xpath", "//div[contains(text(),'Shipping Address')]");
 		Common.clickElement("xpath", "//div[contains(text(),'Shipping Address')]");
 		Thread.sleep(3000);
@@ -1129,7 +1185,7 @@ public class RevlonUKHelper {
 	{
 		String expectedResult="Lands on FAQ page";
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(4000);
 			Sync.waitElementPresent("xpath", "//a[contains(text(),'FAQ')]");
 			Common.scrollToElementAndClick("xpath", "//a[contains(text(),'FAQ')]");
 
@@ -1675,6 +1731,162 @@ public class RevlonUKHelper {
 		{
 			report.addFailedLog(expectedResult,"Should display New Address Book Page", "New Address Book Page not displayed", Common.getscreenShotPathforReport("Address Book Failed"));
 			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+
+	public void increaseproductquantity(String dataSet) {
+ String expectedresult = "should Increase product quantity in View cart page";
+ try {
+	 Sync.waitElementClickable("xpath", "//select[@data-title='Qty']");
+	// Common.clickElement("xpath", "//select[@data-title='Qty']");
+	
+	Common.dropdown("xpath", "//select[@data-title='Qty']", SelectBy.VALUE, data.get(dataSet).get("Quantity"));
+	 Thread.sleep(2000);
+	 Common.actionsKeyPress(Keys.ENTER);
+	 Thread.sleep(3000);
+	 
+	 
+	 String s = Common.getText("xpath", "//span[@data-ui-id='page-title-wrapper']");
+	 System.out.println(s);
+	String s1 = data.get(dataSet).get("Quantity"); 
+	System.out.println(s1);
+	Common.assertionCheckwithReport(s.contains(s1), "incresed product quantity will be displayed", expectedresult, "Failed to increase product quantity"); 
+	 
+	 
+ }catch(Exception | Error e)
+ {
+	report.addFailedLog(expectedresult, "product quantity not increased", Common.getscreenShotPathforReport("failed to increase product quantity"));
+	e.printStackTrace();
+	Assert.fail();
+ }		
+		
+		
+		
+	}
+
+	public void Registerusernewshippingaddress(String dataSet) {
+	
+		String expectedresult = "should add new address in shipping address page";
+		
+		try {
+			Common.scrollIntoView("xpath", "//button[@data-bind='click: showFormPopUp, visible: !isNewAddressAdded()']");
+			Common.javascriptclickElement("xpath", "//button[@data-bind='click: showFormPopUp, visible: !isNewAddressAdded()']");
+			Thread.sleep(3000);
+			if(Common.isElementDisplayed("xpath", "//h1[@class='modal-title']"))
+			{
+				Thread.sleep(3000);
+				Common.textBoxInput("xpath", "(//input[@name='firstname'])[2]", data.get(dataSet).get("FirstName"));
+				Common.textBoxInput("xpath", "(//input[@name='lastname'])[2]", data.get(dataSet).get("LastName"));
+				Common.textBoxInput("xpath", "(//input[@name='street[0]'])[2]", data.get(dataSet).get("Street"));
+				Common.textBoxInput("xpath", "(//input[@name='city'])[2]", data.get(dataSet).get("City"));
+				Common.textBoxInput("xpath", "(//input[@name='postcode'])[2]", data.get(dataSet).get("postcode"));
+				Common.textBoxInput("xpath", "(//input[@name='telephone'])[2]", data.get(dataSet).get("phone"));
+				Common.clickElement("xpath", "//input[@id='shipping-save-in-address-book']");
+				Thread.sleep(3000);
+				Common.clickElement("xpath", "//span[contains(text(),'Ship here')]");
+				Thread.sleep(3000);
+			if(Common.isElementDisplayed("xpath", "//div[text()='Address is not verified. Do you want to continue ?']")){
+				
+				Common.clickElement("xpath", "//span[text()='OK']");
+			}
+				report.addPassLog(expectedresult, "New address added and displayed in shipping address page", Common.getscreenShotPathforReport("Successfully added new address"));
+	
+			
+			
+			}
+			
+			
+		}catch(Exception | Error e) {
+			report.addFailedLog(expectedresult, "new Address not added", Common.getscreenShotPathforReport("failed to Add New Address"));
+			e.printStackTrace();
+			Assert.fail();
+			
+		}
+		
+		
+	}
+
+	public void NewBillingaddress(String dataSet) throws Exception {
+	String 	expectedresult = "Should add new billing address";
+		try {
+			Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		
+	Sync.waitElementVisible("xpath", "//input[@name='billing-address-same-as-shipping']");
+		Common.clickElement("xpath", "//input[@name='billing-address-same-as-shipping']");
+				Thread.sleep(3000);
+		if(Common.isElementDisplayed("xpath", "//select[@name='billing_address_id']")) {
+			Common.clickElement("xpath", "//select[@name='billing_address_id']");
+			
+		Common.clickElement("xpath", "//select[@name='billing_address_id']/option[text()='New Address']");
+	//Common.dropdown("xpath", "//select[@name='billing_address_id']", SelectBy.VALUE, data.get(dataSet).get("UserName"));
+		}
+		Thread.sleep(2000);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+	
+		Common.textBoxInput("xpath", "(//input[@name='firstname'])[2]", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("xpath", "(//input[@name='lastname'])[2]", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("xpath", "(//input[@name='company'])", data.get(dataSet).get("Company"));
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.textBoxInput("xpath", "(//input[@name='street[0]'])[2]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("xpath", "(//input[@name='city'])[2]", data.get(dataSet).get("City"));
+		Common.textBoxInput("xpath", "(//input[@name='postcode'])[2]", data.get(dataSet).get("postcode"));
+		Common.textBoxInput("xpath", "(//input[@name='telephone'])[2]", data.get(dataSet).get("phone"));
+		Common.clickElement("xpath", "//span[text()='Update']");
+		if(Common.isElementDisplayed("xpath", "//div[text()='Address is not verified. Do you want to continue ?']"));
+		{
+			Common.clickElement("xpath", "//span[text()='OK']");
+		}
+		Thread.sleep(3000);
+		
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		
+		report.addFailedLog(expectedresult, "Billing address will be  added", Common.getscreenShotPathforReport("successfully add billing address"));
+		} catch(Exception | Error e) {
+			report.addFailedLog(expectedresult, "Billing address is not  added", Common.getscreenShotPathforReport("Failed to add billing address"));
+			Assert.fail();
+		}
+		
+	}
+
+	public void HomepageAddtocart() {
+	
+		String expectedresult = "Should add product to cart";
+		try {
+			if(Common.isElementDisplayed("xpath", "//span[text()='My Account']")){
+				Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"']")).click();
+			
+			}
+			Thread.sleep(3000);
+		Common.scrollIntoView("xpath", "(//div/button/span[text()='Add to Bag'])[1]");
+		Common.getscreenShot("Product Displayed");
+		String s1 = Common.getText("xpath", "//h2[text()='One-Step Original Hair Dryer and Volumiser']");
+		System.out.println(s1);
+		
+		Common.javascriptclickElement("xpath", "(//div/button/span[text()='Add to Bag'])[1]");
+		Thread.sleep(5000);
+		Sync.waitElementPresent("xpath", "//span[text()='YOUR BAG - ']");
+		Common.actionsKeyPress(Keys.HOME);
+		Common.isElementDisplayedonPage(10, "xpath", "//div[@class='message-success success message']");
+		String s = Common.getText("xpath", "//div[@class='message-success success message']");
+		
+		System.out.println(s);
+		Thread.sleep(3000);
+	Common.assertionCheckwithReport(s.contains("One-Step Original Hair Dryer and Volumiser"), "Added product to cart successfully", expectedresult, "failed to add Product from homepage ");
+	Thread.sleep(2000);
+	Sync.waitElementClickable(10, By.xpath("//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/']")));
+	Common.findElement("xpath", "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/']")).click();
+	Thread.sleep(3000);
+	Sync.waitElementClickable(10, By.xpath("(//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/'])[2]")));
+	Common.findElement("xpath", "(//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"checkout/cart/'])[2]")).click();
+	Thread.sleep(4000);
+	String s3 = Common.getCurrentURL();
+	Common.assertionCheckwithReport(s3.contains("checkout/cart/"), "successfully Displayed checkout page ", expectedresult, "Failed to navigate checkout page");
+	
+		}catch(Exception | Error e) {
+			report.addFailedLog(expectedresult, "Added product to cart successfully", Common.getscreenShotPathforReport("Failed to add product to cart"));
+
 			Assert.fail();
 		}
 	}

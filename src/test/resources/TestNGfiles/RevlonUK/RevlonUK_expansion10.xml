@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="RevlonUK Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_RUK_ST_032_ValidateRegisteredUserIncreaseProductQTY" testid="RU-917" priority="P1" description="To verify the Increase Product quantity in shipping cart page for register user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_ValidateRegisteredUserIncreaseProductQTY"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_033_ValidateGuestUserIncreaseProductQTY" testid="RU-918" priority="P1" description="To verify the Increase Product quantity in shipping cart page for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_ValidateGuestUserIncreaseProductQTY"/>
+        </classes>
+    </test>
+<test name="Test_RUK_ST_034_ValidateRegisteredUserCheckoutWithtwoProduct" testid="RU-919" priority="P1" description="To verify the Checkout with two product in PLP for register user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_ValidateRegisteredUserCheckoutWithtwoProduct"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_035_ValidateGuestUserCheckoutWithtwoProduct" testid="RU-920" priority="P1" description="To verify the Checkout with two product in PLP for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_ValidateGuestUserCheckoutWithtwoProduct"/>
+        </classes>
+    </test>
+     <test name="Test_RUK_ST_031_ValidateNewShippingAddressCheckout" testid="RU-921" priority="P1" description="To verify the New shipping address in shipping address page at checkout functionality in RevlonUk">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_Validatenewshippingaddress"/>
+        </classes>
+    </test>
+     <test name="Test_RUK_ST_037_ValidateGuestUserNewBillingAddress" testid="RU-925" priority="P1" description="To verify the Increase Product quantity in shipping cart page for register user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_GuestuserNewbillingaddress"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_038_ValidateRegisteredUserCheckoutwithhomepageAddtocart" testid="RU-926" priority="P1" description="To verify the Increase Product quantity in shipping cart page for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_RegisterUserHomepageAddtocart"/>
+        </classes>
+    </test>
+<test name="Test_RHT_ST_039_ValidateGuestUserCheckoutwithhomepageAddtocart" testid="RU-927" priority="P1" description="To verify the Checkout with two product in PLP for register user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_GuestuserHomepageAddtocart"/>
+        </classes>
+    </test>
+    <test name="Test_RUK_ST_036_ValidateRegisteredUserNewBillingAddress" testid="RU-928" priority="P1" description="To verify the Checkout with two product in PLP for Guest user functionality in Revlon web site">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RHT_ST_RegisteruserNewbillingaddress"/>
+        </classes>
+    </test>
+     <test name="Test_RUK_ST_025_ValidateRegisterUserAmazonHatch" testid="RU-914" priority="P1" description="To verify the New shipping address in shipping address page at checkout functionality in RevlonUk">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.RevlonUK.SmokeTC.RUK_ST_RegisterUserPDPamazonhatch"/>
+        </classes>
+    </test>
+    </suite>
