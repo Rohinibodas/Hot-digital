@@ -1,35 +1,33 @@
-package TestExecute.BraunEMEA.BraunDE;
-
+package TestExecute.BraunEMEA.BraunUKITALY;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import TestComponent.BraunEMEA.BraunUKHelper;
 import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_BraunUK_Register_Browse_Search {
-		
+public class Test_ST_BraunIT_RegisterUserCheckout_WithProductSearch_UsingCreditcard {
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
-
-		
 		@Test(priority=1)
-		public void RegisterUserBrowseSearch() throws Exception {
+		
+		public void RegisterUserCheckoutCreditCard() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
-				//BraunUK.Storeselection();
-				BraunUK.StoreSelection("Germany");
-				//BraunUK.GermanStoreSelection();	
-				BraunUK.GEsingin("AccountDetails");
-		        BraunUK.searchproduct();
-		        BraunUK.productname("productName");
+				BraunUK.StoreSelection("Italy");
+				BraunUK.Italysingin("ItalyLogin");
+				BraunUK.Guestproductname("GuestProductname");
+				//BraunUK.ItalyProductselection();
+				BraunUK.ItalynavigateMinicart();
+				BraunUK.ITshippingAddressDetails();
+				BraunUK.ItalyCreditcardPayment("PaymentcardDetails");
+				
 			}
 			catch (Exception e) {
 				
@@ -37,19 +35,20 @@ public class Test_ST_BraunUK_Register_Browse_Search {
 			} 
 		}
 		
-	/*	@BeforeMethod
+		/*@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn("chrome");
 			  
 		  }*/
-		   @BeforeMethod
-			@Parameters({"browser"}) 
-			  public void startTest(String browser) throws Exception {
-				System.setProperty("configFile", "BraunEMEA\\config.properties");
-				  Login.signIn(browser);
-				  }
+		
+		@BeforeMethod
+		@Parameters({"browser"}) 
+		  public void startTest(String browser) throws Exception {
+			System.setProperty("configFile", "BraunEMEA\\config.properties");
+			  Login.signIn(browser);
+			  }
 		
 		@AfterTest
 		public void clearBrowser()

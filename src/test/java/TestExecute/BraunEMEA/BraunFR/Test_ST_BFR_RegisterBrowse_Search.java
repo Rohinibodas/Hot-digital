@@ -19,14 +19,12 @@ public class Test_ST_BFR_RegisterBrowse_Search {
 
 
 		@Test(priority=1)
-		public void Guest_user() throws Exception {
+		public void RegisterUserBrowseSearch() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
-				//BraunUK.GermanStoreSelection();
-				//BraunUK.Countryselection();
 				BraunUK.FranceStoreSelection();
 				BraunUK.FRsingin("AccountDetails");
 		        BraunUK.searchproduct();

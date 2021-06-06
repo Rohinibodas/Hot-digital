@@ -2,8 +2,20 @@
 <suite name="BraunUK Suite">
     <listeners>
         <listener class-name="Utilities.TestListener"/>
-    </listeners>
-   <test name="Test_BraunUK_ST_001_Account Creation" testid="BNSI-897" priority="P1" description="This script will cover create new Account for BraunUK">
+    </listeners> 
+       <test name="Test_BraunUK_ST_019-Product Details page" testid="BNSI-896" priority="P1" description="This script will cover ProductDetails page for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_ProductDetailspage"/>
+        </classes>
+    </test> 
+     <test name="Test_BraunUK_ST_026_Add To Cart in PLP" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_AddtoCart_InPLP"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_001_Account Creation" testid="BNSI-897" priority="P1" description="This script will cover create new Account for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_AccountCreation"/>
@@ -27,7 +39,7 @@
             <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_ChangeProductQuantity"/>
         </classes>
     </test>
-    <test name="Test_BraunUK_ST_020_FooterLinks Validation" testid="BNSI-899" priority="P1" description="This testcase validates FooterLinks Validation for BraunUK">
+     <test name="Test_BraunUK_ST_020_FooterLinks Validation" testid="BNSI-899" priority="P1" description="This testcase validates FooterLinks Validation for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_FooterLinks_Validation"/>
@@ -106,12 +118,13 @@
             <class name="TestExecute.BraunEMEA.BraunFR.Tset_ST_BFR_OrderSuccesspage"/>
         </classes>
     </test>
-     <test name="Test_BraunUK_ST_019-Product Details page" testid="BNSI-896" priority="P1" description="This script will cover ProductDetails page for BraunUK">
+       <test name="Test_BraunUK_ST_019-Product Details page" testid="BNSI-896" priority="P1" description="This script will cover ProductDetails page for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_ProductDetailspage"/>
         </classes>
     </test>
+    
      <test name="Test_BraunUK_ST_011-Product Details Page" testid="BNSI-889" priority="P1" description="This script will cover Product Listing page for BraunUK">
          <parameter name="browser" value="chrome" />
         <classes>
@@ -148,4 +161,53 @@
             <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_Promocode_Registeruser_Checkout"/>
         </classes>
     </test>
+      <test name="Test_BraunUK_ST_026_Add To Cart in PLP" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_AddtoCart_InPLP"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_025_Add To Cart On The HomePage" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_AddtoCart_OnHomepage"/>
+        </classes>
+    </test>
+      <test name="Test_BraunUK_ST_027_Header Validation For Registered User" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_HeaderLinksValidation_ForRegisterUser"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_028_Guest User Checkout with Product Search Results Using  CreditCard" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_GuestUserCheckout_WithProductSearch_UsingCreditcard"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_032_GuestUserCheckout with New Billing Address" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_GuestUserCheckout_WithNewBillingAddress"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_029_Registered User Checkout with Product Search Results using Visa Credit Card" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_RegisterUserCheckout_WithProductSearch_UsingCreditcard"/>
+        </classes>
+    </test>
+      <test name="Test_BraunUK_ST_031_Registerusernewbillingaddress" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_RegisterUserCheckout_WithNewBillingAddress"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_032_RegisterBrowseSearchFunctionality" testid="BNSI-1126" priority="P1" description="This script will cover Minicart Functionality BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunFR.Test_ST_BFR_RegisterBrowse_Search"/>
+        </classes>
+    </test>
+    
     </suite>

@@ -150,5 +150,52 @@
             <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_Promocode_RegisterUser_Checkout"/>
         </classes>
     </test>
-    
+     <test name="Test_BraunUK_ST_026_Add To Cart in PLP" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_Addtocart_InPLP"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_025_Add To Cart On The HomePage" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_AddtocartOnHomepage"/>
+        </classes>
+    </test>
+      <test name="Test_BraunUK_ST_029_Registered User Checkout with Product Search Results using Visa Credit Card" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_RegisterUserCheckout_WithProductSearch_UsingCreditcard"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_027_Header Validation For Registered User" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_HeaderValidation_ForRegiasterUser"/>
+        </classes>
+    </test>
+      <test name="Test_BraunUK_ST_028_Guest User Checkout with Product Search Results Using  CreditCard" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_GuestUserCheckout_WithProductSearch_UsingCreditcard"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_032_GuestUserCheckout with New Billing Address" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_GuestUserCheckout_WithNewbBillingAddress"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_033_RegUserCheckout with New Billing Address" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_RegUserCheckout_WithNewBillingAddress"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_004_RegisterUserBrowserSearch" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunUK_Register_Browse_Search"/>
+        </classes>
+    </test> 
     </suite>

@@ -81,4 +81,28 @@
             <class name="TestExecute.BraunEMEA.BraunUKSWEDE.Test_ST_UKSV_Globalheader"/>
         </classes>
     </test>
+     <test name="Test_BraunUK_ST_026_Add To Cart in PLP" testid="BNSI-894" priority="P1" description="This script will cover  Global Header functionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSWEDE.Test_ST_UKSV_Addtocard_InPLP"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_025_Add To Cart On The HomePage" testid="BNSI-894" priority="P1" description="This script will cover  Global Header functionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSWEDE.Test_ST_UKSV_AddtocardOnHomepage"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_028_Guest User Checkout with Product Search Results Using  CreditCard" testid="BNSI-894" priority="P1" description="This script will cover  Global Header functionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSWEDE.Test_ST_UKSV_GuestUserCheckout_WithProductSearch_UsingCreditcard"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_032_GuestUserCheckout with New Billing Address" testid="BNSI-894" priority="P1" description="This script will cover  Global Header functionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunUKSWEDE.Test_ST_UKSV_GuestUserCheckout_WithNewBillingAddress"/>
+        </classes>
+    </test>
     </suite>

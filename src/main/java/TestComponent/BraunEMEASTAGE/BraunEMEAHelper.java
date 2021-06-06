@@ -409,6 +409,295 @@ public class BraunEMEAHelper {
 
 	}
 	
+	
+	public void SwedenProductselection() throws Exception
+	{
+		String expectedResult="Product Selection from Category";
+		try {
+			Thread.sleep(4000);		
+			Sync.waitElementPresent("xpath", "//a[@id='ui-id-2']");
+			Common.clickElement("xpath", "//a[@id='ui-id-2']");
+			Thread.sleep(3000);
+			Sync.waitElementPresent("xpath", "//img[@alt='Braun ThermoScan® 7 mit Age Precision®']");
+			Common.clickElement("xpath", "//img[@alt='Braun ThermoScan® 7 mit Age Precision®']");
+			Common.isElementDisplayed("xpath", "//span[@class='base']");
+			Thread.sleep(2000);
+			report.addPassLog(expectedResult, "Should display Product Details Page", "Product Details  Page display successfully", Common.getscreenShotPathforReport("Product Details page display success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Product Details Page", "Product Details Page not displayed", Common.getscreenShotPathforReport("Product Details page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+	}
+	
+	
+	
+	public void ProductReview(String dataSet) throws Exception
+	{
+		
+		String expectedResult="Updating the product review of selected product";
+		try {
+			
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.DOWN);
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.DOWN);
+			Thread.sleep(2000);
+			Common.clickElement("xpath", "//a[@id='tab-label-bv_reviews-title']");
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.DOWN);
+			Thread.sleep(2000);
+			/*Common.actionsKeyPress(Keys.DOWN);
+			Thread.sleep(2000);*/
+			Common.clickElement("xpath", "//div[@class='bv-write-review-container bv-write-container']");
+			
+			/*Common.clickElement("id", "Quality_5_label");
+			Common.clickElement("id", "Price_5_label");
+			Common.clickElement("id", "Value_5_label");
+			Thread.sleep(10000);
+			Sync.waitElementClickable("name", "nickname");
+			Common.actionsKeyPress(Keys.TAB);
+			Common.textBoxInput("xpath", "//form[@id='review-form']/fieldset/div[1]/div//input[@id='nickname_field']", data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("id", "email_field", data.get(dataSet).get("Email"));
+			Common.textBoxInput("id", "summary_field", data.get(dataSet).get("Summary"));
+			Common.textBoxInput("id", "review_field", data.get(dataSet).get("Review"));
+			Thread.sleep(3000);
+			Common.clickElement("xpath", "//button[contains(text(),'Submit Review')]");
+			Thread.sleep(7000);
+			String review=Common.getText("xpath", "//div[@data-bind='html: message.text']");
+			System.out.println("Product Review updated "+review);
+			Assert.assertEquals(review, "You submitted your review for moderation.");*/
+			report.addPassLog(expectedResult, "Should update Product Review for selected product", "Updated Product review for selected product successfully", Common.getscreenShotPathforReport("Product Review success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should update Product Review for selected product", "Update Product review for selected product Failed", Common.getscreenShotPathforReport("Product Review Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	public void ProductAddingtocartfromHomepage() throws Exception
+	{
+		String expectedResult="Product Selection from Homepage";
+		try {
+			
+			Sync.waitPageLoad();
+		    Common.scrollIntoView("xpath", "(//button[@class='action tocart add_to_cart_btn braun_btn'])[2]");
+			Thread.sleep(4000);		
+			Sync.waitElementPresent("xpath", "(//button[@class='action tocart add_to_cart_btn braun_btn'])[2]");
+			Common.clickElement("xpath", "(//button[@class='action tocart add_to_cart_btn braun_btn'])[2]");
+			Thread.sleep(1000);
+			
+			report.addPassLog(expectedResult, "Product should add to the cart", "Product should add to cart successfully", Common.getscreenShotPathforReport("Product should add to cart success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Product should add to the cart", "Product should add to cart displayed", Common.getscreenShotPathforReport("Product add to cart Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		try
+		{
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			//Common.scrollIntoView("xpath", "(//div[@class='message-success success message'])[2]");
+			Thread.sleep(10000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			int message=Common.findElements("xpath", "//div[@class='message-success success message']").size();
+
+			 Common.assertionCheckwithReport(message>0, "To verify the product added success message from Homepage", "Should display product added to bag success message","Product sucessfully added to bag from Homepage", "faield to add product to bag from Homepage");
+		
+			//ExtenantReportUtils.addPassLog("verifying add to cart button in Homepage", "User click add to card button on Homepage", "user successfully click add to cart button in Homepage", Common.getscreenShotPathforReport("faieldtoclickaddtocartbuttonin Homepage"));
+			}
+			catch(Exception |Error e) {
+			   
+				ExtenantReportUtils.addFailedLog("verifying product added success message", "User should get success message", "user faield to click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
+				Assert.fail();
+			}
+	}
+	
+	
+	public void SwedenProductAddingtocartfromHomepage() throws Exception
+	{
+		String expectedResult="Product Selection from Homepage";
+		try {
+			
+			Sync.waitPageLoad();
+		    Common.scrollIntoView("xpath", "//button[@class='action tocart add_to_cart_btn braun_btn']");
+			Thread.sleep(4000);		
+			Sync.waitElementPresent("xpath", "//button[@class='action tocart add_to_cart_btn braun_btn']");
+			Common.clickElement("xpath", "//button[@class='action tocart add_to_cart_btn braun_btn']");
+			Thread.sleep(1000);
+			
+			report.addPassLog(expectedResult, "Product should add to the cart", "Product should add to cart successfully", Common.getscreenShotPathforReport("Product should add to cart success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Product should add to the cart", "Product should add to cart displayed", Common.getscreenShotPathforReport("Product add to cart Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		try
+		{
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			//Common.scrollIntoView("xpath", "(//div[@class='message-success success message'])[2]");
+			Thread.sleep(10000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			int message=Common.findElements("xpath", "//div[@class='message-success success message']").size();
+
+			 Common.assertionCheckwithReport(message>0, "To verify the product added success message from Homepage", "Should display product added to bag success message","Product sucessfully added to bag from Homepage", "faield to add product to bag from Homepage");
+		
+			//ExtenantReportUtils.addPassLog("verifying add to cart button in Homepage", "User click add to card button on Homepage", "user successfully click add to cart button in Homepage", Common.getscreenShotPathforReport("faieldtoclickaddtocartbuttonin Homepage"));
+			}
+			catch(Exception |Error e) {
+			   
+				ExtenantReportUtils.addFailedLog("verifying product added success message", "User should get success message", "user faield to click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
+				Assert.fail();
+			}
+	}
+	
+	public void ProductAddingtocart() throws Exception
+	{
+		String expectedResult="Product Selection from Homepage";
+		try {
+			
+			Sync.waitPageLoad();		
+			Sync.waitElementPresent("xpath", "//button[@class='bundle-custom-addtocart braun_btn add_to_cart_btn']");
+			Common.clickElement("xpath", "//button[@class='bundle-custom-addtocart braun_btn add_to_cart_btn']");
+			Thread.sleep(1000);
+			
+			report.addPassLog(expectedResult, "Product should add to the cart", "Product should add to cart successfully", Common.getscreenShotPathforReport("Product should add to cart success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Product should add to the cart", "Product should add to cart displayed", Common.getscreenShotPathforReport("Product add to cart Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		try
+		{
+			Thread.sleep(3000);
+			int message=Common.findElements("xpath", "//div[@class='message-success success message']").size();
+
+			 Common.assertionCheckwithReport(message>0, "To verify the product added success message from Homepage", "Should display product added to bag success message","Product sucessfully added to bag from Homepage", "faield to add product to bag from Homepage");
+		
+			//ExtenantReportUtils.addPassLog("verifying add to cart button in Homepage", "User click add to card button on Homepage", "user successfully click add to cart button in Homepage", Common.getscreenShotPathforReport("faieldtoclickaddtocartbuttonin Homepage"));
+			}
+			catch(Exception |Error e) {
+			   
+				ExtenantReportUtils.addFailedLog("verifying product added success message", "User should get success message", "user faield to click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
+				Assert.fail();
+			}
+	}
+	
+	
+	public void ProductAddingtocartfromPLP() throws Exception
+	{
+		String expectedResult="Product Selection from PLP Page";
+		try {
+			
+			Sync.waitPageLoad();
+			Thread.sleep(4000);		
+			Sync.waitElementPresent("xpath", "//a[@id='ui-id-2']");
+			Common.clickElement("xpath", "//a[@id='ui-id-2']");
+			Thread.sleep(3000);
+		    Common.scrollIntoView("xpath", "(//button[@class='action tocart add_to_cart_btn braun_btn'])[2]");
+			Thread.sleep(4000);		
+			Sync.waitElementPresent("xpath", "(//button[@class='action tocart add_to_cart_btn braun_btn'])[2]");
+			Common.clickElement("xpath", "(//button[@class='action tocart add_to_cart_btn braun_btn'])[2]");
+			Thread.sleep(1000);
+			
+			report.addPassLog(expectedResult, "Product should add to the cart", "Product should add to cart successfully", Common.getscreenShotPathforReport("Product should add to cart success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Product should add to the cart", "Product should add to cart displayed", Common.getscreenShotPathforReport("Product add to cart Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		try
+		{
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			//Common.scrollIntoView("xpath", "(//div[@class='message-success success message'])[2]");
+			Thread.sleep(10000);
+			Common.actionsKeyPress(Keys.PAGE_UP);
+			Thread.sleep(3000);
+			int message=Common.findElements("xpath", "//div[@class='message-success success message']").size();
+
+			 Common.assertionCheckwithReport(message>0, "To verify the product added success message from Homepage", "Should display product added to bag success message","Product sucessfully added to bag from Homepage", "faield to add product to bag from Homepage");
+		
+			//ExtenantReportUtils.addPassLog("verifying add to cart button in Homepage", "User click add to card button on Homepage", "user successfully click add to cart button in Homepage", Common.getscreenShotPathforReport("faieldtoclickaddtocartbuttonin Homepage"));
+			}
+			catch(Exception |Error e) {
+			   
+				ExtenantReportUtils.addFailedLog("verifying product added success message", "User should get success message", "user faield to click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
+				Assert.fail();
+			}
+	}
+
+	
+	public void ClickCheckoutButton(){
+		try{
+			Thread.sleep(6000);
+			//Common.actionsKeyPress(Keys.PAGE_DOWN);
+		 Sync.waitElementPresent("xpath", "//button[@id='top-cart-btn-checkout']");
+		 Thread.sleep(4000);
+		   Common.findElement("xpath", "//button[@id='top-cart-btn-checkout']").click();
+		   
+		   Sync.waitElementPresent("xpath", "//button[@id='guest_checkout']");
+			Common.clickElement("xpath", "//button[@id='guest_checkout']");
+		   
+		}
+		    catch(Exception |Error e) {
+		 	   
+				ExtenantReportUtils.addFailedLog("verifying checkOut button", "User click checkOut  button", "user faield to click checkOut button", Common.getscreenShotPathforReport("checkOut"));
+				Assert.fail();
+			}
+	}
+	
+	
+	
 	public void ItalyProductselection() throws Exception
 	{
 		String expectedResult="Product Selection from Category";
@@ -430,6 +719,102 @@ public class BraunEMEAHelper {
 		}
 
 	}
+	
+	
+	public void Reviews() {
+		String expectedResult = "Bewertungen";
+		try {
+			Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+			
+			Common.actionsKeyPress(Keys.DOWN);
+			
+			Common.actionsKeyPress(Keys.DOWN);
+			//Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+		Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.clickElement("xpath", "//a[text()='Bewertungen']");
+			
+			report.addPassLog(expectedResult, "Should display review Page", "review Page display successfully", Common.getscreenShotPathforReport("review results success"));
+			
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display review Page", "review Page not display", Common.getscreenShotPathforReport("review result Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		
+		
+
+		
+		
+		
+	}
+	
+	}
+
+
+
+	public void FRReviews() {
+		String expectedResult = "Bewertungen";
+		try {
+			Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+			
+			Common.actionsKeyPress(Keys.DOWN);
+			
+			Common.actionsKeyPress(Keys.DOWN);
+			//Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+		Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Thread.sleep(5000);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.actionsKeyPress(Keys.DOWN);
+			Common.clickElement("xpath", "//a[text()='Bewertungen']");
+			
+			report.addPassLog(expectedResult, "Should display review Page", "review Page display successfully", Common.getscreenShotPathforReport("review results success"));
+			
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display review Page", "review Page not display", Common.getscreenShotPathforReport("review result Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		
+		
+	}
+	
+	}
+
+
+
+
+	
 	
 	
 	
@@ -2492,9 +2877,9 @@ public class BraunEMEAHelper {
 			System.out.println(s +" navigated successfully");
 			Assert.assertEquals(s, linkText);*/
 			
-			String s=Common.getText("xpath", "//a[contains(text(), 'Din familjs hälsa')]");
+			String s=Common.getText("xpath", "//a[contains(text(), 'Ihre Familiengesundheit')]");
 			System.out.println(s +" navigated successfully");
-			Assert.assertEquals(s,"Din familjs hälsa");
+			Assert.assertEquals(s,"Ihre Familiengesundheit");
 		
 			report.addPassLog(expectedResult, "Should display Your health Page", "Your health Page display successfully", Common.getscreenShotPathforReport("Your health page success"));
 		}catch(Exception |Error e)
@@ -2544,9 +2929,9 @@ public class BraunEMEAHelper {
 			System.out.println(s +" navigated successfully");
 			Assert.assertEquals(s, linkText);*/
 			
-			String s=Common.getText("xpath", "//a[contains(text(), 'Din hjärthälsa')]");
+			String s=Common.getText("xpath", "//a[contains(text(), 'Ihre Herzgesundheit')]");
 			System.out.println(s +" navigated successfully");
-			Assert.assertEquals(s, "Din hjärthälsa");
+			Assert.assertEquals(s, "Ihre Herzgesundheit");
 		
 
 			report.addPassLog(expectedResult, "Should display Your health Page", "Your health Page display successfully", Common.getscreenShotPathforReport("Your health page success"));
@@ -2628,13 +3013,14 @@ public class BraunEMEAHelper {
 			System.out.println(s +" navigated successfully");
 			Assert.assertEquals(s, "Health Magazine");*/
 			
-			String s=Common.getText("xpath", "//a[contains(text(), 'Hälsomagasin')]");
+			String s=Common.getText("xpath", "//a[contains(text(), 'Health Magazine')]");
 			System.out.println(s +" navigated successfully");
-			Assert.assertEquals(s, "Hälsomagasin");
+			Assert.assertEquals(s, "Health Magazine");
 
 			report.addPassLog(expectedResult, "Should display Your Health Page", "Your Health Page display successfully", Common.getscreenShotPathforReport("Your Health success"));
 		}catch(Exception |Error e)
 		{
+			e.printStackTrace();
 			report.addFailedLog(expectedResult,"Should display Your Health Page", "Your Health Page not displayed", Common.getscreenShotPathforReport("Your Health Failed"));
 			Assert.fail();
 		}
@@ -4918,8 +5304,8 @@ try
 		
 		report.addPassLog("Should Display Shipping method page", "Displaying Shipping method page success", Common.getscreenShotPathforReport("Shipping method page success"));
 
-		Sync.waitElementPresent("xpath", "//span[contains(text(),'Ok')]");
-		Common.clickElement("xpath", "//span[contains(text(),'Ok')]");	
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'OK')]");
+		Common.clickElement("xpath", "//span[contains(text(),'OK')]");	
 
 	
 	report.addPassLog("Should Display payment method", "Displaying payment method success", Common.getscreenShotPathforReport("payment method success"));
@@ -4932,7 +5318,324 @@ catch(Exception |Error e)
 	Assert.fail();
 }	
 }
+	
+	
+	public void BillingAddress(String dataSet) throws Exception
 
+	{
+try
+{
+
+	Common.actionsKeyPress(Keys.PAGE_UP);
+	Thread.sleep(3000);
+	Common.actionsKeyPress(Keys.PAGE_UP);
+	Thread.sleep(3000);
+		//Common.scrollToElementAndUnCheck("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+		Common.javascriptclickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']");
+		
+		Thread.sleep(1000);
+		Thread.sleep(2000);
+		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		Thread.sleep(3000);
+		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+		Thread.sleep(1000);
+		//Common.dropdown("name", "country_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
+		Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+		Sync.waitElementPresent("xpath", "//button[@class='action action-update']");
+		Common.clickElement("xpath", "//button[@class='action action-update']");
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'OK')]");
+		Common.clickElement("xpath", "//span[contains(text(),'OK')]");	
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);
+		
+	
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address is success"));
+}
+
+catch(Exception |Error e)
+{
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address failed"));
+	e.printStackTrace();
+	Assert.fail();
+}	
+}
+	
+	
+	public void SwedenBillingAddress(String dataSet) throws Exception
+
+	{
+try
+{
+
+	Common.actionsKeyPress(Keys.PAGE_UP);
+	Thread.sleep(3000);
+	Common.actionsKeyPress(Keys.PAGE_UP);
+	Thread.sleep(3000);
+		//Common.scrollToElementAndUnCheck("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+		Common.javascriptclickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']");
+		
+		Thread.sleep(1000);
+		Thread.sleep(2000);
+		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		Thread.sleep(3000);
+		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+		Thread.sleep(1000);
+		//Common.dropdown("name", "country_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
+		Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+		Sync.waitElementPresent("xpath", "//button[@class='action action-update']");
+		Common.clickElement("xpath", "//button[@class='action action-update']");
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(), 'Ok')]");
+		Common.clickElement("xpath", "//span[contains(text(), 'Ok')]");	
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);
+		
+	
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address is success"));
+}
+
+catch(Exception |Error e)
+{
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address failed"));
+	e.printStackTrace();
+	Assert.fail();
+}	
+}
+	
+	
+	
+	
+	public void RegisterBillingAddress(String dataSet) throws Exception
+	{
+try
+{  //Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(2000);
+
+Sync.waitElementPresent("xpath", "//span[text()='Bearbeiten']");
+	Common.clickElement("xpath", "//span[text()='Bearbeiten']");	
+	
+	//Common.actionsKeyPress(Keys.PAGE_UP);
+	Thread.sleep(3000);
+	
+	
+	//Common.actionsKeyPress(Keys.PAGE_UP);
+	//Thread.sleep(3000);
+		//Common.scrollToElementAndUnCheck("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+		//Common.javascriptclickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']");
+		//Common.clickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']"); 
+		
+		
+		Thread.sleep(1000);
+		Sync.waitElementPresent("xpath", "//select[@name='billing_address_id']/option[contains(text(), 'Neue Adresse')]");
+		Common.clickElement("xpath", "//select[@name='billing_address_id']/option[contains(text(), 'Neue Adresse')]");
+		Thread.sleep(1000);
+		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		Thread.sleep(3000);
+		
+		
+		/*Sync.waitElementPresent("xpath", "//div[contains(text(),'Shipping Address')]");
+		Common.clickElement("xpath", "//div[contains(text(),'Shipping Address')]");*/
+		Thread.sleep(3000);
+		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+		Thread.sleep(1000);
+		//Common.dropdown("name", "country_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
+		Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+
+		//Thread.sleep(3000);
+		Sync.waitElementPresent("xpath", "//button[@class='action action-update']");
+		Common.clickElement("xpath", "//button[@class='action action-update']");
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'OK')]");
+		Common.clickElement("xpath", "//span[contains(text(),'OK')]");	
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);  
+		
+	
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address is success"));
+}
+
+catch(Exception |Error e)
+{
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address failed"));
+	e.printStackTrace();
+	Assert.fail();
+}	
+}
+	
+
+	
+	public void ITRegisterBillingAddress(String dataSet) throws Exception
+	{
+try
+{  //Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+
+
+
+Sync.waitElementPresent("xpath", "(//span[contains(text(), 'Modifica')])[4]");
+	Common.clickElement("xpath", "(//span[contains(text(), 'Modifica')])[4]");	
+	
+	//Common.actionsKeyPress(Keys.PAGE_UP);
+	Thread.sleep(3000);
+	
+	
+	//Common.actionsKeyPress(Keys.PAGE_UP);
+	//Thread.sleep(3000);
+		//Common.scrollToElementAndUnCheck("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+		//Common.javascriptclickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']");
+		//Common.clickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']"); 
+		
+		
+		Thread.sleep(1000);
+		Sync.waitElementPresent("xpath", "//select[@name='billing_address_id']/option[contains(text(), 'Nuovo Indirizzo')]");
+		Common.clickElement("xpath", "//select[@name='billing_address_id']/option[contains(text(), 'Nuovo Indirizzo')]");
+		Thread.sleep(1000);
+		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		Thread.sleep(3000);
+		
+		
+		/*Sync.waitElementPresent("xpath", "//div[contains(text(),'Shipping Address')]");
+		Common.clickElement("xpath", "//div[contains(text(),'Shipping Address')]");*/
+		Thread.sleep(3000);
+		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+		Thread.sleep(1000);
+		//Common.dropdown("name", "country_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
+		Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+
+		//Thread.sleep(3000);
+		Sync.waitElementPresent("xpath", "//button[@class='action action-update']");
+		Common.clickElement("xpath", "//button[@class='action action-update']");
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'OK')]");
+		Common.clickElement("xpath", "//span[contains(text(),'OK')]");	
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);  
+		
+	
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address is success"));
+}
+
+catch(Exception |Error e)
+{
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address failed"));
+	e.printStackTrace();
+	Assert.fail();
+}	
+}
+		
+	
+	public void FRRegisterBillingAddress(String dataSet) throws Exception
+	{
+try
+{  //Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(3000);
+
+
+
+Sync.waitElementPresent("xpath", "(//span[contains(text(), 'Modifier')])[3]");
+	Common.clickElement("xpath", "(//span[contains(text(), 'Modifier')])[3]");	
+	
+	//Common.actionsKeyPress(Keys.PAGE_UP);
+	Thread.sleep(3000);
+	
+	
+	//Common.actionsKeyPress(Keys.PAGE_UP);
+	//Thread.sleep(3000);
+		//Common.scrollToElementAndUnCheck("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+		//Common.javascriptclickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']");
+		//Common.clickElement("xpath" , "//input[@id='billing-address-same-as-shipping-shared']"); 
+		
+		
+		Thread.sleep(1000);
+		Sync.waitElementPresent("xpath", "//select[@name='billing_address_id']/option[contains(text(), 'Nouvelle adresse')]");
+		Common.clickElement("xpath", "//select[@name='billing_address_id']/option[contains(text(), 'Nouvelle adresse')]");
+		Thread.sleep(1000);
+		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		Thread.sleep(3000);
+		
+		
+		/*Sync.waitElementPresent("xpath", "//div[contains(text(),'Shipping Address')]");
+		Common.clickElement("xpath", "//div[contains(text(),'Shipping Address')]");*/
+		Thread.sleep(3000);
+		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+		Thread.sleep(1000);
+		//Common.dropdown("name", "country_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
+		Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+
+		//Thread.sleep(3000);
+		Sync.waitElementPresent("xpath", "//button[@class='action action-update']");
+		Common.clickElement("xpath", "//button[@class='action action-update']");
+		
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'OK')]");
+		Common.clickElement("xpath", "//span[contains(text(),'OK')]");	
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.PAGE_UP);
+		Thread.sleep(3000);  
+		
+	
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address is success"));
+}
+
+catch(Exception |Error e)
+{
+	report.addPassLog("Should Update Billing Address", "Displaying Billing Address success", Common.getscreenShotPathforReport("Update Billing Address failed"));
+	e.printStackTrace();
+	Assert.fail();
+}	
+}
 	
 	public void ITshipping_Address(String dataSet) throws Exception
 
@@ -4952,7 +5655,7 @@ try
 		Thread.sleep(3000);
 		/*Sync.waitElementPresent("xpath", "//div[contains(text(),'Shipping Address')]");
 		Common.clickElement("xpath", "//div[contains(text(),'Shipping Address')]");
-		Thread.sleep(3000);*/
+		Thread.sleep(3000);
 		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
 		Thread.sleep(1000);
 		//Common.dropdown("name", "country_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
@@ -5309,11 +6012,11 @@ catch(Exception |Error e)
 		Sync.waitElementPresent("xpath", "(//button[@class='button action continue primary'])[2]");
 		Common.clickElement("xpath", "(//button[@class='button action continue primary'])[2]");
 		
-		Sync.waitElementPresent("xpath", "//span[contains(text(),'OK')]");
-		Common.clickElement("xpath", "//span[contains(text(),'OK')]");
+		/*Sync.waitElementPresent("xpath", "//span[contains(text(),'OK')]");
+		Common.clickElement("xpath", "//span[contains(text(),'OK')]");*/
+		Sync.waitElementPresent("xpath", "//button[@class='action-primary action-accept']");
+		Common.clickElement("xpath", "//button[@class='action-primary action-accept']");
 		
-		/*String s=Common.getText("xpath", "(//div[contains(text(), 'Zahlungsart')])[1]");
-		Assert.assertEquals(s, "Zahlungsart");*/
 
 
 		report.addPassLog("Should display Payment Page", "Payment Page display successfully", Common.getscreenShotPathforReport("Payment page success"));
@@ -5622,6 +6325,77 @@ catch(Exception |Error e)
 
 	}
 	
+	
+	
+	public void FRGuestProductname(String dataSet) throws Exception
+	{
+		String expectedResult="Search with Product name :"+data.get(dataSet).get("GuestUserProduct");
+		try {
+			Thread.sleep(1000);
+			Common.clickElement("xpath", "(//span[@class='braun-icons m_hide'])[2]");
+			Sync.waitElementPresent("id", "search");
+			try {
+				Common.textBoxInput("id", "search", data.get(dataSet).get("GuestUserProduct"));
+				report.addPassLog(expectedResult, "Should display Browse search Page", "Browse search Page display successfully", Common.getscreenShotPathforReport("Browse search page success"));
+
+			}catch(Exception e)
+			{
+				Common.clickElement("xpath", "(//span[@class='braun-icons m_hide'])[2]");
+				Thread.sleep(3000);
+				Common.textBoxInput("id", "search", data.get(dataSet).get("GuestUserProduct"));
+			}
+			Common.actionsKeyPress(Keys.ENTER);
+			Thread.sleep(10000);
+			Common.actionsKeyPress(Keys.DOWN);
+
+			Sync.waitElementPresent("xpath", "//img[@class='product-image-photo ']");
+			Common.clickElement("xpath", "//img[@class='product-image-photo ']");
+			//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			report.addPassLog(expectedResult, "Should display Search Results Page", "Search results Page display successfully", Common.getscreenShotPathforReport("Search results success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Search Results Page", "Search results Page not display", Common.getscreenShotPathforReport("Search result Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+	}
+	
+	
+	
+	public void Guestproductname(String dataSet) throws Exception
+	{
+		String expectedResult="Search with Product name :"+data.get(dataSet).get("GuestProduct");
+		try {
+			Thread.sleep(1000);
+			Common.clickElement("xpath", "(//span[@class='braun-icons m_hide'])[2]");
+			Sync.waitElementPresent("id", "search");
+			try {
+				Common.textBoxInput("id", "search", data.get(dataSet).get("GuestProduct"));
+				report.addPassLog(expectedResult, "Should display Browse search Page", "Browse search Page display successfully", Common.getscreenShotPathforReport("Browse search page success"));
+
+			}catch(Exception e)
+			{
+				Common.clickElement("xpath", "(//span[@class='braun-icons m_hide'])[2]");
+				Thread.sleep(3000);
+				Common.textBoxInput("id", "search", data.get(dataSet).get("GuestProduct"));
+			}
+			Common.actionsKeyPress(Keys.ENTER);
+			Thread.sleep(10000);
+			Common.actionsKeyPress(Keys.DOWN);
+
+			Sync.waitElementPresent("xpath", "//img[@class='product-image-photo ']");
+			Common.clickElement("xpath", "//img[@class='product-image-photo ']");
+			//Common.scrollIntoView("xpath", "(//div[@class='product-item-info']/div//a[@class='product photo product-item-photo title'])[1]");
+			report.addPassLog(expectedResult, "Should display Search Results Page", "Search results Page display successfully", Common.getscreenShotPathforReport("Search results success"));
+		}catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Should display Search Results Page", "Search results Page not display", Common.getscreenShotPathforReport("Search result Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+
+	}
 	
 	public void UKSVproductname(String dataSet) throws Exception
 	{
@@ -7611,8 +8385,8 @@ catch(Exception |Error e)
 	public void verifyingHomePage(){
 		try{
 			Sync.waitElementPresent("xpath", "//a[@class='logo']");
-		String HomepageTitle=Common.findElement("xpath", "//a[@class='logo']").getAttribute("title");
-		Common.assertionCheckwithReport(HomepageTitle.equals("Drybar"), "verifying the homepage", "navigate the home page", "user successfully navigate the home page", "Failed to navigate to home page");
+		String s=Common.findElement("xpath" , "//a[@class='logo']").getAttribute("title");
+		Common.assertionCheckwithReport(s.equals("Braun Health Care"), "verifying the homepage", "navigate the home page", "user successfully navigate the home page", "Failed to navigate to home page");
 	}
 		catch(Exception |Error e) {
 		     
@@ -7954,6 +8728,32 @@ catch(Exception |Error e)
 	
 	
 	
+	public void UKSVAddtocart() {
+		// TODO Auto-generated method stub
+		 String expectedResult="Navigating Addtocart";
+	        try {
+	            Sync.waitElementClickable(30, By.xpath("//button[@id='product-addtocart-button']"));
+	            Common.findElement("xpath", "//button[@id='product-addtocart-button']").click();
+	            //Common.clickElement("xpath", "//a[@title='Italy']");
+	            Thread.sleep(2000);
+	            String S=Common.getText("xpath", "//div[@class='message-success success message']");
+				System.out.println(S);
+				Assert.assertEquals(S, "Du har lagt till Braun ThermoScan® 3 till din kundvagn.");
+				// Sync.waitElementClickable(30, By.xpath("(//span[text()='Min kundvagn'])[2]"));
+		          //  Common.findElement("xpath", "(//span[text()='Min kundvagn'])[2]").click();
+	            report.addPassLog(expectedResult, "Should display Addtocart", "Addtocart displayed successfully", Common.getscreenShotPathforReport("Addtocart success"));
+	        }catch(Exception |Error e)
+	        {
+	            report.addFailedLog(expectedResult,"Should display Addtocart", "Addtocart not display", Common.getscreenShotPathforReport("Addtocart Failed"));
+	            e.printStackTrace();
+	            Assert.fail();
+	        }
+	
+	
+	}
+	
+	
+	
 	public void SDnavigateMinicart() {
 		// TODO Auto-generated method stub
 		 String expectedResult="Navigating Minicart";
@@ -8221,9 +9021,9 @@ catch(Exception |Error e)
 
 	Thread.sleep(3000);
 
-	Sync.waitElementPresent("xpath", "//img[@alt='Braun ThermoScan® 7 con Age Precision®']");
+	Sync.waitElementPresent("xpath", "//img[@alt='Braun ThermoScan® 3']");
 
-	Common.clickElement("xpath", "//img[@alt='Braun ThermoScan® 7 con Age Precision®']");
+	Common.clickElement("xpath", "//img[@alt='Braun ThermoScan® 3']");
 
 	Thread.sleep(2000);
 
@@ -9077,7 +9877,37 @@ catch(Exception |Error e)
 
 
 
+	 public void NewBillingaddressform(String dataSet) throws Exception {
+		 
+		 Common.scrollToElementAndUnCheck("xpath", "//input[@name='billing-address-same-as-shipping']");
+		 Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+		 Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
 
+		 Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+		// Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+		 Common.clickElement("xpath", "//div[@class='billing-address-form']/form/fieldset/div[6]/div/select");
+		 Common.clickElement("xpath", "(//select/option[@data-title='Florida'])[2]");
+		 Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+		 Common.clickElement("xpath", "(//select[@name='country_id'])[2]");
+		 Common.clickElement("xpath", "(//select/option[@data-title='Australia'])[2]");
+		 Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+		 Common.clickElement("xpath", "//button/span[text()='Update']");
+		 if(Common.isElementDisplayed("xpath", "//div[@class='field-error']")) {
+		 Common.textBoxInput("xpath", "//div[@class='billing-address-form']/form/fieldset/div[7]/div/input", data.get(dataSet).get("Region"));
+		 Common.clickElement("xpath", "//button/span[text()='Update']");
+		 Thread.sleep(2000);
+		 }
+		 if(Common.isElementDisplayed("xpath", "//div[contains(text(),'Address is not verified. Do you want to continue ?')]")) {
+		 Common.clickElement("xpath", "//span[text()='OK']");	
+		 }
+		 Thread.sleep(3000);
+		 Common.actionsKeyPress(Keys.PAGE_UP);
+		 String s = Common.findElement("xpath", "//a[contains(@data-bind,'text: currentBillingAddress()')]").getText();
+		 Assert.assertEquals(s, data.get(dataSet).get("phone"));
+
+		 Common.actionsKeyPress(Keys.ARROW_UP);
+		 }
+		 
 
 
 

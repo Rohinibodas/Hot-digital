@@ -1,44 +1,36 @@
-package TestExecute.BraunEMEA.BraunDE;
-
+package TestExecute.BraunEMEA.BraunUKITALY;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import TestComponent.BraunEMEA.BraunUKHelper;
 import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_BraunUK_Footerlinks_Validation {
-		
+public class Test_ST_BraunIT_GuestUserCheclout_WithNewBillingAddress {
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
-		
-		
 		@Test(priority=1)
-		public void FooterLinks() throws Exception {
+		
+		public void GuestuserChecloutWithNewBillingAddress() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				BraunUK.Acceptcookies();
 				BraunUK.closepopup();
-				BraunUK.StoreSelection("Germany");
-				//BraunUK.GermanStoreSelection();
-				/*BraunUK.Yourfamily_health();
-				BraunUK.Yourheart_health();
-				BraunUK.health();*/
+				BraunUK.StoreSelection("Italy");
+				BraunUK.Guestproductname("GuestProductname");
+				BraunUK.Swedenproductselection();
+				BraunUK.ItalynavigateMinicart();
+				BraunUK.ITCheckoutPage();
+				BraunUK.Italyshipping_Address("GuestEmail");
+				BraunUK.BillingAddress("BillingAddress");
+				BraunUK.ItalyCreditcardPayment("PaymentcardDetails");
 				
-				BraunUK.NavigateYourhealth("LinkText");
-				BraunUK.NavigateYourhearthealth("LinkText");
-				//BraunUK.NavigateHealthMagazine("LinkText");
-				
-					
-			
 			}
 			catch (Exception e) {
-				e.printStackTrace();
 				
 				Assert.fail(e.getMessage(), e);
 			} 
@@ -52,30 +44,19 @@ public class Test_ST_BraunUK_Footerlinks_Validation {
 			  
 		  }*/
 		
-		
-		
-		
-		@BeforeMethod
+		 @BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn(browser);
 			  }
 		
-		
-@AfterTest
-public void clearBrowser()
-{
-	Common.closeAll();
+		 @AfterTest
+			public void clearBrowser()
+			{
+				Common.closeAll();
 
-}
-}
-
-
-
-
-
-
-	
+			}
+		}
 
 
