@@ -14,7 +14,7 @@ public class Test_ST_BraunIT_HeaderLinksValidation_ForRegisterUser {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
 		
-		public void AddtocardonHomepage() throws Exception {
+		public void HeaderLinksValidation_ForRegisterUser() throws Exception {
 
 			try {
 				Thread.sleep(6000);

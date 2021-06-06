@@ -14,7 +14,7 @@ public class Test_ST_BFR_GuestUserCheckout_WithProductSearch_UsingCreditcard {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		
 		@Test(priority=1)
-		public void Accountcreation() throws Exception {
+		public void GuestUserCheckout_WithProductSearch_UsingCreditcard() throws Exception {
 
 			try {
 				Thread.sleep(6000);

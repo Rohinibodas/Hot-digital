@@ -14,7 +14,7 @@ public class Test_ST_BraunIT_RegisterUserCheckout_WithNewBillingAddress {
 	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
 		
-		public void RegisterUserCheckoutCreditCard() throws Exception {
+		public void RegisterUserCheckout_WithNewBillingAddress() throws Exception {
 
 			try {
 				Thread.sleep(6000);

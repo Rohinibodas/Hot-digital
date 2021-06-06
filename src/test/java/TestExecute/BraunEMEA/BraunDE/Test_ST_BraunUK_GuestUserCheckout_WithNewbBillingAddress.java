@@ -15,7 +15,7 @@ public class Test_ST_BraunUK_GuestUserCheckout_WithNewbBillingAddress {
 		
 		
 		@Test(priority=1)
-		public void GuestUserCheckout_WithProductSearch_UsingCreditcard() throws Exception {
+		public void GuestUserCheckout_WithNewBillingAddress() throws Exception {
 
 			try {
 				Thread.sleep(6000);
