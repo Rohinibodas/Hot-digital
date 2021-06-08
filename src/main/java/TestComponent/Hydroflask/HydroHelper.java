@@ -315,22 +315,17 @@ public class HydroHelper {
 
 			
 			element.get(2).click();
+            Thread.sleep(5000);
 
-			// Common.clickElement("xpath", "//button[@title='Add to Cart']");
-			 //Common.assertionCheckwithReport(cartbuttonsize>0, "Added Product to Cart", expectedResult,"User unabel add product to cart");
-
-			Thread.sleep(5000);
-
-			String s = Common.getText("xpath", "//a[@aria-label='minicart']/following::span[3]");
-			System.out.println();
+			//String s = Common.getText("xpath", "//a[@aria-label='minicart']/following::span[3]");
+			//System.out.println();
 
 			expectedResult = "Product should add to Cart";
 
 			int cartbuttonsize = Common.findElements("xpath", "(//button[@title='Add to Cart'])[2]").size();
 			Common.assertionCheckwithReport(cartbuttonsize > 0, "validating the add product to cart", expectedResult,
 					"Added Product to Cart", "User unabel add product to cart");
-			// report.addPassLog(expectedResult,"Added Product to
-			// Cart",Common.getscreenShotPathforReport(expectedResult));
+			
 		} catch (Exception | Error e) {
 
 			ExtenantReportUtils.addFailedLog("validating the product add to cart", expectedResult,
@@ -1058,8 +1053,8 @@ public class HydroHelper {
 				"User unabel to land on home page");
 		try {
 			Common.actionsKeyPress(Keys.END);
-			Sync.waitElementPresent("xpath", "//a[text()='warranty']");
-			Common.clickElement("xpath", "//a[text()='warranty']");
+			Sync.waitElementPresent("xpath", "//a[text()='Warranty']");
+			Common.clickElement("xpath", "//a[text()='Warranty']");
 			String currenturl = Common.getCurrentURL();
 			Common.assertionCheckwithReport(currenturl.contains("product_warranty"), "verifying warranty page",
 					"It should land  warranty page", "Successfully land on warranty page",
@@ -1067,6 +1062,7 @@ public class HydroHelper {
 			// (currenturl.contains("product_warranty"), "Successfully land on
 			// warranty page", expectedResult,"User unabel on warranty page");
 		} catch (Exception | Error e) {
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying warranty page", "It should land  warranty page",
 					"User failed to click warrenty option", Common.getscreenShotPathforReport("warrenty button"));
 			Assert.fail();
@@ -1890,18 +1886,17 @@ public class HydroHelper {
 			Thread.sleep(8000);
 			Sync.waitElementClickable("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]");
 			Thread.sleep(4000);
-			// Common.mouseOverClick("xpath",
-			// "//ul[@class='megamenu-list']/li[1]/div[1]/button");
+			 Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
 
 			// Common.clickElement("css", "ul.megamenu-list > li:nth-of-type(1)
 			// > div:nth-of-type(1) > button");
 			Thread.sleep(3000);
 			expectedResult = "It Shoud lands on the Product Listing Page";
 			try {
-				Common.mouseOver("xpath", "//a[contains(text(),'Bottles')]");
+				Common.mouseOverClick("xpath", "//a[contains(text(),'Bottles')]");
 			} catch (Exception e) {
 
-				Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
+			//	Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
 				Thread.sleep(1000);
 				Common.clickElement("xpath", "//a[contains(text(),'Bottles')]");
 
