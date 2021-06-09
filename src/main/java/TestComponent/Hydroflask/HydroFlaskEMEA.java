@@ -651,4 +651,395 @@ public void updatePaymentAndSubmitOrder(String dataSet) throws Exception {
 public void acceptPrivecy() {		
 	Common.clickElementStale("id", "truste-consent-required");	}
 
+
+
+
+public void socialLinkValidation(String dataSet){
+	
+	String socalLinks =data.get(dataSet).get("Links");
+	String [] socallinksarry=socalLinks.split(",");
+	int i=0;
+	try{
+	for(i=0;i<socallinksarry.length;i++){
+		Common.actionsKeyPress(Keys.END);
+		Common.clickElement("xpath", "//a[text()='"+socallinksarry[i]+"']");
+		Common.switchWindows();
+		System.out.println(Common.getCurrentURL());
+		
+		if(socallinksarry[i].equals("Twitter")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Hydro Flask (@HydroFlask) / Twitter"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else if(socallinksarry[i].equals("Instagram")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Login • Instagram"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else	if(socallinksarry[i].equals("Facebook")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Log into Facebook"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else	if(socallinksarry[i].equals("Pinterest")){
+			Common.assertionCheckwithReport(Common.getPageTitle().contains("Pinterest"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.closeCurrentWindow();
+			Common.switchToFirstTab();
+		}
+   else	if(socallinksarry[i].equals("Youtube")){
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("hydroflask"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+		Common.closeCurrentWindow();
+		Common.switchToFirstTab();
+	}
+		
+		//Common.switchToDefault();
+	}
+	}
+	catch(Exception | Error e){
+		e.printStackTrace();
+	    ExtenantReportUtils.addFailedLog("Verifying Social link ","click the socal links it will navigating to particular page","User unabel to navigate Social page",Common.getscreenShotPathforReport("socialpage"));
+	    Assert.fail();
+	}
+	
+	
 }
+
+public void footerLinks_About_Validation(){
+
+String Links= "AboutUs";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ 
+
+ Common.clickElement("xpath","(//a[contains(@href,'our-story')])[2]");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("We are Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+
+
+ public void footerLinks_careers_Validation(){
+
+String Links= "Careers";
+
+ try{
+
+ 
+
+// Sync.waitElementInvisible("xpath", "//a[text()='Personalize']");
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","//a[contains(@href,'myworkdayjobs')]");
+ 
+ Sync.waitPageLoad();
+ 
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Search for Jobs"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+ public void footerLinks_Press_Validation(){
+
+String Links= "press";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","(//a[contains(@href,'press')])[2]");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Hydro Flask Press Coverage & In the News | Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+
+
+ 
+ public void footerLinks_FAQ_Validation(){
+
+String Links= "FAQ";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);;
+
+ Common.clickElement("xpath","(//a[contains(@href,'frequently-asked-questions')])[1]");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Frequently Asked Questions | Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+ 
+
+ public void footerLinks_Contact_Validation(){
+
+String Links= "Contact";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","//a[text()='Contact']");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Contact Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+ public void footerLinks_Shipping_Validation(){
+
+String Links= "Shipping";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","//a[text()='Shipping']");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Frequently Asked Questions | Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+ public void footerLinks_Returns_Validation(){
+
+String Links= "Returns";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","//a[text()='Returns']");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Frequently Asked Questions | Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+ 
+
+ public void footerLinks_Warranty_Validation(){
+
+String Links= "Warranty";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","//a[text()='Warranty']");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Frequently Asked Questions | Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+ public void footerLinks_Track_Your_Order_Validation(){
+
+String Links= "Track Your Order";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","//a[text()='Track Your Order']");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Track Order"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+
+ 
+
+ public void footerLinks_Refer_aFriend_Validation(){
+
+String Links= "Refer a Friend";
+
+ try{
+
+ Common.actionsKeyPress(Keys.END);
+
+ Thread.sleep(3000);
+
+ Common.clickElement("xpath","//a[text()='Refer a Friend']");
+
+ Sync.waitPageLoad();
+
+ Common.assertionCheckwithReport(Common.getPageTitle().equals("Refer-A-Friend"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+
+ }
+
+ catch (Exception |Error e) {
+
+e.printStackTrace();
+
+   ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+
+   Assert.fail();
+
+ 
+
+ }
+
+ }
+}
+
+ 
