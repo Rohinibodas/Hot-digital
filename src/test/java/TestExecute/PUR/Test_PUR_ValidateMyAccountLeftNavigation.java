@@ -40,20 +40,20 @@ public class Test_PUR_ValidateMyAccountLeftNavigation {
 	
 	
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "PUR//config.properties");
 		  Login.signIn("chrome");
-		   }
+		   }*/
 
 
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "PUR\\config.properties");
 		  Login.signIn(browser);
-	}*/
+	}
 
 	@AfterTest
 	public void clearBrowser()

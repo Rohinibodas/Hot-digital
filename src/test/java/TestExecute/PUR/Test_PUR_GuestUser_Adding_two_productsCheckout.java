@@ -10,18 +10,23 @@ import TestComponent.PUR.PurHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_PUR_AccountCreation {
-	
+public class Test_PUR_GuestUser_Adding_two_productsCheckout {
 	String datafile = "PUR//PUR_TestData.xlsx";	
 	PurHelper PUR=new PurHelper(datafile);
-	
 	@Test(priority=1)
-	public void CreateAccount(){
+	public void GuestUser_Adding_Twoproducts(){
 
 		try{
+			//PUR.AgreeAndProceed();
+			PUR.Mouseover();
+			PUR.Multiple_Products();
+			PUR.Addtocart();
+			PUR.checkoutPage();
+			PUR.shipping_Address("Address");
+			PUR.updatePaymentAndSubmitOrder("PaymentDetails");
 			
 			
-			PUR.createAccount("AccountCreation");
+			
 			
 		}
 		catch (Exception e) {
@@ -37,14 +42,12 @@ public class Test_PUR_AccountCreation {
 		  Login.signIn("chrome");
 		   }*/
 	
-	@BeforeMethod
+  @BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "PUR\\config.properties");
 		  Login.signIn(browser);
-	}
-	
-	  
+	} 
 
 	@AfterTest
 	public void clearBrowser()
@@ -52,5 +55,12 @@ public class Test_PUR_AccountCreation {
 		Common.closeAll();
 
 	}
+	
 
 }
+
+
+
+
+
+

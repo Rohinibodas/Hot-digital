@@ -47,12 +47,12 @@ public class Test_PUR_ValidateContentlinks {
 	}
 	
 	
-  /*   @BeforeMethod
+    /*@BeforeMethod
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "PUR//config.properties");
-		  Login.signIn("firefox");
-		   }
-*/
+		  Login.signIn("chrome");
+		   }*/
+
 	
 	@BeforeMethod
 	@Parameters({"browser"}) 

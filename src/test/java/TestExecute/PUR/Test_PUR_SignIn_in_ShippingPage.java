@@ -10,7 +10,7 @@ import TestComponent.PUR.PurHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_PUR_Validation_of_shipping_page {
+public class Test_PUR_SignIn_in_ShippingPage {
 
 String datafile = "PUR//PUR_TestData.xlsx";	
 PurHelper PUR=new PurHelper(datafile);
@@ -18,15 +18,15 @@ PurHelper PUR=new PurHelper(datafile);
 @Test(priority=1)
 
 
-public void shippingPageform() throws Exception {
+public void  login_shippingPage() throws Exception {
 
 	try {
 		//PUR.AgreeAndProceed();
 		PUR.searchProduct("productName");
 		PUR.Addtocart();
 		PUR.checkoutPage();
-		PUR.ShippingFormvalidation();
-		
+		PUR.SignIn_Shippingpage("CustomerAccountdetails");
+		PUR.updatePaymentAndSubmitOrder("PaymentDetails");
 		  
 		  
 
@@ -43,7 +43,7 @@ public void shippingPageform() throws Exception {
 /*@BeforeMethod
   public void startTest() throws Exception {
 	System.setProperty("configFile", "PUR//config.properties");
-	  Login.signIn("edge");
+	  Login.signIn("chrome");
 	   }*/
 
 
@@ -58,7 +58,7 @@ public void shippingPageform() throws Exception {
 @AfterTest
 public void clearBrowser()
 {
-	Common.closeAll();
+ Common.closeAll();
 
 }
 

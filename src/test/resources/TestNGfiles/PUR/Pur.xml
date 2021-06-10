@@ -272,6 +272,35 @@
     </test>
     
     
+     
+    <test name="Test_PUR_ST_039_ValidateCompareProducts" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="edge" />
+        <classes>
+          <class name="TestExecute.PUR.Test_PUR_ValidateCompareProducts"/>
+        </classes>
+    </test>
+    
+    <test name="Test_PUR_ST_039_Validate_GuestUser_Checkout_withaddingtwo_products" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="edge" />
+        <classes>
+          <class name="TestExecute.PUR.Test_PUR_GuestUser_Adding_two_productsCheckout"/>
+        </classes>
+    </test>
+    
+    <test name="Test_PUR_ST_039_Validate_RegisterUser_Checkout_withaddingtwo_products" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="edge" />
+        <classes>
+          <class name="TestExecute.PUR.Test_PUR_RegisterUser_Adding_two_productsCheckout"/>
+        </classes>
+    </test>
+    
+    <test name="Test_PUR_ST_039_Validate_RegisterUser_SignIn_inShippingpage" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="edge" />
+        <classes>
+          <class name="TestExecute.PUR.Test_PUR_SignIn_in_ShippingPage"/>
+        </classes>
+    </test>
+    
     <test name="Test_PUR_ST_037_ValidateGuestUserIncreaseProductQuantityCartPage" testid="PPH-1942" priority="P1" description="To verify the Guest  user increase product quantityfunctionality">
          <parameter name="browser" value="edge" />
         <classes>
@@ -284,13 +313,7 @@
         <classes>
             <class name="TestExecute.PUR.Test_PUR_ValidateRegisterUserIncreaseProductQuantityInCartPage"/>
         </classes>
-    </test>  
-    <test name="Test_PUR_ST_039_ValidateCompareProducts" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
-         <parameter name="browser" value="edge" />
-        <classes>
-          <class name="TestExecute.PUR.Test_PUR_ValidateCompareProducts"/>
-        </classes>
-    </test>
+    </test> 
     
     
     

@@ -10,22 +10,25 @@ import TestComponent.PUR.PurHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_PUR_ValidateGuestUserIncreaseProductQuantityInCartPage {
-
+public class Test_PUR_RegisterUser_Adding_two_productsCheckout {
 		
 		String datafile = "PUR//PUR_TestData.xlsx";	
 		PurHelper PUR=new PurHelper(datafile);
 		
 		@Test(priority=1)
-		public void guestUserQuantityIncrease(){
+		public void registerAdding_Twoproducts(){
 
 			try{
 				//PUR.AgreeAndProceed();
-				PUR.searchProduct("productName");
+				PUR.ClicktheSignbutton();
+				PUR.singin("CustomerAccountdetails");
+				PUR.Mouseover();
+				PUR.Multiple_Products();
 				PUR.Addtocart();
-				PUR.ViewandEditcart();
-				
-				
+				PUR.checkoutPage();
+				PUR.AddAddress();
+				PUR.updatePaymentAndSubmitOrder("PaymentDetails");
+			
 				
 			}
 			catch (Exception e) {
@@ -35,13 +38,14 @@ public class Test_PUR_ValidateGuestUserIncreaseProductQuantityInCartPage {
 		}
 		
 		
-      /* @BeforeMethod
+		/*@BeforeMethod
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "PUR//config.properties");
 			  Login.signIn("chrome");
 			   }*/
 		
-	@BeforeMethod
+		
+		@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "PUR\\config.properties");
@@ -64,8 +68,6 @@ public class Test_PUR_ValidateGuestUserIncreaseProductQuantityInCartPage {
 
 
 
-
-
-
+	
 
 

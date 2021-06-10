@@ -36,12 +36,12 @@ public class Test_PUR_ValidateRegisterUserIncreaseProductQuantityInCartPage {
 		}
 		
 		
-    /*   	@BeforeMethod
+       /*	@BeforeMethod
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "PUR//config.properties");
-			  Login.signIn("edge");
-			   }
-		*/
+			  Login.signIn("chrome");
+			   }*/
+		
 	@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {

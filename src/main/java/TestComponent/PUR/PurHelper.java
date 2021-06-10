@@ -755,10 +755,10 @@ public class PurHelper {
 			Sync.waitElementPresent("xpath", "//span[contains(text(), 'Update Shopping Cart')]");
 			Common.clickElement("xpath", "//span[contains(text(), 'Update Shopping Cart')]");
 			Thread.sleep(5000);
-			int quantity= Common.findElements("xpath", "//span[contains(text(),'(Shipping - Free Shipping)')]").size();
+			//int quantity= Common.findElements("xpath", "//span[contains(text(),'(Shipping - Free Shipping)')]").size();
 
 			//int quantity= Common.findElements("xpath", "//span[contains(text(),'(Shipping - Free Shipping)')]").size();
-			//int quantity= Common.findElements("xpath", "//input[@class='input-text qty qty-incrementer__input']").size();
+			int quantity= Common.findElements("xpath", "//input[@class='input-text qty qty-incrementer__input']").size();
 			System.out.println(quantity); 
 			Common.assertionCheckwithReport(quantity>0, "it should navigate to quantity increase", "it should navigate to quantity increase ", "sucessfully lands on quantity increase ", "faield to increase quantity");
 			
@@ -1575,11 +1575,11 @@ public void pitcherFooterlink() throws Exception
 	try {
 		
 		Common.actionsKeyPress(Keys.END);
-		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[7]");
-		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[7]");
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[6]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[6]");
 		
-		String title=Common.getPageTitle();
-		Common.assertionCheckwithReport(title.equals("PUR Pitchers"),"Verifying PUR Pitcher Filtration page","it shoud navigate to PUR Pitcher Filtration  page", "successfully  navigated to pitchers Page", "pitchers");	
+		String title= Common.getText("xpath", "//span[@class='base']");
+		Common.assertionCheckwithReport(title.equals("Pitchers"),"Verifying PUR Pitcher Filtration page","it shoud navigate to PUR Pitcher Filtration  page", "successfully  navigated to pitchers Page", "pitchers");	
 		}catch(Exception |Error e) {
 			ExtenantReportUtils.addFailedLog("To verify the PUR Pitcher Filtration footer link","should navigate toPUR Pitcher Filtration footerlink", "userunable to navigate to PUR Pitcher Filtration footerlink", Common.getscreenShotPathforReport("failed to navigate to PUR Pitcher Filtration footerlinkpage"));			
 			Assert.fail();	
@@ -1616,11 +1616,11 @@ public void replacementfilterFooterlink() throws Exception
 	try {
 		
 		Common.actionsKeyPress(Keys.END);
-		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[9]");
-		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[9]");
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[8]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[8]");
 		
-		String title=Common.getPageTitle();
-		Common.assertionCheckwithReport(title.equals("Replacement Water Filters"),"Verifying Replacement  Filter page","it shoud navigate to Replacement Filters page", "successfully  navigated to Replacement Filters Page", "Replacement Filters");	
+		String title=Common.getText("xpath", "//span[@class='base']");
+		Common.assertionCheckwithReport(title.equals("Replacement Filters"),"Verifying Replacement  Filter page","it shoud navigate to Replacement Filters page", "successfully  navigated to Replacement Filters Page", "Replacement Filters");	
 		}catch(Exception |Error e) {
 			ExtenantReportUtils.addFailedLog("To verify the Replacement Filters footer link","should navigate to Replacement  Filter footerlink", "userunable to navigate to Replacement  Filtersn footerlink", Common.getscreenShotPathforReport("failed to navigate to Replacement Filters footerlinkpage"));			
 			Assert.fail();	
@@ -1632,11 +1632,11 @@ public void undersinkFooterlink() throws Exception
 	try {
 		
 		Common.actionsKeyPress(Keys.END);
-		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[10]");
-		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[10]");
+		Sync.waitElementPresent("xpath", "(//span[@class='mobile-accordion-link-text'])[9]");
+		Common.clickElement("xpath", "(//span[@class='mobile-accordion-link-text'])[9]");
 		
-		String title=Common.getPageTitle();
-		Common.assertionCheckwithReport(title.equals("GHP Products"),"Verifying Under Sink page","it shoud navigate to Under Sink page", "successfully  navigated to Under Sink Page", "Under Sink");	
+		String title=Common.getText("xpath", "//h2[contains(text(), 'Floor Standing Dispensers')]");
+		Common.assertionCheckwithReport(title.equals("Floor Standing Dispensers"),"Verifying Under Sink page","it shoud navigate to Under Sink page", "successfully  navigated to Under Sink Page", "Under Sink");	
 		}catch(Exception |Error e) {
 			ExtenantReportUtils.addFailedLog("To verify the Under Sink footer link","should navigate to Under Sink footerlink", "userunable to navigate to Under Sink footerlink", Common.getscreenShotPathforReport("failed to navigate to Under Sink footerlinkpage"));			
 			Assert.fail();	
@@ -2122,6 +2122,52 @@ public void privacy() {
 						}
 				
 		
+	}
+	
+	public void Multiple_Products()throws Exception{
+		   
+		String expectedResult="Multiple Products should added to cart ";
+
+		try {
+			
+			Sync.waitElementPresent("xpath", "//a[contains(text() ,'PUR PLUS 7 Cup Pitcher')]");
+			Common.clickElement("xpath", "//a[contains(text() ,'PUR PLUS 7 Cup Pitcher')]");
+			
+			Sync.waitElementPresent("xpath", "(//span[contains(text(), 'Add to Cart')])[1]");
+			Common.clickElement("xpath", "(//span[contains(text(), 'Add to Cart')])[1]");
+			 
+			searchProduct("productName");
+			
+			report.addPassLog(expectedResult,"Multiple Products  added to cart successfully", "Multiple Products should added to cart ", Common.getscreenShotPathforReport("Shop category page Success"));
+					}
+
+		catch(Exception |Error e)
+		{
+			report.addFailedLog(expectedResult,"Multiple Products  added to cart successfully", "Not  Products  added to cart ", Common.getscreenShotPathforReport("Multiple Products  added to cartfailed"));
+			e.printStackTrace();
+			Assert.fail();
+	}	
+}	
+	
+	public void SignIn_Shippingpage(String DataSet) {
+	    // TODO Auto-generated method stub
+	    String expectedResult=" SignIn in  shipping page ";
+	try {
+	    
+	    Sync.waitElementPresent("xpath", "(//input[@id='customer-email'])[1]");
+	    Common.textBoxInput("xpath", "(//input[@id='customer-email'])[1]", data.get(DataSet).get("Email"));
+	    Sync.waitElementPresent("xpath", "//input[@id='customer-password']");
+	    Common.textBoxInput("xpath", "//input[@id='customer-password']", data.get(DataSet).get("Password"));
+       Common.clickElement(By.xpath("//button[@class='action login primary']"));
+	    Thread.sleep(8000);
+	    Common.actionsKeyPress(Keys.END);
+	    Common.clickElement("xpath", "//button[@class='button action continue primary']");
+           report.addPassLog(expectedResult,"Should  login in shippg page ", "Payment and review page  displayed", Common.getscreenShotPathforReport("Payment and review page  displayed"));
+	   }catch(Exception |Error e) {
+	         e.printStackTrace();   
+	        ExtenantReportUtils.addFailedLog(expectedResult, "Should  login in shippg page", "Payment and review page  displayed", Common.getscreenShotPathforReport("Payment and review page  displayed"));
+	        Assert.fail();
+	    }
 	}
 }
 
