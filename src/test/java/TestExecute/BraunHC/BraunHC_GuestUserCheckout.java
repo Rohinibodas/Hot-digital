@@ -27,6 +27,9 @@ public class BraunHC_GuestUserCheckout {
 			BraunHC.ShippingcartPage();
 			BraunHC.GuestShippingaddress();
 			//BraunHC.MoneyOrderpayment();
+			BraunHC.Taxcalucaltion("Guest_shipping");
+
+
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			//BraunHC.GuestOrderSuccesspage();
 			BraunHC.RegistereduserOrderSuccesspage();

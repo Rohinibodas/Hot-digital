@@ -1,5 +1,6 @@
 package TestComponent.BraunHC;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -575,9 +576,11 @@ public class BraunHCHelper {
 			Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
 			Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
 			Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.ESCAPE);
 			Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
 			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
-			Common.dropdown("name", "region_id",Common.SelectBy.TEXT, data.get(dataSet).get("City"));
+			Common.dropdown("name", "region_id",Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
 			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
 			Thread.sleep(3000);		
 		}catch(Exception |Error e)
@@ -605,6 +608,7 @@ public class BraunHCHelper {
 			report.addPassLog(expectedResult, "Should display Shipping address Page", "Shipping address page display successfully", Common.getscreenShotPathforReport("Shipping address page success"));
 		}catch(Exception |Error e)
 		{
+			e.printStackTrace();
 			report.addFailedLog(expectedResult,"Should display  Shipping address Page", "Shipping address Page not displayed", Common.getscreenShotPathforReport("Shipping address page Failed"));
 			e.printStackTrace();
 			Assert.fail();
@@ -1615,10 +1619,59 @@ public class BraunHCHelper {
 			}
 				
 					}
+		
+		
+		public void Taxcalucaltion(String dataset) throws Exception{
+		try{
+			Thread.sleep(3000);
+		
+		String taxpercent=data.get(dataset).get("Tax");
+		 Float giventaxvalue=Float.valueOf(taxpercent);
+		
+		String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
+		 // subtotla.replace("", newChar)
+		Float subtotlaValue=Float.valueOf(subtotla);
+		
+		String shippingammount=Common.getText("xpath", "//span[@data-th='Shipping']").replace("$", "");
+		Float shippingammountvalue=Float.valueOf(shippingammount);
+		
+		String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax']/span").replace("$", "");
+		Float Taxammountvalue=Float.valueOf(TaxAmmount);
+		
+		String TotalAmmount=Common.getText("xpath", "//tr[@class='grand totals']//span").replace("$", "");
+		Float Totalammountvalue=Float.valueOf(Taxammountvalue);
+	    Float calucaltedvalue= ((subtotlaValue+shippingammountvalue)*giventaxvalue)/100;
+	    
+	    NumberFormat nf= NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(2);
+        String  userpaneltaxvalue=nf.format(calucaltedvalue);
+      
+        System.out.println(TaxAmmount);
+        System.out.println(userpaneltaxvalue);      
+	    Common.assertionCheckwithReport(userpaneltaxvalue.equals(TaxAmmount), "verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
+		
+		}
+	 catch(Exception |Error e)
+		{
+			report.addFailedLog("verifying tax calculation", "getting price values from shipping page  ", "Faield to get price value from shipping page", Common.getscreenShotPathforReport("TaxRates"));
+
+			e.printStackTrace();
+			Assert.fail();
+			
+	}
+		
+		
+		
+		}
+		
+		
 		public void AGREEPROCEED() {
 			// TODO Auto-generated method stub
+			int sizes=Common.findElements("xpath", "//button[text()='AGREE & PROCEED']").size();
+			if(sizes>0){
 			Sync.waitElementClickable(30, By.xpath("//button[text()='AGREE & PROCEED']"));
-		Common.findElement("xpath", "//button[text()='AGREE & PROCEED']").click();
+		   Common.findElement("xpath", "//button[text()='AGREE & PROCEED']").click();
+			}
 		}
 		
 		
