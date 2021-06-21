@@ -1,12 +1,27 @@
 package TestComponent.BraunHC;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
+
 
 import TestLib.Automation_properties;
 import TestLib.Common;
@@ -22,9 +37,13 @@ public class BraunHCHelper {
 	static Automation_properties automation_properties = Automation_properties.getInstance();
 	Map<String, Map<String, String>> data=new HashMap<>();
 	static ExtenantReportUtils report;
+	
+	//Map<String, List<Map<String, String>>> addressVal=new HashMap<>();
+	
 	public BraunHCHelper(String datafile){
 
 		excelData=new ExcelReader(datafile);
+		//addressVal=excelData.getStateAddressValue();
 		data=excelData.getExcelValue();
 		this.data=data;
 		if(Utilities.TestListener.report==null)
@@ -589,6 +608,26 @@ public class BraunHCHelper {
 			Assert.fail();
 		}
 	}
+	public void ShippingAddress(String dataSet,String Street,String City,String postcode,String Region) throws InterruptedException {
+		try {
+			Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
+			Thread.sleep(3000);
+			Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+			Common.textBoxInput("name", "street[0]", Street);
+			Thread.sleep(3000);
+			Common.actionsKeyPress(Keys.ESCAPE);
+			Common.textBoxInput("name", "city", City);
+			Common.textBoxInput("name", "postcode", postcode);
+			Common.dropdown("name", "region_id",Common.SelectBy.TEXT, Region);
+			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+			Thread.sleep(3000);		
+		}catch(Exception |Error e)
+		{
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
 	
 	public void GuestShippingaddress() throws InterruptedException {
 		String expectedResult="Should navigate to Shipping address page";
@@ -614,6 +653,32 @@ public class BraunHCHelper {
 			Assert.fail();
 		}
 	}
+	
+	public void GuestShippingaddress(String Street,String City,String postcode,String Region) throws InterruptedException {
+		String expectedResult="Should navigate to Shipping address page";
+		try {
+			Sync.waitElementClickable(30, By.xpath("//button[@data-role='proceed-to-checkout']"));
+			Common.clickElement("xpath" , "//button[@data-role='proceed-to-checkout']");
+			Thread.sleep(4000);
+			String S=Common.getText("xpath", "//*[@id='shipping']/div[1]");
+			System.out.println(S);
+			Assert.assertTrue(Common.isElementDisplayed("xpath", "//*[@id='shipping']/div[1]"));
+			Thread.sleep(3000);
+			ShippingAddress("Guest_shipping", Street, City, postcode, Region);
+			Common.scrollIntoView("xpath", "//div[@class='checkout-shipping-method']/div");
+			Thread.sleep(3000);
+			Common.clickElement("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr/td[1]/label");
+			Common.clickElement("xpath", "//button[@data-role='opc-continue']/span");
+			report.addPassLog(expectedResult, "Should display Shipping address Page", "Shipping address page display successfully", Common.getscreenShotPathforReport("Shipping address page success"));
+		}catch(Exception |Error e)
+		{
+			e.printStackTrace();
+			report.addFailedLog(expectedResult,"Should display  Shipping address Page", "Shipping address Page not displayed", Common.getscreenShotPathforReport("Shipping address page Failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
 	
 	public void MoneyOrderpayment() throws InterruptedException {
 		String expectedResult="Navigate to Review & payment Page";
@@ -1621,11 +1686,13 @@ public class BraunHCHelper {
 					}
 		
 		
-		public void Taxcalucaltion(String dataset) throws Exception{
+		public void Taxcalucaltion(String taxpercent) throws Exception{
 		try{
-			Thread.sleep(3000);
 		
-		String taxpercent=data.get(dataset).get("Tax");
+		
+		Thread.sleep(3000);
+		
+		//String taxpercent=data.get(dataset).get("Tax");
 		 Float giventaxvalue=Float.valueOf(taxpercent);
 		
 		String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
@@ -1675,7 +1742,183 @@ public class BraunHCHelper {
 		}
 		
 		
+		public void prepareTaxData(String fileName)
+		{
+		try{
+			
+			
+			File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
+			XSSFWorkbook workbook;
+			XSSFSheet sheet;
+			Row row;
+			Cell cell;
+			int rowcount;
+			if(!(file.exists()))
+			{
+			workbook = new XSSFWorkbook();
+			sheet = workbook.createSheet("TaxDetails");
+			CellStyle cs = workbook.createCellStyle();
+			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+			Font f = workbook.createFont();
+			f.setBold(true);
+			cs.setFont(f);	 
+			cs.setAlignment(HorizontalAlignment.RIGHT);
+			row = sheet.createRow(0);
+			cell = row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Orders details");
+			
+			    
+			row = sheet.createRow(1);
+			cell = row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("OrderId");
+			cell = row.createCell(1);
+			cell.setCellStyle(cs);
+			cell.setCellValue("SubTotal");
+			cell = row.createCell(2);
+			cell.setCellStyle(cs);
+			cell.setCellValue("ShippingAmount");
+			cell=row.createCell(3);
+			cell.setCellStyle(cs);
+			cell.setCellValue("TaxAmount");
+			cell=row.createCell(4);
+			cell.setCellStyle(cs);
+			cell.setCellValue("TotalAmount");
+			cell=row.createCell(5);
+			cell.setCellStyle(cs);
+			cell.setCellValue("ActualTax");
+			cell=row.createCell(6);
+			cell.setCellStyle(cs);
+			cell.setCellValue("ExpectedTax");
+			cell=row.createCell(7);
+			cell.setCellStyle(cs);
+			cell.setCellValue("status");
+			rowcount=2;
+			}
+			
+			else
+			{
+			workbook = new XSSFWorkbook(new FileInputStream(file));
+			sheet=workbook.getSheet("TaxDetails");	
+			rowcount=sheet.getLastRowNum()+1;
+			}
+			/*row = sheet.createRow(rowcount);
+			cell = row.createCell(0);*/
+	
+			FileOutputStream fileOut = new FileOutputStream(file);
+			workbook.write(fileOut);
+			fileOut.flush();
+			fileOut.close();
 
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+		
+		
+
+		public void writeResultstoXLSx(String OrderId,float SubTotal,float ShippingAmount,float TaxAmount, float TotalAmount,float ActualTax ,float ExpectedTax)
+		{
+		try{
+			
+			File file=new File(System.getProperty("user.dir")+"/src/test/resources/BraunTaxDetails.xlsx");
+			XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+			XSSFSheet sheet;
+			Row row;
+			Cell cell;
+			int rowcount;
+			sheet = workbook.getSheet("TaxDetails");
+			
+			if((workbook.getSheet("TaxDetails"))==null)
+			{
+			sheet = workbook.createSheet("TaxDetails");
+			CellStyle cs = workbook.createCellStyle();
+			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+			Font f = workbook.createFont();
+			f.setBold(true);
+			cs.setFont(f);	 
+			cs.setAlignment(HorizontalAlignment.RIGHT);
+			row = sheet.createRow(0);
+			cell = row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Orders details");
+			
+			row = sheet.createRow(1);
+			cell = row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("OrderId");
+			cell = row.createCell(1);
+			cell.setCellStyle(cs);
+			cell.setCellValue("SubTotal");
+			cell = row.createCell(2);
+			cell.setCellStyle(cs);
+			cell.setCellValue("ShippingAmount");
+			cell=row.createCell(3);
+			cell.setCellStyle(cs);
+			cell.setCellValue("TaxAmount");
+			cell=row.createCell(4);
+			cell.setCellStyle(cs);
+			cell.setCellValue("TotalAmount");
+			cell=row.createCell(5);
+			cell.setCellStyle(cs);
+			cell.setCellValue("ActualTax");
+			cell=row.createCell(6);
+			cell.setCellStyle(cs);
+			cell.setCellValue("ExpectedTax");
+			
+			rowcount=2;
+			
+			}
+			
+			else
+			{
+			
+			sheet=workbook.getSheet("TaxDetails");	
+			rowcount=sheet.getLastRowNum()+1;
+			}
+			row = sheet.createRow(rowcount);
+			cell = row.createCell(0);
+			cell.setCellValue(OrderId);
+			cell = row.createCell(1);
+			cell.setCellType(CellType.NUMERIC);
+			cell.setCellValue(SubTotal);
+			cell = row.createCell(2);
+			cell.setCellType(CellType.NUMERIC);
+			cell.setCellValue(ShippingAmount);
+			cell = row.createCell(3);
+			cell.setCellType(CellType.NUMERIC);
+			cell.setCellValue(TaxAmount);
+			cell = row.createCell(4);
+			cell.setCellType(CellType.NUMERIC);
+			cell.setCellValue(TotalAmount);
+			cell = row.createCell(5);
+			cell.setCellType(CellType.NUMERIC);
+			cell.setCellValue(ActualTax);
+			cell = row.createCell(6);
+			cell.setCellType(CellType.NUMERIC);
+			cell.setCellValue(ExpectedTax);
+			cell = row.createCell(7);
+			cell.setCellType(CellType.STRING);
+			String status="Fail";
+			if(ActualTax==ExpectedTax)
+			{
+				status="pass";
+			}
+			cell.setCellValue(status);
+			
+			FileOutputStream fileOut = new FileOutputStream(file);
+			workbook.write(fileOut);
+			fileOut.flush();
+			fileOut.close();
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+		
 	}
 	
 

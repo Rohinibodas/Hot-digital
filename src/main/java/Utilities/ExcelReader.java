@@ -8,6 +8,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -343,6 +344,84 @@ public class ExcelReader {
 
 		}
 		 return excelData;
+				
+	}
+	
+	
+	public static Map<String, List<Map<String, String>>> getStateAddressValue() {
+		Map<String, List<Map<String, String>>> cellVal=new HashMap<>();
+		
+		
+		
+		Map<String, Map<String, String>> excelData=new HashMap<>();
+
+		try {
+			workbook = new XSSFWorkbook(new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\testData\\"+fileName)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sheet=workbook.getSheetAt(0);
+		String data=null;
+		int rowNumber;
+		int cellNumber;
+		System.out.println(sheet.getLastRowNum());
+		List<Map<String, String>> values=new LinkedList();
+		String state="";
+		for(int i=1;i<=sheet.getLastRowNum();i++)
+		{
+			
+		//	state=sheet.getRow(i).getCell(1).getStringCellValue();
+			try {
+			if(!sheet.getRow(i).getCell(1).getStringCellValue().isEmpty()||!(sheet.getRow(i).getCell(1).getStringCellValue().equals(""))) 
+			{
+			if(!cellVal.containsKey(sheet.getRow(i).getCell(1).getStringCellValue()) && values.size()>0)
+			{   cellVal.put(state, values);	
+				values.clear();
+			}
+			state=sheet.getRow(i).getCell(1).getStringCellValue().trim();
+			}}
+			catch(Exception e)
+			{
+				return cellVal;
+			}
+			
+			Map<String, String> address=new HashMap<>();
+						
+	
+		
+				for(int j=2;j<sheet.getRow(i).getLastCellNum();j++)
+				{
+						System.out.print(sheet.getRow(i).getLastCellNum());
+						cell=sheet.getRow(i).getCell(j);
+						data=null;
+						try {
+						if(cell.getCellType()==cell.CELL_TYPE_STRING)
+						{
+							data=cell.getStringCellValue();
+						}
+						else if(cell.getCellType()==cell.CELL_TYPE_NUMERIC)
+						{
+							data= String.valueOf((long)(cell.getNumericCellValue()));
+						}
+						else if(cell.getCellType()==cell.CELL_TYPE_BOOLEAN)
+						{
+							data= String.valueOf(cell.getBooleanCellValue());
+						}
+						System.out.print(sheet.getRow(0).getCell(j).getStringCellValue());
+						address.put(sheet.getRow(0).getCell(j).getStringCellValue().trim(),data.trim());
+						
+						
+						}
+						catch (Exception e) {
+							address.put(sheet.getRow(0).getCell(j).getStringCellValue(), null);
+						}
+					}
+					values.add(address);
+				   	
+
+		}
+		 return cellVal;
 				
 	}
 
