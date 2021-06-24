@@ -349,11 +349,10 @@ public class ExcelReader {
 	
 	
 	public static Map<String, List<Map<String, String>>> getStateAddressValue() {
-		Map<String, List<Map<String, String>>> cellVal=new HashMap<>();
+		Map<String, List<Map<String, String>>> cellVal=new HashMap<String, List<Map<String, String>>>();
 		
 		
-		
-		Map<String, Map<String, String>> excelData=new HashMap<>();
+		//Map<String, Map<String, String>> excelData=new HashMap<>();
 
 		try {
 			workbook = new XSSFWorkbook(new FileInputStream(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\testData\\"+fileName)));
@@ -376,10 +375,12 @@ public class ExcelReader {
 			if(!sheet.getRow(i).getCell(1).getStringCellValue().isEmpty()||!(sheet.getRow(i).getCell(1).getStringCellValue().equals(""))) 
 			{
 			if(!cellVal.containsKey(sheet.getRow(i).getCell(1).getStringCellValue()) && values.size()>0)
-			{   cellVal.put(state, values);	
-				values.clear();
+			{   
+				cellVal.put(state, values);	
+				values=new LinkedList();
 			}
 			state=sheet.getRow(i).getCell(1).getStringCellValue().trim();
+	
 			}}
 			catch(Exception e)
 			{
