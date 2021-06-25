@@ -17,9 +17,11 @@ public class URLSCheck {
   public void URL_Navigation() {
 	  try {
 		//  String URL="https://hydro-stg-m2.heledigital.com/featured/new-arrivals";
-	      Hydro.new_arrivals("featured");
-	      Hydro.trail_Series("featured");
-	      Hydro.limited_edition("featured");
+		/*
+		 * Hydro.new_arrivals("featured"); Hydro.trail_Series("featured");
+		 * Hydro.limited_edition("featured");
+		 */
+		 Hydro. HydroflaskURLValidation("Links");
 	        
 		}
 		catch (Exception e) {

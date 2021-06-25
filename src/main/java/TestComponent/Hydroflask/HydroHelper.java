@@ -1,5 +1,9 @@
 package TestComponent.Hydroflask;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +30,18 @@ public class HydroHelper {
 	static ExtenantReportUtils report;
 	
 	static Automation_properties automation_properties = Automation_properties.getInstance();
+	
+	
+	public int getpageresponce(String url) throws MalformedURLException, IOException{
+		 HttpURLConnection c=(HttpURLConnection)new URL(url).openConnection();
+		   c.setRequestMethod("HEAD");
+		   c.connect();
+		   int r = c.getResponseCode();
+		   
+		   return r;
+	}
+	
+	
 	public void navigateMyAccount() throws InterruptedException {
 		Thread.sleep(2000);
 		Sync.waitPageLoad();
@@ -4088,6 +4104,57 @@ public void Newsletter_subscription() {
 		  
 	  }
 	  }
+  
+
+  public void HydroflaskURLValidation(String dataSet) throws Exception, IOException {
+	 String urls=data.get(dataSet).get("Links");
+	 int j=0;
+	 
+	 String[] strArray = urls.split("\\r?\\n");
+    for (int i=0; i<strArray.length; i++) {
+       System.out.println(strArray[i]);
+       
+       if (Common.getCurrentURL().contains("stg")) {
+    	   int  responcecode=getpageresponce(Common.getCurrentURL());
+	       System.out.println(responcecode);
+	   
+	    if(responcecode==200) {
+	    	ExtenantReportUtils.addPassLog("Validating Page URL ", "page configured with products ", "successfully page configured with products", Common.getscreenShotPathforReport("link"+i));
+	    }
+	    else {
+	    	
+	    	 j++;
+	    	 
+	    	 ExtenantReportUtils.addFailedLog("Validating Page URL  "+Common.getCurrentURL(), "page configured with products ", "unable to find page it showing 40 error",Common.getscreenShotPathforReport("link"+i));
+	    
+	    }
+   
+    	   
+       }
+       else if(Common.getCurrentURL().contains("https://www.hydroflask.com/")) {
+    	   
+    	     Common.oppenURL(strArray[i].replace("jetrails-stg", "www"));
+    	   
+    	    int  responcecode=getpageresponce(Common.getCurrentURL());
+    	       System.out.println(responcecode);
+    	   
+    	    if(responcecode==200) {
+    	    	ExtenantReportUtils.addPassLog("Validating Page URL ", "page configured with products ", "successfully page configured with products", Common.getscreenShotPathforReport("link"+i));
+    	    }
+    	    else {
+    	    	
+    	    	 j++;
+    	    	 
+    	    	 ExtenantReportUtils.addFailedLog("Validating Page URL  "+Common.getCurrentURL(), "page configured with products ", "unable to find page it showing 40 error",Common.getscreenShotPathforReport("link"+i));
+    	    
+    	    }
+       }
+    }
+	  if(j<1) {
+		  Assert.fail();
+	  }
+	   
+  }
 	public HydroHelper(String datafile) {
 		
 		
