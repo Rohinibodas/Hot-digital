@@ -32,7 +32,7 @@ public class Guest_Checkout_CreditCard_Mobile_appium {
 		}
 		catch (Exception e) {
 			
-			Assert.fail(e.getMessage(), e);
+			//Assert.fail(e.getMessage(), e);
 		} 
 	}
 	
@@ -47,11 +47,14 @@ public class Guest_Checkout_CreditCard_Mobile_appium {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "Hydroflask\\config.properties");
-		// Login.signIn("chrome","Galaxy S5");
+		 System.setProperty("configFile", "Hydroflask\\mobile_config.properties");
+		 Login.mobilesignIn("Andriod");
+		 Hydro.acceptPrivecy();
+		 
+		//Login.signIn("chrome","Galaxy S5");
 		 //Hydro.acceptPrivecy();
 		 
-		 DesiredCapabilities cap = new DesiredCapabilities();
+		/* DesiredCapabilities cap = new DesiredCapabilities();
 
 			cap.setCapability("browserName", "Chrome");
 
@@ -65,10 +68,11 @@ public class Guest_Checkout_CreditCard_Mobile_appium {
 			//AppiumDriver<MobileElement> driver=new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),cap);
 
 			RemoteWebDriver driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-			driver.get("https://hydro-stg-m2.heledigital.com/");
-			BaseDriver.driver=driver;
-			BaseDriver.setDriver(driver);
-			Hydro.acceptPrivecy();
+			//driver.get("https://jetrails-stg.hydroflask.com/");
+			driver.get("https://www.hydroflask.com/");
+			BaseDriver.driver=driver;*/
+		
+			
 		  
 	  }
 	

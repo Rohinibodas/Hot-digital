@@ -2,6 +2,8 @@ package TestLib;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -171,9 +174,28 @@ public class BaseDriver
 			catch (Exception e) {
 				// TODO: handle exception
 			}
+			
+				
 			return driver;
 		}
-
+		
+		public static WebDriver StartMobileBrowser(String Device,String URL, String deviceName, String udid) throws InterruptedException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, MalformedURLException
+		{
+			if(Device.equalsIgnoreCase("Andriod"))
+			{	
+			DesiredCapabilities cap = new DesiredCapabilities();
+			cap.setCapability("browserName", "Chrome");
+			cap.setCapability("platformVersion","11");
+			//cap.setCapability("deviceName","sdk_gphone_x86_arm");
+			cap.setCapability("deviceName",deviceName);
+			//cap.setCapability("udid","emulator-5554");
+			cap.setCapability("udid",udid);
+			cap.setCapability("platformName","ANDROID");
+			driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+			driver.get(URL);
+			}
+			return driver;
+		}
 		
 		public static void closeBrowser()
 		{
