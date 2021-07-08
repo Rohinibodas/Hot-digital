@@ -2606,9 +2606,9 @@ public void serachproduct_addtocart(String dataSet){
 		Common.textBoxInput("xpath", "//input[@id='search']", dataSet);
 		Common.actionsKeyPress(Keys.ENTER);
 		
-		Common.clickElement("xpath", "//a[text()='Adventure Bundle']");
+		Common.clickElement("xpath", "//a[text()='"+dataSet+"']");
 		Thread.sleep(4000);
-
+		 validating_BundlePrdocuts();
 		Common.clickElement("xpath", "//button[@title='Add to Cart']");
 	//	Common.clickElement("xpath", "//a[text()='Adventure Bundle']//following::form[1]//button");
 		
@@ -2619,6 +2619,7 @@ public void serachproduct_addtocart(String dataSet){
 		
 		
 	} catch (Exception | Error e) {
+		e.printStackTrace();
 		ExtenantReportUtils.addFailedLog("validating Search box", "enter product name will display in search box",
 				"User failed to enter product name", Common.getscreenShotPathforReport("searchproduct"));
 		Assert.fail();
@@ -4152,9 +4153,311 @@ public void Newsletter_subscription() {
     }
 	  if(j<1) {
 		  Assert.fail();
-	  }
-	   
+	  }  
   }
+  
+        public void validating_BundlePrdocuts() {
+        	
+        	
+        	//List<WebElement> ListofsubProducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div");
+        	
+
+        	int subproductList=Common.findElements("xpath","//div[@class='bundle-product-options-container']/div").size();
+        	
+        	      
+        	for(int i=0;i<=subproductList;i++) {
+        		int value=i+1;
+        		List<WebElement> ListOfSubproducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//input/following::label["+value+"]");
+        		
+        		System.out.println(ListOfSubproducts.size());
+        		
+        		WebElement Colornames=Common.findElement("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//strong");
+        		WebElement imagecolor=Common.findElement("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//img");
+        		for(int j=0;j<ListOfSubproducts.size();j++) {
+        			
+        		String attributevalue=	ListOfSubproducts.get(j).getAttribute("disabled");
+        			
+        		System.out.println(attributevalue);
+        			if(attributevalue!=null){
+        				
+        			}
+        			else {
+        				ListOfSubproducts.get(j).click();
+        				
+        				Common.assertionCheckwithReport(imagecolor.getAttribute("alt").contains(Colornames.getText()), "Vrifying  swatch color button "+Colornames.getText(), "after click color swatch button"+Colornames.getText()+"it must dispaly swatch color image", "successfully color swatch image is dispalying", "Failed load color swatch image");
+        				
+        			}
+        			
+        			        			
+        		}
+        	}
+        	
+        }
+        
+        public void verifyingTax_field() {
+        	
+        	
+        	 try {
+    	    	 Sync.waitPageLoad();
+    	         
+    	        String verifyTax=Common.findElement("xpath", "(//th[text()='Tax*'])").getText();
+    	      
+    	
+    	  		Common.assertionCheckwithReport(verifyTax.contains("Tax"),"Verifying tax in Payment page","Should display tax at right of the Payment details page", "successfully  displayed tax at right of the Payment details page", "Payment Page");
+    	   }catch(Exception |Error e) {
+    			ExtenantReportUtils.addFailedLog("Verifying tax in Payment page","Should display tax at right of the  Payment details page", "user unable to land on Payment page", Common.getscreenShotPathforReport("failed to land on Payment page"));			
+    			Assert.fail();	
+    			}
+    		
+        }
+        
+        
+        
+        public void edit_BillingAddress_newuser() {
+        	
+        	 Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+ 		    
+  		   int sizename= Common.findElements("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']").size();
+  	    	
+  		   if(sizename>0) {
+  			   /*
+  			    * Address
+  			    */
+  			}
+        	
+        	
+        }
+        
+        public void edit_billingAddress_intermiddeduser() {
+        	
+        	Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+        	
+        }
+        
+        
+        public void edit_BillingAddress_RegisterUser(String dataSet) {
+        	int newaddressbutton=Common.findElements("xpath","//button[contains(@class,'new-billing-address')]").size();
+        	if(newaddressbutton>0) {
+        		
+        		Common.clickElement("xpath","//button[contains(@class,'new-billing-address')]");
+        		/*  Oldexisting user
+        		 * Add new billing address
+        		 */
+        		  try {
+        		Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+    			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+    		
+    			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+    			
+    			
+    			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+    			Thread.sleep(4000);
+    		
+    			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+    			//Thread.sleep(4000);
+    			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+    			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+    			Common.actionsKeyPress(Keys.PAGE_DOWN);
+    			Thread.sleep(2000);
+    			Common.clickElement("xpath", "//span[text()='Save Address']");
+        		  }
+    			catch(Exception |Error e) {
+       				e.printStackTrace();
+       				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+       				Assert.fail();
+       				
+       			}  
+        		
+        		
+        		
+        	}
+        	else 
+        	            {
+        		
+        		        Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+        		    
+        		      int sizename= Common.findElements("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']").size();
+        	    	
+        		    if(sizename>0) {
+        			   /* new user 
+        			    * Address
+        			   else */
+        			   try {
+        			   Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+           			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+           		
+           			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+           			
+           			
+           			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+           			Thread.sleep(4000);
+           		
+           			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+           			//Thread.sleep(4000);
+           			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+           			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+           			Common.actionsKeyPress(Keys.PAGE_DOWN);
+           			Thread.sleep(2000);
+           			Common.clickElement("xpath", "//button[@class='action action-update']");
+           			
+           			Thread.sleep(5000);
+           			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+           		    System.out.println("error messagess    "+sizeerrormessage);
+           			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+        			   }
+        			   catch(Exception |Error e) {
+           				e.printStackTrace();
+           				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+           				Assert.fail();
+           				
+           			}  
+        			   
+        			}
+        		   
+        		   
+        		   
+        		   int dropdownewAdress=Common.findElements("xpath", "//select[@id='billing_address_id']").size();
+        	    	
+        	    	
+        		
+        		    if (dropdownewAdress>0) {
+        		    	
+        			
+        			  Common.dropdown("xpath", "//select[@id='billing_address_id']",SelectBy.VALUE,"New Address");
+        			  /*
+        			   * new address 
+        			   */
+        			  try {
+        			  Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+             			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+             		
+             			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+             			
+             			
+             			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+             			Thread.sleep(4000);
+             		
+             			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+             			//Thread.sleep(4000);
+             			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+             			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+             			Common.actionsKeyPress(Keys.PAGE_DOWN);
+             			Thread.sleep(2000);
+             			Common.clickElement("xpath", "//button[@class='action action-update']");
+             			
+             			Thread.sleep(5000);
+             			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+             		    System.out.println("error messagess    "+sizeerrormessage);
+             			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+        			  }
+        			  catch(Exception |Error e) {
+          				e.printStackTrace();
+          				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+          				Assert.fail();
+          				
+          			  }  
+        			  
+        			  }
+        		    
+        		    else {
+        		    	
+        		    	Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");		  
+        		    	 Common.dropdown("xpath", "//select[@id='billing_address_id']",SelectBy.VALUE,"New Address");
+           			  /*
+           			   * new address 
+           			   */
+           			  try {
+           			  Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+                			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+                		
+                			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+                			
+                			
+                			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+                			Thread.sleep(4000);
+                		
+                			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+                			//Thread.sleep(4000);
+                			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+                			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+                			Common.actionsKeyPress(Keys.PAGE_DOWN);
+                			Thread.sleep(2000);
+                			Common.clickElement("xpath", "//button[@class='action action-update']");
+                			
+                			Thread.sleep(5000);
+                			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+                		    System.out.println("error messagess    "+sizeerrormessage);
+                			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+           			  }
+           			  catch(Exception |Error e) {
+             				e.printStackTrace();
+             				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+             				Assert.fail();
+             				
+             			  }  
+           			  
+        			  
+        		  }
+        		  
+        		  
+        		
+        	}
+        	
+          }
+        
+        public void edit_BillingAddress_gustuser(String dataSet) {
+        	
+        	
+        	
+        	
+        
+        	
+        	try{
+        		    Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+        		    
+        		    Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']");
+        		    
+        		   int billingaddressform= Common.findElements("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']").size();
+        		    
+        		   Common.assertionCheckwithReport(billingaddressform>0, "Filling the Billing address ", "user editing  the billing address", "user sucessfully open the billing address from ", "faield open the bulling address from");
+        		    
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']",data.get(dataSet).get("FirstName"));
+        			Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='lastname']");
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='lastname']",data.get(dataSet).get("LastName"));
+        			
+        		
+        			Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+        		
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+        			
+        			
+        			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+        			Thread.sleep(4000);
+        		
+        			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+        			//Thread.sleep(4000);
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+        			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+        			Common.actionsKeyPress(Keys.PAGE_DOWN);
+        			Thread.sleep(2000);
+        			Common.clickElement("xpath", "//button[@class='action action-update']");
+        			
+        			Thread.sleep(5000);
+        			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+        		    System.out.println("error messagess    "+sizeerrormessage);
+        			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+        		}
+        			
+        			catch(Exception |Error e) {
+        				e.printStackTrace();
+        				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+        				Assert.fail();
+        				
+        			}  
+        		}
+        
+  
 	public HydroHelper(String datafile) {
 		
 		
