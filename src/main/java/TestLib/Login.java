@@ -44,7 +44,22 @@ public class Login {
 		}
 		
 	}
-	
+	public static void mobilesignIn(String Device) throws Exception
+	{
+		if(BaseDriver.getDriver()==null)
+		{
+		Automation_properties.setInstance(null);
+		automation_properties = Automation_properties.getInstance();
+		System.out.println(automation_properties.getProperty(automation_properties.BASEURL));
+		if(Device.equalsIgnoreCase("andriod"))
+		driver=BaseDriver.StartMobileBrowser(Device,automation_properties.getProperty(automation_properties.BASEURL),automation_properties.getProperty(automation_properties.DeviceName),automation_properties.getProperty(automation_properties.UDID));
+		if(Device.equalsIgnoreCase("ios"))
+			driver=BaseDriver.StartMobileBrowser(Device,automation_properties.getProperty(automation_properties.BASEURL),automation_properties.getProperty(automation_properties.DeviceName),automation_properties.getProperty(automation_properties.PlatformVersion));
+			
+		Driver.getLogger().info("Logged in with User: ");
+		}
+		
+	}
 	
 	
 	public static void signIn() throws Exception

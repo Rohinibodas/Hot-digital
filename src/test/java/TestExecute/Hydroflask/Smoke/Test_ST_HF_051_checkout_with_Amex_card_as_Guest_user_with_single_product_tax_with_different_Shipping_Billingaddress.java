@@ -9,35 +9,35 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
+public class Test_ST_HF_051_checkout_with_Amex_card_as_Guest_user_with_single_product_tax_with_different_Shipping_Billingaddress
 
-public class TEST_ST_HF_032_Checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product {
+{
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  
-  public void checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product() {
-	  try{
-        
-		Hydro.loginHydroflaskAccount("AccountDetails");
-	    Hydro.serachproduct_addtocart("Adventure Bundle");
-	    Hydro.Customize_Bottle_Standed();
-	    Hydro.checkOut();
-		Hydro.addDeliveryAddress_registerUser("Address");
-		Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
-  
-	  }
+
+  public void gustuserCheckoutusingAmexCC_withDifferent_Shipping_BillingAddress() {
+		try {
+		Hydro.orderSubmit("Bottles");
+		Hydro.checkOut();
+		Hydro.addDeliveryAddress("Address");
+		Hydro.verifyingTax_field();
+		Hydro.edit_BillingAddress_gustuser("");
+		Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
+		
+		
+		}
 		catch (Exception e) {
 			e.printStackTrace();
-			
 			Assert.fail(e.getMessage(), e);
 		} 
-}
+  }
+  
 	
-
 	@AfterTest
 	public void clearBrowser()
 	{
-       Common.closeAll();
+   Common.closeAll();
 
 	}
 	
@@ -46,6 +46,9 @@ public class TEST_ST_HF_032_Checkout_with_credit_card_as_registered_user_with_bu
 		 System.setProperty("configFile", "Hydroflask\\config.properties");
 		  Login.signIn();
 		  Hydro.acceptPrivecy();
-		//  Hydro.ClosADD();		  
+		  Hydro.ClosADD();		  
 	  }
+
 }
+
+

@@ -36,6 +36,9 @@ public class Automation_properties {
 	public static final String FAAS = "FAASFLAG";
 	public final static String VideoRecord = "VideoRecord";
 	public final static String VIEW = "VIEW";
+	public final static String DeviceName = "DeviceName";
+	public final static String UDID = "UDID";
+	public final static String PlatformVersion = "PlatformVersion";
 
 	public static void setTestNG(String testNGFile) {
 		testNG = testNGFile;
