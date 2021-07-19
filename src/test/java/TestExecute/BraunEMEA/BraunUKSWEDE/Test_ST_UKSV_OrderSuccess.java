@@ -27,7 +27,7 @@ public class Test_ST_UKSV_OrderSuccess {
 				BraunUK.SDProductselection();
 				BraunUK.SwedennavigateMinicart();
 				BraunUK.SDcheckoutPage();
-				BraunUK.Swedenshipping_Address("GuestEmail");
+				//BraunUK.Swedenshipping_Address("GuestEmail");
 				BraunUK.SwedenCreditcardPayment("PaymentcardDetails");
 				//BraunUK.SDorder_Verifying();
 				
