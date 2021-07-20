@@ -3024,6 +3024,119 @@ public void order(String category) throws Exception {
 		}
 	}
 
+
+//div[@class='mh-customization-title-top' and text()='24 oz']//following::a[1]
+
+
+public void Customize_Bottle_Standed(String bottlesize) throws Exception {
+
+	String expectedResult = "User should land on the home page";
+	Thread.sleep(8000);
+	int size = Common.findElements("xpath", "//a[@class='logo']").size();
+	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
+	
+	try {
+		
+         Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+		 Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+    
+        int customeButton=Common.findElements("xpath", "//span[contains(text(),'Create Yours Now')]").size();
+        if(customeButton>0) {
+        	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
+        }
+		 
+        expectedResult = "It should land successfully on my-hydro-landing page";
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("My Hydro™ by Hydro Flask | Customized & Personalized Hydro Flasks"), "validating My hydro-Landing page", expectedResult,
+				"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
+
+		
+		
+		
+	} 
+	catch (Exception | Error e) {
+         e.printStackTrace();
+		report.addFailedLog("validating My hydro-Landing page", expectedResult,
+				"User Faield to select My Hydro option", Common.getscreenShotPathforReport("Myhydropage"));
+		
+		Assert.fail();
+
+	}
+
+	try {
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Sync.waitElementClickable("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		Common.clickElement("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		
+		
+		Thread.sleep(8000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("MyHydro STANDARD MOUTH"), "It should land on the my hydro standard mouth configurator", "successfully opean the  my hydro standard configurator page", "my-hydro-configurator");
+		
+
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating my hydro configuration page",
+				"It should land successfully on the my hydro configurator and select Standard Mouth Bottle ",
+				"User Faield to select My Hydro configurator or botttle option",
+				Common.getscreenShotPathforReport("My hydro options"));
+		Assert.fail();
+
+	}
+
+	
+
+	
+	try {
+		Thread.sleep(18000);
+		
+		Common.actionsKeyPress(Keys.ESCAPE);
+		
+		selectSide_standard_mouthbottle("24oz");
+		select_Capcolor_standardMouthBottle("Black");
+		select_Strapcolor_standardMouthBottle("Black");
+		select_Bottlecolor_standardMouthBottle("Black");
+		select_Bootcolor_standardMouthBottle("Stone");
+
+	
+		
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", expectedResult,"User unabel to change bottele color ",Common.getscreenShotPathforReport("faield change the color myhydro"));
+		Assert.fail();
+
+	}
+	
+	try {
+		Sync.waitElementPresent("xpath", "//span[text()='Add To Cart']");
+		Common.clickElement("xpath", "//span[text()='Add To Cart']");
+		ExtenantReportUtils.addPassLog("verifying myhydro configuration page", "user click add to cart button",
+				"user click the add to cart button",
+				Common.getscreenShotPathforReport("faield to click add to cart button"));
+	} catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", "click add to cart",
+				"User faield to click add to cart ", Common.getscreenShotPathforReport("add to cart button"));
+		Assert.fail();
+
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public void Customize_Bottle_Standed() throws Exception {
 
 	String expectedResult = "User should land on the home page";
@@ -3080,7 +3193,7 @@ public void Customize_Bottle_Standed() throws Exception {
 
 	}
 
-	Thread.sleep(18000);
+	
 
 	
 	try {
@@ -3118,6 +3231,104 @@ public void Customize_Bottle_Standed() throws Exception {
 	
 	
 }
+
+public void Customize_Bottle_Wide(String bottlesize) throws Exception {
+
+	String expectedResult = "User should land on the home page";
+	Thread.sleep(8000);
+	int size = Common.findElements("xpath", "//a[@class='logo']").size();
+	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
+	
+	try {
+		
+         Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+		 Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+    
+        int customeButton=Common.findElements("xpath", "//span[contains(text(),'Create Yours Now')]").size();
+        if(customeButton>0) {
+        	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
+        }
+		 
+        expectedResult = "It should land successfully on my-hydro-landing page";
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("My Hydro™ by Hydro Flask | Customized & Personalized Hydro Flasks"), "validating My hydro-Landing page", expectedResult,
+				"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
+
+		
+		
+		
+	} 
+	catch (Exception | Error e) {
+         e.printStackTrace();
+		report.addFailedLog("validating My hydro-Landing page", expectedResult,
+				"User Faield to select My Hydro option", Common.getscreenShotPathforReport("Myhydropage"));
+		
+		Assert.fail();
+
+	}
+
+	try {
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Sync.waitElementClickable("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		Common.clickElement("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		
+		
+		Thread.sleep(8000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("MyHydro"), "It should land on the my hydro wide mouth configurator", "successfully opean the  my hydro wide bootle configurator page", "my-hydro-configurator");
+		
+
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating my hydro configuration page",
+				"It should land successfully on the my hydro configurator and select Wide Mouth Bottle ",
+				"User Faield to select My Hydro configurator or botttle option",
+				Common.getscreenShotPathforReport("My hydro options wide"));
+		Assert.fail();
+
+	}
+
+	Thread.sleep(18000);
+
+	
+	try {
+		Thread.sleep(18000);
+		
+		Common.actionsKeyPress(Keys.ESCAPE);
+		
+		
+		selectSide_wide_mouthbottle("32oz");
+		select_Capcolor_WideMouthBottle("Black");
+		select_Strapcolor_wideMouthBottle("Black");
+		select_Bottlecolor_wideMouthBottle("Black");
+		select_Bootcolor_wideMouthBottle("Stone");
+
+	
+		
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", expectedResult,"User unabel to change bottele color ",Common.getscreenShotPathforReport("faield change the color myhydro"));
+		Assert.fail();
+
+	}
+	
+	try {
+		Sync.waitElementPresent("xpath", "//span[text()='Add To Cart']");
+		Common.clickElement("xpath", "//span[text()='Add To Cart']");
+		ExtenantReportUtils.addPassLog("verifying myhydro configuration page", "user click add to cart button",
+				"user click the add to cart button",
+				Common.getscreenShotPathforReport("faield to click add to cart button"));
+	} catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", "click add to cart",
+				"User faield to click add to cart ", Common.getscreenShotPathforReport("add to cart button"));
+		Assert.fail();
+
+	}
+	
+	
+}
+
+
 
 public void Customize_Bottle_Wide() throws Exception {
 
@@ -4163,13 +4374,15 @@ public void Newsletter_subscription() {
         	
 
         	int subproductList=Common.findElements("xpath","//div[@class='bundle-product-options-container']/div").size();
-        	
+        	System.out.println(subproductList+"TEAMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         	      
-        	for(int i=0;i<=subproductList;i++) {
+        	for(int i=0;i<subproductList;i++) {
         		int value=i+1;
+        		
+        		
         		List<WebElement> ListOfSubproducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//input/following::label["+value+"]");
         		
-        		System.out.println(ListOfSubproducts.size());
+        		
         		
         		WebElement Colornames=Common.findElement("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//strong");
         		WebElement imagecolor=Common.findElement("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//img");
@@ -4182,10 +4395,16 @@ public void Newsletter_subscription() {
         				
         			}
         			else {
+        				
+        				if(ListOfSubproducts.get(j).getAttribute("class").contains("js-bundle-label")) {
         				ListOfSubproducts.get(j).click();
         				
-        				Common.assertionCheckwithReport(imagecolor.getAttribute("alt").contains(Colornames.getText()), "Vrifying  swatch color button "+Colornames.getText(), "after click color swatch button"+Colornames.getText()+"it must dispaly swatch color image", "successfully color swatch image is dispalying", "Failed load color swatch image");
-        				
+        				Common.assertionCheckwithReport(imagecolor.getAttribute("alt").contains(Colornames.getText() )||imagecolor.getAttribute("alt").trim().equals(""), "Vrifying  swatch color button "+Colornames.getText(), "after click color swatch button"+Colornames.getText()+"it must dispaly swatch color image", "successfully color swatch image is dispalying", "Failed load color swatch image");
+        				}
+        				else {
+        					
+        				    break;
+        				}
         			}
         			
         			        			
@@ -4456,6 +4675,57 @@ public void Newsletter_subscription() {
         				
         			}  
         		}
+        
+        
+        
+        public void validating_Bottles() {
+        	
+        	
+        	
+        }
+        
+        public void validatingShoppbutton() throws Exception {
+        	Thread.sleep(3000);
+        	String productname;
+        	try {
+        	List<WebElement> shshopcategoryOptiont=Common.findElements("xpath", "//button[contains(text(),' Shop')]//following::ul[1]/li/a");
+        	
+        	System.out.println(shshopcategoryOptiont.size());
+        	for(int i=0;i<shshopcategoryOptiont.size();i++) {
+        		
+        		
+        		
+        		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
+        		Thread.sleep(5000);
+        		List<WebElement> shshopcategoryOption=Common.findElements("xpath", "//button[contains(text(),' Shop')]//following::ul[1]/li/a");
+        		productname=shshopcategoryOption.get(i).getText();
+        	    shshopcategoryOption.get(i).click();
+        	    
+        	    int  responcecode=getpageresponce(Common.getCurrentURL());
+     	       System.out.println(responcecode);
+     	   
+     	    if(responcecode==200) {
+     	    	ExtenantReportUtils.addPassLog("Validating"+ productname +"Page  ", "click the shop linka navigating to "+productname +"Page", "successfully page navigating to "+productname +"PAGE", Common.getscreenShotPathforReport(productname));
+     	    }
+     	    else {
+     	    	
+     	    	 
+     	    	 
+     	    	 ExtenantReportUtils.addFailedLog("Validating Page URL "+ productname +"page", "click the shop linka navigating to "+productname +"Page ", "unable to find page it showing 40 error",Common.getscreenShotPathforReport(productname));
+     	          Assert.fail();
+     	    }
+        	
+        	}
+        	}
+        	catch(Exception |Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("verifying Shop links ", "user validating shop link ad sub links", "faield to load the shop links ",Common.getscreenShotPathforReport("shoplinks"));
+				Assert.fail();
+				
+			}  
+        	
+        }
+       
         
   
 	public HydroHelper(String datafile) {
