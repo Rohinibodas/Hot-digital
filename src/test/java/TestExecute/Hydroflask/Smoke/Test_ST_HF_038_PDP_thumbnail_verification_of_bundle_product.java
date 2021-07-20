@@ -19,13 +19,15 @@ public class Test_ST_HF_038_PDP_thumbnail_verification_of_bundle_product {
 	 public void checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product() {
 		  try{
 	        
-			//Hydro.loginHydroflaskAccount("AccountDetails");
+			Hydro.loginHydroflaskAccount("AccountDetails");
 		    Hydro.serachproduct_addtocart("Serving Bundle");
-		    //Hydro.Customize_Bottle_Standed();
+		    Hydro.Customize_Bottle_Standed("24 oz");;
 		    Hydro.validating_BundlePrdocuts();
-		    Hydro.checkOut();
-			Hydro.addDeliveryAddress_registerUser("Address");
-			Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
+			
+			  Hydro.checkOut();
+			  Hydro.addDeliveryAddress_registerUser("Address");
+			  Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
+			 
 	  
 		  }
 			catch (Exception e) {
@@ -39,7 +41,7 @@ public class Test_ST_HF_038_PDP_thumbnail_verification_of_bundle_product {
 		@AfterTest
 		public void clearBrowser()
 		{
-	      // Common.closeAll();
+	       Common.closeAll();
 
 		}
 		

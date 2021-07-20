@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_ST_HF_040_Paypal_checkout_as_registered_user_with_Configure_bundle_and_simple_product {
@@ -35,7 +36,7 @@ public class TEST_ST_HF_040_Paypal_checkout_as_registered_user_with_Configure_bu
 			@AfterTest
 			public void clearBrowser()
 			{
-		      // Common.closeAll();
+		       Common.closeAll();
 
 			}
 			
@@ -44,7 +45,7 @@ public class TEST_ST_HF_040_Paypal_checkout_as_registered_user_with_Configure_bu
 				 System.setProperty("configFile", "Hydroflask\\config.properties");
 				  Login.signIn();
 				  Hydro.acceptPrivecy();
-				//  Hydro.ClosADD();		  
+				  Hydro.ClosADD();		  
 			  }
   
 }

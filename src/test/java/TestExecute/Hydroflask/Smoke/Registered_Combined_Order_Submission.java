@@ -19,7 +19,7 @@ public class Registered_Combined_Order_Submission {
 	  try { 
 	 Hydro.loginHydroflaskAccount("AccountDetails");
 	 Hydro.orderSubmit("Bottles");
-	 Hydro.Customize_Bottle();
+     Hydro.Customize_Bottle_Standed("24 oz");
 	 Hydro.addDeliveryAddress_registerUser("Address");
 
 	 Hydro.updatePaymentAndSubmitOrder("PaymentDetails");

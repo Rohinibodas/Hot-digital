@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Hydroflask.HydroHelper;
+import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_ST_HF_033_Checkout_with_creditcard_as_Guest_user_with_bundle_my_hydro_and_configurable_product {
@@ -18,7 +19,7 @@ public class TEST_ST_HF_033_Checkout_with_creditcard_as_Guest_user_with_bundle_m
         
 		
 	    Hydro.serachproduct_addtocart("Adventure Bundle");
-	    Hydro.Customize_Bottle_Standed();
+	    Hydro.Customize_Bottle_Standed("24 oz");
 	    Hydro.checkOut();
 		Hydro.addDeliveryAddress("Address");
 		Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
@@ -35,7 +36,7 @@ public class TEST_ST_HF_033_Checkout_with_creditcard_as_Guest_user_with_bundle_m
 	@AfterTest
 	public void clearBrowser()
 	{
-      // Common.closeAll();
+       Common.closeAll();
 
 	}
 	

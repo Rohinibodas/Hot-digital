@@ -30,7 +30,7 @@ public class Test_HF_ST_039_Shopping_cart_validation {
 	@AfterTest
 	public void clearBrowser()
 	{
-	   //Common.closeAll();
+	   Common.closeAll();
 
 	}
 

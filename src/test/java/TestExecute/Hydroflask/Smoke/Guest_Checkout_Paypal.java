@@ -20,7 +20,7 @@ public class Guest_Checkout_Paypal {
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress("Address");
-			 Hydro.payPal_Payment("PaypalDetails");
+			Hydro.payPal_Payment("PaypalDetails");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
