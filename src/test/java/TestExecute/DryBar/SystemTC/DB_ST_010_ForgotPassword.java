@@ -17,9 +17,10 @@ public class DB_ST_010_ForgotPassword {
   public void forgotPassword() throws Exception {
 	 
 		try{
-			 //drybar.Accept();
-			 drybar.navigateMyAccount();
+			
 			 drybar.Accept();
+			 drybar.navigateMyAccount();
+			 //drybar.Accept();
 		     drybar.click_forgotpassword();
   }
 	catch (Exception e) {

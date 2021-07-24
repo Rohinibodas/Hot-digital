@@ -1,5 +1,6 @@
 package TestExecute.DryBar.SystemTC;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -16,12 +17,15 @@ public class DB_ST_017_Expedited_shipping_method_checkout {
 	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void Expediated_ShippingMethod() throws Exception {
+		
+		try {
+			
 		 drybar.Accept();
 		 drybar.verifyingHomePage();
 		 drybar.clickHairProducts();
 		  drybar.SelectShampoos();
 		  drybar.Selectproduct();
-		  drybar.Accept();
+		 // drybar.Accept();
 		  drybar.Verify_PDP();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();
@@ -33,7 +37,13 @@ public class DB_ST_017_Expedited_shipping_method_checkout {
 	  drybar.click_Next();
 	  drybar.creditCard_payment("CCVisa");
 	  drybar.order_Success();
-  }
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+			Assert.fail(e.getMessage(), e);
+		} 
+	}
   
   
   @AfterTest

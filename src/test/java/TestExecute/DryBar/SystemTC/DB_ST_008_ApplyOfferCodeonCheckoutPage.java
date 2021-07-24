@@ -16,12 +16,14 @@ public class DB_ST_008_ApplyOfferCodeonCheckoutPage {
   public void applyOfferCodeonCheckoutPage() throws Exception {
 		 
 		try{
+			
+			
 		  drybar.Accept();
 		  drybar.verifyingHomePage();
 			 drybar.clickHairProducts();
 			  drybar.SelectShampoos();
 			  drybar.Selectproduct();
-			  drybar.Accept();
+			 // drybar.Accept();
 			  drybar.Verify_PDP();
 		  drybar.increaseProductQuantity("2");
 		  drybar.clickAddtoBag();
@@ -29,7 +31,7 @@ public class DB_ST_008_ApplyOfferCodeonCheckoutPage {
 		  drybar.clickCheckoutButton();
 		  drybar.click_GuestCheckOut();
 		  drybar.guestShippingAddress("ShippingAddress");
-		  drybar.couponCode("couponCode");
+		  drybar.couponCode("couponCode2");
 		  drybar.creditCard_payment("CCVisa");
 		  drybar.order_Success();
   }

@@ -16,12 +16,11 @@ public class DB_ST_020_Product_Wishlist {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void Product_Wishlist()throws Exception {
 		try {
-		drybar.Accept();
-		drybar.verifyingHomePage();
-	    drybar.navigateMyAccount();
-	   drybar.loginApplication("AccountDetails");
-	   drybar.clickHairProducts();
-	   drybar.Accept();
+		  drybar.Accept();
+		  drybar.verifyingHomePage();
+	      drybar.navigateMyAccount();
+	      drybar.loginApplication("AccountDetails");
+	      drybar.clickHairProducts();
 		  drybar.SelectShampoos();
 		  drybar.Selectproduct();
 		  drybar.Verify_PDP();

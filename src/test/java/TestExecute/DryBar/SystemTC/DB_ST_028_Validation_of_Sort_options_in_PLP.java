@@ -17,6 +17,7 @@ public class DB_ST_028_Validation_of_Sort_options_in_PLP {
   
   public void Validation_of_Sort_options_Functionality() {
 		try {
+			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.clickHairProducts();
@@ -34,7 +35,7 @@ public class DB_ST_028_Validation_of_Sort_options_in_PLP {
 		@AfterTest
 		public void clearBrowser()
 		{
-	   //  Common.closeAll();
+	     Common.closeAll();
 
 		}
 		

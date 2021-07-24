@@ -17,6 +17,7 @@ public class DB_ST_023_Add_NewAddress {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void Add_Address_for_RegisteredUser()throws Exception {
 		try {
+			
 		drybar.Accept();
 		drybar.verifyingHomePage();
 	    drybar.navigateMyAccount();

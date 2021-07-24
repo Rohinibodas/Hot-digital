@@ -16,6 +16,7 @@ public class DB_ST_024_OrderID_Verification {
   
   public void To_verify_orderID() {
 		try {
+			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
@@ -26,12 +27,10 @@ public class DB_ST_024_OrderID_Verification {
 			  drybar.Selectproduct();
 			 // drybar.Accept();
 			  drybar.Verify_PDP();
-			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment("CCVisa");
 			  drybar.order_Success();

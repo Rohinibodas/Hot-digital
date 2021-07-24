@@ -17,6 +17,7 @@ public class DB_ST_035_Email_To_A_Friend {
   
   public void Email_to_a_friend_Functionality() {
 		try {
+			
 			  drybar.Accept();
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");

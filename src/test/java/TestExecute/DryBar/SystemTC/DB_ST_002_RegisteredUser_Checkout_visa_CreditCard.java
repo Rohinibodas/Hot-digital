@@ -23,7 +23,7 @@ public class DB_ST_002_RegisteredUser_Checkout_visa_CreditCard {
 			 // drybar.Accept();
 			  drybar.loginApplication("AccountDetails");
 			  drybar.clickHairProducts();
-			 // drybar.Close_popup();
+			  //drybar.Close_popup();
 			  //drybar.Accept();
 			 // Thread.sleep(4000);
 			  drybar.SelectShampoos();
@@ -36,7 +36,7 @@ public class DB_ST_002_RegisteredUser_Checkout_visa_CreditCard {
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
 			    //drybar.click_Next();
 			    //drybar.select_CC();
-			 // drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
+			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment("CCVisa");
 			  drybar.order_Success();
 			
@@ -57,6 +57,7 @@ public class DB_ST_002_RegisteredUser_Checkout_visa_CreditCard {
 	Common.closeAll();
 
 	}
+	
 	
 
 	@BeforeTest

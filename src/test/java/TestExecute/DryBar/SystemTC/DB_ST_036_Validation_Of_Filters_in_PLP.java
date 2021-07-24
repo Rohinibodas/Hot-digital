@@ -19,7 +19,8 @@ String datafile = "DryBar//DryBarTestData.xlsx";
       drybar.FilterOptionsPLP();	
 
 		  			 	
-		  		}	
+		  		
+	}	
 	catch (Exception e) {	
 		e.printStackTrace();	
 					Assert.fail(e.getMessage(), e);	

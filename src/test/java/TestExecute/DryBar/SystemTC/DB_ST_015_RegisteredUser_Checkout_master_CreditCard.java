@@ -17,6 +17,7 @@ public class DB_ST_015_RegisteredUser_Checkout_master_CreditCard {
   
   public void registeredUser_Checkout_CreditCard() {
 		try {
+			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
@@ -24,14 +25,12 @@ public class DB_ST_015_RegisteredUser_Checkout_master_CreditCard {
 				 drybar.clickHairProducts();
 				  drybar.SelectShampoos();
 				  drybar.Selectproduct();
-				  drybar.Accept();
 				  drybar.Verify_PDP();
 			  drybar.increaseProductQuantity("2");
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton();
 			  drybar.clickCheckoutButton();
 			  drybar.addDeliveryAddress_registerUser("ShippingAddress");
-			  drybar.select_USPS_StandardGround_shippingMethod();
 			  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 			  drybar.creditCard_payment("CCmastercard");
 			  drybar.order_Success();

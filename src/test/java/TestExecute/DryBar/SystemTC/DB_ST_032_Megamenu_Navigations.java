@@ -17,6 +17,7 @@ public class DB_ST_032_Megamenu_Navigations {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void validatingHeaderLinks_Registereduser()  {
 	  try {
+		  
 	  drybar.Accept();
 	  drybar.verifyingHomePage();
 	  drybar.Hair_ProductsMegamenuValidations("HairproductsMegaMenu");

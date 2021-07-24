@@ -16,7 +16,7 @@ public class DB_ST_004_Cart_page_Validation {
   @Test
   public void verifyingMiniCartPage() throws Exception {
 	try{
-		//drybar.Accept();
+		drybar.Accept();
 		drybar.verifyingHomePage();
 		 drybar.clickHairProducts();
 		  drybar.SelectShampoos();
@@ -50,5 +50,6 @@ public class DB_ST_004_Cart_page_Validation {
  		 
  		  
  	  }
+ 	
 
 }
