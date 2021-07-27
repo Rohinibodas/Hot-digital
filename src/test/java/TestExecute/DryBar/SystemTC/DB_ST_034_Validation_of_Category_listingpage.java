@@ -17,11 +17,12 @@ public class DB_ST_034_Validation_of_Category_listingpage {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void validatingHeaderLinks_Registereduser()  {
 	  try {
+		  
 	  drybar.Accept();
 	  drybar.verifyingHomePage();
 	  drybar.clickHairProducts();
 	 drybar.Hair_Products_CategoryValidations("HairproductsMegaMenu");
-	drybar.Hair_Tools_CategoryValidations("HairtoolsMegaMenu");
+	//drybar.Hair_Tools_CategoryValidations("HairtoolsMegaMenu");
 	drybar.Benefits_CategoryValidations("BenefitsMegaMenu");
 	    drybar.Gifts_CategoryValidations("GiftsMegaMenu");
 	    drybar.Inspo_CategoryValidations("HowToInspoMegaMenu");

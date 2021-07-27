@@ -18,6 +18,7 @@ public class DB_ST_031_ValidatingHeaderLinks_RegisteredUser {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void validatingHeaderLinks_Registereduser()  {
 	  try {
+		  
 	  drybar.Accept();
 	  drybar.verifyingHomePage();
 	  drybar.navigateMyAccount();

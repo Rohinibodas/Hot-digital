@@ -13,9 +13,10 @@ public class DB_ST_013_Communication_preferences_subscription {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void My_Account_Navigations() throws Exception {
+  public void Communication_preferences_subscription() throws Exception {
 
 	  try{
+		  
 		  drybar.Aggree_and_proceed();
 		  drybar.verifyingHomePage();
 		  drybar.clickMyaccount();

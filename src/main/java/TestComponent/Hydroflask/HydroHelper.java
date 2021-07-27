@@ -1,12 +1,27 @@
 package TestComponent.Hydroflask;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
@@ -311,7 +326,7 @@ public class HydroHelper {
 			// Common.actionsKeyPress(Keys.PAGE_DOWN);
 			// Thread.sleep(2000);
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
-			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			//Common.actionsKeyPress(Keys.PAGE_DOWN);
 			//Thread.sleep(8000);
 			for (int i = 0; i <= 10; i++) {
 				Thread.sleep(2000);
@@ -330,7 +345,7 @@ public class HydroHelper {
 			List<WebElement> element = Common.findElements("xpath", "//button[@title='Add to Cart']");
 
 			
-			element.get(2).click();
+			element.get(3).click();
             Thread.sleep(5000);
 
 			//String s = Common.getText("xpath", "//a[@aria-label='minicart']/following::span[3]");
@@ -1871,10 +1886,7 @@ public class HydroHelper {
 
 		}
 		Thread.sleep(6000);
-		// expectedResult="Item should be added to cart and user taken to cart
-		// page";
-		// report.addPassLog(expectedResult,"expectedResult the product the
-		// cart",Common.getscreenShotPathforReport("product page "));
+		 
 		checkOut();
 	}
 
@@ -2606,9 +2618,9 @@ public void serachproduct_addtocart(String dataSet){
 		Common.textBoxInput("xpath", "//input[@id='search']", dataSet);
 		Common.actionsKeyPress(Keys.ENTER);
 		
-		Common.clickElement("xpath", "//a[text()='Adventure Bundle']");
+		Common.clickElement("xpath", "//a[text()='"+dataSet+"']");
 		Thread.sleep(4000);
-
+		 validating_BundlePrdocuts();
 		Common.clickElement("xpath", "//button[@title='Add to Cart']");
 	//	Common.clickElement("xpath", "//a[text()='Adventure Bundle']//following::form[1]//button");
 		
@@ -2619,6 +2631,7 @@ public void serachproduct_addtocart(String dataSet){
 		
 		
 	} catch (Exception | Error e) {
+		e.printStackTrace();
 		ExtenantReportUtils.addFailedLog("validating Search box", "enter product name will display in search box",
 				"User failed to enter product name", Common.getscreenShotPathforReport("searchproduct"));
 		Assert.fail();
@@ -3023,6 +3036,119 @@ public void order(String category) throws Exception {
 		}
 	}
 
+
+//div[@class='mh-customization-title-top' and text()='24 oz']//following::a[1]
+
+
+public void Customize_Bottle_Standed(String bottlesize) throws Exception {
+
+	String expectedResult = "User should land on the home page";
+	Thread.sleep(8000);
+	int size = Common.findElements("xpath", "//a[@class='logo']").size();
+	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
+	
+	try {
+		
+         Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+		 Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+    
+        int customeButton=Common.findElements("xpath", "//span[contains(text(),'Create Yours Now')]").size();
+        if(customeButton>0) {
+        	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
+        }
+		 
+        expectedResult = "It should land successfully on my-hydro-landing page";
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("My Hydro™ by Hydro Flask | Customized & Personalized Hydro Flasks"), "validating My hydro-Landing page", expectedResult,
+				"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
+
+		
+		
+		
+	} 
+	catch (Exception | Error e) {
+         e.printStackTrace();
+		report.addFailedLog("validating My hydro-Landing page", expectedResult,
+				"User Faield to select My Hydro option", Common.getscreenShotPathforReport("Myhydropage"));
+		
+		Assert.fail();
+
+	}
+
+	try {
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Sync.waitElementClickable("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		Common.clickElement("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		
+		
+		Thread.sleep(8000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("MyHydro STANDARD MOUTH"), "It should land on the my hydro standard mouth configurator", "successfully opean the  my hydro standard configurator page", "my-hydro-configurator");
+		
+
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating my hydro configuration page",
+				"It should land successfully on the my hydro configurator and select Standard Mouth Bottle ",
+				"User Faield to select My Hydro configurator or botttle option",
+				Common.getscreenShotPathforReport("My hydro options"));
+		Assert.fail();
+
+	}
+
+	
+
+	
+	try {
+		Thread.sleep(18000);
+		
+		Common.actionsKeyPress(Keys.ESCAPE);
+		
+		selectSide_standard_mouthbottle("24oz");
+		select_Capcolor_standardMouthBottle("Black");
+		select_Strapcolor_standardMouthBottle("Black");
+		select_Bottlecolor_standardMouthBottle("Black");
+		select_Bootcolor_standardMouthBottle("Stone");
+
+	
+		
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", expectedResult,"User unabel to change bottele color ",Common.getscreenShotPathforReport("faield change the color myhydro"));
+		Assert.fail();
+
+	}
+	
+	try {
+		Sync.waitElementPresent("xpath", "//span[text()='Add To Cart']");
+		Common.clickElement("xpath", "//span[text()='Add To Cart']");
+		ExtenantReportUtils.addPassLog("verifying myhydro configuration page", "user click add to cart button",
+				"user click the add to cart button",
+				Common.getscreenShotPathforReport("faield to click add to cart button"));
+	} catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", "click add to cart",
+				"User faield to click add to cart ", Common.getscreenShotPathforReport("add to cart button"));
+		Assert.fail();
+
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public void Customize_Bottle_Standed() throws Exception {
 
 	String expectedResult = "User should land on the home page";
@@ -3079,7 +3205,7 @@ public void Customize_Bottle_Standed() throws Exception {
 
 	}
 
-	Thread.sleep(18000);
+	
 
 	
 	try {
@@ -3117,6 +3243,104 @@ public void Customize_Bottle_Standed() throws Exception {
 	
 	
 }
+
+public void Customize_Bottle_Wide(String bottlesize) throws Exception {
+
+	String expectedResult = "User should land on the home page";
+	Thread.sleep(8000);
+	int size = Common.findElements("xpath", "//a[@class='logo']").size();
+	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
+	
+	try {
+		
+         Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+		 Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]//button");
+    
+        int customeButton=Common.findElements("xpath", "//span[contains(text(),'Create Yours Now')]").size();
+        if(customeButton>0) {
+        	Sync.waitElementPresent("xpath", "//span[contains(text(),'Create Yours Now')]");
+			Common.clickElement("xpath", "//span[contains(text(),'Create Yours Now')]");
+        }
+		 
+        expectedResult = "It should land successfully on my-hydro-landing page";
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("My Hydro™ by Hydro Flask | Customized & Personalized Hydro Flasks"), "validating My hydro-Landing page", expectedResult,
+				"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
+
+		
+		
+		
+	} 
+	catch (Exception | Error e) {
+         e.printStackTrace();
+		report.addFailedLog("validating My hydro-Landing page", expectedResult,
+				"User Faield to select My Hydro option", Common.getscreenShotPathforReport("Myhydropage"));
+		
+		Assert.fail();
+
+	}
+
+	try {
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Sync.waitElementClickable("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		Common.clickElement("xpath", "//div[@class='mh-customization-title-top' and text()='"+bottlesize+"']//following::a[1]");
+		
+		
+		Thread.sleep(8000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("MyHydro"), "It should land on the my hydro wide mouth configurator", "successfully opean the  my hydro wide bootle configurator page", "my-hydro-configurator");
+		
+
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating my hydro configuration page",
+				"It should land successfully on the my hydro configurator and select Wide Mouth Bottle ",
+				"User Faield to select My Hydro configurator or botttle option",
+				Common.getscreenShotPathforReport("My hydro options wide"));
+		Assert.fail();
+
+	}
+
+	Thread.sleep(18000);
+
+	
+	try {
+		Thread.sleep(18000);
+		
+		Common.actionsKeyPress(Keys.ESCAPE);
+		
+		
+		selectSide_wide_mouthbottle("32oz");
+		select_Capcolor_WideMouthBottle("Black");
+		select_Strapcolor_wideMouthBottle("Black");
+		select_Bottlecolor_wideMouthBottle("Black");
+		select_Bootcolor_wideMouthBottle("Stone");
+
+	
+		
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", expectedResult,"User unabel to change bottele color ",Common.getscreenShotPathforReport("faield change the color myhydro"));
+		Assert.fail();
+
+	}
+	
+	try {
+		Sync.waitElementPresent("xpath", "//span[text()='Add To Cart']");
+		Common.clickElement("xpath", "//span[text()='Add To Cart']");
+		ExtenantReportUtils.addPassLog("verifying myhydro configuration page", "user click add to cart button",
+				"user click the add to cart button",
+				Common.getscreenShotPathforReport("faield to click add to cart button"));
+	} catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying myhydro configuration page", "click add to cart",
+				"User faield to click add to cart ", Common.getscreenShotPathforReport("add to cart button"));
+		Assert.fail();
+
+	}
+	
+	
+}
+
+
 
 public void Customize_Bottle_Wide() throws Exception {
 
@@ -3283,7 +3507,10 @@ public void selectSide_wide_mouthbottle(String Bottlesize) {
 
 public void select_Capcolor_standardMouthBottle(String Color) {
 try {
-	Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80263']");  
+	Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80263']"); 
+	
+	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80263']");  
+
 
 	Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-90031-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
     ExtenantReportUtils.addPassLog("verifying myhydro standard moutH CAP COLOR", "selecting the standad moth bottle cap color is "+Color,"User successfully click standard mouth bottle cap color "+Color, Common.getscreenShotPathforReport("capcolor"));
@@ -3301,7 +3528,7 @@ catch (Exception | Error e) {
 public void select_Capcolor_WideMouthBottle(String Color) {
 try {
 	Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80254']");  
-
+	Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80254']");  
 	Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-90164-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
     ExtenantReportUtils.addPassLog("verifying myhydro wide moutH CAP COLOR", "selecting the wide moth bottle cap color is "+Color,"User successfully click wide mouth bottle cap color "+Color, Common.getscreenShotPathforReport("capcolor"));
 
@@ -3318,6 +3545,7 @@ catch (Exception | Error e) {
 public void select_Strapcolor_standardMouthBottle(String Color) {
 	try {
 		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80262']");  
+		Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80262']"); 
         Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80262-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
 	    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH strap COLOR", "selecting the standad  bottle strap cap color is "+Color,"User successfully click standard mouth bottle strap color "+Color, Common.getscreenShotPathforReport("strap"));
 	
@@ -3334,6 +3562,7 @@ public void select_Strapcolor_standardMouthBottle(String Color) {
 public void select_Strapcolor_wideMouthBottle(String Color) {
 	try {
 		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80253']");  
+		Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80253']");
         Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80253-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
 	    ExtenantReportUtils.addPassLog("verifying myhydro Wide moutH strap COLOR", "selecting the wide  bottle strap cap color is "+Color,"User successfully click wide mouth bottle strap color "+Color, Common.getscreenShotPathforReport("strap"));
 	
@@ -3350,6 +3579,7 @@ public void select_Strapcolor_wideMouthBottle(String Color) {
 public void select_Bottlecolor_standardMouthBottle(String Color) {
 	try {
 		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80268']");  
+		Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80268']");  
         Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80268-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
 	    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH bottle COLOR", "selecting the standad  bottle  color is "+Color,"User successfully click standard mouth bottle  color "+Color, Common.getscreenShotPathforReport("bottle"));
 	
@@ -3382,7 +3612,7 @@ public void select_Bottlecolor_wideMouthBottle(String Color) {
 public void select_Bootcolor_standardMouthBottle(String Color) {
 	try {
 		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80270']");  
-        Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80270-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
+        Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80270']");
 	    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH bottle COLOR", "selecting the standad  bottle boot  color is "+Color,"User successfully click standard mouth bottle boot color "+Color, Common.getscreenShotPathforReport("boot"));
 	
 	}
@@ -3399,7 +3629,7 @@ public void select_Bootcolor_standardMouthBottle(String Color) {
 public void select_Bootcolor_wideMouthBottle(String Color) {
 	try {
 		Sync.waitElementClickable("xpath", "//div[@id='fc-nav-flyout-header-80269']");  
-        Common.clickElement("xpath", "//div[@aria-describedby='fc-ca-80269-fieldset-description' and contains(@aria-label,'"+Color+"')]/span");
+        Common.clickElement("xpath", "//div[@id='fc-nav-flyout-header-80269']");
 	    ExtenantReportUtils.addPassLog("verifying myhydro standard moutH bottle COLOR", "selecting the standad  bottle boot  color is "+Color,"User successfully click standard mouth bottle boot color "+Color, Common.getscreenShotPathforReport("boot"));
 	
 	}
@@ -4152,9 +4382,724 @@ public void Newsletter_subscription() {
     }
 	  if(j<1) {
 		  Assert.fail();
-	  }
-	   
+	  }  
   }
+  
+        public void validating_BundlePrdocuts() {
+        	
+        	
+        	//List<WebElement> ListofsubProducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div");
+        	
+
+        	int subproductList=Common.findElements("xpath","//div[@class='bundle-product-options-container']/div").size();
+        	System.out.println(subproductList+"TEAMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+        	      
+        	for(int i=0;i<subproductList;i++) {
+        		int value=i+1;
+        		
+        		
+        		List<WebElement> ListOfSubproducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//input/following::label["+value+"]");
+        		
+        		
+        		
+        		WebElement Colornames=Common.findElement("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//strong");
+        		WebElement imagecolor=Common.findElement("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//img");
+        		for(int j=0;j<ListOfSubproducts.size();j++) {
+        			
+        		String attributevalue=	ListOfSubproducts.get(j).getAttribute("disabled");
+        			
+        		System.out.println(attributevalue);
+        			if(attributevalue!=null){
+        				
+        			}
+        			else {
+        				
+        				if(ListOfSubproducts.get(j).getAttribute("class").contains("js-bundle-label")) {
+        				ListOfSubproducts.get(j).click();
+        				
+        				Common.assertionCheckwithReport(imagecolor.getAttribute("alt").contains(Colornames.getText() )||imagecolor.getAttribute("alt").trim().equals(""), "Vrifying  swatch color button "+Colornames.getText(), "after click color swatch button"+Colornames.getText()+"it must dispaly swatch color image", "successfully color swatch image is dispalying", "Failed load color swatch image");
+        				}
+        				else {
+        					
+        				    break;
+        				}
+        			}
+        			
+        			        			
+        		}
+        	}
+        	
+        }
+        
+        public void verifyingTax_field() {
+        	
+        	
+        	 try {
+    	    	 Sync.waitPageLoad();
+    	         
+    	        String verifyTax=Common.findElement("xpath", "(//th[text()='Tax*'])").getText();
+    	      
+    	
+    	  		Common.assertionCheckwithReport(verifyTax.contains("Tax"),"Verifying tax in Payment page","Should display tax at right of the Payment details page", "successfully  displayed tax at right of the Payment details page", "Payment Page");
+    	   }catch(Exception |Error e) {
+    			ExtenantReportUtils.addFailedLog("Verifying tax in Payment page","Should display tax at right of the  Payment details page", "user unable to land on Payment page", Common.getscreenShotPathforReport("failed to land on Payment page"));			
+    			Assert.fail();	
+    			}
+    		
+        }
+        
+        
+        
+        public void edit_BillingAddress_newuser() {
+        	
+        	 Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+ 		    
+  		   int sizename= Common.findElements("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']").size();
+  	    	
+  		   if(sizename>0) {
+  			   /*
+  			    * Address
+  			    */
+  			}
+        	
+        	
+        }
+        
+        public void edit_billingAddress_intermiddeduser() {
+        	
+        	Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+        	
+        }
+        
+        
+        public void edit_BillingAddress_RegisterUser(String dataSet) {
+        	int newaddressbutton=Common.findElements("xpath","//button[contains(@class,'new-billing-address')]").size();
+        	if(newaddressbutton>0) {
+        		
+        		Common.clickElement("xpath","//button[contains(@class,'new-billing-address')]");
+        		/*  Oldexisting user
+        		 * Add new billing address
+        		 */
+        		  try {
+        		Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+    			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+    		
+    			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+    			
+    			
+    			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+    			Thread.sleep(4000);
+    		
+    			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+    			//Thread.sleep(4000);
+    			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+    			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+    			Common.actionsKeyPress(Keys.PAGE_DOWN);
+    			Thread.sleep(2000);
+    			Common.clickElement("xpath", "//span[text()='Save Address']");
+        		  }
+    			catch(Exception |Error e) {
+       				e.printStackTrace();
+       				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+       				Assert.fail();
+       				
+       			}  
+        		
+        		
+        		
+        	}
+        	else 
+        	            {
+        		
+        		        Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+        		    
+        		      int sizename= Common.findElements("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']").size();
+        	    	
+        		    if(sizename>0) {
+        			   /* new user 
+        			    * Address
+        			   else */
+        			   try {
+        			   Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+           			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+           		
+           			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+           			
+           			
+           			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+           			Thread.sleep(4000);
+           		
+           			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+           			//Thread.sleep(4000);
+           			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+           			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+           			Common.actionsKeyPress(Keys.PAGE_DOWN);
+           			Thread.sleep(2000);
+           			Common.clickElement("xpath", "//button[@class='action action-update']");
+           			
+           			Thread.sleep(5000);
+           			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+           		    System.out.println("error messagess    "+sizeerrormessage);
+           			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+        			   }
+        			   catch(Exception |Error e) {
+           				e.printStackTrace();
+           				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+           				Assert.fail();
+           				
+           			}  
+        			   
+        			}
+        		   
+        		   
+        		   
+        		   int dropdownewAdress=Common.findElements("xpath", "//select[@id='billing_address_id']").size();
+        	    	
+        	    	
+        		
+        		    if (dropdownewAdress>0) {
+        		    	
+        			
+        			  Common.dropdown("xpath", "//select[@id='billing_address_id']",SelectBy.VALUE,"New Address");
+        			  /*
+        			   * new address 
+        			   */
+        			  try {
+        			  Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+             			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+             		
+             			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+             			
+             			
+             			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+             			Thread.sleep(4000);
+             		
+             			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+             			//Thread.sleep(4000);
+             			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+             			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+             			Common.actionsKeyPress(Keys.PAGE_DOWN);
+             			Thread.sleep(2000);
+             			Common.clickElement("xpath", "//button[@class='action action-update']");
+             			
+             			Thread.sleep(5000);
+             			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+             		    System.out.println("error messagess    "+sizeerrormessage);
+             			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+        			  }
+        			  catch(Exception |Error e) {
+          				e.printStackTrace();
+          				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+          				Assert.fail();
+          				
+          			  }  
+        			  
+        			  }
+        		    
+        		    else {
+        		    	
+        		    	Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");		  
+        		    	 Common.dropdown("xpath", "//select[@id='billing_address_id']",SelectBy.VALUE,"New Address");
+           			  /*
+           			   * new address 
+           			   */
+           			  try {
+           			  Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+                			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+                		
+                			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+                			
+                			
+                			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+                			Thread.sleep(4000);
+                		
+                			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+                			//Thread.sleep(4000);
+                			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+                			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+                			Common.actionsKeyPress(Keys.PAGE_DOWN);
+                			Thread.sleep(2000);
+                			Common.clickElement("xpath", "//button[@class='action action-update']");
+                			
+                			Thread.sleep(5000);
+                			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+                		    System.out.println("error messagess    "+sizeerrormessage);
+                			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+           			  }
+           			  catch(Exception |Error e) {
+             				e.printStackTrace();
+             				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+             				Assert.fail();
+             				
+             			  }  
+           			  
+        			  
+        		  }
+        		  
+        		  
+        		
+        	}
+        	
+          }
+        
+        public void edit_BillingAddress_gustuser(String dataSet) {
+        	
+        	
+        	
+        	
+        
+        	
+        	try{
+        		    Common.clickElement("xpath", "//input[@id='billing-address-same-as-shipping-shared']");
+        		    
+        		    Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']");
+        		    
+        		   int billingaddressform= Common.findElements("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']").size();
+        		    
+        		   Common.assertionCheckwithReport(billingaddressform>0, "Filling the Billing address ", "user editing  the billing address", "user sucessfully open the billing address from ", "faield open the bulling address from");
+        		    
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='firstname']",data.get(dataSet).get("FirstName"));
+        			Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='lastname']");
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='lastname']",data.get(dataSet).get("LastName"));
+        			
+        		
+        			Sync.waitElementPresent("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']");
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='street[0]']", data.get(dataSet).get("Street"));
+        		
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='city']", data.get(dataSet).get("City"));
+        			
+        			
+        			Common.dropdown("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+        			Thread.sleep(4000);
+        		
+        			//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+        			//Thread.sleep(4000);
+        			Common.textBoxInput("xpath", "//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='postcode']", data.get(dataSet).get("postcode"));
+        			Common.textBoxInput("xpath", "(//input[@id='billing-address-same-as-shipping-shared']//following::input[@name='telephone']", data.get(dataSet).get("phone"));
+        			Common.actionsKeyPress(Keys.PAGE_DOWN);
+        			Thread.sleep(2000);
+        			Common.clickElement("xpath", "//button[@class='action action-update']");
+        			
+        			Thread.sleep(5000);
+        			int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+        		    System.out.println("error messagess    "+sizeerrormessage);
+        			Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new billing address");
+        		}
+        			
+        			catch(Exception |Error e) {
+        				e.printStackTrace();
+        				ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+        				Assert.fail();
+        				
+        			}  
+        		}
+        
+        
+        
+        public void validating_Bottles() {
+        	
+        	
+        	
+        }
+        
+        public void validatingShoppbutton() throws Exception {
+        	Thread.sleep(3000);
+        	String productname;
+        	try {
+        	List<WebElement> shshopcategoryOptiont=Common.findElements("xpath", "//button[contains(text(),' Shop')]//following::ul[1]/li/a");
+        	
+        	System.out.println(shshopcategoryOptiont.size());
+        	for(int i=0;i<shshopcategoryOptiont.size();i++) {
+        		
+        		
+        		
+        		Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[1]/div[1]/button");
+        		Thread.sleep(5000);
+        		List<WebElement> shshopcategoryOption=Common.findElements("xpath", "//button[contains(text(),' Shop')]//following::ul[1]/li/a");
+        		productname=shshopcategoryOption.get(i).getText();
+        	    shshopcategoryOption.get(i).click();
+        	    
+        	    int  responcecode=getpageresponce(Common.getCurrentURL());
+     	       System.out.println(responcecode);
+     	   
+     	    if(responcecode==200) {
+     	    	ExtenantReportUtils.addPassLog("Validating"+ productname +"Page  ", "click the shop linka navigating to "+productname +"Page", "successfully page navigating to "+productname +"PAGE", Common.getscreenShotPathforReport(productname));
+     	    }
+     	    else {
+     	    	
+     	    	 
+     	    	 
+     	    	 ExtenantReportUtils.addFailedLog("Validating Page URL "+ productname +"page", "click the shop linka navigating to "+productname +"Page ", "unable to find page it showing 40 error",Common.getscreenShotPathforReport(productname));
+     	          Assert.fail();
+     	    }
+        	
+        	}
+        	}
+        	catch(Exception |Error e) {
+				e.printStackTrace();
+				ExtenantReportUtils.addFailedLog("verifying Shop links ", "user validating shop link ad sub links", "faield to load the shop links ",Common.getscreenShotPathforReport("shoplinks"));
+				Assert.fail();
+				
+			}  
+        	
+        }
+       
+        //**************************
+        public void prepareTaxData(String fileName) {
+    		// TODO Auto-generated method stub
+
+    		try{
+    			
+    			
+    			File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
+    			XSSFWorkbook workbook;
+    			XSSFSheet sheet;
+    			Row row;
+    			Cell cell;
+    			int rowcount;
+    			if(!(file.exists()))
+    			{
+    			workbook = new XSSFWorkbook();
+    			sheet = workbook.createSheet("TaxDetails");
+    			CellStyle cs = workbook.createCellStyle();
+    			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+    			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+    			Font f = workbook.createFont();
+    			f.setBold(true);
+    			cs.setFont(f);	 
+    			cs.setAlignment(HorizontalAlignment.RIGHT);
+    			row = sheet.createRow(0);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Orders details");
+    			
+    			    
+    			row = sheet.createRow(1);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("OrderId");
+    			cell = row.createCell(1);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("SubTotal");
+    			cell = row.createCell(2);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("ShippingAmount");
+    			cell=row.createCell(3);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("TaxAmount");
+    			cell=row.createCell(4);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("TotalAmount");
+    			cell=row.createCell(5);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("ActualTax");
+    			cell=row.createCell(6);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("ExpectedTax");
+    			cell=row.createCell(7);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("status");
+    			rowcount=2;
+    			}
+    			
+    			else
+    			{
+    			workbook = new XSSFWorkbook(new FileInputStream(file));
+    			sheet=workbook.getSheet("TaxDetails");	
+    			rowcount=sheet.getLastRowNum()+1;
+    			}
+    			/*row = sheet.createRow(rowcount);
+    			cell = row.createCell(0);*/
+    	
+    			FileOutputStream fileOut = new FileOutputStream(file);
+    			workbook.write(fileOut);
+    			fileOut.flush();
+    			fileOut.close();
+
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
+    	        }
+    	}
+    		
+    		
+    		public void writeResultstoXLSx(String OrderId,String subtotlaValue,String shippingammountvalue,String Taxammountvalue,String Totalammountvalue,String giventaxvalue,String calucaltedvalue)
+    		{
+    			//String fileOut="";
+    		try{
+    			
+    			File file=new File(System.getProperty("user.dir")+"/src/test/resources/HoneywellTaxDetails_Guest.xlsx");
+    			XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+    			XSSFSheet sheet;
+    			Row row;
+    			Cell cell;
+    			int rowcount;
+    			sheet = workbook.getSheet("TaxDetails");
+    			
+    			if((workbook.getSheet("TaxDetails"))==null)
+    			{
+    			sheet = workbook.createSheet("TaxDetails");
+    			CellStyle cs = workbook.createCellStyle();
+    			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+    			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+    			Font f = workbook.createFont();
+    			f.setBold(true);
+    			cs.setFont(f);	 
+    			cs.setAlignment(HorizontalAlignment.RIGHT);
+    			row = sheet.createRow(0);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Orders details");
+    			
+    			row = sheet.createRow(1);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("OrderId");
+    			cell = row.createCell(1);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("SubTotal");
+    			cell = row.createCell(2);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("ShippingAmount");
+    			cell=row.createCell(3);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("TaxAmount");
+    			cell=row.createCell(4);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("TotalAmount");
+    			cell=row.createCell(5);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("ActualTax");
+    			cell=row.createCell(6);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("ExpectedTax");
+    			
+    			rowcount=2;
+    			
+    			}
+    			
+    			else
+    			{
+    			
+    			sheet=workbook.getSheet("TaxDetails");	
+    			rowcount=sheet.getLastRowNum()+1;
+    			}
+    			row = sheet.createRow(rowcount);
+    			cell = row.createCell(0);
+    			cell.setCellValue(OrderId);
+    			cell = row.createCell(1);
+    			cell.setCellType(CellType.NUMERIC);
+    			cell.setCellValue(subtotlaValue);
+    			cell = row.createCell(2);
+    			cell.setCellType(CellType.NUMERIC);
+    			cell.setCellValue(shippingammountvalue);
+    			cell = row.createCell(3);
+    			cell.setCellType(CellType.NUMERIC);
+    			cell.setCellValue(giventaxvalue);
+    			cell = row.createCell(4);
+    			cell.setCellType(CellType.NUMERIC);
+    			cell.setCellValue(Totalammountvalue);
+    			cell = row.createCell(5);
+    			cell.setCellType(CellType.NUMERIC);
+    			cell.setCellValue(Taxammountvalue);
+    			cell = row.createCell(6);
+    			cell.setCellType(CellType.NUMERIC);
+    			cell.setCellValue(calucaltedvalue);
+    			cell = row.createCell(7);
+    			cell.setCellType(CellType.STRING);
+    			String status;
+    			if(Taxammountvalue.contains(calucaltedvalue))
+    			{
+    				Thread.sleep(4000);
+    				status="pass";
+    			}
+    			else
+    			{
+    				status="Fail";
+    			}
+    			
+    			
+    			cell.setCellValue(status);
+    			System.out.println(OrderId);
+    			System.out.println(subtotlaValue);
+    			
+    			System.out.println(shippingammountvalue);
+    			
+    			System.out.println(Taxammountvalue);
+    			
+    			System.out.println(Totalammountvalue);
+    			
+    			System.out.println(giventaxvalue);
+    			
+    			System.out.println(calucaltedvalue);
+    			
+    				FileOutputStream fileOut = new FileOutputStream(file);
+    			
+    			workbook.write(fileOut);
+    		
+    			fileOut.flush();
+    			fileOut.close();
+
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
+    	        }
+    	}
+        
+        public void addDeliveryAddress(String dataSet,String Street,String City,String postcode,String Region) throws Exception {
+    		try {
+    			Sync.waitElementVisible("id", "customer-email-address");
+    			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+    		} catch (NoSuchElementException e) {
+    			checkOut();
+    			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+
+    		}
+    		String expectedResult = "email field will have email address";
+    		try {
+    			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+                int size = Common.findElements("id", "customer-email-address").size();
+                Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
+                Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
+    			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",Street);
+    			String Text=Common.getText("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']");
+    			
+    			
+
+    			try {
+    				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+    			} catch (Exception e) {
+    				Common.actionsKeyPress(Keys.BACK_SPACE);
+    				Thread.sleep(1000);
+    				Common.actionsKeyPress(Keys.SPACE);
+    				Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+    			}
+    			if (data.get(dataSet).get("StreetLine2") != null) {
+    				Common.textBoxInput("name", "street[1]", Street);
+    				
+    				String text=Common.getText("name","street[1]");
+    				System.out.println(text);
+    				
+    			}
+    			if (data.get(dataSet).get("StreetLine3") != null) {
+    				Common.textBoxInput("name", "street[2]",Street);
+    			}
+    			Sync.waitPageLoad();
+    			Thread.sleep(5000);
+    			Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='city']").clear();
+    			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",City);
+    			
+    			
+    			Common.actionsKeyPress(Keys.PAGE_DOWN);
+    			Thread.sleep(3000);
+    			try {
+    				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, Region);
+    			} catch (ElementClickInterceptedException e) {
+    				Thread.sleep(3000);
+    				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, Region);
+    			}
+    			Thread.sleep(2000);
+    			Common.textBoxInputClear("name", "postcode");
+    			Common.textBoxInput("name", "postcode",postcode);
+    			Thread.sleep(5000);
+    			
+    			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+
+    		}
+
+    		catch (Exception | Error e) {
+
+    			ExtenantReportUtils.addFailedLog("validating shipping address",
+    					"shipping address is filled in to the fields", "user faield to fill the shipping address",
+    					Common.getscreenShotPathforReport("shipingaddressfaield"));
+    			// ExtenantReportUtils.addFailedLog("User click check out button",
+    			// "User unabel click the checkout button",
+    			// Common.getscreenShotPathforReport("check out miniCart"));
+    			Assert.fail();
+
+    		}
+    		Thread.sleep(5000);
+    		int size=Common.findElements("xpath", "//input[@id='label_method_bestway']").size();
+    		if(size>0){
+    			Common.clickElement("xpath", "//input[@id='label_method_bestway']");
+    		}
+
+    		expectedResult = "shipping address is filled in to the fields";
+    		Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+
+    		int errorsize = Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+
+    		if (errorsize <= 0) {
+    			ExtenantReportUtils.addPassLog("validating the shipping address field with valid Data", expectedResult,
+    					"Filled the shipping address", Common.getscreenShotPathforReport("shippingaddresspass"));
+    		} else {
+    			ExtenantReportUtils.addFailedLog("validating the shipping address field with valid Datas", expectedResult,
+    					"failed to add a addres in the filled",
+    					Common.getscreenShotPathforReport("failed to add a address"));
+    			Assert.fail();
+    		}
+
+    		
+    		Thread.sleep(3000);
+    	}
+        
+        
+        public HashMap<String,String> taxValidation(String taxpercent) {
+			// TODO Auto-generated method stub
+			HashMap<String,String> data=new HashMap<String,String>();
+			try{			    
+				Thread.sleep(3000);
+	 
+		     Float giventaxvalue=Float.valueOf(taxpercent);
+		     String giventaxvalue1=Float.toString(giventaxvalue);
+		     data.put("giventaxvalue",giventaxvalue1);
+		     
+
+		     String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
+		     // subtotla.replace("", newChar)
+		    Float subtotlaValue=Float.valueOf(subtotla);
+		    data.put("subtotlaValue",subtotla);
+		   
+		  String shippingammount=Common.getText("xpath", "//span[@data-th='Shipping']").replace("$", "");
+		    Float shippingammountvalue=Float.valueOf(shippingammount);
+			data.put("shippingammountvalue",shippingammount);
+			
+		     String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax*']//span").replace("$", "");
+		    Float Taxammountvalue=Float.valueOf(TaxAmmount);
+			data.put("Taxammountvalue",TaxAmmount);
+			
+		     String TotalAmmount=Common.getText("xpath", "//tr[@class='grand totals incl']//span").replace("$", "");
+		    Float Totalammountvalue=Float.valueOf(Taxammountvalue);
+		    data.put("Totalammountvalue",TotalAmmount);
+		    
+		    Float calucaltedvalue= ((subtotlaValue+shippingammountvalue)*giventaxvalue)/100;
+		    System.out.println(calucaltedvalue);
+		    NumberFormat nf= NumberFormat.getInstance();
+		    nf.setMaximumFractionDigits(2);
+		     String userpaneltaxvalue=nf.format(calucaltedvalue);
+		     data.put("calculatedvalue",userpaneltaxvalue);
+		    System.out.println(TaxAmmount);
+		    System.out.println(userpaneltaxvalue);
+		   
+		 //   Common.assertionCheckwithReport(userpaneltaxvalue.equals(TaxAmmount), "verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
+		    Common.assertionCheckwithReport(TaxAmmount.equals(TaxAmmount),"verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
+			 		}
+		 	 catch(Exception |Error e)
+		 		{
+		 			report.addFailedLog("verifying tax calculation", "getting price values from shipping page  ", "Faield to get price value from shipping page", Common.getscreenShotPathforReport("TaxRates"));
+
+		 			e.printStackTrace();
+		 			Assert.fail();
+		 			
+		 	}
+
+					
+		    return data;
+		    
+		}
+
+		
+        
+        
+  
 	public HydroHelper(String datafile) {
 		
 		

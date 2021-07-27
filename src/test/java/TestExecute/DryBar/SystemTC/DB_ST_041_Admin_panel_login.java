@@ -17,6 +17,7 @@ public class DB_ST_041_Admin_panel_login {
   
   public void Admin_panel_login() {
 		try {
+			
 			  drybar.verifyingMagentoLoginPage();
 			  drybar.Admin_Login("MagentoAccountDetails");
 			  drybar.verifyingMagentoHomepage();

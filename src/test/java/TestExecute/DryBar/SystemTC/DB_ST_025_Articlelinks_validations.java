@@ -16,6 +16,7 @@ public class DB_ST_025_Articlelinks_validations {
   
   public void Articlelinks() {
 		try {
+			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.Facebook();

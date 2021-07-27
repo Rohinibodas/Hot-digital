@@ -17,14 +17,12 @@ public class DB_ST_038_GuestUser_BrowseSearch_Checkout {
   
   public void GuestUser_SearchCheckout_CreditCard() {
 		try {
+			
+			   drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.Search_productname("ProductName");
-			  drybar.Accept();
 			  drybar.Click_View_Product();
-			  drybar.Accept();
-			 // drybar.Verify_PDP();
-			  drybar.increaseProductQuantity("2");
-		      drybar.clickAddtoBag();
+			  drybar.clickAddtoBag();
 		     drybar.clickminiCartButton();
 		    drybar.clickCheckoutButton();
 		    drybar.click_GuestCheckOut();
@@ -48,7 +46,7 @@ public class DB_ST_038_GuestUser_BrowseSearch_Checkout {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	

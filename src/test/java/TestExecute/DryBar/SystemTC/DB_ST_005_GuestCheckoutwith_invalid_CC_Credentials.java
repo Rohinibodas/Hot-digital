@@ -16,22 +16,19 @@ public class DB_ST_005_GuestCheckoutwith_invalid_CC_Credentials {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void guestCheckoutwith_invalid_CC_Credentials() {
 	  try{
-	   drybar.Accept();
-	     drybar.verifyingHomePage();
-		 drybar.clickHairProducts();
-		  drybar.SelectShampoos();
-		  drybar.Selectproduct();
-		  drybar.Accept();
-		  drybar.Verify_PDP();
-	  drybar.increaseProductQuantity("2");
-	  drybar.clickAddtoBag();
-	  drybar.clickminiCartButton();
-	  drybar.clickCheckoutButton();
-	  drybar.click_GuestCheckOut();
-	  drybar.guestShippingAddress("ShippingAddress");
-	  drybar.Click_PaymetricPaymentMethod();
-	  drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-	  drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
+		    drybar.Accept();
+			drybar.verifyingHomePage();
+			drybar.clickHairProducts();
+			drybar.SelectShampoos();
+		    drybar.Selectproduct();
+			drybar.Verify_PDP(); 
+			drybar.clickAddtoBag();
+		    drybar.clickminiCartButton();
+		    drybar.clickCheckoutButton();
+		    drybar.click_GuestCheckOut();
+		    drybar.guestShippingAddress("ShippingAddress");
+	        drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
+	        drybar.creditCard_payment_invalid_CC("InvalidPaymentDetails");
 
 	  
   }
@@ -46,6 +43,7 @@ public class DB_ST_005_GuestCheckoutwith_invalid_CC_Credentials {
  		Common.closeAll();
 
  	}
+  
  	
  	@BeforeTest
  	  public void startTest() throws Exception {

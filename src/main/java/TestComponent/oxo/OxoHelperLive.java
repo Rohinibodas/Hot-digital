@@ -25,7 +25,6 @@ public class OxoHelperLive {
 		
 	}*/	
 	
-	
 	public void clickLogo(){
 		try{
 			Thread.sleep(3000);

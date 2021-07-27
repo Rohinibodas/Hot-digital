@@ -18,6 +18,7 @@ public class DB_ST_033_Add_to_cart_from_PLP {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void validatingHeaderLinks_Registereduser()  {
 	  try {
+		  
 	  drybar.Accept();
 	  drybar.verifyingHomePage();
 	  drybar.clickHairProducts();

@@ -17,6 +17,7 @@ public class DB_ST_043_Admin_Products_and_Categories_Menu {
   
   public void Admin_products_and_catrgories_menu() {
 		try {
+			
 			  drybar.verifyingMagentoLoginPage();
 			  drybar.Admin_Login("MagentoAccountDetails");
 			  drybar.verifyingMagentoHomepage();

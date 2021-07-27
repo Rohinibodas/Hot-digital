@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.Hydroflask.HydroHelper;
-
+import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_ST_HF_050_Social_links_validation {
@@ -32,7 +32,7 @@ public class TEST_ST_HF_050_Social_links_validation {
 	@AfterTest
 	public void clearBrowser()
 	{
-	  // Common.closeAll();
+	   Common.closeAll();
 
 	}
 

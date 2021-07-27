@@ -16,7 +16,7 @@ public class TEST_ST_HF_030_Checkout_with_credit_card_as_registered_user_with_bu
   public void Checkout_with_credit_card_as_registered_user_with_bundle_product_and_myhydro_product() {
 	  try{
         Hydro.loginHydroflaskAccount("AccountDetails");
-		Hydro.Customize_Bottle();
+        Hydro.Customize_Bottle_Standed("24 oz");
 	    Hydro.serachproduct_addtocart("Adventure Bundle");
 		Hydro.checkOut();
 		Hydro.addDeliveryAddress_registerUser("Address");

@@ -16,12 +16,12 @@ public class DB_ST_007_ApplyGiftCardonCheckoutPage {
   public void applyGiftCardonCheckoutPage() throws Exception {
 	//  drybar.clickMyaccount();
 	  try{
-	 // drybar.Accept();
+	 drybar.Accept();
 	  drybar.verifyingHomePage();
 		 drybar.clickHairProducts();
 		  drybar.SelectShampoos();
 		  drybar.Selectproduct();
-		  drybar.Accept();
+		 // drybar.Accept();
 		  drybar.Verify_PDP();
 	  drybar.increaseProductQuantity("2");
 	  drybar.clickAddtoBag();

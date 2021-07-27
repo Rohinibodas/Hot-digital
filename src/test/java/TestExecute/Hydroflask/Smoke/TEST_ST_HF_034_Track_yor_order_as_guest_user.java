@@ -30,7 +30,7 @@ public class TEST_ST_HF_034_Track_yor_order_as_guest_user {
 		@AfterTest
 		public void clearBrowser()
 		{
-	 //   Common.closeAll();
+	    Common.closeAll();
 
 		}
 		

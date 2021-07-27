@@ -17,6 +17,7 @@ public class DB_ST_044_Admin_CMSpage_validation {
   
   public void Admin_CMSpage_validation() {
 		try {
+			
 			  drybar.verifyingMagentoLoginPage();
 			  drybar.Admin_Login("MagentoAccountDetails");
 			  drybar.verifyingMagentoHomepage();

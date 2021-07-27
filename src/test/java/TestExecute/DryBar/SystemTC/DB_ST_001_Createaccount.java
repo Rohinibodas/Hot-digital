@@ -12,12 +12,15 @@ public class DB_ST_001_Createaccount {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	
+	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void createaccount() throws Exception {
 		try{
+			
 	  drybar.Accept();
 	  drybar.verifyingHomePage();
 	  drybar.CreateAccount("AccountDetails");
+	 
 	  
   }
 	catch (Exception e) {

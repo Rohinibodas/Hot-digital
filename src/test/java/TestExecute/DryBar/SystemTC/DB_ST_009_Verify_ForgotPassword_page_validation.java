@@ -22,6 +22,7 @@ public class DB_ST_009_Verify_ForgotPassword_page_validation {
 
 public void verify_ForgotPassword_page_validation() throws Exception {
 		try{
+			
 	  drybar.Accept();
 	  drybar.navigateMyAccount();
 	  drybar.forgetpasswordPageValidation();
@@ -35,7 +36,9 @@ public void verify_ForgotPassword_page_validation() throws Exception {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//
+		
+		Common.closeAll();
 
 	}
 	

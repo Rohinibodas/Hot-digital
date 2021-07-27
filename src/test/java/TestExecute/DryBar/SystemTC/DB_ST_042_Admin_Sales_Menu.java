@@ -17,6 +17,7 @@ public class DB_ST_042_Admin_Sales_Menu {
   
   public void Admin_sales_menu() {
 		try {
+			
 			  drybar.verifyingMagentoLoginPage();
 			  drybar.Admin_Login("MagentoAccountDetails");
 			  drybar.verifyingMagentoHomepage();

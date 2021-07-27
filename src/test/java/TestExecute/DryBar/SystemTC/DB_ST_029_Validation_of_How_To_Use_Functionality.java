@@ -17,6 +17,7 @@ public class DB_ST_029_Validation_of_How_To_Use_Functionality {
   
   public void Validation_of_How_To_Use_Functionality() {
 		try {
+			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();

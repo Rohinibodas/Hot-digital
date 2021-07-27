@@ -16,6 +16,8 @@ public class DB_ST_012_ValidatingHeaderLinks {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void validatingHeaderLinks()  {
 	  try {
+		  
+		  
 	  drybar.Accept();
 	  drybar.verifyingHomePage();
 	  drybar.headLinksValidations("HeaderLinks");

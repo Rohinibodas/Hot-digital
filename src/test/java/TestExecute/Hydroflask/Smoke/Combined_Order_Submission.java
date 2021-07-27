@@ -19,7 +19,7 @@ public class Combined_Order_Submission {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void combined_Order_Submission() throws Exception {
 	  try { 
-	 //Hydro.loginHydroflaskAccount("AccountDetails");
+		  Hydro.Customize_Bottle_Standed("24 oz");
 	 Hydro.orderSubmit("Bottles");
 	 Hydro.Customize_Bottle();
 	 Hydro.addDeliveryAddress("Address");

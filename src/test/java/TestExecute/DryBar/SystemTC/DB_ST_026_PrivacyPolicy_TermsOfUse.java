@@ -17,6 +17,7 @@ public class DB_ST_026_PrivacyPolicy_TermsOfUse {
   
   public void Privacypolicy_and_TermsOfuse() {
 		try {
+			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.privacy_and_policy(); 

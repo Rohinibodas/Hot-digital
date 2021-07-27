@@ -15,28 +15,22 @@ public class DB_ST_003_Guest_Checkout_CreditCard {
 	
 	//DryBarMobile drybar=new DryBarMobile(datafile);
 	
+	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void guest_Checkout_CreditCard() throws Exception {
 		 
 		drybar.Accept();
 		drybar.verifyingHomePage();
-		  drybar.clickHairProducts();
-		  //drybar.Close_popup();
-		  drybar.SelectShampoos();
-		 // drybar.Accept();
-		  drybar.Selectproduct();
-		  //drybar.Accept();
-		//  drybar.Verify_PDP();
-	      drybar.increaseProductQuantity("2");
-	     // drybar.Accept();
-	      drybar.clickAddtoBag();
-	     drybar.clickminiCartButton();
+		drybar.clickHairProducts();
+		drybar.SelectShampoos();
+	    drybar.Selectproduct();
+		drybar.Verify_PDP(); 
+		drybar.clickAddtoBag();
+	    drybar.clickminiCartButton();
 	    drybar.clickCheckoutButton();
 	    drybar.click_GuestCheckOut();
 	    drybar.guestShippingAddress("ShippingAddress");
-	    drybar.Click_PaymetricPaymentMethod();
-	    //drybar.select_CC();
-	    //drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
+	    drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
 	    drybar.creditCard_payment("CCVisa");
 	  drybar.order_Success();
   }
