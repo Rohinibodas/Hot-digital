@@ -11,17 +11,18 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class Guest_checkout_CreditCard {
-	
 	String datafile = "oxo//OxoTestData.xlsx";	
 	OxoHelper oxo=new OxoHelper(datafile);
+	
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class,invocationCount = 1)
 
-  public void guest_checkout_CreditCard() {
+
+	public void Guest_Checkout_CreditCard() {
 		try{
+		
 		oxo.closetheadd();
-		oxo.PrivacyPolicy();
-		//oxo.clickBaby_Toddler();
-		oxo.CookingAndBaking();
+		oxo.clickBaby_Toddler();
+		//oxo.CookingAndBaking();
 		oxo.addproducts("1");
 		oxo.checkout();
 		oxo.ShippingAddress("ShippingAddress");
@@ -33,8 +34,9 @@ public class Guest_checkout_CreditCard {
 		oxo.creditCard_payment("PaymentDetails");
 		oxo.VerifyaingConformationPage();
 		Common.refreshpage();
+
 		
-  }
+		}
 	catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);
@@ -51,9 +53,7 @@ public class Guest_checkout_CreditCard {
 	@BeforeMethod
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Oxo\\config.properties");
-		  Login.signIn();
-		 
+		 Login.signIn();
 		  
 	  }
-
 }

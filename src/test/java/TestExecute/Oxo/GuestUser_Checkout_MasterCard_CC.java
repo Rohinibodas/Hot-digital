@@ -39,7 +39,7 @@ public class GuestUser_Checkout_MasterCard_CC {
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	

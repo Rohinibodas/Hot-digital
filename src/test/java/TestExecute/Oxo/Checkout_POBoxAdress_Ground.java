@@ -40,7 +40,7 @@ public class Checkout_POBoxAdress_Ground {
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

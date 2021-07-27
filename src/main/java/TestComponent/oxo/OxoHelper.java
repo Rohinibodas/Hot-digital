@@ -365,6 +365,9 @@ public class OxoHelper {
 			Common.assertionCheckwithReport(Common.getPageTitle().equals(productname),
 					"validating the product details page", expectedResult,
 					"sucessfully navigated to product details page", "faield to navigate product details page");
+		
+			
+			Thread.sleep(5000);
 		} catch (Exception | Error e) {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the product details page", expectedResult,
@@ -502,7 +505,7 @@ public class OxoHelper {
 			Thread.sleep(4000);
 			Sync.waitPageLoad();
 			Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
-			Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
+			Common.textBoxInput("xpath", "//input[@id='popup-pass']", data.get(dataSet).get("Password"));
 			ExtenantReportUtils.addPassLog("verifying login page with fieldData", "User enter the FieldData",
 					"successfully enter the data", Common.getscreenShotPathforReport("logindata"));
 			Common.clickElement("id", "send2");
@@ -517,13 +520,14 @@ public class OxoHelper {
 				AssertJUnit.fail();
 			}
 			try {
-				Thread.sleep(4000);
+				
 				Common.refreshpage();
+				Thread.sleep(4000);
 				Sync.waitElementVisible("xpath", "//span[@class='customer-name']");
 				WebElement element = Common.findElement("xpath", "//span[@class='customer-name']");
 				String text = element.getText();
 				System.out.println("Text Obtained is..." + text);
-				if (text.contains("Hi,mahendra")) {
+				if (text.contains("Hi,QA")) {
 					System.out.println("Expected text is obtained");
 					ExtenantReportUtils.addPassLog("Validating UserName from Header on Home Page",
 							"User Should Successfully Sign-In to User Account and Expected Username text should be obtained",
@@ -798,8 +802,20 @@ public class OxoHelper {
 			AssertJUnit.fail();
 
 		}
-		selectproduct("Silicone Plate");
+		selectproduct("Perch Booster Seat with Straps");
 
+	}
+	
+	
+	public void Configure_Color() throws Exception {
+		
+		try {
+		Thread.sleep(5000);
+		Sync.waitElementClickable("xpath", "//a[@class='product-color__link']//figcaption[contains(text(),'Taupe')]");
+		Common.findElement("xpath", "//a[@class='product-color__link']//figcaption[contains(text(),'Taupe')]").click();		
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void VerifyingShippingpage() throws Exception {
@@ -1294,7 +1310,7 @@ public class OxoHelper {
 					String text = element.getText();
 					System.out.println("Text Obtained is..." + text);
 					Thread.sleep(5000);
-					if (text.contains("Hi,mahendra")) {
+					if (text.contains("Hi,QA")) {
 						System.out.println("Expected text is obtained");
 						ExtenantReportUtils.addPassLog("Validating UserName from Header on Home Page",
 								"User Should Successfully Sign-In to User Account and Expected Username text should be obtained",
@@ -2823,8 +2839,8 @@ public class OxoHelper {
 		String expectedResult = "It Should be navigate Goodtipsblog page";
 		try {
 			Thread.sleep(5000);
-			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15196']");
-			Common.clickElement("xpath", "//a[@data-menu='menu-15196']");
+			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15796']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-15796']");
 			// Common.assertionCheckwithReport(Common.getCurrentURL().equals(data.get(dataSet).get("URL"))&&Common.getPageTitle().equals(data.get(dataSet).get("pageTitle")),"Validating
 			// GoodTipsBlog page Title and URL", "it navigating to GoodTipsBlog
 			// page", "user navigated to GoodTipsBlog Page", "user faield to
@@ -2832,6 +2848,8 @@ public class OxoHelper {
 			ExtenantReportUtils.addPassLog("validating the GoodTipsBlog page.", expectedResult,
 					"user click the GoodTipsblog", Common.getscreenShotPathforReport("passgood"));
 		} catch (Exception | Error e) {
+			
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("validating the GoodTipsBlog page.", expectedResult,
 					"user failed to navigate GoodTipsBlog", Common.getscreenShotPathforReport("GoodTipsBlogfaield"));
 			AssertJUnit.fail();
@@ -2973,7 +2991,7 @@ public class OxoHelper {
 			Common.clickElement("xpath", "//a[@class='action remind']");
 			Sync.waitPageLoad();
 			Thread.sleep(7000);
-			Common.textBoxInput("id", "email_address_forgot", data.get(dataset).get("Email"));
+			Common.textBoxInput("xpath", "//input[@id='email_address_forgot']", data.get(dataset).get("Email"));
 			ExtenantReportUtils.addPassLog("verifying user enter email", "user enter email",
 					"User successfully enter email", Common.getscreenShotPathforReport("emailforg"));
 			Common.clickElement("id", "bnt-social-login-forgot");

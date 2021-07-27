@@ -29,7 +29,8 @@ public class Guest_Checkout_Paypal {
 		oxo.payPal_payment("PaypalDetails");
 		//oxo.VerifyaingConformationPage();
 		
-  }
+		
+		}
 	catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);
@@ -39,7 +40,7 @@ public class Guest_Checkout_Paypal {
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	

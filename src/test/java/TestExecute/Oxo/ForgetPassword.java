@@ -20,7 +20,7 @@ public class ForgetPassword {
 		oxo.closetheadd();
 	    //oxo.acceptPrivecy();
 		//oxo.PrivacyPolicy();
-		oxo.ForgotPassword("Forgetpassoword");
+		oxo.ForgotPassword("Forgetpassword");
   }
 	catch (Exception e) {
 		

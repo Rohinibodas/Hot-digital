@@ -41,7 +41,7 @@ public class GuestUserCheckoutInvalidCC {
 	@AfterTest
 	public void clearBrowser() {
 		
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

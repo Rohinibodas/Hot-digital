@@ -18,7 +18,7 @@ public class ForgotPassword_GoodTipsBlog {
 		try {
 		oxo.closetheadd();
 			//oxo.clickGoodTipsBlog();
-			oxo.forgetpasswordGoodTipsBlock("Forgetpassoword");
+			oxo.forgetpasswordGoodTipsBlock("Forgetpassword");
 		}
 		catch (Exception e) {
 			
@@ -28,7 +28,7 @@ public class ForgotPassword_GoodTipsBlog {
   @AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	@BeforeMethod

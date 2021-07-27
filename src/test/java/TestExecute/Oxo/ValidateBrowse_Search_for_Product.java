@@ -30,7 +30,7 @@ public class ValidateBrowse_Search_for_Product {
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 	@BeforeMethod

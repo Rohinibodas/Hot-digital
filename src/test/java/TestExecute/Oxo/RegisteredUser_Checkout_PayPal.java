@@ -31,7 +31,7 @@ public class RegisteredUser_Checkout_PayPal {
 			oxo.clickAcceptingaddress();
 			oxo.selectGroundShippingMethod();
 			oxo.payPal_payment("PaypalDetails");
-			//oxo.VerifyaingConformationPage();
+			oxo.VerifyaingConformationPage();
 			
 	  }
 	catch (Exception e) {
@@ -43,7 +43,7 @@ public class RegisteredUser_Checkout_PayPal {
 		public void clearBrowser() throws Exception
 		{
     
-			Common.closeAll();
+			//Common.closeAll();
          
 		}
 		

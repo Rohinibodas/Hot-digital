@@ -30,7 +30,7 @@ public class ProductRegistration {
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

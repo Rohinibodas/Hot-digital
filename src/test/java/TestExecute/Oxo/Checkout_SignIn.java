@@ -36,7 +36,7 @@ public class Checkout_SignIn {
 	@AfterTest
 	public void clearBrowser() {
 
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 
