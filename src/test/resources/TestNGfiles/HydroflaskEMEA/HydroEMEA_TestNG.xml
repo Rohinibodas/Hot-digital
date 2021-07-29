@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hydroflask Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<test name="Test_HF_EMEA_ST_001_Guestuser_Checkout_with_Creditcard_VISA" testid="HES-118"
+		priority="P1"
+		description="This script will cover GuestUser  Checkout with VISA Credit card order submit Process of HydroFlaskEMEA	">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_001_Guestuser_Checkout_with_Creditcard_VISA" />
+		</classes>
+	</test>
+  <test name="Test_HF_EMEA_ST_002_RegisteredUser_Checkout_CreditCard_Visa" testid="HES-120"
+		priority="P1"
+		description="This script will cover RegisterUser  checkout with  VISA Creditcard  order submit Process of HydroFlaskEMEA	">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_002_RegisteredUser_Checkout_CreditCard_Visa" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_003_Registeruser_Checkout_with_Promocode" testid="HES-121"
+		priority="P1"
+		description="This script will cover RegisterUser checkout with promocode order submit Process of HydroFlaskEMEA	">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_003_Registeruser_Checkout_with_Promocode" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_004_Changepassword"
+		testid="HES-128" priority="P1"
+		description="This script will cover change password of HydroFlaskEMEA">
+		<classes>
+			<class
+				name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_004_Changepassword" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_005_warranty_submission_DE"
+		testid="HES-127" priority="P1"
+		description="This script will cover warranty submission Process of HydroFlaskEMEA	">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_005_warranty_submission_DE" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_006_AccountCreation" testid="HES-126"
+		priority="P1"
+		description="This script will cover Accountcreation  Process of HydroFlaskEMEA	">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_006_AccountCreation" />
+		</classes>
+	</test> 	
+	<test name="Test_HF_EMEA_ST_007_Newsletter_Subscription" testid="HES-124"
+		priority="P1" description="This script will cover  Newsletter subscription of HydroFlaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_007_Newsletter_Subscription" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_008_ContactUS_DE" testid="HES-123" priority="P1"
+		description="This script will cover Countact Us Process of HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_008_ContactUS_DE" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_009_Product_Reviewby_guestuser" testid="HES-122"
+		priority="P1"
+		description="This script will cover Product review of HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_009_Product_Reviewby_guestuser" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_010_Social_Media_links_validation" testid="HES-139"
+		priority="P1"
+		description="This script will cover social media links of HydroflaskEMEA	">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_010_Social_Media_links_validation" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_011_Explore_link_Validationin_header" testid="HES-138"
+		priority="P1" description="This script will cover Explore link validation of HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_011_Explore_link_Validationin_header" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_012_Shoplink_Validation" testid="HES-137"
+		priority="P1"
+		description="This script will cover Shoplink validation of HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_012_Shoplink_Validation" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_013_Shopping_Cart_Validation" testid="HES-136"
+		priority="P1"
+		description="This script will cover Shopping cart validation of HydroflaskEMEA ">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_013_Shopping_Cart_Validation" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_014_Guestuser_Checkout_with_Creditcard_Master" testid="HES-135"
+		priority="P1"
+		description="This script will cover guest user checkout with master_creditcard order submit process of HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_014_Guestuser_Checkout_with_Creditcard_Master" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_015_Registeruser_Checkout_with_Creditcard_Master" testid="HES-134"
+		priority="P1"
+		description="This script will cover Registeruser checkout with master creditcard order submit Process of HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_015_Registeruser_Checkout_with_Creditcard_Master" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_016_Product_search" testid="HES-133"
+		priority="P1" description="This script will product search HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_016_Product_search" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_017_Registeruser_Checkout_with_InvalidCC" testid="HES-132"
+		priority="P1"
+		description="This script will cover  Registeruser checkout with Invalid creditcard of HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_017_Registeruser_Checkout_with_InvalidCC" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_018_Guestuser_Checkout_with_InvalidCc" testid="HES-131"
+		priority="P1"
+		description="This script will cover guest user checkout with Invalid creditcard HydroflaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_018_Guestuser_Checkout_with_InvalidCc" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_019_Footerlink_Validation" testid="HES-130"
+		priority="P1"
+		description="This script will cover Footerlink validation of HydroFlaskEMEA">
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_019_Footerlink_Validation" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_020_Minicart_Validation"
+		testid="HES-129" priority="P1"
+		description="This script will cover Validation of MiniCart functionality">
+		<classes>
+			<class
+				name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_020_Minicart_Validation" />
+		</classes>
+	</test>
+	
+	
+	
+	
+	
+	<test name="Test_HF_EMEA_ST_008_ContactUS_FR"
+		testid="HES-173" priority="P1"
+		description="This script will cover Validation of Contact US for FR functionality">
+		<classes>
+			<class
+				name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_021_ContactUS_FR" />
+		</classes>
+	</test>
+	<test name="Test_HF_EMEA_ST_022_warranty_submission_FR"
+		testid="HES-171" priority="P1"
+		description="This script will cover Validation of warranty submission for FR functionality">
+		<classes>
+			<class
+				name="TestExecute.HydroflaskEMEA.Test_HF_EMEA_ST_022_warranty_submission_FR" />
+		</classes>
+	</test>
+	
+</suite>  
+
