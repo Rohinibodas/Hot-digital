@@ -2626,7 +2626,7 @@ public void serachproduct_addtocart(String dataSet){
 		
 		Common.clickElement("xpath", "//a[text()='"+dataSet+"']");
 		Thread.sleep(4000);
-		testing();
+		validating_BundlePrdocuts();
 		Common.clickElement("xpath", "//button[@title='Add to Cart']");
 	//	Common.clickElement("xpath", "//a[text()='Adventure Bundle']//following::form[1]//button");
 		
