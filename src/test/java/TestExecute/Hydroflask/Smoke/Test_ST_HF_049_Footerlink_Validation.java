@@ -28,7 +28,7 @@ public class Test_ST_HF_049_Footerlink_Validation {
 		Hydro.footerLinks_Track_Your_Order_Validation();
 		//Hydro.footerLinks_Refer_aFriend_Validation();
 		Hydro.footerLinks_Parks_For_All_Validation();
-		Hydro.footerLinks_New_Arrivals_Validation();
+		//Hydro.footerLinks_New_Arrivals_Validation();
 		Hydro.footerLinks_Bottles_Validation();
 		Hydro.footerLinks_Customize_Validation();
 		Hydro.footerLinks_OutdoorKitchen_Validation();

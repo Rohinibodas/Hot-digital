@@ -17,11 +17,9 @@ public class TEST_ST_HF_028_Checkout_with_credit_card_as_registered_user_with_bu
 	  
 	  try{
 			Hydro.loginHydroflaskAccount("AccountDetails");
-
-			Hydro.serachproduct_addtocart("Adventure Bundle");
+            Hydro.serachproduct_addtocart("Adventure Bundle");
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress_registerUser("Address");
-			Hydro.payPal_Payment("PaypalDetails");
 			Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 			
 			}

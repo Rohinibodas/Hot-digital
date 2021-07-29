@@ -27,6 +27,7 @@ import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openxmlformats.schemas.drawingml.x2006.main.STTextFontAlignType;
 import org.testng.Assert;
 
 import TestLib.Automation_properties;
@@ -956,8 +957,9 @@ public class HydroHelper {
 			expectedResult, "Filled the Card detiles", "missing field data it showinng error");
 	}
 
-	public void updatePaymentAndSubmitOrder(String dataSet) throws Exception {
+	public String updatePaymentAndSubmitOrder(String dataSet) throws Exception {
 		
+		String order="";
 		addPaymentDetails(dataSet);
 		String expectedResult = "It redirects to order confirmation page";
 
@@ -991,6 +993,8 @@ public class HydroHelper {
 				"verifying the product confirmation", expectedResult,
 				"Successfully It redirects to order confirmation page Order Placed",
 				"User unabel to go orderconformation page");
+		//order=Common.getText("xpath", "//a[@class='order-number']/strong");
+
 			}
 			catch (Exception | Error e) {
 				e.printStackTrace();
@@ -998,8 +1002,10 @@ public class HydroHelper {
 						"User failed to navigate  to order confirmation page", Common.getscreenShotPathforReport("failednavigatepage"));
 				Assert.fail();
 			}
+			
 	
 	}
+		return order;
 	}
 	public void payPal_Payment(String dataSet) throws Exception {
 
@@ -2611,7 +2617,7 @@ public class HydroHelper {
 public void serachproduct_addtocart(String dataSet){
 	
 	try {
-		Thread.sleep(8000);
+		Thread.sleep(5000);
 		Sync.waitElementVisible("xpath", "//form[@id='search_mini_form']//label");
 		Thread.sleep(8000);
 		Common.clickElement("xpath", "//form[@id='search_mini_form']//label");
@@ -2620,7 +2626,7 @@ public void serachproduct_addtocart(String dataSet){
 		
 		Common.clickElement("xpath", "//a[text()='"+dataSet+"']");
 		Thread.sleep(4000);
-		 validating_BundlePrdocuts();
+		testing();
 		Common.clickElement("xpath", "//button[@title='Add to Cart']");
 	//	Common.clickElement("xpath", "//a[text()='Adventure Bundle']//following::form[1]//button");
 		
@@ -4385,6 +4391,71 @@ public void Newsletter_subscription() {
 	  }  
   }
   
+  
+  
+  public void testing() {
+	  
+	  
+	  
+		
+	  
+		int bundleproducts=Common.findElements("xpath","//div[@class='bundle-product-options-container']/div").size();
+
+		
+		
+		//div[@class='bundle-product-options-container']/div[1]/following::input[1]/following::label[1]
+		
+		for(int i=0;i<bundleproducts;i++) {
+			
+			int value=i+1;
+			
+			
+			System.out.println(value+"***********************");
+		 List<WebElement> Listsubcolorproducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//input/following::label[1]");
+			
+			
+			
+		    List<WebElement> Listofcolorinput =Common.findElements("xpath","//div[@class='bundle-product-options-container']/div["+value+"]//input[1]");
+			
+		    
+              for(int j=0;j<Listsubcolorproducts.size();j++) {
+              
+              	
+              	
+              	String labelid=Listsubcolorproducts.get(j).getAttribute("for");
+              	
+              	
+              	
+				
+              	if(Common.findElement("xpath", "//input[@id='"+labelid+"']").getAttribute("disabled")==null) {
+      		    	try {
+      		    		
+      		    		
+              		Listsubcolorproducts.get(j).click();
+              		
+              		System.out.println(Common.findElement("xpath","//input[@id='"+labelid+"']").getAttribute("data-color-label"));
+              		
+              		
+      		    	}
+      		    	catch(Exception e) {
+      		    		
+                             break;
+      		    		
+      		    	}
+              		
+      		    }
+              }
+		}
+		    
+		}
+			
+			
+			
+				
+	
+	  
+  
+  
         public void validating_BundlePrdocuts() {
         	
         	
@@ -4392,13 +4463,12 @@ public void Newsletter_subscription() {
         	
 
         	int subproductList=Common.findElements("xpath","//div[@class='bundle-product-options-container']/div").size();
-        	System.out.println(subproductList+"TEAMSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-        	      
+        
         	for(int i=0;i<subproductList;i++) {
         		int value=i+1;
         		
         		
-        		List<WebElement> ListOfSubproducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//input/following::label["+value+"]");
+        		List<WebElement> ListOfSubproducts=Common.findElements("xpath", "//div[@class='bundle-product-options-container']/div["+value+"]//input/following::label[1]");
         		
         		
         		
@@ -4696,11 +4766,7 @@ public void Newsletter_subscription() {
         
         
         
-        public void validating_Bottles() {
-        	
-        	
-        	
-        }
+      
         
         public void validatingShoppbutton() throws Exception {
         	Thread.sleep(3000);
@@ -5041,6 +5107,36 @@ public void Newsletter_subscription() {
     		Thread.sleep(3000);
     	}
         
+        
+        public String persentageclaluater(double toalvalue,double persentagevalue) {
+        	
+        	
+        	double percentagevalue=(toalvalue*persentagevalue)/100;
+        	       NumberFormat nf= NumberFormat.getInstance();
+        	       nf.setMaximumFractionDigits(2);
+            String caluatedvalue=nf.format(percentagevalue);
+        	   
+                   return caluatedvalue;
+        }
+        
+        
+        public void validating_Employ_Discount_forInlineProducts(int empalydisccount) throws Exception {
+        	
+        	Thread.sleep(4000);
+        	
+        	String orginalprice=Common.getText("xpath", "//span[@class='old-price']").replace("$", "");
+        	
+        	
+        	double orginalprice_converting=Double.valueOf(orginalprice);
+        	
+            String disccountammount =persentageclaluater(orginalprice_converting,Double.valueOf(empalydisccount));
+            
+            double ammount=orginalprice_converting-Double.valueOf(disccountammount);
+            
+          
+        
+        	System.out.println(ammount);
+        }
         
         public HashMap<String,String> taxValidation(String taxpercent) {
 			// TODO Auto-generated method stub

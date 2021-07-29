@@ -18,8 +18,8 @@ public class TEST_ST_HF_025_Checkout_as_guestuser_with_credit_card_MASTER {
 			
 			Hydro.order("Bottles");
 			Hydro.checkOut();
-			Hydro.addDeliveryAddress_registerUser("Address");
-			Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
+			Hydro.addDeliveryAddress("Address");
+		    Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 			
 			}
 			catch (Exception e) {

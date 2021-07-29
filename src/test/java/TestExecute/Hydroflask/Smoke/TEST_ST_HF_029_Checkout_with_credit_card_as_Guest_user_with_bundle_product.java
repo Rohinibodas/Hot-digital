@@ -18,8 +18,7 @@ public class TEST_ST_HF_029_Checkout_with_credit_card_as_Guest_user_with_bundle_
 		try{
 		Hydro.serachproduct_addtocart("Adventure Bundle");
 		Hydro.checkOut();
-		Hydro.addDeliveryAddress_registerUser("Address");
-		Hydro.payPal_Payment("PaypalDetails");
+		Hydro.addDeliveryAddress("Address");
 		Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 		
 		}

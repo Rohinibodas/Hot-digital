@@ -18,7 +18,7 @@ public class TEST_ST_HF_027_Checkout_with_paypal_as_guest_user_with_bundle_produ
 			
 			Hydro.serachproduct_addtocart("Adventure Bundle");
 			Hydro.checkOut();
-			Hydro.addDeliveryAddress_registerUser("Address");
+			Hydro.addDeliveryAddress("Address");
 			Hydro.payPal_Payment("PaypalDetails");
 			
 			}
