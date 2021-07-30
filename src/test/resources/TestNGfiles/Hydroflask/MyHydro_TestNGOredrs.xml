@@ -7,7 +7,7 @@
 	  <test name="Test_ST_HF_051_checkout_with_Amexcard_as_Guestuser_with_singleproduct_tax_andStandard_Shipping_withdifferentBilling_Shipping_address" testid="HYDRO-997"
 		priority="P1"
 		description="This script will cover GuestUser  order using AmexCC  with Single-product Tax  and standard shipping with Different Billing address order submit Process of HydroFlask	">
-		<classes>
+		<classes> 
 			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_051_checkout_with_Amexcard_as_Guestuser_with_singleproduct_tax_andStandard_Shipping_withdifferentBilling_Shipping_address" />
 		</classes>
 	</test>

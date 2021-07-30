@@ -45,6 +45,7 @@ public void navigateMyAccount() throws InterruptedException {
 	Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
 	try {
 		Sync.waitPageLoad();
+		
 		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 		Common.findElement("xpath", "//a[@class='social-login']").click();
 		

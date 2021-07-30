@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
-
+ 
 public class Test_ST_HF_063_checkout_with_MASTERcard_as_Registeruser_with_singleproduct_and_Discount_Promocode_tax_Standard_Shipping_with_DifferentBilling_Shippingaddresses {
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
