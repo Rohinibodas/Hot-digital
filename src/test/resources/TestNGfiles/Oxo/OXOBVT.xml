@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="OxoSuite Suite">
+
+	<listeners>
+
+		<listener class-name="Utilities.TestListener" />
+
+	</listeners>
+
+
+
+
+
+	<test name="TEST_OXO_ST_001-Account Creation" testid="OUS23-703"
+
+		priority="P1"
+		description="This script will cover Creating New Account Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CreateNewAccount" />
+
+		</classes>
+
+	</test>
+
+
+	<test name="TEST_OXO_ST_005-Validate Browse_Search for Product"
+
+		testid="OUS23-761" priority="P1"
+
+		description="This script will cover browse/search for Product functionality Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.ValidateBrowse_Search_for_Product" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_ST_006-Registered Checkout Paypal"
+		testid="OUS23-764" priority="P1"
+
+		description="This script will cover Registered User  order using paypal submit Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.RegisteredUser_Checkout_PayPal" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_ST_004-Guest Checkout Creditcard"
+		testid="OUS23-759" priority="P1"
+
+		description="This script will cover guest user order using Creditcard submit Process of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.Guest_checkout_CreditCard" />
+
+		</classes>
+
+	</test>
+
+
+	<test name="TEST_OXO_ST_010-Validation of Cart Page"
+		testid="OUS23-765" priority="P1"
+		description="This script will cover Validation of Cart Page of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.ValidationofCartPage" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_OXO_MT_016-ValidateLogout" testid="OUS23-705"
+
+		priority="P1" description="This script will cover logout from oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.LogOut" />
+
+		</classes>
+
+	</test>
+
+
+	<test
+		name="TEST_ST_OXO_024- Express PayPal checkout as Guest user"
+
+		testid="OUS23-920" priority="P1"
+
+		description="This script will cover  Process Express PayPal checkout as Guest user of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.GuestExpressPayPalCheckout" />
+
+		</classes>
+
+	</test>
+
+
+	<test
+		name="TEST_ST_OXO_026_Registered User Checkout with Promocode"
+
+		testid="OUS23-922" priority="P1"
+
+		description="This script will cover  Process Registered User Checkout with Promocode of oxo">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.PromoCode_RegisteredUser_Checkout" />
+
+		</classes>
+
+	</test>
+
+</suite>

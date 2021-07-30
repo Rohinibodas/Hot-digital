@@ -38,6 +38,7 @@ public class GuestExpressPayPalCheckout {
 
 	@AfterTest
 	public void clearBrowser() {
+		
 		Common.closeAll();
 
 	}

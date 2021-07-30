@@ -41,6 +41,7 @@ public class Guest_checkout_CreditCard {
 		
 		Assert.fail(e.getMessage(), e);
 	} 
+		
 }
 	
 	@AfterTest

@@ -43,7 +43,7 @@ public class RegisteredUser_Checkout_PayPal {
 		public void clearBrowser() throws Exception
 		{
     
-			//Common.closeAll();
+			Common.closeAll();
          
 		}
 		

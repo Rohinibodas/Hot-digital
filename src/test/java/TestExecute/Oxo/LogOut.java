@@ -27,6 +27,7 @@ catch (Exception e) {
 	}
 	@AfterTest
 	public void clearBrowser()
+	
 	{
 		Common.closeAll();
 
