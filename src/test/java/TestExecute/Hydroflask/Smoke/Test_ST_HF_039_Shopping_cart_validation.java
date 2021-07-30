@@ -9,15 +9,15 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_HF_ST_039_Shopping_cart_validation {
+public class Test_ST_HF_039_Shopping_cart_validation {
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
   @Test
   public void shopping_cart_validation() {
 		try{
-			 Hydro.loginHydroflaskAccount("AccountDetails");
-
-			 
+			 Hydro.serachproduct_addtocart("Serving Bundle");
+			 Hydro.minicart_Validation();
+			// Hydro.checkOutCart();
 		 }
 		catch (Exception e) {
 			e.printStackTrace();

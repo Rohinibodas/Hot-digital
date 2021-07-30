@@ -1912,6 +1912,134 @@ public class HydroHelper {
 		Common.clickElement("xpath", "//ul[@class='megamenu-list-ancestor']//a[contains(text(),'Bottles')]");
 	}
 
+	public void review( String dataSet) {
+		
+		String expectedResult="";
+		try {
+			
+			String Serachproduct ="20 oz Wide Mouth";
+		Thread.sleep(5000);
+		Sync.waitElementVisible("xpath", "//form[@id='search_mini_form']//label");
+		Thread.sleep(8000);
+		Common.clickElement("xpath", "//form[@id='search_mini_form']//label");
+		Common.textBoxInput("xpath", "//input[@id='search']", Serachproduct);
+		Common.actionsKeyPress(Keys.ENTER);
+		
+		Common.clickElement("xpath", "//a[text()='"+Serachproduct+"']");
+		Thread.sleep(4000);
+		ExtenantReportUtils.addPassLog("validating Search box", "enter product name will display in search box",
+				"user enter the product name in  search box", Common.getscreenShotPathforReport("searchproduct1"));
+		
+		
+		
+		
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("validating Search box", "enter product name will display in search box",
+				"User failed to enter product name", Common.getscreenShotPathforReport("searchproduct1"));
+		Assert.fail();
+
+	}
+		
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		
+		
+
+		try {
+			Thread.sleep(4000);
+
+			Sync.waitElementPresent("xpath", "//button[contains(@class,'write-review')]");
+			Common.clickElement("xpath", "//button[contains(@class,'write-review')]");
+		}
+
+		catch (Exception | Error e) {
+			ExtenantReportUtils.addFailedLog("verifying the review button", "select the write review option",
+					"User failed to click write review option  ", Common.getscreenShotPathforReport("write riew"));
+			Assert.fail();
+
+		}
+
+		try {
+		
+			Thread.sleep(4000);
+			expectedResult = "It should shows My Review Pop-up";
+			
+			overallRating(data.get(dataSet).get("OverallRating"));
+
+			Sync.waitElementPresent("id", "bv-text-field-title");
+
+			int reviewpagelview = Common.findElements("id", "bv-text-field-title").size();
+			Common.assertionCheckwithReport(reviewpagelview > 0, "verifying review page", "Review pop-up open",
+					expectedResult, "User unabel to redirect Review pop-up");
+			// (reviewpagelview>0, "Review pop-up open", expectedResult,"User
+			// unabel to redirect Review pop-up ");
+
+			Common.textBoxInput("id", "bv-text-field-title", data.get(dataSet).get("Reviewtitle"));
+
+			Common.textBoxInput("xpath", "//textarea[contains(@id,'reviewtext')]",
+					data.get(dataSet).get("ReviewDescription"));
+
+			Wouldyourecommendthiproduct(data.get(dataSet).get("recommendthiproduct"));
+
+			// nicName
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'usernickname')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'usernickname')]", data.get(dataSet).get("Nickname"));
+
+			// User location
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'userlocation')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'userlocation')]", data.get(dataSet).get("Location"));
+
+			// user email
+
+			Sync.waitElementPresent("xpath", "//input[contains(@id,'hostedauthentication')]");
+			Common.textBoxInput("xpath", "//input[contains(@id,'hostedauthentication')]",
+					data.get(dataSet).get("Email"));
+			selectAgeforReview(Integer.valueOf(data.get(dataSet).get("Age")));
+			selectGenderforReview(data.get(dataSet).get("gender"));
+			qualityof_ProductRating(data.get(dataSet).get("ProductRating"));
+			valueof_productRating(data.get(dataSet).get("valueofProductRating"));
+			recommendHydroFlask(Integer.valueOf(data.get(dataSet).get("HydroFlaskOverallRating")));
+
+			Common.textBoxInput("xpath", "//textarea[contains(@id,'netpromotercomment')]",
+					data.get(dataSet).get("Pleasetelluswhy"));
+
+			Common.clickElement("xpath", "//button[contains(@class,'form-actions-submit')]");
+
+		}
+
+		catch (Exception | Error e) {
+			ExtenantReportUtils.addFailedLog("verifying product review",
+					"User fill the all the infromation in reivew page",
+					"User failed to fill the all the infromation in review page",
+					Common.getscreenShotPathforReport("reviwPage"));
+			Assert.fail();
+		}
+
+		try {
+			Thread.sleep(4000);
+			String sucesstext = Common.getText("xpath", "//*[contains(@class,'bv-submission-text')]");
+			System.out.println(sucesstext+"********************************");
+			
+			expectedResult = "Click on post review button, it shouldshows Pop-up with text Your review was Submitted!";
+			Common.assertionCheckwithReport(sucesstext.contains("Your review was submitted!"),
+					"verifying review success message", expectedResult, "Your review was submitted",
+					"User missing filed valied data in review page");
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+		
+			ExtenantReportUtils.addFailedLog("verifying review success message", "User submit the review",
+					"User failed to fill the all the infromation in review page",
+					Common.getscreenShotPathforReport("reviwPagesubmit"));
+			Assert.fail();
+		}
+	}
+
+	
+	
+	
+	
 	public void review_bottles(String dataSet) throws Exception {
 
 		String expectedResult = "It Shoud lands on the Product Listing Page";
@@ -2002,8 +2130,7 @@ public class HydroHelper {
 		}
 
 		try {
-			// report.addPassLog("click write review button
-			// ",Common.getscreenShotPathforReport("write review button"));
+		
 			Thread.sleep(4000);
 			expectedResult = "It should shows My Review Pop-up";
 			
@@ -2646,6 +2773,7 @@ public void serachproduct_addtocart(String dataSet){
 
 	
 }
+
 	public void SampleSearchProduct(String dataSet) throws Exception {
 		Thread.sleep(8000);
 		try {
@@ -2779,12 +2907,40 @@ public void serachproduct_addtocart(String dataSet){
 
 	}
 
-	public void minicart() throws Exception {
+	public void minicart_Validation() throws Exception {
+		String UpdataedQuntityinminicart="3";
+		
+		
+		
+	try{	
+
 		Common.clickElement("xpath", "//a[@aria-label='minicart']");
 		Thread.sleep(2000);
 		Common.clickElement("xpath", "//a[contains(@class,'viewcart')]");
-
+		
 		Thread.sleep(10000);
+		
+		Common.dropdown("name", "qty-mobile", SelectBy.TEXT, UpdataedQuntityinminicart);
+		
+		Sync.waitPageLoad();
+		Thread.sleep(10000);
+		Common.clickElement("xpath", "//a[@aria-label='minicart']");
+		
+		String getQuntity=Common.getText("xpath", "//span[@class='minicart-item-option-value']");
+		
+		Common.assertionCheckwithReport(UpdataedQuntityinminicart.equals(getQuntity), "Validating updated Qty in cart page", "Updated Qunty must be add to cart ", "sucessfully cart QTY is updated", "failed to UpdatedQunty");
+		
+	}
+	
+	catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("Validating updated Qty in cart page", "Updated Qunty must be add to cart ",
+				"User failed to updated QTY ",
+				Common.getscreenShotPathforReport("QTY"));
+		Assert.fail();
+
+	}
+
+		
 		// div[contains(@class,'no-edit')]/a[2]
 		// Sync.waitElementVisible("className", "checkout-step-title");
 		// report.addPassLog("Clicked the checkout
@@ -2792,10 +2948,7 @@ public void serachproduct_addtocart(String dataSet){
 
 		// div[contains(@class,'no-remove')]
 
-		List<WebElement> elemtddds = Common.findElements("xpath", "//div[contains(@class,'no-remove')]/a[1]");
-
-		elemtddds.get(elemtddds.size() - 1).click();
-
+		
 		/*
 		 * Common.clickElement("id", "block-discount-heading");
 		 * Common.textBoxInput("id", "coupon_code", "h20");
@@ -3895,27 +4048,27 @@ public void socialLinkValidation(String dataSet){
 		System.out.println(Common.getCurrentURL());
 		
 		if(socallinksarry[i].equals("Twitter")){
-			Common.assertionCheckwithReport(Common.getPageTitle().contains("Hydro Flask (@HydroFlask) / Twitter"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.assertionCheckwithReport(Common.getCurrentURL().contains("twitter"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
 			Common.closeCurrentWindow();
 			Common.switchToFirstTab();
 		}
-   else if(socallinksarry[i].equals("Instagram")){
-			Common.assertionCheckwithReport(Common.getPageTitle().contains("Login • Instagram"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
-			Common.closeCurrentWindow();
-			Common.switchToFirstTab();
-		}
+		
+		  else if(socallinksarry[i].equals("Instagram")){
+		  Common.assertionCheckwithReport(Common.getCurrentURL().contains("instagram"),"Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i],"successfully navigating to social link  "+socallinksarry[i],"Failed to navigate to social link "+socallinksarry[i]);
+		  Common.closeCurrentWindow(); Common.switchToFirstTab(); }
+		 
    else	if(socallinksarry[i].equals("Facebook")){
-			Common.assertionCheckwithReport(Common.getPageTitle().contains("Hydro Flask - Home | Facebook"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.assertionCheckwithReport(Common.getCurrentURL().contains("www.facebook.com"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
 			Common.closeCurrentWindow();
 			Common.switchToFirstTab();
 		}
    else	if(socallinksarry[i].equals("Pinterest")){
-			Common.assertionCheckwithReport(Common.getPageTitle().contains("Pinterest"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.assertionCheckwithReport(Common.getCurrentURL().contains("pinterest"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
 			Common.closeCurrentWindow();
 			Common.switchToFirstTab();
 		}
    else	if(socallinksarry[i].equals("Youtube")){
-		Common.assertionCheckwithReport(Common.getCurrentURL().contains("hydroflask"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains("youtube"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
 		Common.closeCurrentWindow();
 		Common.switchToFirstTab();
 	}
@@ -4351,6 +4504,8 @@ public void Newsletter_subscription() {
        System.out.println(strArray[i]);
        
        if (Common.getCurrentURL().contains("stg")) {
+    	   
+    	   Common.oppenURL((strArray[i]));
     	   int  responcecode=getpageresponce(Common.getCurrentURL());
 	       System.out.println(responcecode);
 	   
@@ -4386,7 +4541,8 @@ public void Newsletter_subscription() {
     	    }
        }
     }
-	  if(j<1) {
+    
+	  if(j>1) {
 		  Assert.fail();
 	  }  
   }
@@ -5193,7 +5349,63 @@ public void Newsletter_subscription() {
 		}
 
 		
+        public void validatingPDPPage_URLS() {
+        	
+        	try {
+    			
+    			String Serachproduct ="20 oz Wide Mouth";
+    		Thread.sleep(5000);
+    		Sync.waitElementVisible("xpath", "//form[@id='search_mini_form']//label");
+    		Thread.sleep(8000);
+    		Common.clickElement("xpath", "//form[@id='search_mini_form']//label");
+    		Common.textBoxInput("xpath", "//input[@id='search']", Serachproduct);
+    		Common.actionsKeyPress(Keys.ENTER);
+    		
+    		Common.clickElement("xpath", "//a[text()='"+Serachproduct+"']");
+    		Thread.sleep(4000);
+    		ExtenantReportUtils.addPassLog("validating Search box", "enter product name will display in search box",
+    				"user enter the product name in  search box", Common.getscreenShotPathforReport("searchproduct1"));
+    		
+    		
+    		
+    		
+    	} catch (Exception | Error e) {
+    		e.printStackTrace();
+    		ExtenantReportUtils.addFailedLog("validating Search box", "enter product name will display in search box",
+    				"User failed to enter product name", Common.getscreenShotPathforReport("searchproduct1"));
+    		Assert.fail();
+
+    	}
+        	
+        	
+        	
+        	
         
+        try {
+        	List<WebElement> pdpcolors=Common.findElements("xpath", "//div[@id='product-options-wrapper']//div[contains(@id,'option-label-color')]");
+        	for(int i=0;i<pdpcolors.size();i++) {
+        		
+        		pdpcolors.get(i).click();
+        		Thread.sleep(4000);
+        		
+        		String clicked_Color=pdpcolors.get(i).getAttribute("data-name");
+        		System.out.println(clicked_Color+"selected clocor");
+        		
+        		System.out.println(Common.getCurrentURL());
+        	    Common.assertionCheckwithReport(Common.getCurrentURL().contains(clicked_Color),"Validating PDP page url Color name is passing to url", "select the color of product is "+clicked_Color+" it must pass throw url", " Selected color "+clicked_Color+"passing throw url", "Failed to clicked colr is passing throw URL"+clicked_Color);   		
+        		
+        	}
+        }
+        catch(Exception |Error e)
+ 		{
+ 			report.addFailedLog("verifying PDP color switch passing throw url", "Color Switch must pass throw url peramater as color ", "Faield to pass color parameter in url or faield to swith color", Common.getscreenShotPathforReport("colorswith"));
+
+ 			e.printStackTrace();
+ 			Assert.fail();
+ 			
+ 	}
+        	
+        }
         
   
 	public HydroHelper(String datafile) {

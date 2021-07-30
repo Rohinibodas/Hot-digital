@@ -16,17 +16,13 @@ public class Test_ST_HF_038_PDP_thumbnail_verification_of_bundle_product {
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-	 public void checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product() {
+	 public void PDP_thumbnail_verification_of_bundle_product() {
 		  try{
 	        
 				
-				  Hydro.loginHydroflaskAccount("AccountDetails");
 				  
-				  Hydro.Customize_Bottle_Standed("24 oz");;
 				 
-			  Hydro.serachproduct_addtocart("Serving Bundle");
-			  
-			
+			 Hydro.serachproduct_addtocart("Serving Bundle");
 			 Hydro.checkOut(); 
 			 Hydro.addDeliveryAddress_registerUser("Address");
 			 Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
@@ -45,7 +41,7 @@ public class Test_ST_HF_038_PDP_thumbnail_verification_of_bundle_product {
 		@AfterTest
 		public void clearBrowser()
 		{
-	      // Common.closeAll();
+	      Common.closeAll();
 
 		}
 		

@@ -9,37 +9,26 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_HF_031_Checkout_with_credit_card_as_Guest_user_with_bundle_product_and_Myhydro_product {
+public class Test_ST_HF_048_URL_verification_of_PDP {
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
-	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  
-  public void checkout_with_credit_card_as_Guest_user_with_bundle_product_and_Myhydro_product() {
-	  try{
-        
-		
-	  Hydro.serachproduct_addtocart("Adventure Bundle");
-	    Hydro.Customize_Bottle_Standed("24 oz");
-		
-		  Hydro.checkOut(); 
-		  Hydro.addDeliveryAddress("Address");
-		 
-		  Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
-		 
-  
-	  }
+  @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
+  public void verification_of_PDP_URLs() {
+	  try {
+	    
+	      Hydro.validatingPDPPage_URLS();
+		}
 		catch (Exception e) {
-			e.printStackTrace();
 			
 			Assert.fail(e.getMessage(), e);
 		} 
-}
+	}
 	
-
 	@AfterTest
 	public void clearBrowser()
 	{
-       Common.closeAll();
+		
+   Common.closeAll();
 
 	}
 	
@@ -48,6 +37,11 @@ public class TEST_ST_HF_031_Checkout_with_credit_card_as_Guest_user_with_bundle_
 		 System.setProperty("configFile", "Hydroflask\\config.properties");
 		  Login.signIn();
 		  Hydro.acceptPrivecy();
-		 Hydro.ClosADD();		  
+		  
 	  }
-}
+  
+
+	  
+	  
+  }
+

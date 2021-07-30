@@ -16,9 +16,9 @@ public class WriteReview {
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void writeReview() {
 	  try {
-	      Hydro.review_bottles("review");
+	      //Hydro.review_bottles("review");
 	        
-	        
+	      Hydro.review("review");
 		}
 		catch (Exception e) {
 			
