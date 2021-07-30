@@ -18,6 +18,7 @@ public class TEST_ST_HF_036_Checkout_with_credit_card_as_registered_user_with_my
 			 Hydro.loginHydroflaskAccount("AccountDetails");
 			 Hydro.orderSubmit("Bottles");
 			 Hydro.Customize_Bottle_Standed("24 oz");
+			 Hydro.checkOut();
 			 Hydro.addDeliveryAddress_registerUser("Address");
 			 Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 				

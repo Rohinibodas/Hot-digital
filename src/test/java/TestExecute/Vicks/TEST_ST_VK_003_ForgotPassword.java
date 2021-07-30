@@ -22,6 +22,7 @@ public class TEST_ST_VK_003_ForgotPassword {
 			
 		
 		 vicks.Verifyhomepage();
+//		 vicks.Agreandproceed();
 			vicks.forgotpassword("AccountDetails");
 
 		} catch (Exception e) {

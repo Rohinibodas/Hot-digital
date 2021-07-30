@@ -13,10 +13,11 @@ public class TEST_ST_VK_013_RegisteredCheckoutInvalidCC {
 	String datafile = "Vicks//Vickstestdata.xlsx";	
 	VicksHelper vicks=new VicksHelper(datafile);
 	@Test(priority=1)
-	public void Searchproducr() throws Exception {
+	public void Register_checkout_Invalid_card() throws Exception {
 
 		try {
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.loginVicks("AccountDetails");
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();

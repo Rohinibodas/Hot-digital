@@ -17,6 +17,7 @@ public class Validation_CMS_Content{
 
 		try {
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			//vicks.ProductSupport("Featured");
 			vicks.contactUS("Featured");
 			vicks.FAQS("Featured");
@@ -27,6 +28,7 @@ public class Validation_CMS_Content{
 			//vicks.Ourhistory("Featured");
 			vicks.Blog("Featured");
 			//vicks.PUR("Featured");
+			//vicks.Honeywell("Featured");
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
@@ -38,7 +40,7 @@ public class Validation_CMS_Content{
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 		

@@ -18,6 +18,7 @@ public class TEST_ST_VK_017_RegisteredCheckout_AMEX_CC {
 
 		try {
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.loginVicks("AccountDetails");
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();
@@ -26,6 +27,7 @@ public class TEST_ST_VK_017_RegisteredCheckout_AMEX_CC {
 			vicks.mincat();
 			vicks.checkout();
 			vicks.shipingmethod();
+			//vicks.Taxcalucaltion("Register (Kentucky1)");
 			vicks.paymentDetails("AMEXPaymentDetails");
 			vicks.PlaceOrder();
 

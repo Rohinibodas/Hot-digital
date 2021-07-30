@@ -53,7 +53,7 @@ public class Test_HF_0001_taxguest {
 			Hydro.addDeliveryAddress("Address",streetAddress,City,Zipcode,state);
 			 HashMap<String,String> data=Hydro.taxValidation(tax);
 			Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
-			String OrderId="";
+			String OrderId="12345";
 
 			Hydro.writeResultstoXLSx(OrderId,data.get("subtotlaValue"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("Totalammountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));
             //honeyWell.writeResultstoXLSx("OrderId");
@@ -77,7 +77,8 @@ public class Test_HF_0001_taxguest {
        System.setProperty("configFile", "Hydroflask\\config.properties");
        
         Login.signIn();
-        Hydro.acceptPrivecy();       
+     //   Hydro.cl
+       
         
     }
 	@AfterTest

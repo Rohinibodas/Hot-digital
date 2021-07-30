@@ -19,6 +19,7 @@ public class TEST_ST_VK_021_GuestCheckout_MasterCard_CC {
 		try {
 			
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();
 			vicks.productselect();

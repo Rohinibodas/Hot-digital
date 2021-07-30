@@ -20,6 +20,7 @@ public class TEST_ST_VK_001_CreateNewAccount {
 		
 
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.CreateAccount("AccountDetails");
 
 		} catch (Exception e) {

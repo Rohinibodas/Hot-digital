@@ -20,7 +20,7 @@ public class EditCartInfromation {
 	 Hydro.orderSubmit("Bottles");
 	 Hydro.orderSubmit("Accessories");
 	 Hydro.orderSubmit("Tumblers"); 
-	 Hydro.minicart();
+	// Hydro.minicart();
 		
 	}
 	catch (Exception e) {
