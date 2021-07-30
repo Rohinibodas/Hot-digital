@@ -8,10 +8,10 @@
 		description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.Hydroflask.Smoke.Guest_Checkout_CreditCard" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_038_PDP_thumbnail_verification_of_bundle_product" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_002_My Hydro Order Submission" testid="HMF2-977"
+	<!-- <test name="Test_HF_ST_002_My Hydro Order Submission" testid="HMF2-977"
 		priority="P1" description="This script will cover Cusome order  Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.MyHydro_Order_Submission" />
@@ -165,6 +165,6 @@
 			<class
 				name="TestExecute.Hydroflask.Smoke.Registered_Combined_Order_Submission" />
 		</classes>
-	</test>
+	</test> -->
 </suite>  
 
