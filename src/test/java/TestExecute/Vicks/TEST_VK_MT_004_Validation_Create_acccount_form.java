@@ -19,6 +19,7 @@ public class TEST_VK_MT_004_Validation_Create_acccount_form{
 		try {
 			
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.AccountCreationFormValidation();
 
 		} catch (Exception e) {

@@ -9,27 +9,19 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_VK_017_RegisteredCheckout_AMEX_CC {
+public class TEST_ST_VK_025_Add_to_cart_from_homepage {
 	String datafile = "Vicks//Vickstestdata.xlsx";
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void Registered_User_Checkout_AmericanExpress_CC() throws Exception {
+	public void add_to_cart_from_homepage() throws Exception {
 
 		try {
 			vicks.Verifyhomepage();
 //			vicks.Agreandproceed();
-			vicks.loginVicks("AccountDetails");
-			vicks.Humidifiers_Vaporizers();
-			//vicks.clickHumidifiers();
-			vicks.productselect();
-			vicks.addtocart();
+//			vicks.loginVicks("AccountDetails");
+			vicks.addtocarthomepage();
 			vicks.mincat();
-			vicks.checkout();
-			vicks.shipingmethod();
-			//vicks.Taxcalucaltion("Register (Kentucky1)");
-			vicks.paymentDetails("AMEXPaymentDetails");
-			vicks.PlaceOrder();
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

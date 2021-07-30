@@ -18,6 +18,7 @@ public class TEST_VK_MT_002_Validation_ShippingAddress_form {
 
 		try {
             vicks.Verifyhomepage();
+//            vicks.Agreandproceed();
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();
 			vicks.productselect();

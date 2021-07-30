@@ -20,6 +20,7 @@ public class TEST_ST_VK_005_RegisteredCheckout_VISA_CC  {
 		try {
 			
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.loginVicks("AccountDetails");
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();
@@ -46,7 +47,7 @@ public class TEST_ST_VK_005_RegisteredCheckout_VISA_CC  {
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {
-			System.setProperty("configFile", "Vickshumdifier\\config.properties");
+			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
 			 
 			  

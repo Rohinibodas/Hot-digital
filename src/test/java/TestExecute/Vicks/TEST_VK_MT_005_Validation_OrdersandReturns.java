@@ -19,6 +19,7 @@ public class TEST_VK_MT_005_Validation_OrdersandReturns {
 		try {
 			
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.OrderStatus("OrderReturs");
 
 		} catch (Exception e) {

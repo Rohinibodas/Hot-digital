@@ -9,31 +9,33 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Validation_CMS_Content{
-	String datafile = "Vicks//vicks URLs.xlsx";	
+public class TEST_ST_VK_009_Promecode_for_Registeruser {
+	
+	String datafile = "Vicks//vicksURLs.xlsx";	
 	VicksHelper vicks=new VicksHelper(datafile);
 	@Test(priority=1)
-	public void Validation_CMS_Content() throws Exception {
+	public void Promecode() throws Exception {
 
 		try {
 			vicks.Verifyhomepage();
 //			vicks.Agreandproceed();
-			//vicks.ProductSupport("Featured");
-			vicks.contactUS("Featured");
-			vicks.FAQS("Featured");
-			vicks.Humdifiers("Featured");
-			vicks.SinusInhalers("Featured");
-			vicks.FiltersAccessories("Featured");
-			vicks.Heleoftroy("Featured");
-			//vicks.Ourhistory("Featured");
-			vicks.Blog("Featured");
-			//vicks.PUR("Featured");
-			//vicks.Honeywell("Featured");
+			vicks.loginVicks_Promecode("Promecode");
+			vicks.Humidifiers_Vaporizers();
+			vicks.productselect();
+			vicks.addtocart();
+			vicks.mincat();
+		/*	vicks.checkout();
+			vicks.shipingmethod();
+			//vicks.shippingaddress("Promecode");
+			vicks.paymentDetails("Promecode");
+			vicks.Promocode("Promecode");
+			//vicks.order_Verifying();*/
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		
-				} 
+		
+		} 
 	}
 
 	
@@ -51,5 +53,6 @@ public class Validation_CMS_Content{
 			 
 			  
 		  }
+
 
 }

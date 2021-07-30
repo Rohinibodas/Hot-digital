@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="VIcksSuite Suite">
+
+	<listeners>
+	
+
+		<listener class-name="Utilities.TestListener" />
+
+	</listeners>
+
+         <test name="TEST_ST_VK_001_CreatNewAccount" testid="HHUS-322" priority="P1" description="This script will cover Process Of creating new account">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_001_CreateNewAccount" />
+     </classes>
+     </test>     
+          <test name="TEST_ST_VK_003_ForgotPassword" testid="HHUS-345" priority="P1" description="This script will cover Process Of Forgotpassword of Vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_003_ForgotPassword" />
+     </classes>
+     </test>
+	       <test name="TEST_ST_VK_005_RegisteredCheckout_VISA_CC" testid="HHUS-368" priority="P1" description="This script will cover Process Of RegisteredCheckout with visa card of Vicks">
+     <classes>
+           <class name="TestExecute.Vicks.TEST_ST_VK_005_RegisteredCheckout_VISA_CC" />
+     </classes>
+	</test>
+	        <test name="TEST_ST_VK_006_GuestCheckout_VISA_CC" testid="HHUS-372" priority="P1" description="This script will cover Process Of GuesCheckout with visa card of Vicks">
+      <classes>
+            <class name="TestExecute.Vicks.TEST_ST_VK_006_GuestCheckout_VISA_CC" />
+	 </classes>
+     </test>
+	        <test name="TEST_ST_VK_008_MiniCart" testid="HHUS-362" priority="P1" description="This script will cover Process Of MiniCart in Vicks">
+      <classes>
+             <class name="TestExecute.Vicks.TEST_ST_VK_008_MiniCart" />
+     </classes>
+      </test>
+            <test name="TEST_ST_VK_011_GuestCheckoutInvalidCC" testid="HHUS-360" priority="P1" description="This script will cover Process Of GuestCheckoutInvalid Card details of Vicks">
+		<classes>
+			<class name="TestExecute.Vicks.TEST_ST_VK_011_GuestCheckoutInvalidCC" />
+        </classes>
+       </test>
+	          <test name="TEST_ST_VK_013_RegisteredCheckoutInvalidCC" testid="HHUS-359" priority="P1" description="This script will cover Process Of RegisteredCheckoutInvalid Card details of Vicks">
+		<classes>
+			<class name="TestExecute.Vicks.TEST_ST_VK_013_RegisteredCheckoutInvalidCC" />
+		</classes>
+        </test>
+	         <test name="TEST_ST_VK_017_RegisteredCheckout_AMEX_CC" testid="HHUS-369" priority="P1" description="This script will cover Process Of RegisteredCheckout with AMEXCard of Vicks">
+        <classes>
+             <class name="TestExecute.Vicks.TEST_ST_VK_017_RegisteredCheckout_AMEX_CC" />
+        </classes>
+        </test>
+	          <test name="TEST_ST_VK_018_RegisteredCheckout_Discover_CC" testid="HHUS-370" priority="P1" description="This script will cover Process Of RegisteredCheckout with DiscoverCard of Vicks">
+        <classes>
+               <class name="TestExecute.Vicks.TEST_ST_VK_018_RegisteredCheckout_Discover_CC" />
+        </classes>
+         </test>
+	            <test name="TEST_ST_VK_019_RegisteredCheckout_MasterCard_CC" testid="HHUS-371" priority="P1" description="This script will cover Process Of RegisteredCheckout with MasterCard of Vicks">
+        <classes>
+                 <class name="TestExecute.Vicks.TEST_ST_VK_019_RegisteredCheckout_MasterCard_CC" />
+        </classes>
+        </test>
+	                 <test name="TEST_ST_VK_020_GuestCheckout_AMEX_CC" testid="HHUS-374" priority="P1" description="This script will cover Process Of GuestCheckout with AMEXCard of Vicks">
+	    <classes>
+                  <class name="TestExecute.Vicks.TEST_ST_VK_020_GuestCheckout_AMEX_CC" />
+         </classes>
+          </test>
+	              <test name="TEST_ST_VK_021_GuestCheckout_MasterCard_CC" testid="HHUS-373" priority="P1" description="This script will cover Process Of GuestCheckout with MasterCard of Vicks">
+	      <classes>
+	              <class name="TestExecute.Vicks.TEST_ST_VK_021_GuestCheckout_MasterCard_CC" />
+           </classes>
+            </test>
+	              <test name="TEST_ST_VK_022_GuestCheckout_Discover_CC" testid="HHUS-375" priority="P1" description="This script will cover Process Of GuestCheckout with DiscoverCard of Vicks">
+	       <classes>
+                   <class name="TestExecute.Vicks.TEST_ST_VK_022_GuestCheckout_Discover_CC" />
+            </classes>
+            </test>
+	                  <test name="TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" testid="HHUS-358" priority="P1" description="This script will cover Process Of Validation of seaechguestuser in Vicks">
+	        <classes>
+                     <class name="TestExecute.Vicks.TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" />
+            </classes>
+	      </test>
+	                 <test name="TEST_ST_VK_009_Promecode_for_Registeruser" testid="HHUS-365" priority="P1" description="This script will cover Process Of Promecode for vicks">
+          <classes>
+                     <class name="TestExecute.Vicks.TEST_ST_VK_009_Promecode_for_Registeruser" />
+          </classes>
+	    
+	             <test name="LoginFormValidation" testid="PPH-994" priority="P1" description="This script will cover Process Of LoginFormValidation">
+         <classes>
+                  <class name="TestExecute.Vicks.LoginFormValidation" />
+         </classes>
+	     </test>
+                <test name="TEST_VK_MT_005_Validation_OrdersandReturns" testid="HHUS-368" priority="P1" description="This script will cover Process Of Validation_OrdersandReturns of Vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_VK_MT_005_Validation_OrdersandReturns" />
+     </classes>
+		 <test name="VicksLogout" testid="PPH-1104" priority="P1" description="This script will cover Process Of Logout for Vicks">
+		<classes>
+			    <class name="TestExecute.Vicks.VicksLogout" />
+		</classes>
+	</test>
+	<test name="TEST_VK_MT_002_Validation_ShippingAddress_form" testid="HHUS-324" priority="P1" description="This script will cover Process Of Shiping address form validation of Vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_VK_MT_002_Validation_ShippingAddress_form" />
+     </classes>
+     </test> 
+	
+	
+     
+   <test name="Footerlinks" testid="HHUS-363" priority="P1" description="This script will cover Process Of Footerlinks for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.Footerlinks" />
+     </classes>
+     </test>
+     
+      <test name="Headerlinks" testid="HHUS-361" priority="P1" description="This script will cover Process Of Headerlinks for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.Headerlinks" />
+     </classes>
+     </test>
+     </test>
+     
+     
+      <test name="Test_VK_MT_002_Validation_ShippingAddress_form" testid="HHUS-391" priority="P1" description="This script will validate shipping address form for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_VK_MT_002_Validation_ShippingAddress_form" />
+     </classes>
+     </test>
+       <test name="TEST_VK_MT_003_Validation_forgotPassword_form" testid="HHUS-392" priority="P1" description="This script will cover the process for  forgoten password form validation in vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_VK_MT_003_Validation_forgotPassword_form" />
+     </classes>
+     </test> 
+      <test name="TEST_VK_MT_004_Validation_Create_acccount_form" testid="HHUS-393" priority="P1" description="This script will validate create account form for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_VK_MT_004_Validation_Create_acccount_form" />
+     </classes>
+     </test>
+       <test name="TEST_VK_ST_016_Validation_of_PLP" testid="HHUS-367" priority="P1" description="This script will validate PLP page">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_VK_ST_016_Validation_of_PLP" />
+     </classes>
+     </test>
+     <test name="TEST_ST_VK_024_Changecolorforproduct" testid="HHUS-378" priority="P1" description="This script will validate color change for product in PDP page">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_024_Changecolorforproduct" />
+     </classes>
+     </test>
+    <test name="TEST_ST_VK_026_View_and_Edit_cart_adding_suggest_products" testid="HHUS-380" priority="P1" description="This script will validate adding suggest products from view and edit cart">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_026_View_and_Edit_cart_adding_suggest_products" />
+     </classes>
+     </test>
+      <test name="TEST_ST_VK_025_Add_to_cart_from_homepage" testid="HHUS-379" priority="P1" description="This script will validate add to cart from home page">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_025_Add_to_cart_from_homepage" />
+     </classes>
+     </test>
+   <test name="TEST_ST_VK_027_Add_to_cart_from_PLPpage" testid="HHUS-382" priority="P1" description="This script will validate add to cart from PLP page">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_027_Add_to_cart_from_PLPpage" />
+     </classes>
+     </test>
+     <test name="TEST_ST_VK_028_Privacypolicy_and_TermsofUse" testid="HHUS-382" priority="P1" description="This script will validate privacypolicy page and termsofuse page">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_028_Privacypolicy_and_TermsofUse" />
+     </classes>
+     </test>
+     <test name="TEST_ST_VK_029_Myaccount_leftnavigation" testid="HHUS-383" priority="P1" description="This script will validate my account page left navigation">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_029_Myaccount_leftnavigation" />
+     </classes>
+     </test>
+       <test name="TEST_ST_VK_031_Sortby_product_name" testid="HHUS-385" priority="P1" description="This script will validate sortby product name ">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_031_Sortby_product_name" />
+     </classes>
+     </test>
+     <test name="TEST_ST_VK_032_SignIn_in_checkoutpage" testid="HHUS-386" priority="P1" description="This script will validate sigin in from checkout page ">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_032_SignIn_in_checkoutpage" />
+     </classes>
+     </test>
+     <test name="TEST_ST_VK_034_Sticky_cart_validation" testid="HHUS-388" priority="P1" description="This script will validate add to cart from sticky cart">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_034_Sticky_cart_validation" />
+     </classes>
+     </test>
+      </test> 
+         <test name="TEST_ST_VK_030_Compare_products" testid="HHUS-384" priority="P1" description="This script will cover Process Of Compare products form in vicks">
+        <classes>
+                   <class name="TestExecute.Vicks.TEST_ST_VK_030_Compare_products" />
+        </classes>
+	    </test> 
+	    <test name="TEST_ST_VK_033_OrdersStatus_For_RegisterUser" testid="HHUS-387" priority="P1" description="This script will cover Process Of order status for register user in vicks">
+        <classes>
+                   <class name="TestExecute.Vicks.TEST_ST_VK_033_OrdersStatus_For_RegisterUser" />
+        </classes>
+	    
+	    <test name="TEST_ST_VK_035_Outofstock_Product" testid="HHUS-389" priority="P1" description="This script will cover Process Of out of stock in vicks">
+        <classes>
+                   <class name="TestExecute.Vicks.TEST_ST_VK_035_Outofstock_Product" />
+        </classes>
+	    </test> 
+		<test name="TEST_VK_ST_010_RegisterUser_Checkout_MasterCC_NoTax_With_multiple_products_and_Different_Billing_and_shipping_Address
+" testid="HHUS-439"
+        priority="P1" description="This script will cover validation of checkout with differnt address and no tax selecting multiple orders">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_010_RegisterUser_Checkout_MasterCC_NoTax_With_multiple_products_and_Different_Billing_and_shipping_Address" />
+        </classes>
+    </test>
+    
+    
+    <test name="TEST_VK_ST_06_Registereduser_Checkout_VisaCC_NoTax_with_Diff_Billing_and_Shipping
+" testid="HHUS-435"
+        priority="P1" description="This script will cover validation of checkout with differnt address and no tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_06_Registereduser_Checkout_VisaCC_NoTax_with_Diff_Billing_and_Shipping" />
+        </classes>
+    </test>
+    
+    
+    <test name="TEST_VK_ST_07_GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping
+" testid="HHUS-436"
+        priority="P1" description="This script will cover validation of checkout with no tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_07_GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping" />
+        </classes>
+    </test>
+    
+    
+<test name="TEST_VK_ST_08_RegisterUser_Checkout_DiscoverCC_Tax_multipleProducts_Discount_Different_Billing_shipping_Address
+" testid="HHUS-437"
+        priority="P1" description="This script will cover validation of checkout with tax multiple products dicount and differnt address">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_08_RegisterUser_Checkout_DiscoverCC_Tax_multipleProducts_Discount_Different_Billing_shipping_Address" />
+        </classes>
+    </test>
+ 
+ <test name="TEST_VK_ST_009_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address
+" testid="HHUS-438"
+        priority="P1" description="This script will cover validation of checkout with multiple products and no tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_009_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address" />
+        </classes>
+    </test>
+ 
+ 
+    <test name="TEST_VK_ST_011_GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address
+" testid="HHUS-440"
+        priority="P1" description="This script will cover validation of checkout with multiple products and no tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_011_GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address" />
+        </classes>
+    </test>
+    
+    <test name="TEST_VK_ST_012_RegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address
+" testid="HHUS-441"
+        priority="P1" description="This script will cover validation of checkout with multiple products and no tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_012_RegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address" />
+        </classes>
+    </test> 
+    
+    <test name="TEST_VK_ST_013_GuestUser_Checkout_VisaCC_Tax_with_Discount_and_Single_products_with_Same_Billing_and_shipping_Address
+" testid="HHUS-442"
+        priority="P1" description="This script will cover validation of checkout with discount and tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_013_GuestUser_Checkout_VisaCC_Tax_with_Discount_and_Single_products_with_Same_Billing_and_shipping_Address" />
+        </classes>
+    </test>
+    
+    
+ <test name="TEST_VK_ST_015_GuestUser_Checkout_AMEX_Tax_with_Discount_and_Multi_products_with_Same_Billing_and_shipping_Address
+" testid="HHUS-444"
+        priority="P1" description="This script will cover validation of checkout with discount multiproducts and tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_015_GuestUser_Checkout_AMEX_Tax_with_Discount_and_Multi_products_with_Same_Billing_and_shipping_Address" />
+        </classes>
+    </test>
+    
+<test name="TEST_VK_ST_014_RegisterUser_Checkout_MasterCC_Tax_With_Discount_and_Single_products_with_Different_Billing_and_shipping_Address
+" testid="HHUS-443"
+        priority="P1" description="This script will cover validation of checkout with discount single product different address and tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_014_RegisterUser_Checkout_MasterCC_Tax_With_Discount_and_Single_products_with_Different_Billing_and_shipping_Address" />
+        </classes>
+    </test>
+    
+    <test name="TEST_VK_ST_01_GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products
+" testid="HHUS-446"
+        priority="P1" description="This script will cover validation of checkout with Multiple products">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_01_GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products" />
+        </classes>
+    </test>
+    
+    <test name="TEST_VK_ST_002_RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping
+" testid="HHUS-431"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_002_RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping" />
+        </classes>
+    </test>
+    
+    <test name="TEST_VK_ST_003_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping
+" testid="HHUS-432"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_003_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" />
+        </classes>
+    </test>
+    
+    <test name="TEST_VK_ST_04_RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products
+" testid="HHUS-433"
+        priority="P1" description="This script will cover validation of checkout with tax and multiple products">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_04_RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products" />
+        </classes>
+    </test>
+    
+    <test name="TEST_VK_ST_05_GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products
+" testid="HHUS-434"
+        priority="P1" description="This script will cover validation of checkout with tax and multiple products">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_05_GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products" />
+        </classes>
+    </test>
+  <test name="TEST_VK_ST_016_GuestUser_Checkout_VISACC_Tax_with_Single_product_SameBilling_and_Shipping
+" testid="HHUS-445"
+        priority="P1" description="To Verify the Guest User Checkout with select single  product and Checkout functionality with tax and  same Billing and shipping address in honeywell with VISA card">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_VK_ST_016_GuestUser_Checkout_VISACC_Tax_with_Single_product_SameBilling_and_Shipping" />
+        </classes>
+    </test>
+</test> 
+	                <test name="ContactUs" testid="HHUS-376" priority="P1" description="This script will cover Process Of ContactUs form in vicks">
+        <classes>
+                   <class name="TestExecute.Vicks.ContactUs" />
+        </classes>
+	    </test> 
+	                
+</suite>

@@ -14,12 +14,15 @@ public class LoginFormValidation {
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void LoginFormValidation() throws Exception {
+	public void loginFormValidation() throws Exception {
 
 		try {
 			
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.LoginFormValidation();
+			
+			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
    

@@ -9,31 +9,29 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Validation_CMS_Content{
-	String datafile = "Vicks//vicks URLs.xlsx";	
+public class TEST_VK_ST_016_Validation_of_PLP {
+	String datafile = "Vicks//Vickstestdata.xlsx";	
 	VicksHelper vicks=new VicksHelper(datafile);
 	@Test(priority=1)
-	public void Validation_CMS_Content() throws Exception {
+	public void Validation_of_PLP() throws Exception {
 
 		try {
 			vicks.Verifyhomepage();
 //			vicks.Agreandproceed();
-			//vicks.ProductSupport("Featured");
-			vicks.contactUS("Featured");
-			vicks.FAQS("Featured");
-			vicks.Humdifiers("Featured");
-			vicks.SinusInhalers("Featured");
-			vicks.FiltersAccessories("Featured");
-			vicks.Heleoftroy("Featured");
-			//vicks.Ourhistory("Featured");
-			vicks.Blog("Featured");
-			//vicks.PUR("Featured");
-			//vicks.Honeywell("Featured");
+			vicks.loginVicks("AccountDetails");
+			vicks.Humidifiers_Vaporizers();
+			vicks.filtertype();
+			vicks.pricefilter();
+			
+			
+			
+			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		
-				} 
+		
+		} 
 	}
 
 	
