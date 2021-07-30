@@ -18,6 +18,7 @@
 			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_052_checkout_with_VISACard_as_Registeruser_with_MultiProduct_tax_and_Freight_Shipping_with_same_billing_Shippingaddresses" />
 		</classes>
 	</test>
+	
 	<test name="Test_ST_HF_053_checkout_with_Mastercard_as_Guestuser_with_Multiproduct_tax_and_FreightShipping_with_different_billing_Shippingaddresses" testid="HYDRO-997"
 		priority="P1"
 		description="This script will cover GuestUser order using MasterCC with Multi-product Tax and Freight shipping with Different Billing address and shipping Address order submit Process of HydroFlask	">
