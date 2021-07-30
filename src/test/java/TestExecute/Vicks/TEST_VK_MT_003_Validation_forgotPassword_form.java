@@ -19,6 +19,7 @@ public class TEST_VK_MT_003_Validation_forgotPassword_form {
 		try {
 			
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.ForgotPasswordValidation();
 			
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="VIcksSuite Suite">
+
+	<listeners>
+
+		<listener class-name="Utilities.TestListener" />
+    </listeners>
+         <test name="TEST_ST_VK_001_CreatNewAccount" testid="HHG-322" priority="P1" description="This script will cover Process Of creating new account">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_001_CreateNewAccount" />
+     </classes>
+     </test>     
+          <test name="TEST_ST_VK_003_ForgotPassword" testid="HHG-345" priority="P1" description="This script will cover Process Of Forgotpassword of Vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_003_ForgotPassword" />
+     </classes>
+     </test>
+	       <test name="TEST_ST_VK_005_RegistegreenCheckout_VISA_CC" testid="HHG-368" priority="P1" description="This script will cover Process Of RegistegreenCheckout with visa card of Vicks">
+     <classes>
+           <class name="TestExecute.Vicks.TEST_ST_VK_005_RegistegreenCheckout_VISA_CC" />
+     </classes>
+	</test>
+	        <test name="TEST_ST_VK_006_GuestCheckout_VISA_CC" testid="HHG-372" priority="P1" description="This script will cover Process Of GuesCheckout with visa card of Vicks">
+      <classes>
+            <class name="TestExecute.Vicks.TEST_ST_VK_006_GuestCheckout_VISA_CC" />
+	 </classes>
+     </test>
+	        <test name="TEST_ST_VK_008_MiniCart" testid="HHG-362" priority="P1" description="This script will cover Process Of MiniCart in Vicks">
+      <classes>
+             <class name="TestExecute.Vicks.TEST_ST_VK_008_MiniCart" />
+     </classes>
+      </test>
+         
+	
+     
+   <test name="Footerlinks" testid="HHG-363" priority="P1" description="This script will cover Process Of Footerlinks for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.Footerlinks" />
+     </classes>
+     </test>
+     
+      <test name="Headerlinks" testid="HHG-361" priority="P1" description="This script will cover Process Of Headerlinks for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.Headerlinks" />
+     </classes>
+     </test>
+</suite>

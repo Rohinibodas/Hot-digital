@@ -14,10 +14,11 @@ public class TEST_ST_VK_008_MiniCart {
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void Registered_User_Checkout_AmericanExpress_CC() throws Exception {
+	public void Mini_Cart_Validation() throws Exception {
 
 		try {
 		vicks.Verifyhomepage();
+//		vicks.Agreandproceed();
 		vicks.Humidifiers_Vaporizers();
 		//vicks.clickHumidifiers();
 		vicks.productselect();

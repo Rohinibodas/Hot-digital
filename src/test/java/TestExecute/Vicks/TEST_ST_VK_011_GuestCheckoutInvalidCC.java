@@ -15,10 +15,11 @@ public class TEST_ST_VK_011_GuestCheckoutInvalidCC {
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void loginApplication() throws Exception {
+	public void GuestUser_Invalid_card() throws Exception {
 
 		try {
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();
 			vicks.productselect();

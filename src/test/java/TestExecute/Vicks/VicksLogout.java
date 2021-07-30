@@ -18,6 +18,7 @@ public class VicksLogout {
 	
 		try {
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.loginVicks("AccountDetails");
 			vicks.Logout();
 		

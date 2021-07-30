@@ -19,6 +19,7 @@ public class TEST_ST_VK_006_GuestCheckout_VISA_CC {
 		try {
 			
 			vicks.Verifyhomepage();
+//			vicks.Agreandproceed();
 			vicks.Humidifiers_Vaporizers();
 			//vicks.clickHumidifiers();
 			vicks.productselect();
