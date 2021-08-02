@@ -3,26 +3,26 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="Test_PUR_001_Create NewAccount" testid="PPH-1036" priority="P1" description="To Verify the Create new account functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_001_Create NewAccount" testid="HHUS-127" priority="P1" description="To Verify the Create new account functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_AccountCreation"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_001_AccountCreation"/>
         </classes>
     </test>
     
    
-   <test name="Test_PUR_ST_018_RegistereduserAddressBook" testid="PPH-1054" priority="P1" description="To verify the  adding of address to Registereduser  functionality in PUR Website">
-         <parameter name="browser" value="edge" />
+   <test name="Test_PUR_ST_018_RegistereduserAddressBook" testid="HHUS-273" priority="P1" description="To verify the  adding of address to Registereduser  functionality in PUR Website">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_AddNewAddress"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_018_AddNewAddress"/>
         </classes>
     </test>
     
     
-    <test name="Test_PUR_ST_020_ValidateAccountInformation" testid="PPH-1057" priority="P1" description="To verify the  navigation of Account Information functionality in PUR Website">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_020_ValidateAccountInformation" testid="HHUS-286" priority="P1" description="To verify the  navigation of Account Information functionality in PUR Website">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_AccountInformation"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_020_AccountInformation"/>
         </classes>
     </test>
   
@@ -30,119 +30,119 @@
     
    
     
-    <test name="Test_PUR_ST_003_GuestUserBrowserSearch" testid="PPH-1038" priority="P1" description="To verify the search functionality for Guest user in PUR web site">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_003_GuestUserBrowserSearch" testid="HHUS-170" priority="P1" description="To verify the search functionality for Guest user in PUR web site">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Guest_Browser_Search"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_003Guest_Browser_Search"/>
         </classes>
     </test>
    
     
     
     
-    <test name="Test_PUR_ST_007_GuestUserCategoryCheckout" testid="PPH-1042" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_007_GuestUserCategoryCheckout" testid="HHUS-174" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Category_Guest_checkout"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_007_Category_Guest_checkout"/>
         </classes>
     </test>
     
     
-    <test name="Test_PUR_ST_008_GuestUserCreditcard" testid="PPH-1043" priority="P1" description="To verify the Checkout Credit card as guest functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_008_GuestUserCreditcard" testid="HHUS-208" priority="P1" description="To verify the Checkout Credit card as guest functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Guest_Browsesearch_Creditcard"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_008_Guest_Browsesearch_Creditcard"/>
         </classes>
         </test>
     
     
-    <test name="Test_PUR_ST_013_InvalidGuestCreditcard" testid="PPH-1048" priority="P1" description="To verify the invalid creditcard details for Guest user functionality">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_013_InvalidGuestCreditcard" testid="HHUS-233" priority="P1" description="To verify the invalid creditcard details for Guest user functionality">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Invalid_Guest_Creditcard"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_013_Invalid_Guest_Creditcard"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_002_RegisteredUserBrowseSearch" testid="PPH-1037" priority="P1" description="To verify the search functionality for registereduser in PUR web site">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_002_RegisteredUserBrowseSearch" testid="HHUS-128" priority="P1" description="To verify the search functionality for registereduser in PUR web site">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_User_Browser_Search"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_002_User_Browser_Search"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_006_RegistereduserCategorycheckout" testid="PPH-1041" priority="P1" description="To verify the category checkout functionality for Registered user">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_006_RegistereduserCategorycheckout" testid="HHUS-173" priority="P1" description="To verify the category checkout functionality for Registered user">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_User_Category_Checkout"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_006_RegisterUser_Category_Checkout"/>
         </classes>
     </test>
     
     
-    <test name="Test_PUR_005_RegistereduserCheckoutCreditcard" testid="PPH-1040" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_005_RegistereduserCheckoutCreditcard" testid="HHUS-172" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_User_BrowseSearch_Creditcard"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_005_User_BrowseSearch_Creditcard"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_012_InvaliduserCredicard" testid="PPH-1047" priority="P1" description="To verify the invalid creditcard details for Register user functionality.">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_012_InvaliduserCredicard" testid="HHUS-234" priority="P1" description="To verify the invalid creditcard details for Register user functionality.">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Invalid_user_Creditcard"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_012_Invalid_user_Creditcard"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_014_RegistereduserMyorderconfirmation" testid="PPH-1049" priority="P1" description="To verify the RegistereduserMy Order Confirmation Checkout with Credit Card functionality">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_014_RegistereduserMyorderconfirmation" testid="HHUS-235" priority="P1" description="To verify the RegistereduserMy Order Confirmation Checkout with Credit Card functionality">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_MyOrders"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_014_MyOrders"/>
         </classes>
     </test>
     
     <!-- <test name="Test_PUR_ST_023_ValidateOrdersbySKU" testid="PPH-1062" priority="P1" description="This test case is to verify PUR Website, browse Orderby SKU functionality for Registerd user.">
-         <parameter name="browser" value="edge" />
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_OrderbySKU"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_023_OrderbySKU"/>
         </classes>
     </test>-->
     
-    <test name="Test_PUR_010_RegistereduserCreditcard(Mastercard)" testid="PPH-1045" priority="P1" description="To verify creditcard details(Mastercard) for Registereduser functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_010_RegistereduserCreditcard(Mastercard)" testid="HHUS-231" priority="P1" description="To verify creditcard details(Mastercard) for Registereduser functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Registerduser_MasterCard"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_010_Registerduser_MasterCard"/>
         </classes>
     </test>
-    <test name="Test_PUR_009_RegistereduserCreditcard(AMEX)" testid="PPH-1044" priority="P1" description="To verify creditcard details (AMEX)for Registereduser functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_009_RegistereduserCreditcard(AMEX)" testid="HHUS-209" priority="P1" description="To verify creditcard details (AMEX)for Registereduser functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Registerduser_Amex"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_009_Registerduser_Amex"/>
         </classes>
     </test>
-    <test name="Test_PUR_011_RegistereduserCreditcard(Discover)" testid="PPH-1046" priority="P1" description="To verify creditcard details(Discover) for Registereduser functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_011_RegistereduserCreditcard(Discover)" testid="HHUS-232" priority="P1" description="To verify creditcard details(Discover) for Registereduser functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Registerdser_Discovertype"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_011_Registerdser_Discovertype"/>
         </classes>
     </test>
     
   <!--    <test name="Test_PUR_015_Registeredusernewslettersubscription" testid="PPH-1050" priority="P1" description="To verify the newsletter subscription functionality for registereduser">
-         <parameter name="browser" value="edge" />
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_NewsLetterL_Subscription"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_015_NewsLetterL_Subscription"/>
         </classes>
     </test> -->
     
    <!--   <test name="Test_PUR_016_Registeredusernewsletterunsubscription" testid="PPH-1051" priority="P1" description="To verify the newsletter unsubscription functionality for registereduser">
-         <parameter name="browser" value="edge" />
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Newsletter_Unsubscription"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_016_Newsletter_Unsubscription"/>
         </classes>
     </test> -->
     
      <!--  <test name="Test_PUR_ST_022_ValidateGiftcard" testid="PPH-1061" priority="P1" description="To verify the  navigation of Gift Card page fucntionality in PUR website">
-         <parameter name="browser" value="edge" />
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Giftcard_Navigation"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_022_Giftcard_Navigation"/>
         </classes>
     </test>-->
     
@@ -151,170 +151,170 @@
     
     
     <!--  <test name="Test_PUR_ST_021_ValidateStorecredit" testid="PPH-1058" priority="P1" description="To verify the  navigation of Store credit page functionality in PUR website">
-         <parameter name="browser" value="edge" />
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_StoreCredit"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_021_StoreCredit"/>
         </classes>
     </test>-->
     
     
     
     <!-- <test name="Test_PUR_ST_024_ValidateProductReview" testid="PPH-1063" priority="P1" description="To verify the  navigation of Product Review functionality in PUR Website">
-         <parameter name="browser" value="edge" />
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_MyProduct_Reviews"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_024_MyProduct_Reviews"/>
         </classes> 
     </test> -->
    
-    <test name="Test_PUR_004_ForgotPassword" testid="PPH-1039" priority="P1" description="To verify the search functionality for forgot passward in PUR web site">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_004_ForgotPassword" testid="HHUS-171" priority="P1" description="To verify the search functionality for forgot passward in PUR web site">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ForgotPassword"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_004_ForgotPassword"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_019_validateheaderlinks" testid="PPH-1056" priority="P1" description="To verify the navigation of headerlinks functionality in PUR website">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_019_validateheaderlinks" testid="HHUS-238" priority="P1" description="To verify the navigation of headerlinks functionality in PUR website">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Header_Links"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_019_Header_Links"/>
         </classes>
     </test>
     
-    <test name="Test_Pur_ST_025_MyAccount_Left_Navigation" testid="PPH-1515" priority="P1" description="This test case is to verify Registered User MyAccount_Left_Navigation functionality for PUR Website">
-         <parameter name="browser" value="edge" />
+    <test name="Test_Pur_ST_025_MyAccount_Left_Navigation" testid="HHUS-287" priority="P1" description="This test case is to verify Registered User MyAccount_Left_Navigation functionality for PUR Website">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ValidateMyAccountLeftNavigation"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_025_ValidateMyAccountLeftNavigation"/>
         </classes>
     </test>
     
    <!--   <test name="Test_Pur_ST_027_Footer_NewsLetter_Subscription" testid="PPH-1516" priority="P1" description="This test case is to verify Footer_NewsLetter_Subscription functionality for Pur website">
-         <parameter name="browser" value="edge" />
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_FooterNewsletterSubscription"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_027_FooterNewsletterSubscription"/>
         </classes>
     </test> -->
     
     
-    <test name="Test_PUR_ST_028_GuestUserCreditcard(AMEX)" testid="PPH-1517" priority="P1" description="To verify the Checkout Credit card (AMEX)as guest functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_028_GuestUserCreditcard(AMEX)" testid="HHUS-288" priority="P1" description="To verify the Checkout Credit card (AMEX)as guest functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_GuestserCheckoutccAMEX"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_028_GuestserCheckoutccAMEX"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_029_GuestUserCreditcard(MasterCard)" testid="PPH-1518" priority="P1" description="To verify the Checkout Credit card (MasterCard)as guest functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_029_GuestUserCreditcard(MasterCard)" testid="HHUS-289" priority="P1" description="To verify the Checkout Credit card (MasterCard)as guest functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_GuestuserCheckoutMastercard"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_029_GuestuserCheckoutMastercard"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_030_GuestUserCreditcard(Discover)" testid="PPH-1519" priority="P1" description="To verify the Checkout Credit card (Discover)as guest functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_030_GuestUserCreditcard(Discover)" testid="HHUS-290" priority="P1" description="To verify the Checkout Credit card (Discover)as guest functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_GuestuserCheckoutDiscover"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_030_GuestuserCheckoutDiscover"/>
         </classes>
     </test>
     
-     <test name="Test_PUR_ST_033_contactus" testid="PPH-1871" priority="P1" description="To verify the  contact us  functionality in PUR Website">
-         <parameter name="browser" value="edge" />
+     <test name="Test_PUR_ST_033_contactus" testid="HHUS-294" priority="P1" description="To verify the  contact us  functionality in PUR Website">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ContactUS"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_033_Validation_of_ContactUS"/>
         </classes>
     </test>
     
-     <test name="Test_PUR_ST_034_ValidateWarrantyRegistration" testid="PPH-1872" priority="P1" description="To verify the warrantyregistration functionality">
-         <parameter name="browser" value="edge" />
+     <test name="Test_PUR_ST_034_ValidateWarrantyRegistration" testid="HHUS-295" priority="P1" description="To verify the warrantyregistration functionality">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_WarrantyRegistration"/>
-        </classes>
-    </test>
-    
-    
-    <test name="Test_PUR_ST_026_SocialMedialinks" testid="PPH-1725" priority="P1" description="To verify the socialmedialinks functionality in PUR">
-         <parameter name="browser" value="edge" />
-        <classes>
-            <class name="TestExecute.PUR.Test_PUR_SocialMediaLinks"/>
-        </classes>
-    </test>
-    <test name="Test_PUR_017_ValidationContentlinks" testid="PPH-1053" priority="P1" description="To verify the contentlinks functionality in PUR">
-         <parameter name="browser" value="edge" />
-        <classes>
-            <class name="TestExecute.PUR.Test_PUR_ValidateContentlinks"/>
-        </classes>
-    </test>
-     <test name="Test_PUR_ST_031_RegistereduserPromocodecheckout" testid="PPH-1726" priority="P1" description="To verify Apply PromoCode for Registereduser functionality in PUR">
-         <parameter name="browser" value="edge" />
-        <classes>
-            <class name="TestExecute.PUR.Test_PUR_RegistereduserPromocodecheckout"/>
-        </classes>
-    </test>
-     <test name="Test_PUR_ST_032_GusetuserPromocodecheckout" testid="PPH-1727" priority="P1" description="To verify Apply PromoCode for Guestuser functionality in PUR">
-         <parameter name="browser" value="edge" />
-        <classes>
-            <class name="TestExecute.PUR.Test_PUR_GusetuserPromocodecheckout"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_034_Validation_of_WarrantyRegistration"/>
         </classes>
     </test>
     
     
-     <test name="Test_PUR_ST_036_ValidatePrivacy of termsofuse" testid="PPH-1941" priority="P1" description="To verify Privacy and terms of use functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_026_SocialMedialinks" testid="HHUS-293" priority="P1" description="To verify the socialmedialinks functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Validation_of_Privacy_And_TermsOfUse"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_026_SocialMediaLinks"/>
+        </classes>
+    </test>
+    <test name="Test_PUR_017_ValidationContentlinks" testid="HHUS-236" priority="P1" description="To verify the contentlinks functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_ST_017_ValidateContentlinks"/>
+        </classes>
+    </test>
+     <test name="Test_PUR_ST_031_RegistereduserPromocodecheckout" testid="HHUS-292" priority="P1" description="To verify Apply PromoCode for Registereduser functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_ST_031_RegistereduserPromocodecheckout"/>
+        </classes>
+    </test>
+     <test name="Test_PUR_ST_032_GusetuserPromocodecheckout" testid="HHUS-291" priority="P1" description="To verify Apply PromoCode for Guestuser functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_ST_032_GusetuserPromocodecheckout"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_035_ValidatingGuestUserShippingAddressPage" testid="PPH-1940" priority="P1" description="To verify validation of shipping page functionality in PUR">
-         <parameter name="browser" value="edge" />
+    
+     <test name="Test_PUR_ST_036_ValidatePrivacy of termsofuse" testid="HHUS-297" priority="P1" description="To verify Privacy and terms of use functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_Validation_of_shipping_page"/>
+            <class name="TestExecute.PUR.Test_PUR_ST_036_Validation_of_Privacy_And_TermsOfUse"/>
+        </classes>
+    </test>
+    
+    <test name="Test_PUR_ST_035_ValidatingGuestUserShippingAddressPage" testid="HHUS-296" priority="P1" description="To verify validation of shipping page functionality in PUR">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.Test_PUR_ST_035_Validation_of_shipping_page"/>
         </classes>
     </test>
     
     
      
-    <test name="Test_PUR_ST_039_ValidateCompareProducts" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_039_ValidateCompareProducts" testid="HHUS-300" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_ValidateCompareProducts"/>
+          <class name="TestExecute.PUR.Test_PUR_ST_039_ValidateCompareProducts"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_039_Validate_GuestUser_Checkout_withaddingtwo_products" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_040_Validate_GuestUser_Checkout_withaddingtwo_products" testid="HHUS-301" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_GuestUser_Adding_two_productsCheckout"/>
+          <class name="TestExecute.PUR.Test_PUR_ST_040_GuestUser_Adding_two_productsCheckout"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_039_Validate_RegisterUser_Checkout_withaddingtwo_products" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_041_Validate_RegisterUser_Checkout_withaddingtwo_products" testid="HHUS-302" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_RegisterUser_Adding_two_productsCheckout"/>
+          <class name="TestExecute.PUR.Test_PUR_ST_041_RegisterUser_Adding_two_productsCheckout"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_039_Validate_RegisterUser_SignIn_inShippingpage" testid="PPH-1944" priority="P1" description="To verify the compare products  functionality in PUR">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_042_Validate_RegisterUser_SignIn_inShippingpage" testid="HHUS-303" priority="P1" description="To verify the compare products  functionality in PUR">
+         <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_SignIn_in_ShippingPage"/>
+          <class name="TestExecute.PUR.Test_PUR_ST_042_SignIn_in_ShippingPage"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_037_ValidateGuestUserIncreaseProductQuantityCartPage" testid="PPH-1942" priority="P1" description="To verify the Guest  user increase product quantityfunctionality">
-         <parameter name="browser" value="edge" />
+  <!--    <test name="Test_PUR_ST_043_ValidateGuestUserIncreaseProductQuantityCartPage" testid="HHUS-298" priority="P1" description="To verify the Guest  user increase product quantityfunctionality">
+         <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.PUR.Test_PUR_ValidateGuestUserIncreaseProductQuantityInCartPage"/>
         </classes>
     </test>
     
-    <test name="Test_PUR_ST_038_ValidateRegisterUserIncreaseProductQuantityInCartPage" testid="PPH-1943" priority="P1" description="To verify the Register user increase product quantity functionality">
-         <parameter name="browser" value="edge" />
+    <test name="Test_PUR_ST_044_ValidateRegisterUserIncreaseProductQuantityInCartPage" testid="HHUS-299" priority="P1" description="To verify the Register user increase product quantity functionality">
+         <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.PUR.Test_PUR_ValidateRegisterUserIncreaseProductQuantityInCartPage"/>
         </classes>
     </test> 
-    
+    -->
     
     
     

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="PUR Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<test
+		name="Test_PUR_ST_043_checkout_with_VISA_as_Guestuser_withsingleproduct_tax_shippingwithsame_billingand_shippingaddress"
+		testid="HHUS-271" priority="P1"
+		description="To verify the checkout with VISA as Guestuser withsingleproduct tax shipping withsame billingand shippingaddress functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_043_checkout_with_VISA_as_Guestuser_withsingleproduct_tax_shippingwithsame_billingand_shippingaddress" />
+		</classes>
+	</test>
+
+ <test
+		name="Test_PUR_ST_044_Checkout_Mastercard_Registeruser_singleproduct_tax_samebilling_shipingaddress"
+		testid="HHUS-272" priority="P1"
+		description="To verify the Checkout with Mastercard Registeruser withsingle product tax samebilling shipingaddress functionality ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_044_Checkout_Mastercard_Registeruser_singleproduct_tax_samebilling_shipingaddress" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_045_checkoutwith_AMEX_Guestuser_Singleproduct_tax_Shippingwith_Different_billing_shippingaddress"
+		testid="HHUS-273" priority="P1"
+		description="To verify the Checkout with AMEX Guestuser Singleproduct tax Shipping with Different billing shippingaddress functionality  ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_045_checkoutwith_AMEX_Guestuser_Singleproduct_tax_Shippingwith_Different_billing_shippingaddress" />
+		</classes>
+	</test>
+
+
+	<test
+		name="Test_PUR_ST_046_Checkoutwith_Discovercard_Registeruser_Single_product_withtax_samebilling_shippingaddress"
+		testid="HHUS-274" priority="P1"
+		description="To verify the Checkout with Discovercard Registeruser Single product with tax samebilling shipping address functionality ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_046_Checkoutwith_Discovercard_Registeruser_Single_product_withtax_samebilling_shippingaddress" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_047_Checkoutwith_AMEX_Registeruser_Multiproduct_tax_sameBilling_shipping_address"
+		testid="HHUS-275" priority="P1"
+		description="To verify the Checkout with AMEX Registeruser Multiproduct with tax same Billing shipping address functionality.">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_047_Checkoutwith_AMEX_Registeruser_Multiproduct_tax_sameBilling_shipping_address" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_048_checkout_Discover_Guestuser_multiproduct_tax_sambilling_shipping_address"
+		testid="HHUS-276" priority="P1"
+		description="To verify the checkout with Discover Guestuser multiproduct tax sambilling shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_048_checkout_Discover_Guestuser_multiproduct_tax_sambilling_shipping_address" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_049_checkout_MASTER_Guestuser_Singleproduct_notax_samebilling_shippingaddress"
+		testid="HHUS-277" priority="P1"
+		description="To verify checkout with Master Guestuser single product notax sambilling and shipping address functionality.">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_049_checkout_MASTER_Guestuser_Singleproduct_notax_samebilling_shippingaddress" />
+		</classes>
+	</test>
+	
+
+	<test
+		name="Test_PUR_ST_050_Checkout_GuestuserMASTER_multiproduct_notax_sameShippingBillingAddress"
+		testid="HHUS-278" priority="P1"
+		description="To verify Checkout GuestuserMASTER multiproduct notax same Shipping Billing Address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_050_Checkout_GuestuserMASTER_multiproduct_notax_sameShippingBillingAddress" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_051_Checkout_MASTERCARD_Registeruser_Multiproduct_Notax_Shipping_Differentbilling_Shipping_address"
+		testid="HHUS-279" priority="P1"
+		description="To verify Checkout MASTERCARD Registeruser Multiproduct Notax Shipping Different billing Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_051_Checkout_MASTERCARD_Registeruser_Multiproduct_Notax_Shipping_Differentbilling_Shipping_address" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_052_checkoutAMEX_Guest_Multiproduct_Notax_Shipping_Same_billing_Shippingaddress"
+		testid="HHUS-280" priority="P1"
+		description="To verify checkout with AMEX Guest Multiproduct Notax Shipping Same billing Shippingaddress functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_052_checkoutAMEX_Guest_Multiproduct_Notax_Shipping_Same_billing_Shippingaddress" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_053_checkout_Discover_Register_Multiproduct_Notax_ShipSamebilling_Shipping_address"
+		testid="HHUS-281" priority="P1"
+		description="To verify checkout Discover Register Multiproduct Notax ShipSamebilling Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_053_checkout_Discover_Register_Multiproduct_Notax_ShipSamebilling_Shipping_address" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_054_checkout_VISAcard_Guestuser_singleproduct_Discount_Promocode_tax_StandardShipping_SameBilling_Shipping_address"
+		testid="HHUS-282" priority="P1"
+		description="To verify checkout VISAcard Guestuser singleproduct Discount Promocode tax StandardShipping SameBilling Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_054_checkout_VISAcard_Guestuser_singleproduct_Discount_Promocode_tax_StandardShipping_SameBilling_Shipping_address" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_055_checkoutMASTER_Register_singleproduct_DiscountPromocode_tax_StandardShippingDifferent_Billing_Shipping_address"
+		testid="HHUS-283" priority="P1"
+		description="To verify checkout MASTER card Register user singleproduct Discount Promocode tax Standard Shipping Different Billing Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_055_checkoutMASTER_Register_singleproduct_DiscountPromocode_tax_StandardShippingDifferent_Billing_Shipping_address" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_056_checkout_AMEXGuestuserMulti_product_Discount_Promocode_tax_Shippingwith_Samebilling_Shipaddress"
+		testid="HHUS-284" priority="P1"
+		description="To verify checkout AMEX Guestuser Multi product Discount Promocode tax Shipping with Samebilling Shipaddresss functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_056_checkout_AMEXGuestuserMulti_product_Discount_Promocode_tax_Shippingwith_Samebilling_Shipaddress" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_057_checkout_DiscoverRegister_Multiproduct_Discount_Promocode_tax_Shipping_different_billing_Shipping_address"
+		testid="HHUS-285" priority="P1"
+		description="To verify checkout checkout DiscoverRegister Multiproduct Discount Promocode tax Shipping different billing Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.orders.Test_PUR_ST_057_checkout_DiscoverRegister_Multiproduct_Discount_Promocode_tax_Shipping_different_billing_Shipping_address" />
+		</classes>
+	</test>
+
+
+
+</suite>
+    
