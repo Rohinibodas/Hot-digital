@@ -17,6 +17,7 @@ public class TEST_HW_MT_022_Validation_of_forgot_password_form {
   public void forgetpasswordfromvalidation() {
 		try {
 		honeyWell.verifyingHomePage();
+	//	honeyWell.accept();
 		honeyWell.ForgotPasswordValidation();
 	} catch (Exception e) {
 		Assert.fail(e.getMessage(), e);
@@ -26,7 +27,7 @@ public class TEST_HW_MT_022_Validation_of_forgot_password_form {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	

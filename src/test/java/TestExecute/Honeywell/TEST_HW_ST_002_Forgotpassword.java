@@ -24,6 +24,7 @@ public class TEST_HW_ST_002_Forgotpassword {
  
   public void forgotPassword() throws Exception {
 		try{
+			//honeyWell.accept();
 			honeyWell.Forgetpassword("AccountDetails");
 			
   }
@@ -38,7 +39,7 @@ public class TEST_HW_ST_002_Forgotpassword {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

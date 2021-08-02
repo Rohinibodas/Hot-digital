@@ -20,6 +20,7 @@ public class TEST_HW_MT_026_Warranty_Registration_form_validation {
 		try {
 	
 			honeyWell.verifyingHomePage();
+			//honeyWell.accept();
 		//	honeyWell.productsupport();
 			honeyWell.warranty("WarrantyDetails");
 			

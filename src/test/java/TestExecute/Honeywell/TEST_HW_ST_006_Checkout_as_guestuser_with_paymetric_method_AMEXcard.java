@@ -21,6 +21,7 @@ public class TEST_HW_ST_006_Checkout_as_guestuser_with_paymetric_method_AMEXcard
 
 		try {
 			honeyWell.verifyingHomePage();
+		//	honeyWell.accept();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");
 			honeyWell.clickAddtoBag();
@@ -41,7 +42,7 @@ public class TEST_HW_ST_006_Checkout_as_guestuser_with_paymetric_method_AMEXcard
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

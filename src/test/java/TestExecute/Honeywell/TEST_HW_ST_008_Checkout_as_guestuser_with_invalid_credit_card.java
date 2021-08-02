@@ -19,6 +19,7 @@ public class TEST_HW_ST_008_Checkout_as_guestuser_with_invalid_credit_card {
 		try {
 	//	honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.verifyingHomePage();
+		//	honeyWell.accept();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("productnameRegester");
 			honeyWell.clickAddtoBag();

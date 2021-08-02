@@ -19,7 +19,8 @@ public class TEST_HW_MT_027_Contact_Us_form_validation {
   public void contact_Us_form_validation() {
 		try {
 			honeyWell.verifyingHomePage();
-			honeyWell.Contact_Us("ContactUs");
+			//honeyWell.accept();
+			honeyWell.Contact_Us("contactUs");
 			
   }
 catch (Exception e) {
@@ -38,7 +39,7 @@ catch (Exception e) {
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
-		  honeyWell.agree_proceed();
+		 
 		  
 	  }
 }
