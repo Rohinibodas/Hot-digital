@@ -10,14 +10,14 @@ import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
 
-public class HT_ST_RetailerCheckoutwith_Adding_two_products {
-	String datafile = "Hottools//HottoolsTestData.xlsx";	
-	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
+public class HT_ST_060_Registeruser_AMEX_MultiProduct_Tax_Shipping_SameBilling_Shipping {
 
-	@Test(priority=1)
-	public void RetailerCheckoutwithtwoproducts(){
+	String datafile = "Hottools//HottoolsTestData.xlsx";
+	HottoolsHelpr Hottools = new HottoolsHelpr(datafile);
 
-		try{
+	@Test(priority = 1)
+	public void GuestCheckoutwithCreditCard() {
+		try {
 			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
@@ -25,33 +25,31 @@ public class HT_ST_RetailerCheckoutwith_Adding_two_products {
 			Hottools.TwoCategoryProductSelection();
 			Hottools.TwoproductCategoryMincart();
 			Hottools.checkoutpage();
-		    Hottools.CreditcardPayment("AMEXCardDetails");
+			Hottools.VerifyTax();
+			Hottools.CreditcardPayment("AMEXCardDetails");
 			Hottools.RegistereduserorderSuccesspage();
-		}
-		catch (Exception e) {
-
+		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
 	}
-	
-	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn(browser);
-	  }
-	
-    /* @BeforeMethod
-	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
-		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome");
-		  
-	  }*/
 
+	
+	 @BeforeMethod
+	 
+	  @Parameters({"browser"}) public void startTest(String browser) throws
+	  Exception { System.setProperty("configFile", "Hottools\\config.properties");
+	  Login.signIn(browser); }
+	 /*
+
+	@BeforeMethod
+	@Parameters({ "browser" })
+	public void startTest() throws Exception {
+		System.setProperty("configFile", "Hottools\\config.properties");
+		Login.signIn("chrome");
+	}
+*/
 	@AfterTest
-	public void clearBrowser()
-	{
+	public void clearBrowser() {
 		Common.closeAll();
 
 	}

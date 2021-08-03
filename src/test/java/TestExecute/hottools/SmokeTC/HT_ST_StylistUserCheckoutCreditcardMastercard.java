@@ -27,7 +27,7 @@ public class HT_ST_StylistUserCheckoutCreditcardMastercard {
 			Hottools.CategoryMincart();
 			Hottools.checkoutpage();
 			Hottools.CreditcardPayment("MastercardDetails");
-			Hottools.RegistereduserorderSuccesspage();
+			//Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 

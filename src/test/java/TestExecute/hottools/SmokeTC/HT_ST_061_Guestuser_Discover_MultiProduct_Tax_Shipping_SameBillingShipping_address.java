@@ -10,47 +10,46 @@ import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
 
-public class HT_ST_Guestuser_checkout_withadding_two_Products {
-	String datafile = "Hottools//HottoolsTestData.xlsx";	
-	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
+public class HT_ST_061_Guestuser_Discover_MultiProduct_Tax_Shipping_SameBillingShipping_address {
 
-	@Test(priority=1)
-	public void GuestCheckoutwithtwoproducts(){
-		try{
+	String datafile = "Hottools//HottoolsTestData.xlsx";
+	HottoolsHelpr Hottools = new HottoolsHelpr(datafile);
+
+	@Test(priority = 1)
+	public void GuestCheckoutwithCreditCard() {
+		try {
 			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
 			Hottools.CategorySelection();
 			Hottools.TwoCategoryProductSelection();
 			Hottools.TwoproductCategoryMincart();
 			Hottools.Guestcheckoutpage("Guestshippingaddress");
-			Hottools.GuestCreditcard("Guestshippingaddress");
+			Hottools.VerifyTax();
+			Hottools.CreditcardPayment("DiscovercardDetails");
 			Hottools.GuestuserorderSuccesspage();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
 	}
-	
-	 
-	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn(browser);
-		  
-	  }
-	
-	/*@BeforeMethod
-	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
-		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome"); 
-	}*/
 
+	
+	 @BeforeMethod
+  
+  @Parameters({"browser"}) public void startTest(String browser) throws
+  Exception { System.setProperty("configFile", "Hottools\\config.properties");
+ Login.signIn(browser); }
+	 
+/*
+	@BeforeMethod
+	@Parameters({ "browser" })
+	public void startTest() throws Exception {
+		System.setProperty("configFile", "Hottools\\config.properties");
+		Login.signIn("chrome");
+	}
+*/
 	@AfterTest
-	public void clearBrowser()
-	{
-		Common.closeAll();
+	public void clearBrowser() {
+		 Common.closeAll();
 
 	}
 

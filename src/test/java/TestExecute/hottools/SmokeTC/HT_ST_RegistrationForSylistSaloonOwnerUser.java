@@ -41,14 +41,14 @@ public class HT_ST_RegistrationForSylistSaloonOwnerUser {
 	@Parameters({"browser"})  
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		Login.signIn("firefox");
+		Login.signIn("chrome");
 
 	}*/
 
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 }

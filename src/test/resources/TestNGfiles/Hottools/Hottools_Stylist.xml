@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+   <test name="TEST_HT_MT_019_VerifyCustomerRegistrationForSylistSaloonOwnerUser" testid="BTY-347" priority="P1" description="This script will cover VerifyCustomerRegistrationForSylistSaloonOwnerUser of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_RegistrationForSylistSaloonOwnerUser"/>
+        </classes>
+    </test>
+   
+     <test name="Test_HT_ST_031_StylistBrowserSearch" testid="BTY-746" priority="P1" description="Validating the browser search for Stylist user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_StylistuserBrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_036_StylistCheckoutCreditCard" testid="BTY-751" priority="P1" description="To verify the Checkout with CreditCard For Stylist User functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_StylistUserCheckout"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_034_StylistMyorderconfirmation" testid="BTY-749" priority="P1" description="To verify the Stylistuser My Order Confirmation Checkout with Credit Card functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_StylistUserMyOrderConfirmation"/>
+        </classes>
+    </test>
+    
+   
+     <test name="Test_HT_ST_035_StylistCategoryCheckoutCreditCard" testid="BTY-750" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_StylistUserCategoryCheckout"/>
+        </classes>
+    </test>
+    
+     <test name="Test_HT_ST_051_StylistCategoryCheckoutCreditcard(AMEX)" testid="BTY-1563" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_StylistUserCheckoutCreditcardAMEX"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_052_StylistCategoryCheckoutCreditcard(MasterCard)" testid="BTY-1564" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard(MasterCard) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_StylistUserCheckoutCreditcardMastercard"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_053_StylistCategoryCheckoutCreditcard(Discover)" testid="BTY-1565" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_StylistUserCheckoutCreditcardDiscover"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_073_Stylist_User_promocode" testid="BTY-558" priority="P1" description="To verify the Stylist_User_promocode functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_Stylist_User_promocode"/>
+        </classes>
+    </test>
+    
+     </suite>

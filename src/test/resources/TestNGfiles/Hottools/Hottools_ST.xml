@@ -336,15 +336,90 @@
     </test>
     
     
-    <!--  <test name="Test_HT_ST_020_PromocodeCheckout" testid="BTY-1143" priority="P1" description="This test case is to verify  Hottools ,Promocode Checkout functionality for user">
+     <test name="Test_HT_ST_020_PromocodeCheckout" testid="BTY-237" priority="P1" description="This test case is to verify  Hottools ,Promocode Checkout functionality for user">
         <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.hottools.SmokeTC.HT_ST_Promocode"/>
         </classes>
-    </test> -->
+    </test> 
+    <test name="Test_HT_ST_RegisteredUserPaypal" testid="BTY-236" priority="P1" description="This test case is to verify  Hottools ,Registered User Paypal">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_RegisteredUserPaypal"/>
+        </classes>
+    </test> 
     
+     <test name="HT_ST_059_Guestuser_Mastercard_MultiProductwith_Tax_Freight_Shippingwithdifferent_BillingShippingaddress" testid="BTY-731" priority="P1" description="To verify the Guest user multiple product Checkout with tax and  frieght shipping CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_059_Guestuser_Mastercard_MultiProductwith_Tax_Freight_Shippingwithdifferent_BillingShippingaddress"/>
+        </classes>
+    </test>
+     
+   <test name="HT_ST_060_Registeruser_AMEX_MultiProduct_Tax_Shipping_SameBilling_Shipping" testid="BTY-732" priority="P1" description="To verify the register user multiple product Checkout with Tax, shipping and  CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_060_Registeruser_AMEX_MultiProduct_Tax_Shipping_SameBilling_Shipping"/>
+        </classes>
+    </test> 
     
-    <!--  <test name="Test_HTGC_ST_047_Artist access page" testid="BTY-988" priority="P1" description="To  verify Artist access coupon place order Functionality">
+    <test name="HT_ST_061_Guestuser_Discover_MultiProduct_Tax_Shipping_SameBillingShipping_address" testid="BTY-792" priority="P1" description="To  verify the Guest user multiple product Checkout with Tax, shipping and  CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_061_Guestuser_Discover_MultiProduct_Tax_Shipping_SameBillingShipping_address"/>
+        </classes>
+    </test>
+        <test name="HT_ST_062_Guestuser_AMEX_MultiProduct_NoTax_Shipping_SameBilling_Shippingaddress" testid="BTY-793" priority="P1" description="To  verify the Guest user multiple product Checkout with NoTax, shipping and  CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_062_Guestuser_AMEX_MultiProduct_NoTax_Shipping_SameBilling_Shippingaddress"/>
+        </classes>
+    </test>
+    <test name="HT_ST_063_RegisteruserDiscover_MultiProduct_NoTax_Shipping_SameBillingShipping_address" testid="BTY-794" priority="P1" description="To  verify the Register user multiple product Checkout with NoTax, shipping and  CreditCard(Discover)functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_063_RegisteruserDiscover_MultiProduct_NoTax_Shipping_SameBillingShipping_address"/>
+        </classes>
+    </test>
+       <test name="HT_ST_064_Guestuser_AMEX_MultiProduct_Discount_Promo_Tax_Shipping_SameBilling_Shippingaddress" testid="BTY-795" priority="P1" description="To verify the Guest user Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_064_Guestuser_AMEX_MultiProduct_Discount_Promo_Tax_Shipping_SameBilling_Shippingaddress"/>
+        </classes>
+    </test>
+    
+   <test name="HT_ST_065_RegisterUserDiscover_MultiProduct_DiscountPromo_Tax_Shippingdifferent_Billing_Shippingaddress" testid="BTY-806" priority="P1" description="To  verify the Register user multiple product Checkout with DiscountPromo, Tax, shipping, Different Billing address and  CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_065_RegisterUserDiscover_MultiProduct_DiscountPromo_Tax_Shippingdifferent_Billing_Shippingaddress"/>
+        </classes>
+    </test> 
+    
+    <test name="HT_ST_066_Registeruser_Checkout_VISACC_Tax_With_Employee_discountand_Same_Billing_and_shipping_Address" testid="BTY-811" priority="P1" description="To  verify the Register user Checkout with Employee Discount, Tax, shipping, same Billing address and  CreditCard(VISA) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_066_Registeruser_Checkout_VISACC_Tax_With_Employee_discountand_Same_Billing_and_shipping_Address"/>
+        </classes>
+    </test>
+        <test name="HT_ST_067__Registeruser_Checkout_AmexCC_N0_Tax_Employee_discountwith_Same_Billing_and_shipping_Address" testid="BTY-812" priority="P1" description="To  verify the Register user Checkout with Employee Discount, NOTax, shipping, same Billing address and  CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_067__Registeruser_Checkout_AmexCC_N0_Tax_Employee_discountwith_Same_Billing_and_shipping_Address"/>
+        </classes>
+    </test>
+    <test name="HT_ST_068_GuestUser_checkout_Amex_with_PO_Box_Address" testid="BTY-813" priority="P1" description="To verify the Guest user PO Box Checkout with PO Box  (Test for failure) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_068_GuestUser_checkout_Amex_with_PO_Box_Address"/>
+        </classes>
+    </test>
+        <test name="HT_ST_069_RegisterUser_checkout_Vissa_with_PO_Box_Address" testid="BTY-814" priority="P1" description="To verify the Register user PO Box Checkout with PO Box  (Test for failure) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_069_RegisterUser_checkout_Vissa_with_PO_Box_Address"/>
+        </classes>
+    </test>
+    <!--  <test name="Test_HTGC_ST_047_Artist access page" testid="BTY-988" priority="P1" description="To verify Atist Access coupon place order functionality">
         <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardArtistAccess"/>

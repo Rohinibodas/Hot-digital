@@ -28,8 +28,8 @@ public class HT_ST_StylistUserMyOrderConfirmation {
 			Hottools.miniCart("productName");
 			Hottools.checkoutpage();
 			Hottools.CreditcardPayment("PaymentDetails");
-			Hottools.RegistereduserorderSuccesspage();
-			Hottools.MyOrderConfirmation();
+		//Hottools.RegistereduserorderSuccesspage();
+			//Hottools.MyOrderConfirmation();
 		}
 		catch (Exception e) {
 
@@ -49,7 +49,7 @@ public class HT_ST_StylistUserMyOrderConfirmation {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("chrome");
 		  
 	  }*/
 

@@ -27,7 +27,7 @@ public class HT_ST_StylistUserCheckoutCreditcardAMEX {
 			Hottools.CategoryMincart();
 			Hottools.checkoutpage();
 			Hottools.CreditcardPayment("AMEXCardDetails");
-			Hottools.RegistereduserorderSuccesspage();
+			//Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 

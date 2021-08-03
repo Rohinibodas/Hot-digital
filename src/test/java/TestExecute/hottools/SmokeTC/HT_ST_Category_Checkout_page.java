@@ -42,17 +42,17 @@ public class HT_ST_Category_Checkout_page {
 		  Login.signIn(browser); 
 	  }
 	
-      /*@BeforeMethod
+   /*  @BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("chrome");
 	  }*/
 
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+       Common.closeAll();
 
 	}
 

@@ -10,46 +10,44 @@ import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
 
-public class HT_ST_Stylist_User_promocode {
-
+public class HT_ST_059_Guestuser_Mastercard_MultiProductwith_Tax_Freight_Shippingwithdifferent_BillingShippingaddress {
+	
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void Stylist_User_promocode(){
-
+	public void GuestCheckoutwithCreditCard(){
 		try{
-			Hottools.agreeCookiesbanner();		
-			//Hottools.Newslettersignup();
-			Hottools.signin("StylistCustomerAccountDetails");
+			Hottools.Newslettersignup();
+			Hottools.agreeCookiesbanner();
 			Hottools.CategorySelection();
-			Hottools.CategoryProductSelection();
-			Hottools.CategoryMincart();
-			Hottools.checkoutpage();
-		    Hottools.ValidatingPromocode("StylistPromocode");
-			//Hottools.CreditcardPayment_promocde("PaymentDetails");
-		    
-		
-		}
+			Hottools.TwoCategoryProductSelection();
+			Hottools.TwoproductCategoryMincart();
+			Hottools.Guestcheckoutpage("Guestshippingaddress");
+			Hottools.Taxdifferentshippingandbilling("shippingAddress");
+			Hottools.VerifyTax();
+			Hottools.GuestCreditcard("MastercardDetails");
+			//Hottools.GuestuserorderSuccesspage();		
+			}
 		catch (Exception e) {
-
 			Assert.fail(e.getMessage(), e);
 		}
 	}
+	
 	
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn(browser); 
+		  Login.signIn(browser);
 	  }
-	/*
-      @BeforeMethod
+	
+	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
-		  Login.signIn("chrome");
-	  }
+		  Login.signIn("chrome"); 
+	}
 */
 	@AfterTest
 	public void clearBrowser()
@@ -59,4 +57,3 @@ public class HT_ST_Stylist_User_promocode {
 	}
 
 }
-
