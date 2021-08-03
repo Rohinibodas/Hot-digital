@@ -6427,6 +6427,156 @@ public void Adminlogins() throws Exception {
     			
     	 }
     	 
+    	 
+    	 public  Map<String,String>  addDeliveryAddress_Validation (String dataSet) throws Exception  {
+    		
+    		 HashMap <String,String> gustUseraddress=new HashMap<String,String>();
+    		 
+    		 try {
+    				Sync.waitElementVisible("id", "customer-email-address");
+    				Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+    				
+    				gustUseraddress.put("Email", data.get(dataSet).get("Email"));
+    				
+    			} catch (NoSuchElementException e) {
+    				checkOut();
+    				Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+
+    			}
+    			String expectedResult = "email field will have email address";
+    			try {
+    				
+    				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+    				gustUseraddress.put("FirstName", data.get(dataSet).get("FirstName"));
+    	            int size = Common.findElements("id", "customer-email-address").size();
+    	            Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
+    	            Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
+    	            gustUseraddress.put("LastName", data.get(dataSet).get("LastName"));
+    	            Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",data.get(dataSet).get("Street"));
+    				gustUseraddress.put("Street1", data.get(dataSet).get("Street"));
+    				String Text=Common.getText("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']");
+    				
+    				
+
+    				try {
+    					Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+    				} catch (Exception e) {
+    					Common.actionsKeyPress(Keys.BACK_SPACE);
+    					Thread.sleep(1000);
+    					Common.actionsKeyPress(Keys.SPACE);
+    					Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+    				}
+    				if (data.get(dataSet).get("StreetLine2") != null) {
+    					Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
+    					
+    					String text=Common.getText("name","street[1]");
+    					System.out.println(text);
+    					
+    				}
+    				if (data.get(dataSet).get("StreetLine3") != null) {
+    					Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
+    				}
+    				Sync.waitPageLoad();
+    				Thread.sleep(5000);
+    				Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='city']").clear();
+    				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",data.get(dataSet).get("City"));
+    				
+    				 gustUseraddress.put("City", data.get(dataSet).get("City"));
+    				
+    				System.out.println(data.get(dataSet).get("City"));
+    				
+    				Common.actionsKeyPress(Keys.PAGE_DOWN);
+    				Thread.sleep(3000);
+    				try {
+    					Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+    					
+    					 gustUseraddress.put("Region", data.get(dataSet).get("Region"));
+    				} catch (ElementClickInterceptedException e) {
+    					Thread.sleep(3000);
+    					Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+    				}
+    				Thread.sleep(2000);
+    				Common.textBoxInputClear("name", "postcode");
+    				Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+    				
+    				gustUseraddress.put("postcode", data.get(dataSet).get("postcode"));
+    				Thread.sleep(5000);
+    				
+    				Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+    				
+    				
+    				
+
+    			}
+
+    			catch (Exception | Error e) {
+
+    				ExtenantReportUtils.addFailedLog("validating shipping address",
+    						"shipping address is filled in to the fields", "user faield to fill the shipping address",
+    						Common.getscreenShotPathforReport("shipingaddressfaield"));
+    				// ExtenantReportUtils.addFailedLog("User click check out button",
+    				// "User unabel click the checkout button",
+    				// Common.getscreenShotPathforReport("check out miniCart"));
+    				Assert.fail();
+
+    			}
+    			Thread.sleep(5000);
+    			int size=Common.findElements("xpath", "//input[@id='label_method_bestway']").size();
+    			if(size>0){
+    				Common.clickElement("xpath", "//input[@id='label_method_bestway']");
+    			}
+
+    			expectedResult = "shipping address is filled in to the fields";
+    			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+
+    			int errorsize = Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+
+    			if (errorsize <= 0) {
+    				ExtenantReportUtils.addPassLog("validating the shipping address field with valid Data", expectedResult,
+    						"Filled the shipping address", Common.getscreenShotPathforReport("shippingaddresspass"));
+    			} else {
+    				ExtenantReportUtils.addFailedLog("validating the shipping address field with valid Datas", expectedResult,
+    						"failed to add a addres in the filled",
+    						Common.getscreenShotPathforReport("failed to add a address"));
+    				Assert.fail();
+    			}
+
+    			// Common.assertionCheckwithReport(errorsize<=0,"enter the shipping
+    			// address in to the fields without skipping any mandatory fields",
+    			// expectedResult, "Filled the shipping address", "failed to add a
+    			// address");
+    			// Common.assertionCheckwithReport(errorsize<=0, "Filled the shipping
+    			// address", expectedResult, "Missing the shipping address");
+    			Thread.sleep(3000);
+    			
+    			return gustUseraddress;
+    		}
+
+    	 public void shippingvalidaingXML(String dataSet,String FielName) throws IOException {
+         	
+        	 String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
+             Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
+        	 String BillingAddress1= (String) jsonInMap.get("BillingAddress1");
+             String BillingCity= (String) jsonInMap.get("BillingCity");
+             String BillingState= (String) jsonInMap.get("BillingState");
+             String BillingZip=(String) jsonInMap.get("BillingZip");
+             String BillingCountry=(String) jsonInMap.get("BillingCountry");
+             
+             
+           String SfUSername=  data.get(dataSet).get("FirstName");
+           String SfLastname = data.get(dataSet).get("LastName");
+           String SfStreet =data.get(dataSet).get("Street");
+           String Sfcity =data.get(dataSet).get("City");
+           String SfRegion =data.get(dataSet).get("Region");
+           String Sfpostcode =data.get(dataSet).get("postcode");
+             
+             
+           Assert.assertTrue(BillingAddress1.equals(SfStreet)&& BillingCity.equals(Sfcity) && BillingState.equals(SfRegion)); 
+             
+             
+        	
+        }
+    	 
     	
 	public HydroHelper(String datafile) {
 		
