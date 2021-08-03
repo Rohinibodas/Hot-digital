@@ -995,7 +995,7 @@ public class HydroHelper {
 				"Successfully It redirects to order confirmation page Order Placed",
 				"User unabel to go orderconformation page");
 		//order=Common.getText("xpath", "//a[@class='order-number']/strong");
-
+		order=Common.getText("xpath", "//div[@class='checkout-success']/p[1]/span");
 			}
 			catch (Exception | Error e) {
 				e.printStackTrace();
