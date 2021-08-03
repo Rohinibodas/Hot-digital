@@ -2657,6 +2657,7 @@ public class HydroHelper {
 			Assert.fail();
 
 		}
+		
 		String PageTitle = Common.getText("xpath", "//h1[@class='page-title']/span");
 		if (PageTitle.contains("New")) {
 			try {
@@ -5281,6 +5282,8 @@ public void Newsletter_subscription() {
         	
         	Thread.sleep(4000);
         	
+        	Common.scrollIntoView("xpath", "//span[@class='old-price']");
+        	
         	String orginalprice=Common.getText("xpath", "//span[@class='old-price']").replace("$", "");
         	
         	
@@ -5289,10 +5292,7 @@ public void Newsletter_subscription() {
             String disccountammount =persentageclaluater(orginalprice_converting,Double.valueOf(empalydisccount));
             
             double ammount=orginalprice_converting-Double.valueOf(disccountammount);
-            
-          
-        
-        	System.out.println(ammount);
+            System.out.println(ammount);
         }
         
         public HashMap<String,String> taxValidation(String taxpercent) {
@@ -6227,6 +6227,59 @@ public void Newsletter_subscription() {
     		// expected",Common.getscreenShotPathforReport("pomotion code"));
     	}
 
+public void Adminlogins(String orderid) throws Exception {
+        	
+        	
+        	Common.oppenURL("https://jetrails-stg.hydroflask.com/nsnfCNSxxsSxrcCa4vnBn5wg");
+        	Common.textBoxInput("xpath", "//input[contains(@name,'username')]", "manojk");
+        	Common.textBoxInput("xpath", "//input[contains(@name,'password')]","b{?e\\Gm=c8qDH8p@");
+        	Common.clickElement("xpath", "//button[contains(@class,'action-primary')]");
+        	Thread.sleep(2000);  
+        	Common.actionsKeyPress(Keys.ESCAPE);
+        	Thread.sleep(2000);        	
+        	Common.findElement("xpath","//li[@id='menu-magento-sales-sales']").click();
+               	
+        //	Common.clickElement("xpath", "//li[@data-ui-id='menu-magento-sales-sales-order']");
+        	
+        	
+        	//import click 
+        	//Common.clickElement("xpath", "//li[@data-ui-id='menu-xtento-orderexport-manual']");
+        	
+        	
+        	
+        	Thread.sleep(5000);
+        	
+        	//export click
+        	Common.clickElement("xpath","//li[@data-ui-id='menu-xtento-orderexport-manual']");
+        	
+        	//select profile 
+        	
+        	Thread.sleep(5000);
+
+         	
+    //     	Common.dropdown("id", "profile_id", Common.SelectBy.TEXT, "Alchemy Import Profile (ID: 1)");
+        
+         	//starting ordernumber
+         	Common.textBoxInput("xpath", "//input[@id='increment_from']",orderid);
+        
+         	//starting ordernumber
+         	Common.textBoxInput("xpath", "//input[@id='increment_to']",orderid);
+         	
+         	
+         	//select the orderstatusinexpoert
+         	Common.dropdown("id", "force_status",Common.SelectBy.TEXT, "Processing");
+         	
+         	
+            Common.clickElement("xpath", "//input[@id='filter_new_only']");
+            
+            Common.clickCheckBox("xpath", "//input[@id='start_download']");
+            
+            Common.clickElement("xpath", "//button[@id='export_button']");
+            
+            
+            
+         	
+        }      
 
     	
 	public HydroHelper(String datafile) {
