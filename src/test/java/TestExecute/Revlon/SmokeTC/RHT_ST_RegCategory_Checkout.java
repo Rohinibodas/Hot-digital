@@ -19,12 +19,14 @@ public class RHT_ST_RegCategory_Checkout {
 	public void UserCategoryCreditCheckout() throws Exception {
 
 		try {revelon.Newslettersignup();
+		revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.categoryMenuItem();
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
+			revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception e) {
@@ -40,14 +42,15 @@ public class RHT_ST_RegCategory_Checkout {
 		  
 	  }
 	
-	/*@BeforeMethod
-	//@Parameters({"browser"})  
+	/*
+	@BeforeMethod
+	  @Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("edge");
 		  
-	  }*/
-	
+	  }
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{

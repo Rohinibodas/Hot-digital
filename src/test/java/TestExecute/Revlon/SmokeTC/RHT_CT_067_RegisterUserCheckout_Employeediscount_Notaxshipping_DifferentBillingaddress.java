@@ -10,53 +10,58 @@ import TestComponent.revlon.RevelonHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RHT_ST_ValidateAddNewAddressShippingAddresspage {
+public class RHT_CT_067_RegisterUserCheckout_Employeediscount_Notaxshipping_DifferentBillingaddress {
 
 	String datafile = "revlon//RevlonTestData.xlsx";
 	RevelonHelper revelon = new RevelonHelper(datafile);
 
 	@Test(priority = 1)
-	public void AddnewAddress() throws Exception {
+	public void UserCheckout_Employeediscount_Notaxshipping_DifferentBillingaddress() throws Exception {
 
 		try {
 			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
-			revelon.loginRevlon("AccountDetails");
+			revelon.loginRevlon("EmployeeDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.clickaddnewaddress();
-			revelon.RegisteruseraddNewAddress("Address");
-			revelon.FreeShippingmethod();
-			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
-		} catch (Exception e) {
+			revelon.RegisteruseraddNewAddress("NotaxAddress");
 
+			revelon.FreeShippingmethod();
+			revelon.TaxandShippingAmountvalidation();
+			revelon.DifferentBillingaddress();
+			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
+
+		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
 	}
 
 	
-	  @BeforeMethod
-	   @Parameters({"browser"})
-	  public void startTest(String browser) throws
-	 Exception { System.setProperty("configFile", "Revelon\\config.properties");
+	@BeforeMethod
+ 
+	 @Parameters({"browser"}) public void startTest(String browser) throws
+	  Exception { System.setProperty("configFile", "Revelon\\config.properties");
 	 Login.signIn(browser);
-	 
-	 }
-	 /* 
+	  
+	  }
+	  
+	 /*
 	@BeforeMethod
 	@Parameters({ "browser" })
 	public void startTest() throws Exception {
-	System.setProperty("configFile", "Revelon\\config.properties");
-	Login.signIn("chrome");
+		System.setProperty("configFile", "Revelon\\config.properties");
+		Login.signIn("chrome");
 
 	}
 */
 	@AfterTest
 	public void clearBrowser() {
-	 Common.closeAll();
+		 Common.closeAll();
+
 	}
 
 }

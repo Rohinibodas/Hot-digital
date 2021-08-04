@@ -20,6 +20,7 @@ public class RHT_ST_MyAccountLeftNavigation {
 	public void MyAccountLeftNavigation() throws Exception {
 
 		try {revelon.Newslettersignup();
+		revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.ValidateMyOrder();
 			revelon.ValidateAddressBook();

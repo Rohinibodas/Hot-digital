@@ -10,39 +10,44 @@ import TestComponent.revlon.RevelonHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class RHT_ST_RegisterUsercheckoutwithtwoproductaddtocart {
+public class RHT_CT_058_RegisterUserMultipleProductCheckoutDiscover_Notax_Shipping_sameShippingandBillingAddress {
+
+	
 
 	String datafile = "revlon//RevlonTestData.xlsx";	
 	RevelonHelper revelon=new RevelonHelper(datafile);
-
-	@Test(priority=1)
-	public void registeruserhomepageaddtocart() throws Exception {
-		try {
-			
-		revelon.Newslettersignup();
-		revelon.acceptPrivecy();
-		revelon.loginRevlon("AccountDetails");
-		revelon.searchProduct("productName");
-		revelon.Twoproductselection();
 	
-		revelon.checkoutPage();
-		revelon.FreeShippingmethod();
-		revelon.updatePaymentAndSubmitOrder("PaymentDetails");
-		
-		
-		
-	}catch (Exception e) {
+	@Test(priority=1)
+	public void RegisterUserMultipleproductccheckoutDiscover_NOtax() throws Exception {
+
+		try {
+			revelon.Newslettersignup();
+			revelon.acceptPrivecy();
+			revelon.searchProduct("productName");
+			revelon.Productselection();
+			revelon.navigateMinicart();
+			revelon.categoryMenuItemCurlingiron();
+			revelon.navigateMinicart();
+			revelon.navigateCartPage();
+			revelon.checkoutPage();
+			revelon.navigateCheckoutGuest("Address");
+			revelon.FreeShippingmethod();
+			revelon.TaxandShippingAmountvalidation();
+			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
+		}
+		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
+
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }/*
-
+	  }
+	/*
 	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
@@ -50,7 +55,7 @@ public class RHT_ST_RegisterUsercheckoutwithtwoproductaddtocart {
 		  Login.signIn("chrome");
 		  
 	  }
-*/
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{
@@ -59,4 +64,7 @@ public class RHT_ST_RegisterUsercheckoutwithtwoproductaddtocart {
 	}
 
 
+	
+	
+	
 }

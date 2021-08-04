@@ -11,53 +11,51 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class RHT_ST_RegisteruserHomepageAddtocart {
-	
-	
-	String datafile = "revlon//RevlonTestData.xlsx";	
-	RevelonHelper revelon=new RevelonHelper(datafile);
-	
-	@Test(priority=1)
+
+	String datafile = "revlon//RevlonTestData.xlsx";
+	RevelonHelper revelon = new RevelonHelper(datafile);
+
+	@Test(priority = 1)
 	public void Registeruserhomepageaddtocart() throws Exception {
 
 		try {
 			Thread.sleep(3000);
 			revelon.Newslettersignup();
+			revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.homepageaddtocart();
-			
+
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.navigateCheckout();
-						
+			
+            revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
-		} 
+		}
 	}
 
 	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
+	@Parameters({ "browser" })
+	public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn(browser);
-		  
-	  }
-	
-/*@BeforeMethod
-	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
-		System.setProperty("configFile", "Revelon\\config.properties");
-		  Login.signIn("chrome");
-		  
-	  }
-	*/
-	@AfterTest
-	public void clearBrowser()
-	{
-		Common.closeAll();
+		Login.signIn(browser);
 
 	}
 
+	/*
+	 * @BeforeMethod
+	 * 
+	 * @Parameters({"browser"}) public void startTest() throws Exception {
+	 * System.setProperty("configFile", "Revelon\\config.properties");
+	 * Login.signIn("chrome");
+	 * 
+	 * }
+	 */
+	@AfterTest
+	public void clearBrowser() {
+		Common.closeAll();
+
+	}
 
 }
