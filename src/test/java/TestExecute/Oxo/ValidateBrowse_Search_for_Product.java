@@ -10,34 +10,33 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class ValidateBrowse_Search_for_Product {
-	String datafile = "oxo//OxoTestData.xlsx";	
-	OxoHelper oxo=new OxoHelper(datafile);
+	String datafile = "oxo//OxoTestData.xlsx";
+	OxoHelper oxo = new OxoHelper(datafile);
+
 	@Test
-  public void validateBrowse_Search_for_Product() {
-	  try {
+	public void validateBrowse_Search_for_Product() {
+		try {
 			oxo.closetheadd();
-			//oxo.loginOxo("AccountDetails");
-		    oxo.validatingSearchBoxWithOutData();
-		    oxo.validatingSearchBoxWithNumberText("9 cup");
-		    oxo.validatingSearchProductInformation("Nylon Potato Masher");
-	  }
-	  catch (Exception e) {
-			
+			// oxo.loginOxo("AccountDetails");
+			oxo.validatingSearchBoxWithOutData();
+			oxo.validatingSearchBoxWithNumberText("9 cup");
+			oxo.validatingSearchProductInformation("Nylon Potato Masher");
+		} catch (Exception e) {
+
 			Assert.fail(e.getMessage(), e);
-		} 
+		}
 	}
-	
+
 	@AfterTest
-	public void clearBrowser()
-	{
+	public void clearBrowser() {
 		Common.closeAll();
 
 	}
+
 	@BeforeMethod
-	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "Oxo\\config.properties");
-		  Login.signIn();
-		 
-		  
-	  }
+	public void startTest() throws Exception {
+		System.setProperty("configFile", "Oxo\\config.properties");
+		Login.signIn();
+
+	}
 }

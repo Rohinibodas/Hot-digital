@@ -11,33 +11,30 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class LogOut {
-	String datafile = "oxo//OxoTestData.xlsx";	
-	OxoHelper oxo=new OxoHelper(datafile);
-	@Test //(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void logout(){
-		try{
+	String datafile = "oxo//OxoTestData.xlsx";
+	OxoHelper oxo = new OxoHelper(datafile);
+
+	@Test // (retryAnalyzer = Utilities.RetryAnalyzer.class)
+	public void logout() {
+		try {
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
 			oxo.logOut();
-		}
-catch (Exception e) {
-			
+		} catch (Exception e) {
+
 			Assert.fail(e.getMessage(), e);
-		} 
+		}
 	}
+
 	@AfterTest
 	public void clearBrowser()
-	
 	{
 		Common.closeAll();
-
 	}
-		
-		@BeforeMethod
-		  public void startTest() throws Exception {
-			 System.setProperty("configFile", "Oxo\\config.properties");
-			  Login.signIn();
-			 
-			  
-		  }
-  }
+
+	@BeforeMethod
+	public void startTest() throws Exception {
+		System.setProperty("configFile", "Oxo\\config.properties");
+		Login.signIn();
+	}
+}

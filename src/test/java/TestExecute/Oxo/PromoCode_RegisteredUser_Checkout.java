@@ -39,7 +39,6 @@ public class PromoCode_RegisteredUser_Checkout {
 	public void clearBrowser() {
 		Common.closeAll();
 		
-
 	}
 
 	@BeforeMethod

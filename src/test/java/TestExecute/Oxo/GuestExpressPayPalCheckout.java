@@ -21,15 +21,13 @@ public class GuestExpressPayPalCheckout {
 			oxo.closetheadd();
 			oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
-			//oxo.checkout();
+			// oxo.checkout();
 			oxo.clickViewCart();
-            oxo.Express_payPal_payment("PaypalDetails");
-            oxo.Express_PayPal_GroundShippingMethod();
-            oxo.PlaceorderButton();
-           // oxo.VerifyaingConformationPage();
+			oxo.Express_payPal_payment("PaypalDetails");
+			oxo.Express_PayPal_GroundShippingMethod();
+			oxo.PlaceorderButton();
+			// oxo.VerifyaingConformationPage();
 
-			
-			
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -38,7 +36,7 @@ public class GuestExpressPayPalCheckout {
 
 	@AfterTest
 	public void clearBrowser() {
-		
+
 		Common.closeAll();
 
 	}
