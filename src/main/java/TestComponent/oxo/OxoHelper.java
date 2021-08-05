@@ -11,6 +11,7 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import TestLib.Common;
 import TestLib.Sync;
@@ -467,13 +468,6 @@ public class OxoHelper {
 			Sync.waitElementPresent("xpath", "//a[@class='action viewcart']");
 			Common.javascriptclickElement("xpath", "//a[@class='action viewcart']");
 			
-			
-			
-			
-			
-			
-			
-			
 			// Common.mouseOverClick("xpath",
 			// "//a[contains(@class,'viewcart')]");
 			// Common.assertionCheckwithReport(Subtotal>0&&productdetails>0,
@@ -748,8 +742,8 @@ public class OxoHelper {
 			try {
 				Sync.waitElementClickable("xpath", "//ul[@data-menu='menu-15749']//a[contains(text(),'Shop All')]");
 			} catch (Exception e) {
-				Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15146']");
-				Common.clickElement("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15146']");
+				Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15748']");
+				Common.clickElement("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15748']");
 				Thread.sleep(5000);
 			}
 			ExtenantReportUtils.addPassLog("verifying category Beverage", "lands on Beverage options",
@@ -790,9 +784,9 @@ public class OxoHelper {
 			ExtenantReportUtils.addPassLog("verifying category Baby_Toddler", "lands on Baby_Toddler options",
 					"User lands on the Baby_Toddler options", Common.getscreenShotPathforReport("faield to click"));
 
-			Common.mouseOverClick("xpath", "//ul[@data-menu='menu-15785']//a[contains(text(),'Shop All')]");
+			//Common.mouseOverClick("xpath", "//ul[@data-menu='menu-15785']//a[contains(text(),'Shop All')]");
 
-			Common.mouseOverClick("xpath", "//ul[@data-menu='menu-15785']//a[contains(text(),'Shop All')]");
+			//Common.mouseOverClick("xpath", "//ul[@data-menu='menu-15785']//a[contains(text(),'Shop All')]");
 
 		} catch (Exception | Error e) {
 			e.printStackTrace();
@@ -1108,7 +1102,7 @@ public class OxoHelper {
 			Common.actionsKeyPress(Keys.ARROW_DOWN);
 			Sync.waitElementClickable("id", "block-discount-heading");
 			Thread.sleep(3000);
-		    Common.scrollIntoView("xpath", "//span[@id='block-discount-heading']");
+		    //Common.scrollIntoView("xpath", "//span[@id='block-discount-heading']");
 			Common.findElement("xpath", "//span[@id='block-discount-heading']").click();
 			Sync.waitElementPresent("xpath", "//input[@id='discount-code']");
 			Common.textBoxInput("xpath", "//input[@id='discount-code']", data.get(dataSet).get("Promocode"));
@@ -1302,7 +1296,7 @@ public class OxoHelper {
 							Common.getscreenShotPathforReport("logindata"));
 					AssertJUnit.fail();
 				}
-				try {
+				/*try {
 					Thread.sleep(4000);
 					Common.refreshpage();
 					Sync.waitElementVisible("xpath", "//span[@class='customer-name']");
@@ -1310,6 +1304,8 @@ public class OxoHelper {
 					String text = element.getText();
 					System.out.println("Text Obtained is..." + text);
 					Thread.sleep(5000);
+					
+					//String QA = Common.textBoxInput("id", "email", data.get(dataSet).get("UserName"));
 					if (text.contains("Hi,QA")) {
 						System.out.println("Expected text is obtained");
 						ExtenantReportUtils.addPassLog("Validating UserName from Header on Home Page",
@@ -1330,7 +1326,7 @@ public class OxoHelper {
 							Common.getscreenShotPathforReport("MyAccount"));
 					AssertJUnit.fail();
 
-				}
+				}*/
 
 			} catch (Exception | Error e) {
 				e.printStackTrace();
@@ -1575,9 +1571,11 @@ public class OxoHelper {
 		String expectedResult = "It should open paypal site window.";
 		try {
 			Thread.sleep(3000);
-			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			//Common.actionsKeyPress(Keys.PAGE_DOWN);
 
 			Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]");
+		    
+			
 			Sync.waitElementClickable("xpath", "//div[contains(@class,'paypal-button-label-container')]");
 			int sizes = Common.findElements("xpath", "//div[@class='paypal-button-label-container']").size();
 
@@ -1809,13 +1807,15 @@ public class OxoHelper {
 	public void ProductRegistration() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14883']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14883']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14903']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14903']"));
 			ExtenantReportUtils.addPassLog("Validating ProductRegistration Link",
 					"ProductRegistration link should be able to click", "Clicked on ProductRegistration Link",
 					Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14883']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14903']");
 			Thread.sleep(3000);
+			Sync.waitElementVisible("xpath", "//h2[contains(text(),'Select your product')]");
+			Sync.scrollDownToView("xpath", "//h2[contains(text(),'Select your product')]");
 			WebElement element = Common.findElement("xpath", "//h2[contains(text(),'Select your product')]");
 			String text = element.getText();
 			if (text.contains("Select your product")) {
@@ -1829,6 +1829,7 @@ public class OxoHelper {
 				AssertJUnit.fail();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Validating  of Product Registration Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation Product Registration");
@@ -1898,14 +1899,14 @@ public class OxoHelper {
 	public void FAQ() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14882']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14882']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14902']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14902']"));
 			ExtenantReportUtils.addPassLog("Validating FAQ Link", "FAQ link should be present", "FAQ Link is present",
 					Common.getscreenShotPathforReport("FAQLink"));
 			// ExtenantReportUtils.addPassLog("Validating FAQ Link","FAQ link
 			// should be able to click" ,"Clicked on PFAQ
 			// Link",Common.getscreenShotPathforReport("FAQ Link"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14882']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14902']");
 			WebElement element = Common.findElement("xpath", "//span[contains(text(),'Frequently Asked Questions')]");
 			String text = element.getText();
 			System.out.println("Text Obtained is..." + text);
@@ -1942,15 +1943,15 @@ public class OxoHelper {
 	public void VoluntaryRecall() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14884']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14884']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14904']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14904']"));
 			ExtenantReportUtils.addPassLog("Validating VoluntaryRecall Link", "VoluntaryRecall link should be present",
 					"VoluntaryRecall Link is present", Common.getscreenShotPathforReport("VoluntaryRecallLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14884']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14904']");
 			// Common.assertionCheckwithReport(Common.getCurrentURL().contains("https"),
 			// "Validating URL which contains https", "This URL Contains https",
 			// "give url contains https", "give url missing https");
@@ -1993,15 +1994,15 @@ public class OxoHelper {
 	public void PrivacyPolicy() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14885']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14885']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14905']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14905']"));
 			ExtenantReportUtils.addPassLog("Validating PrivacyPolicy Link", "PrivacyPolicy link should be present",
 					"PrivacyPolicy Link is present", Common.getscreenShotPathforReport("PrivacyPolicyLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14885']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14905']");
 			WebElement element = Common.findElement("xpath", "//span[contains(text(),'Privacy Policy')]");
 			String text = element.getText();
 			System.out.println("Text Obtained is" + text);
@@ -2047,15 +2048,15 @@ public class OxoHelper {
 	public void TermsandConditions() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14886']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14886']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14906']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14906']"));
 			ExtenantReportUtils.addPassLog("TermsandConditions Link", "TermsandConditions link should be present",
 					"TermsandConditions Link is present", Common.getscreenShotPathforReport("TermsandConditionsLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14886']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14906']");
 			WebElement element = Common.findElement("xpath", "//span[contains(text(),'Terms & Conditions')]");
 			String text = element.getText();
 			System.out.println("Text Obtained is" + text);
@@ -2101,15 +2102,15 @@ public class OxoHelper {
 	public void TrackOrder() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14888']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14888']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14908']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14908']"));
 			ExtenantReportUtils.addPassLog("TrackOrder Link", "TrackOrder link should be present",
 					"TrackOrder Link is present", Common.getscreenShotPathforReport("TrackOrderLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14888']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14908']");
 			WebElement element = Common.findElement("xpath", "//span[contains(text(),'Track Order')]");
 			String text = element.getText();
 			System.out.println("Text Obtained is..." + text);
@@ -2155,8 +2156,8 @@ public class OxoHelper {
 	public void ShippingInformation() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14889']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14889']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14909']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14909']"));
 			ExtenantReportUtils.addPassLog("ShippingInformation Link", "ShippingInformation link should be present",
 					"ShippingInformation Link is present",
 					Common.getscreenShotPathforReport("ShippingInformationLink"));
@@ -2164,7 +2165,7 @@ public class OxoHelper {
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14889']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14909']");
 			WebElement element = Common.findElement("xpath", "//h2[contains(text(),'Shipping Policies')]");
 			String text = element.getText();
 			System.out.println("Text Obtained is..." + text);
@@ -2208,15 +2209,15 @@ public class OxoHelper {
 	public void BetterGuarantee() throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14890']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14890']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14910']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14910']"));
 			ExtenantReportUtils.addPassLog("BetterGuarantee Link", "BetterGuarantee link should be present",
 					"BetterGuarantee Link is present", Common.getscreenShotPathforReport("BetterGuaranteeLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14890']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14910']");
 			WebElement element = Common.findElement("xpath", "//span[contains(text(),'The OXO Better Guarantee*')]");
 			String text = element.getText();
 			System.out.println("Text Obtained is..." + text);
@@ -2264,15 +2265,15 @@ public class OxoHelper {
 		Thread.sleep(3000);
 		clickLogo();
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14892']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14892']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14913']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14913']"));
 			ExtenantReportUtils.addPassLog("GoodTipsBlog Link", "GoodTipsBlog link should be present",
 					"GoodTipsBlog Link is present", Common.getscreenShotPathforReport("GoodTipsBlogLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14892']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14913']");
 			Thread.sleep(5000);
 
 			Sync.waitElementPresent("Xpath", "//h1[contains(text(),'Good Tips')]");
@@ -2378,15 +2379,15 @@ public class OxoHelper {
 		Thread.sleep(3000);
 		clickLogo();
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14894']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14894']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14915']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14915']"));
 			ExtenantReportUtils.addPassLog("Careers Link", "Careers link should be present", "Careers Link is present",
 					Common.getscreenShotPathforReport("CareersLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14894']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14915']");
 			Thread.sleep(2000);
 			Common.switchWindows();
 			Sync.waitElementPresent("xpath", "//span[contains(text(),'Search for Jobs')]");
@@ -2435,15 +2436,15 @@ public class OxoHelper {
 		Thread.sleep(3000);
 		clickLogo();
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14895']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14895']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14916']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14916']"));
 			ExtenantReportUtils.addPassLog("InvestorRelations Link", "InvestorRelations link should be present",
 					"InvestorRelations Link is present", Common.getscreenShotPathforReport("InvestorRelationsLink"));
 			// ExtenantReportUtils.addPassLog("Validating ProductRegistration
 			// Link","ProductRegistration link should be able to click"
 			// ,"Clicked on ProductRegistration
 			// Link",Common.getscreenShotPathforReport("ProductRegistrationLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14895']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14916']");
 			Thread.sleep(2000);
 			Common.switchWindows();
 			// Thread.sleep(4000);
@@ -3597,12 +3598,12 @@ public class OxoHelper {
 
 		Thread.sleep(3000);
 		try {
-			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14884']");
-			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14884']"));
+			Sync.scrollDownToView("xpath", "//a[@data-menu='menu-14904']");
+			Sync.waitElementClickable(10, By.xpath("//a[@data-menu='menu-14904']"));
 			ExtenantReportUtils.addPassLog("Validating VoluntaryRecall Link",
 					"VoluntaryRecall link should be able to click", "Clicked on VoluntaryRecall Link",
 					Common.getscreenShotPathforReport("VoluntaryRecallLink"));
-			Common.clickElement("xpath", "//a[@data-menu='menu-14884']");
+			Common.clickElement("xpath", "//a[@data-menu='menu-14904']");
 			Thread.sleep(3000);
 			WebElement element = Common.findElement("xpath",
 					"//h2[contains(text(),'Replacement Straps Registration')]");
@@ -3618,6 +3619,8 @@ public class OxoHelper {
 				AssertJUnit.fail();
 			}
 		} catch (Exception e) {
+			
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Validating Webelement of Voluntary Recall Page",
 					"Expected text should not be obtained", "Expected text is not obtained",
 					"LinkValidation VoluntaryRecall");
