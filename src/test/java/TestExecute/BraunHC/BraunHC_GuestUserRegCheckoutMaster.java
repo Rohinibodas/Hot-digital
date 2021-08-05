@@ -20,15 +20,17 @@ public class BraunHC_GuestUserRegCheckoutMaster {
 	public void RegCheckoutMaster() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
-			//BraunHC.selectCategoryProduct("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
+			
+			
+			//BraunHC.AGREEPROCEED();
+	      BraunHC.selectCategoryProduct("AccountDetails");
+		//	BraunHC.Global_search("SearchproductName");
 			BraunHC.Addtocart("AccountDetails");
 			BraunHC.ShippingcartPage();
 			BraunHC.GuestShippingaddress();
 			//BraunHC.MoneyOrderpayment();
 			//BraunHC.GuestOrderSuccesspage();
-			BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetailsMaster");
+	        BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetailsMaster");
 			BraunHC.RegistereduserOrderSuccesspage();
 
 

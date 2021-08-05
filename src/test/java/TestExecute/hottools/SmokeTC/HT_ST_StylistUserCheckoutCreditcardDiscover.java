@@ -20,14 +20,14 @@ public class HT_ST_StylistUserCheckoutCreditcardDiscover {
 
 		try{
 			Hottools.agreeCookiesbanner();
-			Hottools.Newslettersignup();
+			//Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();
 			Hottools.CategoryMincart();
 			Hottools.checkoutpage();
 			Hottools.CreditcardPayment("DiscovercardDetails");
-			Hottools.RegistereduserorderSuccesspage();
+		//	Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 

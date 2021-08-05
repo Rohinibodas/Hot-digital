@@ -19,13 +19,14 @@ public class HT_ST_AddNewShippingAddresstoRetailerUserCheckout {
 	public void AddnewshippingaddresstofRetailerCheckout(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
-			//Hottools.Newslettersignup();
+			Hottools.Newslettersignup();
+			Hottools.agreeCookiesbanner();
+			
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();
 			Hottools.CategoryMincart();
-			//Hottools.Guestcheckoutpage("Guestshippingaddress");
+			Hottools.checkoutpage();
 			Hottools.AddNewShippingAddress("Guestshippingaddress");
 			Hottools.CreditcardPayment("AMEXCardDetails");
 			Hottools.RegistereduserorderSuccesspage();

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="HoneywellSuite Suite">
+	<listeners>
+	
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	  <test name="TEST_HW_ST_001_account_creation" testid="HHG-320"
+		priority="P1" description="This script will new account creation ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_001_account_creation" />
+		</classes>
+		</test>
+	<test name="TEST_HW_ST_002_Forgotpassword" testid="HHG-323"
+		priority="P1" description="This script will cover to verify the forgot password">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_002_Forgotpassword" />
+		</classes>
+	</test>
+		<test name="TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa " testid="HHG-325"
+		priority="P1" description="This script will cover Registered user check out visa card">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa" />
+		</classes>
+	</test>
+		<test name="TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa" testid="HHG-327"
+		priority="P1" description="This script will cover guest user check out visa card">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa" />
+		</classes>
+	</test>
+	<test name="TEST_HW_ST_005_footer_links_validation" testid="HHG-330"
+		priority="P1" description="This script will cover validation of footerlinks">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_005_footer_links_validation" />
+		</classes>
+	</test>	
+	
+	
+	<test name="TEST_HW_ST_009_header_link_validation" testid="HHG-335"
+		priority="P1" description="This script will cover validation of headerlinks">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_009_header_link_validation" />
+		</classes>
+	</test>	
+	<test name="TEST_HW_ST_011_CheckoutDiscount" testid="HHG-336"
+		priority="P1" description="This script will cover validation of guest discountcode ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_011_CheckoutDiscount" />
+		</classes>
+	</test>	
+	<test name="TEST_HW_ST_012_Search_a_product" testid="HHG-337"
+		priority="P1" description="This script will cover Search a product through the Search box">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_012_Search_a_product" />
+		</classes>
+	</test>
+	<test name="TEST_HW_ST_014_Minicart" testid="HHG-338"
+		priority="P1" description="This script will cover validation of Mini card detailes">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_HW_ST_014_Minicart" />
+		</classes>
+	</test>
+	
+	
+	
+    
+</suite>

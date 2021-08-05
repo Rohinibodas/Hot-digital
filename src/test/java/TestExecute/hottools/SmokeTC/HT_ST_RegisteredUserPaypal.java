@@ -41,7 +41,6 @@ public class HT_ST_RegisteredUserPaypal {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 	  }
-	
 	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {

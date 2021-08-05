@@ -17,7 +17,7 @@ public class RHT_SMT_CMS_CMS_Link {
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void NavigationAboutUs() throws Exception {
+	public void Navigation_CMS_links() throws Exception {
 
 		try {
 			revelon.Newslettersignup();
@@ -36,7 +36,7 @@ public class RHT_SMT_CMS_CMS_Link {
 			revelon.navigatePressRoom();
 			
 			revelon.navigateTermsOfUse();
-			
+		
 			revelon.navigateProductRegistration();
 			revelon.ProductRegistration();
 			revelon.navigateHomePage();
@@ -48,14 +48,22 @@ public class RHT_SMT_CMS_CMS_Link {
 		} 
 	}
 	
-	@BeforeMethod
+    @BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn(browser);
 		  
 	  }
-	
+	/*
+	@BeforeMethod
+	@Parameters({"browser"})  
+	  public void startTest() throws Exception {
+		System.setProperty("configFile", "Revelon\\config.properties");
+		  Login.signIn("chrome");
+		  
+	  }
+	  */
 	@AfterTest
 	public void clearBrowser()
 	{

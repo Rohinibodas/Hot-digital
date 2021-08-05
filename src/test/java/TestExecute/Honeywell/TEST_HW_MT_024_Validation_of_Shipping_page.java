@@ -19,6 +19,7 @@ public class TEST_HW_MT_024_Validation_of_Shipping_page {
 
 		try {
 			honeyWell.verifyingHomePage();
+			//honeyWell.accept();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");
 			honeyWell.clickAddtoBag();

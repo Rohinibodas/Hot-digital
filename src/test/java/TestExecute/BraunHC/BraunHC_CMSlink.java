@@ -21,20 +21,17 @@ public class BraunHC_CMSlink {
 
 		try {
 			
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.validateNavigateFAQ("");
 			BraunHC.validateNavigateContactUs("");
 			BraunHC.validateNavigateThermometers("");
 			BraunHC.validateNavigateBloodPressureMonitor("");
 			BraunHC.validateNavigatePulseOximeter("");
-			//BraunHC.validateNavigateAccessories("");
-			//BraunHC.validateNavogateOurHistory("");
-			//BraunHC.validateNavogateBlog("");
-			//BraunHC.validateNavogateOurCompany("");
-			//BraunHC.validateNavogateCareers("");
-
-
-			
+			BraunHC.validateNavigateAccessories("");
+			BraunHC.validateNavogateOurHistory("");
+			BraunHC.validateNavogateBlog("");
+			BraunHC.validateNavogateOurCompany("");
+			BraunHC.validateNavogateCareers("");	
 			
 		}
 		catch (Exception e) {

@@ -27,8 +27,8 @@ public class HT_ST_StylistUserCheckout {
 			Hottools.minicartProduct("productName");
 			Hottools.miniCart("productName");
 			Hottools.checkoutpage();
-			Hottools.CreditcardPayment("PaymentDetails");
-			Hottools.RegistereduserorderSuccesspage();
+			//Hottools.CreditcardPayment("PaymentDetails");
+			//Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 

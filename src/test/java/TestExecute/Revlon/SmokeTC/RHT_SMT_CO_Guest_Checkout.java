@@ -28,6 +28,7 @@ public class RHT_SMT_CO_Guest_Checkout {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
+			revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception e) {

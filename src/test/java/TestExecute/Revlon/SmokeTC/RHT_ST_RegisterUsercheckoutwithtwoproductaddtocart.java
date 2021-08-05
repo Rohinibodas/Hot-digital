@@ -18,7 +18,7 @@ public class RHT_ST_RegisterUsercheckoutwithtwoproductaddtocart {
 	@Test(priority=1)
 	public void registeruserhomepageaddtocart() throws Exception {
 		try {
-			Thread.sleep(3000);
+			
 		revelon.Newslettersignup();
 		revelon.acceptPrivecy();
 		revelon.loginRevlon("AccountDetails");
@@ -26,7 +26,7 @@ public class RHT_ST_RegisterUsercheckoutwithtwoproductaddtocart {
 		revelon.Twoproductselection();
 	
 		revelon.checkoutPage();
-		revelon.navigateCheckout();
+		revelon.FreeShippingmethod();
 		revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		
 		

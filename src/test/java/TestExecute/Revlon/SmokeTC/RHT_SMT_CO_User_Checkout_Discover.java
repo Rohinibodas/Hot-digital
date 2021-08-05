@@ -20,13 +20,14 @@ public class RHT_SMT_CO_User_Checkout_Discover {
 
 		try {
 			revelon.Newslettersignup(); 
+			revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.navigateCheckout();
+			revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
 		}
 		catch (Exception e) {

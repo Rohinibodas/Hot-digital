@@ -20,19 +20,22 @@ public class TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa {
 	public void registeredUser_Checkout_CreditCard_VISA() throws Exception {
 
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
+			
 			honeyWell.verifyingHomePage();
+			//honeyWell.accept();
+			honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("productnameRegester");
-			honeyWell.clickAddtoBag();
+		//	honeyWell.clickAddtoBag();
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
-			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+			//honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+			honeyWell.clickOnProceed();
 			honeyWell.creditCard_payment("CCVisa");
 			honeyWell.order_Verifying();
 		}
 		catch (Exception e) {
-			
+			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
@@ -42,7 +45,7 @@ public class TEST_HW_ST_003_Checkout_as_loggedin_user_with_credit_card_Visa {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+        Common.closeAll();
 
 	}
 	

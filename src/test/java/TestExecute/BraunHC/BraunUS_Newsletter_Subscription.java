@@ -40,7 +40,7 @@ public class BraunUS_Newsletter_Subscription {
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn("edge");
+		  Login.signIn("chrome");
 		  
 	  }*/
 	

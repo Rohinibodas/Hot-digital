@@ -21,7 +21,7 @@ public class HT_ST_ValidateArticleLinks {
 		try{
 			Hottools.agreeCookiesbanner();
 			Hottools.twitterArticle();
-			//Hottools.FacebookArticle();
+			Hottools.FacebookArticle();
 			Hottools.youtubeArticle();
 			Hottools.InstaGramArticle();
 			

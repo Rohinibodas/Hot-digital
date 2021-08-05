@@ -19,7 +19,7 @@ public class HT_ST_Retailer_User_promocode {
 	public void Retailer_User_promocodecheckout(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.categoryMenuItem();

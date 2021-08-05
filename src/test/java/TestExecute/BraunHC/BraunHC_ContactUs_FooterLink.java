@@ -20,14 +20,9 @@ public class BraunHC_ContactUs_FooterLink {
 	public void ContactUs_FooterLink() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			//BraunHC.validateNavigateContactUs("");
 		    BraunHC.validateNavigateContactUS_footer_links("ContactUs");
-			
-		
-			
-
-
 			
 			
 		}
@@ -36,7 +31,7 @@ public class BraunHC_ContactUs_FooterLink {
 		} 
 	}
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
@@ -44,26 +39,25 @@ public class BraunHC_ContactUs_FooterLink {
 		  
 	  }
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	  public void startTest1() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn("chrome");
 		  
 	  }*/
-
 @BeforeTest
 public void startTest() throws Exception {
 	System.setProperty("configFile", "BraunHC\\config.properties");
 Login.signIn();
 }
+	  
 	
 	@AfterTest
 	public void clearBrowser()
 	{
 		
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
-
 }

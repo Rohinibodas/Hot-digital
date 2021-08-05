@@ -20,7 +20,7 @@ public class BraunHC_RegisterProduct {
 	public void BraunHC_RegisterProduct() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.RegisterProduct("AccountDetails");
 		}
 		catch (Exception e) {

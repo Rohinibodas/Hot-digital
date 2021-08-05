@@ -19,7 +19,7 @@ public class HT_ST_Distributor_User_promocode {
 	public void Distributor_User_promocode(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
 			Hottools.distributorsignin("DistributorAccountDetails");
 			Hottools.QuickOrder();
@@ -27,9 +27,7 @@ public class HT_ST_Distributor_User_promocode {
 			Hottools.Quickcheckoutpage();
 			Hottools.ValidatingPromocode("DistributorPromocode");
 		    Hottools.CreditcardPayment_promocde("PaymentDetails");
-			
-		    
-			//Hottools.RegistereduserorderSuccesspage();
+			Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 
@@ -44,7 +42,7 @@ public class HT_ST_Distributor_User_promocode {
 		  Login.signIn(browser); 
 	  }
 	
-     /* @BeforeMethod
+   /* @BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
@@ -54,7 +52,7 @@ public class HT_ST_Distributor_User_promocode {
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+	Common.closeAll();
 
 	}
 

@@ -20,13 +20,14 @@ public class RHT_ST_User_Checkout_Paypal {
 	public void UserPayPalCheckout() throws Exception {
 
 		try {revelon.Newslettersignup();
+		revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.navigateCheckout();
+			revelon.FreeShippingmethod();
 			revelon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {
@@ -43,13 +44,13 @@ public class RHT_ST_User_Checkout_Paypal {
 	  }
 	
 	/*@BeforeMethod
-	//@Parameters({"browser"})  
+	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-	
+	  }
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{

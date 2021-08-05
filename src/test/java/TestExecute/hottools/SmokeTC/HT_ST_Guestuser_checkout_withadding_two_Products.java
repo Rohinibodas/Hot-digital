@@ -17,7 +17,7 @@ public class HT_ST_Guestuser_checkout_withadding_two_Products {
 	@Test(priority=1)
 	public void GuestCheckoutwithtwoproducts(){
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
 			Hottools.CategorySelection();
 			Hottools.TwoCategoryProductSelection();

@@ -19,14 +19,16 @@ public class TEST_HW_ST_011_CheckoutDiscount {
 			try {
 				honeyWell.loginHoneywell("Promationcode");
 				honeyWell.verifyingHomePage();
+				//honeyWell.accept();
 				honeyWell.click_Airpurifiers();
 				honeyWell.adding_product_toCart("productnameRegester");
 				//honeyWell.clickAddtoBag();
 				honeyWell.clickminicartButton();
 				honeyWell.clickminicartcheckout();
-				honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+			//	honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+				honeyWell.clickOnProceed();
+				honeyWell.creditCard_payment_Invalid("InvalidCC");
 				honeyWell.CouponCodeinCheckoutpage("Promationcode");
-				//honeyWell.creditCard_payment_Invalid("InvalidCC");
 				//honeyWell.order_Verifying();
 			}
 			catch (Exception e) {
@@ -40,7 +42,7 @@ public class TEST_HW_ST_011_CheckoutDiscount {
 		@AfterTest
 		public void clearBrowser()
 		{
-		//Common.closeAll();
+		Common.closeAll();
 
 		}
 		

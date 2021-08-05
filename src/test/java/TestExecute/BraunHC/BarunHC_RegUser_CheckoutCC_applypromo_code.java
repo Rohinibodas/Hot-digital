@@ -39,7 +39,7 @@ public class BarunHC_RegUser_CheckoutCC_applypromo_code {
 			BraunHC.GuestShippingaddress();
 			//BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			BraunHC.UpdatePayment("PaymentDetails");
-			BraunHC.RegistereduserApplypromocode("promocode");
+			BraunHC.Applypromocode("promocode");
 			
 			BraunHC.RegistereduserOrderSuccesspage();
 		}

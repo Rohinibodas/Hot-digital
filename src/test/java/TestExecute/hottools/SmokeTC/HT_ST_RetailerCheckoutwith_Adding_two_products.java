@@ -18,7 +18,7 @@ public class HT_ST_RetailerCheckoutwith_Adding_two_products {
 	public void RetailerCheckoutwithtwoproducts(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.CategorySelection();
@@ -41,7 +41,7 @@ public class HT_ST_RetailerCheckoutwith_Adding_two_products {
 		  Login.signIn(browser);
 	  }
 	
-     /* @BeforeMethod
+    /* @BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");

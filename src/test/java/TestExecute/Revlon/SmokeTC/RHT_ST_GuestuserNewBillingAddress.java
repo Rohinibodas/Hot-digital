@@ -29,7 +29,8 @@ public class RHT_ST_GuestuserNewBillingAddress {
 		
 		revelon.checkoutPage();
 		revelon.navigateCheckoutGuest("Guest_shipping");
-		revelon.userBillingaddress();
+		revelon.FreeShippingmethod();
+		revelon.DifferentBillingaddress();
 		revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		
 	}

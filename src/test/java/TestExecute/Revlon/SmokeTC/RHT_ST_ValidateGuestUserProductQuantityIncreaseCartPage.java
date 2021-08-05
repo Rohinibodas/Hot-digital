@@ -26,6 +26,7 @@ public void GuestCheckout() throws Exception {
 		revelon.navigateMinicart();
 		revelon.guestincreaseproductquantity();
 		revelon.navigateCheckoutGuest("Guest_shipping");
+		revelon.FreeShippingmethod();
 		revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 	}
 	catch (Exception e) {

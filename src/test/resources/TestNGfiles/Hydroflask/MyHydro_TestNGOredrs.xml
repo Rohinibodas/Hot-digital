@@ -8,21 +8,21 @@
 		priority="P1"
 		description="This script will cover GuestUser  order using AmexCC  with Single-product Tax  and standard shipping with Different Billing address order submit Process of HydroFlask	">
 		<classes> 
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_051_checkout_with_Amexcard_as_Guestuser_with_singleproduct_tax_andStandard_Shipping_withdifferentBilling_Shipping_address" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_051_checkout_with_Amexcard_as_Guestuser_with_singleproduct_tax_andStandard_Shipping_withdifferentBilling_Shipping_address" />
 		</classes>
 	</test>
     <test name="Test_ST_HF_052_checkout_with_VISACard_as_Registeruser_with_MultiProduct_tax_and_Freight_Shipping_with_same_billing_Shippingaddresses" testid="HYDRO-997"
 		priority="P1"
 		description="This script will cover RegisterUser  order using VisaCC  with Multi-product Tax  and Freight shipping with Same Billing address and shipping Address order submit Process of HydroFlask	">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_052_checkout_with_VISACard_as_Registeruser_with_MultiProduct_tax_and_Freight_Shipping_with_same_billing_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_052_checkout_with_VISACard_as_Registeruser_with_MultiProduct_tax_and_Freight_Shipping_with_same_billing_Shippingaddresses" />
 		</classes>
 	</test>
 	<test name="Test_ST_HF_053_checkout_with_Mastercard_as_Guestuser_with_Multiproduct_tax_and_FreightShipping_with_different_billing_Shippingaddresses" testid="HYDRO-997"
 		priority="P1"
 		description="This script will cover GuestUser order using MasterCC with Multi-product Tax and Freight shipping with Different Billing address and shipping Address order submit Process of HydroFlask	">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_053_checkout_with_Mastercard_as_Guestuser_with_Multiproduct_tax_and_FreightShipping_with_different_billing_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_053_checkout_with_Mastercard_as_Guestuser_with_Multiproduct_tax_and_FreightShipping_with_different_billing_Shippingaddresses" />
 		</classes>
 	</test>
 	
@@ -30,7 +30,7 @@
 		priority="P1"
 		description="This script will cover GuestUser order using DiscoverCc with Multi-product Tax and Standard shipping with SameBilling address and shipping Address order submit Process of HydroFlask	">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_054_checkout_with_Discover_as_Guestuser_withMultiproduct_tax_and_StandardShipping_with_Samebilling_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_054_checkout_with_Discover_as_Guestuser_withMultiproduct_tax_and_StandardShipping_with_Samebilling_Shippingaddresses" />
 		</classes>
 	</test> 	
 	
@@ -41,19 +41,19 @@
 		description="This script will cover Register Single product Discount with Tax standard shipping with different billing and shpiing address user order using MasterCc submit Process of HydroFlask">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_063_checkout_with_MASTERcard_as_Registeruser_with_singleproduct_and_Discount_Promocode_tax_Standard_Shipping_with_DifferentBilling_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_063_checkout_with_MASTERcard_as_Registeruser_with_singleproduct_and_Discount_Promocode_tax_Standard_Shipping_with_DifferentBilling_Shippingaddresses" />
 		</classes>
 	</test>
 	<test name="Test_ST_HF_064_checkout_with_AMEXcard_as_Guestuser_with_Multiproduct_and_Discount_Promocode_Tax_StandardShipping_with_Same_Billing_Shippingaddresses" testid="HYDRO-951"
 		priority="P1" description="This script will cover Guest user Multiproduct Discount with Tax standard shipping with same Billing and shipping user order using AmexCC sumbit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_064_checkout_with_AMEXcard_as_Guestuser_with_Multiproduct_and_Discount_Promocode_Tax_StandardShipping_with_Same_Billing_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_064_checkout_with_AMEXcard_as_Guestuser_with_Multiproduct_and_Discount_Promocode_Tax_StandardShipping_with_Same_Billing_Shippingaddresses" />
 		</classes>
 	</test>-->
 	<test name="Test_ST_HF_065_checkout_with_Discovercard_Registeruser_with_Multiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shippingaddresses" testid="HYDRO-951"
 		priority="P1" description="This script will cover Register user Multiproduct Discount with Tax standard shipping with different Billing and shipping user order using Discover card sumbit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_065_checkout_with_Discovercard_Registeruser_with_Multiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_065_checkout_with_Discovercard_Registeruser_with_Multiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shippingaddresses" />
 		</classes>
 	</test>
 	
@@ -62,7 +62,7 @@
 		priority="P1"
 		description="This script will cover Register user order using POBox address with VisaCC submit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_070_Checkout_with_VISA_as_Registeruser_with_PO_Box" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_070_Checkout_with_VISA_as_Registeruser_with_PO_Box" />
 		</classes>
 	</test>
 	
@@ -73,7 +73,7 @@
 		description="This script will cover Guest User  order using MasterCC with Out-sideUS address order submit Process of HydroFlask">
 		<classes>
 			<class
-				name="TestExecute.Hydroflask.Orders.Test_ST_HF_072_Checkout_with_Mastercard_as_Guestuser_with_ShippingAddress_Outside_US_Test_For_Failure" />
+				name="TestExecute.Hydroflask.Smoke.Test_ST_HF_072_Checkout_with_Mastercard_as_Guestuser_with_ShippingAddress_Outside_US_Test_For_Failure" />
 		</classes>
 	</test>
 	
@@ -82,47 +82,47 @@
 		description="This script will cover Guest user order using POBox address with AmexCC submit Process of HydroFlesk">
 		<classes>
 			<class
-				name="TestExecute.Hydroflask.Orders.Test_ST_HF_071_Checkout_with_AMEX_as_Guestuser_with_PO_Box" />
+				name="TestExecute.Hydroflask.Smoke.Test_ST_HF_071_Checkout_with_AMEX_as_Guestuser_with_PO_Box" />
 		</classes>
 	</test>
 	<test name="Test_ST_HF_073_Checkout_with_Discovercard_as_Registeruser_with_BillingAddress_Outside_US_Test_For_Failure"
 		testid="HYDRO-1224" priority="P1"
 		description="This script will cover Registered order user using DiscoverCC with  Out-sideUS address order submit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_073_Checkout_with_Discovercard_as_Registeruser_with_BillingAddress_Outside_US_Test_For_Failure" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_073_Checkout_with_Discovercard_as_Registeruser_with_BillingAddress_Outside_US_Test_For_Failure" />
 		</classes>
 	</test> 
 	<test name="Test_ST_HF_074_checkout_with_Paypal_as_Registeruser_withSingle_product_tax_and_StandardShipping_with_Differentbilling_Shippingaddresses"
 		testid="HYDRO-991" priority="P1"
 		description="This script will cover RegisteredUser order user using Paypal with singleProduct Tax and standard shipping with different billing and shipping address order submit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_074_checkout_with_Paypal_as_Registeruser_withSingle_product_tax_and_StandardShipping_with_Differentbilling_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_074_checkout_with_Paypal_as_Registeruser_withSingle_product_tax_and_StandardShipping_with_Differentbilling_Shippingaddresses" />
 		</classes>
 	</test> 
   	<test name="Test_ST_HF_076_checkout_with_Paypal_as_Registeruser_withMultiproduct_tax_and_Freight_Shipping_with_same_billingShippingaddresses" testid="HYDRO-993"
 		priority="P1" description="This script will cover RegisterUser order user using Paypal with Multi-product Tax and freight shippping and same billingShipping address order submit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_076_checkout_with_Paypal_as_Registeruser_withMultiproduct_tax_and_Freight_Shipping_with_same_billingShippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_076_checkout_with_Paypal_as_Registeruser_withMultiproduct_tax_and_Freight_Shipping_with_same_billingShippingaddresses" />
 		</classes>
 	</test>
 	<test name="Test_ST_HF_078_checkout_with_paypal_as_Guestuser_withsingle_product_and_Discount_Promocode_tax_StandardShipping_with_Same_Billing_Shippingaddresses" testid="HYDRO-995" priority="P1"
 		description="This script will cover GuestUser discount order using paypal with singleProduct Tax and standard shipping with SameBillingShippingAddresses order submit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_078_checkout_with_paypal_as_Guestuser_withsingle_product_and_Discount_Promocode_tax_StandardShipping_with_Same_Billing_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_078_checkout_with_paypal_as_Guestuser_withsingle_product_and_Discount_Promocode_tax_StandardShipping_with_Same_Billing_Shippingaddresses" />
 		</classes>
 	</test>
 	<test name="Test_ST_HF_079_checkout_with_Paypal_as_Registeruser_withMultiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shipping_addresses" testid="HYDRO-996"
 		priority="P1"
 		description="This script will cover RegisterUser discount order using paypal with Multi-product Tax  and standard shipping with DifferentBilling order submit Process of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_079_checkout_with_Paypal_as_Registeruser_withMultiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shipping_addresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_079_checkout_with_Paypal_as_Registeruser_withMultiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shipping_addresses" />
 		</classes>
 	</test>
 	<test name="Test_ST_HF_080_checkout_with_Expresspaypal_as_Guestuserwith_Multi_product_and_Discount_Promocode_tax_and_Standard_Shipping_with_Same_billing_Shippingaddresses" testid="HYDRO-997"
 		priority="P1"
 		description="This script will cover GuestUser discount order using ExpressPaypal  with Multi-product Tax  and standard shipping with SameBilling  order submit Process of HydroFlesk	">
 		<classes>
-			<class name="TestExecute.Hydroflask.Orders.Test_ST_HF_080_checkout_with_Expresspaypal_as_Guestuserwith_Multi_product_and_Discount_Promocode_tax_and_Standard_Shipping_with_Same_billing_Shippingaddresses" />
+			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_080_checkout_with_Expresspaypal_as_Guestuserwith_Multi_product_and_Discount_Promocode_tax_and_Standard_Shipping_with_Same_billing_Shippingaddresses" />
 		</classes>
 	</test>
 	

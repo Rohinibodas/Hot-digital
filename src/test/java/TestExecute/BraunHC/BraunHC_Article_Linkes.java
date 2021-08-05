@@ -20,38 +20,31 @@ public class BraunHC_Article_Linkes {
 	public void Article_Linkes() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 		    BraunHC.validateNavigateFacebook("");
 			BraunHC.validateNavigateYoutube("");
 			BraunHC.validateNAvigateInstagram();
-			
-		
-			
-
-
-			
 			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-	
-	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn(browser);
-		  
-	  }
-	
+
+
 	/*@BeforeMethod
 	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	  public void startTest1() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn("chrome");
 		  
 	  }*/
+@BeforeTest
+public void startTest() throws Exception {
+	System.setProperty("configFile", "BraunHC\\config.properties");
+Login.signIn();
+}
+	  
 	
 	@AfterTest
 	public void clearBrowser()
@@ -60,5 +53,4 @@ public class BraunHC_Article_Linkes {
 		Common.closeAll();
 
 	}
-
 }

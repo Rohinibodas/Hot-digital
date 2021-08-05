@@ -36,13 +36,13 @@ public class HT_ST_DistributorQuickOrderCases {
 	}
 	
 	 
-	@BeforeMethod
+   @BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);  
 	  }
-	
+	  	
 	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
@@ -52,7 +52,7 @@ public class HT_ST_DistributorQuickOrderCases {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 }

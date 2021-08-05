@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <suite name="Revelon Suite">
-   <listeners>
+    <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="TEST_RHT_ST_018_GuestUserCheckoutPayPal" testid="BTY-386" priority="P1" description="This script will cover Guest User Checkout Process with PayPal">
+   
+       <test name="TEST_RHT_CT_002_GuestUserMultipleProductCheckoutMasterCard_tax_FreightShipping_DifferentShippingandBillingAddress" testid="BTY-653" priority="P1" description=" To verify the GuestUser CheckOut Functionality  with Multiple Products with tax,Freight Shipping and using different shipping and billing addresses  in RevlonUS using Mastercard">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.SmokeTC.RHT_ST_Guest_Checkout_Paypal"/>
+            <class name="TestExecute.Revlon.SmokeTC.RHT_CT_002_GuestUserMultipleProductCheckoutMasterCard_tax_FreightShipping_DifferentShippingandBillingAddress"/>
         </classes>
     </test>
 </suite>  

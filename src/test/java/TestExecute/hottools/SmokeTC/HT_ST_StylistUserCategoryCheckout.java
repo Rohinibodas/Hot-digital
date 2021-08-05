@@ -28,7 +28,7 @@ public class HT_ST_StylistUserCategoryCheckout {
 			Hottools.CategoryMincart();
 			Hottools.checkoutpage();
 			Hottools.CreditcardPayment("PaymentDetails");
-			Hottools.RegistereduserorderSuccesspage();
+			//Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
 
@@ -50,7 +50,7 @@ public class HT_ST_StylistUserCategoryCheckout {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
+	}*/
 
 	@AfterTest
 	public void clearBrowser()

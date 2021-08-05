@@ -19,7 +19,7 @@ public class HT_ST_GuestUserCCMasterCard {
 	public void GuestCheckoutwithCreditCard(){
 		try{
 			Hottools.agreeCookiesbanner();
-			Hottools.Newslettersignup();
+			//Hottools.Newslettersignup();
 			Hottools.searchingProducts("productName");
 			Hottools.minicartProduct("productName");
 			Hottools.miniCart("productName");
@@ -33,19 +33,19 @@ public class HT_ST_GuestUserCCMasterCard {
 	}
 	
 	 
-	@BeforeMethod
+/*	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
-	  }
+	  }*/
 	
-	/*@BeforeMethod
+ @BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome"); 
-	}*/
+	}
 
 	@AfterTest
 	public void clearBrowser()

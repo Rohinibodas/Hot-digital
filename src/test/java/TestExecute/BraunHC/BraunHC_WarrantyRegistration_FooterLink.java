@@ -20,14 +20,10 @@ public class BraunHC_WarrantyRegistration_FooterLink {
 	public void WarrantyRegistration_FooterLink() throws Exception {
 
 		try {
-			
+			//BraunHC.AGREEPROCEED();
 			
 		    BraunHC.WarrantyRegistration_footerlink("WarrantyRegistration");
-			
-		
-			
-
-
+	
 			
 			
 		}
@@ -42,7 +38,7 @@ public class BraunHC_WarrantyRegistration_FooterLink {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn(browser);
 		  
-	  }
+	  }*/
 	
 	@BeforeMethod
 	@Parameters({"browser"})  
@@ -50,14 +46,7 @@ public class BraunHC_WarrantyRegistration_FooterLink {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-
-@BeforeTest
-public void startTest() throws Exception {
-	System.setProperty("configFile", "BraunHC\\config.properties");
-Login.signIn();
-}
-	  
+	  }
 	
 	@AfterTest
 	public void clearBrowser()

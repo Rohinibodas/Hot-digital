@@ -22,6 +22,7 @@ public class RHT_ST_RegisterUserNewBillingAddress {
 		try {
 			Thread.sleep(3000);
 			revelon.Newslettersignup();
+			revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
@@ -29,7 +30,8 @@ public class RHT_ST_RegisterUserNewBillingAddress {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.userBillingaddress();
+			revelon.FreeShippingmethod();
+			revelon.DifferentBillingaddress();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			
 		}
@@ -46,14 +48,15 @@ public class RHT_ST_RegisterUserNewBillingAddress {
 		  
 	  }
 	
-	/*@BeforeMethod
+	/*
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-	
+	  }
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{

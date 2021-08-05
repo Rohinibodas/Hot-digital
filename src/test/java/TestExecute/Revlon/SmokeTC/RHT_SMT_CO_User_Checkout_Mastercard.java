@@ -19,6 +19,7 @@ public class RHT_SMT_CO_User_Checkout_Mastercard {
 	public void RegisterUserCheckout() throws Exception {
 
 		try {revelon.Newslettersignup();
+		revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
@@ -26,6 +27,7 @@ public class RHT_SMT_CO_User_Checkout_Mastercard {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
+			revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsMasterCard");
 		}
 		catch (Exception e) {

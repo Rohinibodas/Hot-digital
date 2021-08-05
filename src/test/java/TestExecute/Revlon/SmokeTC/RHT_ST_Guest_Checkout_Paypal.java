@@ -28,6 +28,7 @@ public class RHT_ST_Guest_Checkout_Paypal {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
+			revelon.FreeShippingmethod();
 			revelon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {
@@ -43,14 +44,15 @@ public class RHT_ST_Guest_Checkout_Paypal {
 		  
 	  }
 	
-	/*@BeforeMethod
+	/*
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-	
+	  }
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{

@@ -27,6 +27,7 @@ public class RHT_SMT_CO_GUEST_Checkout_AMEX {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
+			revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		}
 		catch (Exception e) {
@@ -42,14 +43,14 @@ public class RHT_SMT_CO_GUEST_Checkout_AMEX {
 		  
 	  }
 	
-	/*@BeforeMethod
+	 /*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-	
+	  }
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{

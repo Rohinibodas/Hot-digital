@@ -10,21 +10,21 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_HW_ST_005_footer_links_validation {
-	String datafile = "Honeywell\\HoneyWellLinks.xlsx";	
+	String datafile = "Honeywell\\HoneywellTestData.xlsx";	
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
 	
-	public void registeredUser_Checkout_CreditCard_VISA() throws Exception {
+	public void footer_links_validation() throws Exception {
 
 		try {
 	
 			honeyWell.verifyingHomePage();
-			//honeyWell.productsupport();	
-			//honeyWell.footerLinkalidations_Shop("footerLinkShop");
-		//	honeyWell.footerValidations_aboutUs("footerLinkAboutUs");
-			honeyWell.fotterValidations_HelenOfTroy("footerLinkHelenoftroyfamily");
-			
+		//	honeyWell.accept();
+			honeyWell.productsupport();	
+			honeyWell.fottorValidations_Shop("FooterNames");
+			honeyWell.footerValidations_aboutUs("FooterNames");
+			honeyWell.fotterValidations_HelenOfTroy("FooterNames");
 		}
 		catch (Exception e) {
 			
@@ -37,7 +37,7 @@ public class TEST_HW_ST_005_footer_links_validation {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+		Common.closeAll();
 
 	}
 	

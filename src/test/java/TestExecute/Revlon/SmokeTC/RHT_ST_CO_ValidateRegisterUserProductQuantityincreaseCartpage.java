@@ -27,7 +27,7 @@ public class RHT_ST_CO_ValidateRegisterUserProductQuantityincreaseCartpage {
 		revelon.navigateMinicart();
 		revelon.Registerincreaseproductquantity();
 		revelon.checkoutPage();
-		revelon.navigateCheckout();
+		revelon.FreeShippingmethod();
 		revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		
 		

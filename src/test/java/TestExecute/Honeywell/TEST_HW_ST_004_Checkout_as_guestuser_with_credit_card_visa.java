@@ -21,9 +21,10 @@ public class TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa {
 
 		try {
 			honeyWell.verifyingHomePage();
+			//.accept();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");
-			honeyWell.clickAddtoBag();
+			//honeyWell.clickAddtoBag();
 			honeyWell.clickminicartcheckout();
 			honeyWell.guestShippingAddress("ShippingAddress");
 			honeyWell.creditCard_payment("CCVisa");
@@ -41,7 +42,7 @@ public class TEST_HW_ST_004_Checkout_as_guestuser_with_credit_card_visa {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

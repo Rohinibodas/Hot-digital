@@ -26,6 +26,7 @@ public class RHT_SMT_CO_Guest_Checkout_Master {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
+			revelon.StandardShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsMasterCard");
 		}
 		catch (Exception e) {
@@ -33,7 +34,7 @@ public class RHT_SMT_CO_Guest_Checkout_Master {
 		} 
 	}
 
-	@BeforeMethod
+	 @BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
@@ -47,8 +48,8 @@ public class RHT_SMT_CO_Guest_Checkout_Master {
 		System.setProperty("configFile", "Revelon\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-	
+	  }
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{

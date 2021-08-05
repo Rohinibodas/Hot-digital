@@ -19,6 +19,7 @@ public class RHT_ST_ValidateLightboxNewsletterSignup {
 	public void validatelightbox() {
 		try {
 			revelon.Newslettersignup("AccountCreation");
+			revelon.acceptPrivecy();
 		
 		}catch(Exception | Error e) {
 			Assert.fail(e.getMessage(), e);

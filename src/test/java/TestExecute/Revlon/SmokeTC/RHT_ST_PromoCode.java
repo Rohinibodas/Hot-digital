@@ -20,6 +20,7 @@ public class RHT_ST_PromoCode {
 	public void RegisterUserCheckout() throws Exception {
 
 		try {revelon.Newslettersignup();
+		revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("Promocode");
 			revelon.Productselection();
@@ -27,6 +28,7 @@ public class RHT_ST_PromoCode {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
+			revelon.FreeShippingmethod();
 			revelon.ValidatingPromocode("Promocode");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			

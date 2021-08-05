@@ -41,15 +41,15 @@ public class HT_ST_RetailerCheckoutCCMastercard {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
 	  }
-	
-      /*@BeforeMethod
+	/*
+      @BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-
+	  }
+*/
 	@AfterTest
 	public void clearBrowser()
 	{

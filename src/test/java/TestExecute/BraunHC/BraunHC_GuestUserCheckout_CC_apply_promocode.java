@@ -20,36 +20,43 @@ public class BraunHC_GuestUserCheckout_CC_apply_promocode {
 	public void BraunHC_GuestUserCheckout_CC_apply_promocod() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
-			//BraunHC.selectCategoryProduct("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
+			
+			//BraunHC.AGREEPROCEED();
+			BraunHC.selectCategoryProduct("AccountDetails");
+			//BraunHC.Global_search("SearchproductName");
 			BraunHC.Addtocart("AccountDetails");
 			BraunHC.ShippingcartPage();
+			BraunHC.Applypromocode("promocode");
 			BraunHC.GuestShippingaddress();
-			//BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
-			BraunHC.UpdatePayment("PaymentDetails");
-			BraunHC.RegistereduserApplypromocode("promocode");
-			
+			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			BraunHC.RegistereduserOrderSuccesspage();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-	
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn(browser);
-	  } 
-	 /*
-	@BeforeMethod
+		  
+	  }
+	
+	/*@BeforeMethod
 	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	  public void startTest1() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn("chrome"); 
+		  Login.signIn("chrome");
+		  
 	  }*/
+
+@BeforeTest
+public void startTest() throws Exception {
+	System.setProperty("configFile", "BraunHC\\config.properties");
+Login.signIn();
+}
+	  
 	
 	@AfterTest
 	public void clearBrowser()
@@ -58,5 +65,4 @@ public class BraunHC_GuestUserCheckout_CC_apply_promocode {
 		Common.closeAll();
 
 	}
-
 }

@@ -39,15 +39,15 @@ public class HT_ST_GuestCheckoutPaypal {
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser);
-	  }
+	  }/*
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome"); 
-	  }*/
-
+	  }
+*/
 	@AfterTest
 	public void clearBrowser()
 	{

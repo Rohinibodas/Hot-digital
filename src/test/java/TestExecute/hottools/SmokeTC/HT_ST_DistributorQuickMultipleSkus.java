@@ -49,12 +49,12 @@ public class HT_ST_DistributorQuickMultipleSkus {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
-	  
+	  }
+	  */
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+	Common.closeAll();
 
 	}
 }

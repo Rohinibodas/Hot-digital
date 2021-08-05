@@ -29,6 +29,7 @@ public class RHT_ST_ValidateGuestusercheckoutwith2products {
 			revelon.Twoproductselection();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
+			revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception | Error e) {
@@ -36,7 +37,7 @@ public class RHT_ST_ValidateGuestusercheckoutwith2products {
 		} 
 	}
 
-@BeforeMethod
+    @BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");

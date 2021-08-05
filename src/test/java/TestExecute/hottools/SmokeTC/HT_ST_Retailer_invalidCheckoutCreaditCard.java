@@ -19,7 +19,7 @@ public class HT_ST_Retailer_invalidCheckoutCreaditCard {
 	public void Retailer_invalidCheckoutCreaditCard(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
 			Hottools.singin("RetailCustomerAccountDetails");
 			Hottools.CategorySelection();

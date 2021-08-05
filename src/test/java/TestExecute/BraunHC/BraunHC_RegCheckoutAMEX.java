@@ -20,14 +20,15 @@ public class BraunHC_RegCheckoutAMEX {
 	public void RegisteredUserCheckout() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
-			//BraunHC.selectCategoryProduct("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
+			BraunHC.selectCategoryProduct("AccountDetails");
+			//BraunHC.Global_search("SearchproductName");
 			BraunHC.Addtocart("AccountDetails");
 			BraunHC.ShippingcartPage();
 			BraunHC.navigateShippingaddress();
-			BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetailsAEMX");
+		BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetailsAEMX");
 	
 			BraunHC.RegistereduserOrderSuccesspage();
 		}
@@ -36,27 +37,25 @@ public class BraunHC_RegCheckoutAMEX {
 		} 
 	}
 	
-	@BeforeMethod
-	@Parameters({"browser"}) 
+	/*	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn(browser);
-	}
+	}*/
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }*/
+	  }
 	
 	@AfterTest
 	public void clearBrowser()
 	{
 		
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
-
 }

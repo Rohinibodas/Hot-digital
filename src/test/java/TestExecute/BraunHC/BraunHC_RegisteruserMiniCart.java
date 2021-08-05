@@ -20,10 +20,10 @@ public class BraunHC_RegisteruserMiniCart {
 	public void RegisteruserMiniCart() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
-			//BraunHC.searchProduct("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
+			BraunHC.searchProduct("AccountDetails");
+			//BraunHC.Global_search("SearchproductName");
 			BraunHC.Addtocart("AccountDetails");
 			
 		}

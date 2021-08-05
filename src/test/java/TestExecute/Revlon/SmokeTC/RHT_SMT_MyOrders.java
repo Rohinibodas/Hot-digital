@@ -24,7 +24,7 @@ public class RHT_SMT_MyOrders {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-		    revelon.navigateCheckout();
+			revelon.FreeShippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			revelon.navigateMyAccounts();
 			revelon.navigateMyorders();

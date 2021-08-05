@@ -20,15 +20,16 @@ public class BraunHC_RegCheckoutDiscover {
 	public void RegCheckoutDiscover() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
-			//BraunHC.selectCategoryProduct("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
+			BraunHC.selectCategoryProduct("AccountDetails");
+			//BraunHC.Global_search("SearchproductName");
 			BraunHC.Addtocart("AccountDetails");
 			BraunHC.ShippingcartPage();
 			BraunHC.navigateShippingaddress();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetailsDiscover");
-			BraunHC.RegistereduserOrderSuccesspage();
+		BraunHC.RegistereduserOrderSuccesspage();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
@@ -39,9 +40,9 @@ public class BraunHC_RegCheckoutDiscover {
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn(browser);
-	}
+	}*/
 	
-	*/@BeforeMethod
+	@BeforeMethod
 	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
@@ -53,7 +54,7 @@ public class BraunHC_RegCheckoutDiscover {
 	public void clearBrowser()
 	{
 		
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

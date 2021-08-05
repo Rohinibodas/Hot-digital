@@ -19,12 +19,13 @@ public class RHT_ST_User_Category_Checkout_Paypal {
 	public void UserCategoryPayPalCheckout() throws Exception {
 
 		try {revelon.Newslettersignup();
+		revelon.acceptPrivecy();
 			revelon.loginRevlon("AccountDetails");
 			revelon.categoryMenuItem();
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.navigateCheckout();
+			revelon.FreeShippingmethod();
 			revelon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {

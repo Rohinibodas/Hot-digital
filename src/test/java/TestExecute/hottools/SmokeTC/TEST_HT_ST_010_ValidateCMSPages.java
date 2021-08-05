@@ -24,10 +24,10 @@ public class TEST_HT_ST_010_ValidateCMSPages
 
 			try {
 				Hottools.agreeCookiesbanner();
-				Hottools.Newslettersignup();
+				//Hottools.Newslettersignup();
 				Hottools.validateAboutUsLink();
 				Hottools.validateNavigateFAQ();
-				Hottools.validateNavigateContactUs("ContactUs");
+				//Hottools.validateNavigateContactUs("ContactUs");
 				Hottools.validateNavigatePrivacyPolicy();
 				Hottools.validateNavigateTermsAndConditions();
 				Hottools.validateNavigatehottoolsUniversity();

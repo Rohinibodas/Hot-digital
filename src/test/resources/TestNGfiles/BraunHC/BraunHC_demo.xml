@@ -1,15 +1,123 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="RevlonUK Suite">
+<suite name="BraunHC Suite">
    <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-     
-     <test name="BraunHC_WarrantyRegistration_FooterLink"
-		testid="PPH-000" priority="P1"
-		description="This test case  Validating BarunHC_WarrantyRegistration_FooterLink">
+   
+		<test name="Test_BraunUS_ST_002_RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping"
+		testid="HHUS-217" priority="P1"
+		description="To verify the functionality of RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.BraunHC_WarrantyRegistration_FooterLink" />
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_002_RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping"/>
+		</classes>
+		
+     </test>	
+
+	 <test name=" Test_BraunUS_ST_004_RegisteredUser_Checkout_visaCC_with_Tax_Multiple_product"
+		testid="HHUS-220" priority="P1"
+		description="To Verify the RegisteredUser_Checkout_visaCC_with_Tax_Multiple_product">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_004_RegisteredUser_Checkout_visaCC_with_Tax_Multiple_product"/>
+		</classes>
+		
+     </test>
+
+	<test name="Test_BraunUS_ST_005_RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products"
+		testid="HHUS-221" priority="P1"
+		description="o verify the functionality of RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_005_RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products"/>
+		</classes>
+		
+     </test>	
+
+<test name="Test_BraunUS_ST_006_GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products"
+		testid="HHUS-222" priority="P1"
+		description="To verify the  functionlaity of  _GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_006_GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products"/>
 		</classes>
      </test>
+     
+	 <test name="Test_BraunUS_ST_007_GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping"
+		testid="HHUS-223" priority="P1"
+		description="This test caseTo validate GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_007_GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping"/>
+		</classes>
+     </test>
+		 <test name="Test_BraunUS_ST_008_Registereduser_Checkout_AmexCC_NoTax_with_same_Billing_and_Shipping"
+		testid="HHUS-224" priority="P1"
+		description="This test case To verify the  functionlaity Registereduser_Checkout_AmexCC_NoTax_with_same_Billing_and_Shipping">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_008_Registereduser_Checkout_AmexCC_NoTax_with_same_Billing_and_Shipping"/>
+		</classes>
+     </test>	
+		<test name="Test_BraunUS_ST_009_GuestUser_Checkout_DiscoverCC_NoTax_with_same_Billing_and_shipping"
+		testid="HHUS-225" priority="P1"
+		description="This test caseTo validate the GuestUser_Checkout_DiscoverCC_NoTax_with_same_Billing_and_shipping">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_009_GuestUser_Checkout_DiscoverCC_NoTax_with_same_Billing_and_shipping"/>
+		</classes>
+     </test>	
+	<test name="Test_BraunUS_ST_010_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address"
+		testid="HHUS-226" priority="P1"
+		description="This test caseTo validate GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_010_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address"/>
+		</classes>
+     </test>
+	
+	<test name="Test_BraunUS_ST_011__GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address "
+		testid="HHUS-227" priority="P1"
+		description="This test caseTo validate the GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_011__GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address"/>
+		</classes>
+     </test>
+     
+     
+     
+     <test name=" Test_BraunUS_ST__012_RegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address"
+		testid="HHUS-230" priority="P1"
+		description="This test caseTo validate theRegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST__012_RegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address"/>
+		</classes>
+     </test>  
+     
+     
+     <test name="Test_BraunUS_ST_001__GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products"
+		testid="HHUS-215" priority="P1"
+		description="This test case Validating GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_001__GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products"/>
+		</classes>
+		
+     </test>
+
+ <test name="Test_BraunUS_ST_003RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping"
+		testid="HHUS-219" priority="P1"
+		description="To verify the  functionality Adding new Address in shipping page for register user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_BraunUS_ST_003RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping"/>
+		</classes>
+		
+     </test>	
+		
+		
+		
+		
  </suite>

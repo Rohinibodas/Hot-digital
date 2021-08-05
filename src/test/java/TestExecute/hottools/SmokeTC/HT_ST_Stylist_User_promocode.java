@@ -19,16 +19,15 @@ public class HT_ST_Stylist_User_promocode {
 	public void Stylist_User_promocode(){
 
 		try{
-			//Hottools.agreeCookiesbanner();
-			
-			Hottools.Newslettersignup();
+			Hottools.agreeCookiesbanner();		
+			//Hottools.Newslettersignup();
 			Hottools.signin("StylistCustomerAccountDetails");
 			Hottools.CategorySelection();
 			Hottools.CategoryProductSelection();
 			Hottools.CategoryMincart();
 			Hottools.checkoutpage();
 		    Hottools.ValidatingPromocode("StylistPromocode");
-			Hottools.CreditcardPayment_promocde("PaymentDetails");
+			//Hottools.CreditcardPayment_promocde("PaymentDetails");
 		    
 		
 		}
@@ -38,23 +37,24 @@ public class HT_ST_Stylist_User_promocode {
 		}
 	}
 	
-	/*@BeforeMethod
+	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn(browser); 
-	  }*/
+	  }
+	/*
       @BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Hottools\\config.properties");
 		  Login.signIn("chrome");
 	  }
-
+*/
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 
