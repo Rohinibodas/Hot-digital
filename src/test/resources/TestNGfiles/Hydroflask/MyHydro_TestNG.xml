@@ -3,21 +3,21 @@
 	<listeners>
 		<listener class-name="Utilities.TestListener" />
 	</listeners>
-	<test name="Test_HF_ST_001_Guest Checkout with Creditcard" testid="HMF2-975"
+	<test name="Test_HF_ST_001_Guest Checkout with Creditcard" testid="HYDRO-894"
 		priority="P1"
 		description="This script will cover guest user order using creditcard submit Process of HydroFlesk">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_038_PDP_thumbnail_verification_of_bundle_product" />
+			<class name="TestExecute.Hydroflask.Smoke.Guest_Checkout_CreditCard" />
 		</classes>
 	</test>
-	<!-- <test name="Test_HF_ST_002_My Hydro Order Submission" testid="HMF2-977"
+	<test name="Test_HF_ST_002_My Hydro Order Submission" testid="HYDRO-895"
 		priority="P1" description="This script will cover Cusome order  Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.MyHydro_Order_Submission" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_003_Guest Checkout with Paypal" testid="HMF2-1074"
+	<test name="Test_HF_ST_003_Guest Checkout with Paypal" testid="HYDRO-896"
 		priority="P1"
 		description="This script will cover guest user order using paypal order submit Process of HydroFlesk">
 		<classes>
@@ -25,108 +25,108 @@
 		</classes>
 	</test>
 	<test name="Test_HF_ST_004_Registered Checkout with Credit card"
-		testid="HMF2-1077" priority="P1"
+		testid="HYDRO-897" priority="P1"
 		description="This script will cover Registered User  order using creditcard submit Process of HydroFlesk">
 		<classes>
 			<class
 				name="TestExecute.Hydroflask.Smoke.RegisteredUser_Checkout_CreditCard" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_005_Registered Checkout with PayPal"
-		testid="HMF2-1078" priority="P1"
+<test name="Test_HF_ST_005_Registered Checkout with PayPal"
+		testid="HYDRO-898" priority="P1"
 		description="This script will cover Registered order user using paypal order submit Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Registered_Checkout_Paypal" />
 		</classes>
 	</test>
 	<test name="Test_HF_ST_006_Guest user Checkout using Promo Code"
-		testid="HMF2-1076" priority="P1"
+		testid="HYDRO-899" priority="P1"
 		description="This script will cover applying promo code  of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Promo_Code" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_007_Product Review by Guest user" testid="HMF2-1068"
+	<test name="Test_HF_ST_007_Product Review by Guest user" testid="HYDRO-900"
 		priority="P1" description="This script will cover  WriteReview of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.WriteReview" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_008_Contact_Us" testid="HMF2-980" priority="P1"
+	<test name="Test_HF_ST_008_Contact_Us" testid="HYDRO-901" priority="P1"
 		description="This script will cover Countact Us Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Contact_Us" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_009_Newsletter_Subscription" testid="HMF2-982"
+	<test name="Test_HF_ST_009_Newsletter_Subscription" testid="HYDRO-902"
 		priority="P1"
 		description="This script will cover Newsletter_Subscription Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Newsletter_Subscription" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_010_Reset_Password" testid="HMF2-983"
+	<test name="Test_HF_ST_010_Reset_Password" testid="HYDRO-903"
 		priority="P1"
 		description="This script will cover User reset password by using forgot password option of HydroFlesk	">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Fogetpassword" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_011_Account_Creation" testid="HMF2-973"
+	<test name="Test_HF_ST_011_Account_Creation" testid="HYDRO-904"
 		priority="P1" description="This script will cover Account Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Account_Creation" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_012_Warranty submission" testid="HMF2-978"
+	<test name="Test_HF_ST_012_Warranty submission" testid="HYDRO-905"
 		priority="P1"
 		description="This script will cover Warranty_submission  Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Warranty_Submission" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_013-Account_Create and Change_Password" testid="HFM2-1066"
+	<test name="Test_HF_ST_013-Account_Create and Change_Password" testid="HYDRO-907"
 		priority="P1"
 		description="This script will cover create new Account and Change the password in My Account Page ">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.EditAccounInfromation" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_014_ProDeal Registration" testid="HMF2-981"
+	<test name="Test_HF_ST_014_ProDeal Registration" testid="HYDRO-906"
 		priority="P1"
 		description="This script will cover deal registration Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.ProDeal_Registration" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_015_Combined Order Submission" testid="HMF2-976"
+	<test name="Test_HF_ST_015_Combined Order Submission" testid="HYDRO-908"
 		priority="P1"
 		description="This script will cover Customize order and noraml order submit Process of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.Combined_Order_Submission" />
 		</classes>
 	</test>
-	<test name="Test_HF_ST_016-WebPageLinkValidation" testid="HMF2-1094"
+	<test name="Test_HF_ST_016-WebPageLinkValidation" testid="HYDRO-909"
 		priority="P1" description="This script will Link validation of HydroFlesk">
 		<classes>
 			<class name="TestExecute.Hydroflask.URLS.URLSCheck" />
 		</classes>
 	</test>
-	<test name="TEST_HF_ST_020- Update Address information" testid="HMF2-1101"
+	<test name="TEST_HF_ST_020- Update Address information" testid="HYDRO-917"
 		priority="P1"
 		description="This script will cover the update the address in my account of Hydro Flask">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.UpdateMyAddress" />
 		</classes>
 	</test>
-	<test name="TEST_HF_ST_021-Product Search" testid="HMF2-1100"
+	<test name="TEST_HF_ST_021-Product Search" testid="HYDRO-915"
 		priority="P1"
 		description="This script will coverSearching different type of products (Simple) Hydro Flask">
 		<classes>
 			<class name="TestExecute.Hydroflask.Smoke.SearchProduct" />
 		</classes>
 	</test>
-	<test name="TEST_HF_ST_022- Guest Checkout from Mini Cart" testid="HMF2-1176"
+<test name="TEST_HF_ST_022- Guest Checkout from Mini Cart" testid="HYDRO-916"
 		priority="P1"
 		description="This script will cover checkout with paypal from Minicart Hydro Flask">
 		<classes>
@@ -134,24 +134,22 @@
 		</classes>
 	</test>
 	<test name="Test_HF_ST_023_GuestCheckoutwith_invalid_CC_Credentials"
-		testid="HMF2-1181" priority="P1"
+		testid="HYDRO-912" priority="P1"
 		description="This script will cover GuestCheckoutwith_invalid_CC_Credentials of HydroFlesk">
 		<classes>
-			<class
-				name="TestExecute.Hydroflask.Smoke.GuestCheckoutwith_invalid_CC_Credentials" />
+			<class name="TestExecute.Hydroflask.Smoke.GuestCheckoutwith_invalid_CC_Credentials" />
 		</classes>
 	</test>
 	<test
 		name="Test_HF_ST_024_RegisteredUserCheckoutwith_invalid_CC_Credentials"
-		testid="HMF2-1182" priority="P1"
+		testid="HYDRO-914" priority="P1"
 		description="This script will cover RegisteredUserCheckoutwith_invalid_CC_Credentials of HydroFlesk">
 		<classes>
-			<class
-				name="TestExecute.Hydroflask.Smoke.RegisteredUserCheckoutwith_invalid_CC_Credentials" />
+			<class name="TestExecute.Hydroflask.Smoke.RegisteredUserCheckoutwith_invalid_CC_Credentials" />
 		</classes>
 	</test>
-	<test name="TEST_HF_ST_025_Registered Checkout Paypal from Mini Cart"
-		testid="HMF2-1253" priority="P1"
+<test name="TEST_HF_ST_025_Registered Checkout Paypal from Mini Cart"
+		testid="HYDRO-911" priority="P1"
 		description="This script will cover Registered user checkout with paypal from Minicart Hydro Flask">
 		<classes>
 			<class
@@ -159,12 +157,320 @@
 		</classes>
 	</test>
 	<test name="Test_HF_ST_026-Registered Combined Order Submission"
-		testid="HMF2-1257" priority="P1"
+		testid="HYDRO-910" priority="P1"
 		description="This script will cover Customize order and noraml order submit Process for Registered User of HydroFlesk">
 		<classes>
-			<class
-				name="TestExecute.Hydroflask.Smoke.Registered_Combined_Order_Submission" />
+			<class name="TestExecute.Hydroflask.Smoke.Registered_Combined_Order_Submission" />
 		</classes>
-	</test> -->
+	</test>
+<test name="TEST_ST_HF_0024_Checkoutas_loggedin_usercreditcard_MASTER"		
+	testid="HYDRO-918" priority="P1"		
+	description="This script will cover checkout for logged in user with paymetric method as MASTER card">		
+	<classes>			
+	<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_0024_Checkoutas_loggedin_usercreditcard_MASTER" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_025_Checkout_as_guestuser_with_credit_card_MASTER"		
+	testid="HYDRO-919" priority="P1"		
+	description="This script will cover checkout for guest user with MASTER credit card">		
+	<classes>			
+	<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_025_Checkout_as_guestuser_with_credit_card_MASTER" />		
+	</classes>        
+</test>
+
+<test name="TEST_ST_HF_026_Checkout_with_paypal_as_registered_user_with_bundle_product"		
+	testid="HYDRO-920" priority="P1"		
+	description="This script will cover checkout with paypal as registered user with bundle product">		
+	<classes>			
+	<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_026_Checkout_with_paypal_as_registered_user_with_bundle_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_027_Checkout_with_paypal_as_guest_user_with_bundle_product"		
+	testid="HYDRO-921" priority="P1"		
+	description="This script will cover checkout with paypal as guest user with bundle product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_027_Checkout_with_paypal_as_guest_user_with_bundle_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_028_Checkout_with_credit_card_as_registered_user_with_bundle_product"		
+	testid="HYDRO-922" priority="P1"		
+	description="This script will cover checkout with paymetric method as registered user with bundle product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_028_Checkout_with_credit_card_as_registered_user_with_bundle_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_029_Checkout_with_credit_card_as_Guest_user_with_bundle_product"		
+	testid="HYDRO-923" priority="P1"		
+	description="This script will cover verify checkout with paymetric method as guest user with bundle product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_029_Checkout_with_credit_card_as_Guest_user_with_bundle_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_030_Checkout_with_credit_card_as_registered_user_with_bundle_product_and_myhydro_product"		
+	testid="HYDRO-924" priority="P1"		
+	description="This script will cover checkout with paymetric method as registered user with bundle product and my hydro product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_030_Checkout_with_credit_card_as_registered_user_with_bundle_product_and_myhydro_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_031_Checkout_with_credit_card_as_Guest_user_with_bundle_product_and_Myhydro_product"		
+	testid="HYDRO-925" priority="P1"		
+	description="This script will cover checkout with paymetric method as guest user with bundle product and my hydro product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_031_Checkout_with_credit_card_as_Guest_user_with_bundle_product_and_Myhydro_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_032_Checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product"		
+	testid="HYDRO-926" priority="P1"		
+	description="This script will cover checkout with paymetric method as registered user with bundle ,my hydro and configurable product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_032_Checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_033_Checkout_with_creditcard_as_Guest_user_with_bundle_my_hydro_and_configurable_product"		
+	testid="HYDRO-927" priority="P1"		
+	description="This script will cover checkout with paymetric method as guest user with bundle ,my hydro and configurable product ">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_033_Checkout_with_creditcard_as_Guest_user_with_bundle_my_hydro_and_configurable_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_034_Track_yor_order_as_guest_user"		
+	testid="HYDRO-928" priority="P1"		
+	description="This script will cover tracking of order placed as guest user">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_034_Track_yor_order_as_guest_user" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_035_Track_yor_order_as_registered_user"		
+	testid="HYDRO-929" priority="P1"		
+	description="This script will cover tracking of order placed as registered user">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_035_Track_yor_order_as_registered_user" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_036_Checkout_with_credit_card_as_registered_user_with_my_hydro_and_configurable_product"		
+	testid="HYDRO-930" priority="P1"		
+	description="This script will cover checkout with paymetric method as registered user with my hydro and configurable product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_036_Checkout_with_credit_card_as_registered_user_with_my_hydro_and_configurable_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_037_Checkout_with_credit_card_as_Guest_user_with_my_hydro_and_configurable_product"		
+	testid="HYDRO-931" priority="P1"		
+	description="This script will cover checkout with paymetric method as guest user with my hydro and configurable product ">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_037_Checkout_with_credit_card_as_Guest_user_with_my_hydro_and_configurable_product" />		
+	</classes>        
+</test>
+<test name="Test_HF_ST_038_PDP_thumbnail_verification_of_bundle_product"		
+	testid="HYDRO-932" priority="P1"		
+	description="This script will cover the change of the thumbnail images of selected colour swatch of bundle products ">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_038_PDP_thumbnail_verification_of_bundle_product" />		
+	</classes>        
+</test>
+<test name="Test_HF_ST_039_Shopping_cart_validation"		
+	testid="HYDRO-933" priority="P1"		
+	description="This script will cover the validation of shopping cart">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.Test_HF_ST_039_Shopping_cart_validation" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_040_Paypal_checkout_as_registered_user_with_Configure_bundle_and_simple_product"		
+	testid="HYDRO-934" priority="P1"		
+	description="This script will cover the paypal payment of registered user with bundle, configurable and simple products">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_040_Paypal_checkout_as_registered_user_with_Configure_bundle_and_simple_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_041_Paypal_checkout_as_guest_user_with_bundle_simple_and_configurable_products"		
+	testid="HYDRO-935" priority="P1"		
+	description="This script will cover the paypal payment of guest user with configurable,simple and bundle products">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_041_Paypal_checkout_as_guest_user_with_bundle_simple_and_configurable_products" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_042_Myaccount_page_validation"		
+	testid="HYDRO-936" priority="P1"		
+	description="This script will cover  validation of my account page">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_042_Myaccount_page_validation" />		
+	</classes>        
+</test>
+<!--<test name="TEST_ST_HF_043_New_account_inquiry_form"		
+	testid="HYDRO-937" priority="P1"		
+	description="This script will cover  validation of new account inquiry form">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_043_New_account_inquiry_form" />		
+	</classes>        
+</test> -->
+<test name="TEST_ST_HF_044_shop_link_validation"		
+	testid="HYDRO-938" priority="P1"		
+	description="This script will cover Verification of shoplinks in header">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_044_shop_link_validation" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_045_Explore_link_validation_in_header"		
+	testid="HYDRO-939" priority="P1"		
+	description="This script will cover  verification of links in explore category in header ">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_045_Explore_link_validation_in_header" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_046_Registered_user_with_paypal_checkout_from_minicart_with_bundlesimple_and_configurable_product"		
+	testid="HYDRO-940" priority="P1"		
+	description="This script will cover paypal express checkout with registered user">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_046_Registered_user_with_paypal_checkout_from_minicart_with_bundlesimple_and_configurable_product" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_047_Guest_user_checkout_with_paypal_from_mini_cart_with_Bundle_configurable_and_simple_product"		
+	testid="HYDRO-941" priority="P1"		
+	description="This script will cover guest user checkout with paypal from mini cart">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_047_Guest_user_checkout_with_paypal_from_mini_cart_with_Bundle_configurable_and_simple_product" />		
+	</classes>        
+</test>
+<!-- <test name="TEST_ST_HF_048_Test_ST_HF_048_URL_verification_of_PDP"		
+	testid="HYDRO-942" priority="P1"		
+	description="This script will cover  validation of URL's in PDP">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_048_URL_verification_of_PDP" />		
+	</classes>        
+</test> -->
+<test name="Test_ST_HF_049_Footerlink_Validation"		
+	testid="HYDRO-943" priority="P1"		
+	description="This script will cover verification of footerlinks ">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_049_Footerlink_Validation" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_050_Social_links_validation"		
+	testid="HYDRO-944" priority="P1"		
+	description="This script will cover verification of social links in the footer ">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_050_Social_links_validation" />		
+	</classes>        
+</test>
+<test name="Test_ST_HF_051_checkout_with_Amexcard_as_Guestuser_with_singleproduct_tax_andStandard_Shipping_withdifferentBilling_Shipping_address" testid="HYDRO-997"
+			priority="P1"
+			description="This script will cover GuestUser  order using AmexCC  with Single-product Tax  and standard shipping with Different Billing address order submit Process of HydroFlask	">
+			<classes> 
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_051_checkout_with_Amexcard_as_Guestuser_with_singleproduct_tax_andStandard_Shipping_withdifferentBilling_Shipping_address" />
+			</classes>
+		</test>
+	    <test name="Test_ST_HF_052_checkout_with_VISACard_as_Registeruser_with_MultiProduct_tax_and_Freight_Shipping_with_same_billing_Shippingaddresses" testid="HYDRO-997"
+			priority="P1"
+			description="This script will cover RegisterUser  order using VisaCC  with Multi-product Tax  and Freight shipping with Same Billing address and shipping Address order submit Process of HydroFlask	">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_052_checkout_with_VISACard_as_Registeruser_with_MultiProduct_tax_and_Freight_Shipping_with_same_billing_Shippingaddresses" />
+			</classes>
+		</test>
+		<test name="Test_ST_HF_053_checkout_with_Mastercard_as_Guestuser_with_Multiproduct_tax_and_FreightShipping_with_different_billing_Shippingaddresses" testid="HYDRO-997"
+			priority="P1"
+			description="This script will cover GuestUser order using MasterCC with Multi-product Tax and Freight shipping with Different Billing address and shipping Address order submit Process of HydroFlask	">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_053_checkout_with_Mastercard_as_Guestuser_with_Multiproduct_tax_and_FreightShipping_with_different_billing_Shippingaddresses" />
+			</classes>
+		</test>
+		
+		<test name="Test_ST_HF_054_checkout_with_Discover_as_Guestuser_withMultiproduct_tax_and_StandardShipping_with_Samebilling_Shippingaddresses" testid="HYDRO-997"
+			priority="P1"
+			description="This script will cover GuestUser order using DiscoverCc with Multi-product Tax and Standard shipping with SameBilling address and shipping Address order submit Process of HydroFlask	">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_054_checkout_with_Discover_as_Guestuser_withMultiproduct_tax_and_StandardShipping_with_Samebilling_Shippingaddresses" />
+			</classes>
+		</test> 	
+		
+		
+		
+		<test name="Test_ST_HF_063_checkout_with_MASTERcard_as_Registeruser_with_singleproduct_and_Discount_Promocode_tax_Standard_Shipping_with_DifferentBilling_Shippingaddresses" testid="HYDRO-988"
+			priority="P1"
+			description="This script will cover Register Single product Discount with Tax standard shipping with different billing and shpiing address user order using MasterCc submit Process of HydroFlask">
+			<parameter name="browser" value="chrome" />
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_063_checkout_with_MASTERcard_as_Registeruser_with_singleproduct_and_Discount_Promocode_tax_Standard_Shipping_with_DifferentBilling_Shippingaddresses" />
+			</classes>
+		</test>
+		<test name="Test_ST_HF_064_checkout_with_AMEXcard_as_Guestuser_with_Multiproduct_and_Discount_Promocode_Tax_StandardShipping_with_Same_Billing_Shippingaddresses" testid="HYDRO-951"
+			priority="P1" description="This script will cover Guest user Multiproduct Discount with Tax standard shipping with same Billing and shipping user order using AmexCC sumbit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_064_checkout_with_AMEXcard_as_Guestuser_with_Multiproduct_and_Discount_Promocode_Tax_StandardShipping_with_Same_Billing_Shippingaddresses" />
+			</classes>
+		</test>-->
+		<test name="Test_ST_HF_065_checkout_with_Discovercard_Registeruser_with_Multiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shippingaddresses" testid="HYDRO-951"
+			priority="P1" description="This script will cover Register user Multiproduct Discount with Tax standard shipping with different Billing and shipping user order using Discover card sumbit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_065_checkout_with_Discovercard_Registeruser_with_Multiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shippingaddresses" />
+			</classes>
+		</test>
+		
+		
+	  	<test name="Test_ST_HF_070_Checkout_with_VISA_as_Registeruser_with_PO_Box" testid="HYDRO-1109"
+			priority="P1"
+			description="This script will cover Register user order using POBox address with VisaCC submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_070_Checkout_with_VISA_as_Registeruser_with_PO_Box" />
+			</classes>
+		</test>
+<test name="Test_ST_HF_072_Checkout_with_Mastercard_as_Guestuser_with_ShippingAddress_Outside_US_Test_For_Failure"
+			testid="HYDRO-1223" priority="P1"
+			description="This script will cover Guest User  order using MasterCC with Out-sideUS address order submit Process of HydroFlask">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_072_Checkout_with_Mastercard_as_Guestuser_with_ShippingAddress_Outside_US_Test_For_Failure" />
+			</classes>
+		</test>
+		
+		<test name="Test_ST_HF_071_Checkout_with_AMEX_as_Guestuser_with_PO_Box"
+			testid="HYDRO-1223" priority="P1"
+			description="This script will cover Guest user order using POBox address with AmexCC submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_071_Checkout_with_AMEX_as_Guestuser_with_PO_Box" />
+			</classes>
+		</test>
+		<test name="Test_ST_HF_073_Checkout_with_Discovercard_as_Registeruser_with_BillingAddress_Outside_US_Test_For_Failure"
+			testid="HYDRO-1224" priority="P1"
+			description="This script will cover Registered order user using DiscoverCC with  Out-sideUS address order submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_073_Checkout_with_Discovercard_as_Registeruser_with_BillingAddress_Outside_US_Test_For_Failure" />
+			</classes>
+		</test> 
+		<test name="Test_ST_HF_074_checkout_with_Paypal_as_Registeruser_withSingle_product_tax_and_StandardShipping_with_Differentbilling_Shippingaddresses"
+			testid="HYDRO-991" priority="P1"
+			description="This script will cover RegisteredUser order user using Paypal with singleProduct Tax and standard shipping with different billing and shipping address order submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_074_checkout_with_Paypal_as_Registeruser_withSingle_product_tax_and_StandardShipping_with_Differentbilling_Shippingaddresses" />
+			</classes>
+		</test> 
+	  	<test name="Test_ST_HF_076_checkout_with_Paypal_as_Registeruser_withMultiproduct_tax_and_Freight_Shipping_with_same_billingShippingaddresses" testid="HYDRO-993"
+			priority="P1" description="This script will cover RegisterUser order user using Paypal with Multi-product Tax and freight shippping and same billingShipping address order submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_076_checkout_with_Paypal_as_Registeruser_withMultiproduct_tax_and_Freight_Shipping_with_same_billingShippingaddresses" />
+			</classes>
+		</test>
+		<test name="Test_ST_HF_078_checkout_with_paypal_as_Guestuser_withsingle_product_and_Discount_Promocode_tax_StandardShipping_with_Same_Billing_Shippingaddresses" testid="HYDRO-995" priority="P1"
+			description="This script will cover GuestUser discount order using paypal with singleProduct Tax and standard shipping with SameBillingShippingAddresses order submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_078_checkout_with_paypal_as_Guestuser_withsingle_product_and_Discount_Promocode_tax_StandardShipping_with_Same_Billing_Shippingaddresses" />
+			</classes>
+		</test>
+		<test name="Test_ST_HF_079_checkout_with_Paypal_as_Registeruser_withMultiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shipping_addresses" testid="HYDRO-996"
+			priority="P1"
+			description="This script will cover RegisterUser discount order using paypal with Multi-product Tax  and standard shipping with DifferentBilling order submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_079_checkout_with_Paypal_as_Registeruser_withMultiproduct_and_Discount_Promocode_tax_and_StandardShipping_with_differentbilling_Shipping_addresses" />
+			</classes>
+		</test>
+		<test name="Test_ST_HF_080_checkout_with_Expresspaypal_as_Guestuserwith_Multi_product_and_Discount_Promocode_tax_and_Standard_Shipping_with_Same_billing_Shippingaddresses" testid="HYDRO-997"
+			priority="P1"
+			description="This script will cover GuestUser discount order using ExpressPaypal  with Multi-product Tax  and standard shipping with SameBilling  order submit Process of HydroFlesk	">
+			<classes>
+				<class name="TestExecute.Hydroflask.Smoke.Test_ST_HF_080_checkout_with_Expresspaypal_as_Guestuserwith_Multi_product_and_Discount_Promocode_tax_and_Standard_Shipping_with_Same_billing_Shippingaddresses" />
+			</classes>
+		</test>
+
+
+
 </suite>  
 

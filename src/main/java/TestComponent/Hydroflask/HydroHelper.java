@@ -996,7 +996,7 @@ public class HydroHelper {
 				"verifying the product confirmation", expectedResult,
 				"Successfully It redirects to order confirmation page Order Placed",
 				"User unabel to go orderconformation page");
-		//order=Common.getText("xpath", "//a[@class='order-number']/strong");
+		order=Common.getText("xpath", "//div[@class='checkout-success']/p/span");
 
 			}
 			catch (Exception | Error e) {
@@ -6353,7 +6353,7 @@ public void Adminlogins() throws Exception {
          int username=	Common.findElements("xpath", "//input[contains(@name,'username')]").size();
          	
          	
-            Common.assertionCheckwithReport(username>1, "verifying Admin panel login page", "User name and password field data is populating", "Sucessfully enter username and password", "Faield to enter username and password"); 	
+            Common.assertionCheckwithReport(username>=1, "verifying Admin panel login page", "User name and password field data is populating", "Sucessfully enter username and password", "Faield to enter username and password"); 	
          	Common.clickElement("xpath", "//button[contains(@class,'action-primary')]");
          	Thread.sleep(2000);  
          	Common.actionsKeyPress(Keys.ESCAPE);
@@ -6552,9 +6552,12 @@ public void Adminlogins() throws Exception {
     			return gustUseraddress;
     		}
 
-    	 public void shippingvalidaingXML(String dataSet,String FielName) throws IOException {
+    	 public void shippingvalidaingXML(String dataSet,String Ordernumber) throws IOException, InterruptedException {
          	
-        	 String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
+    		 Thread.sleep(5000);
+    		 String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+Ordernumber+".xml";
+    		 
+        	 //String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
              Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
         	 String BillingAddress1= (String) jsonInMap.get("BillingAddress1");
              String BillingCity= (String) jsonInMap.get("BillingCity");
@@ -6569,13 +6572,156 @@ public void Adminlogins() throws Exception {
            String Sfcity =data.get(dataSet).get("City");
            String SfRegion =data.get(dataSet).get("Region");
            String Sfpostcode =data.get(dataSet).get("postcode");
+
+           
+           System.out.println(BillingAddress1);
+           
+           System.out.println(BillingCity);
+            
+           System.out.println(BillingState);
+           
+           System.out.println(BillingCity);
+           
+           System.out.println(SfStreet);
+           
+           System.out.println(Sfcity);
+           System.out.println(SfRegion);
+           
+           
+           
              
-             
-           Assert.assertTrue(BillingAddress1.equals(SfStreet)&& BillingCity.equals(Sfcity) && BillingState.equals(SfRegion)); 
+           Assert.assertTrue(BillingAddress1.equals(SfStreet)&& BillingCity.equals(Sfcity) && BillingZip.equals(Sfpostcode)); 
              
              
         	
         }
+    	 
+    	 
+ public void productinfromationvalidation(HashMap<String,HashMap<String,String>>  SFproductinfromation,String Ordernumber) throws Throwable {
+    		 
+	 Thread.sleep(5000);
+	 String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+Ordernumber+".xml";
+    		 //String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
+	 
+	 Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
+	 Map<String,Object> xml= xmlReader.stringToMapTest(jsonInMap.get("OrderItems1").toString());
+  	
+	 
+	 
+  	String orderpricexml=xml.get("OrderedProductPrice").toString();
+  	StringBuffer sb= new StringBuffer(orderpricexml);  
+ 	String xmlproductprice=sb.deleteCharAt(sb.length()-1).toString();
+  	String orderedProductSKUXML =xml.get("OrderedProductSKU").toString();
+  	String OrderedProductNameXML=xml.get("OrderedProductName").toString();
+  	String OrderedProductQTYXML =xml.get("Quantity").toString();
+		 
+  	
+  	
+  	HashMap<String, String>  order=SFproductinfromation.get("order1");
+  	System.out.println(order);
+  	String productPrice=order.get("productPrice").replace("$", "");
+  	String productSKU=order.get("productSKU");
+  	String productname=order.get("productname");
+ 	String productQTY=order.get("productQTY");
+ 	//System.out.println(productPrice.contains(xmlproductprice)&&productSKU.equals(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&productQTY.contains(OrderedProductQTYXML));
+    
+ 	//System.out.println(productPrice.contains(xmlproductprice));
+	////
+ 	
+ 	//System.out.println(		productSKU.equals(orderedProductSKUXML));
+	//System.out.println( productname.contains(OrderedProductNameXML));
+ 	
+ 	System.out.println(OrderedProductQTYXML.trim()+" this from xml");
+ 	
+ 	System.out.println(productQTY+" this from aplication");
+ 	
+	System.out.println(OrderedProductQTYXML.contains(productQTY));
+	Common.oppenURL(fileName);
+	 Assert.assertTrue(xmlproductprice.contains(productPrice)&&productSKU.contains(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&OrderedProductQTYXML.contains(productQTY)); 
+ //   System.out.println(productPrice  +"   " + xmlproductprice +"**" +productSKU+orderedProductSKUXML+productname+OrderedProductNameXML+productQTY+OrderedProductQTYXML);
+    
+    //Common.assertionCheckwithReport(productSKU.equals(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&productQTY.contains(s),"validating xml product infromation","order product inframtion matches to order xml product info","sucessfully matches product infromation"+order+"is Equal to xml infromation"+xml,"fail to match product infromatio with order xml iformation  product infromation="+order+"xmal infromation =="+xml);
+  	try {
+    // Assert.assertTrue(productSKU.contains(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&productQTY.contains(OrderedProductQTYXML)); 
+  	}
+  	catch(Exception e) {
+  		e.printStackTrace();
+  	}
+    	}
+
+    	 public void viewcart() throws Exception {
+    		 
+    		 try {
+    		 Thread.sleep(4000);
+    			Common.clickElement("xpath", "//a[@aria-label='minicart']");
+    			Thread.sleep(2000);
+    			Common.clickElement("xpath", "//a[contains(@class,'viewcart')]");
+    			
+    			Thread.sleep(10000); 
+    		 Common.assertionCheckwithReport(Common.getPageTitle().equals("Your Cart"), "validating view cart button", "after click view cart button user will nivating to cart page", "User successfully navigtaing to cart page","fail to navigate cartpage");	
+    		 }
+    		 catch (Exception | Error e) {
+    				ExtenantReportUtils.addFailedLog("Validating view cart button", "if we click view cart button it will navgating to cart page ",
+    						"User failed to navigate cartpage",
+    						Common.getscreenShotPathforReport("QTY"));
+    				Assert.fail();
+    		 }
+    		 
+    	 }
+    	 
+    	 public HashMap<String,HashMap<String,String>> productinfromation() {
+    		 
+    		 
+    		 
+    		 
+    		 int value=0;
+    		List<WebElement> cartproducts= Common.findElements("xpath", "//div[@id='shopping-cart-table']//div[contains (@class,'cart-table-body')]");
+    		HashMap<String,HashMap<String,String>> productinfromation=new HashMap<String,HashMap<String,String>>();
+    		HashMap<String,String> singleproductinfromation;
+    		
+    		try {
+    		
+    		
+    		for(int i=0;i<cartproducts.size();i++) {
+    			 String productname="";
+    		       value=i+1;
+    		       singleproductinfromation= new HashMap<String,String>();
+    			String productclass=cartproducts.get(i).getAttribute("class").replaceAll("cart-table-body table-item js-cart-item-", "");
+    			
+    		try {
+    		     productname=	Common.findElement("xpath", "//div[contains (@class,'"+productclass+"')]//img").getAttribute("alt");
+    		     }
+    		catch(Exception e) {
+    			  productname=Common.findElement("xpath", "//div[contains (@class,'"+productclass+"')]//h4").getText();
+    			}
+    		
+    			singleproductinfromation.put("productname", productname);
+    			String productSKU= Common.findElement("xpath", "//div[contains(@class,'"+productclass+"')]//input").getAttribute("data-cart-item-id");
+    			singleproductinfromation.put("productSKU", productSKU);
+    		    String productPrice= Common.findElement("xpath", "//div[contains (@class,'"+productclass+"')]//span[@class='price']").getText();
+    		    singleproductinfromation.put("productPrice", productPrice);
+    		    String productQTY= Common.findElement("xpath", "//div[contains (@class,'"+productclass+"')]//input").getAttribute("value");
+    		    singleproductinfromation.put("productQTY", productQTY);
+    		    productinfromation.put("order"+value ,singleproductinfromation);
+    		    
+    		    ExtenantReportUtils.addPassLog("Validating product infromation", "User get product name SKQ , QTY infroamtion   ", "User sucessfully get product infromation "+productinfromation,Common.getscreenShotPathforReport("productinfopass"));		  
+    		   
+    	}
+    		
+    		
+    		}
+    		 catch (Exception | Error e) {
+ 				ExtenantReportUtils.addFailedLog("Validating product infromation", "User get product name SKQ , QTY infroamtion",
+ 						"User failed to get product name SKQ , QTY infroamtion",
+ 						Common.getscreenShotPathforReport("productinfail"));
+ 				Assert.fail();
+ 		 }
+    		
+            System.out.println(productinfromation);
+    		 
+    		 return productinfromation;
+    	 }
+    	  
     	 
     	
 	public HydroHelper(String datafile) {
