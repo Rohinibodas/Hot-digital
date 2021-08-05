@@ -20,10 +20,10 @@ public class BraunHC_RegisteredUserCheckout {
 	public void RegisteredUserCheckout() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
-			//BraunHC.searchProduct("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
+			
+			BraunHC.searchProduct("AccountDetails");
 			BraunHC.Addtocart("AccountDetails");
 			BraunHC.ShippingcartPage();
 			BraunHC.navigateShippingaddress();
@@ -42,13 +42,14 @@ public class BraunHC_RegisteredUserCheckout {
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn(browser);
-	  }
-	/*
-	@BeforeMethod
-	@Parameters({"browser"})  
+	}
+	
+	/*@BeforeMethod
+	//@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn("chrome"); 
+		  Login.signIn("chrome");
+		  
 	  }*/
 	
 	@AfterTest

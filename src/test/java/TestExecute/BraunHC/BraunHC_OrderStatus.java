@@ -34,13 +34,13 @@ public class BraunHC_OrderStatus {
 		  Login.signIn(browser);
 	  }
 	
-	/*@BeforeMethod
+	/*	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn("chrome"); 
-	  }*/
-	
+	  }
+	*/
 	@AfterTest
 	public void clearBrowser()
 	{

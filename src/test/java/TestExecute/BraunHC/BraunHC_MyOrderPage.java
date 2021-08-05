@@ -20,7 +20,8 @@ public class BraunHC_MyOrderPage {
 	public void loginApplication() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.MyOrdersPage();
 		}

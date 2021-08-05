@@ -20,9 +20,10 @@ public class BraunHC_Validate_Address_book_AVS {
 	public void Address_Book() throws Exception {
 
 		try {
-			//BraunHC.AGREEPROCEED();ssss
-			//BraunHC.loginBraunHC("AccountDetails");
-			//BraunHC.Address_Book();
+			
+			//BraunHC.AGREEPROCEED();
+			BraunHC.loginBraunHC("AccountDetails");
+			BraunHC.Address_Book();
 			BraunHC.Validate_Address_book_AVS("Addressbook");
 		}
 		catch (Exception e) {

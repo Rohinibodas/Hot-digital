@@ -20,7 +20,7 @@ public class BraunHC_Address_Book {
 	public void Address_Book() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Address_Book();
 		}
@@ -28,20 +28,20 @@ public class BraunHC_Address_Book {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-	
-	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn(browser);
-	  }
-	/*
-	@BeforeMethod
+
+	/*@BeforeMethod
 	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	  public void startTest1() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn("chrome"); 
+		  Login.signIn("chrome");
+		  
 	  }*/
+@BeforeTest
+public void startTest() throws Exception {
+	System.setProperty("configFile", "BraunHC\\config.properties");
+Login.signIn();
+}
+	  
 	
 	@AfterTest
 	public void clearBrowser()
@@ -50,5 +50,4 @@ public class BraunHC_Address_Book {
 		Common.closeAll();
 
 	}
-
 }

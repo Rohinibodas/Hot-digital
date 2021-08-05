@@ -20,9 +20,9 @@ public class BraunHCRegistered_UserBrowser_Search {
 	public void Registered_UserBrowser_Search() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
-			//BraunHC.selectCategoryProduct("AccountDetails");
+			
 			BraunHC.Global_search("SearchproductName");
 			BraunHC.zerosearchProduct("Zero_Search");
 		}

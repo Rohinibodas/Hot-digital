@@ -22,7 +22,7 @@ public class BraunHC_RegCategoryCheckoutCC {
 		try {
 			
 			
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.selectCategoryProduct("AccountDetails");
 			BraunHC.Addtocart("AccountDetails");

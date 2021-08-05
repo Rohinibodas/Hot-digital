@@ -20,7 +20,7 @@ public class BraunHC_Account_Creation {
 	public void AccountCreationBraun() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.AccountCreationBraunHC("AccountDetails");
 		}
 		catch (Exception e) {
@@ -28,20 +28,20 @@ public class BraunHC_Account_Creation {
 		} 
 	}
 	
+
 	/*@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn(browser);
-	}*/
-	
-	@BeforeMethod
-	//@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	@Parameters({"browser"})  
+	  public void startTest1() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn("chrome");
 		  
-	  }
+	  }*/
+@BeforeTest
+public void startTest() throws Exception {
+	System.setProperty("configFile", "BraunHC\\config.properties");
+Login.signIn();
+}
+	  
 	
 	@AfterTest
 	public void clearBrowser()
@@ -50,5 +50,4 @@ public class BraunHC_Account_Creation {
 		Common.closeAll();
 
 	}
-
 }

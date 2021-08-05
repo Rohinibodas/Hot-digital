@@ -20,7 +20,7 @@ public class BraunHC_Accountinformation {
 	public void Accountinfomation() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Accountinfomation();
 			BraunHC.changeProfileName("AccountDetails");
@@ -34,19 +34,20 @@ public class BraunHC_Accountinformation {
 		} 
 	}
 	
-	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn(browser);
-	  }
-	
+
 	/*@BeforeMethod
 	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	  public void startTest1() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn("chrome"); 
+		  Login.signIn("chrome");
+		  
 	  }*/
+@BeforeTest
+public void startTest() throws Exception {
+	System.setProperty("configFile", "BraunHC\\config.properties");
+Login.signIn();
+}
+	  
 	
 	@AfterTest
 	public void clearBrowser()
@@ -55,5 +56,4 @@ public class BraunHC_Accountinformation {
 		Common.closeAll();
 
 	}
-
 }

@@ -20,7 +20,8 @@ public class BraunHC_ChangeQTYMini_Cart {
 	public void ChangeQTYMini_Cart() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			
+			//BraunHC.AGREEPROCEED();
 			//BraunHC.selectCategoryProduct("AccountDetails");
 			BraunHC.Global_search("SearchproductName");
 			BraunHC.ChangeQtyMinicart();
@@ -31,22 +32,21 @@ public class BraunHC_ChangeQTYMini_Cart {
 		} 
 	}
 	
+	/*
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn(browser);
-		  
-	  }/*
+	  }*/
 	
 	@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn("chrome");
-		  
+		  Login.signIn("chrome"); 
 	  }
-	*/
+	
 	@AfterTest
 	public void clearBrowser()
 	{

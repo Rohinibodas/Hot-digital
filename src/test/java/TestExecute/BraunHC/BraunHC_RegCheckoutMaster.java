@@ -20,10 +20,11 @@ public class BraunHC_RegCheckoutMaster {
 	public void RegCheckoutMaster() throws Exception {
 
 		try {
-			BraunHC.AGREEPROCEED();
+			
+			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
-			//BraunHC.searchProduct("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
+			BraunHC.searchProduct("AccountDetails");
+	
 			BraunHC.Addtocart("AccountDetails");
 			BraunHC.ShippingcartPage();
 			BraunHC.navigateShippingaddress();
