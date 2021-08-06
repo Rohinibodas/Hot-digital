@@ -22,38 +22,42 @@ public class BraunHC_CMSlink {
 		try {
 			
 			//BraunHC.AGREEPROCEED();
+			BraunHC.validateNavigatProductSupport("");
 			BraunHC.validateNavigateFAQ("");
+			BraunHC.validateNavigateWarrantyRegistration("");
 			BraunHC.validateNavigateContactUs("");
 			BraunHC.validateNavigateThermometers("");
+			BraunHC.validateNavigateNasalAspirator("");
 			BraunHC.validateNavigateBloodPressureMonitor("");
 			BraunHC.validateNavigatePulseOximeter("");
 			BraunHC.validateNavigateAccessories("");
-			BraunHC.validateNavogateOurHistory("");
-			BraunHC.validateNavogateBlog("");
-			BraunHC.validateNavogateOurCompany("");
-			BraunHC.validateNavogateCareers("");	
+			BraunHC.ourcompanyFooterlink();
+			BraunHC.ourhistoryFooterlink();
+			BraunHC.blogFooterlink();
+			BraunHC.careersFooterlink();
+			BraunHC.vicksFooterlink();
+			BraunHC.honeywellFooterlink();
+			BraunHC.PURFooterlink() ;
 			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-	
-	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn(browser);
-		  
-	  }
-	
-/*	@BeforeMethod
+
+	/*@BeforeMethod
 	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
+	  public void startTest1() throws Exception {
 		System.setProperty("configFile", "BraunHC\\config.properties");
 		  Login.signIn("chrome");
 		  
 	  }*/
+@BeforeTest
+public void startTest() throws Exception {
+	System.setProperty("configFile", "BraunHC\\config.properties");
+Login.signIn();
+}
+	  
 	
 	@AfterTest
 	public void clearBrowser()
@@ -62,5 +66,4 @@ public class BraunHC_CMSlink {
 		Common.closeAll();
 
 	}
-
 }

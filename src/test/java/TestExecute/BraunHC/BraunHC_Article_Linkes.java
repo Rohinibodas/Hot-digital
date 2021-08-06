@@ -21,10 +21,10 @@ public class BraunHC_Article_Linkes {
 
 		try {
 			//BraunHC.AGREEPROCEED();
-		    BraunHC.validateNavigateFacebook("");
-			BraunHC.validateNavigateYoutube("");
-			BraunHC.validateNAvigateInstagram();
-			
+		    
+			BraunHC.instagramFooterlink();
+			BraunHC.facebookFooterlink();
+			BraunHC.youtubeFooterlink();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
