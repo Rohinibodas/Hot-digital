@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hydroflask Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+<test name="TEST_ST_HF_040_Paypal_checkout_as_registered_user_with_Configure_bundle_and_simple_product"		
+		testid="HYDRO-934" priority="P1"		
+		description="This script will cover the paypal payment of registered user with bundle, configurable and simple products">		
+		<classes>			
+			<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_040_Paypal_checkout_as_registered_user_with_Configure_bundle_and_simple_product" />		
+		</classes>        
+	</test>
+<test name="TEST_ST_HF_041_Paypal_checkout_as_guest_user_with_bundle_simple_and_configurable_products"		
+		testid="HYDRO-935" priority="P1"		
+		description="This script will cover the paypal payment of guest user with configurable,simple and bundle products">		
+		<classes>			
+			<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_041_Paypal_checkout_as_guest_user_with_bundle_simple_and_configurable_products" />		
+		</classes>        
+	</test>
+<test name="Test_HF_ST_008_Contact_Us" testid="HYDRO-901" priority="P1"
+		description="This script will cover Countact Us Process of HydroFlesk">
+		<classes>
+			<class name="TestExecute.Hydroflask.Smoke.Contact_Us" />
+		</classes>
+	</test>
+<test name="Test_HF_ST_010_Reset_Password" testid="HYDRO-903"
+		priority="P1"
+		description="This script will cover User reset password by using forgot password option of HydroFlesk	">
+		<classes>
+			<class name="TestExecute.Hydroflask.Smoke.Fogetpassword" />
+		</classes>
+	</test>
+<test name="Test_HF_ST_011_Account_Creation" testid="HYDRO-904"
+		priority="P1" description="This script will cover Account Process of HydroFlesk">
+		<classes>
+			<class name="TestExecute.Hydroflask.Smoke.Account_Creation" />
+		</classes>
+	</test>
+<test name="Test_HF_ST_012_Warranty submission" testid="HYDRO-905"
+		priority="P1"
+		description="This script will cover Warranty_submission  Process of HydroFlesk">
+		<classes>
+			<class name="TestExecute.Hydroflask.Smoke.Warranty_Submission" />
+		</classes>
+	</test>
+<test name="TEST_HF_ST_022- Guest Checkout from Mini Cart" testid="HYDRO-916"
+		priority="P1"
+		description="This script will cover checkout with paypal from Minicart Hydro Flask">
+		<classes>
+			<class name="TestExecute.Hydroflask.Smoke.CheckoutWithPayPal" />
+		</classes>
+	</test>
+<test name="TEST_HF_ST_025_Registered Checkout Paypal from Mini Cart"
+		testid="HYDRO-911" priority="P1"
+		description="This script will cover Registered user checkout with paypal from Minicart Hydro Flask">
+		<classes>
+			<class name="TestExecute.Hydroflask.Smoke.Registered_CheckoutWithPaypal_from_minicart" />
+		</classes>
+	</test>
+<test name="TEST_ST_HF_032_Checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product"		
+		testid="HYDRO-926" priority="P1"		
+		description="This script will cover checkout with paymetric method as registered user with bundle ,my hydro and configurable product">		
+		<classes>			
+			<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_032_Checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product" />		
+		</classes>        
+	</test>
+<test name="TEST_ST_HF_033_Checkout_with_creditcard_as_Guest_user_with_bundle_my_hydro_and_configurable_product"		
+		testid="HYDRO-927" priority="P1"		
+		description="This script will cover checkout with paymetric method as guest user with bundle ,my hydro and configurable product ">		
+		<classes>			
+			<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_033_Checkout_with_creditcard_as_Guest_user_with_bundle_my_hydro_and_configurable_product" />		
+		</classes>        
+	</test>
+
+</suite> 

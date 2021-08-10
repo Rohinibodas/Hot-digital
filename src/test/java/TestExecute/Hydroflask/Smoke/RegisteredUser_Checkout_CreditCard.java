@@ -36,7 +36,7 @@ public class RegisteredUser_Checkout_CreditCard {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+	//Common.closeAll();
 
 	}
 	
