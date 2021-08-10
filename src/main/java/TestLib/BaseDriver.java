@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.logging.LogType;
@@ -50,21 +51,26 @@ public class BaseDriver
 			try {
 			 if(browserName.equalsIgnoreCase("firefox"))
 			{
-				WebDriverManager.firefoxdriver().setup();
-				 DesiredCapabilities cap = new DesiredCapabilities();
-				 cap.setJavascriptEnabled(true);
-				 FirefoxOptions  options = new FirefoxOptions();
-					options.addArguments("--no-sandbox");
-					options.addArguments("-disable-dev-shm-usage");
-					options.addArguments("--test-type");
-					options.addArguments("--enable-video-player-chromecast-support");
-					options.addPreference("dom.file.createInChild", true);
-					options.addArguments("disable-infobars");
-					options.addArguments("--disable-notifications");
-					options.addArguments("--disable-popup-blocking");
-				driver=new FirefoxDriver(options);
-				
-			}
+					WebDriverManager.firefoxdriver().setup();
+					
+ 
+					 
+					DesiredCapabilities cap = new DesiredCapabilities();
+					 cap.setJavascriptEnabled(true);					 
+					 
+					 
+					 FirefoxOptions  options = new FirefoxOptions();
+						options.addArguments("--no-sandbox");
+						options.addArguments("-disable-dev-shm-usage");
+						options.addArguments("--test-type");
+						options.addArguments("--enable-video-player-chromecast-support");
+						options.addPreference("dom.file.createInChild", true);
+						options.addArguments("disable-infobars");
+						options.addArguments("--disable-notifications");
+						options.addArguments("--disable-popup-blocking");
+					driver=new FirefoxDriver(options);
+					
+				}
 			 
 			 else if(browserName.equalsIgnoreCase("edge"))
 				{
@@ -88,7 +94,7 @@ public class BaseDriver
 			else if(browserName.equalsIgnoreCase("chrome"))
 			{
 				WebDriverManager.chromedriver().setup();
-				String 	downloadFilepath = System.getProperty("user.dir")+"//TestLogs//Download//";
+				String 	downloadFilepath = System.getProperty("user.dir")+"\\TestLogs\\Download";
 				File dlDirectory = new File(downloadFilepath);
 				dlDirectory.mkdir();
 				if (!dlDirectory.exists()) {
@@ -120,9 +126,13 @@ public class BaseDriver
 			// Save Chrome Preferences in Hash Map
 			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 			HashMap<String, Object> contentsetting = new HashMap<String, Object>();
-			chromePrefs.put("download.default_directory", downloadFilepath);
+			chromePrefs.put("profile.default_content_settings.popups", 0);
+		
 			chromePrefs.put("download.default_directory", downloadFilepath);
 			contentsetting.put("multiple-automatic-downloads", 1);
+	
+			chromePrefs.put("safebrowsing.enabled", "true");
+			
 			chromePrefs.put("download.prompt_for_download", "false");
 			chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
 			chromePrefs.put("credentials_enable_service", false);
@@ -134,7 +144,12 @@ public class BaseDriver
 			options.addArguments("-disable-dev-shm-usage");
 			options.addArguments("--test-type");
 			options.addArguments("--enable-video-player-chromecast-support");
+			
+			
+	
+			
 			options.setExperimentalOption("useAutomationExtension", false);
+	
 			options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 			options.addArguments("disable-infobars");
 			options.addArguments("--disable-notifications");

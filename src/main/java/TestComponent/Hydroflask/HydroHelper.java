@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
@@ -6606,7 +6607,7 @@ public void Adminlogins() throws Exception {
 	 Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
 	 Map<String,Object> xml= xmlReader.stringToMapTest(jsonInMap.get("OrderItems1").toString());
   	
-	 
+	 String OrderNumberxml=(String) jsonInMap.get("OrderNumber");     
 	 
   	String orderpricexml=xml.get("OrderedProductPrice").toString();
   	StringBuffer sb= new StringBuffer(orderpricexml);  
@@ -6637,10 +6638,16 @@ public void Adminlogins() throws Exception {
  	
 	System.out.println(OrderedProductQTYXML.contains(productQTY));
 	Common.oppenURL(fileName);
-	 Assert.assertTrue(xmlproductprice.contains(productPrice)&&productSKU.contains(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&OrderedProductQTYXML.contains(productQTY)); 
- //   System.out.println(productPrice  +"   " + xmlproductprice +"**" +productSKU+orderedProductSKUXML+productname+OrderedProductNameXML+productQTY+OrderedProductQTYXML);
-    
-    //Common.assertionCheckwithReport(productSKU.equals(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&productQTY.contains(s),"validating xml product infromation","order product inframtion matches to order xml product info","sucessfully matches product infromation"+order+"is Equal to xml infromation"+xml,"fail to match product infromatio with order xml iformation  product infromation="+order+"xmal infromation =="+xml);
+	orderxmlvalidations("ordernumber", OrderNumberxml, Ordernumber);
+	 orderxmlvalidations("productname",OrderedProductNameXML , productname);
+	 orderxmlvalidations("product SKU",orderedProductSKUXML, productSKU);
+	 orderxmlvalidations("productprice", xmlproductprice, productPrice);
+	 orderxmlvalidations("product QTY", OrderedProductQTYXML, productQTY);
+	 
+	 Common.assertionCheckwithReport(xmlproductprice.contains(productPrice)&&productSKU.contains(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&OrderedProductQTYXML.contains(productQTY),"validating xml product infromation","order product inframtion matches to order xml product info","sucessfully matches product infromation"+order+"is Equal to xml infromation"+xml,"fail to match product infromatio with order xml iformation  product infromation="+order+"xmal infromation =="+xml);  //   System.out.println(productPrice  +"   " + xmlproductprice +"**" +productSKU+orderedProductSKUXML+productname+OrderedProductNameXML+productQTY+OrderedProductQTYXML);
+	 
+	 
+  //  Common.assertionCheckwithReport(productSKU.equals(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&productQTY.contains(s),"validating xml product infromation","order product inframtion matches to order xml product info","sucessfully matches product infromation"+order+"is Equal to xml infromation"+xml,"fail to match product infromatio with order xml iformation  product infromation="+order+"xmal infromation =="+xml);
   	try {
     // Assert.assertTrue(productSKU.contains(orderedProductSKUXML)&& productname.contains(OrderedProductNameXML)&&productQTY.contains(OrderedProductQTYXML)); 
   	}
@@ -6722,8 +6729,491 @@ public void Adminlogins() throws Exception {
     		 return productinfromation;
     	 }
     	  
+    	 public HashMap<String,String> addDeliveryAddress_validation(String dataSet) throws Exception {
+ 			HashMap<String,String> Shippingaddress=new HashMap<String,String>();
+ 			
+ 			try {
+ 				Sync.waitElementVisible("id", "customer-email-address");
+ 				Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+ 				Thread.sleep(5000);
+ 				String emailid=Common.findElement("id" ,"customer-email-address").getAttribute("value");
+ 				System.out.println("*****"+emailid+"*******");
+ 				Shippingaddress.put("emailid", emailid);
+ 				
+ 			} catch (NoSuchElementException e) {
+ 				checkOut();
+ 				Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+
+ 			}
+ 			
+ 		
+ 			String expectedResult = "email field will have email address";
+ 			try {
+ 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+ 				Thread.sleep(3000);
+ 				String ShippingFirstName=Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']").getAttribute("value");
+ 				System.out.println("*****"+ShippingFirstName+"*******");
+ 				Shippingaddress.put("ShippingFisrtName", ShippingFirstName);
+ 	            int size = Common.findElements("id", "customer-email-address").size();
+ 	            Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
+ 	            Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
+ 	            Thread.sleep(2000);
+ 	            String ShippingLastName=Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']").getAttribute("value");
+ 	            System.out.println("*****"+ShippingLastName+"*******");
+ 	            Shippingaddress.put("ShippingLastName", ShippingLastName);
+ 	            
+ 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",data.get(dataSet).get("Street"));
+ 				Thread.sleep(2000);
+ 				String ShippingAddress1=Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']").getAttribute("value");
+ 	            System.out.println("*****"+ShippingAddress1+"*******");
+ 	            Shippingaddress.put("ShippingAddress1", ShippingAddress1);
+ 				//String Text=Common.getText("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']");
+ 				
+ 				
+
+ 				try {
+ 					Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+ 				} catch (Exception e) {
+ 					Common.actionsKeyPress(Keys.BACK_SPACE);
+ 					Thread.sleep(1000);
+ 					Common.actionsKeyPress(Keys.SPACE);
+ 					Common.clickElement("xpath", "//*[@id='co-shipping-form']/div/fieldset/div/div[1]/div/div/ul/li[1]/a");
+ 				}
+ 				if (data.get(dataSet).get("StreetLine2") != null) {
+ 					Common.textBoxInput("name", "street[1]", data.get(dataSet).get("Street"));
+ 					Thread.sleep(2000);
+ 					String street1=Common.findElement("name", "street[1]").getAttribute("value");
+ 		            System.out.println("*****"+street1+"*******");
+ 					
+ 					String text=Common.getText("name","street[1]");
+ 					System.out.println(text);
+ 					
+ 				}
+ 				if (data.get(dataSet).get("StreetLine3") != null) {
+ 					Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
+ 					Thread.sleep(2000);
+ 					String street2=Common.findElement("name", "street[2]").getAttribute("value");
+ 		            System.out.println("*****"+street2+"*******");
+ 				}
+ 				Sync.waitPageLoad();
+ 				Thread.sleep(5000);
+ 				Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='city']").clear();
+ 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",data.get(dataSet).get("City"));
+ 				Thread.sleep(2000);
+ 				String ShippingCity=Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='city']").getAttribute("value");
+ 	            System.out.println("*****"+ShippingCity+"*******");
+ 	            Shippingaddress.put("ShippingCity", ShippingCity);
+// 				System.out.println(data.get(dataSet).get("City"));
+ 				
+ 				Common.actionsKeyPress(Keys.PAGE_DOWN);
+ 				Thread.sleep(3000);
+ 				try {
+ 					Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+ 					Thread.sleep(2000);
+ 					String Shippingvalue=Common.findElement("name", "region_id").getAttribute("value");
+ 					String Shippingstate=Common.findElement("xpath","//select[@name='region_id']//option[@value='"+Shippingvalue+"']").getText();
+ 					 
+ 		            Shippingaddress.put("ShippingState", Shippingstate);
+ 				} catch (ElementClickInterceptedException e) {
+ 					Thread.sleep(3000);
+ 					Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+ 				}
+ 				
+ 				Thread.sleep(2000);
+ 				Common.textBoxInputClear("name", "postcode");
+ 				Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+ 				Thread.sleep(2000);
+ 				String ShippingZip=Common.findElement("name", "postcode").getAttribute("value");
+ 	            System.out.println("*****"+ShippingZip+"*******");
+ 	            Shippingaddress.put("ShippingZip", ShippingZip);
+ 				Thread.sleep(5000);
+ 				
+ 				Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+ 				Thread.sleep(2000);
+ 				String ShippingPhone=Common.findElement("name", "telephone").getAttribute("value");
+ 	            System.out.println("*****"+ShippingPhone+"*******");
+ 	            Shippingaddress.put("ShippingPhone", ShippingPhone);
+ 				
+ 	            
+
+ 			}
+
+ 			catch (Exception | Error e) {
+
+ 				ExtenantReportUtils.addFailedLog("validating shipping address",
+ 						"shipping address is filled in to the fields", "user faield to fill the shipping address",
+ 						Common.getscreenShotPathforReport("shipingaddressfaield"));
+ 				// ExtenantReportUtils.addFailedLog("User click check out button",
+ 				// "User unabel click the checkout button",
+ 				// Common.getscreenShotPathforReport("check out miniCart"));
+ 				Assert.fail();
+ 				
+ 			}
+ 			Thread.sleep(5000);
+ 			int size=Common.findElements("xpath", "//input[@id='label_method_bestway']").size();
+ 			if(size>0){
+ 				Common.clickElement("xpath", "//input[@id='label_method_bestway']");
+ 			}
+
+ 			expectedResult = "shipping address is filled in to the fields";
+ 			Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+
+ 			int errorsize = Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+
+ 			if (errorsize <= 0) {
+ 				ExtenantReportUtils.addPassLog("validating the shipping address field with valid Data", expectedResult,
+ 						"Filled the shipping address", Common.getscreenShotPathforReport("shippingaddresspass"));
+ 			} else {
+ 				ExtenantReportUtils.addFailedLog("validating the shipping address field with valid Datas", expectedResult,
+ 						"failed to add a addres in the filled",
+ 						Common.getscreenShotPathforReport("failed to add a address"));
+ 				Assert.fail();
+ 			}
+ 			System.out.println(Shippingaddress);
+ 			return Shippingaddress;
+ 	 }
+ 		
+ 	 
+     	 public void shippingvalidaing_GustUserXML(HashMap<String,String> shippingaddress,String ordernumber) throws IOException, Exception {
+     		 ArrayList<String> orderxmlinfromation=new ArrayList<String>();
+     	try {	 
+          Thread.sleep(5000);
+     	 String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+ordernumber+".xml";
+     	 //String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
+     	 Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
+     	 
+     	 
+     	 
+     	                             			
+     	 String ShippingFirstName= (String) jsonInMap.get("ShippingFirstName");
+     	 String ShippingLastName= (String) jsonInMap.get("ShippingLastName");
+     	 String ShippingAddress1= (String) jsonInMap.get("ShippingAddress1");
+     	 String ShippingCity= (String) jsonInMap.get("ShippingCity");
+     	 String ShippingState= (String) jsonInMap.get("ShippingState");
+     	 String ShippingZip=(String) jsonInMap.get("ShippingZip");
+     	 String customermail=(String) jsonInMap.get("cust_to_email");
+     	 
+     	//ArrayList<String> orderxmlinfromation=new ArrayList<String>();
+     	
+     	orderxmlinfromation.add("ShippingFirstName="+ShippingFirstName);
+     	orderxmlinfromation.add("ShippingLastName="+ShippingLastName);
+     	orderxmlinfromation.add("ShippingAddress1="+ShippingAddress1);
+     	orderxmlinfromation.add("ShippingCity="+ShippingCity);
+     	orderxmlinfromation.add("ShippingState="+ShippingState);
+     	orderxmlinfromation.add("ShippingZip="+ShippingZip);
+
+     	  String SfCustomerEmail=shippingaddress.get("emailid");
+     	 String Sffirstname=shippingaddress.get("ShippingFisrtName");
+     	 String SfLastname =shippingaddress.get("ShippingLastName");
+     	 String SfStreet =shippingaddress.get("ShippingAddress1");
+     	 String Sfcity =shippingaddress.get("ShippingCity");
+     	 String SfRegion =shippingaddress.get("ShippingState");
+     	 String Sfpostcode =shippingaddress.get("ShippingZip");
+     	 
+     	orderxmlvalidations("customerEmail", customermail, SfCustomerEmail);
+		 orderxmlvalidations("Shiiping first name",ShippingFirstName , Sffirstname);
+		 orderxmlvalidations("Shiiping last name",ShippingLastName, SfLastname);
+		 orderxmlvalidations("Shiiping Street address", ShippingAddress1, SfStreet);
+		 orderxmlvalidations("Shiiping City ", ShippingCity, Sfcity);
+		 
+		 orderxmlvalidations("Shiiping shipping zip code", ShippingZip, Sfpostcode);
+     	
+     	 Common.assertionCheckwithReport(SfCustomerEmail.contains(customermail)&&ShippingFirstName.contains(Sffirstname)&&SfLastname.contains(ShippingLastName)&&SfStreet.contains(ShippingAddress1)&&Sfcity.contains(ShippingCity)&&ShippingZip.contains(Sfpostcode), "Validating orderxml infromation with order shipping address","Order shipping address shoud match to order export xml adress","sucessfully order xml infromation matches to export xml adress"," un match the storefront shipping address"+shippingaddress+"    with  "+"   Orderxml infromation"+orderxmlinfromation);
+     	}
+     	
+     	catch (Exception | Error e) {
+
+     		e.printStackTrace();
+    			ExtenantReportUtils.addFailedLog("Validating orderxml infromation with order shipping address","Order shipping address shoud match to order export xml adress","un match the storefront shipping address"+shippingaddress+"    with  "+"   Orderxml infromation"+orderxmlinfromation,
+    					Common.getscreenShotPathforReport("shipingaddressfaieldxml"));
+    			// ExtenantReportUtils.addFailedLog("User click check out button",
+    			// "User unabel click the checkout button",
+    			// Common.getscreenShotPathforReport("check out miniCart"));
+    			Assert.fail();
+    			
+    		}
+     	
+     	 }
+     	public HashMap<String,String> orderamountinfromation() {
+  			// TODO Auto-generated method stub
+  			HashMap<String,String> data=new HashMap<String,String>();
+  			try{			    
+  				Thread.sleep(5000);
+  	            String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
+  		       // subtotla.replace("", newChar)
+  		        data.put("subtotlaValue",subtotla);
+  		        String shippingammount=Common.getText("xpath", "//span[@data-th='Shipping']").replace("$", "");
+  		        data.put("shippingammountvalue",shippingammount);
+  			    String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax*']//span").replace("$", "");
+  		        data.put("Taxammountvalue",TaxAmmount);
+  			    String TotalAmmount=Common.getText("xpath", "//tr[@class='grand totals incl']//span").replace("$", "");
+  		        data.put("TotalAmmount", TotalAmmount);
+  		   
+  		 Common.assertionCheckwithReport(!subtotla.equals(null),"verifying order amout detiles", "getting all the Billing ammount infromation","successfully get the total billing amount infromation ", "faiel to get billing ammount");
+	 		}
+ 	 catch(Exception |Error e)
+ 		{
+ 			report.addFailedLog("verifying tax billing amount", "getting price values from billing  page  ", "Faield to get price value from billing page", Common.getscreenShotPathforReport("TaxRatesbilling"));
+
+ 			e.printStackTrace();
+ 			Assert.fail();
+ 			
+ 	}
+  			return  data;
+  			
+  			}
     	 
+    	  
+    	  public void TotalvalidationXML(HashMap<String,String> data,String Order) throws IOException, Exception {
+    		    Thread.sleep(5000);
+
+    		String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+Order+".xml";
+    		//String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
+    		Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
     	
+    		String OrderShippingCosts= (String) jsonInMap.get("OrderShippingCosts");
+    		String tax_amt= (String) jsonInMap.get("tax_amt");
+    		String order_total= (String) jsonInMap.get("order_total");
+                          
+
+    		 
+    		 String Sfshipping =data.get("shippingammountvalue");
+    		 String SfTaxamount =data.get("Taxammountvalue");
+    		 String Sforder =data.get("TotalAmmount");
+
+    			System.out.println(order_total.contains(Sforder));
+        		System.out.println(tax_amt.contains(SfTaxamount));
+        		System.out.println( Sfshipping.contains(OrderShippingCosts));
+
+        		
+        		
+        		//System.out.println(OrderShippingCosts.contains(Sfshipping));
+        		
+    		Common.assertionCheckwithReport(order_total.contains(Sforder) && tax_amt.contains(SfTaxamount)&&OrderShippingCosts.contains(Sfshipping), 
+    				"verify Tax and total ammount shipping cost with on order xml",
+    				"Address must  matching to orderxml ",
+    				 "product shiping tax and order total "+ data+ " Matches to xml infromation "+ "OrderShippingCosts="+OrderShippingCosts+" tax_amt="+tax_amt+" prder_total "+order_total,
+    				
+    				 "product shiping tax and order total "+ data+ " is not Matches to xml infromation "+ "OrderShippingCosts="+OrderShippingCosts+" tax_amt="+tax_amt+" prder_total "+order_total);
+    		}
+    	  public void orderxmlvalidations(String Details,String XML,String Web)
+    		{
+    			//String fileOut="";
+    		try{
+    			
+    			File file=new File(System.getProperty("user.dir")+"/src/test/resources/OrderValidation.xlsx");
+    			XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+    			XSSFSheet sheet;
+    			Row row;
+    			Cell cell;
+    			int rowcount;
+    			sheet = workbook.getSheet("TaxDetails");
+    			
+    			if((workbook.getSheet("xmlvalidation"))==null)
+    			{
+    			sheet = workbook.createSheet("xmlvalidation");
+    			CellStyle cs = workbook.createCellStyle();
+    			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+    			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+    			Font f = workbook.createFont();
+    			f.setBold(true);
+    			cs.setFont(f);	 
+    			cs.setAlignment(HorizontalAlignment.RIGHT);
+    			row = sheet.createRow(0);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("XMLvalidation");
+    			
+    			row = sheet.createRow(1);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Details");
+    			cell = row.createCell(1);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Web");
+    			cell = row.createCell(2);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("XML");
+    			cell=row.createCell(3);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Status");
+    			rowcount=2;
+    			
+    			}
+    			
+    			else
+    			{
+    			
+    			sheet=workbook.getSheet("xmlvalidation");	
+    			rowcount=sheet.getLastRowNum()+1;
+    			}
+    			row = sheet.createRow(rowcount);
+    			cell = row.createCell(0);
+  			cell.setCellValue(Details);
+  			cell = row.createCell(1);
+  			cell.setCellType(CellType.NUMERIC);
+  			cell.setCellValue(Web);
+  			cell = row.createCell(2);
+  			cell.setCellType(CellType.NUMERIC);
+  			cell.setCellValue(XML);
+  			cell = row.createCell(3);
+  			cell.setCellType(CellType.STRING);
+  			
+  			String status;
+    	
+    			if(XML.contains(Web))
+    			{
+    				Thread.sleep(4000);
+    				status="pass";
+    			}
+    			else
+    			{
+    				status="Fail";
+    			}
+    			
+    			
+    			cell.setCellValue(status);
+    			
+    			FileOutputStream fileOut = new FileOutputStream(file);
+    			
+    			workbook.write(fileOut);
+    		
+    			fileOut.flush();
+    			fileOut.close();
+
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
+    	        }
+    	} 
+    	  public String verifyingSucesspage() throws Exception {
+    			String order="";
+    			String expectedResult = "It redirects to order confirmation page";
+
+    					
+    			Thread.sleep(3000);
+    			int placeordercount = Common.findElements("xpath", "//span[text()='Place Order']").size();
+    			
+    			if (placeordercount > 1) {
+    				Common.clickElement("xpath", "//span[text()='Place Order']");
+    			}
+
+    			String url=automation_properties.getInstance().getProperty(automation_properties.BASEURL);
+    			
+    			if(!url.contains("stg")){
+    				
+    			}
+    			
+    			else{
+    				try{
+    			String sucessMessage = Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
+    			
+    			int sizes = Common.findElements("xpath", "//h1[@class='checkout-success-title']").size();
+    			Common.assertionCheckwithReport(sucessMessage.equals("Your order has been received"),
+    					"verifying the product confirmation", expectedResult,
+    					"Successfully It redirects to order confirmation page Order Placed",
+    					"User unabel to go orderconformation page");
+    			//order=Common.getText("xpath", "//a[@class='order-number']/strong");
+
+    			order=Common.getText("xpath", "//div[@class='checkout-success']/p/span");
+    			
+    				}
+    				catch (Exception | Error e) {
+    					e.printStackTrace();
+    					ExtenantReportUtils.addFailedLog("verifying the product confirmation", expectedResult,
+    							"User failed to navigate  to order confirmation page", Common.getscreenShotPathforReport("failednavigatepage"));
+    					Assert.fail();
+    				}
+    				
+    		
+    		}
+    			return order;
+    		}
+    	  public HashMap<String,String>  add_PaymentDetails(String dataSet) throws Exception {
+  			
+  			HashMap<String,String> Payment=new HashMap<String,String>();
+  			Thread.sleep(4000);
+  			String expectedResult = "land on the payment section";
+  			
+  		
+  			try {
+  				
+  				Sync.waitElementClickable("xpath", "//label[@for='ime_paymetrictokenize']");
+  				int sizes=Common.findElements("xpath", "//label[@for='ime_paymetrictokenize']").size();
+                  Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land opaymentpage");
+  				Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+  				Thread.sleep(2000);
+  				Common.switchFrames("id", "paymetric_xisecure_frame");
+  				Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+  				String Cardtype=Common.findElement("xpath", "//select[@id='c-ct']").getAttribute("value");
+  				String Card=Common.findElement("xpath","//select[@id='c-ct']//option[@value='"+Cardtype+"']").getText();
+  			    Payment.put("Card", Card);
+  				Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+  				String Cardnumber=Common.findElement("id", "c-cardnumber").getAttribute("value");
+  				System.out.println("******"+Cardnumber+"*****");
+  				Payment.put("Cardnumber", Cardnumber);
+  				Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT,data.get(dataSet).get("ExpMonth"));
+  				String ExpMonth=Common.findElement("xpath", "//select[@id='c-exmth']").getAttribute("value");
+  				System.out.println("*******"+ExpMonth+"****");
+  				Payment.put("ExpMonth", ExpMonth);
+  				Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+  				String ExpYear=Common.findElement("xpath", "//select[@id='c-exyr']").getAttribute("value");
+  				System.out.println("*******"+ExpYear+"****");
+  				Payment.put("ExpYear", ExpYear);
+  				Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));
+  				String cvv=Common.findElement("id","c-cvv").getAttribute("value");
+  				System.out.println("*******"+cvv+"****");
+  				Payment.put("cvv", cvv);
+  				Thread.sleep(2000);
+  				Common.actionsKeyPress(Keys.ARROW_DOWN);
+  				Common.switchToDefault();
+  				Thread.sleep(1000);
+  				Common.clickElement("xpath", "//span[text()='Place Order']");
+  				
+  				
+  				//Common.clickElement("xpath", "//button[@title='Place Order']");
+
+  			}
+
+  			catch (Exception | Error e) {
+  				e.printStackTrace();
+  				 
+  				ExtenantReportUtils.addFailedLog("validating the Credit Card infromation", expectedResult,
+  						"faield  to fill the Credit Card infromation",
+  						Common.getscreenShotPathforReport("Cardinfromationfail"));
+  				
+  				Assert.fail();
+  	          }
+
+  			expectedResult = "credit card fields are filled with the data";
+  			String errorTexts = Common.findElement("xpath", "//div[contains(@id,'error')]").getText();
+  			Common.assertionCheckwithReport(errorTexts.isEmpty(), "validating the credit card information with valid data",
+  			expectedResult, "Filled the Card detiles", "missing field data it showinng error");
+  			return Payment;
+  		}
+
+  	  
+  	  public void card_details_validationXML(HashMap<String,String> Payment,String Order) throws IOException, Exception {
+            Thread.sleep(5000);
+
+        String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+Order+".xml";
+       Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
+       String payment_meth= (String) jsonInMap.get("payment_meth");
+       String CardType= (String) jsonInMap.get("CardType");
+       String CardExpirationMonth= (String) jsonInMap.get("CardExpirationMonth");
+       String CardExpirationYear= (String) jsonInMap.get("CardExpirationYear");
+      //  String cvv= (String) jsonInMap.get("cvv");
+
+         String Sfcardtype=Payment.get("Card");
+         String Sfcardnumber =Payment.get("Cardnumber");
+         String Sfexpmonth =Payment.get("ExpMonth");
+         String Sfexpyear =Payment.get("ExpYear");
+       // String Sfcvv =Payment.get("cvv");
+
+         orderxmlvalidations("customer cart type", CardType, Sfcardtype);   
+         orderxmlvalidations("card expir month", CardExpirationMonth, Sfexpmonth); 
+         orderxmlvalidations("card expir year", CardExpirationYear, Sfexpyear); 
+Common.assertionCheckwithReport(CardType.contains(Sfcardtype)&&CardExpirationMonth.contains(Sfexpmonth)&&CardExpirationYear.contains(Sfexpyear), "verify address should match on order xml", "store front application data matches to order xml infromatio","sucessfully matchs the web infromaation with order xml","faield to match web order infromation with order xml");
+}
 	public HydroHelper(String datafile) {
 		
 		
