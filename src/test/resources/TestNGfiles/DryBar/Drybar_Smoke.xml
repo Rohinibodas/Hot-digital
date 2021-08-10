@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Drybar Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+   
+     <test name="Test_DB_ST_001_Createaccount" testid="DRY-19" priority="P1" description="To verify the Account Creatio  functionality in Daybar website">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_001_Createaccount"/>
+        </classes>
+        </test>
+        
+          <test name="Test_DB_ST_002-Registered user Checkout with Visa Credit Card" testid="DRY-20" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_002_RegisteredUser_Checkout_visa_CreditCard"/>
+        </classes>
+        </test>
+        
+        
+         <test name="TEST_DB_ST_003-Guest Checkout with CreditCard" testid="DRY-21" priority="P1" description="This script will cover guestuser order product using Credit card in drybar">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_003_Guest_Checkout_CreditCard"/>
+        </classes>
+        </test>
+        
+         <test name="TEST_DB_ST_010-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_010_ForgotPassword"/>
+        </classes>
+    </test> 
+        
+         <test name="Test_DB_ST_011-Verification of Footerlinks" testid="DRY-46" priority="P1" description="This Test case is to verify Drybar Footerlinks.">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_011_validation_0f_Footerlinks"/>
+        </classes>
+    </test>
+     <test name="Test_DB_ST_012-Header Validation" testid="DRY-40" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user.">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.DB_ST_012_ValidatingHeaderLinks"/>
+        </classes>
+    </test>
+    
+    
+    <test name="Test_DB_MT_005-Verification My account page functionalities" testid="DRY-439" priority="P1" description="This Test case is to verify My account page functionalities navigations.">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.DB_MT_005_Validate_My_Account_Navigation"/>
+        </classes>
+    </test>
+</suite>  
