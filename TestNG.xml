@@ -25,6 +25,7 @@
         </classes>
     </test>
 	
+	
 	<test name="DT_PoC_009_Newsletter_Subscription" testid="9" priority="P1" description="This script will cover Newsletter_Subscription Process of HydroFlesk">
         <classes>
             <class name="TestExecute.Hydroflask.DT_PoC_009_Newsletter_Subscription"/>
