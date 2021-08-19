@@ -68,12 +68,17 @@ public class HydroHelper {
 		String expectedResult = "User should land on the home page";
 		int size =Common.findElements("xpath", "//a[@class='logo']").size();
 		Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
-		Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
+		//Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
 		try {
 			Sync.waitPageLoad();
 			//Thread.sleep(5000);
+			try {
 			Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 			Common.findElement("xpath", "//a[@class='social-login']").click();
+			}
+			catch(Exception e){
+				Common.clickElement("xpath", "//li[@class='header-links-login']/a");
+			}
 			//Thread.sleep(3000);
 		} catch (Exception | Error e) {
 			e.printStackTrace();
@@ -94,12 +99,55 @@ public class HydroHelper {
 		
 		Common.clickElementStale("id", "truste-consent-required");
 	}
+public void Rigisteraccount(String dataSet) {
+		
+		try {
+			
+			
+		String email = Common.genrateRandomEmail(data.get(dataSet).get("Email"));
+		
+		Common.findElement("xpath", "//div[@class='login-page-register-wrapper']/a").click();
+		
+		
+		Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName"));
+		
+		Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName"));
+		
+		Common.textBoxInput("id", "email_address", email);
+		
+		Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
+		Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
+		
+		Common.clickElement("xpath","//button[@class='register-page-action-submit']");
+		ExtenantReportUtils.addPassLog("verifying  page to Create new account",
+				"Crate account from with valid data", "User sucssfully creat account",
+				Common.getscreenShotPathforReport("account creation issue"));
+			
 
+		
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying  page to Create new account",
+					"Crate account from with valid data", "User failed to proceed creat account form ",
+					Common.getscreenShotPathforReport("account creation issue"));
+			Assert.fail();
+		
+	}
+	}
+	
 	public void CreateNewAccount(String dataSet) throws Exception {
 
 		navigateMyAccount();
 		String expectedResult = "opens Sign up pop up";
 
+		if(Common.findElements("xpath", "//div[@class='login-page-register-wrapper']/a").size()>0) {
+			
+			Rigisteraccount(dataSet);
+			
+		}
+		else {
+		
 		try {
 			Sync.waitElementClickable(30, By.xpath("//div[contains(text(),'Sign Up')]"));
 			// Common.assertionCheckwithReport("", expectedResult, "");
@@ -190,14 +238,49 @@ public class HydroHelper {
 			Assert.fail();
 
 		}
-
+		}
 	}
+	public void login(String dataSet){
+		try {
 
+		Thread.sleep(5000);
+		Common.assertionCheckwithReport(Common.getPageTitle().equals("Customer Login"), "validating login page", "after clicking my account button it will navigate to login page", "sucessfully navigate to login page", "fail to navigate login page");
+		Common.textBoxInput("id", "email",data.get(dataSet).get("Email"));
+		//Thread.sleep(4000);
+		Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
+		//Thread.sleep(5000);
+	    Common.clickElement("xpath", "//button[@class='login-page-submit-action']");
+	    
+	    
+	    Thread.sleep(4000);
+	    
+		String text = Common.getText("xpath", "//span[@data-ui-id='page-title-wrapper']");
+		
+		Common.assertionCheckwithReport(text.equals("My Account"), "verifying login account",
+				"customer is redirected to My Account page",
+				"Logged in the application and customer is redirected to My Account page",
+				"Unabel to login Account");
+		}
+		
+		catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying login page with credentials", "Open login page",
+					"User failed to login in account  ", Common.getscreenShotPathforReport("login faield"));
+			Assert.fail();
+
+		}
+	}
 	public void loginHydroflaskAccount(String dataSet) throws Exception {
 		//Thread.sleep(3000);
 		navigateMyAccount();
 		String expectedResult = "Opens login pop_up";
 
+	if(Common.findElements("id","email").size()>0) {
+		
+		login(dataSet);
+	}
+	else {
+		
 		Sync.waitElementClickable(30, By.id("social-login-popup-log-in-email"));
 		if (Common.findElement("id", "social-login-popup-log-in-email") == null) {
 			Common.clickElement("xpath", "//a[@class='social-login']");
@@ -250,7 +333,7 @@ public class HydroHelper {
 
 		}
 	}
-
+	}
 	/*
 	 * public void orderSubmit(String category) throws Exception {
 	 * report.addPassLog("Successfully landed on the home page",Common.
@@ -997,7 +1080,15 @@ public class HydroHelper {
 				"verifying the product confirmation", expectedResult,
 				"Successfully It redirects to order confirmation page Order Placed",
 				"User unabel to go orderconformation page");
-		order=Common.getText("xpath", "//div[@class='checkout-success']/p/span");
+		
+		if(Common.findElements("xpath", "//div[@class='checkout-success']/p/span").size()>0) {
+			order=Common.getText("xpath", "//div[@class='checkout-success']/p/span");
+		}
+		
+		
+		if(Common.findElements("xpath","//a[@class='order-number']/strong").size()>0) {
+			order=	Common.getText("xpath", "//a[@class='order-number']/strong");
+		}
 
 			}
 			catch (Exception | Error e) {
@@ -5280,23 +5371,42 @@ public void Newsletter_subscription() {
         }
         
         
+
         public void validating_Employ_Discount_forInlineProducts(int empalydisccount) throws Exception {
         	
+        	try {
         	Thread.sleep(4000);
         	
         	Common.scrollIntoView("xpath", "//span[@class='old-price']");
         	
         	String orginalprice=Common.getText("xpath", "//span[@class='old-price']").replace("$", "");
         	
-        	
+           String subtototal=	Common.getText("xpath", "//tr[@class='totals sub']//span").replace("$", "");
+       
+        
+        
         	double orginalprice_converting=Double.valueOf(orginalprice);
         	
             String disccountammount =persentageclaluater(orginalprice_converting,Double.valueOf(empalydisccount));
             
             double ammount=orginalprice_converting-Double.valueOf(disccountammount);
-            System.out.println(ammount);
-        }
-        
+            
+            
+    
+            System.out.println(String.valueOf(ammount).contains(subtototal));
+            
+            
+            Common.assertionCheckwithReport(String.valueOf(ammount).contains(subtototal), "validating emply discount", "product cost will get discount", "sucessfully we get employdiscount for product", "fail to get emply discount");
+       
+        	}
+        	 catch(Exception |Error e)
+	 		{
+	 			report.addFailedLog("validating product cost with empaly discount", "empaly discount price must be dispakyed in cart summary", "Faield to get empaly discount", Common.getscreenShotPathforReport("emplaydiscount"));
+
+	 			e.printStackTrace();
+	 			Assert.fail();
+	 			
+	 		}        	}
         public HashMap<String,String> taxValidation(String taxpercent) {
 			// TODO Auto-generated method stub
 			HashMap<String,String> data=new HashMap<String,String>();
@@ -6371,6 +6481,48 @@ public void Adminlogins() throws Exception {
   
     	 
     	 
+    	 public String seleOrderoprtion(String ordernumber) {
+    		String trantionid="";
+    		 try {
+    			 Thread.sleep(5000);
+     			Common.findElement("xpath","//li[@id='menu-magento-sales-sales']").click();
+     			
+     			Thread.sleep(5000);
+             	
+              	Common.clickElement("xpath","//li[@data-ui-id='menu-magento-sales-sales-order']");
+             	
+                 Thread.sleep(5000);
+                 
+             	Common.assertionCheckwithReport(Common.getPageTitle().equals("Orders / Operations / Sales / Magento Admin"), "Validating  order detiles option in admin", "User must land on order page in admin", "user sucessfully navigating to orders page ", "fail to navigate orders page");
+                Thread.sleep(5000);
+
+             	
+             	Common.textBoxInput("xpath", "//input[@id='fulltext']", ordernumber);
+             	Common.actionsKeyPress(Keys.ENTER);
+                Thread.sleep(5000);
+               Common.clickElement("xpath", "//a[text()='View']");
+               Thread.sleep(3000);
+               
+               Common.clickElement("xpath", "//a[@id='sales_order_view_tabs_order_transactions']");
+               Thread.sleep(3000);
+               trantionid=   Common.getText("xpath", "//tr[@data-role='row']//td[@data-column='txn_id']").trim();
+               
+               report.addPassLog("validating order TransactionID"," getting TransactionID from admin order view page","User sucessfully get TransactionID from order page in admin",Common.getscreenShotPathforReport("TransactionID"));
+    		 }
+                 catch(Exception |Error e)
+      	 		{
+      	 			report.addFailedLog("validating the orders pagein admin	", "select the order view buton", "Faield to select orer view",Common.getscreenShotPathforReport("orderview")); 	
+
+      	 			e.printStackTrace();
+      	 			Assert.fail();
+      	 			
+      	 	}
+    		 System.out.println(trantionid);
+    		 
+    		 return trantionid;
+
+    	 }
+    	 
     	 public void selectManulExport(String orderid) {
     		 
     		 try {
@@ -6408,7 +6560,7 @@ public void Adminlogins() throws Exception {
                  Common.clickElement("xpath", "//button[@id='export_button']");
                  report.addPassLog("validating the Manual Export order files"," enter all the field infromation manual export field","User sucessfully enter all the manual export field data",Common.getscreenShotPathforReport("downloading"));
     		 
-                
+                Common.actionsKeyPress(Keys.ESCAPE);
              	
             }   
      
@@ -6948,7 +7100,9 @@ public void Adminlogins() throws Exception {
   		        data.put("Taxammountvalue",TaxAmmount);
   			    String TotalAmmount=Common.getText("xpath", "//tr[@class='grand totals incl']//span").replace("$", "");
   		        data.put("TotalAmmount", TotalAmmount);
-  		   
+  		        
+  		        String shippingmetho=Common.getText("xpath", "//div[@class='checkout-summary-shipping-method']").replace("(", "").replace(")", "");
+  		      data.put("Shippingmethod", shippingmetho);
   		 Common.assertionCheckwithReport(!subtotla.equals(null),"verifying order amout detiles", "getting all the Billing ammount infromation","successfully get the total billing amount infromation ", "faiel to get billing ammount");
 	 		}
  	 catch(Exception |Error e)
@@ -6959,44 +7113,59 @@ public void Adminlogins() throws Exception {
  			Assert.fail();
  			
  	}
+  			System.out.println(data);
   			return  data;
   			
   			}
-    	 
-    	  
-    	  public void TotalvalidationXML(HashMap<String,String> data,String Order) throws IOException, Exception {
-    		    Thread.sleep(5000);
+    	     	  
+     	  public void TotalvalidationXML(HashMap<String,String> data,String Order) throws IOException, Exception {
+  		    Thread.sleep(5000);
 
-    		String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+Order+".xml";
-    		//String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
-    		Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
-    	
-    		String OrderShippingCosts= (String) jsonInMap.get("OrderShippingCosts");
-    		String tax_amt= (String) jsonInMap.get("tax_amt");
-    		String order_total= (String) jsonInMap.get("order_total");
-                          
+  		String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+Order+".xml";
+  		//String fileName="C:\\Users\\admin\\Downloads\\Export_4000420945A.xml";
+  		Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
+  	
+  		String OrderShippingCosts= (String) jsonInMap.get("OrderShippingCosts");
+  		String tax_amt= (String) jsonInMap.get("tax_amt");
+  		String order_total= (String) jsonInMap.get("order_total");
+  		String shippingmethodxml= (String) jsonInMap.get("shippingmethod");
+                        
 
-    		 
-    		 String Sfshipping =data.get("shippingammountvalue");
-    		 String SfTaxamount =data.get("Taxammountvalue");
-    		 String Sforder =data.get("TotalAmmount");
+  		 
+  		 String Sfshipping =data.get("shippingammountvalue");
+  		 String SfTaxamount =data.get("Taxammountvalue");
+  		 String Sforder =data.get("TotalAmmount");
+  		 String SfShippingmethod=data.get("Shippingmethod");
 
-    			System.out.println(order_total.contains(Sforder));
-        		System.out.println(tax_amt.contains(SfTaxamount));
-        		System.out.println( Sfshipping.contains(OrderShippingCosts));
+  		 if(SfShippingmethod.contains("Standard")) {
+  			 
+  			 SfShippingmethod="Standard - Fedex Ground Home Deliver";
+  		 }
+  		 
+  		 
+  		 
+  			System.out.println(order_total.contains(Sforder));
+      		System.out.println(tax_amt.contains(SfTaxamount));
+      		System.out.println( Sfshipping.contains(OrderShippingCosts));
 
-        		
-        		
-        		//System.out.println(OrderShippingCosts.contains(Sfshipping));
-        		
-    		Common.assertionCheckwithReport(order_total.contains(Sforder) && tax_amt.contains(SfTaxamount)&&OrderShippingCosts.contains(Sfshipping), 
-    				"verify Tax and total ammount shipping cost with on order xml",
-    				"Address must  matching to orderxml ",
-    				 "product shiping tax and order total "+ data+ " Matches to xml infromation "+ "OrderShippingCosts="+OrderShippingCosts+" tax_amt="+tax_amt+" prder_total "+order_total,
-    				
-    				 "product shiping tax and order total "+ data+ " is not Matches to xml infromation "+ "OrderShippingCosts="+OrderShippingCosts+" tax_amt="+tax_amt+" prder_total "+order_total);
-    		}
-    	  public void orderxmlvalidations(String Details,String XML,String Web)
+      		
+      		 orderxmlvalidations("gross_total",order_total , Sforder);
+      		 orderxmlvalidations("tax_amount",tax_amt, SfTaxamount);
+      		 orderxmlvalidations("OrderShippingCosts", OrderShippingCosts, Sfshipping);
+      		 orderxmlvalidations("Shipping method", shippingmethodxml, SfShippingmethod);
+      		 
+      		
+      		
+      		//System.out.println(OrderShippingCosts.contains(Sfshipping));
+      		
+  		Common.assertionCheckwithReport(order_total.contains(Sforder) && tax_amt.contains(SfTaxamount)&&OrderShippingCosts.contains(Sfshipping), 
+  				"verify Tax and total ammount shipping cost with on order xml",
+  				"Address must  matching to orderxml ",
+  				 "product shiping tax and order total "+ data+ " Matches to xml infromation "+ "OrderShippingCosts="+OrderShippingCosts+" tax_amt="+tax_amt+" prder_total "+order_total,
+  				
+  				 "product shiping tax and order total "+ data+ " is not Matches to xml infromation "+ "OrderShippingCosts="+OrderShippingCosts+" tax_amt="+tax_amt+" prder_total "+order_total);
+  		} 
+     	  public void orderxmlvalidations(String Details,String XML,String Web)
     		{
     			//String fileOut="";
     		try{
@@ -7214,6 +7383,86 @@ public void Adminlogins() throws Exception {
          orderxmlvalidations("card expir year", CardExpirationYear, Sfexpyear); 
 Common.assertionCheckwithReport(CardType.contains(Sfcardtype)&&CardExpirationMonth.contains(Sfexpmonth)&&CardExpirationYear.contains(Sfexpyear), "verify address should match on order xml", "store front application data matches to order xml infromatio","sucessfully matchs the web infromaation with order xml","faield to match web order infromation with order xml");
 }
+  	 public void Billingaddress_GustUserXML_Validation(HashMap<String,String> Billingaddress,String ordernumber) throws IOException, Exception {
+ 		 ArrayList<String> orderxmlinfromation=new ArrayList<String>();
+ 	try {	 
+      Thread.sleep(5000);
+ 	 String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+ordernumber+".xml";
+ 	
+ 	 Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
+ 	 
+ 	 
+ 	 
+ 	                             			
+ 	 String BillingFirstName= (String) jsonInMap.get("BillingFirstName");
+ 	 String BillingLastName= (String) jsonInMap.get("BillingLastName");
+ 	 String BillingAddress1= (String) jsonInMap.get("BillingAddress1");
+ 	 String BillingCity= (String) jsonInMap.get("BillingCity");
+ 	 String BillingState= (String) jsonInMap.get("BillingState");
+ 	 String BillingZip=(String) jsonInMap.get("BillingZip");
+ 	
+ 	 
+ 	//ArrayList<String> orderxmlinfromation=new ArrayList<String>();
+ 	
+ 	orderxmlinfromation.add("ShippingFirstName="+BillingFirstName);
+ 	orderxmlinfromation.add("ShippingLastName="+BillingLastName);
+ 	orderxmlinfromation.add("ShippingAddress1="+BillingAddress1);
+ 	orderxmlinfromation.add("ShippingCity="+BillingCity);
+ 	orderxmlinfromation.add("ShippingState="+BillingState);
+ 	orderxmlinfromation.add("ShippingZip="+BillingZip);
+
+ 	 String Sffirstname=Billingaddress.get("ShippingFisrtName");
+ 	 String SfLastname =Billingaddress.get("ShippingLastName");
+ 	 String SfStreet =Billingaddress.get("ShippingAddress1");
+ 	 String Sfcity =Billingaddress.get("ShippingCity");
+ 	 String SfRegion =Billingaddress.get("ShippingState");
+ 	 String Sfpostcode =Billingaddress.get("ShippingZip");
+ 	 
+ 	
+	 orderxmlvalidations("Billing first name",BillingFirstName , Sffirstname);
+	 orderxmlvalidations("Billing last name",BillingLastName, SfLastname);
+	 orderxmlvalidations("Billing Street address", BillingAddress1, SfStreet);
+	 orderxmlvalidations("Billing City ", BillingCity, Sfcity);
+	 
+	 orderxmlvalidations("Billing  zip code", BillingZip, Sfpostcode);
+ 	
+ 	 Common.assertionCheckwithReport(BillingFirstName.contains(Sffirstname)&&SfLastname.contains(BillingLastName)&&SfStreet.contains(BillingAddress1)&&Sfcity.contains(BillingCity)&&BillingZip.contains(Sfpostcode), "Validating orderxml infromation with order Billing address","Order Billing address shoud match to order export xml adress","sucessfully order xml infromation matches to export xml  Billing adress"," un match the storefront Billing address"+Billingaddress+"    with  "+"   Orderxml infromation"+orderxmlinfromation);
+ 	}
+ 	
+ 	catch (Exception | Error e) {
+
+ 		e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("Validating orderxml infromation with order shipping address","Order shipping address shoud match to order export xml adress","un match the storefront shipping address"+Billingaddress+"    with  "+"   Orderxml infromation"+orderxmlinfromation,
+					Common.getscreenShotPathforReport("shipingaddressfaieldxml"));
+			
+			Assert.fail();
+			
+		}
+ 	
+ 	 }
+  	public void ValidatingTranctionIDInXML(String Ordernumber,String TrantionID) {
+		 try {
+		 Thread.sleep(5000);
+		 String fileName=System.getProperty("user.dir")+"\\TestLogs\\Download\\Export_"+Ordernumber+".xml";
+		 Map<String, Object> jsonInMap=xmlReader.fetchvalues(fileName);
+		 String XMLTrantionID=jsonInMap.get("TransactionID").toString();
+		
+		 orderxmlvalidations("TrantionID", XMLTrantionID, TrantionID);
+		 Common.assertionCheckwithReport(XMLTrantionID.contains(TrantionID), "Validating  Weborder Trantion id with Order xml trantion id", "Admin web trantion is must match to xml trantion id", "success fully matches admin web order trantionid with xml trantion id", "fail to match web trantion id with orderxml trantion id");	 
+		 }
+		 catch (Exception | Error e) {
+			ExtenantReportUtils.addFailedLog("Validating  Weborder Trantion id with Order xml trantion id", "Admin web trantion is must match to xml trantion id ",
+					"fail to match web trantion id with orderxml trantion id",
+					Common.getscreenShotPathforReport("TrantionIDXMLValidation"));
+			Assert.fail();
+	 }
+		 
+		 }
+  	 public void get(String dataSet){
+  		 
+  		 System.out.println(data.get(dataSet).get("Email"));
+  		 
+  	 }
 	public HydroHelper(String datafile) {
 		
 		
