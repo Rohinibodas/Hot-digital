@@ -38,7 +38,7 @@ public class RHT_ST_ValidatePDPProductReview {
 		  Login.signIn(browser); 
 	  }
 	
-	/*@BeforeMethod
+	/*@BeforeMethod test comment
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "Revelon\\config.properties");
