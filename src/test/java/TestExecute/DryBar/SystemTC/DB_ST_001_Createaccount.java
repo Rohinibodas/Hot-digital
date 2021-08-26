@@ -16,6 +16,9 @@ public class DB_ST_001_Createaccount {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void createaccount() throws Exception {
 		try{
+		
+			
+			
 			
 	  drybar.Accept();
 	  drybar.verifyingHomePage();
@@ -23,6 +26,9 @@ public class DB_ST_001_Createaccount {
 	 
 	  
   }
+		
+		
+		
 	catch (Exception e) {
 		e.printStackTrace();
 		
@@ -42,7 +48,7 @@ public class DB_ST_001_Createaccount {
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
 		  Login.signIn();
-		 
+		 // testing Lotus
 		  
 	  }
 
