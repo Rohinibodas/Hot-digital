@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Stinger">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+
+	<test name="Test_stingerUS_ST_017_RegisteredUserCheckoutAMEX" testid="HHG-262"
+		priority="P1"
+		description="To verify the RegisterUser Checkout with AMEX">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_017RegisterUser_checkout_AMEX"/>
+		</classes>
+	</test>
+	
+</suite> 
+ 
