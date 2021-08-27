@@ -1445,10 +1445,10 @@ public class HottoolsHelpr {
 		String expectedResult="Product adding to mini cart";
 		try {
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
-			Sync.waitElementPresent("xpath", "(//img[@class='product-image-photo '])[1]");
+			Sync.waitElementPresent("xpath", "(//img[@class='product-image-photo '])[4]");
 
 			//Thread.sleep(5000);
-			Common.clickElement("xpath", "(//img[@class='product-image-photo '])[1]");
+			Common.clickElement("xpath", "(//img[@class='product-image-photo '])[4]");
 			//Common.javascriptclickElement("xpath", "//a[@title='"+data.get(dataSet).get("ProductName")+"']");
 
 			//Common.actionsKeyPress(Keys.ARROW_DOWN);
@@ -1718,7 +1718,7 @@ public class HottoolsHelpr {
 	{
 		String expectedResult="Guest Payment with valid credit card";
 		try {
-			Thread.sleep(4000);
+			Thread.sleep(8000);
 			if(Common.isElementDisplayed("xpath", "//div[@id='checkout-loader']")) {
 				Thread.sleep(5000);
 			}else {
@@ -1737,15 +1737,38 @@ public class HottoolsHelpr {
 
 			Common.switchToDefault();
 			Thread.sleep(2000);
-			report.addPassLog(expectedResult,"Should make payment with valid credit card successfully", "Make payment with valid credit card successfully", Common.getscreenShotPathforReport("validcreditcard success"));
-			Sync.waitElementPresent("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
-			Common.clickElement(By.xpath("//div[@class='iosc-place-order-container']//button[@title='Place Order']"));
+		report.addPassLog(expectedResult,"Should make payment with valid credit card successfully", "Make payment with valid credit card successfully", Common.getscreenShotPathforReport("validcreditcard success"));
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		 //Common.switchToDefault();
+		 Thread.sleep(3000);
+		 Common.scrollIntoView("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+		 Thread.sleep(6000);
+		 String URL = Common.getCurrentURL();
+		 Thread.sleep(4000);
+		 if (URL.equals("https://www.hottools.com/checkout/#shipping")) {
+
+		  
+
+		 Common.getCurrentURL();
+
+		  
+
+		 } else {
+
+		  
+
+		 Common.mouseOverClick("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+		 }
+			
+		
+		//Sync.waitElementPresent("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+			//Common.clickElement(By.xpath("//div[@class='iosc-place-order-container']//button[@title='Place Order']"));
 			if(Common.isElementVisibleOnPage(30, "xpath", "//div[contains(text(),'Shipping Address is not verified. Do you want to continue ?')]")) {
 				System.out.println("Address not verified pop up displayed");
 				Sync.waitElementPresent("xpath", "//button[@class='action-primary action-accept']");
 				Common.clickElement("xpath", "//button[@class='action-primary action-accept']");
 			}
-			Thread.sleep(2000);
+			Thread.sleep(2000); 
 			report.addPassLog(expectedResult,"Should make payment with valid credit card successfully", "Make payment with valid credit card successfully", Common.getscreenShotPathforReport("validcreditcard success"));
 		}catch(Exception |Error e)
 		{
@@ -1768,12 +1791,38 @@ public class HottoolsHelpr {
 				Common.clickElement(By.id("paypal_express"));
 				Thread.sleep(4000);
 			}	
+			
+			/*Common.actionsKeyPress(Keys.ARROW_DOWN);
+			 //Common.switchToDefault();
+			 Thread.sleep(3000);
+			 Common.scrollIntoView("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+			 Thread.sleep(6000);
+			 String URL = Common.getCurrentURL();
+			 Thread.sleep(4000);
+			 if (URL.equals("https://www.hottools.com/checkout/#shipping")) {
+
+			  
+
+			 Common.getCurrentURL();
+
+			  
+
+			 } else {
+
+			  
+
+			 Common.mouseOverClick("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+			 }*/
+			
 			Sync.waitElementPresent("xpath", "//div[@class='iosc-place-order-container']//button[@type='submit']");
 			Common.clickElement(By.xpath("//div[@class='iosc-place-order-container']//button[@type='submit']"));
 			Thread.sleep(5000);
 			Common.clickElementStale("xpath", "//button[text()='Accept Cookies']");
 			Common.textBoxInputClear("name", "login_email");
 			Common.textBoxInput("name", "login_email", data.get(dataSet).get("UserName"));
+			//Sync.waitElementPresent("xpath", "//button[text()='Next']");
+			//Common.clickElement("xpath", "//button[text()='Next']");
+			//Thread.sleep(3000);
 			Common.textBoxInput("name", "login_password", data.get(dataSet).get("Password"));
 			Common.clickElement("xpath", "//button[@id='btnLogin']");
 			Thread.sleep(5000);
@@ -1818,7 +1867,7 @@ public class HottoolsHelpr {
 				//Sync.waitElementPresent("xpath", "//div[@class='items payment-methods']/div/div[4]/div//input[@name='payment[method]']");
 				//Common.clickElement("xpath", "//div[@class='items payment-methods']/div/div[4]/div//input[@name='payment[method]']");		
 			}
-			Thread.sleep(2000);
+			Thread.sleep(6000);
 			if(Common.checkBoxIsSelected("xpath", "//td[@class='col col-method']")) {
 
 				System.out.println("Shipping method is selected");
@@ -1862,9 +1911,32 @@ public class HottoolsHelpr {
 			Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
 			Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
 			Common.switchToDefault();
+			
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			 //Common.switchToDefault();
+			 Thread.sleep(3000);
+			 Common.scrollIntoView("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+			 Thread.sleep(6000);
+			 String URL = Common.getCurrentURL();
+			 Thread.sleep(4000);
+			 if (URL.equals("https://www.hottools.com/checkout/#shipping")) {
 
-			Sync.waitElementPresent("xpath", "//button[text()='Place Order']");
-			Common.clickElement(By.xpath("//button[text()='Place Order']"));
+			  
+
+			 Common.getCurrentURL();
+
+			  
+
+			 } else {
+
+			  
+
+			 Common.mouseOverClick("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+			 }
+			
+
+			//Sync.waitElementPresent("xpath", "//button[text()='Place Order']");
+			//Common.clickElement(By.xpath("//button[text()='Place Order']"));
 
 			report.addPassLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card successfully", Common.getscreenShotPathforReport("Payment CC success"));
 		}catch(Exception |Error e)
@@ -2974,8 +3046,29 @@ public class HottoolsHelpr {
 			Common.switchToDefault();
 
 			Thread.sleep(6000);
-			Sync.waitElementPresent("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
-			Common.javascriptclickElement("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			 //Common.switchToDefault();
+			 Thread.sleep(3000);
+			 Common.scrollIntoView("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
+			 Thread.sleep(6000);
+			 String URL = Common.getCurrentURL();
+			 Thread.sleep(4000);
+			 if (URL.equals("https://www.hottools.com/pro/checkout/#shipping")) {
+
+			  
+
+			 Common.getCurrentURL();
+
+			  
+
+			 } else {
+
+			  
+
+			 Common.mouseOverClick("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
+			 }
+			//Sync.waitElementPresent("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
+			//Common.javascriptclickElement("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
 
 			Thread.sleep(2000);
 			report.addPassLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card successfully", Common.getscreenShotPathforReport("Payment CC success"));
@@ -3953,24 +4046,89 @@ public class HottoolsHelpr {
 					
 					Thread.sleep(8000);
 				}
-				Sync.waitElementPresent("xpath", "(//input[@name='payment[method]'])[2]");
-				//Common.clickElement("xpath", "(//input[@name='payment[method]'])[2]");
-				Common.javascriptclickElement("xpath", "(//input[@name='payment[method]'])[2]");
-
-				Common.textBoxInput("xpath", "(//input[@title='Purchase Order Number'])[3]",  data.get(dataSet).get("OrderId"));
-				Common.switchFrames("paymetric_xisecure_frame");
 				
+				Common.switchFrames("paymetric_xisecure_frame");
 				Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
 				Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
 				Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
 				Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
 				Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
 				Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
-				
 				Common.switchToDefault();
+				
+				 Common.actionsKeyPress(Keys.ARROW_DOWN);
+				 //Common.switchToDefault();
+				 Thread.sleep(3000);
+				 Common.scrollIntoView("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+				 Thread.sleep(6000);
+				 String URL = Common.getCurrentURL();
+				 Thread.sleep(4000);
+				 if (URL.equals("https://www.hottools.com/checkout/#shipping")) {
+
+				  
+
+				 Common.getCurrentURL();
+
+				  
+
+				 } else {
+
+				  
+
+				 Common.mouseOverClick("xpath", "//div[@class='iosc-place-order-container']//button[@title='Place Order']");
+				 }
 				//Common.textBoxInput("xpath", "(//input[@name='payment[custom_po_reference_dup]'])[1]", data.get(dataSet).get("OrderId"));
-				Sync.waitElementPresent("xpath", "//button[@title='Place Order']");
-				Common.clickElement(By.xpath("//button[text()='Place Order']"));
+				//Sync.waitElementPresent("xpath", "//button[@title='Place Order']");
+				//Common.clickElement(By.xpath("//button[text()='Place Order']"));
+				report.addPassLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card successfully", Common.getscreenShotPathforReport("Payment CC success"));
+			}catch(Exception |Error e)
+			{
+				report.addFailedLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card unsuccessfully", Common.getscreenShotPathforReport("Payment CC Failed"));
+				e.printStackTrace();
+				Assert.fail();
+			}
+		}
+	}
+	
+	public void DistrbutorCreditcardPayment_promocde(String dataSet) {
+		// TODO Auto-generated method stub
+		{
+			String expectedResult="Payment With Valid Credit Card";
+			try {
+				Thread.sleep(5000);
+
+				if(Common.isElementDisplayed("xpath", "//div[@id='checkout-loader']")) {
+					Thread.sleep(8000);
+				}else {
+					
+				}	
+				//Common.switchFrames("paymetric_xisecure_frame");
+
+				Thread.sleep(5000);
+				Common.refreshpage();
+
+				Sync.waitElementPresent("xpath", "(//input[@name='payment[method]'])[2]");
+				//Common.clickElement("xpath", "(//input[@name='payment[method]'])[2]");
+				Common.javascriptclickElement("xpath", "(//input[@name='payment[method]'])[2]");
+
+				Common.textBoxInput("xpath", "(//input[@title='Purchase Order Number'])[3]",  data.get(dataSet).get("OrderId"));
+
+				Common.switchFrames("paymetric_xisecure_frame");
+				Thread.sleep(1000);
+
+				Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
+				Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
+				Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+				Common.dropdown("id", "c-exmth", SelectBy.VALUE, data.get(dataSet).get("ExpMonth"));
+				Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+				Common.textBoxInput("id", "c-cvv",  data.get(dataSet).get("cvv"));
+				Common.switchToDefault();
+
+				Thread.sleep(6000);
+				Sync.waitElementPresent("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
+				Common.javascriptclickElement("xpath", "(//div[@class='iosc-place-order-container']/button)[1]");
+
+				Thread.sleep(2000);
 				report.addPassLog(expectedResult,"Should Make payment wih valid credit card successfully", "Make payment wih valid credit card successfully", Common.getscreenShotPathforReport("Payment CC success"));
 			}catch(Exception |Error e)
 			{
@@ -4062,8 +4220,8 @@ public class HottoolsHelpr {
 		String expectedResult=" Validating shipping page ";
 	try {
 		
-		Sync.waitElementPresent("xpath", "//button[@title='Place Order']");
-		Common.clickElement(By.xpath("//button[@title='Place Order']"));
+		//Sync.waitElementPresent("xpath", "//button[@title='Place Order']");
+		//Common.clickElement(By.xpath("//button[@title='Place Order']"));
 
 		
 		int fielderror=Common.findElements("xpath", "//div[@class='field-error']").size();
@@ -4199,6 +4357,26 @@ public class HottoolsHelpr {
 			Assert.fail();
 		}
 	}
+	
+	public void AddressVerification()throws Exception{
+		String expectedResult="Address Verification";
+		try {
+			Thread.sleep(2000);
+		Sync.waitElementPresent("xpath","//span[text()= 'OK']");
+			
+			Common.clickElement("xpath", "//span[text()='OK']");
+			//Common.textBoxInput("xpath", "//input[@id='item-sku-units']",  data.get(dataSet).get("ProductName"));
+			//Common.clickElement("xpath", "//input[@id='item-sku-units']");
+			//Common.clickElement("xpath", "(//span[contains(text(), 'Hot Tools® Professional Black Gold™ One-Step Detachable Blowout ')])[2]");
+			//Common.javascriptclickElement("xpath", "//*[@id='ui-id-10']/li/span");
+		}
+		catch(Exception |Error e)
+		{
+			report.addPassLog(expectedResult,"Should Submit Units Details Successfully", "Not Submitted Units Details Successfully", Common.getscreenShotPathforReport("Units Details Page failed"));
+			e.printStackTrace();
+			Assert.fail();
+		}
 
 	}
 
+}

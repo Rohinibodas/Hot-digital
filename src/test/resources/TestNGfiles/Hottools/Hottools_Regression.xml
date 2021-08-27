@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="TEST_HT_ST_001_VerifyCustomerRegistrationforRetailerUser" testid="BTYUS-490" priority="P1" description="This script will cover CustomerRegistrationforRetailerUser page in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retialeruser_AccountRegistration"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_MT_019_VerifyCustomerRegistrationForSylistSaloonOwnerUser" testid="BTYUS-491" priority="P1" description="This script will cover VerifyCustomerRegistrationForSylistSaloonOwnerUser of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RegistrationForSylistSaloonOwnerUser"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_ST_008_VerifyForgotpasswordforRetailerUser" testid="BTYUS-207" priority="P1" description="This script will cover VerifyForgotpasswordforRetailerUser pages in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retailer_Forgot_Password"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_ST_010_ValidateCMSPages" testid="BTYUS-246" priority="P1" description="This script will cover cms pages in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Validate_CMSPages"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_ST_013_ValidateProductRegistration" testid="BTYUS-169" priority="P1" description="This script will cover ProductRegistration of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Productregistration"/>
+        </classes>
+    </test>
+	<test name="TEST_HT_ST_011_ValidateGiveUSFeeback" testid="BTYUS-182" priority="P1" description="This script will GiveUSFeeback of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GiveUsFeedback"/>
+        </classes>
+    </test>
+    <test name="TEST_HT_ST_004_VerifyForgotPasswordforDistributorUser" testid="BTYUS-213" priority="P1" description="This script will cover Forgot password for Distributor of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_Forgotpassword"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_026_RetailerBrowserSearch" testid="BTYUS-225" priority="P1" description="Validating the browser search for Retailer user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RetailerUser_BrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_025_DistributorBrowserSearch" testid="BTYUS-222" priority="P1" description="Validating the browser search for distributor user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributoruser_BrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_027_GuestUserBrowserSearch" testid="BTYUS-226" priority="P1" description="Validating the browser search for distributor user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_BrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_030_GuestUserCheckout" testid="BTYUS-238" priority="P1" description="To verify the Checkout for Guest user functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_Browsesearch_Checkout"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_031_StylistBrowserSearch" testid="BTYUS-256" priority="P1" description="Validating the browser search for Stylist user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Stylistuser_BrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_036_StylistCheckoutCreditCard" testid="BTYUS-261" priority="P1" description="To verify the Checkout with CreditCard For Stylist User functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_StylistUser_Browsesearch_Checkout"/>
+        </classes>
+    </test>
+     <test name="TEST_HT_ST_008-OrderSuccesspageforRetailerUser" testid="BTYUS-492" priority="P1" description="This script will cover OrderSuccesspageforRetailerUser pages in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retailer_Browsesearch_Checkout_page"/>
+        </classes>
+    </test> 
+     
+     <test name="Test_HT_ST_034_StylistMyorderconfirmation" testid="BTYUS-264" priority="P1" description="To verify the Stylistuser My Order Confirmation Checkout with Credit Card functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_StylistUser_MyOrderConfirmation"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_037_Become Influencer" testid="BTYUS-272" priority="P1" description="To verify the Become an Influencer functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_BecameInfluencer"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_039_ValidateHeaderLinks" testid="BTYUS-267" priority="P1" description="To verify the Header Links functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Validating_HeaderLinks"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_038_NewsLetterSubscription" testid="BTYUS-273" priority="P1" description="To verify the News Letter Subscription functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Validate_Newsletter_Subscription"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_033_CategoryCheckoutCreditCard" testid="BTYUS-263" priority="P1" description="To verify the Category Checkout with CreditCard for Retailer functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retailer_Category_Checkout"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_032_Myorderconfirmation" testid="BTYUS-262" priority="P1" description="To verify the My Order Confirmation for Retailer User Checkout with Credit Card functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retaileruser_MyOrderConfirmation"/>
+        </classes>
+    </test>
+    <test name="TEST_HT_ST_001_OrderSuccessPageforDistributorUser" testid="BTYUS-366" priority="P1" description="This test case validates logged in distributor user searching for a product, adding it to mini cart, checking out processing payment with credit card successfully">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_Browsesearch_CheckoutCreditCard"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_035_StylistCategoryCheckoutCreditCard" testid="BTYUS-265" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_StylistUser_Category_Checkout"/>
+        </classes>
+    </test>
+    <test name="TEST_HT_ST_019_VerifyCheckoutpageforDistributorUserwithPurchaseOrder" testid="BTYUS-198" priority="P1" description="This test case is to verify hottools, browse Registered user Checkout with payment method as Purchase order in checkout page functionality for user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorCheckoutPurchaseOrder"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_041_DistributorQuickOrderCaseswithCreditCard" testid="BTYUS-179" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderCases functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickOrderCases_Checkout"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_040_DistributorQuickOrderUnits" testid="BTYUS-183" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderUnits functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_QuickOrderUnits_Checkout"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_042_DistributorQuickOrderMultipleSkus" testid="BTYUS-149" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderMultipleSkus functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickMultipleSkus_Checkout"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_043_DistributorQuickOrderAddFromFile" testid="BTYUS-170" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderAddFromFile User Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_QuickOrderAddFromFile_Checkout"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_060_DistributorQuickOrderCasesCC(AMEX)" testid="BTYUS-327" priority="P1" description="To verify the Checkout with CreditCard(AMEX) For DistributorQuickOrderCases functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickOrderCases_CCAMEX"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_062_DistributorQuickOrderCasesCC(Discover)" testid="BTYUS-318" priority="P1" description="To verify the Checkout with CreditCard(Discover) For DistributorQuickOrderCases functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickOrder_CCDiscover"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_061_DistributorQuickOrderCasesCC(MasterCard)" testid="BTYUS-323" priority="P1" description="To verify the Checkout with CreditCard(MasterCard) For DistributorQuickOrderCases functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Ditributor_QuickOrderCases_CCMastercard_Checkout"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_051_StylistCategoryCheckoutCreditcard(AMEX)" testid="BTYUS-379" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_StylistUser_Checkout_CreditcardAMEX"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_052_StylistCategoryCheckoutCreditcard(MasterCard)" testid="BTYUS-374" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard(MasterCard) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_StylistUser_Checkout_CCMastercard"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_053_StylistCategoryCheckoutCreditcard(Discover)" testid="BTYUS-376" priority="P1" description="To verify the Stylist user Category Checkout with CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_StylistUser_Checkout_CreditcardDiscover"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_054_GuestUserCreditCard(AMEX)" testid="BTYUS-319" priority="P1" description="To verify the Guest user Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_Checkout_CCAMEX"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_055_GuestUserCreditCard(MasterCard)" testid="BTYUS-334" priority="P1" description="To verify the Guest user Checkout with CreditCard(MasterCard)) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_CCMasterCard_Checkout"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_056_GuestUserCreditCard(Discover)" testid="BTYUS-336" priority="P1" description="To verify the Guest user Checkout with CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_Checkout_CCDiscover"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_057_RetailerCheckoutCreditcard(AMEX)" testid="BTYUS-329" priority="P1" description="To verify the Category Checkout with CreditCard(AMEX) for Retailer User functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RetailerUser_Checkout_CCAMEX"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_058_RetailerCheckoutCreditcard(MasterCard)" testid="BTYUS-332" priority="P1" description="To verify the Category Checkout with CreditCard(MasterCard) for Retailer User functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RetailerUser_Checkout_CCMastercard"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_059_RetailerCheckoutCreditcard(Discover)" testid="BTYUS-326" priority="P1" description="To verify the Category Checkout with CreditCard(Discover) for Retailer User functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RetailerUser_Checkout_CCDiscover"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_063_FooterNewsLetterSubscription" testid="BTYUS-342" priority="P1" description="To verify the Footer News Letter Subscription functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_FooterNewsletterSubscription"/>
+        </classes>
+    </test>
+    
+    
+    <test name="Test_HT_ST_064_ValidateArticleLinks" testid="BTYUS-343" priority="P1" description="To validate the ArticleLinks  of the Hottoolswebsite">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_ValidateArticleLinks"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_065_RetailerUserMyAccontLeftNavigation" testid="BTYUS-352" priority="P1" description="To validate the My Account page of the Retailer User">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Validate_MyAccountLeft_Navigation"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_029_GuestUserCheckoutPaypal" testid="BTYUS-237" priority="P1" description="To verify the Guest User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_Checkout_PayPal"/>
+        </classes>
+    </test>
+    
+    
+      <test name="Test_HT_ST_066_Signup_NewsLetter" testid="BTYUS-545" priority="P1" description="To verify Sign up NewsLetter functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_SignUpforNewsletterfromLightBox"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_067_AddnewshippingaddresstofRetailerCheckout" testid="BTYUS-546" priority="P1" description="To verify Add news hipping address of Retailer Checkout functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_AddNewShippingAddresstoRetailerUser_inCheckout_Page"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_068_HT_ST_Retailer_invalidCheckoutCreaditCard" testid="BTYUS-547" priority="P1" description="To verify the Retailer nvalid Checkout Creadit Card functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retailer_invalid_CheckoutCreaditCard"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_072_HT_ST_Retailer_User_promocode" testid="BTYUS-557" priority="P1" description="To verify  Retailer_User_promocodel functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RetailerUser_promocode_Checkout"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_069_HT_ST_GuestCheckout_invalidCreditCard" testid="BTYUS-548" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestCheckout_invalidCreditCard"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_070_HT_ST_RetailerCheckoutwith_Adding_two_products" testid="BTYUS-549" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retailer_Checkoutwith_Adding_two_products"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_071_HT_ST_GuestCheckoutwithtwoproducts" testid="BTYUS-556" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_checkout_withadding_two_Products"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_073_Stylist_User_promocode" testid="BTYUS-558" priority="P1" description="To verify the Stylist_User_promocode functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_StylistUser_Checkout_promocode"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_074_Distributor_User_promocode" testid="BTYUS-559" priority="P1" description="To verify Distributor_User_promocode functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorUser_promocode_Checkout"/>
+        </classes>
+    </test>
+    
+    
+     <test name="Test_HT_ST_020_PromocodeCheckout" testid="BTYUS-380" priority="P1" description="This test case is to verify  Hottools ,Promocode Checkout functionality for user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_Checkout_Promocode"/>
+        </classes>
+    </test> 
+    <test name="Test_HT_ST_RegisteredUserPaypal" testid="BTYUS-236" priority="P1" description="This test case is to verify  Hottools ,Registered User Paypal">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RetailerUser_Paypal_Checkout"/>
+        </classes>
+    </test> 
+    
+     <test name="Test_HT_ST_059_Guestuser_Mastercard_MultiProductwith_Tax_Freight_Shippingwithdifferent_BillingShippingaddress" testid="BTYUS-731" priority="P1" description="To verify the Guest user multiple product Checkout with tax and  frieght shipping CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_Mastercard_MultiProduct_Tax_FreightShippingwithdifferent_BillingShippingaddress"/>
+        </classes>
+    </test>
+     
+   <test name="Test_HT_ST_060_Registeruser_AMEX_MultiProduct_Tax_Shipping_SameBilling_Shipping" testid="BTYUS-732" priority="P1" description="To verify the register user multiple product Checkout with Tax, shipping and  CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Registeruser_AMEX_MultiProduct_Tax_Shipping_SameBilling_Shippingaddress"/>
+        </classes>
+    </test> 
+    
+    <test name="Test_HT_ST_061_Guestuser_Discover_MultiProduct_Tax_Shipping_SameBillingShipping_address" testid="BTYUS-792" priority="P1" description="To  verify the Guest user multiple product Checkout with Tax, shipping and  CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_Discover_MultiProduct_Tax_Shipping_SameBillingShipping_address"/>
+        </classes>
+    </test>
+        <test name="Test_HT_ST_062_Guestuser_AMEX_MultiProduct_NoTax_Shipping_SameBilling_Shippingaddress" testid="BTYUS-793" priority="P1" description="To  verify the Guest user multiple product Checkout with NoTax, shipping and  CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_AMEX_MultiProduct_NoTax_Shipping_SameBilling_Shippingaddress"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_063_RegisteruserDiscover_MultiProduct_NoTax_Shipping_SameBillingShipping_address" testid="BTYUS-794" priority="P1" description="To  verify the Register user multiple product Checkout with NoTax, shipping and  CreditCard(Discover)functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RegisteruserDiscover_MultiProduct_NoTax_Shipping_SameBillingShipping_address"/>
+        </classes>
+    </test>
+       <test name="Test_HT_ST_064_Guestuser_AMEX_MultiProduct_Discount_Promo_Tax_Shipping_SameBilling_Shippingaddress" testid="BTYUS-795" priority="P1" description="To verify the Guest user Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_AMEX_MultiProduct_Discount_Promo_Tax_Shipping_SameBilling_Shippingaddress"/>
+        </classes>
+    </test>
+    
+   <test name="Test_HT_ST_065_RegisterUserDiscover_MultiProduct_DiscountPromo_Tax_Shippingdifferent_Billing_Shippingaddress" testid="BTYUS-806" priority="P1" description="To  verify the Register user multiple product Checkout with DiscountPromo, Tax, shipping, Different Billing address and  CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RegisterUserDiscover_MultiProduct_DiscountPromo_Tax_Shippingdifferent_Billing_Shippingaddress"/>
+        </classes>
+    </test> 
+    
+    <test name="Test_HT_ST_066_Registeruser_Checkout_VISACC_Tax_With_Employee_discountand_Same_Billing_and_shipping_Address" testid="BTYUS-811" priority="P1" description="To  verify the Register user Checkout with Employee Discount, Tax, shipping, same Billing address and  CreditCard(VISA) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Registeruser_Checkout_VISACC_Tax_With_Employeediscount_Sameilling_and_shippingAddress"/>
+        </classes>
+    </test>
+        <test name="Test_HT_ST_067__Registeruser_Checkout_AmexCC_N0_Tax_Employee_discountwith_Same_Billing_and_shipping_Address" testid="BTYUS-812" priority="P1" description="To  verify the Register user Checkout with Employee Discount, NOTax, shipping, same Billing address and  CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Registeruser_Checkout_AmexCC_NoTax_Employee_discount_SameBilling_and_shippingAddress"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_068_GuestUser_checkout_Amex_with_PO_Box_Address" testid="BTYUS-813" priority="P1" description="To verify the Guest user PO Box Checkout with PO Box  (Test for failure) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_checkoutCCAmex_with_POBox_Address"/>
+        </classes>
+    </test>
+        <test name="Test_HT_ST_069_RegisterUser_checkout_Vissa_with_PO_Box_Address" testid="BTYUS-814" priority="P1" description="To verify the Register user PO Box Checkout with PO Box  (Test for failure) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_RegisterUser_checkoutCCVisa_with_POBox_Address"/>
+        </classes>
+    </test>
+    <!--  <test name="Test_HTGC_ST_047_Artist access page" testid="BTY-988" priority="P1" description="To verify Atist Access coupon place order functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardArtistAccess"/>
+        </classes>
+    </test> -->
+    <!--  <test name="Test_HTGC_ST_046_Creative access page" testid="BTY-987" priority="P1" description="To  verify Creative access coupon place order Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardCreativeAccess"/>
+        </classes>
+    </test> -->
+    <!-- <test name="Test_HTGC_ST_045_Inspo access page" testid="BTY-984" priority="P1" description="To  verify Inspo access coupon place order Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardInspoAccess"/>
+        </classes>
+    </test> --> 
+    <!--  <test name="Test_HTGC_ST_048_Premiere access page" testid="BTY-989" priority="P1" description="To  verify Premiere access coupon place order Functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.HT_ST_GoldCardPremiereAccess"/>
+        </classes>
+    </test> --> 
+    
+    
+</suite>  

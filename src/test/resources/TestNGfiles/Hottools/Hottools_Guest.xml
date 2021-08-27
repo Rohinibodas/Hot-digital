@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Hottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+<test name="TEST_HT_ST_010_ValidateCMSPages" testid="BTY-466" priority="P1" description="This script will cover cms pages in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Validate_CMSPages"/>
+        </classes>
+    </test>
+    <test name="TEST_HT_ST_013_ValidateProductRegistration" testid="BTY-487" priority="P1" description="This script will cover ProductRegistration of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Productregistration"/>
+        </classes>
+    </test>
+    <test name="TEST_HT_ST_011_ValidateGiveUSFeeback" testid="BTY-495" priority="P1" description="This script will GiveUSFeeback of Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GiveUsFeedback"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_027_GuestUserBrowserSearch" testid="BTY-660" priority="P1" description="Validating the browser search for distributor user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_BrowserSearch"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_030_GuestUserCheckout" testid="BTY-663" priority="P1" description="To verify the Checkout for Guest user functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_Browsesearch_Checkout"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_037_Become Influencer" testid="BTY-752" priority="P1" description="To verify the Become an Influencer functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_BecameInfluencer"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_039_ValidateHeaderLinks" testid="BTY-754" priority="P1" description="To verify the Header Links functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Validating_HeaderLinks"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_054_GuestUserCreditCard(AMEX)" testid="BTY-1566" priority="P1" description="To verify the Guest user Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_Checkout_CCAMEX"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_055_GuestUserCreditCard(MasterCard)" testid="BTY-1567" priority="P1" description="To verify the Guest user Checkout with CreditCard(MasterCard)) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_CCMasterCard_Checkout"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_056_GuestUserCreditCard(Discover)" testid="BTY-1568" priority="P1" description="To verify the Guest user Checkout with CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_Checkout_CCDiscover"/>
+        </classes>
+    </test>
+    
+     <test name="Test_HT_ST_063_FooterNewsLetterSubscription" testid="BTY-1575" priority="P1" description="To verify the Footer News Letter Subscription functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_FooterNewsletterSubscription"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_064_ValidateArticleLinks" testid="BTY-1576" priority="P1" description="To validate the ArticleLinks  of the Hottoolswebsite">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_ValidateArticleLinks"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_029_GuestUserCheckoutPaypal" testid="BTY-662" priority="P1" description="To verify the Guest User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_Checkout_PayPal"/>
+        </classes>
+    </test>
+    
+    
+      <test name="Test_HT_ST_066_Signup_NewsLetter" testid="BTY-545" priority="P1" description="To verify Sign up NewsLetter functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_SignUpforNewsletterfromLightBox"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_ST_069_HT_ST_GuestCheckout_invalidCreditCard" testid="BTY-548" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestCheckout_invalidCreditCard"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_071_HT_ST_GuestCheckoutwithtwoproducts" testid="BTY-556" priority="P1" description="To verify the Resgister User Checkout with paypal functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_checkout_withadding_two_Products"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_059_Guestuser_Mastercard_MultiProductwith_Tax_Freight_Shippingwithdifferent_BillingShippingaddress" testid="BTY-731" priority="P1" description="To verify the Guest user multiple product Checkout with tax and  frieght shipping CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_Mastercard_MultiProduct_Tax_FreightShippingwithdifferent_BillingShippingaddress"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_061_Guestuser_Discover_MultiProduct_Tax_Shipping_SameBillingShipping_address" testid="BTY-792" priority="P1" description="To  verify the Guest user multiple product Checkout with Tax, shipping and  CreditCard(Discover) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_Discover_MultiProduct_Tax_Shipping_SameBillingShipping_address"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_062_Guestuser_AMEX_MultiProduct_NoTax_Shipping_SameBilling_Shippingaddress" testid="BTY-793" priority="P1" description="To  verify the Guest user multiple product Checkout with NoTax, shipping and  CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_AMEX_MultiProduct_NoTax_Shipping_SameBilling_Shippingaddress"/>
+        </classes>
+    </test>
+     <test name="Test_HT_ST_064_Guestuser_AMEX_MultiProduct_Discount_Promo_Tax_Shipping_SameBilling_Shippingaddress" testid="BTY-795" priority="P1" description="To verify the Guest user Checkout with CreditCard(AMEX) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Guestuser_AMEX_MultiProduct_Discount_Promo_Tax_Shipping_SameBilling_Shippingaddress"/>
+        </classes>
+    </test>
+    <test name="Test_HT_ST_068_GuestUser_checkout_Amex_with_PO_Box_Address" testid="BTY-813" priority="P1" description="To verify the Guest user PO Box Checkout with PO Box  (Test for failure) functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_GuestUser_checkoutCCAmex_with_POBox_Address"/>
+        </classes>
+    </test>
+</suite>

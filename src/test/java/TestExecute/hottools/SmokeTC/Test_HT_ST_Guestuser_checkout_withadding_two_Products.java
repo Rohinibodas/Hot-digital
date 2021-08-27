@@ -9,20 +9,25 @@ import org.testng.annotations.Test;
 import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
-import TestLib.Sync;
 
-public class Test_HT_ST_SignUpforNewsletterfromLightBox {
+public class Test_HT_ST_Guestuser_checkout_withadding_two_Products {
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
+	/**
+	 * 
+	 */
 	@Test(priority=1)
-	public void Signup_NewsLetter(){
+	public void GuestCheckoutwithtwoproducts(){
 		try{
-			//Hottools.agreeCookiesbanner();
+			Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
-
-			Hottools.LightboxNewslettersignup("RetailCustomerAccountDetails");
-			
+			Hottools.CategorySelection();
+			Hottools.TwoCategoryProductSelection();
+			Hottools.TwoproductCategoryMincart();
+			Hottools.Guestcheckoutpage("Guestshippingaddress");
+			Hottools.GuestCreditcard("Guestshippingaddress");
+			Hottools.GuestuserorderSuccesspage();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
@@ -42,7 +47,7 @@ public class Test_HT_ST_SignUpforNewsletterfromLightBox {
 	/*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
-		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
+		System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
 		  Login.signIn("chrome"); 
 	}*/

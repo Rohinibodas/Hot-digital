@@ -9,43 +9,50 @@ import org.testng.annotations.Test;
 import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
-import TestLib.Sync;
 
-public class Test_HT_ST_SignUpforNewsletterfromLightBox {
+public class Test_HT_ST_Guestuser_Checkout_Promocode {
+
+
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void Signup_NewsLetter(){
-		try{
-			//Hottools.agreeCookiesbanner();
-			Hottools.Newslettersignup();
+	public void Promocode(){
 
-			Hottools.LightboxNewslettersignup("RetailCustomerAccountDetails");
-			
+		try{
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
+			Hottools.searchingProducts("PromocodeproductName");
+			Hottools.minicartProduct("PromocodeproductName");
+			Hottools.miniCart("PromocodeproductName");
+			Hottools.checkoutpage();
+			Hottools.Guestcheckoutpages("Guestshippingaddress");
+			Hottools.ValidatingPromocode("PromocodeproductName");
+			Hottools.GuestCreditcard("Guestshippingaddress");
+			Hottools.GuestuserorderSuccesspage();
 		}
 		catch (Exception e) {
+
 			Assert.fail(e.getMessage(), e);
 		}
 	}
 	
-	 
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
 		  Login.signIn(browser);
-		  
 	  }
 	
-	/*@BeforeMethod
+      /*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
-		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
+		System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
-		  Login.signIn("chrome"); 
-	}*/
+		  Login.signIn("chrome");
+		  
+	  }*/
 
 	@AfterTest
 	public void clearBrowser()
@@ -55,3 +62,4 @@ public class Test_HT_ST_SignUpforNewsletterfromLightBox {
 	}
 
 }
+

@@ -9,44 +9,47 @@ import org.testng.annotations.Test;
 import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
-import TestLib.Sync;
 
-public class Test_HT_ST_SignUpforNewsletterfromLightBox {
+public class Test_HT_ST_Retailer_Checkoutwith_Adding_two_products {
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void Signup_NewsLetter(){
-		try{
-			//Hottools.agreeCookiesbanner();
-			Hottools.Newslettersignup();
+	public void RetailerCheckoutwithtwoproducts(){
 
-			Hottools.LightboxNewslettersignup("RetailCustomerAccountDetails");
-			
+		try{
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
+			Hottools.singin("RetailCustomerAccountDetails");
+			Hottools.CategorySelection();
+			Hottools.TwoCategoryProductSelection();
+			Hottools.TwoproductCategoryMincart();
+			Hottools.checkoutpage();
+		    Hottools.CreditcardPayment("AMEXCardDetails");
+			Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
+
 			Assert.fail(e.getMessage(), e);
 		}
 	}
 	
-	 
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
 		  Login.signIn(browser);
-		  
 	  }
 	
-	/*@BeforeMethod
+    /*@BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
-		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
+		System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
-		  Login.signIn("chrome"); 
-	}*/
-
+		  Login.signIn("chrome");
+		  
+	  }*/
 	@AfterTest
 	public void clearBrowser()
 	{

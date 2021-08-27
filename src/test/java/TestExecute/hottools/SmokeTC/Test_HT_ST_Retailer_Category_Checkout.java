@@ -9,49 +9,54 @@ import org.testng.annotations.Test;
 import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
-import TestLib.Sync;
 
-public class Test_HT_ST_SignUpforNewsletterfromLightBox {
+public class Test_HT_ST_Retailer_Category_Checkout {
+
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void Signup_NewsLetter(){
-		try{
-			//Hottools.agreeCookiesbanner();
-			Hottools.Newslettersignup();
+	public void RetailerCategoryCheckout(){
 
-			Hottools.LightboxNewslettersignup("RetailCustomerAccountDetails");
-			
+		try{
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
+			Hottools.singin("RetailCustomerAccountDetails");
+			Hottools.categoryMenuItem();
+			Hottools.minicartProduct("productName");
+			Hottools.miniCart("productName");
+			Hottools.checkoutpage();
+		    Hottools.CreditcardPayment("PaymentDetails");
+			Hottools.RegistereduserorderSuccesspage();
 		}
 		catch (Exception e) {
+
 			Assert.fail(e.getMessage(), e);
 		}
 	}
 	
-	 
 	@BeforeMethod
 	@Parameters({"browser"}) 
 	  public void startTest(String browser) throws Exception {
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
-		  Login.signIn(browser);
-		  
+		  Login.signIn(browser); 
 	  }
 	
-	/*@BeforeMethod
+   /*  @BeforeMethod
 	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
-		  Login.signIn("chrome"); 
-	}*/
+		  Login.signIn("chrome");
+	  }*/
 
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+       Common.closeAll();
 
 	}
 
 }
+

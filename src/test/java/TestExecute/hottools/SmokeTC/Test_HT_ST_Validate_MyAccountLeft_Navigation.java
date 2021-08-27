@@ -9,43 +9,49 @@ import org.testng.annotations.Test;
 import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
-import TestLib.Sync;
 
-public class Test_HT_ST_SignUpforNewsletterfromLightBox {
+public class Test_HT_ST_Validate_MyAccountLeft_Navigation {
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void Signup_NewsLetter(){
-		try{
-			//Hottools.agreeCookiesbanner();
-			Hottools.Newslettersignup();
+	public void Validatesocialmedialinks(){
 
-			Hottools.LightboxNewslettersignup("RetailCustomerAccountDetails");
-			
+		try{
+			Hottools.agreeCookiesbanner();
+			Hottools.Newslettersignup();
+			Hottools.singin("RetailCustomerAccountDetails");
+			Hottools.navigateMyOrder();
+			Hottools.navigateMyWishList();
+			Hottools.navigateAddressBook();
+			Hottools.navigateAccountInformation();
+			Hottools.navigateProductReviews();
+			Hottools.navigateNewsLetterSubscription();
+
 		}
 		catch (Exception e) {
+
 			Assert.fail(e.getMessage(), e);
 		}
 	}
-	
-	 
+
 	@BeforeMethod
 	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
+	public void startTest(String browser) throws Exception {
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
-		  Login.signIn(browser);
-		  
-	  }
-	
+		Login.signIn(browser);
+
+	}
+
 	/*@BeforeMethod
-	@Parameters({"browser"})  
-	  public void startTest() throws Exception {
-		//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
+		@Parameters({"browser"})  
+		  public void startTest() throws Exception {
+			//System.setProperty("configFile", "Hottools\\Config_Hottools_Staging.properties");
 		//System.setProperty("configFile", "Hottools\\Config_Hottools_Production.properties");
-		  Login.signIn("chrome"); 
-	}*/
+			  Login.signIn("chrome");
+
+		  }*/
 
 	@AfterTest
 	public void clearBrowser()

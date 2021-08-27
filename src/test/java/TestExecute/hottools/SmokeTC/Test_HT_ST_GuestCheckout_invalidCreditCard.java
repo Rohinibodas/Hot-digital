@@ -1,27 +1,31 @@
 package TestExecute.hottools.SmokeTC;
 
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.Hottools.HottoolsHelpr;
 import TestLib.Common;
 import TestLib.Login;
-import TestLib.Sync;
 
-public class Test_HT_ST_SignUpforNewsletterfromLightBox {
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+
+public class Test_HT_ST_GuestCheckout_invalidCreditCard {
 	String datafile = "Hottools//HottoolsTestData.xlsx";	
 	HottoolsHelpr Hottools=new HottoolsHelpr(datafile);
 
 	@Test(priority=1)
-	public void Signup_NewsLetter(){
+	public void GuestCheckoutwithinvalidCreditCard(){
 		try{
 			//Hottools.agreeCookiesbanner();
 			Hottools.Newslettersignup();
-
-			Hottools.LightboxNewslettersignup("RetailCustomerAccountDetails");
+			Hottools.searchingProducts("productName");
+			Hottools.minicartProduct("productName");
+			Hottools.miniCart("productName");
+			Hottools.Guestcheckoutpage("Guestshippingaddress");
+			Hottools.invalid_Creditcard("Guestshippingaddress");
 			
 		}
 		catch (Exception e) {

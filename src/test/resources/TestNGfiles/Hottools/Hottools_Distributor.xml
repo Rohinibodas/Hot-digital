@@ -6,76 +6,76 @@
    <test name="Test_HT_ST_025_DistributorBrowserSearch" testid="BTY-658" priority="P1" description="Validating the browser search for distributor user">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributoruserBrowserSearch"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributoruser_BrowserSearch"/>
         </classes>
     </test>
     <test name="TEST_HT_ST_001_OrderSuccessPageforDistributorUser" testid="BTY-440" priority="P1" description="This test case validates logged in distributor user searching for a product, adding it to mini cart, checking out processing payment with credit card successfully">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorCheckoutCreditCard"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_Browsesearch_CheckoutCreditCard"/>
         </classes>
     </test>
     <test name="TEST_HT_ST_019_VerifyCheckoutpageforDistributorUser" testid="BTY-490" priority="P1" description="This test case is to verify hottools, browse Registered user Checkout with payment method as Purchase order in checkout page functionality for user">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorCheckoutPurchaseOrder"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorCheckoutPurchaseOrder"/>
         </classes>
     </test> 
     
     <test name="Test_HT_ST_041_DistributorQuickOrderCases" testid="BTY-978" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderCases functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorQuickOrderCases"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickOrderCases_Checkout"/>
         </classes>
     </test>
     <test name="Test_HT_ST_040_DistributorQuickOrderUnits" testid="BTY-977" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderUnits functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorQuickOrder"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_QuickOrderUnits_Checkout"/>
         </classes>
     </test>
      <test name="Test_HT_ST_042_DistributorQuickOrderMultipleSkus" testid="BTY-979" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderMultipleSkus functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorQuickMultipleSkus"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickMultipleSkus_Checkout"/>
         </classes>
     </test> 
     <test name="Test_HT_ST_043_DistributorQuickOrderAddFromFile" testid="BTY-484" priority="P1" description="To verify the Checkout with CreditCard For DistributorQuickOrderAddFromFile User Functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorQuickOrderAddFromFile"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_QuickOrderAddFromFile_Checkout"/>
         </classes>
     </test>
     
     <test name="Test_HT_ST_060_DistributorQuickOrderCasesCC(AMEX)" testid="BTY-1572" priority="P1" description="To verify the Checkout with CreditCard(AMEX) For DistributorQuickOrderCases functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorQuickOrderCasesCCAMEX"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickOrderCases_CCAMEX"/>
         </classes>
     </test>
     
     <test name="Test_HT_ST_062_DistributorQuickOrderCasesCC(Discover)" testid="BTY-1574" priority="P1" description="To verify the Checkout with CreditCard(Discover) For DistributorQuickOrderCases functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DistributorQuickOrderCCDiscover"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorQuickOrder_CCDiscover"/>
         </classes>
     </test>
     <test name="Test_HT_ST_061_DistributorQuickOrderCasesCC(MasterCard)" testid="BTY-1573" priority="P1" description="To verify the Checkout with CreditCard(MasterCard) For DistributorQuickOrderCases functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_DitributorQuickOrderCasesCCMastercard"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Ditributor_QuickOrderCases_CCMastercard_Checkout"/>
         </classes>
     </test>
      <test name="Test_HT_ST_074_Distributor_User_promocode" testid="BTY-559" priority="P1" description="To verify Distributor_User_promocode functionality">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.HT_ST_Distributor_User_promocode"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_DistributorUser_promocode_Checkout"/>
         </classes>
     </test> 
      <test name="TEST_HT_ST_004_VerifyForgotPasswordforDistributorUser" testid="BTY-473" priority="P1" description="This script will cover Forgot password for Distributor of Hottools">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.hottools.SmokeTC.DT_ST_009_Distributor_Forgotpassword"/>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Distributor_Forgotpassword"/>
         </classes>
     </test>
    </suite>  
