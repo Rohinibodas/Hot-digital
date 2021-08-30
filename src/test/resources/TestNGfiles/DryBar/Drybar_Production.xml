@@ -29,35 +29,7 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_004_Cart_Page_Validation"/>
         </classes>
         </test>
-      <test name="Test_DB_ST_005-Guest user Checkout with Invalid Credit card " testid="DRY-26" priority="P1" description="To Verify the Guest User Checkout with invalid CC Data functionality in Drybar">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_005_GuestCheckoutwith_invalid_CC_Credentials"/>
-        </classes>
-    </test>
-    
-     <test name="Test_DB_ST_006-Registered Checkout with Invalid Creditcard" testid="DRY-25" priority="P1" description="To Verify the Registered User Checkout with invalid CC Data functionality in Drybar">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_006_RegUserCheckoutwith_invalid_CC_Credentials"/>
-        </classes>
-    </test>
-    
-    
-       <test name="Test_DB_ST_007-Apply Gift Card on Checkout Page" testid="DRY-34" priority="P1" description="To Verify the Checkout with applying Gift Card functionality in Drybar">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_007_ApplyGiftCardonCheckoutPage"/>
-        </classes>
-    </test>
-    
-    
-      <test name="Test_DB_ST_008-Apply Offer Code on Checkout Page" testid="DRY-33" priority="P1" description="To Verify the Checkout with applying Offer Code functionality in Drybar">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_008_ApplyOfferCodeonCheckoutPage"/>
-        </classes>
-    </test>
-    
-    
-    
-    
+  
     
    <test name="TEST_DB_ST_009-Verify Forgot Password page validation" testid="DRY-38" priority="P1" description="This Test case is to Verify Forgot Password page validation in Drybar">
         <classes>
@@ -127,11 +99,13 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_019_Product_Review"/>
         </classes>
     </test>
+    
     <test name="Test_DB_ST_020-Verification of Product Wishlist Functionality" testid="DRY-639" priority="P1" description="This Test case is to verify the Product wishlist Functionality.">
         <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_020_Product_Wishlist"/>
         </classes>
     </test>
+    
      <test name="Test_DB_ST_021_Change_Email_of_Registereduser" testid="DRY-640" priority="P1" description="This Test case is to change the Email Address of Registereduser">
         <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_021_Change_Email_of_Registereduser"/>
@@ -148,11 +122,7 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_023_Add_NewAddress_for_RegisteredUser"/>
         </classes>
     </test>
-     <test name="Test_DB_ST_024_Order_Verification" testid="DRY-643" priority="P1" description="This Test case is to verify ordered id with Myorders order id">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_024_OrderID_Verification"/>
-        </classes>
-    </test>
+
     
          <test name="Test_DB_ST_025_Articlelinks_validations" testid="DRY-757" priority="P1" description="This Test case is to verify Article links in Homepage">
         <classes>
@@ -343,30 +313,7 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_055_RU_Discover_NoTax_MultiProduct_same_BillShip"/>
         </classes>
     </test>
-    
-       <test name="Test_DB_ST_056_Guestuser_checkout_AmexCC_Tax_multipleproduct_Promocode_same_Billing_and_shipping" testid="DRY-1103" priority="P1" description="This Test case is to used to Verify Guestuser checkout AmexCC with multiple product,tax,Promocode and same billing and shipping">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_056_GU_Amex_Tax_MultiProd_Promocode_Same_BillShip"/>
-        </classes>
-    </test>
-    
-       <test name="Test_DB_ST_057_Registeruser_checkout_MasterCC_Tax_with_Promocode_with_Diff_Billing_and_shipping" testid="DRY-1102" priority="P1" description="This Test case is to used to Verify Regidtereduser checkout masterCC with single product,tax,Promocode and different billing and shipping">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_057_RU_Master_Tax_Promocode_Diff_BillShip"/>
-        </classes>
-    </test>
-    
-     <test name="Test_DB_ST_058_Guestuser_checkout_VisaCC_Tax_with_Promocode_same_Billing_and_shipping" testid="DRY-1101" priority="P1" description="This Test case is to used to Verify Guestuser checkout VisaCC with singleproduct,tax, promocode and same billing and shipping">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_058_GU_Visa_Tax_Promocode_Same_BillShip"/>
-        </classes>
-    </test>
-    
-    <test name="Test_DB_ST_059_Registeruser_checkout_DiscoverCC_Tax_with_Promocode_and_Multiple_products_with_Diff_Billing_and_shipping" testid="DRY-1104" priority="P1" description="This Test case is to used to Verify Registereduser checkout DiscoverCC with Multipleproduct,tax, promocode and different billing and shipping">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_059_RU_DiscoverTax_Promcod_MultiProd_DiffBillShip"/>
-        </classes>
-    </test>
+
     
     <test name="Test_DB_ST_060_RegisteredUser_Checkout_VisaCC_Tax_EmployeeDiscount_with_same_Billing_and_shipping" testid="DRY-1106" priority="P1" description="This Test case is to used to Verify Registereduser checkout visaCC with EmployeeDiscount,tax,and same billing and shipping">
         <classes>
@@ -414,11 +361,6 @@
         </classes>
     </test>
     
-    <test name="Test_DB_ST_067_Registereduser_Checkout_with_EGiftcard" testid="DRY-1137" priority="P1" description="This Test case is to used to Verify the Checkout functionality with E-Gift card">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_067_Registereduser_Checkout_with_EGiftcard"/>
-        </classes>
-    </test>
     
      <test name="Test_DB_ST_068_Validate_ShippingMethod_for__RegisterUser_Checkout_Aerosol_product_with_PO_Box_ShippingAddress" testid="DRY-1137" priority="P1" description="This Test case is to used to Verify the Shipping methods for Aerosl product with PO Box ShippingAddress">
         <classes>
@@ -558,6 +500,8 @@
             <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_006_Add_to_cart_from_Homepage"/>
         </classes>
     </test>
+    
+     
    
    
     </suite>

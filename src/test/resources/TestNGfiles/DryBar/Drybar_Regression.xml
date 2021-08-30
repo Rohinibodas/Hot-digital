@@ -523,7 +523,7 @@
     
       <test name="Test_DB_MT_001-Guest user verification of PDP" testid="DRY-288" priority="P1" description="This Test case is to verify Drybar PDP Page functionality for Guestuser.">
         <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB__001_Guest_user_verification_of_pdp"/>
+            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_001_Guest_user_verification_of_pdp"/>
         </classes>
     </test>
     
