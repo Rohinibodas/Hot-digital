@@ -44,7 +44,7 @@ public class TEST_ST_DB_022_Change_Password_of_Registereduser {
 	@BeforeTest
 	  public void startTest() throws Exception {
 		 System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome");
+		 Login.signIn();
 	 // Login.signIn("chrome","iPhone X");
 		 
 		 

@@ -44,7 +44,7 @@ public class TEST_ST_DB_021_Change_Email_of_Registereduser {
 	@BeforeTest
 	  public void startTest() throws Exception {
 		// System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome");
+		 Login.signIn();
 	 // Login.signIn("chrome","iPhone X");
 		 
 		 

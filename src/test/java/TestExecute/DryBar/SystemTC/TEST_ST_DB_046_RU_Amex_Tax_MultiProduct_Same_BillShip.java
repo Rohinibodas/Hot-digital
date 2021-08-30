@@ -62,7 +62,7 @@ public class TEST_ST_DB_046_RU_Amex_Tax_MultiProduct_Same_BillShip {
 
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "DryBar\\config.properties");
+		 //System.setProperty("configFile", "DryBar\\config.properties");
 		  Login.signIn();
 		 
 		  

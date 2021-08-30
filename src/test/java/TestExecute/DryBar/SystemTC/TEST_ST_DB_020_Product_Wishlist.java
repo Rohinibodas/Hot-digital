@@ -49,7 +49,7 @@ public class TEST_ST_DB_020_Product_Wishlist {
 	@BeforeTest
 	  public void startTest() throws Exception {
 		 //System.setProperty("configFile", "DryBar\\config.properties");
-		 Login.signIn("chrome");
+		 Login.signIn();
 	 // Login.signIn("chrome","iPhone X");
 		 
 		 

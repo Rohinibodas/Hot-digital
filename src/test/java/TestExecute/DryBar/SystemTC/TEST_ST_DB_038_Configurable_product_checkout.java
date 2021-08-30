@@ -57,7 +57,7 @@ public class TEST_ST_DB_038_Configurable_product_checkout {
 
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "DryBar\\config.properties");
+		// System.setProperty("configFile", "DryBar\\config.properties");
 		  Login.signIn();
 		 
 		  

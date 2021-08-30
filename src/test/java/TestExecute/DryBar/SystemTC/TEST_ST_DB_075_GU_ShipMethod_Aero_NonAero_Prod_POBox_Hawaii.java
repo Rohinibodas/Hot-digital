@@ -56,7 +56,7 @@ public class TEST_ST_DB_075_GU_ShipMethod_Aero_NonAero_Prod_POBox_Hawaii {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "DryBar\\config.properties");
+		 //System.setProperty("configFile", "DryBar\\config.properties");
 		 Login.signIn();
 		 
 		 

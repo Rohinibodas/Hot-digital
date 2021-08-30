@@ -58,7 +58,7 @@ public class TEST_ST_DB_002_RegisteredUser_Checkout_visa_CreditCard {
 
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "DryBar\\config.properties");
+		 //System.setProperty("configFile", "DryBar\\config.properties");
 		  Login.signIn();
 		 //
 		  

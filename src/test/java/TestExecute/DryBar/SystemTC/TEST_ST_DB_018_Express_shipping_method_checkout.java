@@ -50,7 +50,7 @@ public class TEST_ST_DB_018_Express_shipping_method_checkout {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "DryBar\\config.properties");
+		// System.setProperty("configFile", "DryBar\\config.properties");
 		 Login.signIn();
 	 // Login.signIn("chrome","iPhone X");
 		 

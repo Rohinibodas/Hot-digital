@@ -54,7 +54,7 @@ public class TEST_ST_DB_037_GuestUser_BrowseSearch_Checkout {
 
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "DryBar\\config.properties");
+		 //System.setProperty("configFile", "DryBar\\config.properties");
 		  Login.signIn();
 		 
 		  

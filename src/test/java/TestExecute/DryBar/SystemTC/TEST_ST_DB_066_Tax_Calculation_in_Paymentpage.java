@@ -57,7 +57,7 @@ public class TEST_ST_DB_066_Tax_Calculation_in_Paymentpage {
 	@BeforeTest
 	  public void startTest() throws Exception {
 		// System.setProperty("configFile", "DryBar\\config.properties");
-		  Login.signIn("chrome");
+		  Login.signIn();
 		 
 		  
 	  }
