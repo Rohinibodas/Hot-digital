@@ -18,14 +18,13 @@ public class Checkout_ConfigurableProduct {
 	public void Checkout_ConfigurableProduct() throws Exception {
 
 		try {
-			
 			oxo.closetheadd();
 			// oxo.PrivacyPolicy();
 			oxo.acceptPrivecy();
 			oxo.clickBaby_Toddler();
-			//oxo.Configure_Color();
+			// oxo.Configure_Color();
 			oxo.addproducts("1");
-			//oxo.Configure_Color();
+			// oxo.Configure_Color();
 			oxo.checkout();
 			oxo.ShippingAddress("ShippingAddress");
 			oxo.selectGroundShippingMethod();
@@ -44,7 +43,7 @@ public class Checkout_ConfigurableProduct {
 	@AfterTest
 	public void clearBrowser() {
 
-		//Common.closeAll();
+		// Common.closeAll();
 
 	}
 
