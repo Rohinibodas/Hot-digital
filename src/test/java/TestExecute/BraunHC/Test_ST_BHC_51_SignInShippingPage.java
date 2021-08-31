@@ -15,7 +15,7 @@ public class Test_ST_BHC_51_SignInShippingPage {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void SignInShippingPage() throws Exception {
 

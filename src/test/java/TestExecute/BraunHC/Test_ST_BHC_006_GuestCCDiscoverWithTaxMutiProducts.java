@@ -12,7 +12,6 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class Test_ST_BHC_006_GuestCCDiscoverWithTaxMutiProducts {
-
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
 	

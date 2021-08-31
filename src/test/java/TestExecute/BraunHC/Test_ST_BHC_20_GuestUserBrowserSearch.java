@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_20_GuestUserBrowserSearch {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void Guest_UserBrowser_Search() throws Exception {
 

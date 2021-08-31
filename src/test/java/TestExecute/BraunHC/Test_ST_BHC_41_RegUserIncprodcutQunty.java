@@ -14,7 +14,7 @@ import TestLib.Login;
 public class Test_ST_BHC_41_RegUserIncprodcutQunty {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void ValidateRegisterUserIncreaseProductQuantityInCartPage() throws Exception {
 

@@ -21,7 +21,7 @@ public class Test_ST_BHC_008_RegCCAmexNoTaxMutiProducts {
 	public void RegisteredUser_Checkout_AmexCC_Tax_with_Multiple_Products() throws Exception {
 
 		try {
-			
+		
 			
 			//BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");

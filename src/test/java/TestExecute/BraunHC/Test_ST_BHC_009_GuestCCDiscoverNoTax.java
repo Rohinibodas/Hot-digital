@@ -20,7 +20,7 @@ public class Test_ST_BHC_009_GuestCCDiscoverNoTax {
 	public void GuestUser_Checkout_DiscoverCC_NoTax_() throws Exception {
 
 		try {
-			
+		
 			//BraunHC.AGREEPROCEED();
 			//BraunHC.Mouseover();
 			BraunHC.mouseoverproduct();

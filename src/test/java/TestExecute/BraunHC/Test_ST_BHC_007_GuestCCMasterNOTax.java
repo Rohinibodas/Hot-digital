@@ -15,7 +15,7 @@ public class Test_ST_BHC_007_GuestCCMasterNOTax {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+	 
 	@Test(priority=1)
 	public void GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping() throws Exception {
 

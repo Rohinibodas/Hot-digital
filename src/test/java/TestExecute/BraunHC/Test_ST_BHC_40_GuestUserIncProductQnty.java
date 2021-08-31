@@ -17,7 +17,6 @@ public class Test_ST_BHC_40_GuestUserIncProductQnty {
 	
 	@Test(priority=1)
 	public void ValidateGuestUserIncreaseProductQuantityInCartPage() throws Exception {
-
 		try {
 			
 			//BraunHC.AGREEPROCEED();

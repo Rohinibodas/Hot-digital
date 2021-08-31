@@ -20,7 +20,7 @@ public class Test_ST_BHC_04_RegUserCategoryCC {
 	public void RegCategoryCheckoutCC() throws Exception {
 
 		try {
-			
+	
 			
 	      //	BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");

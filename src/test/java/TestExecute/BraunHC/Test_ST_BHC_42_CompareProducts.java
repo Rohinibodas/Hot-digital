@@ -17,7 +17,6 @@ public class Test_ST_BHC_42_CompareProducts {
 	
 	@Test(priority=1)
 	public void compareproducts() throws Exception {
-
 		try {
 			
 		//	BraunHC.AGREEPROCEED();

@@ -23,7 +23,7 @@ public class Test_ST_BHC_52_Tax_GuestUserCheckout {
 String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void GuestCategoryCheckoutCC() throws Exception {
 

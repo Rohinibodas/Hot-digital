@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_34_ArticleLinks {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void Article_Linkes() throws Exception {
 

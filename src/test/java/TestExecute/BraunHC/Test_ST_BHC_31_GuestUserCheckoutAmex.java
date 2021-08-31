@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_31_GuestUserCheckoutAmex {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void RegCheckoutMaster() throws Exception {
 

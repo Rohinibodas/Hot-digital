@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeMethod;
 public class loginBraunHC {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void loginApplication() throws Exception {
 

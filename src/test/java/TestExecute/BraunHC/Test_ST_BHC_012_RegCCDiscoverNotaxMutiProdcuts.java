@@ -13,7 +13,6 @@ import TestLib.Login;
 
 public class Test_ST_BHC_012_RegCCDiscoverNotaxMutiProdcuts {
 
-
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
 	

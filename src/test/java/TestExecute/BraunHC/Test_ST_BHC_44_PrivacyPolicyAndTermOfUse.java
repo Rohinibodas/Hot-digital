@@ -15,7 +15,7 @@ public class Test_ST_BHC_44_PrivacyPolicyAndTermOfUse {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void Privacy_PolicyAnd_TermOfUse() throws Exception {
 

@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_32_GuestUserPromocodeCC {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void BraunHC_GuestUserCheckout_CC_apply_promocod() throws Exception {
 

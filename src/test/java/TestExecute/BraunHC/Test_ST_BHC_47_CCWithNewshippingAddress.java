@@ -17,7 +17,6 @@ public class Test_ST_BHC_47_CCWithNewshippingAddress {
 	
 	@Test(priority=1)
 	public void RegisteredUserCheckoutwithnewaddress() throws Exception {
-
 		try {
 			
 			BraunHC.AGREEPROCEED();

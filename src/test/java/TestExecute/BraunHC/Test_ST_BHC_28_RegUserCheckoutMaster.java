@@ -18,7 +18,6 @@ public class Test_ST_BHC_28_RegUserCheckoutMaster {
 	
 	@Test(priority=1)
 	public void RegCheckoutMaster() throws Exception {
-
 		try {
 			
 		//	BraunHC.AGREEPROCEED();

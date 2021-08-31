@@ -15,7 +15,7 @@ public class Test_ST_BHC_004_RegCCVissaWithTaxMutiProducts {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+	 
 	@Test(priority=1)
 	public void _RegisteredUser_Checkout_visaCC_with_Tax_Multiple_produc() throws Exception {
 

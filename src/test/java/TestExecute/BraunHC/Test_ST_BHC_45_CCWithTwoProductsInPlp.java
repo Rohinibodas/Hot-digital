@@ -14,7 +14,7 @@ import TestLib.Login;
 public class Test_ST_BHC_45_CCWithTwoProductsInPlp {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
+
 	@Test(priority=1)
 	public void Checkout_with_Two_products_in_plp() throws Exception {
 
