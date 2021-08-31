@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Stinger">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<test name="Test_Stinger_ST_001_AccountCreation" testid="HHG-246"
+		priority="P1"
+		description="This test case validates account creation of user with valid details ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_001AccountCreation"/>
+		</classes>
+	</test>	  
+	<test name="Test_Stringer_ST_004_ForgotPassword" testid="HHG-249"
+		priority="P1"
+		description="To verify forgot password functionality ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_004Forgotpassword"/>
+		</classes>
+	</test>
+	<test name="Test_Stringer_ST_006_ValidateHeaderLinks" testid="HHG-251"
+		priority="P1"
+		description="To verify the headerlinks">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_006ValidatingHeader_links"/>
+		</classes>
+	</test>
+	   <test name="Test_Stringer_ST_007_Contact us" testid="HHG-252"
+		priority="P1"
+		description="This test case is to verify Contact us Functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_007Contact_US"/>
+		</classes>
+	</test> 
+	<test name="Test_Stinger_ST_008_ValidatingContentLinaks" testid="HHG-253"
+		priority="P1"
+		description="To verify ValidatingFooterLinks">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_008ValidatingContentLinks"/>
+		</classes>
+	</test>
+	<test name="Test_Stinger_ST_009_GuestUserBrowserSearch" testid="HHG-254"
+		priority="P1"
+		description="To verify Validating the GuestUserBrowserSearch">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_009GuestUserBrowserSearch"/>
+		</classes>
+	</test>
+	   <test name="Test_ Stinger_ST_010_GuestUserCheckout" testid="HHG-255"
+		priority="P1"
+		description="To Verify the Guest user checkout with creditcard Functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_010GuestUserCheckout_with_CC"/>
+		</classes>
+	</test> 	
+	<test name="Test_stingerUS_ST_016_RegisteredUserCheckout" testid="HHG-261"
+		priority="P1"
+		description="To verify the RegisterUser Checkout with CreditCard">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_016RegisterUser_Checkout"/>
+		</classes>
+	</test>	
+	<test name="Test_Stinger_ST_021_RegisteredUserBrowserSearch" testid="HHG-266"
+		priority="P1"
+		description="To verify the Registered user Browser Search">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_021RegisterUserBrowseSearch"/>
+		</classes>
+	</test>
+		<test name="Test_Stringer_ST_025_RegisterUserCategorycheckoutCC" testid="HHG-985"
+priority="P1"
+		description="To Verify the Register User CategorycheckoutCC ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+		<class name="TestExecute.Stinger.TEST_ST_SR_025RegisterUserCategorycheckoutCC"/>	
+		</classes>
+	</test>
+	<test name="Test_Stringer_ST_026_Valdating_ForgotPassword" testid="HHG-269"
+		priority="P1"
+		description="To Verify the Valdating ForgotPassword">
+		<parameter name="browser" value="chrome" />
+		<classes>
+		<class name="TestExecute.Stinger.TEST_ST_SR_026Valdating_ForgotPassword"/>	
+		</classes>
+	</test>
+	<test name="Test_Stringer_ST_033_GustUserCategorycheckoutCC" testid="HHG-986"
+		priority="P1"
+		description="To Verify the Stinger Gust User Category checkout CC ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+		<class name="TestExecute.Stinger.TEST_ST_SR_033GustUserCategorycheckoutCC"/>	
+		</classes>
+	</test> 
+	
+</suite> 
+ 
