@@ -7,6 +7,7 @@ import org.testng.AssertJUnit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -32,6 +33,9 @@ public class OxoHelper {
 	 * 
 	 * }
 	 */
+	
+	
+	
 
 	public void clickLogo() {
 		try {
@@ -69,6 +73,9 @@ public class OxoHelper {
 			AssertJUnit.fail();
 
 		}
+		
+		String email = Common.genrateRandomEmail(data.get(dataSet).get("Email"));
+		Common.clickElement("xpath", "//span[text()='Create Account']");
 
 		try {
 			try {
@@ -92,7 +99,7 @@ public class OxoHelper {
 		try {
 			Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName"));
 			Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName"));
-			Common.textBoxInput("id", "email_address_create", data.get(dataSet).get("Email"));
+			Common.textBoxInput("id", "email_address_create", email);
 			Common.textBoxInput("id", "password-social", data.get(dataSet).get("Password"));
 			Common.textBoxInput("id", "password-confirmation-social", data.get(dataSet).get("Password"));
 			ExtenantReportUtils.addPassLog("verifying sign up page with fieldData", "User enter the FieldData",
@@ -103,10 +110,10 @@ public class OxoHelper {
 			Common.clickElement("id", "button-create-social");
 			Common.actionsKeyPress(Keys.PAGE_UP);
 
-			int errormessagetextSize = Common.findElements("xpath", "//div[@class='mage-error']").size();
-			if (errormessagetextSize <= 0) {
+			int SuccessmessagetextSize = Common.findElements("xpath", "//div[@class='message-success success message']").size();
+			if (SuccessmessagetextSize >= 0) {
 			} else {
-				 
+				
 				ExtenantReportUtils.addFailedLog("verifying sign up page with valid field data",
 						"see the fields populated with the data", "User failed to proceed signUp form",
 						Common.getscreenShotPathforReport("signupissue"));
@@ -748,7 +755,7 @@ public class OxoHelper {
 			}
 			ExtenantReportUtils.addPassLog("verifying category Beverage", "lands on Beverage options",
 					"User lands on the Beverage options", Common.getscreenShotPathforReport("faield to click"));
-			Common.mouseOverClick("xpath", "//ul[@data-menu='menu-15749']//a[contains(text(),'Shop All')]");
+			//Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15748']");
 			Common.mouseOverClick("xpath", "//ul[@data-menu='menu-15749']//a[contains(text(),'Shop All')]");
 		} catch (Exception | Error e) {
 			e.printStackTrace();
@@ -801,12 +808,22 @@ public class OxoHelper {
 	}
 	
 	
-	public void Configure_Color() throws Exception {
+	public void Configure_Color(String dataSet) throws Exception {
 		
 		try {
-		Thread.sleep(5000);
-		Sync.waitElementClickable("xpath", "//a[@class='product-color__link']//figcaption[contains(text(),'Taupe')]");
-		Common.findElement("xpath", "//a[@class='product-color__link']//figcaption[contains(text(),'Taupe')]").click();		
+		Thread.sleep(3000);
+		String Color=data.get(dataSet).get("Colour");
+		System.out.println(Color);
+		Sync.waitElementClickable("xpath", "//a[@class='product-color__link']//figcaption[contains(text(),'"+Color+"')]");
+		Common.findElement("xpath", "//a[@class='product-color__link']//figcaption[contains(text(),'"+Color+"')]").click();		
+		Thread.sleep(3000);
+		
+		String URL = Common.getCurrentURL();
+		System.out.println(URL);
+        Common.assertionCheckwithReport(Common.getCurrentURL().contains(Color),"Validating Page Title and URL", "Actual and Current URL&Page Title Should be Same",
+				"Actual and Current URL&Page Title are Same", "Actual and Current URL&Page Title are different");
+		
+		
 		} catch (Exception | Error e) {
 			e.printStackTrace();
 		}
@@ -833,6 +850,8 @@ public class OxoHelper {
 
 			// Assert.assertEquals(actual, expected);
 		} catch (Exception | Error e) {
+			
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Verifying Shippingpage", expectedResult,
 					"page missing shipping ordersummary totalprice",
 					Common.getscreenShotPathforReport("faieldsshippingpage"));
@@ -1106,6 +1125,31 @@ public class OxoHelper {
 			Common.findElement("xpath", "//span[@id='block-discount-heading']").click();
 			Sync.waitElementPresent("xpath", "//input[@id='discount-code']");
 			Common.textBoxInput("xpath", "//input[@id='discount-code']", data.get(dataSet).get("Promocode"));
+			Common.clickElement("xpath", "//button[@class='action action-apply']");
+			Thread.sleep(4000);
+			ExtenantReportUtils.addPassLog("Apply Promocode on Checkout Page",
+					"Promocode Should be applied on Checkout Page",
+					"Promo Code added successfully and applied discount to Order Summary",
+					Common.getscreenShotPathforReport("Promocode"));
+			// Thread.sleep(2000);
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("Apply Promocode on Checkout Page",
+					"Promocode Should be applied on Checkout Page", "Failed to apply Promocode",
+					Common.getscreenShotPathforReport("Promocode"));
+			AssertJUnit.fail();
+		}
+	}
+	public void EmployeeDiscountCode(String dataSet) throws Exception {
+
+		try {
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			Sync.waitElementClickable("id", "block-discount-heading");
+			Thread.sleep(3000);
+		    //Common.scrollIntoView("xpath", "//span[@id='block-discount-heading']");
+			Common.findElement("xpath", "//span[@id='block-discount-heading']").click();
+			Sync.waitElementPresent("xpath", "//input[@id='discount-code']");
+			Common.textBoxInput("xpath", "//input[@id='discount-code']", data.get(dataSet).get("EmployeeDiscount"));
 			Common.clickElement("xpath", "//button[@class='action action-apply']");
 			Thread.sleep(4000);
 			ExtenantReportUtils.addPassLog("Apply Promocode on Checkout Page",
@@ -1518,8 +1562,8 @@ public class OxoHelper {
 		String expectedResult = "It should open paypal site window.";
 		try {
 			Thread.sleep(3000);
-			Sync.waitElementPresent("xpath", "//input[@id='paypal_express']");
-			Common.clickElement("xpath", "//input[@id='paypal_express']");
+			Sync.waitElementPresent("xpath", "//div[@class='paypal-button-label-container']");
+			Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
 			Thread.sleep(5000);
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
 
@@ -1623,7 +1667,13 @@ public class OxoHelper {
 	}
 
 	public void VerifyaingConformationPage() throws Exception {
-		Thread.sleep(10000);
+		
+		Thread.sleep(4000);
+		
+		String URL = Common.getCurrentURL();
+		
+		if (URL.contains("heledigital")) { 
+		
 		Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
 		String Sucessmessage = Common.getText("xpath", "//h1[@class='page-title']/span");
 		System.out.println(Sucessmessage);
@@ -1664,7 +1714,9 @@ public class OxoHelper {
 			prop.properUpdate("OxoOrder.properties", "OrderNumber_" + Common.getCurrentDate(),
 					Common.getText("xpath", "//p[@class='order-number-wrapper']/span"));
 			// //div[@id="registration"]/div[2]/a Createaccount
-		}
+		}}else {
+			
+		
 
 		// h1[@class='page-title']/span
 		// Thank you for your order!
@@ -1673,6 +1725,7 @@ public class OxoHelper {
 
 		// div[contains(@class,'signup-columns')]//h2 Stay in the Loop.
 		// form[contains(@class,'form subscribe')] Email
+	}
 	}
 
 	public int checkadd() {
@@ -3843,28 +3896,24 @@ public void remove_from_wishlist() throws Exception {
 	
 	
 }
+
+/*
 	public void Tax()throws Exception {
 		Sync.waitPageLoad();
 		Common.actionsKeyPress(Keys.PAGE_UP);
-		/*WebElement a;
+		WebElement a;
 		WebElement b;
 		float c,total,tax;
 		a=Common.findElement("xpath", "(//span[text()='$29.99'])[3]");
 		b=Common.findElement("xpath", "(//span[text()='$22.17'])[1]");
-		c=a+b;*/
+		c=a+b;
 		float a= PraseFloat(Common.findElement("xpath", "//span[@data-th='Cart Subtotal']"));
 		float b= PraseFloat(Common.findElement("xpath", "//span[@data-th='Shipping']"));
 		float c= a+b;
 		System.out.println(c);
-		
-	}
-
+}
+*/
 	
-	private float PraseFloat(WebElement findElement) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	public void Header_Link(String dataSet) throws InterruptedException {
 		
 		 //Thread.sleep(3000);
@@ -3874,21 +3923,17 @@ public void remove_from_wishlist() throws Exception {
 		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
 		String Hederlinks=data.get(dataSet).get("Cookin & Baking");
 		String[] hedrs=Hederlinks.split(",");
-		int i=0;
-		
-		String ProductTitle=data.get(dataSet).get("Cookin & Baking Page Title");
-		String[] Title=ProductTitle.split(",");
-		//int j=0;
-		
+		int i=0;  
+
+		/*
 		
 		try{
-		for(i=0;i<hedrs.length;i++){
+		//for(i=0;i<hedrs.length;i++){
 			
 			System.out.println(hedrs[i]);
 			try {
 			Sync.waitElementClickable("xpath", "//a[text()='"+hedrs[i]+"']");
 			Common.clickElement("xpath", "//a[text()='"+hedrs[i]+"']");
-			
 			
 			} catch (Exception e) {
 				if (Common.findElement("xpath", "//a[text()='"+hedrs[i]+"']") == null) {
@@ -3897,20 +3942,102 @@ public void remove_from_wishlist() throws Exception {
 					Common.clickElement("xpath", "//a[contains(text(),'"+hedrs[i]+"')]");
 					Thread.sleep(2000);
 				}
-			}
+			}*/
+			
+			try {
+			
+			int SubCategoryList=Common.findElements("xpath","//div[@id='navigation-category-15701']//li[@class='navigation__inner-item navigation__inner-item--level2']/a").size();
+	        System.out.println(SubCategoryList);
+			
+        	if(SubCategoryList>0){
+        		int SubCategoryList2=Common.findElements("xpath","//div[@id='navigation-category-15701']//li[@class='navigation__inner-item navigation__inner-item--level2 oxo35-show']/a").size();
+        		System.out.println(SubCategoryList2);
+        	}
+			
+			for(int j=0;j<SubCategoryList;j++) {
+        		int value=j+1;
+        		
+        		List<WebElement> ListOfSubCategory=Common.findElements("xpath", "//div[@id='navigation-category-15701']//li[@class='navigation__inner-item navigation__inner-item--level2']/a");
+        		Thread.sleep(3000);
+        		ListOfSubCategory.get(j).click();
+		
+			String PageTitle = Common.getPageTitle();
+			String ProductTitle = data.get(dataSet).get("Cookin & Baking Page Title");
+			String[] Title = ProductTitle.split(",");
 			
 			
-			Thread.sleep(2000);
-			System.out.println(Common.getPageTitle());
+			if (PageTitle.equals("Spoons, Spatulas & Turners - Utensils - Cooking & Baking - Products")) {
+				System.out.println(PageTitle);
+				Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+			} else if (PageTitle.equals("OXO Good Grips POP Containers")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				}else if (PageTitle.equals("Prep & Go - Food Containers - Cooking & Baking - Products")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				}
+				else if (PageTitle.equals("Smart Seal - Food Containers - Cooking & Baking - Products")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("Green Saver Produce Containers - Food Containers - Cooking & Baking - Products")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("Food Storage - Food Containers - Cooking & Baking - Products")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("On the Go  - Food Containers - Cooking & Baking - Products")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("Easy to Use Digital Food Scales & Measuring Cups | OXO")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("Mixing Bowls & Prep Mixing Bowls for Cooking & Baking | OXO")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("Easy to use Vegetable Peelers & Choppers | OXO")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("Graters and Slicers: Cheese Grater Mandoline Slicers | OXO")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+				else if (PageTitle.equals("Knives, Kitchen Scissors & Cutting Boards | OXO")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+				
+				}
+			
+			
+		/*	
+			
+			
+			System.out.println(PageTitle);
 			System.out.println(Title[i]);
 			Common.assertionCheckwithReport(Common.getPageTitle().contains(Title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
 				
+			Thread.sleep(2000);  */
+			
 			Thread.sleep(2000);
 			clickLogo();
-			//Sync.waitPageLoad();
-			Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
-		}
-		
+		//	Sync.waitPageLoad();
+		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+			}
 		}
 		catch (Exception | Error e) {
 			e.printStackTrace();
@@ -3922,6 +4049,54 @@ public void remove_from_wishlist() throws Exception {
 	}
 	
 	
+	
+	
+	
+	public void SubCategoriesClicksCaB() throws InterruptedException {
+		
+		Thread.sleep(4000);
+		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+		
+		int SubC = Common.findElements("xpath", "//div[@id='navigation-category-15701']//li[@class='navigation__inner-item navigation__inner-item--level2']/a").size();
+		System.out.println(SubC);
+		
+		
+		for(int i=0;i<SubC;i++) {
+    		//int value=i+1;
+			List<WebElement> ListOfSubC = Common.findElements("xpath", "//div[@id='navigation-category-15701']//li[@class='navigation__inner-item navigation__inner-item--level2']/a");
+			
+    		ListOfSubC.get(i).click();
+    		
+    		String PageTitle = Common.getPageTitle();
+    		System.out.println(PageTitle);
+    		Thread.sleep(2000);
+    		clickLogo();
+    		Sync.waitPageLoad();
+    		//acceptPrivecy();
+    		Sync.waitElementClickable("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+    		Common.mouseOver("xpath", "(//li[@class='navigation__item navigation__item--parent'])[1]");
+    		Thread.sleep(4000);
+		
+		
+		
+		
+    		if (PageTitle.equals("Spoons, Spatulas & Turners - Utensils - Cooking & Baking - Products")) {
+				System.out.println(PageTitle);
+				Common.assertionCheckwithReport(Common.getPageTitle().contains(PageTitle), "verifying Header link of "+PageTitle,"user open the "+PageTitle+" option", "user successfully open the header link "+PageTitle,"Failed open the header link "+PageTitle);
+				
+			} else if (PageTitle.equals("OXO Good Grips POP Containers")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains("OXO Good Grips POP Containers"), "verifying Header link of "+PageTitle,"user open the "+PageTitle+" option", "user successfully open the header link "+PageTitle,"Failed open the header link "+PageTitle);
+			        
+					
+			
+			}else if (PageTitle.equals("Prep & Go - Food Containers - Cooking & Baking - Products")) {
+					System.out.println(PageTitle);
+					Common.assertionCheckwithReport(Common.getPageTitle().contains(PageTitle), "verifying Header link of "+PageTitle,"user open the "+PageTitle+" option", "user successfully open the header link "+PageTitle,"Failed open the header link "+PageTitle);
+				}
+		}
+	}
 	
 	public void Heade_BabyAndToddler(String dataSet) throws InterruptedException {
 		Sync.waitPageLoad();
@@ -4017,10 +4192,8 @@ public void remove_from_wishlist() throws Exception {
 		}
 		catch (Exception | Error e) {
 			e.printStackTrace();
-
-			ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
-		
-			Assert.fail();
+            ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+		    Assert.fail();
 
 		}
 	}
@@ -4064,6 +4237,54 @@ public void remove_from_wishlist() throws Exception {
 			Assert.fail();
 
 		}
+	}
+	
+	
+	
+	public void NoTax() throws Exception {
+
+		Thread.sleep(3000);
+		String Tax = Common.getText("xpath", "//tr[@class='tax']//span[@class='price']").replace("$", "");
+
+		Float TaxValue = Float.valueOf(Tax);
+		System.out.println(TaxValue);
+
+		if (TaxValue == 0.00) {
+			ExtenantReportUtils.addPassLog("Validating Tax Price on Order Success Page",
+					"Tax Should be Zero($0.00) on Order", "Successfully NoTax has applied",
+					Common.getscreenShotPathforReport("NoTaxApplied"));
+
+		} else {
+
+			ExtenantReportUtils.addFailedLog("Validating Tax Price on Order Success Page",
+					"Tax should not applied on Orderprice for NoTax shipping address",
+					"Tax has applied on Order for NoTax shipping address",
+					Common.getscreenShotPathforReport("NoTaxApplied"));
+			AssertJUnit.fail();
+		}
+
+	}
+
+	public void tax() throws Exception {
+
+		Thread.sleep(3000);
+		String Tax = Common.getText("xpath", "//tr[@class='tax']//span[@class='price']").replace("$", "");
+
+		Float TaxValue = Float.valueOf(Tax);
+		System.out.println(TaxValue);
+
+		if (TaxValue > 0.00) {
+
+			ExtenantReportUtils.addPassLog("Validating Tax Price on Order Success Page",
+					"Tax Should be applied on Order", " Tax has successfully applied",
+					Common.getscreenShotPathforReport("TaxApplied"));
+		} else {
+
+			ExtenantReportUtils.addFailedLog("Validating Tax Price on Order Success Page",
+					"Tax Should not applied on Order", " Tax has failed to applied",
+					Common.getscreenShotPathforReport("TaxApplied"));
+		}
+
 	}
 		
 	public void HomePageMSP_Validation(String dataSet)throws Exception{
