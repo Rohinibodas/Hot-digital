@@ -272,7 +272,7 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_42_CompareProducts"/>
 		</classes>
      </test>
-     <test name="Test_BraunUS_ST_044_Header_Links"
+     <test name="Test_BraunUS_ST_043_Header_Links"
 		testid="HHG-161" priority="P1"
 		description="This test case Validating BraunHC_validateHeaderlinks">
 		<parameter name="browser" value="chrome" />
@@ -288,7 +288,7 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_44_PrivacyPolicyAndTermOfUse"/>
 		</classes>
      </test>
-     <test name="Test_BraunUS_ST_044_Checkout_with_Two_products_in_plp"
+     <test name="Test_BraunUS_ST_045_Checkout_with_Two_products_in_plp"
 		testid="HHG-163" priority="P1"
 		description="To verify the functionality of Adding Two products from PLP Page">
 		<parameter name="browser" value="chrome" />
@@ -317,7 +317,7 @@
      </test>
      <test name="Test_BraunUS_ST_048_Checkout_with_differntproducts"
 		testid="HHG-166" priority="P1"
-		description="o verify the functionality of Adding  multiple products">
+		description="To verify the functionality of checkout with differntproducts">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestExecute.BraunHC.Test_ST_BHC_48_CCWithDifferntProducts"/>
@@ -325,7 +325,7 @@
      </test>
      <test name="Test_BraunUS_ST_049_ResgisterusercheckoutwithSignout"
 		testid="HHG-167" priority="P1"
-		description="o verify the functionality of ResgisterusercheckoutwithSignout">
+		description="To verify the functionality of ResgisterusercheckoutwithSignout">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestExecute.BraunHC.Test_ST_BHC_49_RegUserCCWithSignout"/>
@@ -334,7 +334,7 @@
      </test>
      <test name="Test_BraunUS_ST_050_validating_Orderid_verification"
 		testid="HHG-168" priority="P1"
-		description="o verify the functionality of Orderid_verification">
+		description="To verify the functionality of Orderid_verification">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestExecute.BraunHC.Test_ST_BHC_50_OrderID_Verification"/>
@@ -343,7 +343,7 @@
      </test>	
      <test name="Test_BraunUS_ST_051_SignInShippingPage"
 		testid="HHG-169" priority="P1"
-		description="o verify the functionality of Orderid_verification">
+		description="To verify the functionality of customer login in shippingpage">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestExecute.BraunHC.Test_ST_BHC_51_SignInShippingPage"/>

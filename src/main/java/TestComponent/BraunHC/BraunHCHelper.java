@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -19,6 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import TestLib.Automation_properties;
@@ -92,11 +94,6 @@ public class BraunHCHelper {
 			 
 
 			Common.assertionCheckwithReport(home>0, "verifying home page", "Home page contines Logo of product", "sucessfully lands on home page ", "faield to land on Home page");
-
-			 
-
-
-			 
 
 			Sync.waitElementPresent("xpath", "(//a[@title='Sign In / Sign Up'])[1]");
 
@@ -196,40 +193,44 @@ public class BraunHCHelper {
 	public void AccountCreationBraunHC(String dataSet) {
 		String expectedResult="Account Creation of User with valid details";
 		try {
+			Sync.waitElementPresent("xpath", "//a[@title='Sign In / Sign Up']");
+			Common.clickElement("xpath", "//a[@title='Sign In / Sign Up']");
+			Sync.waitElementPresent("xpath", "//a[@class='action create primary']");
 			
-			Sync.waitElementClickable(30, By.xpath("//a[@title='Sign In / Sign Up']"));
-			Common.findElement("xpath", "//a[@title='Sign In / Sign Up']").click();
-			//Common.findElement("xpath","//span[text()='Create an Account']\"").click();
+			Common.clickElement("xpath", "//a[@class='action create primary']");
+			Thread.sleep(5000);
+			report.addPassLog(expectedResult, "Should display Account Creation page", "Account Creation page display successfully", Common.getscreenShotPathforReport("Account Creation"));
+			
+			Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName"));
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			
+			//Sync.waitElementPresent("xpath", "//input[@title='Sign Up for Newsletter']");
+			//Common.clickElement("xpath", "//input[@title='Sign Up for Newsletter']");
+			
 
-			Thread.sleep(1000);
-			Sync.waitElementPresent("xpath", "(//span[text()='Create an Account'])[1]");
-			Common.clickElement("xpath", "(//span[text()='Create an Account'])[1]");
-			Thread.sleep(2000);
-			Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName").toString());
-			Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName").toString());
-			Common.textBoxInput("id", "email_address",Utils.getEmailid());
-			Common.textBoxInput("id", "password", data.get(dataSet).get("Password").toString());
-			Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password").toString());
-			Thread.sleep(1000);
-			//Common.actionsKeyPress(Keys.DOWN);
+			Common.textBoxInput("id", "email_address", Utils.getEmailid());
+			
+			//Common.textBoxInput("id", "email_address",data.get(DataSet).get("Email"));
+			Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
+			Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
-			//Common.scrollIntoView("xpath", "(//span[text()='Create an Account'])[1]");
-			Sync.waitElementPresent("xpath", "(//span[text()='Create an Account'])[1]");
-			Common.findElement("xpath", "(//span[text()='Create an Account'])[1]").click();
-			String S=Common.getText("xpath", "//*[@id='maincontent']/div[2]/div[2]/div/div[1]/strong");
-			System.out.println(S);
-			Assert.assertEquals(S, "MY ACCOUNT");
-			report.addPassLog(expectedResult, "Should display Login page", "Login page displayed successfully", Common.getscreenShotPathforReport("Login Page"));
-			Thread.sleep(2000);
+			Thread.sleep(4000);
+			Common.clickElement("xpath", "//button[@title='Create an Account']");
+			Thread.sleep(10000);
 			report.addPassLog(expectedResult, "Should display My Account Page", "My Account Page display successfully", Common.getscreenShotPathforReport("Account Creation success"));
-			//report.addPassLog(expectedResult, "Should display My Account Page", "My Account Page display successfully", Common.getscreenShotPathforReport("Account Creation success"));
+			
+			String s=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+			System.out.println(s);
+			
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display My Account Page", "My Account Page not display", Common.getscreenShotPathforReport("Account Creation Failed"));
 			e.printStackTrace();
 			Assert.fail();
 		}
-	}
+		}
+			
 	public void OrderStatus(String dataSet) {
 		// TODO Auto-generated method stub
 		String expectedResult="Lands on OrderStatus page";
@@ -534,60 +535,79 @@ public class BraunHCHelper {
 			Assert.fail();
 		}
 	}
-	public void searchProduct(String dataSet) throws InterruptedException {
-		String expectedResult="Land on searchProduct page";
+	
+	
+	
+	
+	public void Addtocart() throws Exception
+	{
+		String expectedResult="Product adding to mini cart";
+		try {
+
+
+            Thread.sleep(4000);
+            Sync.waitElementPresent("xpath", "(//span[text()='Add to cart'])[1]");
+            Common.clickElement("xpath", "(//span[text()='Add to cart'])[1]");      
+            report.addPassLog(expectedResult, "Should display Mini Cart Page", "Mini Cart Page display successfully", Common.getscreenShotPathforReport("Mini Cart Page display successfully"));
+        }catch(Exception |Error e)
+        {
+            report.addFailedLog(expectedResult,"Should display Mini Cart Page", "Mini Cart Page not displayed", Common.getscreenShotPathforReport("Mini Cart Page display Failed"));
+            e.printStackTrace();
+            Assert.fail();
+        }
+    }
+
+
+	public void ViewandEditcartPage() throws Exception
+	{
+		String expectedResult="View and Edit cart page";
 		try {
 			
-			Sync.waitElementClickable(30, By.xpath("//*[@id='ui-id-3']/span"));
-			Common.findElement("id", "ui-id-3").click();
-			Thread.sleep(1000);
-			Common.findElement("xpath", "//*[@id='ui-id-2']/li[1]/div/ul/li/div/div/div[1]/div[2]/figure/a/img[1]").click();
-			Common.findElement("xpath", "(//img[@class='product-image-photo'])[1]").click();
-			//Thread.sleep(5000);
-			//Common.clickElement("xpath", "//a[@class='product photo product-item-photo']");
-			//Common.clickElement("xpath" , "//a[@class='product-item-link']");
-			//Common.mouseOverClick("xpath" , "//span[text()='Add to Cart']");
-			//Common.findElement("xpath", "//span[text()='Add to Cart']").click();
-			//Common.mouseOverClick("xpath" , "//span[text()='Add to Cart']"); */
-			report.addPassLog(expectedResult, "Should display searchProduct Page", "searchProduct page display successfully", Common.getscreenShotPathforReport("searchProduct page success"));
+			Thread.sleep(5000);
+			Sync.waitElementPresent("xpath", "//span[contains(text(),'View and Edit Cart')]");
+			Common.clickElement("xpath", "//span[contains(text(),'View and Edit Cart')]");
+			
+			
+			report.addPassLog(expectedResult, "Should display Mini Cart Page", "Mini Cart Page display successfully", Common.getscreenShotPathforReport("Mini Cart page success"));
 		}catch(Exception |Error e)
 		{
-			report.addFailedLog(expectedResult,"Should display  searchProduct Page", "searchProduct Page not displayed", Common.getscreenShotPathforReport("searchProduct page Failed"));
+			report.addFailedLog(expectedResult,"Should display Mini Cart Page", "Mini Cart Page not displayed", Common.getscreenShotPathforReport("Mini Cart Failed"));
 			e.printStackTrace();
 			Assert.fail();
 		}
 	}
-	public void Addtocart(String string) throws InterruptedException {
-		String expectedResult="Land on Addtocart page";
-		try {
-			
-			Sync.waitElementClickable(30, By.xpath("(//button[@title='Add to cart'])[1]"));
-			Common.clickElement("xpath" , "(//button[@title='Add to cart'])[1]");
-			Thread.sleep(4000);
-			//Sync.waitElementClickable(30, By.xpath("//a[@class='action showcart']"));
-			Common.clickElement("xpath" , "//a[@class='action showcart']");
-			Thread.sleep(1000);
-			String header=Common.getText("xpath", "//span[text()='Cart Overview']");
-			System.out.println(header+" page is displayed");
-			Assert.assertEquals(header, "Cart Overview");
-			report.addPassLog(expectedResult, "Should display Addtocart Page", "Addtocart page display successfully", Common.getscreenShotPathforReport("Addtocart page success"));
-		}catch(Exception |Error e)
-		{
-			report.addFailedLog(expectedResult,"Should display  Addtocart Page", "Addtocart Page not displayed", Common.getscreenShotPathforReport("Addtocart page Failed"));
-			e.printStackTrace();
-			Assert.fail();
-		}
-	}
-	public void ShippingcartPage() throws InterruptedException {
+	
+	
+
+	
+	public void checkoutPage() throws Exception
+	{
+		String expectedResult="Navigate to checkout page";      
+	        try {
+	            Thread.sleep(5000);
+	          //  Sync.waitElementPresent("xpath", "//button[@id='top-cart-btn-checkout']");
+	            //Common.clickElement("xpath", "//button[@id='top-cart-btn-checkout']");
+	            
+	            Sync.waitElementPresent("xpath", "//span[text()='Checkout']");
+	            Common.clickElement("xpath", "//span[text()='Checkout']");
+	           
+	           // Thread.sleep(5000);
+	           
+	            report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
+	        }catch(Exception |Error e)
+	        {
+	            report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
+	            Assert.fail();
+	        }
+	    }
+		
+	
+	public void Registeruseraddress() throws InterruptedException {
 		String expectedResult="Should navigate to shipping cart page";
 		try {
-			Sync.waitElementClickable(30, By.xpath("//*[@id='minicart-content-wrapper']/div[2]/div[5]/div[2]/a/span"));
-			//Common.clickElement("xpath" , "//a[@href='"+System.getProperty("url",automation_properties.getInstance().getProperty(automation_properties.BASEURL)+"us_en/checkout/cart/']/span"));
-			Common.javascriptclickElement("xpath" , "//*[@id='minicart-content-wrapper']/div[2]/div[5]/div[2]/a/span");
-			Thread.sleep(4000);
-			String S=Common.getText("xpath", "//strong[@class='product-item-name']");
-			System.out.println(S);
-			Assert.assertTrue(Common.isElementDisplayed("xpath", "//strong[@class='product-item-name']"));
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			Sync.waitElementPresent("xpath", "//span[text()='Proceed to review & payment']");
+			Common.clickElement("xpath", "//span[text()='Proceed to review & payment']");
 			report.addPassLog(expectedResult, "Should display Shipping cart Page", "Shipping cart page display successfully", Common.getscreenShotPathforReport("Shipping cart page success"));
 		}catch(Exception |Error e)
 		{
@@ -597,32 +617,6 @@ public class BraunHCHelper {
 		}
 	}
 	
-	public void navigateShippingaddress() throws InterruptedException {
-		String expectedResult="Should navigate to Shipping address page";
-		try {
-			Thread.sleep(2000);
-			//Sync.waitElementClickable(30, By.xpath("//button[@data-role='proceed-to-checkout']"));
-			//Common.clickElement("xpath" , "//button[@data-role='proceed-to-checkout']");
-			Sync.waitElementClickable(30, By.xpath("(//button[@title='Checkout'])[2]"));
-			Common.clickElement("xpath" , "(//button[@title='Checkout'])[2]");
-			Thread.sleep(4000);
-			String S=Common.getText("xpath", "//*[@id='shipping']/div[1]");
-			System.out.println(S);
-			Assert.assertTrue(Common.isElementDisplayed("xpath", "//*[@id='shipping']/div[1]"));
-			Thread.sleep(3000);
-			Common.scrollIntoView("xpath", "//div[@class='checkout-shipping-method']/div");
-			Thread.sleep(3000);
-			Common.clickElement("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr/td[1]/label");
-			Common.clickElement("xpath", "//button[@data-role='opc-continue']/span");
-			//Common.clickElement("xpath","//span[text()='Next']");
-			report.addPassLog(expectedResult, "Should display Shipping address Page", "Shipping address page display successfully", Common.getscreenShotPathforReport("Shipping address page success"));
-		}catch(Exception |Error e)
-		{
-			report.addFailedLog(expectedResult,"Should display  Shipping address Page", "Shipping address Page not displayed", Common.getscreenShotPathforReport("Shipping address page Failed"));
-			e.printStackTrace();
-			Assert.fail();
-		}
-	}
 	
 	public void ShippingAddress(String dataSet) throws InterruptedException {
 		try {
@@ -647,30 +641,58 @@ public class BraunHCHelper {
 		}
 	}
 	
-	public void GuestShippingaddress() throws InterruptedException {
-		String expectedResult="Should navigate to Shipping address page";
-		try {
-			Sync.waitElementClickable(30, By.xpath("//span[text()='Checkout']"));
-			Common.clickElement("xpath" , "//span[text()='Checkout']");
+	public void GuestShippingaddress(String dataSet) throws InterruptedException 
+	{
+		
+			
+			String expectedResult="add the shipping Address";
+			try {
+				Thread.sleep(10000);
+				
+			//Common.textBoxInput("xpath","//input[@type='email']", data.get(dataSet).get("Email"));
+			Common.textBoxInput("xpath","//input[@id='customer-email']", data.get(dataSet).get("Email"));
+	        Thread.sleep(4000);
+	        Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
+			Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
+			//Common.textBoxInput("name", "company", data.get(dataSet).get("Company"));
+			Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+			
+			
+			Thread.sleep(3000);
+
+			Sync.waitElementPresent("name", "region_id");
+			Common.clickElement("name", "region_id");
+
+			Thread.sleep(3000);
+
+			Sync.waitElementPresent("name", "region_id");
+			
+			Common.dropdown("name", "region_id", SelectBy.TEXT, data.get(dataSet).get("Region"));
+	        
 			Thread.sleep(4000);
-			String S=Common.getText("xpath", "//*[@id='shipping']/div[1]");
-			System.out.println(S);
-			Assert.assertTrue(Common.isElementDisplayed("xpath", "//*[@id='shipping']/div[1]"));
-			Thread.sleep(3000);
-			ShippingAddress("Guest_shipping");
-			Common.scrollIntoView("xpath", "//div[@class='checkout-shipping-method']/div");
-			Thread.sleep(3000);
-			Common.clickElement("xpath", "//*[@id='checkout-shipping-method-load']/table/tbody/tr/td[1]/label");
-			Common.clickElement("xpath", "//button[@data-role='opc-continue']/span");
-			report.addPassLog(expectedResult, "Should display Shipping address Page", "Shipping address page display successfully", Common.getscreenShotPathforReport("Shipping address page success"));
-		}catch(Exception |Error e)
-		{
-			report.addFailedLog(expectedResult,"Should display  Shipping address Page", "Shipping address Page not displayed", Common.getscreenShotPathforReport("Shipping address page Failed"));
-			e.printStackTrace();
-			Assert.fail();
+			Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
+			
+			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+
+			Thread.sleep(500);
+
+			Common.textBoxInput("name", "telephone",data.get(dataSet).get("phone"));
+	        
+	        
+	       // Common.actionsKeyPress(Keys.ARROW_DOWN);
+		//	Sync.waitElementPresent("xpath", "//span[text()='Proceed to review & payment']");
+			//Common.clickElement("xpath", "//span[text()='Proceed to review & payment']");
+			
+			
+		report.addPassLog(expectedResult,"Should add the shipping Address", "Payment and review page  displayed", Common.getscreenShotPathforReport("Add Shipping Address Success page"));
+	       }catch(Exception |Error e)
+			{
+			report.addFailedLog(expectedResult,"Should add the shipping Address", "Payment and review page not displayed", Common.getscreenShotPathforReport("Payment and review page Failed"));
+				e.printStackTrace();
+				Assert.fail();
+			}
 		}
-	}
-	
+
 	public void MoneyOrderpayment() throws InterruptedException {
 		String expectedResult="Navigate to Review & payment Page";
 		Thread.sleep(2000);
@@ -693,59 +715,42 @@ public class BraunHCHelper {
 		String expectedResult="Validating Order Confirmation Page";
 		Thread.sleep(2000);
 		try {
-			Thread.sleep(10000);
-			String Success=Common.getText("xpath", "//h1[@class='page-title']");
-			System.out.println(Success);
-			Assert.assertEquals(Success, "Thank you for your purchase!");
-			//String orderid=Common.getText("xpath", "//*[@id='maincontent']/div[3]/div/div[2]/p[1]/a/strong");
-			//System.out.println("Your order number is "+orderid);
-			report.addPassLog(expectedResult, "Should Order Success Page", "Order Success page display successfully", Common.getscreenShotPathforReport("Order Success page success"));
-		}catch(Exception |Error e)
-		{
-			report.addFailedLog(expectedResult,"Should display  Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success page Failed"));
-			e.printStackTrace();
-			Assert.fail();
+			 Thread.sleep(10000);
+				
+				String sucessMessage=Common.getText("xpath", "//span[contains(text(),'Thank you for your purchase!')]");
 
+				System.out.println(sucessMessage);
+				Thread.sleep(3000);
+				Assert.assertEquals(sucessMessage, "Thank you for your purchase!");
+				Thread.sleep(3000);
+				report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
+			}catch(Exception |Error e)
+			{
+				report.addFailedLog(expectedResult,"Should display Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success Page Failed"));
+				Assert.fail();
+			}
 		}
-	}
 	
 	public void GuestOrderSuccesspage() throws InterruptedException {
 		
-		String expectedResult="Validating Order Confirmation Page";
-		Thread.sleep(2000);
-		try {
-			Thread.sleep(10000);
-			String Success=Common.getText("xpath", "//h1[@class='page-title']");
-			System.out.println(Success);
-			Assert.assertEquals(Success, "Thank you for your purchase!");
-			//String orderid=Common.getText("xpath", "//*[@id='maincontent']/div[3]/div/div[2]/p[1]/a/strong");
-			//System.out.println("Your order number is "+orderid);
-			report.addPassLog(expectedResult, "Should Order Success Page", "Order Success page display successfully", Common.getscreenShotPathforReport("Order Success page success"));
-		}catch(Exception |Error e)
-		{
-			report.addFailedLog(expectedResult,"Should display  Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success page Failed"));
-			e.printStackTrace();
-			Assert.fail();
+			String expectedResult="Validating Order Confirmation Page";
+			Thread.sleep(2000);
+			try {
+				 Thread.sleep(10000);
+					
+					String sucessMessage=Common.getText("xpath", "//span[contains(text(),'Thank you for your purchase!')]");
 
-		}
-		
-		/*String expectedResult="Validating Order Confirmation Page";
-		Thread.sleep(2000);
-		try {
-			Thread.sleep(3000);
-			String Success=Common.getText("xpath", "//h1[@class='page-title']");
-			System.out.println(Success);
-			Assert.assertEquals(Success, "Thank you for your purchase!");
-			String orderid=Common.getText("xpath", "//*[@id='maincontent']/div[3]/div/div[2]/p[1]/span");
-			System.out.println("Your order number is "+orderid);
-			report.addPassLog(expectedResult, "Should Order Success Page", "Order Success page display successfully", Common.getscreenShotPathforReport("Order Success page success"));
-		}catch(Exception |Error e)
-		{
-			report.addFailedLog(expectedResult,"Should display  Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success page Failed"));
-			Assert.fail();
-
-		}*/
-	}
+					System.out.println(sucessMessage);
+					Thread.sleep(3000);
+					Assert.assertEquals(sucessMessage, "Thank you for your purchase!");
+					Thread.sleep(3000);
+					report.addPassLog(expectedResult, "Should display Order Success Page", "Order Success Page display successfully", Common.getscreenShotPathforReport("Order success page success"));
+				}catch(Exception |Error e)
+				{
+					report.addFailedLog(expectedResult,"Should display Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success Page Failed"));
+					Assert.fail();
+				}
+			}
 	
 	
 	public void ChangeQtyMinicart() throws InterruptedException {
@@ -896,7 +901,7 @@ public class BraunHCHelper {
 		// TODO Auto-generated method stub
 		String expectedResult="Payment & Order submition success page with Credit card";
 		try {
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		Sync.waitElementPresent("xpath", "//iframe[@name='paymetric_xisecure_frame']");
 		Common.switchFrames("xpath", "//iframe[@name='paymetric_xisecure_frame']");
 		Thread.sleep(2000);
@@ -915,10 +920,28 @@ public class BraunHCHelper {
 		Common.textBoxInput("xpath", "//input[@id='c-cvv']", data.get(dataSet).get("cvv"));
 		Common.switchToDefault();
 		Thread.sleep(5000);
+		String URL = Common.getCurrentURL();
+        Thread.sleep(4000);
+        if (URL.contains("https://www.braunhealthcare.com/us_en") )
+        {
+
+
+
+            Common.getCurrentURL();
+
+
+
+        } else {
+
+
+
+            Common.mouseOverClick("xpath", "//span[contains(text(),'Place Order')]");
+        }
+
 		
 		//Sync.waitElementPresent("xpath", "//span[text()='Place Order']");
-		Common.scrollIntoView("xpath", "//span[text()='Place Order']");
-	    Common.clickElement("xpath", "//span[text()='Place Order']");
+		//Common.scrollIntoView("xpath", "//span[text()='Place Order']");
+	    //Common.clickElement("xpath", "//span[text()='Place Order']");
 	    String header=Common.getText("xpath", "//div[contains(text(),'Payment method')]");
 		System.out.println(header+"Payment method");
 		Assert.assertEquals(header, "Payment method");
@@ -926,7 +949,10 @@ public class BraunHCHelper {
 		}catch(Exception |Error e)
 		{
 			report.addFailedLog(expectedResult,"Should display Order Success Page", "Order Success Page not displayed", Common.getscreenShotPathforReport("Order Success Page Failed"));
+			e.printStackTrace();
+			
 			Assert.fail();
+			
 		}
 	}
 	public void PlaceOrder() {
@@ -968,6 +994,8 @@ public class BraunHCHelper {
 		Common.textBoxInput("xpath", "//input[@id='c-cvv']", data.get(dataSet).get("cvv"));
 		Common.switchToDefault();
 		Thread.sleep(5000);
+		
+		
 		Common.scrollIntoView("xpath", "//span[text()='Place Order']");
 	    Common.clickElement("xpath", "//span[text()='Place Order']");
 	    String header=Common.getText("xpath", "//div[contains(text(),'Payment method')]");
@@ -1076,31 +1104,44 @@ public class BraunHCHelper {
 		
 		
 	}
-	public void selectCategoryProduct(String string) {
-		// TODO Auto-generated method stub
-		String expectedResult="Land on searchProduct page";
-		try {
-			   
-			Sync.waitElementClickable(30, By.xpath("//*[@id='ui-id-3']/span"));
-		    //Common.findElement("xpath", "//*[@id='ui-id-3']/span").click();
-			Common.mouseOver("xpath" , "//*[@id='ui-id-3']/span");
-			Thread.sleep(1000);
-			Common.findElement("xpath", "//*[@id='ui-id-2']/li[1]/div/ul/li/div/div/div[1]/div[1]/figure/a/img[1]").click();
-			
-			Common.findElement("xpath", "(//img[@class='product-image-photo'])[1]").click();
-			//Common.findElement("xpath", "//strong[text()='Forehead Thermometer']").click();
-			String header=Common.getText("xpath", "//strong[text()='Forehead Thermometer']");
-			System.out.println(header+"Forehead Thermometer");
-			Assert.assertEquals(header, "Forehead Thermometer");
-			report.addPassLog(expectedResult, "Should display searchProduct Page", "searchProduct page display successfully", Common.getscreenShotPathforReport("searchProduct page success"));
-		}catch(Exception |Error e)
-		{
-			report.addFailedLog(expectedResult,"Should display  searchProduct Page", "searchProduct Page not displayed", Common.getscreenShotPathforReport("searchProduct page Failed"));
-			e.printStackTrace();
-			Assert.fail();
-	}
+	
+	
+	
 		
-	}
+		public void Select_ProductinThermometers(String productname) {
+			/*
+			* Please write logfiles nothing but a condition for screen short
+			*i just Implement logic for this
+			* Manojk
+			*/
+			try {
+			Sync.waitElementClickable(30, By.xpath("//div[@id='store.menu']//span[text()='Shop']"));
+			Common.mouseOver("xpath" , "//div[@id='store.menu']//span[text()='Shop']");
+			Common.clickElement("xpath", "//a[@title='Thermometers']");
+			Sync.waitPageLoad();
+
+			List<WebElement> Listofproducts=Common.findElements("xpath", "//ol[contains(@class,'products list')]/li//a[@class='product-item-link']");
+			for(int i=0;i<Listofproducts.size();i++) {
+			String product=Listofproducts.get(i).getText().trim();
+			if(product.equals(productname)) {
+			System.out.println(product);
+			Listofproducts.get(i).click();
+			}
+			}
+			 ExtenantReportUtils.addPassLog("verifying select the prodcut from plp page", "User should select  the prodcut from plp page", "User sucessfully  select the prodcut from plp page", Common.getscreenShotPathforReport("Failed to select the prodcut from plp page"));
+			}
+			
+			
+			catch(Exception e) {
+				ExtenantReportUtils.addFailedLog("verifying select the prodcut from plp page","User should select  the prodcut from plp page", "userunable to select the prodcut from plp page", Common.getscreenShotPathforReport("Failed to select the prodcut from plp page"));			
+			e.printStackTrace();
+			}
+			}
+		
+			
+	
+	
+	
 	public void CMS_links(String string) {
 		// TODO Auto-generated method stub
 		String expectedResult="Validating CMS Link About US";
@@ -1612,7 +1653,7 @@ public class BraunHCHelper {
 			Common.textBoxInput("xpath", "//input[@id='coupon_code']", data.get(dataSet).get("promocodename"));
 			
 			Common.findElement("xpath", "//span[text()='Apply Discount']").click();
-			
+			Common.actionsKeyPress(Keys.END);
 
 			ExtenantReportUtils.addPassLog(expectedResult,"Should display  Apply promo code page", "Apply promo code page display successfully", Common.getscreenShotPathforReport("Apply promo code page success"));
 
@@ -1825,7 +1866,10 @@ try {
 	int emailerrormessage=Common.findElements("xpath", "//div[@id='customer-email-error']").size();
 	int Streeterromessage=Common.findElements("xpath", "//div[@class='field-error']").size();
 	
+	
 	Common.assertionCheckwithReport(emailerrormessage>0&&Streeterromessage>0, "verifying error message ShippingAddressForm Page", "enter with empty data it must show error message","sucessfully display the error message", "faield to dispalyerrormessage");
+	
+	 Registeruseraddress();
 	}
 	catch(Exception |Error e) {
 	 	e.printStackTrace();   
@@ -1886,23 +1930,7 @@ public void privacy() {
 
 
 
-public void checkoutPage() {
-	// TODO Auto-generated method stub
-	String expectedResult="Navigate to checkout page";
-	try {
-		Thread.sleep(3000);
-		Sync.waitElementPresent("xpath", "//button[@id='top-cart-btn-checkout']");
-		Common.clickElement("xpath", "//button[@id='top-cart-btn-checkout']");
-		
-		Thread.sleep(5000);
-		
-		report.addPassLog(expectedResult, "Should display Checkout Page", "Checkout Page display successfully", Common.getscreenShotPathforReport("Checkout page success"));
-	}catch(Exception |Error e)
-	{
-		report.addFailedLog(expectedResult,"Should display Checkout Page", "Checkout Page not displayed", Common.getscreenShotPathforReport("Checkout Failed"));
-		Assert.fail();
-	}
-}
+
 
 
 
@@ -1986,6 +2014,40 @@ public void Mouseoversupport()throws Exception{
 }    
 }
 
+
+
+
+public void Shoppingcartpage() throws Exception
+{
+	String expectedResult="View and Edit cart page";
+	try {
+		
+		Thread.sleep(5000);
+		Sync.waitElementPresent("xpath", "//span[contains(text(),'View and Edit Cart')]");
+		Common.clickElement("xpath", "//span[contains(text(),'View and Edit Cart')]");
+		Thread.sleep(8000);
+		Sync.waitElementPresent("xpath", "//button[@class='qty-incrementer__increment']");
+		Common.clickElement("xpath", "//button[@class='qty-incrementer__increment']");
+		Thread.sleep(5000);
+
+		Sync.waitElementPresent("xpath", "//span[contains(text(), 'Update Shopping Cart')]");
+		Common.clickElement("xpath", "//span[contains(text(), 'Update Shopping Cart')]");
+		Thread.sleep(5000);
+		//int quantity= Common.findElements("xpath", "//span[contains(text(),'(Shipping - Free Shipping)')]").size();
+
+		//int quantity= Common.findElements("xpath", "//span[contains(text(),'(Shipping - Free Shipping)')]").size();
+		int quantity= Common.findElements("xpath", "//input[@class='input-text qty qty-incrementer__input']").size();
+		System.out.println(quantity); 
+		Common.assertionCheckwithReport(quantity>0, "it should navigate to quantity increase", "it should navigate to quantity increase ", "sucessfully lands on quantity increase ", "faield to increase quantity");
+		
+		report.addPassLog(expectedResult, "Should display Mini Cart Page", "Mini Cart Page display successfully", Common.getscreenShotPathforReport("Mini Cart page success"));
+	}catch(Exception |Error e)
+	{
+		report.addFailedLog(expectedResult,"Should display Mini Cart Page", "Mini Cart Page not displayed", Common.getscreenShotPathforReport("Mini Cart Failed"));
+		e.printStackTrace();
+		Assert.fail();
+	}
+}
 
 public void ViewandEditcart(String dataset) throws Exception
 {
@@ -2149,17 +2211,17 @@ public void mouseoverproduct()throws Exception{
     try {
     	 
      
-    	/*  Sync.waitElementPresent("xpath", "//a[@title='Nasal Aspirator']");
+    	  Sync.waitElementPresent("xpath", "//a[@title='Nasal Aspirator']");
         Common.clickElement("xpath", "//a[@title='Nasal Aspirator']");
         
         Sync.waitElementPresent("xpath", "(//button[@title='Add to cart'])[1]");
          Common.clickElement("xpath", "(//button[@title='Add to cart'])[1]");
-    */
-         Sync.waitElementPresent("xpath", "//a[@title='Blood Pressure Monitors']");
-        Common.clickElement("xpath", "//a[@title='Blood Pressure Monitors']");
+   
+    // Sync.waitElementPresent("xpath", "//a[@title='Blood Pressure Monitors']");
+      //  Common.clickElement("xpath", "//a[@title='Blood Pressure Monitors']");
         
-            Sync.waitElementPresent("xpath", "(//button[@title='Add to cart'])[1]");
-        Common.clickElement("xpath", "(//button[@title='Add to cart'])[1]");
+           // Sync.waitElementPresent("xpath", "(//button[@title='Add to cart'])[1]");
+         //Common.clickElement("xpath", "(//button[@title='Add to cart'])[1]");
         
         
         
@@ -2216,8 +2278,12 @@ public void Two_products_in_plp()throws Exception{
 public void NewBillingaddress(String dataSet) throws Exception {
 	String 	expectedresult = "Should add new billing address";
 		try {
-			Thread.sleep(3000);
-		Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(10000);
+
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			//Common.actionsKeyPress(Keys.PAGE_DOWN);
+			//Sync.waitElementVisible("xpath", "(//div[@class='billing-address-same-as-shipping-block field choice'])[1]");
+			//Common.clickElement("xpath", "(//div[@class='billing-address-same-as-shipping-block field choice'])[1]");
 		
 	Sync.waitElementVisible("xpath", "//span[text()='Billing address is same as shipping']");
 		Common.clickElement("xpath", "//span[text()='Billing address is same as shipping']");
@@ -2226,29 +2292,33 @@ public void NewBillingaddress(String dataSet) throws Exception {
 			Common.clickElement("xpath", "//select[@name='billing_address_id']");
 			
 		Common.clickElement("xpath", "//select[@name='billing_address_id']/option[text()='New Address']");
-	//Common.dropdown("xpath", "//select[@name='billing_address_id']", SelectBy.VALUE, data.get(dataSet).get("UserName"));
+	Common.dropdown("xpath", "//select[@name='billing_address_id']", SelectBy.VALUE, data.get(dataSet).get("UserName"));
 		}
-		Thread.sleep(2000);
-		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		
 	
 		Common.textBoxInput("xpath", "(//input[@name='firstname'])[2]", data.get(dataSet).get("FirstName"));
 		Common.textBoxInput("xpath", "(//input[@name='lastname'])[2]", data.get(dataSet).get("LastName"));
-		
-		Common.textBoxInput("xpath", "(//input[@class='input-text'])[14]", data.get(dataSet).get("Street"));
+		Common.textBoxInput("xpath", "(//input[@name='street[0]'])[2]", data.get(dataSet).get("Street"));
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.ESCAPE);
 		Common.textBoxInput("xpath", "(//input[@name='city'])[2]", data.get(dataSet).get("City"));
-		
 		Common.textBoxInput("xpath", "(//input[@name='postcode'])[2]", data.get(dataSet).get("postcode"));
+		Thread.sleep(3000);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
 		Common.dropdown("xpath", "(//select[@name='region_id'])[2]",Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
-
 		Common.textBoxInput("xpath", "(//input[@name='telephone'])[2]", data.get(dataSet).get("phone"));
-		Common.clickElement("xpath", "//button[@class='action action-update']");
 		
 		Common.actionsKeyPress(Keys.PAGE_UP);
 		
 		report.addFailedLog(expectedresult, "Billing address will be  added", Common.getscreenShotPathforReport("successfully add billing address"));
 		} catch(Exception | Error e) {
-			report.addFailedLog(expectedresult, "Billing address is not  added", Common.getscreenShotPathforReport("Failed to add billing address"));
-			Assert.fail();
+			
+			
+			
+report.addFailedLog(expectedresult, "Billing address is not  added", Common.getscreenShotPathforReport("Failed to add billing address"));
+			
+e.printStackTrace();
+Assert.fail();
 		}
 		
 	}
@@ -2283,20 +2353,24 @@ public void RegisterUser_ShippingAddress() throws Exception
 public void NewShippingAddress(String dataSet) throws InterruptedException {
 	try {
 		
-		Common.textBoxInput("name", "firstname", data.get(dataSet).get("FirstName"));
-		Common.textBoxInput("name", "lastname", data.get(dataSet).get("LastName"));
-		Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
-		
-		
-		Common.textBoxInput("name", "city", data.get(dataSet).get("City"));
-		Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+		Common.textBoxInput("xpath", "(//input[@name='firstname'])[2]", data.get(dataSet).get("FirstName"));
+		Common.textBoxInput("xpath", "(//input[@name='lastname'])[2]", data.get(dataSet).get("LastName"));
+		Common.textBoxInput("xpath", "(//input[@name='street[0]'])[2]", data.get(dataSet).get("Street"));
+		Thread.sleep(3000);
+		//Common.actionsKeyPress(Keys.ESCAPE);
+		Common.textBoxInput("xpath", "(//input[@name='city'])[2]", data.get(dataSet).get("City"));
+		Common.textBoxInput("xpath", "(//input[@name='postcode'])[2]", data.get(dataSet).get("postcode"));
+		Thread.sleep(3000);
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
-		Common.dropdown("xpath", "(//select[@name='region_id'])[1]",Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
-		Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+		Common.dropdown("xpath", "(//select[@name='region_id'])[2]",Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+		Common.textBoxInput("xpath", "(//input[@name='telephone'])[2]", data.get(dataSet).get("phone"));
+		Thread.sleep(8000);
+		//Sync.waitElementPresent("xpath", "(//span[text()='Ship Here'])[2]");
+		//Common.clickElement("xpath", "(//span[text()='Ship Here'])[2]");
 		
 		Sync.waitElementPresent("xpath", "//button[@class='action primary action-save-address']");
 		Common.clickElement("xpath", "//button[@class='action primary action-save-address']");
-		
+				
 				
 	}catch(Exception |Error e)
 	{
@@ -2470,16 +2544,16 @@ public void Mutiple_products()throws Exception{
 public void NoTAX_shippingAddress() throws InterruptedException {
 	String expectedResult="Should navigate to Shipping address page";
 	try {
-		Sync.waitElementClickable(30, By.xpath("//span[text()='Checkout']"));
-		Common.clickElement("xpath" , "//span[text()='Checkout']");
-		Thread.sleep(4000);
+		//Sync.waitElementClickable(30, By.xpath("//span[text()='Checkout']"));
+		//Common.clickElement("xpath" , "//span[text()='Checkout']");
+		//Thread.sleep(4000);
 		//String S=Common.getText("xpath", "//*[@id='shipping']/div[1]");
 		//System.out.println(S);
 		//Assert.assertTrue(Common.isElementDisplayed("xpath", "//*[@id='shipping']/div[1]"));
 		//Thread.sleep(3000);	
-		String s=Common.getText("xpath", "//div[text()='Shipping address']");
-		System.out.println(s);
-		Assert.assertTrue(Common.isElementDisplayed("xpath", "//div[text()='Shipping address']"));
+		//String s=Common.getText("xpath", "//div[text()='Shipping address']");
+		//System.out.println(s);
+		//Assert.assertTrue(Common.isElementDisplayed("xpath", "//div[text()='Shipping address']"));
 		Thread.sleep(3000);	
 		
 		NoTAXAddress("NoTaxShippingAddress");
@@ -2812,10 +2886,10 @@ public void Taxcalucaltion(String taxpercent) throws Exception{
 	
 	public void AGREEPROCEED() {
 		// TODO Auto-generated method stub
-		int sizes=Common.findElements("xpath", "//button[text()='AGREE & PROCEED']").size();
+		int sizes=Common.findElements("xpath", "//button[@id='truste-consent-required']").size();
 		if(sizes>0){
-		Sync.waitElementClickable(30, By.xpath("//button[text()='AGREE & PROCEED']"));
-	   Common.findElement("xpath", "//button[text()='AGREE & PROCEED']").click();
+		Sync.waitElementClickable(30, By.xpath("//button[@id='truste-consent-required']"));
+	   Common.findElement("xpath", "//button[@id='truste-consent-required']").click();
 		}
 	}
 	
@@ -2997,7 +3071,90 @@ public void Taxcalucaltion(String taxpercent) throws Exception{
         }
     }
 	
+
+	
+	public void SignIn_Shippingpage(String dataSet) {
+	    // TODO Auto-generated method stub
+	    String expectedResult=" SignIn in  shipping page ";
+	try {
+	    Thread.sleep(3000);
+		
+		//Common.textBoxInput("xpath","//input[@type='email']", data.get(dataSet).get("Email"));
+		Common.textBoxInput("xpath","(//input[@type='email'])[2]", data.get(dataSet).get("Email"));
+	    
+	    Common.textBoxInput("xpath", "(//input[@type='password'])[2]", data.get(dataSet).get("Password"));
+	    
+	    
+	    Sync.waitElementPresent("xpath", "(//button[@type='submit'])[2]");
+        Common.clickElement("xpath", "(//button[@type='submit'])[2]");
+	    
+	    
+      
+           report.addPassLog(expectedResult,"Should  login in shippg page ", "Payment and review page  displayed", Common.getscreenShotPathforReport("Payment and review page  displayed"));
+	   }catch(Exception |Error e) {
+	         e.printStackTrace();   
+	        ExtenantReportUtils.addFailedLog(expectedResult, "Should  login in shippg page", "Payment and review page  displayed", Common.getscreenShotPathforReport("Payment and review page  displayed"));
+	        Assert.fail();
+	    }
+	}
+
+
+
+
+public void ShippingMethods() {
+	// TODO Auto-generated method stub
+	String expectedResult=" Validating  shipping methods";
+try {
+	
+
+	int title= Common.findElements("xpath", "//div[text()='Shipping methods']").size();
+
+	 
+
+	System.out.println(title);
+
+	 
+
+	Common.assertionCheckwithReport(title>0, "verifying Shipping methods", " Shipping methods page should dispaly", "sucessfully lands on  Shipping methods page ", "faield to land on Shipping methods page");
+
+	 
+	 { 
+		 int subtotal=Common.findElements("xpath", "//th[text()='Subtotal']").size();
+		 
+
+		 if(subtotal>50)
+			 
+		 { 
+			 Sync.waitElementPresent("xpath", "(//td[text()='Free Shipping'])");
+		        Common.clickElement("xpath", "(//td[text()='Free Shipping'])");
+			    
+			// Common.findElement("xpath", "(//td[text()='Free Shipping'])");
+			 
+			
+		        ExtenantReportUtils.addPassLog("verifying Shipping methods", "User should select the free Shipping method", "User sucessfully  selected the free Shipping method", Common.getscreenShotPathforReport("Failed to select free shipping method"));
+			
+			 
+			// System.out.println("The subtotal amount should be displayed");
+		 } else {
+			 
+			 Sync.waitElementPresent("xpath", "//td[text()='US - Fedex SmartPost']");
+		        Common.clickElement("xpath", "//td[text()='US - Fedex SmartPost']");
+			    
+		        ExtenantReportUtils.addPassLog("verifying Shipping methods", "User should select the US - Fedex SmartPost", "User sucessfully  selected the US - Fedex SmartPost", Common.getscreenShotPathforReport("Failed to select US - Fedex SmartPost method"));
+		 }
+		 
+	 }
+	 
+	 Registeruseraddress();
+
+
+		
+	
 }
-
-
-
+	catch(Exception |Error e) {
+	 	e.printStackTrace();   
+		ExtenantReportUtils.addFailedLog("verifying Shipping methods", "verifying Shipping methods", "faield to verifying Shipping methods", Common.getscreenShotPathforReport("verifying Shipping methods"));
+		Assert.fail();
+	}
+}
+}

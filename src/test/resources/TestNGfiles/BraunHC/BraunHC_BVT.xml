@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="BraunHC Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<test name="Test_BraunUS_ST_009_AccountCreation" testid="HHG-135"
+		priority="P1"
+		description="This test case validates account creation of user with valid details ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_09_AccountCreation"/>
+		</classes>
+	</test>
+	
+	
+	 <test name="Test_BraunUS_ST_003_ValidatingContentLinks"
+		testid="HHG-129" priority="P1"
+		description="This test case  Validating ContentLinks">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_03_ContentLinks"/>
+		</classes>
+     </test>
+     <test name="Test_BraunUS_ST_004_RegisteredUserCategoryCheckout"
+		testid="HHG-130" priority="P1"
+		description="This test case is to verify Braun US, Category Checkout functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_04_RegUserCategoryCC" />
+		</classes>
+	</test>
+	
+	
+	
+	<test name="Test_BraunUS_ST_006_GuestUserCategoryCheckoutCC"
+		testid="HHG-132" priority="P1"
+		description="This test case is to verify Guest user Category Checkout Creditcart functionality of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_06_GuestUserCategoryCC" />
+		</classes>
+	</test>	
+	<test name="Test_BraunUS_008_GuestUserCheckout_with_CC" testid="HHG-134"
+		priority="P1"
+		description="This test case validates Guest user Checkout  with CC functionality of BraunUS">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_08_GuestUserCC" />
+		</classes>
+	</test>
+	<test name="Test_BraunUS_ST_019_RegisteredUserCheckoutCC" testid="HHG-139"
+		priority="P1"
+		description="This test case validates registered user Checkout process with valid credit card functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_19_RegUserCC" />
+		</classes>
+	</test>
+	 <test name="Test_BraunUS_ST_022_ValidateForgotPassword"
+		testid="HHG-142" priority="P1"
+		description="To verify the functionality of Adding Two products from PLP Page">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_22_ValidateForgotPassword"/>
+		</classes>	
+     </test>
+     <test name="Test_BraunUS_ST_032_GuestUserCheckout_CC_apply_promocode"
+		testid="HHG-150" priority="P1"
+		description="This test case  Validating BarunHC_Guest_CheckoutCC_applypromo_code">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_32_GuestUserPromocodeCC" />
+		</classes>
+     </test>  
+      <test name="Test_BraunUS_ST_033_RegUser_CheckoutCC_applypromo_code"
+		testid="HHG-151" priority="P1"
+		description="This test case  Validating BarunHC_RegUser_CheckoutCC_applypromo_code">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_33_RegUserPromocodeCC" />
+		</classes>
+     </test>
+     <test name="Test_BraunUS_ST_034_Article_Linkes"
+		testid="HHG-152" priority="P1"
+		description="This test case  Validating BarunHC_Article_Linkes">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_34_ArticleLinks" />
+		</classes>
+     </test>
+      <test name="Test_BraunUS_ST_044_Header_Links"
+		testid="HHG-161" priority="P1"
+		description="This test case Validating BraunHC_validateHeaderlinks">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_43_HeaderLinks"/>
+		</classes>
+     </test>
+     <!-- -->
+      <test name="Test_BraunUS_ST_044_Privacy_PolicyAnd_TermOfUse"
+		testid="HHG-162" priority="P1"
+		description="This test case  Validating BraunHC_Privacy_PolicyAnd_TermOfUse">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_44_PrivacyPolicyAndTermOfUse"/>
+		</classes>
+     </test>
+  
+	</suite> 
+ 

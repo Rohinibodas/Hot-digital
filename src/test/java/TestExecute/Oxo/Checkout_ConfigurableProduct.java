@@ -23,9 +23,9 @@ public class Checkout_ConfigurableProduct {
 			// oxo.PrivacyPolicy();
 			oxo.acceptPrivecy();
 			oxo.clickBaby_Toddler();
-			oxo.Configure_Color();
+			//oxo.Configure_Color();
 			oxo.addproducts("1");
-			oxo.Configure_Color();
+			//oxo.Configure_Color();
 			oxo.checkout();
 			oxo.ShippingAddress("ShippingAddress");
 			oxo.selectGroundShippingMethod();
