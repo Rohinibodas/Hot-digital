@@ -7,30 +7,45 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.BraunEMEA.BraunUKHelper;
+import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_BraunUK_Store_category {
+public class Test_ST_BraunEMEA_020_Footerlinks_Validation {
 		
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
-	BraunUKHelper BraunUK=new BraunUKHelper(datafile);
+	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		
 		
 		@Test(priority=1)
-		public void Store_category() throws Exception {
+		public void FooterLinks() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				//BraunUK.Acceptcookies();
 				//BraunUK.closepopup();
-				//BraunUK.Storeselection();
-				BraunUK.GermanStoreSelection();
-				//BraunUK.FranceStoreSelection();
+				BraunUK.StoreSelection("Germany");
+				//BraunUK.GermanStoreSelection();
+				/*BraunUK.Yourfamily_health();
+				BraunUK.Yourheart_health();
+				BraunUK.health();*/
+				BraunUK.footerLinks_Thermometer_Validation();
+				BraunUK.footerLinks_Blutdruckmessgerät_Validation();
+				BraunUK.footerLinks_Nasensauger_Validation();
+				BraunUK.footerLinks_BraunLeitfäden_Validation();
+				BraunUK.footerLinks_HealthMagazine_Validation();
+			//	BraunUK.footerLinks_Kundensupport_Validation();
+				BraunUK.footerLinks_Verkaufsbedingungen_Validation();
+				
+				//BraunUK.NavigateYourhealth("LinkText");
+				//BraunUK.NavigateYourhearthealth("LinkText");
+				//BraunUK.NavigateHealthMagazine("LinkText");
 				
 					
 			
 			}
 			catch (Exception e) {
+				e.printStackTrace();
 				
 				Assert.fail(e.getMessage(), e);
 			} 
@@ -44,6 +59,9 @@ public class Test_ST_BraunUK_Store_category {
 			  
 		  }*/
 		
+		
+		
+		
 		@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
@@ -51,13 +69,20 @@ public class Test_ST_BraunUK_Store_category {
 			  Login.signIn(browser);
 			  }
 		
-		@AfterTest
-		public void clearBrowser()
-		{
-			Common.closeAll();
-		}
+		
+@AfterTest
+public void clearBrowser()
+{
+	Common.closeAll();
 
-	}
+}
+}
 
+
+
+
+
+
+	
 
 

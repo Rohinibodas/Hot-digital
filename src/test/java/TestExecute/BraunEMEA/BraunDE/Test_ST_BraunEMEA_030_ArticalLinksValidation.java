@@ -7,28 +7,32 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.BraunEMEA.BraunUKHelper;
+import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_BraunUK_Store_category {
-		
+public class Test_ST_BraunEMEA_030_ArticalLinksValidation {
+	
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
-	BraunUKHelper BraunUK=new BraunUKHelper(datafile);
-		
-		
+	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		@Test(priority=1)
-		public void Store_category() throws Exception {
+		public void ArticalLinks() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				//BraunUK.Acceptcookies();
 				//BraunUK.closepopup();
-				//BraunUK.Storeselection();
-				BraunUK.GermanStoreSelection();
-				//BraunUK.FranceStoreSelection();
+				BraunUK.StoreSelection("Germany");
+				//BraunUK.GermanStoreSelection();
+			/*	BraunUK.GEDEFacebook();
+				BraunUK.GEDEInstagram();
+				BraunUK.GEDEYoutube();*/
+				//BraunUK.socialLinkValidation("socalLinks");
+				BraunUK.facebookFooterlink();
+				BraunUK.instagramFooterlink();
+				BraunUK.youtubeFooterlink();
 				
-					
-			
+				
 			}
 			catch (Exception e) {
 				
@@ -36,14 +40,14 @@ public class Test_ST_BraunUK_Store_category {
 			} 
 		}
 		
-		/*@BeforeMethod
+	/*	@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn("chrome");
 			  
 		  }*/
-		
+
 		@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
@@ -51,13 +55,25 @@ public class Test_ST_BraunUK_Store_category {
 			  Login.signIn(browser);
 			  }
 		
+		/*@BeforeMethod
+		@Parameters({"browser"}) 
+		  public void startTest(String browser) throws Exception {
+			System.setProperty("configFile", "BraunUK\\config.properties");
+			  Login.signIn(browser);
+			  }*/
+		
 		@AfterTest
 		public void clearBrowser()
 		{
 			Common.closeAll();
+
 		}
 
 	}
+
+
+
+
 
 
 

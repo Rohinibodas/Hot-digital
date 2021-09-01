@@ -19,8 +19,8 @@ public class Test_ST_BraunUK_RegUserCheckout_WithNewBillingAddress {
 
 			try {
 				Thread.sleep(6000);
-				BraunUK.Acceptcookies();
-				BraunUK.closepopup();
+				//BraunUK.Acceptcookies();
+				//BraunUK.closepopup();
 				//BraunUK.Storeselection();
 				BraunUK.StoreSelection("Germany");
 				BraunUK.GEsingin("AccountDetails");
@@ -38,25 +38,25 @@ public class Test_ST_BraunUK_RegUserCheckout_WithNewBillingAddress {
 			} 
 		}
 		
-		/* @BeforeMethod
+	 @BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn("chrome");
 			  
-		  }*/
+		  }
 		
-	   @BeforeMethod
+	  /* @BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
 			  Login.signIn(browser);
-			  }
+			  }*/
 		
 	   @AfterTest
 		public void clearBrowser()
 		{
-		Common.closeAll();
+	//Common.closeAll();
 
 		}
 

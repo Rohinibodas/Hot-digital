@@ -7,28 +7,26 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.BraunEMEA.BraunUKHelper;
+import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_BraunUK_Store_category {
+public class Test_ST_BraunEMEA_003_Guest_Browser_Search {
 		
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
-	BraunUKHelper BraunUK=new BraunUKHelper(datafile);
+	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		
 		
 		@Test(priority=1)
-		public void Store_category() throws Exception {
+		public void GuestUserBrowseSearch() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				//BraunUK.Acceptcookies();
 				//BraunUK.closepopup();
-				//BraunUK.Storeselection();
-				BraunUK.GermanStoreSelection();
-				//BraunUK.FranceStoreSelection();
-				
-					
-			
+				BraunUK.StoreSelection("Germany");
+				//BraunUK.GermanStoreSelection();
+		        BraunUK.productname("productName");
 			}
 			catch (Exception e) {
 				
@@ -55,9 +53,18 @@ public class Test_ST_BraunUK_Store_category {
 		public void clearBrowser()
 		{
 			Common.closeAll();
-		}
 
+		}
 	}
+
+
+
+
+
+
+
+
+
 
 
 

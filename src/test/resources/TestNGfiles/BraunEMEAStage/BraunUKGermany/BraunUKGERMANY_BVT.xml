@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BraunUK Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    <test name="Test_BraunUK_ST_001_Account Creation" testid="BNSI-897" priority="P1" description="This script will cover create new Account for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_001_AccountCreation"/>
+        </classes>
+        </test>
+         <test name="Test_BraunUK_ST_030_ArticalLinksLinks" testid="BNSI-1132" priority="P1" description="This testcase validates ArticalLinks for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_030_ArticalLinksValidation"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_020_FooterLinks Validation" testid="BNSI-899" priority="P1" description="This testcase validates FooterLinks Validation for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_020_Footerlinks_Validation"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_012-Forgot password" testid="BNSI-890" priority="P1" description="This script will cover Forgot password for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_012_Forgotpassword"/>
+        </classes>
+        </test>
+         <test name="Test_BraunUK_ST_016_Global Header" testid="BNSI-894" priority="P1" description="This script will cover Global Header of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_016_Global_Header"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_003_GuestUserBrowserSearch" testid="BNSI-882" priority="P1" description="This script will cover GuestUser BrowseSearch Functionality for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_003_Guest_Browser_Search"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_002_Guest user CategoryCheckout with CreditCard" testid="BNSI-881" priority="P1" description="This Script will cover GuestUserCheckoutwith Creditcart of BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_002_GuestUserCheckoutwith_Creditcart"/>
+        </classes>
+        </test>
+          <test name="Test_BraunUK_ST_009-ValidateHeaderLinks" testid="BNSI-887" priority="P1" description="This test case validates HeardeLinlks for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_009_Headerlink_Validation"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_018_Newsletter Sbscription" testid="BNSI-898" priority="P1" description="This script will cover NewsLetter Subscription for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_018_Newsletter_subscription"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_004_RegisterCategoryCheckoutCreditCard" testid="BNSI-880" priority="P1" description="This script will cover RegisterUserCheckout With Creditcart for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_004_RegisterCheckoutwith_Creditcart"/>
+        </classes>
+    </test>
+    <test name="Test_BraunUK_ST_023_Promocode Functionality for GuestUser" testid="BNSI-1125" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_023_Promocode_GuestUser_Checkout"/>
+        </classes>
+    </test>
+     <test name="Test_BraunUK_ST_024_Promocode Functionality For RegisterUser" testid="BNSI-1126" priority="P1" description="This script will cover Shoppingcart page BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEA.BraunDE.Test_ST_BraunEMEA_024_Promocode_RegisterUser_Checkout"/>
+        </classes>
+    </test>
+    </suite>
+    

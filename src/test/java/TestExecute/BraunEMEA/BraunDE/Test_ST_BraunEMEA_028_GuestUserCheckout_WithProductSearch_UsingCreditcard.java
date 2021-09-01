@@ -1,34 +1,34 @@
 package TestExecute.BraunEMEA.BraunDE;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import TestComponent.BraunEMEA.BraunUKHelper;
+import TestComponent.BraunEMEASTAGE.BraunEMEAHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_BraunUK_Store_category {
-		
+public class Test_ST_BraunEMEA_028_GuestUserCheckout_WithProductSearch_UsingCreditcard {
 	String datafile = "BraunEMEA//BraunUKTestData.xlsx";	
-	BraunUKHelper BraunUK=new BraunUKHelper(datafile);
+	BraunEMEAHelper BraunUK=new BraunEMEAHelper(datafile);
 		
 		
 		@Test(priority=1)
-		public void Store_category() throws Exception {
+		public void GuestUserCheckout_WithProductSearch_UsingCreditcard() throws Exception {
 
 			try {
 				Thread.sleep(6000);
 				//BraunUK.Acceptcookies();
 				//BraunUK.closepopup();
-				//BraunUK.Storeselection();
-				BraunUK.GermanStoreSelection();
-				//BraunUK.FranceStoreSelection();
-				
-					
-			
+				BraunUK.StoreSelection("Germany");
+		        BraunUK.Guestproductname("GuestProductname");
+		        BraunUK.ProductAddingtocart();
+		      //  BraunUK.ClickCheckoutButton();
+		        BraunUK.GernavigateMinicart();
+		        BraunUK.GEcheckoutPage();
+				BraunUK.shipping_Address("GuestEmail");
+				BraunUK.CreditcardPayment("PaymentcardDetails");
 			}
 			catch (Exception e) {
 				
@@ -36,7 +36,7 @@ public class Test_ST_BraunUK_Store_category {
 			} 
 		}
 		
-		/*@BeforeMethod
+	/*	@BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
@@ -44,7 +44,7 @@ public class Test_ST_BraunUK_Store_category {
 			  
 		  }*/
 		
-		@BeforeMethod
+   @BeforeMethod
 		@Parameters({"browser"}) 
 		  public void startTest(String browser) throws Exception {
 			System.setProperty("configFile", "BraunEMEA\\config.properties");
@@ -54,10 +54,8 @@ public class Test_ST_BraunUK_Store_category {
 		@AfterTest
 		public void clearBrowser()
 		{
-			Common.closeAll();
+		Common.closeAll();
+
 		}
-
 	}
-
-
 
