@@ -155,7 +155,7 @@ public void clickHairProducts() throws Exception {
 				"user faield to click the Hair Product", Common.getscreenShotPathforReport("hairproduct"));
 		Assert.fail();
 	}
-	 Close_popup();
+	
 }
 
 public void click_Gifts_and_Kits(){
@@ -207,6 +207,7 @@ public void Hair_ProductsMegamenuValidations(String dataSet) throws Exception{
 		Sync.waitElementClickable("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])");
 		Common.clickElement("xpath", "(//span[contains(text(),'"+hedrs[i]+"')])");
 		Thread.sleep(3000);
+		Close_popup();
 		System.out.println(Common.getPageTitle());
 		Common.assertionCheckwithReport(Common.getPageTitle().contains(hedrs[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
 		Common.mouseOver("xpath", "(//span[contains(text(),'Hair Products')])[1]");	
@@ -2113,18 +2114,12 @@ public void ClearMiniCart_Bag() throws InterruptedException {
 	try {
 		Thread.sleep(5000);
 		Common.clickElement("xpath", "//a[@class='action showcart desktop_only']");
-
-		Thread.sleep(5000);
-		int sizes = Common.findElements("xpath", "(//strong[text()='You have no items in your shopping bag.'])")
-				.size();
+		int sizes = Common.findElements("xpath", "(//strong[text()='You have no items in your shopping bag.'])").size();
 		if (sizes > 0) {
-
 			Common.getCurrentURL();
 		} else {
 			int size = Common.findElements("xpath", "(//span[contains(text(),'$0.00')])").size();
 			if (size > 0) {
-
-				Thread.sleep(5000);
 				List<WebElement> Products = Common.findElements("xpath", "(//ol//li)");
 				System.out.println(Products);
 				int ProductCount = Products.size();
@@ -2133,14 +2128,12 @@ public void ClearMiniCart_Bag() throws InterruptedException {
 				// if (Common.findElement("xpath", "//a[@class='action showcart desktop_only']")
 				// != null) {
 				while (ProductCount2 > 0) {
-					Sync.waitElementClickable("xpath", "(//span[text()='Remove'])");
-					Common.mouseOver("xpath", "(//span[text()='Remove'])");
 					Common.clickElement("xpath", "(//span[text()='Remove'])");
 					Sync.waitPageLoad();
 					Thread.sleep(3000);
-					Common.mouseOver("xpath", "(//span[text()='OK'])");
 					Common.clickElement("xpath", "(//span[text()='OK'])");
-					Thread.sleep(7000);
+					Sync.waitPageLoad();
+					Thread.sleep(3000);
 					ProductCount2--;
 
 				}
@@ -2581,18 +2574,12 @@ public void forgetpasswordPageValidation(){
 	
 }
 
-public void Aggree_and_proceed() {
-	
-	try{
+public void Aggree_and_proceed() throws Exception {
+
 		Sync.waitElementPresent("xpath", "(//button[@id='truste-consent-required'])");
 		Common.clickElement("xpath", "(//button[@id='truste-consent-required'])");
 
-        }
-	catch (Exception | Error e) {
-  
-        Assert.fail();
-        }
-
+ 
 }
 	
 
@@ -2836,13 +2823,13 @@ public void add_to_cart_from_Homepage() {
 	try{
 		Sync.waitPageLoad();
 		Thread.sleep(5000);
-	    Common.scrollIntoView("xpath", "(//div[@class='product-item-info'])[1]");
+	    Common.scrollIntoView("xpath", "((//div[@class='slick-track'])[3]//div//a)[4]");
 	    Thread.sleep(2000);
-	    Common.mouseOver("xpath", "(//img[@class='product-image-photo'])[1]");
+	    Common.mouseOver("xpath", "((//div[@class='slick-track'])[3]//div//a)[4]");
 	    Thread.sleep(4000);
 	   // Common.clickElement("xpath", "");
-	    Sync.waitElementPresent("xpath", "(//button[@title='Add to Bag'])[1]");
-		Common.mouseOverClick("xpath", "(//button[@title='Add to Bag'])[1]");
+	    Sync.waitElementPresent("xpath", "((//div[@class='slick-track'])[3]//button)[1]");
+		Common.mouseOverClick("xpath", "((//div[@class='slick-track'])[3]//button)[1]");
 		Thread.sleep(5000);
 		ExtenantReportUtils.addPassLog("verifying add to cart button", "User click add to card button", "user successfully click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
 	}
@@ -3127,16 +3114,11 @@ public void Accept() {
 	try {
 
 		Thread.sleep(2000);
-		if (Common.findElement("xpath", "//a[@class='action showcart desktop_only']") != null) {
+		if (Common.findElement("xpath", "//button[@id='truste-consent-required']") != null) {
 
-			// Sync.waitElementPresent("xpath", "//button[@id='truste-consent-required']");
 			Common.clickElement("xpath", "//button[@id='truste-consent-required']");
-		} else {
-			Thread.sleep(2000);
-			System.out.println(Common.getCurrentURL());
-		}
-
-	} catch (Exception e) {
+		} 
+		}catch (Exception e) {
 
 		e.printStackTrace();
 
@@ -3251,20 +3233,22 @@ Thread.sleep(2000);
 
       //Common.clickElement("xpath", "//button[@title='Proceed to Checkout']");
     
-public void Close_popup() throws Exception {
 
-	Thread.sleep(1000);
-	int sizes = Common.findElements("xpath", "(//input[@id='ltkpopup-email'])").size();
-	if (sizes > 0) {
-		Thread.sleep(1000);
-		Common.clickElement("xpath", "(//a[@class='ltkpopup-close'])");
 
-	} else {
-		Thread.sleep(4000);
-		System.out.println(Common.getCurrentURL());
-	}
-	Thread.sleep(1000);
+public void Close_popup() {
+try {
+		  Thread.sleep(2000); if (Common.findElement("xpath","(//input[@id='ltkpopup-email'])") != null) {
+		  
+		  Common.clickElement("xpath", "(//a[@class='ltkpopup-close'])"); 
+		  }
+		  }catch
+		  (Exception e) {
+		  e.printStackTrace(); 
+		  }
 }
+		 
+	
+	
 public void Verify_PDP() {
 
 	try {
@@ -3275,7 +3259,7 @@ public void Verify_PDP() {
 		Accept();
 		String Title = Common.getPageTitle();
 		System.out.println(Title);
-		 //Close_popup();
+	    Close_popup();
 		Common.assertionCheckwithReport(verifyaddtobag.equals("Add to Bag"), "Verifying PDP page",
 				"it shoud navigate to PDP page", "successfully  navigated to PDP Page", "PDP Page");
 	} catch (Exception | Error e) {
@@ -3624,8 +3608,12 @@ public void Verify_OutofStockPDP(){
 
     try {
 
-Thread.sleep(2000);
-Common.clickElement("xpath", "(//a[@class='see-more-link clearfix'])[1]");
+Sync.waitPageLoad();
+Thread.sleep(5000);
+Sync.waitElementClickable("xpath", "(//a[contains(text(),' At First Crush Straightening Brush Kit ')])[2]");
+Thread.sleep(3000);
+Common.clickElement("xpath", "(//a[contains(text(),' At First Crush Straightening Brush Kit ')])[2]");
+Sync.waitPageLoad();
 Thread.sleep(3000);
 //Common.actionsKeyPress(Keys.PAGE_DOWN);
 String OSS=Common.findElement("xpath","(//span[contains(text(),'Sorry, we’ve sold out!')])").getText();

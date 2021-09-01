@@ -9,50 +9,26 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_001_Createaccount"/>
         </classes>
         </test>
-        
-        
+      
           <test name="Test_DB_ST_002-Registered user Checkout with Visa Credit Card" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard drybar">
        <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_002_RegisteredUser_Checkout_visa_CreditCard"/>
         </classes>
         </test>
-        
-        
-        <test name="TEST_DB_ST_003-Guest Checkout with CreditCard" testid="DRY-21" priority="P1" description="This script will cover guestuser order product using Credit card in drybar">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_003_Guest_Checkout_CreditCard"/>
-        </classes>
-        </test>
-       
-    
+ 
      <test name="TEST_DB_ST_010-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
         <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_010_ForgotPassword"/>
         </classes>
     </test>  
     
-      <test name="Test_DB_ST_011-Verification of Footerlinks" testid="DRY-46" priority="P1" description="This Test case is to verify Drybar Footerlinks.">
+      <test name="Test_DB_MT_002-Verification of Search Functionality" testid="DRY-292" priority="P1" description="This Test case is to verify Drybar Search Function.">
         <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_011_validation_0f_Footerlinks"/>
-        </classes>
-    </test>
-     <test name="Test_DB_ST_012-Header Validation" testid="DRY-40" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user.">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_012_ValidatingHeaderLinks"/>
+            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_002_Verify_search_functionality"/>
         </classes>
     </test>
     
-     <test name="Test_DB_ST_037_GuestUser_BrowseSearch_Checkout" testid="DRY-876" priority="P1" description="This Test case is used to verify Guestuser checkout through browse search functionality">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_037_GuestUser_BrowseSearch_Checkout"/>
-        </classes>
-    </test>
-    
-     <test name="Test_DB_ST_038_Configurable_product_checkout" testid="DRY-881" priority="P1" description="This Test case is used to Checkout with a Configurable product">
-        <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_038_Configurable_product_checkout"/>
-        </classes>
-    </test>
+
     
      
 </suite>  

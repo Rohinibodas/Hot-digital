@@ -519,43 +519,30 @@
         </classes>
     </test>
     
+ 
+    
+        <test name="Test_DB_MT_001-Verification of out of stock product" testid="DRY-289" priority="P1" description="This Test case is to verify Drybar PDP page with out of stock product.">
+        <classes>
+            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_001_OutofStock_Subscription_for_RegisterUser"/>
+        </classes>
+    </test>
    
-    
-      <test name="Test_DB_MT_001-Guest user verification of PDP" testid="DRY-288" priority="P1" description="This Test case is to verify Drybar PDP Page functionality for Guestuser.">
+  
+     <test name="Test_DB_MT_002-Verification of Search Functionality" testid="DRY-292" priority="P1" description="This Test case is to verify Drybar Search Function.">
         <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_001_Guest_user_verification_of_pdp"/>
+            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_002_Verify_search_functionality"/>
         </classes>
     </test>
     
-        <test name="Test_DB_MT_002-Verification of out of stock product" testid="DRY-289" priority="P1" description="This Test case is to verify Drybar PDP page with out of stock product.">
+    <test name="Test_DB_MT_003-Verification My account page functionalities" testid="DRY-439" priority="P1" description="This Test case is to verify My account page functionalities navigations.">
         <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_002_OutofStock_Subscription_for_RegisterUser"/>
+            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_003_Validate_My_Account_page_LeftNavigation"/>
         </classes>
     </test>
     
-    <test name="Test_DB_MT_003-Registereduser verification of PDP" testid="DRY-290" priority="P1" description="This Test case is to verify Drybar PDP Page functionality for Loginuser.">
+      <test name="Test_DB_MT_004_Add_to_cart_from_Homepage" testid="DRY-809" priority="P1" description="This Test case is used to add the product to the bag from Homepage">
         <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_003_Registereduser_verification_Of_PDP"/>
-        </classes>
-    </test>
-    
-    
-    
-     <test name="Test_DB_MT_004-Verification of Search Functionality" testid="DRY-292" priority="P1" description="This Test case is to verify Drybar Search Function.">
-        <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_004_Verify_search_functionality"/>
-        </classes>
-    </test>
-    
-    <test name="Test_DB_MT_005-Verification My account page functionalities" testid="DRY-439" priority="P1" description="This Test case is to verify My account page functionalities navigations.">
-        <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_005_Validate_My_Account_page_LeftNavigation"/>
-        </classes>
-    </test>
-    
-      <test name="Test_DB_MT_006_Add_to_cart_from_Homepage" testid="DRY-809" priority="P1" description="This Test case is used to add the product to the bag from Homepage">
-        <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_006_Add_to_cart_from_Homepage"/>
+            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_004_Add_to_cart_from_Homepage"/>
         </classes>
     </test>
    
