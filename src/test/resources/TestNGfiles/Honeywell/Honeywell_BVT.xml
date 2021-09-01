@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="HoneywellSuite Suite">
+	<listeners>
+	
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	  <test name="TEST_ST_HW_001_account_creation" testid="HHG-320"
+		priority="P1" description="This script will new account creation ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_001_account_creation" />
+		</classes>
+		</test>
+	<test name="TEST_ST_HW_002_Forgotpassword" testid="HHG-323"
+		priority="P1" description="This script will cover to verify the forgot password">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_002_Forgotpassword" />
+		</classes>
+	</test>
+		
+	<test name="TEST_ST_HW_008_Search_a_product" testid="HHG-337"
+		priority="P1" description="This script will cover Search a product through the Search box">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_008_Search_a_product" />
+		</classes>
+	</test>
+	
+	<test name="TEST_ST_HW_036_GuestUser_Checkout_MasterCCNoTax_sameBill_ship" testid="HHG-427"
+        priority="P1" description="This script will cover validation of checkout with no tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_036_GuestUser_Checkout_MasterCCNoTax_sameBill_ship" />
+        </classes>
+    </test>
+	<test name="TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping" testid="HHG-415"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping" />
+        </classes>
+    </test>
+	
+    
+    </suite>
+    
+    

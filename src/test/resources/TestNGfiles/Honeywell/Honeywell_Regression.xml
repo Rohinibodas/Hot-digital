@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="HoneywellSuite Suite">
+	<listeners>
+	
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	  <test name="TEST_ST_HW_001_account_creation" testid="HHG-320"
+		priority="P1" description="This script will new account creation ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_001_account_creation" />
+		</classes>
+		</test>
+	<test name="TEST_ST_HW_002_Forgotpassword" testid="HHG-323"
+		priority="P1" description="This script will cover to verify the forgot password">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_002_Forgotpassword" />
+		</classes>
+	</test>
+		
+	
+	<test name="TEST_ST_HW_003_footer_links_validation" testid="HHG-330"
+		priority="P1" description="This script will cover validation of footerlinks">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_003_footer_links_validation" />
+		</classes>
+	</test>	
+	
+	
+		<test name="TEST_ST_HW_004_Checkout_as_loggedin_user_Invalid_credit_card" testid="HHG-333"
+		priority="P1" description="This script will cover Check out for registered user with Invalid Credentials">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_004_Checkout_as_loggedin_user_Invalid_credit_card" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_005_Checkout_as_guestuser_invalid_credit_card" testid="HHG-334"
+		priority="P1" description="This script will cover Check out for guest user with Invalid Credentials">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_005_Checkout_as_guestuser_invalid_credit_card" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_006_header_link_validation" testid="HHG-335"
+		priority="P1" description="This script will cover validation of headerlinks">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_006_header_link_validation" />
+		</classes>
+	</test>	
+	<test name="TEST_ST_HW_007_CheckoutDiscount" testid="HHG-336"
+		priority="P1" description="This script will cover validation of guest discountcode ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_007_CheckoutDiscount" />
+		</classes>
+	</test>	
+	<test name="TEST_ST_HW_008_Search_a_product" testid="HHG-337"
+		priority="P1" description="This script will cover Search a product through the Search box">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_008_Search_a_product" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HW_009_Minicart" testid="HHG-338"
+		priority="P1" description="This script will cover validation of Mini card detailes">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_009_Minicart" />
+		</classes>
+	</test>
+	  <test name="TEST_ST_HW_010_PLP_page_Validation" testid="HHG-339"
+		priority="P1" description="This script will cover all functionality in Product List Page (PLP)">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_010_PLP_page_Validation" />
+		</classes>
+	</test> 
+
+	
+	  <test name="TEST_ST_HW_011_Validation_of_forgot_password_form" testid="HHG-405"
+		priority="P1" description="This script will cover validation of forgot password form">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_011_Validation_of_forgot_password_form" />
+		</classes>
+	</test>	
+	<test name="TEST_ST_HW_012_Validation_Of_CreateAccountform" testid="HHG-406"
+		priority="P1" description="This script will cover validation of CreateAccount form">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_012_Validation_Of_CreateAccountform" />
+		</classes>
+	</test>	
+	<test name="TEST_ST_HW_013_Validation_of_Shipping_page" testid="HHG-407"
+		priority="P1" description="This script will cover validation of shipping page">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_013_Validation_of_Shipping_page" />
+		</classes>
+
+</test>	
+<test name="TEST_ST_HW_015_MyAccount" testid="HHG-408"
+		priority="P1" description="This script will cover validation of my account">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_015_MyAccount" />
+		</classes>
+	</test> 
+
+	<test name="TEST_ST_HW_016_Warranty_Registration_form_validation" testid="HHG-409"
+		priority="P1" description="This script will cover validation of WarrantyRegistration form">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_016_Warranty_Registration_form_validation" />
+		</classes>
+	</test>	
+	<!-- <test name="TEST_ST_HW_017_Contact_Us_form_validation" testid="HHG-410"
+		priority="P1" description="This script will cover validation of ContactUs form">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_017_Contact_Us_form_validation" />
+		</classes>
+	</test>	 -->
+	<test name="TEST_ST_HW_014_Orderstatus_verification" testid="HHG-411"
+		priority="P1" description="This script will cover validation of Order Status">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_014_Orderstatus_verification" />
+		</classes>
+	</test> 
+	<test name="TEST_ST_HW_018_ArticalLinks" testid="HHG-348"
+		priority="P1" description="This script will cover validation of ArticalLinks">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_018_ArticalLinks" />
+		</classes>
+	</test> 
+	
+ 
+	<test name="TEST_ST_HW_022_ProductColorChange_Functionality_and_Checkout" testid="HHG-347"
+		priority="P1" description="This script will cover validation of ProductColorChange Functionality and Checkout ">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_022_ProductColorChange_Functionality_and_Checkout" />
+		</classes>
+	</test> 
+	
+	<test name="TEST_ST_HW_020_ChangeEmail_For_RegisterUser" testid="HHG-413"
+		priority="P1" description="This script will cover validation of Change Email for RegisterUser">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_020_ChangeEmail_For_RegisterUser" />
+		</classes>
+	</test> 
+	
+	<test name="TEST_ST_HW_021_Addtocart_from_homepage" testid="HHG-414"
+		priority="P1" description="This script will cover validation of Add to card home page">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_021_Addtocart_from_homepagee" />
+		</classes>
+	</test> 
+	<test name="TEST_ST_HW_024_Sticky_Addtocart_validation" testid="HHG-398"
+		priority="P1" description="This script will cover validation of Sticky Addtocard Validation">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_024_Sticky_Addtocart_validation" />
+		</classes>
+	</test>
+	
+	
+	<test name="TEST_ST_HW_025_Adding_Replacementfilter_product_from_pdppage" testid="HHG-399"
+		priority="P1" description="This script will cover validation of Adding Replacementfilter to product from pdppage">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_025_Adding_Replacementfilter_product_from_pdppage" />
+		</classes>
+	</test> 
+	
+	
+	<test name="TEST_ST_HW_026_Checkout_with_different_Cetegory_Products" testid="HHG-400"
+		priority="P1" description="This script will cover validation of Chechout with different Cetegory products">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_026_Checkout_with_different_Cetegory_Products" />
+		</classes>
+	</test> 
+	<test name="TEST_ST_HW_027_SignIn_in_Checkoutpage" testid="HHG-401"
+		priority="P1" description="This script will cover validation of Sign in  Chechout page">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_027_SignIn_in_Checkoutpage" />
+		</classes>
+	</test> 
+
+	
+		
+<test name="TEST_ST_HW_028_Outofstock_product" testid="HHG-403"
+		priority="P1" description="This script will cover validation of Outof stock order product">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_028_Outofstock_product" />
+		</classes>
+	</test> 
+	
+	
+<test name="TEST_ST_HW_029_Update_Address_And_Checkout_Register_User" testid="HHG-404"
+		priority="P1" description="This script will cover validation of addnew address">
+		<classes>
+			<class name="TestExecute.Honeywell.TEST_ST_HW_029_Update_Address_And_Checkout_Register_User" />
+		</classes>
+	</test> 
+	
+	
+	
+<test name="TEST_ST_HW_039_RegUser_Checkout_MasterCCNoTax_2prods_DiffBill_ship" testid="HHG-417"
+        priority="P1" description="This script will cover validation of checkout with differnt address and no tax selecting multiple orders">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_039_RegUser_Checkout_MasterCCNoTax_2prods_DiffBill_ship"/>
+        </classes>
+    </test>
+    
+    
+    <test name="TEST_ST_HW_035_Reguser_Checkout_VisaCCNoTax_DiffBill_Ship" testid="HHG-426"
+        priority="P1" description="This script will cover validation of checkout with differnt address and no tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_035_Reguser_Checkout_VisaCCNoTax_DiffBill_Ship"/>
+        </classes>
+    </test>
+    
+    
+    <test name="TEST_ST_HW_036_GuestUser_Checkout_MasterCCNoTax_sameBill_ship" testid="HHG-427"
+        priority="P1" description="This script will cover validation of checkout with no tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_036_GuestUser_Checkout_MasterCCNoTax_sameBill_ship" />
+        </classes>
+    </test>
+    
+    
+<test name="TEST_ST_HW_037_RegUser_Checkout_DisCCTax_2prodsDis_DiffBill_ship" testid="HHG-428"
+        priority="P1" description="This script will cover validation of checkout with tax multiple products dicount and differnt address">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_037_RegUser_Checkout_DisCCTax_2prodsDis_DiffBill_ship" />
+        </classes>
+    </test>
+ 
+ <test name="TEST_ST_HW_038_GuestUser_Checkout_VisaCCNoTax_2prods_sameBill_ship" testid="HHG-429"
+        priority="P1" description="This script will cover validation of checkout with multiple products and no tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_038_GuestUser_Checkout_VisaCCNoTax_2prods_sameBill_ship" />
+        </classes>
+    </test>
+ 
+ 
+    <test name="TEST_ST_HW_040_GuestUser_Checkout_AmexCCNoTax_2prods_SameBill_ship" testid="HHG-418"
+        priority="P1" description="This script will cover validation of checkout with multiple products and no tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_040_GuestUser_Checkout_AmexCCNoTax_2prods_SameBill_ship" />
+        </classes>
+    </test>
+    
+    <test name="TEST_ST_HW_041_RegisterUser_Checkout_DisCCNoTax_2prods_SameBill_ship" testid="HHG-419"
+        priority="P1" description="This script will cover validation of checkout with multiple products and no tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_041_RegisterUser_Checkout_DisCCNoTax_2prods_SameBill_ship" />
+        </classes>
+    </test> 
+    
+    <test name="TEST_ST_HW_042_GuestUser_Checkout_VisaCCTax_Dis_1prod_SameBill_ship" testid="HHG-421"
+        priority="P1" description="This script will cover validation of checkout with discount and tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_042_GuestUser_Checkout_VisaCCTax_Dis_1prod_SameBill_ship" />
+        </classes>
+    </test>
+    
+    
+ <test name="TEST_ST_HW_044_GuestUser_Checkout_AMEXTax_Dis_2prods_SameBill_ship" testid="HHG-423"
+        priority="P1" description="This script will cover validation of checkout with discount multiproducts and tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_044_GuestUser_Checkout_AMEXTax_Dis_2prods_SameBill_ship" />
+        </classes>
+    </test>
+    
+    
+<test name="TEST_ST_HW_043_RegUser_Checkout_MasterCCTax_Dis_1prod_DiffBill_ship" testid="HHG-422"
+        priority="P1" description="This script will cover validation of checkout with discount single product different address and tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_043_RegUser_Checkout_MasterCCTax_Dis_1prod_DiffBill_ship" />
+        </classes>
+    </test>
+    
+    <test name="TEST_ST_HW_030_GuestUser_Checkout_AmexCCTax_2Prods" testid="HHG-430"
+        priority="P1" description="This script will cover validation of checkout with Multiple products">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_030_GuestUser_Checkout_AmexCCTax_2Prods" />
+        </classes>
+    </test>
+    
+    <test name="TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping" testid="HHG-415"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping" />
+        </classes>
+    </test>
+    
+    <test name="TEST_ST_HW_032_RegUser_Checkout_DisCCTax_SameBill_Shipping" testid="HHG-416"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_032_RegUser_Checkout_DisCCTax_SameBill_Shipping" />
+        </classes>
+    </test>
+    
+    <test name="TEST_ST_HW_033_RegUser_Checkout_AmexCCTax_2prods" testid="HHG-420"
+        priority="P1" description="This script will cover validation of checkout with tax and multiple products">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_033_RegUser_Checkout_AmexCCTax_2prods"/>
+        </classes>
+    </test>
+    
+    <test name="TEST_ST_HW_034_GuestUser_Checkout_DisCCTax_2prods" testid="HHG-425"
+        priority="P1" description="This script will cover validation of checkout with tax and multiple products">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_034_GuestUser_Checkout_DisCCTax_2prods" />
+        </classes>
+    </test>
+     <test name="TEST_ST_HW_045_GuestUser_Checkout_VISACCTax_1prod_SameBill_Ship" testid="HHG-424"
+        priority="P1" description="To Verify the Guest User Checkout with select single  product and Checkout functionality with tax and  same Billing and shipping address in honeywell with VISA card">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_045_GuestUser_Checkout_VISACCTax_1prod_SameBill_Ship" />
+        </classes>
+    </test>   
+    
+</suite>
