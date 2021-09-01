@@ -10,7 +10,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_043_Guestuser_tax_VisaCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_043_Guestuser_tax_VisaCC" />
 		</classes>
 	</test>
 
@@ -21,7 +21,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_044_Registeruser_tax_MastercardCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_044_Registeruser_tax_MastercardCC" />
 		</classes>
 	</test>
 
@@ -32,7 +32,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_045_Guestuser_tax_Different_address_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_045_Guestuser_tax_Different_address_AmexCC" />
 		</classes>
 	</test>
 
@@ -44,7 +44,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_046__Registeruser_tax_DiscovercardCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_046__Registeruser_tax_DiscovercardCC" />
 		</classes>
 	</test>
 
@@ -55,7 +55,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_047_RegisterUser_Multiproduct_tax_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_047_RegisterUser_Multiproduct_tax_AmexCC" />
 		</classes>
 	</test>
 
@@ -66,7 +66,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_048_Guestuser_multiproduct_tax_DiscoverCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_048_Guestuser_multiproduct_tax_DiscoverCC" />
 		</classes>
 	</test>
 
@@ -77,7 +77,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_049_Guestuser_notax_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_049_Guestuser_notax_MasterCC" />
 		</classes>
 	</test>
 	
@@ -89,7 +89,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_050_GuestUser_multiproduct_notax_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_050_GuestUser_multiproduct_notax_MasterCC" />
 		</classes>
 	</test>
 	<test
@@ -99,7 +99,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC" />
 		</classes>
 	</test>
 	<test
@@ -109,7 +109,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_052_GuestUser_Multiproduct_Notax_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_052_GuestUser_Multiproduct_Notax_AmexCC" />
 		</classes>
 	</test>
 	<test
@@ -119,7 +119,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_053_RegUser_Multiproduct_Notax_DiscoverCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_053_RegUser_Multiproduct_Notax_DiscoverCC" />
 		</classes>
 	</test>
 	<test
@@ -129,7 +129,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_054_Guestuser_Promocode_tax_VisaCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_054_Guestuser_Promocode_tax_VisaCC" />
 		</classes>
 	</test>
 	<test
@@ -139,7 +139,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_055_RegUser_Promocode_tax_Diff_Address_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_055_RegUser_Promocode_tax_Diff_Address_MasterCC" />
 		</classes>
 	</test>
 	<test
@@ -149,7 +149,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_056_Guestuser_Multiproduct_Promocode_tax_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_056_Guestuser_Multiproduct_Promocode_tax_AmexCC" />
 		</classes>
 	</test>
 	<test
@@ -159,7 +159,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_057_Reg_Multiproduct_Promocode_tax_diff_Address_DisCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_057_Reg_Multiproduct_Promocode_tax_diff_Address_DisCC" />
 		</classes>
 	</test>
 

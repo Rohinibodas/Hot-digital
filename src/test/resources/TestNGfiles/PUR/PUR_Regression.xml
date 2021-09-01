@@ -6,7 +6,7 @@
     <test name="Test_PUR_001_Create NewAccount" testid="HHUS-127" priority="P1" description="To Verify the Create new account functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_001_AccountCreation"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_001_AccountCreation"/>
         </classes>
     </test>
     
@@ -14,7 +14,7 @@
    <test name="Test_PUR_ST_018_AddNewAddress" testid="HHUS-273" priority="P1" description="To verify the  adding of address to Registereduser  functionality in PUR Website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_018_AddNewAddress"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_018_AddNewAddress"/>
         </classes>
     </test>
     
@@ -22,7 +22,7 @@
     <test name="Test_PUR_ST_020_AccountInformation" testid="HHUS-286" priority="P1" description="To verify the  navigation of Account Information functionality in PUR Website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_020_AccountInformation"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_020_AccountInformation"/>
         </classes>
     </test>
   
@@ -33,7 +33,7 @@
     <test name="Test_PUR_ST_003Guest_Browser_Search" testid="HHUS-170" priority="P1" description="To verify the search functionality for Guest user in PUR web site">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_003Guest_Browser_Search"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_003Guest_Browser_Search"/>
         </classes>
     </test>
    
@@ -43,7 +43,7 @@
     <test name="Test_PUR_ST_007_Category_Guest_checkout" testid="HHUS-174" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_007_Category_Guest_checkout"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_007_Category_Guest_checkout"/>
         </classes>
     </test>
     
@@ -51,7 +51,7 @@
     <test name="Test_PUR_ST_008_Guest_Browsesearch_Creditcard" testid="HHUS-208" priority="P1" description="To verify the Checkout Credit card as guest functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_008_Guest_Browsesearch_Creditcard"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_008_Guest_Browsesearch_Creditcard"/>
         </classes>
         </test>
     
@@ -59,21 +59,21 @@
     <test name="Test_PUR_ST_013_Invalid_Guest_Creditcard" testid="HHUS-233" priority="P1" description="To verify the invalid creditcard details for Guest user functionality">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_013_Invalid_Guest_Creditcard"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_013_Invalid_Guest_Creditcard"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_002_User_Browser_Search" testid="HHUS-128" priority="P1" description="To verify the search functionality for registereduser in PUR web site">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_002_User_Browser_Search"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_002_User_Browser_Search"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_006_RegisterUser_Category_Checkout" testid="HHUS-173" priority="P1" description="To verify the category checkout functionality for Registered user">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_006_RegisterUser_Category_Checkout"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_006_RegisterUser_Category_Checkout"/>
         </classes>
     </test>
     
@@ -81,68 +81,68 @@
     <test name="Test_PUR_ST_005_User_BrowseSearch_Creditcard" testid="HHUS-172" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_005_User_BrowseSearch_Creditcard"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_005_User_BrowseSearch_Creditcard"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_012_Invalid_user_Creditcard" testid="HHUS-234" priority="P1" description="To verify the invalid creditcard details for Register user functionality.">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_012_Invalid_user_Creditcard"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_012_Invalid_user_Creditcard"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_014_MyOrders" testid="HHUS-235" priority="P1" description="To verify the RegistereduserMy Order Confirmation Checkout with Credit Card functionality">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_014_MyOrders"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_014_MyOrders"/>
         </classes>
     </test>
     
     <!-- <test name="Test_PUR_ST_023_ValidateOrdersbySKU" testid="PPH-1062" priority="P1" description="This test case is to verify PUR Website, browse Orderby SKU functionality for Registerd user.">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_023_OrderbySKU"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_023_OrderbySKU"/>
         </classes>
     </test>-->
     
     <test name="Test_PUR_ST_010_Registerduser_MasterCard" testid="HHUS-231" priority="P1" description="To verify creditcard details(Mastercard) for Registereduser functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_010_Registerduser_MasterCard"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_010_Registerduser_MasterCard"/>
         </classes>
     </test>
     <test name="Test_PUR_ST_009_Registerduser_Amex" testid="HHUS-209" priority="P1" description="To verify creditcard details (AMEX)for Registereduser functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_009_Registerduser_Amex"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_009_Registerduser_Amex"/>
         </classes>
     </test>
     <test name="Test_PUR_ST_011_Registerdser_Discovertype" testid="HHUS-232" priority="P1" description="To verify creditcard details(Discover) for Registereduser functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_011_Registerdser_Discovertype"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_011_Registerdser_Discovertype"/>
         </classes>
     </test>
     
   <!--    <test name="Test_PUR_015_Registeredusernewslettersubscription" testid="PPH-1050" priority="P1" description="To verify the newsletter subscription functionality for registereduser">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_015_NewsLetterL_Subscription"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_015_NewsLetterL_Subscription"/>
         </classes>
     </test> -->
     
    <!--   <test name="Test_PUR_016_Registeredusernewsletterunsubscription" testid="PPH-1051" priority="P1" description="To verify the newsletter unsubscription functionality for registereduser">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_016_Newsletter_Unsubscription"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_016_Newsletter_Unsubscription"/>
         </classes>
     </test> -->
     
      <!--  <test name="Test_PUR_ST_022_ValidateGiftcard" testid="PPH-1061" priority="P1" description="To verify the  navigation of Gift Card page fucntionality in PUR website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_022_Giftcard_Navigation"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_022_Giftcard_Navigation"/>
         </classes>
     </test>-->
     
@@ -153,7 +153,7 @@
     <!--  <test name="Test_PUR_ST_021_ValidateStorecredit" testid="PPH-1058" priority="P1" description="To verify the  navigation of Store credit page functionality in PUR website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_021_StoreCredit"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_021_StoreCredit"/>
         </classes>
     </test>-->
     
@@ -162,35 +162,35 @@
     <!-- <test name="Test_PUR_ST_024_ValidateProductReview" testid="PPH-1063" priority="P1" description="To verify the  navigation of Product Review functionality in PUR Website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_024_MyProduct_Reviews"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_024_MyProduct_Reviews"/>
         </classes> 
     </test> -->
    
     <test name="Test_PUR_ST_004_ForgotPassword" testid="HHUS-171" priority="P1" description="To verify the search functionality for forgot passward in PUR web site">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_004_ForgotPassword"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_004_ForgotPassword"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_019_Header_Links" testid="HHUS-238" priority="P1" description="To verify the navigation of headerlinks functionality in PUR website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_019_Header_Links"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_019_Header_Links"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_025_ValidateMyAccountLeftNavigation" testid="HHUS-287" priority="P1" description="This test case is to verify Registered User MyAccount_Left_Navigation functionality for PUR Website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_025_ValidateMyAccountLeftNavigation"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_025_ValidateMyAccountLeftNavigation"/>
         </classes>
     </test>
     
    <!--   <test name="Test_Pur_ST_027_Footer_NewsLetter_Subscription" testid="PPH-1516" priority="P1" description="This test case is to verify Footer_NewsLetter_Subscription functionality for Pur website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_027_FooterNewsletterSubscription"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_027_FooterNewsletterSubscription"/>
         </classes>
     </test> -->
     
@@ -198,35 +198,35 @@
     <test name="Test_PUR_ST_028_GuestserCheckoutccAMEX" testid="HHUS-288" priority="P1" description="To verify the Checkout Credit card (AMEX)as guest functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_028_GuestserCheckoutccAMEX"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_028_GuestserCheckoutccAMEX"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_029_GuestuserCheckoutMastercard" testid="HHUS-289" priority="P1" description="To verify the Checkout Credit card (MasterCard)as guest functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_029_GuestuserCheckoutMastercard"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_029_GuestuserCheckoutMastercard"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_030_GuestuserCheckoutDiscover" testid="HHUS-290" priority="P1" description="To verify the Checkout Credit card (Discover)as guest functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_030_GuestuserCheckoutDiscover"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_030_GuestuserCheckoutDiscover"/>
         </classes>
     </test>
     
      <test name="Test_PUR_ST_033_Validation_of_ContactUS" testid="HHUS-294" priority="P1" description="To verify the  contact us  functionality in PUR Website">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_033_Validation_of_ContactUS"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_033_Validation_of_ContactUS"/>
         </classes>
     </test>
     
      <test name="Test_PUR_ST_034_Validation_of_WarrantyRegistration" testid="HHUS-295" priority="P1" description="To verify the warrantyregistration functionality">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_034_Validation_of_WarrantyRegistration"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_034_Validation_of_WarrantyRegistration"/>
         </classes>
     </test>
     
@@ -234,25 +234,25 @@
     <test name="Test_PUR_ST_026_SocialMediaLinks" testid="HHUS-293" priority="P1" description="To verify the socialmedialinks functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_026_SocialMediaLinks"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_026_SocialMediaLinks"/>
         </classes>
     </test>
     <test name="Test_PUR_ST_017_ValidateContentlinks" testid="HHUS-236" priority="P1" description="To verify the contentlinks functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_017_ValidateContentlinks"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_017_ValidateContentlinks"/>
         </classes>
     </test>
      <test name="Test_PUR_ST_031_RegistereduserPromocodecheckout" testid="HHUS-292" priority="P1" description="To verify Apply PromoCode for Registereduser functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_031_RegistereduserPromocodecheckout"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_031_RegistereduserPromocodecheckout"/>
         </classes>
     </test>
      <test name="Test_PUR_ST_032_GusetuserPromocodecheckout" testid="HHUS-291" priority="P1" description="To verify Apply PromoCode for Guestuser functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_032_GusetuserPromocodecheckout"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_032_GusetuserPromocodecheckout"/>
         </classes>
     </test>
     
@@ -260,14 +260,14 @@
      <test name="Test_PUR_ST_036_Validation_of_Privacy_And_TermsOfUse" testid="HHUS-297" priority="P1" description="To verify Privacy and terms of use functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_036_Validation_of_Privacy_And_TermsOfUse"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_036_Validation_of_Privacy_And_TermsOfUse"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_035_Validation_of_shipping_page" testid="HHUS-296" priority="P1" description="To verify validation of shipping page functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_035_Validation_of_shipping_page"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_035_Validation_of_shipping_page"/>
         </classes>
     </test>
     
@@ -276,42 +276,42 @@
     <test name="Test_PUR_ST_039_ValidateCompareProducts" testid="HHUS-300" priority="P1" description="To verify the compare products  functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_ST_039_ValidateCompareProducts"/>
+          <class name="TestExecute.PUR.TEST_ST_PUR_039_ValidateCompareProducts"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_040_GuestUser_Adding_two_productsCheckout" testid="HHUS-301" priority="P1" description="To verify the compare products  functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_ST_040_GuestUser_Adding_two_productsCheckout"/>
+          <class name="TestExecute.PUR.TEST_ST_PUR_040_GuestUser_Adding_two_productsCheckout"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_041_RegUser_Adding_two_productsCheckout" testid="HHUS-302" priority="P1" description="To verify the compare products  functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_ST_041_RegUser_Adding_two_productsCheckout"/>
+          <class name="TestExecute.PUR.TEST_ST_PUR_041_RegUser_Adding_two_productsCheckout"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_042_SignIn_in_ShippingPage" testid="HHUS-303" priority="P1" description="To verify the compare products  functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
-          <class name="TestExecute.PUR.Test_PUR_ST_042_SignIn_in_ShippingPage"/>
+          <class name="TestExecute.PUR.TEST_ST_PUR_042_SignIn_in_ShippingPage"/>
         </classes>
     </test>
     
       <test name="Test_PUR_ST_037_ValidateGuestUserIncreaseProductQuantityInCartPage" testid="HHUS-298" priority="P1" description="To verify the Guest  user increase product quantityfunctionality">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_037_ValidateGuestUserIncreaseProductQuantityInCartPage"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_037_ValidateGuestUserIncreaseProductQuantityInCartPage"/>
         </classes>
     </test>
     
     <test name="Test_PUR_ST_038_ValidateRegUserIncreaseProductQuantityInCartPage" testid="HHUS-299" priority="P1" description="To verify the Register user increase product quantity functionality">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.PUR.Test_PUR_ST_038_ValidateRegUserIncreaseProductQuantityInCartPage"/>
+            <class name="TestExecute.PUR.TEST_ST_PUR_038_ValidateRegUserIncreaseProductQuantityInCartPage"/>
         </classes>
     </test> 
     
@@ -324,7 +324,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_043_Guestuser_tax_VisaCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_043_Guestuser_tax_VisaCC" />
 		</classes>
 	</test>
 
@@ -335,7 +335,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_044_Registeruser_tax_MastercardCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_044_Registeruser_tax_MastercardCC" />
 		</classes>
 	</test>
 
@@ -346,7 +346,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_045_Guestuser_tax_Different_address_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_045_Guestuser_tax_Different_address_AmexCC" />
 		</classes>
 	</test>
 
@@ -358,7 +358,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_046__Registeruser_tax_DiscovercardCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_046__Registeruser_tax_DiscovercardCC" />
 		</classes>
 	</test>
 
@@ -369,7 +369,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_047_RegisterUser_Multiproduct_tax_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_047_RegisterUser_Multiproduct_tax_AmexCC" />
 		</classes>
 	</test>
 
@@ -380,7 +380,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_048_Guestuser_multiproduct_tax_DiscoverCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_048_Guestuser_multiproduct_tax_DiscoverCC" />
 		</classes>
 	</test>
 
@@ -391,7 +391,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_049_Guestuser_notax_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_049_Guestuser_notax_MasterCC" />
 		</classes>
 	</test>
 	
@@ -403,7 +403,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_050_GuestUser_multiproduct_notax_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_050_GuestUser_multiproduct_notax_MasterCC" />
 		</classes>
 	</test>
 	<test
@@ -413,7 +413,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC" />
 		</classes>
 	</test>
 	<test
@@ -423,7 +423,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_052_GuestUser_Multiproduct_Notax_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_052_GuestUser_Multiproduct_Notax_AmexCC" />
 		</classes>
 	</test>
 	<test
@@ -433,7 +433,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_053_RegUser_Multiproduct_Notax_DiscoverCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_053_RegUser_Multiproduct_Notax_DiscoverCC" />
 		</classes>
 	</test>
 	<test
@@ -443,7 +443,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_054_Guestuser_Promocode_tax_VisaCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_054_Guestuser_Promocode_tax_VisaCC" />
 		</classes>
 	</test>
 	<test
@@ -453,7 +453,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_055_RegUser_Promocode_tax_Diff_Address_MasterCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_055_RegUser_Promocode_tax_Diff_Address_MasterCC" />
 		</classes>
 	</test>
 	<test
@@ -463,7 +463,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_056_Guestuser_Multiproduct_Promocode_tax_AmexCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_056_Guestuser_Multiproduct_Promocode_tax_AmexCC" />
 		</classes>
 	</test>
 	<test
@@ -473,7 +473,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="TestExecute.PUR.Test_PUR_ST_057_Reg_Multiproduct_Promocode_tax_diff_Address_DisCC" />
+				name="TestExecute.PUR.TEST_ST_PUR_057_Reg_Multiproduct_Promocode_tax_diff_Address_DisCC" />
 		</classes>
 	</test>
     
