@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="VIcksSuite Suite">
+
+	<listeners>
+	
+
+		<listener class-name="Utilities.TestListener" />
+
+	</listeners>
+
+         <test name="TEST_ST_VK_001_CreateNewAccount" testid="HHG-322" priority="P1" description="This script will cover Process Of creating new account">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_001_CreateNewAccount" />
+     </classes>
+     </test>     
+          <test name="TEST_ST_VK_002_ForgotPassword" testid="HHG-345" priority="P1" description="This script will cover Process Of Forgotpassword of Vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_002_ForgotPassword" />
+     </classes>
+     </test>
+     
+      <test name="TEST_ST_VK_013_Headerlinks" testid="HHG-361" priority="P1" description="This script will cover Process Of Headerlinks for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_013_Headerlinks" />
+     </classes>
+     </test>
+     
+      <test name="TEST_ST_VK_012_Footerlinks" testid="HHG-363" priority="P1" description="This script will cover Process Of Footerlinks for vicks">
+     <classes>
+         <class name="TestExecute.Vicks.TEST_ST_VK_012_Footerlinks" />
+     </classes>
+     </test>
+	       
+	        
+	      <test name="TEST_ST_VK_003_MiniCart" testid="HHG-362" priority="P1" description="This script will cover Process Of MiniCart in Vicks">
+      <classes>
+             <class name="TestExecute.Vicks.TEST_ST_VK_003_MiniCart" />
+     </classes>
+      </test>
+      
+      <test name="TEST_ST_VK_028_GuestUser_Checkout_MastercardCCNoTax_sameBill_shipping" testid="HHG-436"
+        priority="P1" description="This script will cover validation of checkout with no tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_ST_VK_028_GuestUser_Checkout_MastercardCCNoTax_sameBill_shipping" />
+        </classes>
+    </test>
+     <test name="TEST_ST_VK_037_Reguser_checkout_MasterCCtax_samebill_ship" testid="HHG-431"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_ST_VK_037_Reguser_checkout_MasterCCtax_samebill_ship" />
+        </classes>
+    </test>
+     
+	    
+	                  <test name="TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" testid="HHG-358" priority="P1" description="This script will cover Process Of Validation of seaechguestuser in Vicks">
+	        <classes>
+                     <class name="TestExecute.Vicks.TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" />
+            </classes>
+	      </test>
+    
+      </suite>
