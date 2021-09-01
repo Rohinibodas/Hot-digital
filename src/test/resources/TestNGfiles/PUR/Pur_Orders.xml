@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="PUR Suite">
+	<listeners>
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+	<test
+		name="Test_PUR_ST_043_Guestuser_tax_VisaCC"
+		testid="HHUS-271" priority="P1"
+		description="To verify the checkout with VISA as Guestuser withsingleproduct tax shipping withsame billingand shippingaddress functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_043_Guestuser_tax_VisaCC" />
+		</classes>
+	</test>
+
+ <test
+		name="Test_PUR_ST_044_Registeruser_tax_MastercardCC"
+		testid="HHUS-272" priority="P1"
+		description="To verify the Checkout with Mastercard Registeruser withsingle product tax samebilling shipingaddress functionality ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_044_Registeruser_tax_MastercardCC" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_045_Guestuser_tax_Different_address_AmexCC"
+		testid="HHUS-273" priority="P1"
+		description="To verify the Checkout with AMEX Guestuser Singleproduct tax Shipping with Different billing shippingaddress functionality  ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_045_Guestuser_tax_Different_address_AmexCC" />
+		</classes>
+	</test>
+
+
+	<test
+		name="Test_PUR_ST_046__Registeruser_tax_DiscovercardCC"
+		testid="HHUS-274" priority="P1"
+		description="To verify the Checkout with Discovercard Registeruser Single product with tax samebilling shipping address functionality ">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_046__Registeruser_tax_DiscovercardCC" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_047_RegisterUser_Multiproduct_tax_AmexCC"
+		testid="HHUS-275" priority="P1"
+		description="To verify the Checkout with AMEX Registeruser Multiproduct with tax same Billing shipping address functionality.">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_047_RegisterUser_Multiproduct_tax_AmexCC" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_048_Guestuser_multiproduct_tax_DiscoverCC"
+		testid="HHUS-276" priority="P1"
+		description="To verify the checkout with Discover Guestuser multiproduct tax sambilling shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_048_Guestuser_multiproduct_tax_DiscoverCC" />
+		</classes>
+	</test>
+
+	<test
+		name="Test_PUR_ST_049_Guestuser_notax_MasterCC"
+		testid="HHUS-277" priority="P1"
+		description="To verify checkout with Master Guestuser single product notax sambilling and shipping address functionality.">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_049_Guestuser_notax_MasterCC" />
+		</classes>
+	</test>
+	
+
+	<test
+		name="Test_PUR_ST_050_GuestUser_multiproduct_notax_MasterCC"
+		testid="HHUS-278" priority="P1"
+		description="To verify Checkout GuestuserMASTER multiproduct notax same Shipping Billing Address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_050_GuestUser_multiproduct_notax_MasterCC" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC"
+		testid="HHUS-279" priority="P1"
+		description="To verify Checkout MASTERCARD Registeruser Multiproduct Notax Shipping Different billing Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_052_GuestUser_Multiproduct_Notax_AmexCC"
+		testid="HHUS-280" priority="P1"
+		description="To verify checkout with AMEX Guest Multiproduct Notax Shipping Same billing Shippingaddress functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_052_GuestUser_Multiproduct_Notax_AmexCC" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_053_RegUser_Multiproduct_Notax_DiscoverCC"
+		testid="HHUS-281" priority="P1"
+		description="To verify checkout Discover Register Multiproduct Notax ShipSamebilling Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_053_RegUser_Multiproduct_Notax_DiscoverCC" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_054_Guestuser_Promocode_tax_VisaCC"
+		testid="HHUS-282" priority="P1"
+		description="To verify checkout VISAcard Guestuser singleproduct Discount Promocode tax StandardShipping SameBilling Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_054_Guestuser_Promocode_tax_VisaCC" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_055_RegUser_Promocode_tax_Diff_Address_MasterCC"
+		testid="HHUS-283" priority="P1"
+		description="To verify checkout MASTER card Register user singleproduct Discount Promocode tax Standard Shipping Different Billing Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_055_RegUser_Promocode_tax_Diff_Address_MasterCC" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_056_Guestuser_Multiproduct_Promocode_tax_AmexCC"
+		testid="HHUS-284" priority="P1"
+		description="To verify checkout AMEX Guestuser Multi product Discount Promocode tax Shipping with Samebilling Shipaddresss functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_056_Guestuser_Multiproduct_Promocode_tax_AmexCC" />
+		</classes>
+	</test>
+	<test
+		name="Test_PUR_ST_057_Reg_Multiproduct_Promocode_tax_diff_Address_DisCC"
+		testid="HHUS-285" priority="P1"
+		description="To verify checkout checkout DiscoverRegister Multiproduct Discount Promocode tax Shipping different billing Shipping address functionality">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class
+				name="TestExecute.PUR.Test_PUR_ST_057_Reg_Multiproduct_Promocode_tax_diff_Address_DisCC" />
+		</classes>
+	</test>
+
+
+
+</suite>
+    
