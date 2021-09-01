@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Febreze Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+  <!-- <test name="Test_Febreze_01_AccountCreation" testid="HHG-306" priority="P1" description="To Verify the AccountCreation functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_01_AccountCreation"/>
+        </classes>
+    </test>
+      <test name="Test_Febreze_02_ValidateAccountInformation" testid="HHG-307" priority="P1" description="To Verify the Accountinformation functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_02_ValidateAccountInformation"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_03_ValidateAddressBook" testid="HHG-308" priority="P1" description="To Verify the address book functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_03_ValidateAddressBook"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_004_ValidateMyOrders" testid="HHG-309" priority="P1" description="To Verify the myorders functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_04_ValidateMyOrders"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_005_ValidateHeaderLinks" testid="HHG-310" priority="P1" description="To Verify the HeaderlinksNavigation functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_05_ValidateHeaderLinks"/>
+        </classes>
+    </test>
+  <test name="Test_Febreze_006_ForgotPassword" testid="HHG-311" priority="P1" description="To Verify the ForgotPassword functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_06_Forgotpassword"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_007_GuestUserBrowserSearch" testid="HHG-312" priority="P1" description="To Verify the GuestUserBrowserSearch functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_07_GuestuserBrowserSearch"/>
+        </classes>
+    </test> -->
+      <test name="Test_Febreze_08_Guest User Checkout Visa card" testid="HHG-313" priority="P1" description="To Verify the GuestusercheckoutVisa card functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_08_GuestUserCheckout_Visa"/>
+        </classes>
+    </test>
+   <!--   <test name="Test_Febreze_009_GuestuserCheckoutMastecard" testid="HHG-314" priority="P1" description="To Verify the GuestusercheckoutMaster card functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_09_GuestUser_checkout_Master"/>
+        </classes>
+    </test>
+    <test name="Test_Febreze_010_Guest User Checkout Discover" testid="HHG-315" priority="P1" description="To Verify the GuestusercheckoutDiscover functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_10_GuestUser_checkout_Discover"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_011_Guest UserCheckoutAMEX" testid="HHG-316" priority="P1" description="To Verify the Guestuser Checkout with AMEXCard functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_11_GuestUser_Checkout_AMEX"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_012_GuestUser_invalid_creditcard" testid="HHG-317" priority="P1" description="To Verify the Guestuser Ivalid creditcard functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_12_GuestuserInvalidcreditcard"/>
+        </classes>
+    </test>
+    <test name="Test_Febreze_013_ValidateForgotpassword" testid="HHG-318" priority="P1" description="To Verify the Forgot password functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_13_ValidateForgotpassword"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_014_validateGuestUserMiniCart" testid="HHG-319" priority="P1" description="To Verify the GuestUserMiniCart functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_14_ValidateGuestuserminicart"/>
+        </classes>
+    </test> 
+     <test name="Test_Febreze_016_OrderConfirmation" testid="HHG-321" priority="P1" description="To Verify the OrderConfirmation functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_016_MyOrderConfirmation"/>
+        </classes> 
+    </test> -->
+     <test name="Test Case_Test_Febreze_016_MyOrderConfirmation" testid="HHG-326" priority="P1" description="To Verify the MyOrderConfirmation functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_16_MyOrderConfirmation"/>
+        </classes>
+    </test>
+     <test name="Test Case_Test_Febreze_017_RegisterUserCheckoutVisa" testid="HHG_328" priority="P1" description="To Verify the RegisterUserCheckoutVisa functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_17_RegisterUser_Checkout_visa"/>
+        </classes>
+    </test>
+     <test name="Test Case_Test_Febreze_018_RegisteredUserCheckoutAMEX" testid="HHG-329" priority="P1" description="To Verify the RegisterUserCheckoutAMEX functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_18_RegisterUser_Checkout_AMEX"/>
+        </classes>
+    </test>
+     <test name="Test Case_Test_Febreze_019_RegisteredUserCheckoutDiscover" testid="HHG-332" priority="P1" description="To Verify the RegisterUserCheckoutDiscover functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_19_RegisterUSer_checkout_Discover"/>
+        </classes>
+    </test>
+    <test name="Test_Febreze_020_RegisteredUserCheckoutMaster" testid="HHG-349" priority="P1" description="To Verify the RegisterUserCheckoutMaster functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_20_RegisterUser_Checkout_Master"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_021_ValidateRegisterUserMiniCart" testid="HHG-350" priority="P1" description="To Verify the ValidateRegisterUserMiniCart functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_21_ValidateRegisteruserminicart"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_022_RegisteredUserBrowserSearch" testid="HHG-351" priority="P1" description="To Verify the RegisteredUserBrowserSearch functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_22_RegisteruserBrowsersearch"/>
+        </classes>
+    </test>
+      <test name="Test_Febreze_023_RegisterUser_invalid_creditcard" testid="HHG_352" priority="P1" description="To Verify the Register user invalid credit card functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_23_Registeruser_Invalid_creditcard"/>
+        </classes>
+    </test>
+      <test name="Test_Febreze_024_ValidateAddressBook" testid="HHG_353" priority="P1" description="To Verify the Validateaddrees book functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_03_ValidateAddressBook"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_025_RegisterUser_NewAddress_in_shipping_Address_page" testid="PPH-354" priority="P1" description="To Verify the Register user new address page functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_25_RegsiteruserNewshipppingaddress"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_026_RegisteruserCheckout_Logout" testid="HHG-355" priority="P1" description="To Verify the Register user checkout logout card functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_26_RegisterUsercheckoutwithlogout"/>
+        </classes>
+    </test>
+    <test name="Test_Febreze_027_Guest user DifferentBillingAddress" testid="HHG-356" priority="P1" description="To Verify the Guest user differentbilling address functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_27_GuestUserDifferentBillingAddress"/>
+        </classes>
+    </test>
+    <test name="Test_Febreze_028_Registeruser DifferentBillingAddress" testid="HHG-357" priority="P1" description="To Verify the Register user differentbilling address with Mastercard functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.Febreze_ST_28_Registeruser_DiffrentBillingAddress"/>
+        </classes>
+    </test>
+    </suite>
+    
