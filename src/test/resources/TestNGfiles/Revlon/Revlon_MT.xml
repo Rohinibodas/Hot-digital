@@ -9,7 +9,7 @@
             <class name="TestExecute.Revlon.ModularTC.RHT_SMT_LI_Login"/>
         </classes>
     </test>
-    
+
     <test name="TEST_RHT_MT_002_ValidateHomePage" testid="BTY-453" priority="P1" description="This test case validates logged in registered user and verify category links in header successfully">
          <parameter name="browser" value="chrome" />
         <classes>

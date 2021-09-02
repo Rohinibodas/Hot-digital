@@ -68,7 +68,7 @@
         <classes>
             <class name="TestExecute.Revlon.Mob_SystemTC.RHT_ST_Mob_RegisterUserCheckout_Paypal"/>
         </classes>
-    </test> 
+    </test>           
     <test name="Test_RHT_ST_Mob_012_GuestUserCheckoutPaypal" testid="BTY-651" priority="P1" description="This test case is to verify Revlon hairtools, browse Checkout and Paypal functionality for Guest">
          <parameter name="device" value="Galaxy S5" />
         <classes>

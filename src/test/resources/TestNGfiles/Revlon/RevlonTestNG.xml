@@ -7,5 +7,5 @@
         <classes>
             <class name="TestExecute.Revlon.RevlonEndtoEndTestCase"/>
         </classes>
-    </test>
+    </test>     
   </suite>  
