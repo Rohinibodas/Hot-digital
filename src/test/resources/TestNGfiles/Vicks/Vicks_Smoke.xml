@@ -20,6 +20,17 @@
      </classes>
      </test>
      
+      <test name="TEST_ST_VK_013_Headerlinks" testid="HHG-361" priority="P1" description="This script will cover Process Of Headerlinks for vicks">
+     <classes>
+         <class name="TestExecute.vicks.TEST_ST_VK_013_Headerlinks" />
+     </classes>
+     </test>
+     
+      <test name="TEST_ST_VK_012_Footerlinks" testid="HHG-363" priority="P1" description="This script will cover Process Of Footerlinks for vicks">
+     <classes>
+         <class name="TestExecute.vicks.TEST_ST_VK_012_Footerlinks" />
+     </classes>
+     </test>
 	       
 	        
 	      <test name="TEST_ST_VK_003_MiniCart" testid="HHG-362" priority="P1" description="This script will cover Process Of MiniCart in Vicks">

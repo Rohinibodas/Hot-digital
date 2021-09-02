@@ -11,60 +11,60 @@
 
          <test name="TEST_ST_VK_001_CreatNewAccount" testid="HHG-322" priority="P1" description="This script will cover Process Of creating new account">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_001_CreateNewAccount" />
+         <class name="TestExecute.vicks.TEST_ST_VK_001_CreateNewAccount" />
      </classes>
      </test>     
           <test name="TEST_ST_VK_002_ForgotPassword" testid="HHG-345" priority="P1" description="This script will cover Process Of Forgotpassword of Vicks">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_002_ForgotPassword" />
+         <class name="TestExecute.vicks.TEST_ST_VK_002_ForgotPassword" />
      </classes>
      </test>
 	       
 	        
 	        <test name="TEST_ST_VK_003_MiniCart" testid="HHG-362" priority="P1" description="This script will cover Process Of MiniCart in Vicks">
       <classes>
-             <class name="TestExecute.Vicks.TEST_ST_VK_003_MiniCart" />
+             <class name="TestExecute.vicks.TEST_ST_VK_003_MiniCart" />
      </classes>
       </test>
             <test name="TEST_ST_VK_004_GuestCheckoutInvalidCC" testid="HHG-360" priority="P1" description="This script will cover Process Of GuestCheckoutInvalid Card details of Vicks">
 		<classes>
-			<class name="TestExecute.Vicks.TEST_ST_VK_004_GuestCheckoutInvalidCC" />
+			<class name="TestExecute.vicks.TEST_ST_VK_004_GuestCheckoutInvalidCC" />
         </classes>
        </test>
 	          <test name="TEST_ST_VK_005_RegisteredCheckoutInvalidCC" testid="HHG-359" priority="P1" description="This script will cover Process Of RegisteredCheckoutInvalid Card details of Vicks">
 		<classes>
-			<class name="TestExecute.Vicks.TEST_ST_VK_005_RegisteredCheckoutInvalidCC" />
+			<class name="TestExecute.vicks.TEST_ST_VK_005_RegisteredCheckoutInvalidCC" />
 		</classes>
         </test>
 	            <test name="TEST_ST_VK_006_Promecode_for_Registeruser" testid="HHG-365" priority="P1" description="This script will cover Process Of Promecode for vicks">
           <classes>
-                     <class name="TestExecute.Vicks.TEST_ST_VK_006_Promecode_for_Registeruser" />
+                     <class name="TestExecute.vicks.TEST_ST_VK_006_Promecode_for_Registeruser" />
           </classes>
 	    </test>
 	           
 	                  <test name="TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" testid="HHG-358" priority="P1" description="This script will cover Process Of Validation of seaechguestuser in Vicks">
 	        <classes>
-                     <class name="TestExecute.Vicks.TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" />
+                     <class name="TestExecute.vicks.TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" />
             </classes>
 	      </test>
 	              
 	             <test name="TEST_ST_VK_008_LoginFormValidation" testid="HHG-994" priority="P1" description="This script will cover Process Of LoginFormValidation">
          <classes>
-                  <class name="TestExecute.Vicks.TEST_ST_VK_008_LoginFormValidation" />
+                  <class name="TestExecute.vicks.TEST_ST_VK_008_LoginFormValidation" />
          </classes>
 	     </test>
                 <test name="TEST_ST_VK_009_Validation_OrdersandReturns" testid="HHG-368" priority="P1" description="This script will cover Process Of Validation_OrdersandReturns of Vicks">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_009_Validation_OrdersandReturns" />
+         <class name="TestExecute.vicks.TEST_ST_VK_009_Validation_OrdersandReturns" />
      </classes>
 		 <test name="TEST_ST_VK_010_VicksLogout" testid="HHG-1104" priority="P1" description="This script will cover Process Of Logout for Vicks">
 		<classes>
-			    <class name="TestExecute.TEST_ST_VK_010_VicksLogout" />
+			    <class name="TestExecute.vicks.TEST_ST_VK_010_VicksLogout" />
 		</classes>
 	</test>
 	<test name="TEST_ST_VK_011_Validation_ShippingAddress_form" testid="HHG-324" priority="P1" description="This script will cover Process Of Shiping address form validation of Vicks">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_011_Validation_ShippingAddress_form" />
+         <class name="TestExecute.vicks.TEST_ST_VK_011_Validation_ShippingAddress_form" />
      </classes>
      </test> 
 	
@@ -72,13 +72,13 @@
      
    <test name="TEST_ST_VK_012_Footerlinks" testid="HHG-363" priority="P1" description="This script will cover Process Of Footerlinks for vicks">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_012_Footerlinks" />
+         <class name="TestExecute.vicks.TEST_ST_VK_012_Footerlinks" />
      </classes>
      </test>
      
       <test name="TEST_ST_VK_013_Headerlinks" testid="HHG-361" priority="P1" description="This script will cover Process Of Headerlinks for vicks">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_013_Headerlinks" />
+         <class name="TestExecute.vicks.TEST_ST_VK_013_Headerlinks" />
      </classes>
      </test>
      </test>
@@ -86,63 +86,63 @@
      
       <test name="TEST_ST_VK_014_Validation_forgotPassword_form" testid="HHG-391" priority="P1" description="This script will validate shipping address form for vicks">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_014_Validation_forgotPassword_form" />
+         <class name="TestExecute.vicks.TEST_ST_VK_014_Validation_forgotPassword_form" />
      </classes>
      </test>
        <test name="TEST_ST_VK_015_Validation_Create_acccount_form" testid="HHG-392" priority="P1" description="This script will cover the process for  forgoten password form validation in vicks">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_015_Validation_Create_acccount_form" />
+         <class name="TestExecute.vicks.TEST_ST_VK_015_Validation_Create_acccount_form" />
      </classes>
      </test> 
       
        <test name="TEST_ST_VK_016_Validation_of_PLP" testid="HHG-367" priority="P1" description="This script will validate PLP page">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_016_Validation_of_PLP" />
+         <class name="TestExecute.vicks.TEST_ST_VK_016_Validation_of_PLP" />
      </classes>
      </test>
      <test name="TEST_ST_VK_017_Changecolorforproduct" testid="HHG-378" priority="P1" description="This script will validate color change for product in PDP page">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_017_Changecolorforproduct" />
+         <class name="TestExecute.vicks.TEST_ST_VK_017_Changecolorforproduct" />
      </classes>
      </test>
 
       <test name="TEST_ST_VK_018_Add_to_cart_from_homepage" testid="HHG-379" priority="P1" description="This script will validate add to cart from home page">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_018_Add_to_cart_from_homepage" />
+         <class name="TestExecute.vicks.TEST_ST_VK_018_Add_to_cart_from_homepage" />
      </classes>
     
      
      <test name="TEST_ST_VK_019_Myaccount_leftnavigation" testid="HHG-383" priority="P1" description="This script will validate my account page left navigation">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_019_Myaccount_leftnavigation" />
+         <class name="TestExecute.vicks.TEST_ST_VK_019_Myaccount_leftnavigation" />
      </classes>
      </test>
       
      <test name="TEST_ST_VK_020_SignIn_in_checkoutpage" testid="HHG-386" priority="P1" description="This script will validate sigin in from checkout page ">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_020_SignIn_in_checkoutpage" />
+         <class name="TestExecute.vicks.TEST_ST_VK_020_SignIn_in_checkoutpage" />
      </classes>
      </test>
      <test name="TEST_ST_VK_021_Sticky_cart_validation" testid="HHG-388" priority="P1" description="This script will validate add to cart from sticky cart">
      <classes>
-         <class name="TestExecute.Vicks.TEST_ST_VK_021_Sticky_cart_validation" />
+         <class name="TestExecute.vicks.TEST_ST_VK_021_Sticky_cart_validation" />
      </classes>
      </test>
       
 	    <test name="TEST_ST_VK_022_OrdersStatus_For_RegisterUser" testid="HHG-387" priority="P1" description="This script will cover Process Of order status for register user in vicks">
         <classes>
-                   <class name="TestExecute.Vicks.TEST_ST_VK_022_OrdersStatus_For_RegisterUser" />
+                   <class name="TestExecute.vicks.TEST_ST_VK_022_OrdersStatus_For_RegisterUser" />
         </classes>
 	    
 	    <test name="TEST_ST_VK_023_Outofstock_Product" testid="HHG-389" priority="P1" description="This script will cover Process Of out of stock in vicks">
         <classes>
-                   <class name="TestExecute.Vicks.TEST_ST_VK_023_Outofstock_Product" />
+                   <class name="TestExecute.vicks.TEST_ST_VK_023_Outofstock_Product" />
         </classes>
 	    </test> 
 	    
 	     <test name="TEST_ST_VK_024_Warranty_Registration_form_validation" testid="HHG-376" priority="P1" description="This script will cover Process Of ContactUs form in vicks">
         <classes>
-                   <class name="TestExecute.Vicks.TEST_ST_VK_024_Warranty_Registration_form_validation" />
+                   <class name="TestExecute.vicks.TEST_ST_VK_024_Warranty_Registration_form_validation" />
         </classes>
 	    </test> 
 	    
@@ -265,7 +265,7 @@
 	            
 	      <test name="TEST_ST_VK_025_ContactUs" testid="HHG-998" priority="P1" description="This script will cover Process Of warrenty form in vicks">
         <classes>
-                   <class name="TestExecute.Vicks.TEST_ST_VK_025_ContactUs" />
+                   <class name="TestExecute.vicks.TEST_ST_VK_025_ContactUs" />
         </classes>
 	    </test> 
 	                
