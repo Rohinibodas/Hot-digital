@@ -19,8 +19,6 @@ public class TEST_MT_DB_002_Verify_search_functionality {
 	  try{
 		  drybar.Accept();
 		  drybar.verifyingHomePage();
-		  drybar.navigateMyAccount();
-		  drybar.loginApplication("AccountDetails");
 		  drybar.search_product_fullname("ProductName");
 		  drybar.search_product_invalid("ProductName");
   }

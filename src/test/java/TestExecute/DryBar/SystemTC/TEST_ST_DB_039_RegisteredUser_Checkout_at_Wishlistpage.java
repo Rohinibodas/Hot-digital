@@ -22,6 +22,7 @@ public class TEST_ST_DB_039_RegisteredUser_Checkout_at_Wishlistpage {
 			 drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.CreateAccount("AccountDetails");
+			  Thread.sleep(5000);
 		      drybar.clickHairProducts();
 			  drybar.SelectShampoos();
 			  drybar.Selectproduct();

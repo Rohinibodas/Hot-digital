@@ -27,6 +27,7 @@ public class TEST_MT_DB_003_Validate_My_Account_page_LeftNavigation {
 		  drybar.AccountInformation();
 		  drybar.PaymentMethods();
 		  drybar.Communication_Preferences(); 
+		  drybar.Notifications();
   }
 	  catch (Exception e) {
 			e.printStackTrace();

@@ -16,18 +16,17 @@
         </classes>
         </test>
  
-     <test name="TEST_DB_ST_010-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
+    <test name="Test_DB_ST_037_GuestUser_BrowseSearch_Checkout" testid="DRY-876" priority="P1" description="This Test case is used to verify Guestuser checkout through browse search functionality">
         <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_010_ForgotPassword"/>
-        </classes>
-    </test>  
-    
-      <test name="Test_DB_MT_002-Verification of Search Functionality" testid="DRY-292" priority="P1" description="This Test case is to verify Drybar Search Function.">
-        <classes>
-            <class name="TestExecute.DryBar.ModularTC.TEST_MT_DB_002_Verify_search_functionality"/>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_037_GuestUser_BrowseSearch_Checkout"/>
         </classes>
     </test>
     
+      <test name="TEST_DB_ST_010-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_010_ForgotPassword"/>
+        </classes>
+    </test> 
 
     
      

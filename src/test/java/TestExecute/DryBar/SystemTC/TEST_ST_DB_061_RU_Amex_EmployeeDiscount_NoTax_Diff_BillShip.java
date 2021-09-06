@@ -25,7 +25,8 @@ public class TEST_ST_DB_061_RU_Amex_EmployeeDiscount_NoTax_Diff_BillShip
 			  drybar.loginApplication("AccountDetails");
 			  drybar.ClearMiniCart_Bag();
 			  drybar.Search_productname("ProductName");
-			  drybar.View_Product();
+			  //drybar.View_Product();
+			  drybar.Select_Searched_Product();
 			  drybar.Verify_GeneralUser_PDP();
 			  drybar.clickMyaccount();
 			  drybar.Signout();
@@ -33,7 +34,6 @@ public class TEST_ST_DB_061_RU_Amex_EmployeeDiscount_NoTax_Diff_BillShip
 			  drybar.loginApplication("HoTEmployeeAccountDetails");
 			  drybar.Search_productname("ProductName");
 			  drybar.Select_Searched_Product();
-			  //drybar.Click_View_Product();
 			  drybar.Verify_HoT_Employee_PDP();
 			  drybar.clickAddtoBag();
 			  drybar.clickminiCartButton(); 

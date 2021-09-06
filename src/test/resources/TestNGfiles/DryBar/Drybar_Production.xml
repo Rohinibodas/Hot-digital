@@ -455,9 +455,9 @@
         </classes>
     </test>
     
-     <test name="Test_DB_ST_082_Validate_ShippingMethod_for__RegisterUser_Checkout_Non_Aerosol_product_with_Non_PO_Box_Hawaii_State" testid="DRY-1137" priority="P1" description="This test case is to used to Verify the Shipping methods for  Non-Aerosol Product with Non-PO Box Hawaii State ShippingAddress">
+     <test name="Test_DB_ST_082_Validate_ShippingMethod_for__GuestUser_Checkout_Non_Aerosol_product_with_Non_PO_Box_Hawaii_State" testid="DRY-1137" priority="P1" description="This test case is to used to Verify the Shipping methods for  Non-Aerosol Product with Non-PO Box Hawaii State ShippingAddress">
         <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_082_RU_ShipMethod_NonAero_Product_NonPOBox_Hawaii"/>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_082_GU_ShipMethod_NonAero_Product_NonPOBox_Hawaii"/>
         </classes>
     </test>
     
