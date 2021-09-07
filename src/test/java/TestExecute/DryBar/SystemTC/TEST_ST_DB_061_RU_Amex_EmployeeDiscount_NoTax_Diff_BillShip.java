@@ -17,15 +17,14 @@ public class TEST_ST_DB_061_RU_Amex_EmployeeDiscount_NoTax_Diff_BillShip
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
   public void RegisteredUser_Checkout_AmexCC_EmployeeDiscount_NoTax_with_Diff_Billing_and_shipping() {
+		
 		try {
-			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();
 			  drybar.loginApplication("AccountDetails");
 			  drybar.ClearMiniCart_Bag();
 			  drybar.Search_productname("ProductName");
-			  //drybar.View_Product();
 			  drybar.Select_Searched_Product();
 			  drybar.Verify_GeneralUser_PDP();
 			  drybar.clickMyaccount();

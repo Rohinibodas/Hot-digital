@@ -15,8 +15,8 @@ public class TEST_MT_DB_002_Verify_search_functionality {
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void Verify_search_functionality() throws Exception {
-
 	  try{
+		  
 		  drybar.Accept();
 		  drybar.verifyingHomePage();
 		  drybar.search_product_fullname("ProductName");

@@ -15,8 +15,8 @@ public class TEST_MT_DB_003_Validate_My_Account_page_LeftNavigation {
 	DryBarHelper drybar=new DryBarHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void Validate_My_Account_page_LeftNavigation() throws Exception {
-
-	  try{
+		
+	  try{ 
 		  drybar.Accept();
 		  drybar.verifyingHomePage();
 		  drybar.navigateMyAccount();

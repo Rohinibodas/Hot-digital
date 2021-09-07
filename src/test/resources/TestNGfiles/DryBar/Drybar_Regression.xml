@@ -231,7 +231,6 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_037_GuestUser_BrowseSearch_Checkout"/>
         </classes>
     </test>
-    
      <test name="Test_DB_ST_038_Configurable_product_checkout" testid="DRY-881" priority="P1" description="This Test case is used to Checkout with a Configurable product">
         <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_038_Configurable_product_checkout"/>

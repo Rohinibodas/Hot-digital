@@ -17,8 +17,8 @@ public class TEST_ST_DB_060_RU_Visa_Tax_EmployeeDiscount_Same_BillShip
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
   public void RegisteredUser_Checkout_VisaCC_Tax_EmployeeDiscount_with_same_Billing_and_shipping() {
+		
 		try {
-			
 			  drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.navigateMyAccount();

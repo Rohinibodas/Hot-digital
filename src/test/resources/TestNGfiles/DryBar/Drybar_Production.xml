@@ -36,8 +36,6 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_009_Verify_ForgotPassword_page_validation"/>
         </classes>
     </test>
-    
-    
      	 <test name="TEST_DB_ST_010-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
         <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_010_ForgotPassword"/>

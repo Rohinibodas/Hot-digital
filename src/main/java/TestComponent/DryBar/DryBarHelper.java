@@ -2851,14 +2851,13 @@ public void add_to_cart_from_Homepage() {
 		Sync.waitPageLoad();
 		Thread.sleep(5000);
 	    Common.scrollIntoView("xpath", "((//div[@class='slick-track'])[3]//div//a)[4]");
-	    Thread.sleep(2000);
+	    Thread.sleep(3000);
 	    Common.actionsKeyPress(Keys.ARROW_UP);
 	    Common.actionsKeyPress(Keys.ARROW_UP);
 	    Common.actionsKeyPress(Keys.ARROW_UP);
 	    Common.actionsKeyPress(Keys.ARROW_UP);
 	    Common.actionsKeyPress(Keys.ARROW_UP);
 	    Thread.sleep(5000);
-	   
 	    Common.mouseOver("xpath", "((//div[@class='slick-track'])[3]//div//a)[4]");
 	    Thread.sleep(4000);
 	   // Common.clickElement("xpath", "");
@@ -2868,10 +2867,10 @@ public void add_to_cart_from_Homepage() {
 		ExtenantReportUtils.addPassLog("verifying add to cart button", "User click add to card button", "user successfully click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
 	}
 	catch(Exception |Error e) {
-	   
 		ExtenantReportUtils.addFailedLog("verifying add to cart button", "User click add to card button", "user faield to click add to cart button", Common.getscreenShotPathforReport("faieldtoclickutton"));
 		Assert.fail();
 	}
+	
 	try {
 		Common.actionsKeyPress(Keys.PAGE_UP);
 		Thread.sleep(3000);

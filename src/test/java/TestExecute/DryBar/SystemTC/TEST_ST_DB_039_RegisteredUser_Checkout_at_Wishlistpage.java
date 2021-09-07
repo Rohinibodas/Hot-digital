@@ -17,8 +17,6 @@ public class TEST_ST_DB_039_RegisteredUser_Checkout_at_Wishlistpage {
   
   public void RegisteredUser_Checkout_at_Wishlistpage() {
 		try {
-			
-			
 			 drybar.Accept();
 			  drybar.verifyingHomePage();
 			  drybar.CreateAccount("AccountDetails");
