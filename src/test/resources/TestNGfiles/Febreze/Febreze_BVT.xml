@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Febreze Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+  <test name="Test_Febreze_01_AccountCreation" testid="HHG-306" priority="P1" description="To Verify the AccountCreation functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.Test_ST_FBZ_01_AccountCreation"/>
+        </classes>
+    </test>
+    <test name="Test_Febreze_005_ValidateHeaderLinks" testid="HHG-310" priority="P1" description="To Verify the HeaderlinksNavigation functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_05_ValidateHeaderLinks"/>
+        </classes>
+    </test>
+  <test name="Test_Febreze_006_ForgotPassword" testid="HHG-311" priority="P1" description="To Verify the ForgotPassword functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_06_Forgotpassword"/>
+        </classes>
+    </test>
+     <test name="Test_Febreze_007_GuestUserBrowserSearch" testid="HHG-312" priority="P1" description="To Verify the GuestUserBrowserSearch functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_07_GuestuserBrowserSearch"/>
+        </classes>
+    </test> 
+      <test name="Test_Febreze_08_Guest User Checkout Visa card" testid="HHG-313" priority="P1" description="To Verify the GuestusercheckoutVisa card functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_08_GuestUserCheckout_Visa"/>
+        </classes>
+    </test>
+    <test name="Test Case_Test_Febreze_017_RegisterUserCheckoutVisa" testid="HHG_328" priority="P1" description="To Verify the RegisterUserCheckoutVisa functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_17_RegisterUser_Checkout_visa"/>
+        </classes>
+    </test>
+       <test name="Test_Febreze_022_RegisteredUserBrowserSearch" testid="HHG-351" priority="P1" description="To Verify the RegisteredUserBrowserSearch functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_22_RegisteruserBrowsersearch"/>
+        </classes>
+    </test>
+     
+    </suite>
