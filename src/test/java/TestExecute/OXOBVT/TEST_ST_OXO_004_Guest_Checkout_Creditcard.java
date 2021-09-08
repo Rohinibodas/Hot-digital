@@ -32,24 +32,19 @@ public class TEST_ST_OXO_004_Guest_Checkout_Creditcard {
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("PaymentDetails");
 			oxo.VerifyaingConformationPage();
-			
 
 		} catch (Exception e) {
-
 			Assert.fail(e.getMessage(), e);
 		}
-
 	}
 
 	@AfterTest
 	public void clearBrowser() {
 		Common.closeAll();
-
 	}
 
 	@BeforeMethod
 	public void startTest() throws Exception {
-
 		// System.setProperty("configFile", "Oxo\\Config_OXO_Staging.properties");
 		Login.signIn();
 	}

@@ -30,7 +30,6 @@ public class TEST_ST_OXO_006_Registered_Checkout_PayPal {
 			oxo.selectGroundShippingMethod();
 			oxo.payPal_payment("PaypalDetails");
 			oxo.VerifyaingConformationPage();
-
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);

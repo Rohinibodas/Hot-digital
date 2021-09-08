@@ -1127,11 +1127,16 @@ public class OxoHelper {
 			Common.textBoxInput("xpath", "//input[@id='discount-code']", data.get(dataSet).get("Promocode"));
 			Common.clickElement("xpath", "//button[@class='action action-apply']");
 			Thread.sleep(4000);
+			
+			
+			int SuccessMessage = Common.findElements("xpath", "//div[contains(text(),'Your coupon was successfully applied.')]").size();
+			if (SuccessMessage>0) {
 			ExtenantReportUtils.addPassLog("Apply Promocode on Checkout Page",
 					"Promocode Should be applied on Checkout Page",
 					"Promo Code added successfully and applied discount to Order Summary",
 					Common.getscreenShotPathforReport("Promocode"));
-			// Thread.sleep(2000);
+			}
+			
 		} catch (Exception | Error e) {
 			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Apply Promocode on Checkout Page",
@@ -1180,7 +1185,7 @@ public class OxoHelper {
 					"faield to acceptance given address", Common.getscreenShotPathforReport("faieldcceptance"));
 			AssertJUnit.fail();
 
-		}
+		} 
 
 	}
 
@@ -1562,12 +1567,22 @@ public class OxoHelper {
 		String expectedResult = "It should open paypal site window.";
 		try {
 			Thread.sleep(3000);
-			Sync.waitElementPresent("xpath", "//div[@class='paypal-button-label-container']");
-			Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
+			Sync.waitElementPresent("xpath", "//span[contains(text(),'PayPal Express Checkout')]");
+			Common.clickElement("xpath", "//span[contains(text(),'PayPal Express Checkout')]");
 			Thread.sleep(5000);
-			Common.actionsKeyPress(Keys.PAGE_DOWN);
-
-			Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]");
+			
+			int PPsize = Common.findElements("xpath","//div[@class='paypal-button-label-container']").size();
+        /*    
+			if(PPsize>1) {
+			Thread.sleep(3000);
+			//Sync.waitElementPresent("xpath", "//div[@class='paypal-button-label-container']");
+			Sync.waitElementClickable("xpath", "//div[@class='paypal-button-label-container']");
+			Common.findElement("xpath", "//div[@class='paypal-button-label-container']");
+			
+		} */
+			
+		Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Common.switchFrames("id", "jsx-iframe-903ab6718a");
 			Sync.waitElementClickable("xpath", "//div[contains(@class,'paypal-button-label-container')]");
 			int sizes = Common.findElements("xpath", "//div[@class='paypal-button-label-container']").size();
 
@@ -1673,7 +1688,7 @@ public class OxoHelper {
 		String URL = Common.getCurrentURL();
 		
 		if (URL.contains("heledigital")) { 
-		
+		Thread.sleep(60000);
 		Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
 		String Sucessmessage = Common.getText("xpath", "//h1[@class='page-title']/span");
 		System.out.println(Sucessmessage);

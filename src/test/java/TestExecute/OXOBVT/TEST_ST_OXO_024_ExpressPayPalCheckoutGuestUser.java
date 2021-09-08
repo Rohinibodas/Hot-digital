@@ -37,7 +37,7 @@ public class TEST_ST_OXO_024_ExpressPayPalCheckoutGuestUser {
 	@AfterTest
 	public void clearBrowser() {
 
-		 Common.closeAll();
+		Common.closeAll();
 
 	}
 

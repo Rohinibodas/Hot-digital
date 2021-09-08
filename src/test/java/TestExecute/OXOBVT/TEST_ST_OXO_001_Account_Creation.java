@@ -22,7 +22,7 @@ public class TEST_ST_OXO_001_Account_Creation {
 		try {
 			oxo.closetheadd();
 			oxo.CreateNewAccount("AccountDetails");
-			// oxo.LoadMorePosts();
+
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);

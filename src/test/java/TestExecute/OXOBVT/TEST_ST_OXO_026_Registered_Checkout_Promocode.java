@@ -29,7 +29,6 @@ public class TEST_ST_OXO_026_Registered_Checkout_Promocode {
 			oxo.Click_CreditCard();
 			oxo.creditCard_payment("PaymentDetails");
 			oxo.VerifyaingConformationPage();
-
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
