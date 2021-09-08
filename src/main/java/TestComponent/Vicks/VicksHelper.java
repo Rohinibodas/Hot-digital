@@ -3919,8 +3919,8 @@ public void warranty(String dataSet) throws Exception {
 		Sync.waitElementPresent("xpath", "//input[contains(@id,'PostalCode')]");
 		Common.textBoxInput("xpath", "//input[contains(@id,'PostalCode')]", data.get(dataSet).get("postcode"));
 
-		Sync.waitElementPresent("xpath", "//input[contains(@id,'MOBILE')]");
-		Common.textBoxInput("xpath", "//input[contains(@id,'MOBILE')]", data.get(dataSet).get("phone"));
+		Sync.waitElementPresent("xpath", "//input[contains(@id,'rn_TextInput_19_Contact.Phones.HOME.Number')]");
+		Common.textBoxInput("xpath", "//input[contains(@id,'rn_TextInput_19_Contact.Phones.HOME.Number')]", data.get(dataSet).get("phone"));
 
 		Thread.sleep(3000);
 		// Common.actionsKeyPress(Keys.PAGE_DOWN);
