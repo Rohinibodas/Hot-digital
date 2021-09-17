@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Drybar Tax Suite">
+   <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+   
+ <test name="TEST_ST_DB_083_Tax_Calculation" testid="DRY-19" priority="P1" description="This script will Calucate the Tax in the Payment page of Drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_083_Tax_Calculation"/>
+        </classes>
+        </test>
+     
+</suite>  
