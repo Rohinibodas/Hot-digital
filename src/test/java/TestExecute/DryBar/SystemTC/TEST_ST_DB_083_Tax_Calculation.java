@@ -30,7 +30,7 @@ public class TEST_ST_DB_083_Tax_Calculation {
   
     public void Guest_Tax_Calculation() throws Exception {
     	try {
-    		String addressFile = "DryBar//DryBarTax.xlsx";
+    		String addressFile = "DryBar//DryBarTaxAddress.xlsx";
 	     	drybar.prepareTaxData("DryBarTaxDetails_Guest.xlsx");
 	     	Map<String, List<Map<String, String>>> addressVal=new HashMap<>();
 			ExcelReader excelData=new ExcelReader(addressFile);
