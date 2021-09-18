@@ -37,7 +37,7 @@ public class TEST_ST_OXO_001_Admin_panel_login {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

@@ -36,7 +36,7 @@ public class TEST_ST_OXO_004_Admin_CMSpage_validation {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

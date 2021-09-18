@@ -38,7 +38,7 @@ public class TEST_ST_OXO_002_Admin_Sales_Menu {
 	@AfterTest
 	public void clearBrowser()
 	{
-	//Common.closeAll();
+	Common.closeAll();
 
 	}
 	

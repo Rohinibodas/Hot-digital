@@ -67,7 +67,7 @@ public class OXO_TAX_Caluclation {
 			
 			
 		catch (Exception e) {
-			//Common.closeAll();
+			Common.closeAll();
 			startTest();
 			//Assert.fail(e.getMessage(), e);
 		} 

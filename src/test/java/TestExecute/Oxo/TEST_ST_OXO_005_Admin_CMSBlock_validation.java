@@ -40,7 +40,6 @@ public class TEST_ST_OXO_005_Admin_CMSBlock_validation {
 
 	}
 	
-
 	@BeforeMethod
 	public void startTest() throws Exception {
 		System.setProperty("configFile", "Oxo\\config.properties");
