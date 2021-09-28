@@ -40,7 +40,7 @@ import TestLib.Driver;
 		public static void sendMail() throws Exception
 		{
 			System.out.println(Automation_properties.getInstance().getProperty("ReportEmail"));
-			subject="Hydroflask Smoke Test Reports";
+			subject=Automation_properties.getInstance().getProperty("WEBSITE")+" Smoke Test Reports";
 			System.out.println(Automation_properties.getInstance().getProperty("ReportEmail"));
 			attachmentPath=System.getProperty("user.dir")+"/src/test/resources/MailTemplates/ExecutionMailReport.html" ;
 			//attachmentPath1=;

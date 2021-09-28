@@ -25,6 +25,7 @@ public class Automation_properties {
 	public final static String Exestartmail = "Exestartmail";
 	public final static String Exemail = "Exemail";
 	public final static String waitTime = "waitTime";
+	public final static String WEBSITE = "WEBSITE";
 	public final static String projPATH = "projPATH";
 	public static final String NoOfSessions = "NoOfSessions";
 	public static final String USERNAME = "USERNAME";
@@ -94,6 +95,10 @@ public class Automation_properties {
 			automation_properties.clear();	
 			System.out.println( System.getProperty("configFile",configFile));
 			automation_properties.load(new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\Config\\" + System.getProperty("configFile",configFile)));
+			automation_properties.setProperty("ReportEmail",System.getProperty("mailId","mchiruvella@gmail.com"));
+			automation_properties.setProperty("BASEURL",System.getProperty("BASEURL",BASEURL));
+			automation_properties.setProperty("BROWSER",System.getProperty("browser",BROWSER));
+			automation_properties.setProperty("WEBSITE",System.getProperty("WEBSITE","Revlon"));
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to load the properties:"+e);
 		}
