@@ -18,11 +18,9 @@ public class WishList {
 		try{
 		oxo.closetheadd();
 		oxo.loginOxo("AccountDetails");
-		//oxo.clickBaby_Toddler();
 		oxo.Add_product_to_Wishlist_PLP();
-		oxo.clickBaby_Toddler();
 		oxo.Add_product_to_Wishlist_PDP();
-		oxo.remove_from_wishlist();
+		oxo.removeandaddtocartfrom_wishlist();
 
 		}
 catch (Exception e) {
@@ -33,12 +31,12 @@ catch (Exception e) {
 	@AfterTest
 	public void clearBrowser() throws Exception
 	{
-		//Common.closeAll();
+		Common.closeAll();
 	}
 	
 	@BeforeMethod
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "Oxo\\config.properties");
+		 System.setProperty("configFile", "Oxo//config.properties");
 		  Login.signIn();
 		 
 	 }

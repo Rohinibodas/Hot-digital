@@ -851,6 +851,7 @@ public class OxoHelper {
 		String expectedResult = "The page should contain the shipping address along  with the order summary with total price";
 		try {
 			Sync.waitForLoad();
+			Thread.sleep(3000);
 			String Order = Common.getText("xpath", "//div[@class='opc-block-summary']/span");
 
 			Thread.sleep(4000);
@@ -3857,62 +3858,95 @@ public class OxoHelper {
 		try {
 			Thread.sleep(4000);
 
-			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15184']");
-			Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15184']");
-			Sync.waitElementClickable("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
-			Common.clickElement("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
+			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15701']");
+			Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15701']");
+			Common.javascriptclickElement("xpath", "//li[contains(@class,'navigation__inner-item')]/a[@data-menu='menu-15799']");
+			//Sync.waitElementClickable("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
+			//Common.clickElement("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
 			Thread.sleep(3000);
-			Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[1]");
-			Common.clickElement("xpath", "(//a[@class='action towishlist'])[1]");
-			Thread.sleep(4000);
-			//int message=Common.findElements("xpath", "(//div[@class='message-success success message'])").size();
-
-			 //Common.assertionCheckwithReport(message>0, "To verify the product added to My Wishlist", "Should add product to  My wishlist page","Product sucessfully added to My wishlist", "faield to add product to Wishlist");
-			ExtenantReportUtils.addPassLog("To verify the product added to My Wishlist", "Should add product to wishlist", "Product sucessfully added to My wishlist", Common.getscreenShotPathforReport("Product added to wish list sucessfully"));
-			Common.clickElement("xpath", "//img[@title='OXO']");
-		}
-		
-		catch(Exception |Error e) {
-			e.printStackTrace();
-			ExtenantReportUtils.addFailedLog("To verify the  the PDP Page with out of stock","Should land on ou of stock PDP page", "user unable to land on PDP page", Common.getscreenShotPathforReport("failed to land on out of stock PDP page"));			
-			AssertJUnit.fail();	
-			}
+			Common.actionsKeyPress(Keys.ARROW_DOWN);
+			Common.mouseOver("xpath", "//a[contains(text(),'Mini Tongs')]");
+			Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
+			Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
+			Thread.sleep(2000);
+			Common.actionsKeyPress(Keys.UP);
+			String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
+			System.out.println(saved);
+			Common.assertionCheckwithReport(saved.equals("1"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+		  }
+		      catch(Exception |Error e) {
+		          
+		              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+		              Assert.fail();
+		          }
 		
 	}
 public void Add_product_to_Wishlist_PDP() {
 		
 		try {
-			Sync.waitPageLoad();
-			Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
-			Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
-			Thread.sleep(4000);
-			//int message=Common.findElements("xpath", "(//div[@class='message-success success message'])").size();
-
-			 //Common.assertionCheckwithReport(message>0, "To verify the product added to My Wishlist", "Should add product to  My wishlist page","Product sucessfully added to My wishlist", "faield to add product to Wishlist");
-			ExtenantReportUtils.addPassLog("To verify the product added to My Wishlist", "Product should add to wishlist in PDP", "Product sucessfully added to wish list", Common.getscreenShotPathforReport("Product is added to wish list in PDP"));
+			Common.clickElement("xpath", "//a[contains(text(),'8-Piece POP Container Baking Set')]");
+			Common.assertionCheckwithReport(Common.getPageTitle().equals("8-Piece POP Container Baking Set"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+		  }
+		      catch(Exception |Error e) {
+		          e.printStackTrace();
+		              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+		                 Assert.fail();
+		      }
+		try {          
+		Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
+		Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
+		Thread.sleep(4000);
+		String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
+		System.out.println(saved);
+		Common.assertionCheckwithReport(saved.equals("2"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	  }
+	      catch(Exception |Error e) {
+	          e.printStackTrace();
+	              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	              Assert.fail();
+	          }
 		}
-		
-		catch(Exception |Error e) {
-			e.printStackTrace();
-			ExtenantReportUtils.addFailedLog("To verify the  the PDP Page with out of stock","Should land on ou of stock PDP page", "user unable to land on PDP page", Common.getscreenShotPathforReport("failed to land on out of stock PDP page"));			
-			AssertJUnit.fail();	
-			}
-		
-	}
-public void remove_from_wishlist() throws Exception {
+	
+public void removeandaddtocartfrom_wishlist() throws Exception {
 	Sync.waitPageLoad();
-	Common.clickElement("xpath", "//img[@title='OXO']");
+	//Common.clickElement("xpath", "//img[@title='OXO']");
+	try {
 	Sync.waitElementPresent("xpath", "(//li[@class='link wishlist'])[1]");
 	Common.clickElement("xpath", "(//li[@class='link wishlist'])[1]");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("My Wish List"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	  }
+	      catch(Exception |Error e) {
+	          e.printStackTrace();
+	              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	                 Assert.fail();
+	      }
+	try {
+	Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])");
+	Common.clickElement("xpath", "(//a[@title='Remove Item'])");
+	String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+	System.out.println(saved);
+	Common.assertionCheckwithReport(saved.equals("Mini Tongs has been removed from your Wish List."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+  }
+      catch(Exception |Error e) {
+          e.printStackTrace();
+              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+              Assert.fail();
+          }
+	try {
 	Sync.waitPageLoad();
-	Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])[7]");
-	Common.clickElement("xpath", "(//a[@title='Remove Item'])[7]");
-	Sync.waitPageLoad();
-	Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])[6]");
-	Common.clickElement("xpath", "(//a[@title='Remove Item'])[6]");
-	
-	
+	Sync.waitElementPresent("xpath", "//button[@title='Add to Cart']");
+	Common.clickElement("xpath", "//button[@title='Add to Cart']");
+	String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+	System.out.println(saved);
+	Common.assertionCheckwithReport(saved.equals("You added 8-Piece POP Container Baking Set to your shopping cart."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+  }
+      catch(Exception |Error e) {
+          e.printStackTrace();
+              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+              Assert.fail();
+          }
 }
+
 
 /*
 	public void Tax()throws Exception {
@@ -4996,6 +5030,201 @@ public void remove_from_wishlist() throws Exception {
 				}
 				return OrderId;
 			}
+		  public void OxoAdminlogin(String dataSet) throws Exception {
+			  
+			  try {
+	         	Common.oppenURL("https://stg-upgrade.oxo.com/upgrade_admin");
+	         	int name = Common.findElements("xpath", "//span[@class='admin-user-account-text']").size();
+				if (name > 0) {
+
+				}else {
+	         	Common.textBoxInput("xpath", "//input[contains(@name,'username')]", data.get(dataSet).get("UserName"));
+	         	Common.textBoxInput("xpath", "//input[contains(@name,'password')]",data.get(dataSet).get("Password"));
+				
+	         int username=	Common.findElements("xpath", "//input[contains(@name,'username')]").size();
+	         	
+	         	
+	            Common.assertionCheckwithReport(username>=1, "verifying Admin panel login page", "User name and password field data is populating", "Sucessfully enter username and password", "Faield to enter username and password"); 	
+	         	Common.clickElement("xpath", "//button[contains(@class,'action-primary')]");
+	         	Thread.sleep(2000);  
+	         	Common.actionsKeyPress(Keys.ESCAPE);
+	         	}}
+	         	catch(Exception |Error e)
+		 		{
+		 			report.addFailedLog("verifying Admin panel login page", "User name and password field data is populating", "Faield to enter username and password",Common.getscreenShotPathforReport("adminlogin")); 	
+
+		 			e.printStackTrace();
+		 			Assert.fail();
+		 			
+		 	}
+	     }
+		  
+		  
+		  public void catlog() {
+			  try {
+				  Sync.waitElementClickable("xpath", "//li[@id='menu-magento-catalog-catalog']");
+				  Common.clickElement("xpath", "//li[@id='menu-magento-catalog-catalog']");
+				  Sync.waitElementClickable("xpath", "//span[contains(text(),'Products')]");
+				  Common.clickElement("xpath", "//span[contains(text(),'Products')]");
+				  Common.assertionCheckwithReport(Common.getPageTitle().equals("Products / Inventory / Catalog / Magento Admin"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			      catch(Exception |Error e) {
+			          
+			              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+			              Assert.fail();
+			          }
+		  }
+		  public void Productsearch(String dataSet) throws Exception {
+			  
+			  try {
+			Common.clickElement("xpath", "//button[@class='action-remove']");
+			Thread.sleep(3000);
+			  Sync.waitElementClickable("xpath", "(//input[@id='fulltext'])[1]");
+			  Common.textBoxInput("xpath", "(//input[@id='fulltext'])[1]", data.get(dataSet).get("ProductName"));
+			  Thread.sleep(3000);
+			  Common.clickElement("xpath", "//div[@class='data-grid-search-control-wrap']//button[@class='action-submit']");
+			  Thread.sleep(3000);
+			  Common.clickElement("xpath", "//tr[@class='data-row']//div[contains(text(),'Steel 6-Piece POP Container Set')]");
+			  Common.assertionCheckwithReport(Common.getPageTitle().equals("Steel 6-Piece POP Container Set / Products / Inventory / Catalog / Magento Admin"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			      catch(Exception |Error e) {
+			          e.printStackTrace();
+			              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+			              Assert.fail();
+			          }
+			  try {
+				  Common.actionsKeyPress(Keys.ARROW_DOWN);
+				  
+						Common.dropdown("xpath", "//select[@name='product[quantity_and_stock_status][is_in_stock]']", Common.SelectBy.TEXT, data.get(dataSet).get("Outofstock"));
+					
+				  Common.assertionCheckwithReport(Common.getPageTitle().equals("Steel 6-Piece POP Container Set / Products / Inventory / Catalog / Magento Admin"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			
+			      catch(Exception |Error e) {
+			          
+			              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+			              Assert.fail();
+			          }
+			  try {
+				  Common.clickElement("xpath", "//button[@id='save-button']");
+				  Thread.sleep(3000);
+				  String saved=Common.getText("xpath", "//div[@data-ui-id='messages-message-success']");
+				  
+				  Common.assertionCheckwithReport(saved.equals("You saved the product."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			  catch(Exception |Error e) {
+		          
+	              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	              Assert.fail();
+	          }
+		  
+		  }
+		  public void Oxo(String dataSet) throws Exception {
+			  try {
+		         	Common.oppenURL("https://stg-upgrade.oxo.com/");
+		         	Thread.sleep(3000);
+		         	Common.clickElement("xpath", "//a[@class='search-tool']");
+		         	Common.textBoxInput("xpath", "//div[@class='minisearch__search-area']//input[@type='text']", data.get(dataSet).get("ProductName"));
+		         	Common.clickElement("xpath", "//button[@class='minisearch__btn-submit action search']");
+		         	Common.assertionCheckwithReport(Common.getPageTitle().equals("Search results for: 'Steel 6-Piece POP Container Set'"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			      catch(Exception |Error e) {
+			          
+			              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+			              Assert.fail();
+			          }
+		         try {
+		        	 Thread.sleep(3000);
+		        	 Common.clickElement("xpath", "//a[contains(text(),'Steel 6-Piece POP Container Set')]");
+		        	 Common.assertionCheckwithReport(Common.getPageTitle().equals("Steel 6-Piece POP Container Set"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+				  }
+				      catch(Exception |Error e) {
+				          
+				              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+				              Assert.fail();
+				          }
+		  }	 
+		  public void magentostock(String dataSet) throws Exception {
+			  int name = Common.findElements("xpath", "//button[@id='product-addtocart-button']").size();
+				if (name > 0) {
+					try {
+						Thread.sleep(8000);
+						Sync.waitElementClickable("xpath", "//button[@id='product-addtocart-button']");
+						Common.clickElement("xpath", "//button[@id='product-addtocart-button']");
+						Thread.sleep(3000);
+						String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+						System.out.println(saved);
+			        	 Common.assertionCheckwithReport(saved.equals("You added Steel 6-Piece POP Container Set to your shopping cart."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+					  }
+					  catch(Exception |Error e) {
+				          e.printStackTrace();
+			              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+			              Assert.fail();
+			          }
+
+				}   
+				else {
+			  try {
+		        	 Common.textBoxInput("xpath", "//input[@placeholder='Your Email Address']", data.get(dataSet).get("mail"));
+		        	 Common.clickElement("xpath", "//button[@class='action submit primary']");
+		        	 Thread.sleep(3000);
+		        	 String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+		        	 System.out.println(saved);
+		        	 Common.assertionCheckwithReport(saved.equals("Thank you! You are already subscribed to this product."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+				  }
+				  catch(Exception |Error e) {
+			          e.printStackTrace();
+		              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+		              Assert.fail();
+		          }
+			  }
+		  }
+public void Productsearch_Instock(String dataSet) throws Exception {
+			  
+			  try {
+			Common.clickElement("xpath", "//button[@class='action-remove']");
+			Thread.sleep(9000);
+			  Sync.waitElementClickable("xpath", "(//input[@id='fulltext'])[1]");
+			  Common.textBoxInput("xpath", "(//input[@id='fulltext'])[1]", data.get(dataSet).get("ProductName"));
+			  Thread.sleep(9000);
+			  Common.clickElement("xpath", "//div[@class='data-grid-search-control-wrap']//button[@class='action-submit']");
+			  Thread.sleep(9000);
+			  Common.clickElement("xpath", "//tr[@class='data-row']//div[contains(text(),'Steel 6-Piece POP Container Set')]");
+			  Common.assertionCheckwithReport(Common.getPageTitle().equals("Steel 6-Piece POP Container Set / Products / Inventory / Catalog / Magento Admin"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			      catch(Exception |Error e) {
+			          e.printStackTrace();
+			              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+			              Assert.fail();
+			          }
+			  try {
+				  Common.actionsKeyPress(Keys.ARROW_DOWN);
+				  Thread.sleep(9000); 
+				Common.dropdown("xpath", "//select[@name='product[quantity_and_stock_status][is_in_stock]']", Common.SelectBy.TEXT, data.get(dataSet).get("Instock"));
+				Thread.sleep(9000);
+				  Common.assertionCheckwithReport(Common.getPageTitle().equals("Steel 6-Piece POP Container Set / Products / Inventory / Catalog / Magento Admin"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			
+			      catch(Exception |Error e) {
+			          e.printStackTrace();
+			              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+			              Assert.fail();
+			          }
+			  try {
+				  Common.clickElement("xpath", "//button[@id='save-button']");
+				  Thread.sleep(5000);
+				  String saved=Common.getText("xpath", "//div[@data-ui-id='messages-message-success']");
+				  
+				  Common.assertionCheckwithReport(saved.equals("You saved the product."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+			  }
+			  catch(Exception |Error e) {
+		          
+	              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	              Assert.fail();
+	          }
+		  
+		  }
+		  
 	public OxoHelper(String datafile) {
 		excelData = new ExcelReader(datafile);
 		data = excelData.getExcelValue();
