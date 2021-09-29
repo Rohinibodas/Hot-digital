@@ -17,7 +17,7 @@ import TestLib.Common;
 import TestLib.Login;
 import Utilities.ExcelReader;
 
-public class OXO_TAX_Caluclation {
+public class OXO_Registeruser_TAX_Caluclation {
 	String datafile = "oxo//OxoTestData.xlsx";
 	OxoHelper oxo = new OxoHelper(datafile);
 
@@ -28,7 +28,7 @@ public class OXO_TAX_Caluclation {
 		try {
 
 			String addressFile = "OXO//OXOAddressTax.xlsx";
-			oxo.prepareTaxData("OXOTaxDetails_Guest.xlsx");
+			oxo.prepareTaxData_Register("OXOTaxDetails_Register.xlsx");
 			Map<String, List<Map<String, String>>> addressVal=new HashMap<>();
 			ExcelReader excelData=new ExcelReader(addressFile);
 			addressVal=excelData.getStateAddressValue();
@@ -49,20 +49,24 @@ public class OXO_TAX_Caluclation {
 			
 			String Website=oxo.URL();
 			oxo.closetheadd();
+			oxo.loginOxo("AccountDetails");
 			oxo.CookingAndBaking();
-			oxo.addproducts("1");
+			oxo.addproducts("6");
 			oxo.checkout();
-			oxo.addDeliveryAddress("Address",streetAddress,City,Zipcode,state);
+			oxo.addDeliveryAddress_2("Address",streetAddress,City,Zipcode,state);
+			//oxo.addDeliveryAddress("Address",streetAddress,City,Zipcode,state);
 			oxo.selectGroundShippingMethod();
 			oxo.clickAcceptingaddress();
 			HashMap<String,String> data=oxo.taxValidation(tax,state);
 			oxo.Click_CreditCard();
 			oxo.creditCard_payment("PaymentDetails");
 			oxo.VerifyaingConformationPage();
+			//String OrderId="12345";
 			 String OrderId=oxo.order_Verifying();
 			 oxo.writeResultstoXLSx(Website,OrderId,data.get("subtotlaValue"),data.get("shippingammountvalue"),state,Zipcode,data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));
-				
-			}			
+            //honeyWell.writeResultstoXLSx("OrderId");
+			}
+			
 			
 		catch (Exception e) {
 			Common.closeAll();

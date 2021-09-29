@@ -9,6 +9,7 @@ import org.testng.AssertJUnit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -851,7 +852,6 @@ public class OxoHelper {
 		String expectedResult = "The page should contain the shipping address along  with the order summary with total price";
 		try {
 			Sync.waitForLoad();
-			Thread.sleep(3000);
 			String Order = Common.getText("xpath", "//div[@class='opc-block-summary']/span");
 
 			Thread.sleep(4000);
@@ -1756,16 +1756,12 @@ public class OxoHelper {
 	}
 
 	public void closetheadd() throws Exception {
-
+		
 		ExtenantReportUtils.addPassLog("verifying home page", "lands on home page", "User lands on the Home page",
 				Common.getscreenShotPathforReport("homepage"));
 
-		Common.actionsKeyPress(Keys.PAGE_UP);
-		Thread.sleep(10000);
-		// Common.actionsKeyPress(Keys.PAGE_UP);
-
-		// System.out.println(elementsize);
-
+		
+			
 		if (checkadd() > 0) {
 
 			Common.switchFrames("xpath", "//iframe[@id='attentive_creative']");
@@ -3854,99 +3850,96 @@ public class OxoHelper {
 		}
 	}
 	public void Add_product_to_Wishlist_PLP() {
-		
-		try {
-			Thread.sleep(4000);
+        try {
+            Thread.sleep(4000);
+            Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15701']");
+            Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15701']");
+            Common.javascriptclickElement("xpath", "//li[contains(@class,'navigation__inner-item')]/a[@data-menu='menu-15799']");
+            Thread.sleep(3000);
+            Common.actionsKeyPress(Keys.ARROW_DOWN);
+            Common.mouseOver("xpath", "//a[contains(text(),'Mini Tongs')]");
+            Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
+            Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
 
-			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15701']");
-			Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15701']");
-			Common.javascriptclickElement("xpath", "//li[contains(@class,'navigation__inner-item')]/a[@data-menu='menu-15799']");
-			//Sync.waitElementClickable("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
-			//Common.clickElement("xpath", "//strong[@class='navigation-banner__title' and text()='Bath']");
-			Thread.sleep(3000);
-			Common.actionsKeyPress(Keys.ARROW_DOWN);
-			Common.mouseOver("xpath", "//a[contains(text(),'Mini Tongs')]");
-			Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
-			Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
-			Thread.sleep(2000);
-			Common.actionsKeyPress(Keys.UP);
-			String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
-			System.out.println(saved);
-			Common.assertionCheckwithReport(saved.equals("1"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-		  }
-		      catch(Exception |Error e) {
-		          
-		              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-		              Assert.fail();
-		          }
-		
-	}
-public void Add_product_to_Wishlist_PDP() {
-		
-		try {
-			Common.clickElement("xpath", "//a[contains(text(),'8-Piece POP Container Baking Set')]");
-			Common.assertionCheckwithReport(Common.getPageTitle().equals("8-Piece POP Container Baking Set"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-		  }
-		      catch(Exception |Error e) {
-		          e.printStackTrace();
-		              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-		                 Assert.fail();
-		      }
-		try {          
-		Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
-		Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
-		Thread.sleep(4000);
-		String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
-		System.out.println(saved);
-		Common.assertionCheckwithReport(saved.equals("2"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-	  }
-	      catch(Exception |Error e) {
-	          e.printStackTrace();
-	              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-	              Assert.fail();
-	          }
-		}
-	
-public void removeandaddtocartfrom_wishlist() throws Exception {
-	Sync.waitPageLoad();
-	//Common.clickElement("xpath", "//img[@title='OXO']");
-	try {
-	Sync.waitElementPresent("xpath", "(//li[@class='link wishlist'])[1]");
-	Common.clickElement("xpath", "(//li[@class='link wishlist'])[1]");
-	Common.assertionCheckwithReport(Common.getPageTitle().equals("My Wish List"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-	  }
-	      catch(Exception |Error e) {
-	          e.printStackTrace();
-	              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-	                 Assert.fail();
-	      }
-	try {
-	Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])");
-	Common.clickElement("xpath", "(//a[@title='Remove Item'])");
-	String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
-	System.out.println(saved);
-	Common.assertionCheckwithReport(saved.equals("Mini Tongs has been removed from your Wish List."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-  }
-      catch(Exception |Error e) {
-          e.printStackTrace();
-              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-              Assert.fail();
+            Thread.sleep(2000);
+            Common.actionsKeyPress(Keys.UP);
+            String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
+            System.out.println(saved);
+            Common.assertionCheckwithReport(saved.equals("1"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
           }
-	try {
-	Sync.waitPageLoad();
-	Sync.waitElementPresent("xpath", "//button[@title='Add to Cart']");
-	Common.clickElement("xpath", "//button[@title='Add to Cart']");
-	String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
-	System.out.println(saved);
-	Common.assertionCheckwithReport(saved.equals("You added 8-Piece POP Container Baking Set to your shopping cart."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+              catch(Exception |Error e) {
+                      ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+                      Assert.fail();
+                  }
+    }
+
+
+
+public void Add_product_to_Wishlist_PDP() {
+        try {
+            Common.clickElement("xpath", "//a[contains(text(),'8-Piece POP Container Baking Set')]");
+            Common.assertionCheckwithReport(Common.getPageTitle().equals("8-Piece POP Container Baking Set"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+          }
+              catch(Exception |Error e) {
+                  e.printStackTrace();
+                      ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+                         Assert.fail();
+              }
+        try {
+        Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
+        Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
+        Thread.sleep(4000);
+        String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
+        System.out.println(saved);
+        Common.assertionCheckwithReport(saved.equals("2"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+      }
+          catch(Exception |Error e) {
+              e.printStackTrace();
+                  ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+                  Assert.fail();
+              }
+        }
+
+
+public void removeandaddtocartfrom_wishlist() throws Exception {
+ Sync.waitPageLoad();
+ try {
+
+	 Sync.waitElementPresent("xpath", "(//li[@class='link wishlist'])[1]");
+    Common.clickElement("xpath", "(//li[@class='link wishlist'])[1]");
+    Common.assertionCheckwithReport(Common.getPageTitle().equals("My Wish List"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+      }
+          catch(Exception |Error e) {
+              e.printStackTrace();
+             ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+             Assert.fail();
+          }
+    try {
+    Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])");
+    Common.clickElement("xpath", "(//a[@title='Remove Item'])");
+    String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+    System.out.println(saved);
+    Common.assertionCheckwithReport(saved.equals("Mini Tongs has been removed from your Wish List."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
   }
       catch(Exception |Error e) {
           e.printStackTrace();
-              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-              Assert.fail();
+          ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+          Assert.fail();
+          }
+    try {
+    Sync.waitPageLoad();
+    Sync.waitElementPresent("xpath", "//button[@title='Add to Cart']");
+    Common.clickElement("xpath", "//button[@title='Add to Cart']");
+    String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+    System.out.println(saved);
+    Common.assertionCheckwithReport(saved.equals("You added 8-Piece POP Container Baking Set to your shopping cart."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+  }
+      catch(Exception |Error e) {
+          e.printStackTrace();
+          ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+          Assert.fail();
           }
 }
-
 
 /*
 	public void Tax()throws Exception {
@@ -4658,79 +4651,226 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 	 public void prepareTaxData(String fileName) {
 	  		// TODO Auto-generated method stub
 
-	  		try{
-	  			
-	  			
-	  			File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
-	  			XSSFWorkbook workbook;
-	  			XSSFSheet sheet;
-	  			Row row;
-	  			Cell cell;
-	  			int rowcount;
-	  			if(!(file.exists()))
-	  			{
-	  			workbook = new XSSFWorkbook();
-	  			sheet = workbook.createSheet("TaxDetails");
-	  			CellStyle cs = workbook.createCellStyle();
-	  			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-	  			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
-	  			Font f = workbook.createFont();
-	  			f.setBold(true);
-	  			cs.setFont(f);	 
-	  			cs.setAlignment(HorizontalAlignment.RIGHT);
-	  			row = sheet.createRow(0);
-	  			cell = row.createCell(0);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("Orders details");
-	  			
-	  			    
-	  			row = sheet.createRow(1);
-	  			cell = row.createCell(0);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("OrderId");
-	  			cell = row.createCell(1);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("SubTotal");
-	  			cell = row.createCell(2);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("ShippingAmount");
-	  			cell=row.createCell(3);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("TaxAmount");
-	  			cell=row.createCell(4);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("TotalAmount");
-	  			cell=row.createCell(5);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("ActualTax");
-	  			cell=row.createCell(6);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("ExpectedTax");
-	  			cell=row.createCell(7);
-	  			cell.setCellStyle(cs);
-	  			cell.setCellValue("status");
-	  			rowcount=2;
-	  			}
-	  			
-	  			else
-	  			{
-	  			workbook = new XSSFWorkbook(new FileInputStream(file));
-	  			sheet=workbook.getSheet("TaxDetails");	
-	  			rowcount=sheet.getLastRowNum()+1;
-	  			}
-	  			/*row = sheet.createRow(rowcount);
-	  			cell = row.createCell(0);*/
-	  	
-	  			FileOutputStream fileOut = new FileOutputStream(file);
-	  			workbook.write(fileOut);
-	  			fileOut.flush();
-	  			fileOut.close();
+		 try{
+				File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
+				XSSFWorkbook workbook;
+				XSSFSheet sheet;
+				Row row;
+				Cell cell;
+				int rowcount;
+				if(!(file.exists()))
+				{
+				workbook = new XSSFWorkbook();
+				sheet = workbook.createSheet("TaxDetails");
+				CellStyle cs = workbook.createCellStyle();
+				cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+				cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+				Font f = workbook.createFont();
+				f.setBold(true);
+				cs.setFont(f);	 
+				cs.setAlignment(HorizontalAlignment.RIGHT);
+				row = sheet.createRow(0);
+				cell = row.createCell(0);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Orders Details");
+				
+				    
+				row = sheet.createRow(1);
+				cell = row.createCell(0);
+				cell.setCellStyle(cs);
+				cell.setCellValue("S.No");
+				cell = row.createCell(1);
+				cell.setCellStyle(cs);
+				cell.setCellValue("UC No.");
+				cell = row.createCell(2);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Bussiness Segmet");
+				cell = row.createCell(3);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Test Phase");
+				cell = row.createCell(4);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Tester Name");
+				cell = row.createCell(5);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Web Type");
+				cell = row.createCell(6);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Website");
+				
+				
+				cell = row.createCell(7);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Web order Number");
+				cell = row.createCell(8);
+				cell.setCellStyle(cs);
+				cell.setCellValue("SubTotal");
+				cell = row.createCell(9);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Shipping");
+				cell = row.createCell(10);
+				cell.setCellStyle(cs);
+				cell.setCellValue("State");
+				cell = row.createCell(11);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Zipcode");
+				cell = row.createCell(12);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Tax");
+				cell=row.createCell(13);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Order Total");
+				cell=row.createCell(14);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Tax on Shiping (Y/N)");
+				cell=row.createCell(15);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Web Configured Tax Rate");
+				cell=row.createCell(16);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Expected TaxAmount");
+				cell=row.createCell(17);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Expected OrderTotal Amount");
+				cell=row.createCell(18);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Actual OrderTotal Amount");
+				cell=row.createCell(19);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Digital QA Status(PASS/FAIL)");
+				rowcount=2;
+				}
+				
+				else
+				{
+				workbook = new XSSFWorkbook(new FileInputStream(file));
+				sheet=workbook.getSheet("TaxDetails");	
+				rowcount=sheet.getLastRowNum()+1;
+				}
+				/*row = sheet.createRow(rowcount);
+				cell = row.createCell(0);*/
 
-	  	        } catch (Exception e) {
-	  	            e.printStackTrace();
-	  	        }
-	  	}
-		  public HashMap<String,String> taxValidation(String taxpercent) {
+				FileOutputStream fileOut = new FileOutputStream(file);
+				workbook.write(fileOut);
+				fileOut.flush();
+				fileOut.close();
+
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		}
+	 public void prepareTaxData_Register(String fileName) {
+	  		// TODO Auto-generated method stub
+
+		 try{
+				File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
+				XSSFWorkbook workbook;
+				XSSFSheet sheet;
+				Row row;
+				Cell cell;
+				int rowcount;
+				if(!(file.exists()))
+				{
+				workbook = new XSSFWorkbook();
+				sheet = workbook.createSheet("TaxDetails");
+				CellStyle cs = workbook.createCellStyle();
+				cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+				cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+				Font f = workbook.createFont();
+				f.setBold(true);
+				cs.setFont(f);	 
+				cs.setAlignment(HorizontalAlignment.RIGHT);
+				row = sheet.createRow(0);
+				cell = row.createCell(0);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Orders Details");
+				
+				    
+				row = sheet.createRow(1);
+				cell = row.createCell(0);
+				cell.setCellStyle(cs);
+				cell.setCellValue("S.No");
+				cell = row.createCell(1);
+				cell.setCellStyle(cs);
+				cell.setCellValue("UC No.");
+				cell = row.createCell(2);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Bussiness Segmet");
+				cell = row.createCell(3);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Test Phase");
+				cell = row.createCell(4);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Tester Name");
+				cell = row.createCell(5);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Web Type");
+				cell = row.createCell(6);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Website");
+				
+				
+				cell = row.createCell(7);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Web order Number");
+				cell = row.createCell(8);
+				cell.setCellStyle(cs);
+				cell.setCellValue("SubTotal");
+				cell = row.createCell(9);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Shipping");
+				cell = row.createCell(10);
+				cell.setCellStyle(cs);
+				cell.setCellValue("State");
+				cell = row.createCell(11);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Zipcode");
+				cell = row.createCell(12);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Tax");
+				cell=row.createCell(13);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Order Total");
+				cell=row.createCell(14);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Tax on Shiping (Y/N)");
+				cell=row.createCell(15);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Web Configured Tax Rate");
+				cell=row.createCell(16);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Expected TaxAmount");
+				cell=row.createCell(17);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Expected OrderTotal Amount");
+				cell=row.createCell(18);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Actual OrderTotal Amount");
+				cell=row.createCell(19);
+				cell.setCellStyle(cs);
+				cell.setCellValue("Digital QA Status(PASS/FAIL)");
+				rowcount=2;
+				}
+				
+				else
+				{
+				workbook = new XSSFWorkbook(new FileInputStream(file));
+				sheet=workbook.getSheet("TaxDetails");	
+				rowcount=sheet.getLastRowNum()+1;
+				}
+				/*row = sheet.createRow(rowcount);
+				cell = row.createCell(0);*/
+
+				FileOutputStream fileOut = new FileOutputStream(file);
+				workbook.write(fileOut);
+				fileOut.flush();
+				fileOut.close();
+
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		}
+		  public HashMap<String,String> taxValidation(String taxpercent, String state) {
 				// TODO Auto-generated method stub
 				HashMap<String,String> data=new HashMap<String,String>();
 				try{			    
@@ -4741,7 +4881,7 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 			     data.put("giventaxvalue",giventaxvalue1);
 			     
 
-			     String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
+			     String subtotla=Common.getText("xpath", "//tr[@class='totals sub']//span").replace("$", "");
 			     // subtotla.replace("", newChar)
 			    Float subtotlaValue=Float.valueOf(subtotla);
 			    data.put("subtotlaValue",subtotla);
@@ -4750,29 +4890,54 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 			    Float shippingammountvalue=Float.valueOf(shippingammount);
 				data.put("shippingammountvalue",shippingammount);
 				
-			     String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax']//span").replace("$", "");
+			     String TaxAmmount=Common.getText("xpath", "//tr[@class='totals-tax']//span").replace("$", "");
 			    Float Taxammountvalue=Float.valueOf(TaxAmmount);
 				data.put("Taxammountvalue",TaxAmmount);
 				
 			     String TotalAmmount=Common.getText("xpath", "//tr[@class='grand totals']//span").replace("$", "");
-			    Float Totalammountvalue=Float.valueOf(Taxammountvalue);
-			    data.put("Totalammountvalue",TotalAmmount);
+			    Float Totalammountvalue=Float.valueOf(TotalAmmount);
+			    //data.put("Totalammountvalue",Totalammountvalue);
+			    data.put("Totalammountvalue", TotalAmmount);
 			    
-			    Float calucaltedvalue= ((subtotlaValue+shippingammountvalue)*giventaxvalue)/100;
-			    System.out.println(calucaltedvalue);
+			    String ActualTotalAmmount=Common.getText("xpath", "//tr[@class='grand totals']//span").replace("$", "");
+			    Float ActualTotalammountvalue=Float.valueOf(ActualTotalAmmount);
+			    data.put("ActualTotalammountvalue",ActualTotalAmmount);
+			  // Float Total=(subtotlaValue+shippingammountvalue);
+			    
+			   Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue+Taxammountvalue;
+			   String ExpectedTotalAmmount2 = new BigDecimal(ExpectedTotalAmmount).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
+			    
+			    String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount2);
+			    data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+			  
+			    if((state.equals("Illinois"))||(state.equals("Florida"))) {
+			    Float calucaltedvalue= ((subtotlaValue)*giventaxvalue)/100;
+			    //String userpaneltaxvalue = new BigDecimal(calucaltedvalue).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
 			    NumberFormat nf= NumberFormat.getInstance();
 			    nf.setMaximumFractionDigits(2);
-			     String userpaneltaxvalue=nf.format(calucaltedvalue);
-			     data.put("calculatedvalue",userpaneltaxvalue);
+			    String userpaneltaxvalue=nf.format(calucaltedvalue);
+
+			    data.put("calculatedvalue",userpaneltaxvalue);
 			    System.out.println(TaxAmmount);
 			    System.out.println(userpaneltaxvalue);
+			    
+			    }
+			    else {
+			    	Float calucaltedvalue= ((subtotlaValue+shippingammountvalue)*giventaxvalue)/100;
+			    	
+				    String userpaneltaxvalue = new BigDecimal(calucaltedvalue).setScale(2, BigDecimal.ROUND_HALF_UP).toString();   
+				  //  NumberFormat nf= NumberFormat.getInstance();
+				   // nf.setMaximumFractionDigits(2);
+				   // String userpaneltaxvalue=nf.format(calucaltedvalue);
+				    data.put("calculatedvalue",userpaneltaxvalue);
+				    System.out.println(TaxAmmount);
+				    System.out.println(userpaneltaxvalue);
+			    }	
 			   
-			 //   Common.assertionCheckwithReport(userpaneltaxvalue.equals(TaxAmmount), "verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
-			    Common.assertionCheckwithReport(TaxAmmount.equals(TaxAmmount),"verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
+			 Common.assertionCheckwithReport(TaxAmmount.equals(TaxAmmount),"verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
 				 		}
 			 	 catch(Exception |Error e)
 			 		{
-			 		 e.printStackTrace();
 			 			report.addFailedLog("verifying tax calculation", "getting price values from shipping page  ", "Faield to get price value from shipping page", Common.getscreenShotPathforReport("TaxRates"));
 
 			 			e.printStackTrace();
@@ -4876,12 +5041,62 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 	  		
 	  		Thread.sleep(3000);
 	  	}
-		  public void writeResultstoXLSx(String OrderId,String subtotlaValue,String shippingammountvalue,String Taxammountvalue,String Totalammountvalue,String giventaxvalue,String calucaltedvalue)
-			{
+		  public void addDeliveryAddress_2(String dataSet,String Street,String City,String postcode,String Region) throws Exception {
+			  int AddnewAddress = Common.findElements("xpath", "//button[contains(@class,'action-show-popup')]").size();
+				if (AddnewAddress > 0) {
+					Common.clickElement("xpath", "//button[contains(@class,'action-show-popup')]");
+
+					try {
+						Sync.waitElementPresent("xpath", "//div[@id='shipping-new-address-form']//input[@name='firstname']");
+						Common.textBoxInput("xpath", "//div[@id='shipping-new-address-form']//input[@name='firstname']",
+								data.get(dataSet).get("FirstName"));
+
+						Sync.waitElementPresent("xp	ath", "//div[@id='shipping-new-address-form']//input[@name='lastname']");
+						Common.textBoxInput("xpath", "//div[@id='shipping-new-address-form']//input[@name='lastname']",
+								data.get(dataSet).get("LastName"));
+
+						Sync.waitElementPresent("xpath", "//div[@id='shipping-new-address-form']//input[@name='firstname']");
+						Common.textBoxInput("xpath", "//div[@id='shipping-new-address-form']//input[@name='firstname']",
+								data.get(dataSet).get("FirstName"));
+
+						Sync.waitElementPresent("xp	ath", "//div[@id='shipping-new-address-form']//input[@name='company']");
+						Common.textBoxInput("xpath", "//div[@id='shipping-new-address-form']//input[@name='company']",
+								data.get(dataSet).get("CompanyName"));
+
+						Sync.waitElementPresent("name", "street[0]");
+						Common.textBoxInput("name", "street[0]", Street);
+						Common.textBoxInput("name", "city", City);
+						Common.dropdown("name", "region_id", Common.SelectBy.TEXT, Region);
+						Common.textBoxInput("name", "postcode", postcode);
+						Common.actionsKeyPress(Keys.PAGE_DOWN);
+						Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+
+						Common.clickElement("xpath", "//button[contains(@class,'action-save-address')]");
+
+						int sizeerrormessage = Common
+								.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+						Common.assertionCheckwithReport(sizeerrormessage <= 0, "verifying shipping addres filling ",
+								"user will fill the all the shipping", "user fill the shiping address click save button",
+								"faield to add new shipping address");
+
+					} catch (Exception | Error e) {
+						e.printStackTrace();
+						ExtenantReportUtils.addFailedLog("verifying shipping addres filling",
+								"user will fill the all the shipping", "faield to add new shipping address",
+								Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
+						AssertJUnit.fail();
+
+					}
+
+				}
+			}
+		  	
+		  public void writeResultstoXLSx(String Website,String OrderId,String subtotlaValue,String shippingammountvalue,String state,String Zipcode,String Taxammountvalue,String ActualTotalammountvalue, String ExpectedTotalammountvalue,String giventaxvalue,String calucaltedvalue)
+		  {
 				//String fileOut="";
 			try{
 				
-				File file=new File(System.getProperty("user.dir")+"/src/test/resources/OXOTaxDetails_Guest.xlsx");
+				File file=new File(System.getProperty("user.dir")+"/src/test/resources/OXOTaxDetails_Register.xlsx");
 				XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
 				XSSFSheet sheet;
 				Row row;
@@ -4902,30 +5117,30 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 				row = sheet.createRow(0);
 				cell = row.createCell(0);
 				cell.setCellStyle(cs);
-				cell.setCellValue("Orders details");
+				cell.setCellValue("Orders Details");
 				
 				row = sheet.createRow(1);
 				cell = row.createCell(0);
 				cell.setCellStyle(cs);
-				cell.setCellValue("OrderId");
+				cell.setCellValue("Web Order Number");
 				cell = row.createCell(1);
 				cell.setCellStyle(cs);
 				cell.setCellValue("SubTotal");
 				cell = row.createCell(2);
 				cell.setCellStyle(cs);
-				cell.setCellValue("ShippingAmount");
+				cell.setCellValue("Shipping");
 				cell=row.createCell(3);
 				cell.setCellStyle(cs);
-				cell.setCellValue("TaxAmount");
+				cell.setCellValue("TaxRate");
 				cell=row.createCell(4);
 				cell.setCellStyle(cs);
-				cell.setCellValue("TotalAmount");
+				cell.setCellValue("Web Configured TaxRate");
 				cell=row.createCell(5);
 				cell.setCellStyle(cs);
-				cell.setCellValue("ActualTax");
+				cell.setCellValue("Actual TaxAmount");
 				cell=row.createCell(6);
 				cell.setCellStyle(cs);
-				cell.setCellValue("ExpectedTax");
+				cell.setCellValue("Expected TaxAmount");
 				
 				rowcount=2;
 				
@@ -4938,52 +5153,131 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 				rowcount=sheet.getLastRowNum()+1;
 				}
 				row = sheet.createRow(rowcount);
+				
 				cell = row.createCell(0);
-				cell.setCellValue(OrderId);
+				cell.setCellType(CellType.NUMERIC);
+				int SNo=rowcount-1;
+				cell.setCellValue(SNo);
 				cell = row.createCell(1);
 				cell.setCellType(CellType.NUMERIC);
-				cell.setCellValue(subtotlaValue);
+				cell.setCellValue("");
 				cell = row.createCell(2);
+				cell.setCellType(CellType.STRING);
+				cell.setCellValue("House Ware");
+				cell = row.createCell(3);
+				cell.setCellType(CellType.STRING);
+				cell.setCellValue("User");
+				cell = row.createCell(4);
+				cell.setCellType(CellType.STRING);
+				cell.setCellValue("Lotuswave");
+				cell = row.createCell(5);
+				cell.setCellType(CellType.STRING);
+				cell.setCellValue("B2C");
+				cell = row.createCell(6);
+				cell.setCellType(CellType.STRING);
+				String Site;
+				if(Website.contains("oxo"))
+			     {
+					
+					Site="OXO";
+					
+			}
+				else
+				{
+					Site="";
+				} 
+				cell.setCellValue(Site);
+				cell = row.createCell(7);
+				cell.setCellValue(OrderId);
+				cell = row.createCell(8);
+				cell.setCellType(CellType.NUMERIC);
+				cell.setCellValue(subtotlaValue);
+				cell = row.createCell(9);
 				cell.setCellType(CellType.NUMERIC);
 				cell.setCellValue(shippingammountvalue);
-				cell = row.createCell(3);
+				cell = row.createCell(10);
 				cell.setCellType(CellType.NUMERIC);
-				cell.setCellValue(giventaxvalue);
-				cell = row.createCell(4);
+				cell.setCellValue(state);
+				cell = row.createCell(11);
 				cell.setCellType(CellType.NUMERIC);
-				cell.setCellValue(Totalammountvalue);
-				cell = row.createCell(5);
+				cell.setCellValue(Zipcode);
+				cell = row.createCell(12);
 				cell.setCellType(CellType.NUMERIC);
 				cell.setCellValue(Taxammountvalue);
-				cell = row.createCell(6);
+				cell = row.createCell(13);
+				cell.setCellType(CellType.NUMERIC);
+				cell.setCellValue(ActualTotalammountvalue);
+				cell = row.createCell(14);
+				cell.setCellType(CellType.STRING);
+				String TaxonShipping;
+				  if((state.equals("Illinois"))||(state.equals("Florida")))
+			     {
+					TaxonShipping="NO";	
+			}
+				else
+				{
+					TaxonShipping="YES";
+				}
+				cell.setCellValue(TaxonShipping);
+				cell = row.createCell(15);
+				cell.setCellType(CellType.NUMERIC);
+				cell.setCellValue(giventaxvalue);
+				cell = row.createCell(16);
 				cell.setCellType(CellType.NUMERIC);
 				cell.setCellValue(calucaltedvalue);
-				cell = row.createCell(7);
+				cell = row.createCell(17);
+				cell.setCellType(CellType.NUMERIC);
+				cell.setCellValue(ExpectedTotalammountvalue);
+				cell = row.createCell(18);
+				cell.setCellType(CellType.NUMERIC);
+				cell.setCellValue(ActualTotalammountvalue);
+				cell = row.createCell(19);
 				cell.setCellType(CellType.STRING);
 				String status;
-				if(Taxammountvalue.contains(calucaltedvalue))
-				{
-					Thread.sleep(4000);
-					status="pass";
+				if(Taxammountvalue.contains(calucaltedvalue)&&(ActualTotalammountvalue).contains(ExpectedTotalammountvalue))
+			     {
+					
+					status="PASS";
+					CellStyle style = workbook.createCellStyle();
+					Font font= workbook.createFont();
+					font.setColor(IndexedColors.GREEN.getIndex());
+					font.setBold(true);
+					style.setFont(font);
+					cell.setCellStyle(style);
 				}
 				else
 				{
-					status="Fail";
-				}
+					status="FAIL";
+					CellStyle style = workbook.createCellStyle();
+					Font font= workbook.createFont();
+					font.setColor(IndexedColors.RED.getIndex());
+					font.setBold(true);
+					style.setFont(font);
+					cell.setCellStyle(style);
+					}
 				
 				
 				cell.setCellValue(status);
+				
 				System.out.println(OrderId);
+				//String subtotla = Float.toString(subtotlaValue);
+				//System.out.println("String is: "+subtotla);
 				System.out.println(subtotlaValue);
-				
+				//String shippingammount = Float.toString(shippingammountvalue);
+				//System.out.println("String is: "+shippingammount);
 				System.out.println(shippingammountvalue);
-				
+				//String Taxammount = Float.toString(Taxammountvalue);
+				//System.out.println("String is: "+Taxammount);
 				System.out.println(Taxammountvalue);
-				
-				System.out.println(Totalammountvalue);
-				
+				//String Totalammount = Float.toString(Totalammountvalue);
+				//System.out.println("String is: "+Totalammount);
+				System.out.println(ActualTotalammountvalue);
+				System.out.println(ExpectedTotalammountvalue);
+				//String Actualtax = Float.toString(ActualTax);
+				//System.out.println("String is: "+Actualtax);
 				System.out.println(giventaxvalue);
-				
+				//String userpaneltax = Float.toString(userpaneltaxvalue);
+				//System.out.println("String is: "+userpaneltax);
 				System.out.println(calucaltedvalue);
 				
 					FileOutputStream fileOut = new FileOutputStream(file);
@@ -4992,11 +5286,14 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 			
 				fileOut.flush();
 				fileOut.close();
-
+	//return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue);
 		        } catch (Exception e) {
 		            e.printStackTrace();
 		        }
-		}
+//			return fileOut;
+//			return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue);
+
+			}
 		  public String order_Verifying() throws Exception{
 				String OrderId="";
 				//Thread.sleep(10000);
@@ -5017,7 +5314,14 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 				
 				String sucessMessage=Common.getText("xpath", "//h1[@class='page-title']/span");
 				System.out.println(sucessMessage);
+				int name = Common.findElements("xpath", "//span[@class='customer-name']").size();
+				System.out.println(name);
+				if (name > 0) {
+					
+					OrderId=Common.getText("xpath", "//p[@class='order-number-wrapper']//strong");	
+				}else{
 				 OrderId=Common.getText("xpath", "//p[@class='order-number-wrapper']//span");
+				}
 				System.out.println("Your order number is:"+OrderId);
 				Common.assertionCheckwithReport(sucessMessage.equals("Thank you for your order!"),"verifying the product confirmation", expectedResult,"Successfully It redirects to order confirmation page Order Placed","User unabel to go orderconformation page");
 					
@@ -5030,7 +5334,18 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 				}
 				return OrderId;
 			}
-		  public void OxoAdminlogin(String dataSet) throws Exception {
+		  
+		  public String  URL() throws InterruptedException {
+			  String Website="";
+				Common.clickElement("xpath", "//img[@alt='OXO']");
+				Sync.waitPageLoad();
+				Thread.sleep(4000);
+				Website=Common.getCurrentURL();
+	            
+				return Website;
+				
+			}	
+public void OxoAdminlogin(String dataSet) throws Exception {
 			  
 			  try {
 	         	Common.oppenURL("https://stg-upgrade.oxo.com/upgrade_admin");
@@ -5224,7 +5539,8 @@ public void Productsearch_Instock(String dataSet) throws Exception {
 	          }
 		  
 		  }
-		  
+	
+
 	public OxoHelper(String datafile) {
 		excelData = new ExcelReader(datafile);
 		data = excelData.getExcelValue();
