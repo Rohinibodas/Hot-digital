@@ -10,7 +10,7 @@
         </classes>
         </test>
         
-          <test name="Test_DB_ST_002-Registered user Checkout with Visa Credit Card" testid="DRY-19" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard drybar">
+          <test name="Test_DB_ST_002-Registered user Checkout with Visa Credit Card" testid="DRY-20" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard drybar">
        <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_002_RegisteredUser_Checkout_visa_CreditCard"/>
         </classes>
