@@ -28,7 +28,7 @@ public class TEST_ST_HF_028_Checkout_RegUserCC_bundleProduct {
 				
 				Assert.fail(e.getMessage(), e);
 			} 
-	  }
+	  }  
 		
 
 		@AfterTest

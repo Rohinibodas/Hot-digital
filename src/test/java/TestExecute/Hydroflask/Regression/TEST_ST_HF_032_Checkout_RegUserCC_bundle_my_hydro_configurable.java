@@ -25,7 +25,7 @@ public class TEST_ST_HF_032_Checkout_RegUserCC_bundle_my_hydro_configurable {
 		Hydro.addDeliveryAddress_registerUser("Address");
 		Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
   
-	  }
+	  }  
 		catch (Exception e) {
 			e.printStackTrace();
 			

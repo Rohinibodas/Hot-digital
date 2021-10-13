@@ -16,7 +16,7 @@ public class TEST_ST_HF_067_Checkout_AMEX_Reguser_Employe_notax__Standard_diff_A
 	
 	public void checkoutwith_AMEXcard_Registeruser_EmployeeDiscount_notax__StandardShipping_differentBllingShippingaddress() throws Exception {
 
-		try {
+		try {  
 			
 			Hydro.loginHydroflaskAccount("Employlogins");
 			Hydro.orderSubmit("Bottles");

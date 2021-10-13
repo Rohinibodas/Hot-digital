@@ -18,7 +18,7 @@ public class TEST_ST_HF_070_Checkout_VISA_Registeruser_with_PO_Box {
 	public void registeredUser_Checkout_PoBoxCreditCard() throws Exception {
 
 		try {
-			Hydro.loginHydroflaskAccount("AccountDetails");
+			Hydro.loginHydroflaskAccount("AccountDetails");  
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress_registerUser("PO_Box_Address");

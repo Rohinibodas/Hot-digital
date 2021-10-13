@@ -18,7 +18,7 @@ public class TEST_ST_HF_066_checkout_VISA_Regruser_Employe_tax_Standard {
 	public void RegisteredUser_Checkout_VISA_Multiproduct_Tax_FreightShipping_samebillingShippingaddress()
 			throws Exception {
 
-		try {
+		try {  
 			Hydro.loginHydroflaskAccount("Employlogins");
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();

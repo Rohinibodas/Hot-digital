@@ -31,7 +31,7 @@ public class TEST_ST_HF_055_checkout_VISA_RegUser_Notax_Freight_Diff_Addresses {
 			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);
 		} 
-	}
+	}  
 	
 	
 	

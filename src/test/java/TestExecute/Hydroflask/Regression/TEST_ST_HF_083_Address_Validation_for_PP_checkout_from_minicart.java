@@ -22,7 +22,7 @@ public class TEST_ST_HF_083_Address_Validation_for_PP_checkout_from_minicart {
 			Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
 			
 			Hydro.CheckOutPaypalminicart("PaypalDetails");
-	
+	  
 			Hydro.CheckOutPaypaladdress("InvalidAddress");
 			
 			//Hydro.Paypal_checkout("PaypalDetails");

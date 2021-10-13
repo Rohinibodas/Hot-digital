@@ -28,7 +28,7 @@ public class TEST_ST_HF_044_shop_link_validation {
 		} 
 	}
   
-  
+    
   
   
   

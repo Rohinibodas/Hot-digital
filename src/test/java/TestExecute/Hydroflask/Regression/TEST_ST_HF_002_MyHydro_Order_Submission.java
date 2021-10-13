@@ -18,7 +18,7 @@ public class TEST_ST_HF_002_MyHydro_Order_Submission {
 	
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void customizeBottleOrder() {
-	  try {
+	  try {  
 	       Hydro.Customize_Bottle_Standed("21 oz");
 	       Hydro.checkOut();
 	       Hydro.addDeliveryAddress("Address");

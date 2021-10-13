@@ -18,7 +18,7 @@ public class TEST_ST_HF_064_checkout_AMEX_Guestuser_Multiproduct_Promo_Tax_Stand
 	public void GuestUser_Checkout_Amex_Cc_MultiProduct_Discount_Samebilling_ShippingAddress() throws Exception {
 
 		try {
-			
+			 
 			Hydro.searchproduct_addtocart("32 oz Tumbler Lid");
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();

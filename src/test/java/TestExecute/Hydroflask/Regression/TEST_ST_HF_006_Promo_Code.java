@@ -29,7 +29,7 @@ public class TEST_ST_HF_006_Promo_Code {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-	
+	  
 	
 	
 	@AfterTest

@@ -27,7 +27,7 @@ public class TEST_ST_HF_038_PDP_thumbnail_verification_of_bundle_product {
 			 Hydro.addDeliveryAddress("Address");
 			 Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 			 
-			 
+	   		 
 	  
 		  }
 			catch (Exception e) {

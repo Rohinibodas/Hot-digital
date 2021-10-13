@@ -16,7 +16,7 @@ public class EditCartInfromation {
 	
   @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void EditCartInfromation() throws Exception {
-	  try { 
+	  try {   
 	 Hydro.orderSubmit("Bottles");
 	 Hydro.orderSubmit("Accessories");
 	 Hydro.orderSubmit("Tumblers"); 

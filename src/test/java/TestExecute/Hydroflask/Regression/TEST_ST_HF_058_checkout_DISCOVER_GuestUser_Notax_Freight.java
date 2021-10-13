@@ -16,7 +16,7 @@ public class TEST_ST_HF_058_checkout_DISCOVER_GuestUser_Notax_Freight {
 	
 	public void GuestUserCheckout_DiscoverCc_Single_product_Notax_Freightshipping_SameBilling_shippingaddress() throws Exception {
 
-		try {
+		try { 
 			
 			
 			Hydro.orderSubmit("Bottles");

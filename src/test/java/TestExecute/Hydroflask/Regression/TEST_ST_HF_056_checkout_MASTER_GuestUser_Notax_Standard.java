@@ -28,7 +28,7 @@ public class TEST_ST_HF_056_checkout_MASTER_GuestUser_Notax_Standard {
 			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);
 		} 
-	}
+	}  
 	
 	
 	

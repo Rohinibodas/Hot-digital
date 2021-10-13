@@ -30,7 +30,7 @@ public class TEST_ST_HF_004_RegisteredUser_Checkout_CreditCard {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-	
+	  
 	
 	
 	@AfterTest

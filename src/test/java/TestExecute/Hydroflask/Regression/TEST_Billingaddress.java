@@ -16,7 +16,7 @@ public class TEST_Billingaddress {
 	
 	public void registeredUser_Checkout_CreditCard() throws Exception {
 
-		try {
+		try {  
 			Hydro.loginHydroflaskAccount("AccountDetails");
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();

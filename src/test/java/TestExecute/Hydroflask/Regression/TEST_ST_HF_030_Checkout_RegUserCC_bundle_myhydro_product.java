@@ -27,7 +27,7 @@ public class TEST_ST_HF_030_Checkout_RegUserCC_bundle_myhydro_product {
 			e.printStackTrace();
 			
 			Assert.fail(e.getMessage(), e);
-		} 
+		}   
 }
 	
 

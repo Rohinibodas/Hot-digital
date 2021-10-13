@@ -25,7 +25,7 @@ public class TEST_ST_HF_037_Checkout_GuestuserCC_my_hydro_and_configurable {
 				
 			}
 			catch (Exception e) {
-				
+			  	
 				Assert.fail(e.getMessage(), e);
 			} 
 		}

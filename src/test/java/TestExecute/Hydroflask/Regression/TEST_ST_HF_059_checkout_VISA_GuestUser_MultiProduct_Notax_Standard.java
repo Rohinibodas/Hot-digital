@@ -16,7 +16,7 @@ public class TEST_ST_HF_059_checkout_VISA_GuestUser_MultiProduct_Notax_Standard 
 	
 	public void GuestUserCheckout_VISACc_MultiProduct_Notax_Standardshipping_SameBilling_shippingaddress() throws Exception {
 
-		try {
+		try {  
 			
 			Hydro.orderSubmit("Bottles");
 			Hydro.searchproduct_addtocart("32 oz Tumbler Lid");

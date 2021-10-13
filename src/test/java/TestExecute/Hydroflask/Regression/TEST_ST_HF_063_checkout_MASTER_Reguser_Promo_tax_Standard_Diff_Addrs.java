@@ -18,7 +18,7 @@ public class TEST_ST_HF_063_checkout_MASTER_Reguser_Promo_tax_Standard_Diff_Addr
 	public void RegisterUser_Checkout_Master_Cc_Discount_Samebilling_ShippingAddress() throws Exception {
 
 		try {
-			
+			 
 			Hydro.loginHydroflaskAccount("AccountDetails");
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();

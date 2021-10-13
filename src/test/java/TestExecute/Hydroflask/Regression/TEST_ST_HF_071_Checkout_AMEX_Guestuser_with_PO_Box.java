@@ -23,7 +23,7 @@ public class TEST_ST_HF_071_Checkout_AMEX_Guestuser_with_PO_Box {
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress("PO_Box_Address");
 			Hydro.updatePaymentAndSubmitOrder("Amexcard");
-		}
+		}  
 		catch (Exception e) {
 			e.printStackTrace();
 			

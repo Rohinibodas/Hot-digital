@@ -25,7 +25,7 @@ public class TEST_ST_HF_015_Combined_Order_Submission {
 	 Hydro.addDeliveryAddress("Address");
 	 Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
 		
-	}
+	}   
 	catch (Exception e) {
 		
 		Assert.fail(e.getMessage(), e);

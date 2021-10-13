@@ -30,7 +30,7 @@ public class TEST_ST_HF_005_Registered_Checkout_Paypal {
 		} 
 	}
 	
-	
+	  
 	
 	@AfterTest
 	public void clearBrowser()

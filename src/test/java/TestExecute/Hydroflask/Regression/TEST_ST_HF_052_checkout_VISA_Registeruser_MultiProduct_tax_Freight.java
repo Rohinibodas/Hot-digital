@@ -26,7 +26,7 @@ public class TEST_ST_HF_052_checkout_VISA_Registeruser_MultiProduct_tax_Freight 
 			Hydro.searchproduct_addtocart("32 oz Tumbler Lid");
 			Hydro.checkOut();
 			Hydro.addfrieightDeliveryAddress_registerUser("Address");
-			Hydro.verifyingTax_field();
+			Hydro.verifyingTax_field();  
 			Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
 			
 		} catch (Exception e) {

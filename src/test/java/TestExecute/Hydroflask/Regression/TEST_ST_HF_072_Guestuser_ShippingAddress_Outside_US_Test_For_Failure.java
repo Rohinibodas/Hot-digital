@@ -21,7 +21,7 @@ public class TEST_ST_HF_072_Guestuser_ShippingAddress_Outside_US_Test_For_Failur
 			
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();
-			Hydro.addDeliveryAddress_Outside_US("OutSide_US");
+	 		Hydro.addDeliveryAddress_Outside_US("OutSide_US");
 			
 		}
 		catch (Exception e) {

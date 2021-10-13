@@ -26,7 +26,7 @@ public class TEST_ST_HF_050_Social_links_validation {
 			e.printStackTrace();
 		    Assert.fail(e.getMessage(), e);
 		} 
-	}
+	}  
 
 
 	@AfterTest

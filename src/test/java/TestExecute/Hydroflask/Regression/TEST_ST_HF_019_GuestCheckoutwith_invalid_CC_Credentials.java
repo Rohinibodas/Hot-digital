@@ -17,7 +17,7 @@ public class TEST_ST_HF_019_GuestCheckoutwith_invalid_CC_Credentials {
 	
 	public void guestCheckoutwith_invalid_CC_Credentials() throws Exception {
 
-		try {
+		try {   
 			
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();

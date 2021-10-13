@@ -17,7 +17,7 @@ public class TEST_ST_HF_079_checkout_PP_Reguser_Multiproduct_Promo_tax_Standard_
 	
 	public void RegisterUser_Checkout_Multi_product_tax_Standard_shipping() throws Exception {
 
-		try {
+		try {   
 			Hydro.loginHydroflaskAccount("AccountDetails");
 			Hydro.searchproduct_addtocart("32 oz Tumbler Lid");
 			Hydro.orderSubmit("Bottles");

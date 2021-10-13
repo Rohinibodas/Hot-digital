@@ -18,7 +18,7 @@ public class TEST_ST_HF_068_checkout_PP_Reguser_Notax_FreightShipping_Diff_Addrs
 
 		try {
 			Hydro.loginHydroflaskAccount("AccountDetails");
-			Hydro.orderSubmit("Bottles");
+			Hydro.orderSubmit("Bottles");  
 			
 			Hydro.checkOut();
 			Hydro.addfrieightDeliveryAddress_registerUser("No_TaxAddress");			

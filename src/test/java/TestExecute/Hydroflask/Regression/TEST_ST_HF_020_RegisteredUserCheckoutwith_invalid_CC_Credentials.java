@@ -27,7 +27,7 @@ public class TEST_ST_HF_020_RegisteredUserCheckoutwith_invalid_CC_Credentials {
 			
 			Assert.fail(e.getMessage(), e);
 		} 
-	}
+	}  
 	
 	
 	

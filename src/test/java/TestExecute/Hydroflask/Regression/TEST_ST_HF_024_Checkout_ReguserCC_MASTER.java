@@ -31,7 +31,7 @@ public class TEST_ST_HF_024_Checkout_ReguserCC_MASTER{
 			Assert.fail(e.getMessage(), e);
 		} 
   }
-	
+	   
 
 	@AfterTest
 	public void clearBrowser()

@@ -31,7 +31,7 @@ public class TEST_ST_HF_040_checkout_RegUser_PP_Configure_bundle_simple {
 					Assert.fail(e.getMessage(), e);
 				} 
 		}
-			
+			   
 
 			@AfterTest
 			public void clearBrowser()

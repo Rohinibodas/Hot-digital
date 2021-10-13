@@ -23,7 +23,7 @@ public class Guest_Checkout_CreditCard_XMLvalidation {
 			
 			  Hydro.orderSubmit("Bottles");
 			  Hydro.viewcart();
-			  HashMap<String,HashMap<String,String>> productinfromation=Hydro.productinfromation();
+ 		  HashMap<String,HashMap<String,String>> productinfromation=Hydro.productinfromation();
 			  Hydro.checkOut();
 		  	HashMap<String,String> shippingaddresssf=Hydro.addDeliveryAddress_validation("Address"); 
 			 

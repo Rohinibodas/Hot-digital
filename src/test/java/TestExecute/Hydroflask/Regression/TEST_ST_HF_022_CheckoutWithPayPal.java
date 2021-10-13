@@ -20,7 +20,7 @@ public class TEST_ST_HF_022_CheckoutWithPayPal {
 			Hydro.verifytheHomepage();
 			Hydro.orderSubmit("Bottles");
 			Hydro.CheckOutPaypal("PaypalDetails");
-			
+			  
 		}
 		catch (Exception e) {
 			

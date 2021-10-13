@@ -18,7 +18,7 @@ public class TEST_ST_HF_078_checkout_PP_Guestuser_and_Promo_tax_Standard {
 	public void GuestUser_Checkout_Single_product_Discount_tax_Standard_shipping() throws Exception {
 
 		try {
-		
+		   
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress("Address");

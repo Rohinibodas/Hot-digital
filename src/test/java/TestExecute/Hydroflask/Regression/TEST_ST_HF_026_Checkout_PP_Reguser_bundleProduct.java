@@ -21,7 +21,7 @@ public class TEST_ST_HF_026_Checkout_PP_Reguser_bundleProduct {
 			Hydro.addDeliveryAddress_registerUser("Address");
 			Hydro.payPal_Payment("PaypalDetails");
 			
-			}
+			}  
 			catch (Exception e) {
 				e.printStackTrace();
 				

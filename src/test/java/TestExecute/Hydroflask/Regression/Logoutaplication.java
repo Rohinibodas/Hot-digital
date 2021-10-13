@@ -22,7 +22,7 @@ public class Logoutaplication {
 				Hydro.logOut();
 		        
 			}
-			catch (Exception e) {
+			catch (Exception e) { 
 				
 				Assert.fail(e.getMessage(), e);
 			} 

@@ -18,7 +18,7 @@ public class TEST_ST_HF_065_checkout_DISCOVER_Reguser_Multiprdct_Promo_tax_Stand
 
 	public void RegisteredUser_Checkout_Discovercard_Multiproduct_Discount_promocode_Tax_Shipping_differentbillingShippingaddress()
 			throws Exception {
-
+ 
 		try {
 			Hydro.loginHydroflaskAccount("AccountDetails");
 			Hydro.orderSubmit("Bottles");

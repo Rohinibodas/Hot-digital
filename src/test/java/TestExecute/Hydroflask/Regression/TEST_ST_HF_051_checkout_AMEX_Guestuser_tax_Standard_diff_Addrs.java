@@ -26,7 +26,7 @@ public class TEST_ST_HF_051_checkout_AMEX_Guestuser_tax_Standard_diff_Addrs {
 			Hydro.verifyingTax_field();
 			Hydro.addPaymentDetails("Amexcard");
 		}
-		catch (Exception e) {
+		catch (Exception e) {  
 			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);
 		} 

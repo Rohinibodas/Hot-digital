@@ -27,7 +27,7 @@ public class TEST_ST_HF_047_GuestUser_checkout_PP_minicart_Bundle_configurable_s
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-
+  
 
 	@AfterTest
 	public void clearBrowser()

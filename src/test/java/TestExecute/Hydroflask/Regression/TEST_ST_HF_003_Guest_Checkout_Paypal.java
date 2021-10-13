@@ -22,7 +22,7 @@ public class TEST_ST_HF_003_Guest_Checkout_Paypal {
 			Hydro.addDeliveryAddress("Address");
 			Hydro.payPal_Payment("PaypalDetails");
 		}
-		catch (Exception e) {
+		catch (Exception e) { 
 			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);
 		} 

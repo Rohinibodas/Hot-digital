@@ -29,7 +29,7 @@ public class TEST_ST_HF_013_EditAccounInfromation {
 		public void clearBrowser()
 		{
 			Common.closeAll();
-
+  
 		}
 		
 		@BeforeTest

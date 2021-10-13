@@ -17,7 +17,7 @@ public class TEST_ST_HF_057_checkout_AMEX_GuestUser_Notax_Freight_Diff_Addresses
 	public void GuestUserCheckout_AmexCc_Single_product_Notax_Freightshipping_Different_billing_shippingaddress() throws Exception {
 
 		try {
-			
+			  
 			
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();

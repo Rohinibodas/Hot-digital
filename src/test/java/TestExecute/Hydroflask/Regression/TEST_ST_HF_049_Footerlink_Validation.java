@@ -48,7 +48,7 @@ public class TEST_ST_HF_049_Footerlink_Validation {
 	public void clearBrowser()
 	{
        Common.closeAll();
-
+  
 	}
 	
 	@BeforeTest

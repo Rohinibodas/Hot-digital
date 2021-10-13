@@ -17,7 +17,7 @@ public class TEST_ST_HF_074_checkout_PP_Reguser_tax_Standard_Diff_Addresses {
 	
 	public void RegisterUser_Checkout_Paypal_SingleProd_tax_StandardShipping() throws Exception {
 
-		try {
+		try {    
 			Hydro.loginHydroflaskAccount("AccountDetails");
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();

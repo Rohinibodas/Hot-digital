@@ -27,7 +27,7 @@ public class TEST_ST_HF_025_Checkout_GustuserCC_MASTER {
 				
 				Assert.fail(e.getMessage(), e);
 			} 
-	  }
+	  }  
 		
 
 		@AfterTest

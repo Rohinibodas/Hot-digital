@@ -23,7 +23,7 @@ public class TEST_ST_HF_009_Newsletter_Subscription {
 		try {
 	      Hydro.stayIntouch("WarrantyDetails");
 	        
-	        
+	         
 		}
 		catch (Exception e) {
 			

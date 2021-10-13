@@ -27,7 +27,7 @@ public class TEST_ST_HF_042_Myaccount_page_validation {
 				
 				Assert.fail(e.getMessage(), e);
 			} 
-	  }
+	  }  
 		
 
 		@AfterTest

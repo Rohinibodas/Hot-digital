@@ -25,7 +25,7 @@ public class TEST_ST_HF_062_checkout_DISCOVER_RegUser_MultiProduct_Notax_Standar
 			Hydro.check_box();
 			Hydro.verifying_NoTax_field();
 			Hydro.addPaymentDetails("Discovercard");
-		}
+		}   
 		catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);

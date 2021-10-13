@@ -28,7 +28,7 @@ public class TEST_ST_HF_036_Checkout_RegUser_my_hydro_and_configurable {
 				Assert.fail(e.getMessage(), e);
 			} 
 		}
-
+  
 		  
 		  
 		  @BeforeTest

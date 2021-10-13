@@ -26,7 +26,7 @@ public class TEST_ST_HF_039_Shopping_cart_validation {
 		} 
 	}
 
-
+  
 	@AfterTest
 	public void clearBrowser()
 	{

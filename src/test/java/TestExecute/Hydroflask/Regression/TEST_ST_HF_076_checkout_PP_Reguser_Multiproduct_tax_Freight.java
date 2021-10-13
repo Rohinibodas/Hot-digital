@@ -17,7 +17,7 @@ public class TEST_ST_HF_076_checkout_PP_Reguser_Multiproduct_tax_Freight {
 	
 	public void GuestUser_Checkout_Multi_product_tax_freight() throws Exception {
 
-		try {
+		try {   
 			Hydro.loginHydroflaskAccount("AccountDetails");
 			Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
 			Hydro.orderSubmit("Bottles");

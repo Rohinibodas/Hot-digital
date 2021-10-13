@@ -24,7 +24,7 @@ public class TEST_ST_HF_017_Registered_Combined_Order_Submission {
 	 Hydro.addDeliveryAddress_registerUser("Address");
 
 	 Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
-		
+		  
 	}
 	catch (Exception e) {
 		

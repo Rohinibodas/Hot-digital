@@ -21,7 +21,7 @@ public class TEST_ST_HF_081_Partiallyplaced_inline_order_verification {
   public void Partial_inline_Order() throws Exception {
 	  try { 
 		  Hydro.Customize_Bottle_Standed("24 oz");
-	 Hydro.orderSubmit("Bottles");
+	 Hydro.orderSubmit("Bottles");   
 //	 Hydro.Customize_Bottle();
 	 Hydro.checkOut();
 	 Hydro.addDeliveryAddress("InlineOrder");

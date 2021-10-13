@@ -29,7 +29,7 @@ public class TEST_ST_HF_041_checkout_GuestUser_PP_bundle_simple_configurable {
 		
 		Assert.fail(e.getMessage(), e);
 	} 
-}
+}   
 
 
 @AfterTest

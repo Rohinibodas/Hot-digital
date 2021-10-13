@@ -23,7 +23,7 @@ public class TEST_ST_HF_029_Checkout_GuestUserCC_bundleproduct {
 		
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();  
 			
 			Assert.fail(e.getMessage(), e);
 		} 

@@ -29,7 +29,7 @@ public class TEST_ST_HF_046_RegUser_PP_checkout_minicart_bundle_simple_configura
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
-
+  
 
 	@AfterTest
 	public void clearBrowser()

@@ -27,7 +27,7 @@ public class TEST_ST_HF_053_checkout_MASTER_Guestuser_Multiproduct_tax_Freight_d
 			Hydro.addPaymentDetails("Ccmastercard");
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();  
 
 			Assert.fail(e.getMessage(), e);
 		}

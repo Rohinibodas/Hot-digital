@@ -25,7 +25,7 @@ public class TEST_ST_HF_060_checkout_MASTER_RegUser_MultiProduct_Notax_Standard_
 			Hydro.edit_BillingAddress_RegisterUser("Billing_Address");
 			Hydro.verifying_NoTax_field();
 			Hydro.addPaymentDetails("Ccmastercard");
-		}
+		}   
 		catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);

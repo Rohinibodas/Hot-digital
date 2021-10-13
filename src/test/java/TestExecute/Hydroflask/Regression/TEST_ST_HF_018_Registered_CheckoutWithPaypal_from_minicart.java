@@ -21,7 +21,7 @@ public class TEST_ST_HF_018_Registered_CheckoutWithPaypal_from_minicart {
 			Hydro.CheckOutPaypal("PaypalDetails");
 			
 		}
-		catch (Exception e) {
+		catch (Exception e) {  
 			
 			Assert.fail(e.getMessage(), e);
 		} 

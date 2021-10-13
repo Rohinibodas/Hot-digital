@@ -31,7 +31,7 @@ public class TEST_ST_HF_054_checkout_DISCOVER_Guestuser_Multiproduct_tax_Standar
 	}
 	
 	
-	
+	  
 	@AfterTest
 	public void clearBrowser()
 	{

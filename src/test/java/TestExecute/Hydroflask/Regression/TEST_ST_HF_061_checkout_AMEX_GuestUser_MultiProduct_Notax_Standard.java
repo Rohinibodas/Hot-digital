@@ -24,7 +24,7 @@ public class TEST_ST_HF_061_checkout_AMEX_GuestUser_MultiProduct_Notax_Standard 
 			Hydro.verifying_NoTax_field();
 			Hydro.addPaymentDetails("Amexcard");
 		}
-		catch (Exception e) {
+		catch (Exception e) {  
 			e.printStackTrace();
 			Assert.fail(e.getMessage(), e);
 		} 
