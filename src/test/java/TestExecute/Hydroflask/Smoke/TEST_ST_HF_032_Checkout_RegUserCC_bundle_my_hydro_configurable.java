@@ -9,33 +9,35 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Registered_Checkout_Paypal {
+
+public class TEST_ST_HF_032_Checkout_RegUserCC_bundle_my_hydro_configurable {
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-	
-	
-	public void registered_Checkout_Paypal() throws Exception {
-
-		try {
-			 Hydro.loginHydroflaskAccount("AccountDetails");
-			 Hydro.orderSubmit("Bottles");
-			 Hydro.checkOut();
-			 Hydro.addDeliveryAddress_registerUser("Address");
-		     Hydro.payPal_Payment("PaypalDetails");
-		}
+  
+  public void checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product() {
+	  try{
+        
+		Hydro.loginHydroflaskAccount("AccountDetails");
+	    Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
+	    Hydro.Customize_Bottle_Standed("21 oz");
+	    Hydro.checkOut();
+		Hydro.addDeliveryAddress_registerUser("Address");
+		Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
+  
+	  }
 		catch (Exception e) {
+			e.printStackTrace();
 			
 			Assert.fail(e.getMessage(), e);
 		} 
-	}
+}
 	
-	
-	
+
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+       Common.closeAll();
 
 	}
 	
@@ -44,7 +46,6 @@ public class Registered_Checkout_Paypal {
 		 System.setProperty("configFile", "Hydroflask\\config.properties");
 		  Login.signIn();
 		  Hydro.acceptPrivecy();
-		  Hydro.ClosADD();
+		  Hydro.ClosADD();		  
 	  }
-
 }

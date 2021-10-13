@@ -1,27 +1,26 @@
 package TestExecute.Hydroflask.Smoke;
 
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.Listeners;
+
 import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class PaypalPayment {
+@Listeners(Utilities.TestListener.class)
+public class TEST_ST_HF_011_Account_Creation 
+{
+	
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-	
-	
-	public void submitOrder() throws Exception {
+	public void createAccount() throws Exception {
 
 		try {
-			 Hydro.loginHydroflaskAccount("AccountDetails");
-			 Hydro.orderSubmit("Bottles");
-			 Hydro.checkOut();
-			 Hydro.addDeliveryAddress_registerUser("Address");
-		     Hydro.payPal_Payment("PaypalDetails");
+	        Hydro.CreateNewAccount("AccountDetails");
 		}
 		catch (Exception e) {
 			
@@ -34,7 +33,7 @@ public class PaypalPayment {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+		Common.closeAll();
 
 	}
 	
@@ -43,7 +42,9 @@ public class PaypalPayment {
 		 System.setProperty("configFile", "Hydroflask\\config.properties");
 		  Login.signIn();
 		  Hydro.acceptPrivecy();
+		  Hydro.ClosADD();
 		  
 	  }
 
+	
 }

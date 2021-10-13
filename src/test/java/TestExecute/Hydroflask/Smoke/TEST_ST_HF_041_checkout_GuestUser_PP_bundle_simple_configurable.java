@@ -9,7 +9,7 @@ import TestComponent.Hydroflask.HydroHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_HF_041_Paypal_checkout_as_guest_user_with_bundle_simple_and_configurable_products {
+public class TEST_ST_HF_041_checkout_GuestUser_PP_bundle_simple_configurable {
 	String datafile = "Hydroflask//HydroTestData.xlsx";	
 	HydroHelper Hydro=new HydroHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
@@ -35,7 +35,7 @@ public class TEST_ST_HF_041_Paypal_checkout_as_guest_user_with_bundle_simple_and
 @AfterTest
 public void clearBrowser()
 {
-   Common.closeAll();
+//   Common.closeAll();
 
 }
 
