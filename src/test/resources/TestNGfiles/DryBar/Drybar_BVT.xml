@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<suite name="Drybar Suite">
+<suite name="Drybar BVT Suite">
    <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
    
-       <test name="Test_DB_ST_001_Createaccount" testid="DRY-19" priority="P1" description="To verify the Account Creation  functionality in Drybar website">
+       <test name="TEST_ST_DB_001_Createaccount" testid="DRY-19" priority="P1" description="This script will verify the Account Creation  functionality in Drybar website">
        <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_001_Createaccount"/>
         </classes>
         </test>
         
-          <test name="Test_DB_ST_002-Registered user Checkout with Visa Credit Card" testid="DRY-20" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard drybar">
+          <test name="TEST_ST_DB_002_RegisteredUser_Checkout_visa_CreditCard" testid="DRY-20" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard in Drybar">
        <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_002_RegisteredUser_Checkout_visa_CreditCard"/>
         </classes>
         </test>
  
-    <test name="Test_DB_ST_037_GuestUser_BrowseSearch_Checkout" testid="DRY-876" priority="P1" description="This Test case is used to verify Guestuser checkout through browse search functionality">
+    <test name="TEST_ST_DB_037_GuestUser_BrowseSearch_Checkout" testid="DRY-876" priority="P1" description="This script will cover Guestuser checkout through browse search functionality">
         <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_037_GuestUser_BrowseSearch_Checkout"/>
         </classes>
     </test>
     
-      <test name="TEST_DB_ST_010-Forgot Password" testid="DRY-35" priority="P1" description="This Test case is to verify Drybar Forgot Password functionality for user DryBar">
+      <test name="TEST_ST_DB_010_ForgotPassword" testid="DRY-35" priority="P1" description="This script will verify Drybar Forgot Password functionality">
         <classes>
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_010_ForgotPassword"/>
         </classes>
