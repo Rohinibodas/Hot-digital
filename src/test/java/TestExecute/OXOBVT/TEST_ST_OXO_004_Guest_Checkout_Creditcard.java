@@ -18,9 +18,10 @@ public class TEST_ST_OXO_004_Guest_Checkout_Creditcard {
 
 	public void TEST_ST_OXO_004_Guest_Checkout_Creditcard() {
 		try {
-
+		//	oxo.Close_popup();
 			oxo.closetheadd();
-			oxo.clickBaby_Toddler();
+			oxo.Beverage();
+			//oxo.clickBaby_Toddler();
 			// oxo.CookingAndBaking();
 			oxo.addproducts("1");
 			oxo.checkout();
@@ -45,7 +46,8 @@ public class TEST_ST_OXO_004_Guest_Checkout_Creditcard {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
-		// System.setProperty("configFile", "Oxo\\Config_OXO_Staging.properties");
+	//	System.setProperty("configFile", "Oxo\\Config_OXO_Prouction.properties");
+		//System.setProperty("configFile", "Oxo\\Config_OXO_Staging.properties");
 		Login.signIn();
 	}
 }

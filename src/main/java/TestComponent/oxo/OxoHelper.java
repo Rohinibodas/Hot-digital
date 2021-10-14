@@ -752,7 +752,22 @@ public class OxoHelper {
 		}
 		selectproduct("10-Piece POP Container Set");
 	}
-
+	public void Candb()throws Exception{
+		try{
+			Thread.sleep(5000);
+			Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15701']");
+			Common.mouseOver("xpath", "(//li[contains(@class,'navigation__item navigation__item--parent')]//a[@data-menu='menu-15701'])[1]");
+			Thread.sleep(2000);
+			Common.clickElement("xpath", "(//li[contains(@class,'navigation__item navigation__item--parent')]//a[@data-menu='menu-15701'])[1]");
+			Common.assertionCheckwithReport(Common.getPageTitle().equals("Cooking & Baking Products"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+		  }
+		      catch(Exception |Error e) {
+		          e.printStackTrace();
+		              ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+		              Assert.fail();
+		          }
+		selectproduct("3-Piece Prep Peeler Set, Assorted Blades");
+	}
 	public void Beverage() {
 		// clickThreebadmenu();
 		String expectedResult = "It Should be navigate to the Beverage category page.";
@@ -1580,12 +1595,12 @@ public class OxoHelper {
 		String expectedResult = "It should open paypal site window.";
 		try {
 			Thread.sleep(3000);
-			Sync.waitElementPresent("xpath", "//div[@class='paypal-button-label-container']");
-			Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
+			Sync.waitElementPresent("xpath", "//img[@class='payment-icon']");
+			Common.clickElement("xpath", "//img[@class='payment-icon']");
 			Thread.sleep(5000);
 			Common.actionsKeyPress(Keys.PAGE_DOWN);
 
-			Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]");
+			Common.switchFrames("xpath", "(//iframe[contains(@name,'__zoid__paypal_buttons__eyJzZW5kZXI')])[2]");
 			Sync.waitElementClickable("xpath", "//div[contains(@class,'paypal-button-label-container')]");
 			int sizes = Common.findElements("xpath", "//div[@class='paypal-button-label-container']").size();
 
@@ -1635,7 +1650,7 @@ public class OxoHelper {
 			Thread.sleep(3000);
 			//Common.actionsKeyPress(Keys.PAGE_DOWN);
 
-			Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]");
+			Common.switchFrames("xpath", "//ul//iframe[contains(@name,'__zoid__paypal_buttons__eyJzZW5k')]");
 		    
 			
 			Sync.waitElementClickable("xpath", "//div[contains(@class,'paypal-button-label-container')]");
@@ -1683,14 +1698,70 @@ public class OxoHelper {
 			AssertJUnit.fail();
 		}
 	}
+	public void Express_payPal_payment_R(String dataSet) {
+		String expectedResult = "It should open paypal site window.";
+		try {
+			Thread.sleep(3000);
+			//Common.actionsKeyPress(Keys.PAGE_DOWN);
+
+			Common.switchFrames("xpath", "//ul//iframe[contains(@name,'__zoid__paypal_buttons__eyJzZW5k')]");
+		    
+			
+			Sync.waitElementClickable("xpath", "//div[contains(@class,'paypal-button-label-container')]");
+			int sizes = Common.findElements("xpath", "//div[@class='paypal-button-label-container']").size();
+
+			System.out.println(sizes);
+			Thread.sleep(5000);
+			Common.clickElement("xpath", "//div[contains(@class,'paypal-button-label-container')]");
+			Common.switchToDefault();
+			Thread.sleep(5000);
+			Common.switchWindows();
+			int size = Common.findElements("id", "acceptAllButton").size();
+			if (size > 0) {
+
+				Common.clickElement("id", "acceptAllButton");
+
+			}
+
+			Common.textBoxInput("id", "email", data.get(dataSet).get("Email"));
+			Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
+			Common.findElement("xpath", "//button[@id='btnLogin']").click();
+			Thread.sleep(3000);
+			int sizeemail = Common.findElements("xpath", "//img[@data-testid='header-logo']").size();
+
+			Common.assertionCheckwithReport(sizeemail > 0, "verifying the paypal payment ", expectedResult,
+					"open paypal site window", "faild to open paypal account");
+			//Common.clickElement("id", "payment-submit-btn");
+			//Thread.sleep(5000);
+			//Common.actionsKeyPress(Keys.END);
+			//Thread.sleep(5000);
+
+			int ButtonSize = Common.findElements("id", "payment-submit-btn").size();
+			if (ButtonSize > 0) {
+				Common.clickElement("id", "confirmButtonTop");
+			} else {
+				Common.clickElement("id", "payment-submit-btn");
+			}
+			Thread.sleep(8000);
+			Common.switchToFirstTab();
+		} catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying the paypal payment ", expectedResult,
+					"User failed to proceed with paypal payment", Common.getscreenShotPathforReport(expectedResult));
+			AssertJUnit.fail();
+		}
+	}
 
 	public void VerifyaingConformationPage() throws Exception {
 		
 		Thread.sleep(4000);
-		
 		String URL = Common.getCurrentURL();
+		System.out.println(URL);
+		if( URL.contains("Stg")) {
+
+		String Url = Common.getCurrentURL();
 		
-		if (URL.contains("heledigital")) { 
+		if (Url.contains("heledigital")) { 
 		
 		Sync.waitElementPresent("xpath", "//h1[@class='page-title']/span");
 		String Sucessmessage = Common.getText("xpath", "//h1[@class='page-title']/span");
@@ -1743,7 +1814,7 @@ public class OxoHelper {
 
 		// div[contains(@class,'signup-columns')]//h2 Stay in the Loop.
 		// form[contains(@class,'form subscribe')] Email
-	}
+		}}
 	}
 
 	public int checkadd() {
@@ -1756,12 +1827,10 @@ public class OxoHelper {
 	}
 
 	public void closetheadd() throws Exception {
-		
+		Close_popup();
 		ExtenantReportUtils.addPassLog("verifying home page", "lands on home page", "User lands on the Home page",
 				Common.getscreenShotPathforReport("homepage"));
-
-		
-			
+	//	Close_popup();
 		if (checkadd() > 0) {
 
 			Common.switchFrames("xpath", "//iframe[@id='attentive_creative']");
@@ -1773,7 +1842,17 @@ public class OxoHelper {
 		acceptPrivecy();
 	}
 	
-	
+	public void Close_popup() {
+		try {
+		//		  Thread.sleep(2000); if (Common.findElement("xpath","//button[@id='closeIconContainer']") != null) {
+			Common.switchFrames("xpath", "//iframe[@id='attentive_creative']");	  
+				  Common.clickElement("xpath", "//button[@id='closeIconContainer']"); 
+				  Common.switchToDefault();
+				  }catch
+				  (Exception e) {
+				  e.printStackTrace(); 
+				  }
+		}
 	 public void acceptPrivecy(){
 			int sizeofbutton= Common.findElements("xpath", "//button[@id='truste-consent-required']").size();
 			if(sizeofbutton>0){
@@ -3850,113 +3929,98 @@ public class OxoHelper {
 		}
 	}
 	public void Add_product_to_Wishlist_PLP() {
-        try {
-            Thread.sleep(4000);
-            Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15701']");
-            Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15701']");
-            Common.javascriptclickElement("xpath", "//li[contains(@class,'navigation__inner-item')]/a[@data-menu='menu-15799']");
-            Thread.sleep(3000);
-            Common.actionsKeyPress(Keys.ARROW_DOWN);
-            Common.mouseOver("xpath", "//a[contains(text(),'Mini Tongs')]");
-            Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
-            Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
+		
+		 try {
+	            Thread.sleep(4000);
+	            Sync.waitElementClickable("xpath", "//a[@data-menu='menu-15701']");
+	            Common.mouseOverClick("xpath", "//li[contains(@class,'navigation__item')]/a[@data-menu='menu-15701']");
+	            Common.javascriptclickElement("xpath", "//li[contains(@class,'navigation__inner-item')]/a[@data-menu='menu-15799']");
+	            Thread.sleep(3000);
+	            Common.actionsKeyPress(Keys.ARROW_DOWN);
+	            Common.mouseOver("xpath", "//a[contains(text(),'Mini Tongs')]");
+	            Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
+	            Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
 
-            Thread.sleep(2000);
-            Common.actionsKeyPress(Keys.UP);
-            String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
-            System.out.println(saved);
-            Common.assertionCheckwithReport(saved.equals("1"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-          }
-              catch(Exception |Error e) {
-                      ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-                      Assert.fail();
-                  }
-    }
-
-
-
-public void Add_product_to_Wishlist_PDP() {
-        try {
-            Common.clickElement("xpath", "//a[contains(text(),'8-Piece POP Container Baking Set')]");
-            Common.assertionCheckwithReport(Common.getPageTitle().equals("8-Piece POP Container Baking Set"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-          }
-              catch(Exception |Error e) {
-                  e.printStackTrace();
-                      ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-                         Assert.fail();
-              }
-        try {
-        Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
-        Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
-        Thread.sleep(4000);
-        String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
-        System.out.println(saved);
-        Common.assertionCheckwithReport(saved.equals("2"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-      }
-          catch(Exception |Error e) {
-              e.printStackTrace();
-                  ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-                  Assert.fail();
-              }
-        }
+	            Thread.sleep(2000);
+	            Common.actionsKeyPress(Keys.UP);
+	            String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
+	            System.out.println(saved);
+	            Common.assertionCheckwithReport(saved.equals("1"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	          }
+	              catch(Exception |Error e) {
+	                      ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	                      Assert.fail();
+	                  }
+	    }
 
 
-public void removeandaddtocartfrom_wishlist() throws Exception {
- Sync.waitPageLoad();
- try {
 
-	 Sync.waitElementPresent("xpath", "(//li[@class='link wishlist'])[1]");
-    Common.clickElement("xpath", "(//li[@class='link wishlist'])[1]");
-    Common.assertionCheckwithReport(Common.getPageTitle().equals("My Wish List"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-      }
-          catch(Exception |Error e) {
-              e.printStackTrace();
-             ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-             Assert.fail();
-          }
-    try {
-    Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])");
-    Common.clickElement("xpath", "(//a[@title='Remove Item'])");
-    String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
-    System.out.println(saved);
-    Common.assertionCheckwithReport(saved.equals("Mini Tongs has been removed from your Wish List."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-  }
-      catch(Exception |Error e) {
-          e.printStackTrace();
-          ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-          Assert.fail();
-          }
-    try {
-    Sync.waitPageLoad();
-    Sync.waitElementPresent("xpath", "//button[@title='Add to Cart']");
-    Common.clickElement("xpath", "//button[@title='Add to Cart']");
-    String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
-    System.out.println(saved);
-    Common.assertionCheckwithReport(saved.equals("You added 8-Piece POP Container Baking Set to your shopping cart."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
-  }
-      catch(Exception |Error e) {
-          e.printStackTrace();
-          ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
-          Assert.fail();
-          }
-}
+	public void Add_product_to_Wishlist_PDP() {
+	        try {
+	            Common.clickElement("xpath", "//a[contains(text(),'8-Piece POP Container Baking Set')]");
+	            Common.assertionCheckwithReport(Common.getPageTitle().equals("8-Piece POP Container Baking Set"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	          }
+	              catch(Exception |Error e) {
+	                  e.printStackTrace();
+	                      ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	                         Assert.fail();
+	              }
+	        try {
+	        Sync.waitElementPresent("xpath", "(//a[@class='action towishlist'])[2]");
+	        Common.clickElement("xpath", "(//a[@class='action towishlist'])[2]");
+	        Thread.sleep(4000);
+	        String saved=Common.getText("xpath", "//span[@class='wishlist-counter']//span[@class='counter qty']");
+	        System.out.println(saved);
+	        Common.assertionCheckwithReport(saved.equals("2"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	      }
+	          catch(Exception |Error e) {
+	              e.printStackTrace();
+	                  ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	                  Assert.fail();
+	              }
+	        }
 
-/*
-	public void Tax()throws Exception {
-		Sync.waitPageLoad();
-		Common.actionsKeyPress(Keys.PAGE_UP);
-		WebElement a;
-		WebElement b;
-		float c,total,tax;
-		a=Common.findElement("xpath", "(//span[text()='$29.99'])[3]");
-		b=Common.findElement("xpath", "(//span[text()='$22.17'])[1]");
-		c=a+b;
-		float a= PraseFloat(Common.findElement("xpath", "//span[@data-th='Cart Subtotal']"));
-		float b= PraseFloat(Common.findElement("xpath", "//span[@data-th='Shipping']"));
-		float c= a+b;
-		System.out.println(c);
-}
-*/
+
+	public void removeandaddtocartfrom_wishlist() throws Exception {
+	 Sync.waitPageLoad();
+	 try {
+
+		 Sync.waitElementPresent("xpath", "(//li[@class='link wishlist'])[1]");
+	    Common.clickElement("xpath", "(//li[@class='link wishlist'])[1]");
+	    Common.assertionCheckwithReport(Common.getPageTitle().equals("My Wish List"), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	      }
+	          catch(Exception |Error e) {
+	              e.printStackTrace();
+	             ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	             Assert.fail();
+	          }
+	    try {
+	    Sync.waitElementPresent("xpath", "(//a[@title='Remove Item'])");
+	    Common.clickElement("xpath", "(//a[@title='Remove Item'])");
+	    String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+	    System.out.println(saved);
+	    Common.assertionCheckwithReport(saved.equals("Mini Tongs has been removed from your Wish List."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	  }
+	      catch(Exception |Error e) {
+	          e.printStackTrace();
+	          ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	          Assert.fail();
+	          }
+	    try {
+	    Sync.waitPageLoad();
+	    Sync.waitElementPresent("xpath", "//button[@title='Add to Cart']");
+	    Common.clickElement("xpath", "//button[@title='Add to Cart']");
+	    String saved=Common.getText("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+	    System.out.println(saved);
+	    Common.assertionCheckwithReport(saved.equals("You added 8-Piece POP Container Baking Set to your shopping cart."), "verifying catlog page","User navigate to catlog page","user successfully landed on products page", "user faield to catlog page");
+	  }
+	      catch(Exception |Error e) {
+	          e.printStackTrace();
+	          ExtenantReportUtils.addFailedLog("verifying catlog page", "User navigate to catlog page", "user faield to catlog page", Common.getscreenShotPathforReport("catlogpage"));
+	          Assert.fail();
+	          }
+	}
+
 	
 	public void Header_Link(String dataSet) throws InterruptedException {
 		
@@ -5096,7 +5160,7 @@ public void removeandaddtocartfrom_wishlist() throws Exception {
 				//String fileOut="";
 			try{
 				
-				File file=new File(System.getProperty("user.dir")+"/src/test/resources/OXOTaxDetails_Register.xlsx");
+				File file=new File(System.getProperty("user.dir")+"/src/test/resources/OXOTaxDetails_Guest.xlsx");
 				XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
 				XSSFSheet sheet;
 				Row row;
@@ -5539,8 +5603,6 @@ public void Productsearch_Instock(String dataSet) throws Exception {
 	          }
 		  
 		  }
-	
-
 	public OxoHelper(String datafile) {
 		excelData = new ExcelReader(datafile);
 		data = excelData.getExcelValue();

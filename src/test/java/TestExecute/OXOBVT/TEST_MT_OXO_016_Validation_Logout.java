@@ -17,6 +17,7 @@ public class TEST_MT_OXO_016_Validation_Logout {
 	@Test // (retryAnalyzer = Utilities.RetryAnalyzer.class)
 	public void TEST_MT_OXO_016_Validation_Logout() {
 		try {
+			//soxo.Close_popup();
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
 			oxo.logOut();
@@ -34,6 +35,7 @@ public class TEST_MT_OXO_016_Validation_Logout {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
+	//	System.setProperty("configFile", "Oxo\\Config_OXO_Prouction.properties");
 		//System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
 	}

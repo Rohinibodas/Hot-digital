@@ -18,10 +18,11 @@ public class TEST_ST_OXO_026_Registered_Checkout_Promocode {
 	public void TEST_ST_OXO_026_Registered_Checkout_Promocode() throws Exception {
 
 		try {
-			
+		//s	oxo.Close_popup();
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
+			oxo.Candb();
+			//oxo.clickBaby_Toddler();
 			oxo.addproducts("1");
 			oxo.checkout();
 			oxo.selectGroundShippingMethod();
@@ -43,6 +44,7 @@ public class TEST_ST_OXO_026_Registered_Checkout_Promocode {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
+		//System.setProperty("configFile", "Oxo\\Config_OXO_Prouction.properties");
 		// System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
 	}

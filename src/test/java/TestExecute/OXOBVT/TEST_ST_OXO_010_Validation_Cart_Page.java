@@ -18,9 +18,11 @@ public class TEST_ST_OXO_010_Validation_Cart_Page {
 
 	public void TEST_ST_OXO_010_Validation_Cart_Page() {
 		try {
+		//	oxo.Close_popup();
 			oxo.closetheadd();
 			// oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
+			//oxo.clickBaby_Toddler();
+			oxo.Candb();
 			oxo.addproducts("1");
 			oxo.clickViewCart();
 			oxo.CheckPost();
@@ -40,6 +42,7 @@ public class TEST_ST_OXO_010_Validation_Cart_Page {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
+	//System.setProperty("configFile", "Oxo\\Config_OXO_Prouction.properties");
 		// System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
 

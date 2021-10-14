@@ -20,6 +20,7 @@ public class TEST_ST_OXO_001_Account_Creation {
 	public void TEST_ST_OXO_001_Account_Creation() throws Exception {
 
 		try {
+			//oxo.Close_popup();
 			oxo.closetheadd();
 			oxo.CreateNewAccount("AccountDetails");
 
@@ -37,8 +38,9 @@ public class TEST_ST_OXO_001_Account_Creation {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
+	//	System.setProperty("configFile", "Oxo\\Config_OXO_Prouction.properties");
 
-		// System.setProperty("configFile", "Oxo\\Config_OXO_Staging.properties");
+	//	System.setProperty("configFile", "Oxo\\Config_OXO_Staging.properties");
 		Login.signIn();
 	}
 }

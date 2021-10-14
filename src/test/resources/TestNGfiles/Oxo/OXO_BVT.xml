@@ -3,13 +3,13 @@
 	<listeners>
 		<listener class-name="Utilities.TestListener" />
 	</listeners>
-
+	
+	
 	<test name="TEST_OXO_ST_001-Account Creation" testid="OUS23-703"
 		priority="P1"
 		description="This script will cover Creating New Account Process of oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_ST_OXO_001_Account_Creation" />
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_001_Account_Creation" />
 		</classes>
 	</test>
 
@@ -17,17 +17,15 @@
 		testid="OUS23-761" priority="P1"
 		description="This script will cover browse/search for Product functionality Process of oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_ST_OXO_005_Validating_Browse_Search" />
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_005_Validating_Browse_Search" />
 		</classes>
-	</test>
+	</test>  
 
 	<test name="TEST_OXO_ST_006-Registered Checkout Paypal"
 		testid="OUS23-764" priority="P1"
 		description="This script will cover Registered User  order using paypal submit Process of oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_ST_OXO_006_Registered_Checkout_PayPal" />
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_006_Registered_Checkout_PayPal" />
 		</classes>
 	</test>
 
@@ -35,8 +33,7 @@
 		testid="OUS23-759" priority="P1"
 		description="This script will cover guest user order using Creditcard submit Process of oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_ST_OXO_004_Guest_Checkout_Creditcard" />
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_004_Guest_Checkout_Creditcard" />
 		</classes>
 	</test>
 
@@ -45,16 +42,14 @@
 		testid="OUS23-765" priority="P1"
 		description="This script will cover Validation of Cart Page of oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_ST_OXO_010_Validation_Cart_Page" />
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_010_Validation_Cart_Page" />
 		</classes>
 	</test>
 
 	<test name="TEST_OXO_MT_016-ValidateLogout" testid="OUS23-705"
 		priority="P1" description="This script will cover logout from oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_MT_OXO_016_Validation_Logout" />
+			<class name="TestExecute.OXOBVT.TEST_MT_OXO_016_Validation_Logout" />
 		</classes>
 	</test>
 
@@ -63,8 +58,7 @@
 		testid="OUS23-920" priority="P1"
 		description="This script will cover  Process Express PayPal checkout as Guest user of oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_ST_OXO_024_ExpressPayPalCheckoutGuestUser" />
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_024_ExpressPayPalCheckoutGuestUser" />
 		</classes>
 	</test>
 
@@ -73,9 +67,8 @@
 		testid="OUS23-922" priority="P1"
 		description="This script will cover  Process Registered User Checkout with Promocode of oxo">
 		<classes>
-			<class
-				name="TestExecute.OXOBVT.TEST_ST_OXO_026_Registered_Checkout_Promocode" />
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_026_Registered_Checkout_Promocode" />
 		</classes>
-		
 	</test>
+
 </suite>

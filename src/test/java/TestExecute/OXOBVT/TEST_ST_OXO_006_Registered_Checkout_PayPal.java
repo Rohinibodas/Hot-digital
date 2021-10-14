@@ -19,18 +19,24 @@ public class TEST_ST_OXO_006_Registered_Checkout_PayPal {
 
 	public void TEST_ST_OXO_006_Registered_Checkout_PayPal() {
 		try {
-
+		//	oxo.Close_popup();
 			oxo.closetheadd();
 			oxo.loginOxo("AccountDetails");
-			oxo.clickBaby_Toddler();
+			//oxo.clickBaby_Toddler();
+			oxo.Beverage();
 			oxo.addproducts("1");
 			oxo.checkout();
 			oxo.addNewAddress("ShippingAddress");
 			oxo.clickAcceptingaddress();
 			oxo.selectGroundShippingMethod();
+			Thread.sleep(3000);
+			String URL = Common.getCurrentURL();
+			System.out.println(URL);
+			if( URL.contains("Stg")) {
 			oxo.payPal_payment("PaypalDetails");
 			oxo.VerifyaingConformationPage();
-		} catch (Exception e) {
+			}
+			} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
 		}
@@ -45,6 +51,7 @@ public class TEST_ST_OXO_006_Registered_Checkout_PayPal {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
+	//	System.setProperty("configFile", "Oxo\\Config_OXO_Prouction.properties");
 		// System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
 

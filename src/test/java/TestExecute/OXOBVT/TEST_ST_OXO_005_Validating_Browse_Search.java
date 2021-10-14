@@ -16,7 +16,7 @@ public class TEST_ST_OXO_005_Validating_Browse_Search {
 	@Test
 	public void TEST_ST_OXO_005_Validating_Browse_Search() {
 		try {
-			
+		//	oxo.Close_popup();
 			oxo.closetheadd();
 			// oxo.loginOxo("AccountDetails");
 			oxo.validatingSearchBoxWithOutData();
@@ -36,7 +36,8 @@ public class TEST_ST_OXO_005_Validating_Browse_Search {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
-		// System.setProperty("configFile", "Oxo\\config.properties");
+	//	System.setProperty("configFile", "Oxo\\Config_OXO_Prouction.properties");
+		//System.setProperty("configFile", "Oxo\\config.properties");
 		Login.signIn();
 	}
 }
