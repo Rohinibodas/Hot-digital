@@ -19,18 +19,18 @@ public class TEST_ST_HF_005_BundleProduct_RegUserCC_Promocode_Checkout {
 	  
 	  try{
 		  
-		  String Website=Hydro.URL();
+		    String Website=Hydro.URL();
 			String Description ="BundleProduct_RegUserCC_Promocode_Checkout";
 			String Paymentmethod="Master_CC";
 			Hydro.loginHydroflaskAccount("AccountDetails");
             Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
 			Hydro.checkOut();
 			HashMap<String,String> Shipping=Hydro.addDeliveryAddress_registerUser("Address");
-			 Hydro.promationCode("Promationcode");
-			 HashMap<String,String> data=Hydro.E2E_Validation();
-			 String OrderId=Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
+			Hydro.promationCode("Promationcode");
+			HashMap<String,String> data=Hydro.E2E_Validation();
+			String OrderId=Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 //			 String OrderId="12345";
-		       Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
+		    Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
 	
 			}
 			catch (Exception e) {

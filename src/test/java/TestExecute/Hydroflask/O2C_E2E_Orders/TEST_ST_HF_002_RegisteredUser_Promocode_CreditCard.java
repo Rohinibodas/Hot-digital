@@ -30,9 +30,9 @@ public class TEST_ST_HF_002_RegisteredUser_Promocode_CreditCard {
 			HashMap<String,String> Shipping=Hydro.addDeliveryAddress_registerUser("Address");
 		    Hydro.promationCode("Promationcode");
 		    HashMap<String,String> data=Hydro.E2E_Validation();
-	    String OrderId=Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
+	        String OrderId=Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 		   // String OrderId="12345";
-		       Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
+		    Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
 		}
 		
 		catch (Exception e) {

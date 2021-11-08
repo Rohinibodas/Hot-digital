@@ -29,10 +29,10 @@ public class TEST_ST_HF_003_Guest_Checkout_Promocode_Paypal {
 			HashMap<String,String> Shipping=Hydro.E2E_addDeliveryAddress("Address");
 			Hydro.promationCode("Promationcode");
 			HashMap<String,String> data=Hydro.E2E_Validation();
-			 String OrderId=Hydro.payPal_Payment("PaypalDetails");
+			String OrderId=Hydro.payPal_Payment("PaypalDetails");
 			
 //			String OrderId="12345";
-		       Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
+		    Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
 		}
 		catch (Exception e) { 
 			e.printStackTrace();

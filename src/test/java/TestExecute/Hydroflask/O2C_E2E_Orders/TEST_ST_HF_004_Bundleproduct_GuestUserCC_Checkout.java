@@ -23,11 +23,11 @@ public class TEST_ST_HF_004_Bundleproduct_GuestUserCC_Checkout {
 			String Description ="Bundleproduct_GuestUserCC_Checkout";
 			String Paymentmethod="Pay-Pal";
 			
-		Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
-		Hydro.checkOut();
-		HashMap<String,String> Shipping=Hydro.E2E_addDeliveryAddress("Address");
-		HashMap<String,String> data=Hydro.E2E_Validation();
-		 String OrderId=Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
+		    Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
+		    Hydro.checkOut();
+		    HashMap<String,String> Shipping=Hydro.E2E_addDeliveryAddress("Address");
+		    HashMap<String,String> data=Hydro.E2E_Validation();
+		    String OrderId=Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 		
 		
 //		   String OrderId="12345";

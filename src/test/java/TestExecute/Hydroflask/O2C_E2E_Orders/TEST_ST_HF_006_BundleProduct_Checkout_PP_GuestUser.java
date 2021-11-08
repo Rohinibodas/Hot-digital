@@ -17,15 +17,14 @@ public class TEST_ST_HF_006_BundleProduct_Checkout_PP_GuestUser {
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   public void Checkout_with_paypal_as_guest_user_with_bundle_product() {
 		try{
-			  String Website=Hydro.URL();
-				String Description ="BundleProduct_Checkout_PP_GuestUser";
-				String Paymentmethod="Pay-Pal";
-				
+			String Website=Hydro.URL();
+		    String Description ="BundleProduct_Checkout_PP_GuestUser";
+		    String Paymentmethod="Pay-Pal";	
 			Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
 			Hydro.checkOut();
 			HashMap<String,String> Shipping=Hydro.E2E_addDeliveryAddress("Address");
-			 HashMap<String,String> data=Hydro.E2E_Validation();
-             String OrderId=Hydro.payPal_Payment("PaypalDetails");
+			HashMap<String,String> data=Hydro.E2E_Validation();
+            String OrderId=Hydro.payPal_Payment("PaypalDetails");
 //			 String OrderId="12345";
 		    Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
 

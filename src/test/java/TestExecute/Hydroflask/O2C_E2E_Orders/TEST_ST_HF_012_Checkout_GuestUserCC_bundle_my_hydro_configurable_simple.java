@@ -18,9 +18,9 @@ public class TEST_ST_HF_012_Checkout_GuestUserCC_bundle_my_hydro_configurable_si
   
   public void checkout_with_creditcard_as_Guest_user_with_bundle_my_hydro_and_configurable_product() {
 	  try{
-		  String Website=Hydro.URL();
-			String Description ="Checkout_GuestUserCC_bundle_my_hydro_configurable_simple";
-			String Paymentmethod="Master_CC";
+		String Website=Hydro.URL();
+		String Description ="Checkout_GuestUserCC_bundle_my_hydro_configurable_simple";
+		String Paymentmethod="Master_CC";
 		Hydro.orderSubmit("Bottles");
 	    Hydro.serachproduct_addtocart("Wide Mouth Accessory Bundle");
 	    Hydro.Customize_Bottle_Standed("21 oz");
@@ -30,7 +30,7 @@ public class TEST_ST_HF_012_Checkout_GuestUserCC_bundle_my_hydro_configurable_si
 	    HashMap<String,String> data=Hydro.E2E_Validation();
 	    String OrderId=Hydro.updatePaymentAndSubmitOrder("Ccmastercard");
 //		String OrderId="12345";
-	       Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
+	    Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
 		
 	  }
 		catch (Exception e) {
