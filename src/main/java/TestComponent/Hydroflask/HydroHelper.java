@@ -43,14 +43,15 @@ import Utilities.ExtenantReportUtils;
 import Utilities.xmlReader;
 
 public class HydroHelper {
-  
-	
+ 
 	String datafile;
 	ExcelReader excelData;
 	Map<String, Map<String, String>> data = new HashMap<>();
 	static ExtenantReportUtils report;
 	
 	static Automation_properties automation_properties = Automation_properties.getInstance();
+	
+	
 	
 	
 	public int getpageresponce(String url) throws MalformedURLException, IOException{

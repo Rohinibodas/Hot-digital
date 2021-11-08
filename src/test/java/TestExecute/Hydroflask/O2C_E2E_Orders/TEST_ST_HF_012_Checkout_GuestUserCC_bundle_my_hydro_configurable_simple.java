@@ -38,6 +38,7 @@ public class TEST_ST_HF_012_Checkout_GuestUserCC_bundle_my_hydro_configurable_si
 			e.printStackTrace();
 			
 	  		Assert.fail(e.getMessage(), e);
+	  		
 		} 
 }
 	

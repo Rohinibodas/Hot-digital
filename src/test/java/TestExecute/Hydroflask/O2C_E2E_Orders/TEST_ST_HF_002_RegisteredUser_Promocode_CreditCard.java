@@ -20,8 +20,6 @@ public class TEST_ST_HF_002_RegisteredUser_Promocode_CreditCard {
 	public void registeredUser_Checkout_CreditCard() throws Exception {
 
 		try {
-			
-			
 			String Website=Hydro.URL();
 			String Description ="RegisteredUser_Promocode_CreditCard";
 			String Paymentmethod="Master_CC";

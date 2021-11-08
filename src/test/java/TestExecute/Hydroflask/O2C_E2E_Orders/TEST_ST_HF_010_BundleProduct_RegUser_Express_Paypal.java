@@ -18,10 +18,7 @@ public class TEST_ST_HF_010_BundleProduct_RegUser_Express_Paypal {
   public void Checkout_with_credit_card_as_registered_user_with_bundle_product() {
 	  
 	  try{
-		  
-		  
-		  
-		  
+		 
 			String Website=Hydro.URL();
 			String Description ="BundleProduct_RegUser_Express_Paypal";
 			String Paymentmethod="Pay-Pal";
@@ -35,6 +32,7 @@ public class TEST_ST_HF_010_BundleProduct_RegUser_Express_Paypal {
 		    Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
 			}
 			
+	  
 			
 			catch (Exception e) {
 				e.printStackTrace();

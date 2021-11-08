@@ -18,8 +18,6 @@ public class TEST_ST_HF_005_BundleProduct_RegUserCC_Promocode_Checkout {
   public void Checkout_with_credit_card_promocode_reguser_with_bundle_product() {
 	  
 	  try{
-		  
-		  
 		    String Website=Hydro.URL();
 			String Description ="BundleProduct_RegUserCC_Promocode_Checkout";
 			String Paymentmethod="Master_CC";

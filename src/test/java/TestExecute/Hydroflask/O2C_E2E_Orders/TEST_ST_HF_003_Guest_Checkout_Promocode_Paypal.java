@@ -19,7 +19,6 @@ public class TEST_ST_HF_003_Guest_Checkout_Promocode_Paypal {
 	public void gustUserCheckout_paypal() throws Exception {
 
 		try {
-			
 			String Website=Hydro.URL();
 			String Description ="Guest_Checkout_Promocode_Paypal";
 			String Paymentmethod="Pay-Pal";

@@ -35,7 +35,8 @@ public class TEST_ST_HF_011_Checkout_RegUserCC_bundle_my_hydro_configurable_simp
 //		String OrderId="12345";
 	    Hydro.E2E_writeResultstoXLSx(Website,Description,OrderId,Paymentmethod,data.get("subtotlaValue"),Shipping.get("ShippingZip"),Shipping.get("Shippingstate"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"));
 		
-	  }  
+	  } 
+	  
 		catch (Exception e) {
 			e.printStackTrace();
 			
