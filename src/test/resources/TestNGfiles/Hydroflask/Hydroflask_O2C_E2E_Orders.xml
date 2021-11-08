@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Hydroflask Suite">
+	<listeners>  
+		<listener class-name="Utilities.TestListener" />
+	</listeners>
+<test name="TEST_ST_HF_001_Guest_Checkout_Promocode_CreditCard" testid="HYDRO-901" priority="P1"
+		description="This script will cover the guestuser checkout with promocoode using creditcard Process of HydroFlesk">
+		<classes>
+			<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_001_Guest_Checkout_Promocode_CreditCard" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HF_002_RegisteredUser_Promocode_CreditCard" testid="HYDRO-903"
+		priority="P1"
+		description="This script will cover the registereduser promocode creditcard proces of HydroFlesk	">
+		<classes>
+			<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_002_RegisteredUser_Promocode_CreditCard" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HF_003_Guest_Checkout_Promocode_Paypal" testid="HYDRO-904"
+		priority="P1" description="This script will cover guest user checkout with promocode using paypal of HydroFlesk">
+		<classes>
+			<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_003_Guest_Checkout_Promocode_Paypal" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HF_004_Bundleproduct_GuestUserCC_Checkout" testid="HYDRO-905"
+		priority="P1"
+		description="This script will cover bundleproduct with guestuser checkout Process of HydroFlesk">
+		<classes>
+			<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_004_Bundleproduct_GuestUserCC_Checkout" />
+		</classes>
+	</test>
+	
+	<test name="TEST_ST_HF_005_BundleProduct_RegUserCC_Promocode_Checkout" testid="HYDRO-916"
+		priority="P1"
+		description="This script will cover register checkout with paypal using bundleproduct of Hydro Flask">
+		<classes>
+			<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_005_BundleProduct_RegUserCC_Promocode_Checkout" />
+		</classes>
+	</test>
+	
+	<test name="TEST_ST_HF_006_BundleProduct_Checkout_PP_GuestUser"		
+	testid="HYDRO-919" priority="P1"		
+	description="This script will cover checkout for guest user with bundle product credit card">		
+	<classes>			
+	<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_006_BundleProduct_Checkout_PP_GuestUser" />		
+	</classes>        
+</test>
+
+<test name="TEST_ST_HF_007_BundleProduct_RegUser_Promocode_Paypal"		
+	testid="HYDRO-926" priority="P1"		
+	description="This script will cover checkout with paymetric method as registered user with bundle ,my hydro and configurable product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_007_BundleProduct_RegUser_Promocode_Paypal" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_008_BundleProduct_RegUserCC__promocode_Express_Checkout"		
+	testid="HYDRO-927" priority="P1"		
+	description="This script will cover register user checkout with bundle product using promocode express checkout ">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_008_BundleProduct_RegUserCC__promocode_Express_Checkout" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_009_BundleProduct_RegUser_Promocode_Express_Paypal"		
+	testid="HYDRO-934" priority="P1"		
+	description="This script will cover the paypal payment of registered user with bundle, and promocode">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_009_BundleProduct_RegUser_Promocode_Express_Paypal" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_010_BundleProduct_RegUser_Express_Paypal"		
+	testid="HYDRO-935" priority="P1"		
+	description="This script will cover the express paypal payment of register user with bundle product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_010_BundleProduct_RegUser_Express_Paypal" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_011_Checkout_RegUserCC_bundle_my_hydro_configurable_simple"		
+	testid="HYDRO-935" priority="P1"		
+	description="This script will cover the  register user with bundle product and simple,myhydro,configurable products">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_011_Checkout_RegUserCC_bundle_my_hydro_configurable_simple" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_012_Checkout_GuestUserCC_bundle_my_hydro_configurable_simple"		
+	testid="HYDRO-935" priority="P1"		
+	description="This script will cover the guest user with bundle product and simple,myhydro,configurable products">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.O2C_E2E_Orders.TEST_ST_HF_012_Checkout_GuestUserCC_bundle_my_hydro_configurable_simple" />		
+	</classes>        
+</test>
+
+</suite> 

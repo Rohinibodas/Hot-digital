@@ -2,6 +2,7 @@ package TestComponent.Hydroflask;
   
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -643,13 +644,15 @@ public void Rigisteraccount(String dataSet) {
 		}
 	}
 
-	public void addDeliveryAddress_registerUser(String dataSet) throws Exception {
+	public HashMap<String, String> addDeliveryAddress_registerUser(String dataSet) throws Exception {
+		
+		HashMap<String,String> Shippingaddress=new HashMap<String,String>();
 
 		
 		String expectedResult = "shipping address is entering in the fields";
         int size = Common.findElements(By.xpath("//span[contains(text(),'Add New Address')]")).size();
 		if (size > 0) {
-        	try {
+        	try { 
 				Common.clickElement("xpath", "//span[contains(text(),'Add New Address')]");
 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",	data.get(dataSet).get("LastName"));
@@ -673,6 +676,16 @@ public void Rigisteraccount(String dataSet) {
 				if (data.get(dataSet).get("StreetLine3") != null) {
 					Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
 				}*/
+				
+				
+				Common.dropdown("xpath", "//select[@name='region_id']", Common.SelectBy.TEXT,data.get(dataSet).get("Region"));
+				Thread.sleep(5000);
+				String Shippingvalue = Common.findElement("xpath", "//select[@name='region_id']").getAttribute("value");
+				String Shippingstate = Common.findElement("xpath", "//select[@name='region_id']//option[@value='" + Shippingvalue + "']").getText();
+
+				Shippingaddress.put("Shippingstate", Shippingstate);
+				System.out.println(Shippingstate);
+
 				Common.actionsKeyPress(Keys.PAGE_DOWN);
 				Thread.sleep(3000);
 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",
@@ -689,6 +702,10 @@ public void Rigisteraccount(String dataSet) {
 				Common.textBoxInputClear("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']");
 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']",
 						data.get(dataSet).get("postcode"));
+				String ShippingZip = Common.findElement("name", "postcode").getAttribute("value");
+				System.out.println("*****" + ShippingZip + "*******");
+				Shippingaddress.put("ShippingZip", ShippingZip);
+				
 				Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='telephone']",
 						data.get(dataSet).get("phone"));
 
@@ -719,6 +736,7 @@ public void Rigisteraccount(String dataSet) {
 				Assert.fail();
 
 			}
+        	
 		}
 
 		else
@@ -765,7 +783,13 @@ public void Rigisteraccount(String dataSet) {
 				Thread.sleep(2000);
 				Common.textBoxInputClear("name", "postcode");
 				Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+				
+				String ShippingZip = Common.findElement("name", "postcode").getAttribute("value");
+				System.out.println("*****" + ShippingZip + "*******");
+				Shippingaddress.put("ShippingZip", ShippingZip);
+				
 				Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+
 				Sync.waitElementClickable("xpath", "//span[contains(text(),'Continue To Payment')]");
 				Common.clickElement("xpath", "//span[contains(text(),'Continue To Payment')]");
                 int errorsize=Common.findElements("xpath", "//div[@class='field-error']").size();
@@ -789,9 +813,11 @@ public void Rigisteraccount(String dataSet) {
 
 			}
 		}
+		return Shippingaddress;
 
 		
 	}
+	
 
 	public void addDeliveryAddress(String dataSet) throws Exception {
 		try {
@@ -986,7 +1012,7 @@ public void Rigisteraccount(String dataSet) {
 	}
 
 	public void addPaymentDetails(String dataSet) throws Exception {
-		
+		HashMap<String,String> Paymentmethod=new HashMap<String,String>();
 
 		Thread.sleep(4000);
 		String expectedResult = "land on the payment section";
@@ -1000,11 +1026,13 @@ public void Rigisteraccount(String dataSet) {
 		 Common.assertionCheckwithReport(sizes>0, "Successfully land on the payment section", expectedResult,"User unabel to land opaymentpage");
 			Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
 			
-			//Common.clickElement("xpath","//label[@for='paymetric']");
+			//Common.clickElement("xpath","//label[@for='paymetric']");  .getAttribute("value");
 			
 			Thread.sleep(2000);
 			Common.switchFrames("id", "paymetric_xisecure_frame");
 			Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+			
+					
 			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
 			Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT,
 					data.get(dataSet).get("ExpMonth"));
@@ -1087,11 +1115,14 @@ public void Rigisteraccount(String dataSet) {
 		
 		if(Common.findElements("xpath", "//div[@class='checkout-success']/p/span").size()>0) {
 			order=Common.getText("xpath", "//div[@class='checkout-success']/p/span");
+			System.out.println(order);
 		}
+		
 		
 		
 		if(Common.findElements("xpath","//a[@class='order-number']/strong").size()>0) {
 			order=	Common.getText("xpath", "//a[@class='order-number']/strong");
+			System.out.println(order);
 		}
 
 			}
@@ -1106,7 +1137,9 @@ public void Rigisteraccount(String dataSet) {
 	}
 		return order;
 	}
-	public void payPal_Payment(String dataSet) throws Exception {
+	public String payPal_Payment(String dataSet) throws Exception {
+
+		String order="";
 
 		String expectedResult = "It should open paypal site window.";
 		try {
@@ -1168,12 +1201,24 @@ public void Rigisteraccount(String dataSet) {
 			Assert.fail();
 		}
 
+			
+			int n=Common.findElements("xpath", "//div[@class='checkout-success']/p[1]/span").size();
+			if(n>0) {
+				 order=Common.getText("xpath", "//div[@class='checkout-success']/p[1]/span");
+				 System.out.println(order);
+			}
+			else {
+				order=Common.getText("xpath", "//a[@class='order-number']/strong");	
+				 System.out.println(order);
+			}
+			
 		String sucessMessage = Common.getText("xpath", "//h1[@class='checkout-success-title']").trim();
 		Assert.assertEquals(sucessMessage, "Your order has been received", "Sucess message validations");
 		expectedResult = "Verify order confirmation number which was dynamically generated";
 		Common.assertionCheckwithReport(sucessMessage.equals("Your order has been received"),"Order Placed successfull", expectedResult, "faild to place order");
 
 	}
+			return order;
 	}
 
 	public void clickWarranty() throws Exception {
@@ -3307,7 +3352,7 @@ public void Customize_Bottle_Standed(String bottlesize) throws Exception {
 	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
 	
 	try {
-		
+		Thread.sleep(5000);
          Sync.waitElementPresent("xpath", "//ul[@class='megamenu-list']/li[2]//button");
 		 Common.mouseOverClick("xpath", "//ul[@class='megamenu-list']/li[2]//button");
     
@@ -3318,7 +3363,7 @@ public void Customize_Bottle_Standed(String bottlesize) throws Exception {
         }*/
 		 Thread.sleep(3000);
         expectedResult = "It should land successfully on my-hydro-landing page";
-		Common.assertionCheckwithReport(Common.getPageTitle().equals("My Hydro™ by Hydro Flask | Customized & Personalized Hydro Flasks"), "validating My hydro-Landing page", expectedResult,
+		Common.assertionCheckwithReport(Common.getPageTitle().contains("My Hydro™ by Hydro Flask | Customized & Personalized Hydro Flasks"), "validating My hydro-Landing page", expectedResult,
 				"successfully land  on my-hydro-landing page", "User unabel to land on my hydro landing page");
 
 		
@@ -3938,6 +3983,7 @@ public void searchproduct_addtocart(String dataSet) throws Exception {
 
 	 catch (Exception | Error e)
 {
+		 e.printStackTrace();
 		ExtenantReportUtils.addFailedLog("validating search product", "user find  product in search",
 				"User failed find  product in search",
 				Common.getscreenShotPathforReport("searchproduct"));
@@ -5385,10 +5431,10 @@ public void Newsletter_subscription() {
 
       	  }
         
-        public void addfrieightDeliveryAddress_registerUser(String dataSet) {
+        public HashMap<String, String> addfrieightDeliveryAddress_registerUser(String dataSet) {
      		// TODO Auto-generated method stub
      		
-
+        	HashMap<String,String> Shippingaddress=new HashMap<String,String>();
      			
      			String expectedResult = "shipping address is entering in the fields";
      	        int size = Common.findElements(By.xpath("//span[contains(text(),'Add New Address')]")).size();
@@ -5417,6 +5463,15 @@ public void Newsletter_subscription() {
      					if (data.get(dataSet).get("StreetLine3") != null) {
      						Common.textBoxInput("name", "street[2]", data.get(dataSet).get("Street"));
      					}*/
+     					
+     					Common.dropdown("xpath", "//select[@name='region_id']", Common.SelectBy.TEXT,data.get(dataSet).get("Region"));
+     					Thread.sleep(5000);
+     					String Shippingvalue = Common.findElement("xpath", "//select[@name='region_id']").getAttribute("value");
+     					String Shippingstate = Common.findElement("xpath", "//select[@name='region_id']//option[@value='" + Shippingvalue + "']").getText();
+
+     					Shippingaddress.put("Shippingstate", Shippingstate);
+     					System.out.println(Shippingstate);
+     					
      					Common.actionsKeyPress(Keys.PAGE_DOWN);
      					Thread.sleep(3000);
      					Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",
@@ -5433,6 +5488,10 @@ public void Newsletter_subscription() {
      					Common.textBoxInputClear("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']");
      					Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='postcode']",
      							data.get(dataSet).get("postcode"));
+     					String ShippingZip = Common.findElement("name", "postcode").getAttribute("value");
+     					System.out.println("*****" + ShippingZip + "*******");
+     					Shippingaddress.put("ShippingZip", ShippingZip);
+     					
      					Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='telephone']",
      							data.get(dataSet).get("phone"));
 
@@ -5449,7 +5508,7 @@ public void Newsletter_subscription() {
      							"user will fill the all the shipping", "user fill the shiping address click save button",
      							"faield to add new shipping address");
      					
-     					Common.clickElement("xpath","//input[@id='label_method_bestway']");
+     					Common.clickElement("xpath","(//label[@class='checkout-shipping-methods-label'])[2]");
      					//Common.clickElement("xpath", "//label[text()='2 Day Federal Express-FR']");//span[text()='Continue To Payment']
      					Common.clickElement("xpath", "//span[text()='Continue To Payment']");
      					
@@ -5463,10 +5522,10 @@ public void Newsletter_subscription() {
      					Assert.fail();
 
      				}
+     	        	
      			}
-
-     			
-     			
+				return Shippingaddress;
+	
      		}
 
       	
@@ -9188,9 +9247,621 @@ try{
 		}
 
   	 
+  	
+  	public void prepare_E2E_Data(String fileName) {
+		// TODO Auto-generated method stub
+
+    	
+    		try{
+
+
+    			File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
+    			XSSFWorkbook workbook;
+    			XSSFSheet sheet;
+    			Row row;
+    			Cell cell;
+    			int rowcount;
+    			if(!(file.exists()))
+    			{
+    			workbook = new XSSFWorkbook();
+    			sheet = workbook.createSheet("Hydroflask_E2E_Details");
+    			CellStyle cs = workbook.createCellStyle();
+    			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+    			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+    			Font f = workbook.createFont();
+    			f.setBold(true);
+    			cs.setFont(f);
+    			cs.setAlignment(HorizontalAlignment.RIGHT);
+    			row = sheet.createRow(0);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Hydroflask-US_E2E_Stage_Upgraded_Orders_for_E2E_Testing");
+
+
+    			row = sheet.createRow(1);
+    			cell = row.createCell(0);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("S.No");
+    			cell = row.createCell(1);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Website");
+    			cell = row.createCell(2);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Tester");
+    			cell = row.createCell(3);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Test Scenario description");
+    			cell = row.createCell(4);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue(" WebOredrNumber");
+    			cell = row.createCell(5);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("OrderConfirmation_Message");
+    			cell = row.createCell(6);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("OrderStatusMagento");
+
+
+    			cell = row.createCell(7);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("SubTotal");
+    			cell = row.createCell(8);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Shipping");
+    			cell = row.createCell(9);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("State");
+    			cell = row.createCell(10);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Zipcode");
+    			cell = row.createCell(11);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Tax");
+    			cell = row.createCell(12);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("EstimateTotal");
+    			cell=row.createCell(13);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Discount");
+    			cell=row.createCell(14);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("Order Total");
+    			cell=row.createCell(15);
+    			cell.setCellStyle(cs);
+    			cell.setCellValue("PaymentMethod");
+    			cell=row.createCell(16);
+    			cell.setCellStyle(cs);
+    			
+    			rowcount=2;
+    			}
+
+    			else
+    			{
+    			workbook = new XSSFWorkbook(new FileInputStream(file));
+    			sheet=workbook.getSheet("E2E_Details");
+    			rowcount=sheet.getLastRowNum()+1;
+    			}
+    			/*row = sheet.createRow(rowcount);
+    			cell = row.createCell(0);*/
+
+
+
+    			FileOutputStream fileOut = new FileOutputStream(file);
+    			workbook.write(fileOut);
+    			fileOut.flush();
+    			fileOut.close();
+
+
+
+    			} catch (Exception e) {
+    			e.printStackTrace();
+    			}
+    			}
   	 
   	
   	 
+  	public void E2E_writeResultstoXLSx(String Website,String Description,String Paymentmethod,String OrderId,String subtotlaValue,String ShippingZip,String Shippingstate,String shippingammountvalue,String Taxammountvalue,String ActualTotalammountvalue,String ExpectedTotalAmmountvalue,String Discountammountvalue) throws FileNotFoundException 
+  	{
+  	//String fileOut="";
+  	try{
+
+  	File file=new File(System.getProperty("user.dir")+"/src/test/resources/Hydroflask_E2E_Details.xlsx");
+  	XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+  	XSSFSheet sheet;
+  	Row row;
+  	Cell cell;
+  	int rowcount;
+  	sheet = workbook.getSheet("Hydroflask_E2E_Details");
+
+  	if((workbook.getSheet("Hydroflask_E2E_Details"))==null)
+  	{
+  	sheet = workbook.createSheet("Hydroflask_E2E_Details");
+  	CellStyle cs = workbook.createCellStyle();
+  	cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+  	cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+  	Font f = workbook.createFont();
+  	f.setBold(true);
+  	cs.setFont(f);
+  	cs.setAlignment(HorizontalAlignment.RIGHT);
+  	row = sheet.createRow(0);
+  	cell = row.createCell(0);
+  	cell.setCellStyle(cs);
+  	cell.setCellValue("Hydroflask-US_E2E_Stage_Upgraded_Orders_for_E2E_Testing");
+
+  	row = sheet.createRow(1);
+  	cell = row.createCell(0);
+  	cell.setCellStyle(cs);
+  	cell.setCellValue("Web Order Number");
+  	rowcount=2;
+
+  	}
+
+  	else
+  	{
+
+  	sheet=workbook.getSheet("Hydroflask_E2E_Details");
+  	rowcount=sheet.getLastRowNum()+1;
+  	}
+  	row = sheet.createRow(rowcount);
+	cell = row.createCell(0);
+	cell.setCellType(CellType.NUMERIC);
+	int SNo=rowcount-1;
+	cell.setCellValue(SNo);
+  	
+  
+
+  	
+  	cell = row.createCell(1);
+	cell.setCellType(CellType.STRING);
+
+
+
+	String Site;
+	if(Website.contains("hydroflask"))
+	{
+
+	Site="hydroflask";
+
+	}
+	else
+	{
+	Site="";
+	}
+	cell.setCellValue(Site);
+  	
+	
+	cell = row.createCell(2);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue("LOTUSWAVE");
+  	
+  	cell = row.createCell(3);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue(Description);
+  	
+  	
+  	cell = row.createCell(4);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(Paymentmethod);
+  	
+  	
+  	cell = row.createCell(5);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue("SUCCESS");
+  	
+  	cell = row.createCell(6);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue("Processing");
+  	
+	cell = row.createCell(7);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(subtotlaValue);
+  	
+  	cell = row.createCell(8);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(shippingammountvalue);
+  	
+  	
+  	cell = row.createCell(9);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue(Shippingstate);
+  	
+  	cell = row.createCell(10);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(ShippingZip);
+  	
+  	cell = row.createCell(11);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(Taxammountvalue);
+  	
+  	
+  	cell = row.createCell(12);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(ExpectedTotalAmmountvalue);
+  	
+  	cell = row.createCell(13);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(Discountammountvalue);
+  	
+  	cell = row.createCell(14);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(ActualTotalammountvalue);
+  	
+  	
+  	
+ 	cell = row.createCell(15);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue(OrderId);
+  	
+
+//  	System.out.println(OrderId);
+
+  	FileOutputStream fileOut = new FileOutputStream(file);
+
+  	workbook.write(fileOut);
+
+  	fileOut.flush();
+  	fileOut.close();
+  	} catch (Exception e) {
+  	e.printStackTrace();
+  	}
+  	}
+  	 
+  	
+  	public HashMap<String,String> E2E_Validation() {
+		// TODO Auto-generated method stub
+		HashMap<String,String> data=new HashMap<String,String>();
+		try{			    
+			Thread.sleep(3000);
+ 
+
+	     String subtotal=Common.getText("xpath", "//tr[@class='checkout-sidebar-totals-row totals']/td/span").replace("$", "");
+	     // subtotla.replace("", newChar)
+	     Float subtotlaValue=Float.valueOf(subtotal);
+	     data.put("subtotlaValue",subtotal);
+	    System.out.println("Subtotal"+ subtotal);
+	   
+	      String shippingammount=Common.getText("xpath", "//span[@data-th='Shipping']").replace("$", "");
+      Float shippingammountvalue=Float.valueOf(shippingammount);
+			data.put("shippingammountvalue",shippingammount);
+		      System.out.println("shipping"+ shippingammount);
+		      
+		      
+		      
+		      
+		
+			    
+		      String ActualTotalAmmount=Common.getText("xpath", "//tr[@class='grand totals incl']//span").replace("$", "");
+			    Float ActualTotalammount=Float.valueOf(ActualTotalAmmount);
+			    data.put("ActualTotalammountvalue",ActualTotalAmmount);
+			    System.out.println("TotalAmmount"+ ActualTotalAmmount);
+		 
+			 
+		
+			 int SizesofDis= Common.findElements("xpath", "//tr[@class='totals discount']//span").size();
+			    if(SizesofDis>0) {
+			    String Discount=Common.getText("xpath", "//tr[@class='totals discount']//span").replace("-$", "");
+			    Float Discountammountvalue=Float.valueOf(Discount);
+				data.put("Discountammountvalue",Discount);
+				
+				
+			    
+			    }
+			    else {
+			    	
+			    	String Discountammountvalue= "0.00";
+					data.put("Discountammountvalue",Discountammountvalue);
+			    	System.out.println("No Discount"+Discountammountvalue);
+			    }
+		
+			    
+			    
+			    
+		 int Sizes= Common.findElements("xpath", "//td[@data-th='Tax*']//span").size();
+		 if(Sizes>0) {
+		 String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax*']//span").replace("$", "");
+		 Float Taxammountvalue=Float.valueOf(TaxAmmount);
+		 data.put("Taxammountvalue",TaxAmmount);
+		 System.out.println("Tax"+ TaxAmmount);
+		 
+		 int SizesofDis1= Common.findElements("xpath", "//tr[@class='totals discount']//span").size();
+		    if(SizesofDis1>0) {
+		 
+		 String Discount1=Common.getText("xpath", "//tr[@class='totals discount']//span").replace("-$", "");
+		    Float Discountammountvalue1=Float.valueOf(Discount1);
+			data.put("Discountammountvalue1",Discount1);
+			System.out.println("Discount"+Discountammountvalue1);
+		    
+//		 int Size=Common.findElements("xpath", "//tr[@class='totals discount']//span").size();
+		 
+		// if(SizesofDis1>0)
+	//	 {
+			 Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue+Taxammountvalue-(Discountammountvalue1);
+			  
+			    String userpaneltaxvalue=String.valueOf(ExpectedTotalAmmount);
+			    String ExpectedTotalAmount = new BigDecimal(userpaneltaxvalue).setScale(2, BigDecimal.ROUND_UP).toString();
+			    data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+			    System.out.println("EstimateTotal"+ ExpectedTotalAmount);
+		 }
+		 else {
+			 
+		 Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue+Taxammountvalue;
+		    String userpaneltaxvalue=String.valueOf(ExpectedTotalAmmount);
+		    String ExpectedTotalAmount = new BigDecimal(userpaneltaxvalue).setScale(2, BigDecimal.ROUND_UP).toString();
+		    data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+		    System.out.println("EstimateTotal"+ ExpectedTotalAmount);
+		    
+		    
+		 }
+		
+//		 else {
+//			 String Taxammountvalue= "0.00";
+//				data.put("Taxammountvalue",Taxammountvalue);
+				
+//			  Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue;
+//			    String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+//			    data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+		}
+	
+		}
+		
+		catch(Exception |Error e)
+		{
+			e.printStackTrace();
+		report.addFailedLog("verifying tax calculation", "getting price values from shipping page ", "Faield to get price value from shipping page", Common.getscreenShotPathforReport("TaxRates"));
+
+
+
+		
+		Assert.fail();
+
+		}
+		return data;
+		}	
+  	
+  	
+  	
+  	
+  	public  HashMap<String,String> E2E_addDeliveryAddress(String dataSet) throws Exception {
+  		
+  		HashMap<String,String> Shippingaddress=new HashMap<String,String>();
+		try {
+			Sync.waitElementVisible("id", "customer-email");
+			Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
+		} catch (NoSuchElementException e) {
+			checkOut();
+			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+
+		}
+		String expectedResult = "email field will have email address";
+		try {
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+            int size = Common.findElements("id", "customer-email").size();
+            Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
+            Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",data.get(dataSet).get("Street"));
+			String Text=Common.getText("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']");
+			
+			
+			
+			Common.dropdown("xpath", "//select[@name='region_id']", Common.SelectBy.TEXT,data.get(dataSet).get("Region"));
+			Thread.sleep(5000);
+			String Shippingvalue = Common.findElement("xpath", "//select[@name='region_id']").getAttribute("value");
+			String Shippingstate = Common.findElement("xpath", "//select[@name='region_id']//option[@value='" + Shippingvalue + "']").getText();
+
+			Shippingaddress.put("Shippingstate", Shippingstate);
+			System.out.println(Shippingstate);
+
+		
+			Sync.waitPageLoad();
+			Thread.sleep(5000);
+			Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='city']").clear();
+			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='city']",data.get(dataSet).get("City"));
+			System.out.println(data.get(dataSet).get("City"));
+			
+			/*Common.actionsKeyPress(Keys.PAGE_DOWN);
+			Thread.sleep(3000);
+			try {
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+				
+			} catch (ElementClickInterceptedException e) {
+				Thread.sleep(3000);
+				Common.dropdown("name", "region_id", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+				String State= Common.getText("xpath", "region_id");*/
+				
+			
+			Thread.sleep(2000);
+			Common.textBoxInputClear("name", "postcode");
+			Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+			
+		String ShippingZip = Common.findElement("name", "postcode").getAttribute("value");
+		System.out.println("*****" + ShippingZip + "*******");
+		Shippingaddress.put("ShippingZip", ShippingZip);
+		
+			
+	
+			Thread.sleep(5000);
+			
+			Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+
+		}
+
+		catch (Exception | Error e) {
+     e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("validating shipping address",
+					"shipping address is filled in to the fields", "user faield to fill the shipping address",
+					Common.getscreenShotPathforReport("shipingaddressfaield"));
+			// ExtenantReportUtils.addFailedLog("User click check out button",
+			// "User unabel click the checkout button",
+			// Common.getscreenShotPathforReport("check out miniCart"));
+			Assert.fail();
+
+		}
+		Thread.sleep(5000);
+		int size=Common.findElements("xpath", "//input[@id='label_method_bestway']").size();
+		if(size>0){
+			Common.clickElement("xpath", "//input[@id='label_method_bestway']");
+		}
+
+		expectedResult = "shipping address is filled in to the fields";
+		Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
+
+		int errorsize = Common.findElements("xpath", "//div[contains(@id,'error')]").size();
+
+		if (errorsize <= 0) {
+			ExtenantReportUtils.addPassLog("validating the shipping address field with valid Data", expectedResult,
+					"Filled the shipping address", Common.getscreenShotPathforReport("shippingaddresspass"));
+		} else {
+			ExtenantReportUtils.addFailedLog("validating the shipping address field with valid Datas", expectedResult,
+					"failed to add a addres in the filled",
+					Common.getscreenShotPathforReport("failed to add a address"));
+			Assert.fail();
+		}
+
+		// Common.assertionCheckwithReport(errorsize<=0,"enter the shipping
+		// address in to the fields without skipping any mandatory fields",
+		// expectedResult, "Filled the shipping address", "failed to add a
+		// address");
+		// Common.assertionCheckwithReport(errorsize<=0, "Filled the shipping
+		// address", expectedResult, "Missing the shipping address");
+		Thread.sleep(3000);
+		return Shippingaddress ;
+	}
+  	
+  	//////////////////////////////////////////////////////////////////////////////////
+  	
+  	public void writeOrder_Number(String Website, String OrderIdNumber,String Description, String subtotlaValue, String shippingammountvalue, String Taxammountvalue,String ActualTotalammountvalue,String ExpectedTotalammountvalue,String Discountammountvalue) throws FileNotFoundException, IOException
+  	{
+  	//String fileOut="";
+  	try{
+  	File file=new File(System.getProperty("user.dir")+"/src/test/resources/E2E_Details.xlsx");
+  	XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+  	XSSFSheet sheet;
+  	Row row;
+  	Cell cell;
+  	int rowcount;
+  	sheet = workbook.getSheet("OrderDetails");
+  	if((workbook.getSheet("OrderDetails"))==null)
+  	{
+  	sheet = workbook.createSheet("OrderDetails");
+  	CellStyle cs = workbook.createCellStyle();
+  	cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+  	cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+  	Font f = workbook.createFont();
+  	f.setBold(true);
+  	cs.setFont(f);
+  	cs.setAlignment(HorizontalAlignment.RIGHT);
+  	row = sheet.createRow(0);
+  	cell = row.createCell(0);
+  	cell.setCellStyle(cs);
+  	cell.setCellValue("Orders Details");
+  	row = sheet.createRow(1);
+  	cell = row.createCell(0);
+  	cell.setCellStyle(cs);
+  	cell.setCellValue("Web Order Number");
+  	rowcount=2;
+  	}
+  	else
+  	{
+  	sheet=workbook.getSheet("OrderDetails");
+  	rowcount=sheet.getLastRowNum()+1;
+  	}
+  	row = sheet.createRow(rowcount);
+  	cell = row.createCell(0);
+  	cell.setCellType(CellType.NUMERIC);
+  	int SNo=rowcount-1;
+  	cell.setCellValue(SNo);
+  	cell = row.createCell(1);
+  	cell.setCellType(CellType.STRING);
+  	String websitename;
+  	if(Website.contains("hydroflask"))
+  	{
+  	websitename="hydroflask";
+  	}
+  	else
+  	{
+  	websitename="";
+  	}
+  	cell.setCellValue(websitename);
+  	cell = row.createCell(2);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue("Lotuswave");
+  	cell = row.createCell(3);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue(Description);
+  	cell = row.createCell(4);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(OrderIdNumber);
+  	cell = row.createCell(5);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue("YES");
+  	cell = row.createCell(6);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue("Processing"); cell = row.createCell(7);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(subtotlaValue);
+  	cell = row.createCell(8);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(shippingammountvalue);
+  	cell = row.createCell(9);
+  	cell.setCellType(CellType.STRING);
+  	//cell.setCellValue(ShippingState);
+  	cell = row.createCell(10);
+  	cell.setCellType(CellType.NUMERIC);
+  //	cell.setCellValue(ShippingZip);
+  	cell = row.createCell(11);
+  	cell.setCellType(CellType.STRING);
+  	cell.setCellValue(Taxammountvalue);
+  	cell = row.createCell(12);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(ExpectedTotalammountvalue);
+  	cell = row.createCell(13);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(Discountammountvalue);
+  	cell = row.createCell(14);
+  	cell.setCellType(CellType.NUMERIC);
+  	cell.setCellValue(ActualTotalammountvalue);
+  	//cell = row.createCell(15);
+  	//cell.setCellType(CellType.NUMERIC);
+  	//cell.setCellValue(Card);
+  	System.out.println(OrderIdNumber);
+  	//String subtotla = Float.toString(subtotlaValue);
+  	//System.out.println("String is: "+subtotla);
+  	System.out.println(subtotlaValue);
+  	//String shippingammount = Float.toString(shippingammountvalue);
+  	//System.out.println("String is: "+shippingammount);
+  	System.out.println(shippingammountvalue);
+  	//String Taxammount = Float.toString(Taxammountvalue);
+  	//System.out.println("String is: "+Taxammount);
+  	System.out.println(Taxammountvalue);
+  	//String Totalammount = Float.toString(Totalammountvalue);
+  	//System.out.println("String is: "+Totalammount);
+  	System.out.println(ActualTotalammountvalue);
+  	System.out.println(ExpectedTotalammountvalue);
+  	//String Actualtax = Float.toString(ActualTax);
+  	//System.out.println("String is: "+Actualtax);
+  	//System.out.println(giventaxvalue);
+  	//String userpaneltax = Float.toString(userpaneltaxvalue);
+  	//System.out.println("String is: "+userpaneltax);
+  	//System.out.println(calucaltedvalue);
+  	FileOutputStream fileOut = new FileOutputStream(file);
+  	workbook.write(fileOut);
+  	fileOut.flush();
+  	fileOut.close();
+  	//return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue);
+  	} catch (Exception e) {
+  	e.printStackTrace();
+  	}
+  	// return fileOut;
+  	// return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue); }
+  	}
+
+
+  	
+  	
+  	
+
+  	
+  	
 	public HydroHelper(String datafile) {
 		
 		
@@ -9204,6 +9875,5 @@ try{
 			this.report = Utilities.TestListener.report;
 		}
 	}
-
 }
-	
+
