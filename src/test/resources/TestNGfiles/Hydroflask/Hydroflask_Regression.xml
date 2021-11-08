@@ -71,7 +71,7 @@
 		<classes>
 			<class name="TestExecute.Hydroflask.Regression.TEST_ST_HF_010_Forgotpassword" />
 		</classes>
-	</test>
+	  </test> 
 	<test name="Test_HF_ST_011_Account_Creation" testid="HYDRO-904"
 		priority="P1" description="This script will cover Account Process of HydroFlesk">
 		<classes>
@@ -109,7 +109,7 @@
 	<test name="Test_HF_ST_016-WebPageLinkValidation" testid="HYDRO-909"
 		priority="P1" description="This script will Link validation of HydroFlesk">
 		<classes>
-			<class name="TestExecute.Hydroflask.URLS.Test_HF_ST_016_URLSCheck" />
+			<class name="TestExecute.Hydroflask.URLS.URLSCheck" />
 		</classes>
 	</test>
 	<test name="Test_HF_ST_017Registered Combined Order Submission"
@@ -505,6 +505,14 @@
 			</classes>
 		</test> 
 		
+		<test name="Test_ST_HF_069_checkout_Paypal_Guestuser_MultiProduct_Notax_standardShipping_with_same_Addresses" testid="HYDRO-994"
+			priority="P1" description="This script will cover Register user Multiproduct Discount with Tax standard shipping with different Billing and shipping user order using Discover card sumbit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Regression.TEST_ST_HF_069_checkout_Paypal_Guest_Multiproduct_Notax_Standard_Same_addrs" />
+			</classes>
+		</test> 
+		
+		
 	  	<test name="Test_ST_HF_070_Checkout_with_VISA_as_Registeruser_with_PO_Box" testid="HYDRO-1109"
 			priority="P1"
 			description="This script will cover Register user order using POBox address with VisaCC submit Process of HydroFlesk">
@@ -542,10 +550,27 @@
 				<class name="TestExecute.Hydroflask.Regression.TEST_ST_HF_074_checkout_PP_Reguser_tax_Standard_Diff_Addresses" />
 			</classes>
 		</test> 
+		
+		
+		
+		<test name="Test_ST_HF_075_checkout_Paypal_Regstruser_employeeDiscount_tax_standardShipping_with_same_Addresses" testid="HYDRO-1111"
+			priority="P1" description="This script will cover Register user Multiproduct Discount with Tax standard shipping with different Billing and shipping user order using Discover card sumbit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Regression.TEST_ST_HF_075_checkout_PP_Register_EmployeeDiscount_tax_standard_same_addresses" />
+			</classes>
+		</test> 
+		
 	  	<test name="Test_ST_HF_076_checkout_with_Paypal_as_Registeruser_withMultiproduct_tax_and_Freight_Shipping_with_same_billingShippingaddresses" testid="HYDRO-993"
 			priority="P1" description="This script will cover RegisterUser order user using Paypal with Multi-product Tax and freight shippping and same billingShipping address order submit Process of HydroFlesk">
 			<classes>
 				<class name="TestExecute.Hydroflask.Regression.TEST_ST_HF_076_checkout_PP_Reguser_Multiproduct_tax_Freight" />
+			</classes>
+		</test>
+		
+		<test name="Test_ST_HF_077_checkout_with_Paypal_as_Registeruser_EmplyDiscount_Notax_and_standard_Shipping_with_diff_billingShippingaddresses" testid="HYDRO-1113"
+			priority="P1" description="This script will cover RegisterUser order user using Paypal with Multi-product Tax and freight shippping and same billingShipping address order submit Process of HydroFlesk">
+			<classes>
+				<class name="TestExecute.Hydroflask.Regression.TEST_ST_HF_077_Checkout_PP_Register_EmplyDiscount_no_tax_Standard_diff_Blling_Shipp_addrs" />
 			</classes>
 		</test>
 		
