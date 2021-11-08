@@ -46,7 +46,7 @@ public class TEST_ST_HF_010_BundleProduct_RegUser_Express_Paypal {
 		{
 	    Common.closeAll();
 
- 		}
+  		}
 		
 		@BeforeTest
 		  public void startTest() throws Exception {
