@@ -1,4 +1,4 @@
-  
+
 package TestExecute.Hydroflask.O2C_E2E_Orders;
 
 import java.util.HashMap;
@@ -20,6 +20,7 @@ public class TEST_ST_HF_002_RegisteredUser_Promocode_CreditCard {
 	public void registeredUser_Checkout_CreditCard() throws Exception {
 
 		try {
+			
 			
 			String Website=Hydro.URL();
 			String Description ="RegisteredUser_Promocode_CreditCard";

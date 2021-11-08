@@ -18,6 +18,7 @@ public class TEST_ST_HF_009_BundleProduct_RegUser_Promocode_Express_Paypal {
   public void Checkout_with_credit_card_as_registered_user_with_bundle_product() {
 	  
 	  try{
+		  
 			String Website=Hydro.URL();
 			String Description ="BundleProduct_RegUser_Promocode_Express_Paypal";
 			String Paymentmethod="Pay-Pal";

@@ -19,6 +19,7 @@ public class TEST_ST_HF_011_Checkout_RegUserCC_bundle_my_hydro_configurable_simp
   
   public void checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product() {
 	  try{
+		  
 		String Website=Hydro.URL();
 		String Description ="Checkout_RegUserCC_bundle_my_hydro_configurable_simple";
 		String Paymentmethod="Master_CC";

@@ -23,7 +23,6 @@ public class TEST_ST_HF_003_Guest_Checkout_Promocode_Paypal {
 			String Website=Hydro.URL();
 			String Description ="Guest_Checkout_Promocode_Paypal";
 			String Paymentmethod="Pay-Pal";
-			
 			Hydro.orderSubmit("Bottles");
 			Hydro.checkOut();
 			HashMap<String,String> Shipping=Hydro.E2E_addDeliveryAddress("Address");

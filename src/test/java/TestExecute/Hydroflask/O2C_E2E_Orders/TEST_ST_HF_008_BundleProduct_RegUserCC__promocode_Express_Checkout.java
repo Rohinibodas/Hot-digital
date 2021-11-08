@@ -18,6 +18,7 @@ public class TEST_ST_HF_008_BundleProduct_RegUserCC__promocode_Express_Checkout 
   public void Checkout_with_credit_card_as_registered_user_with_bundle_product() {
 	  
 	  try{
+		  
 			String Website=Hydro.URL();
 			String Description ="BundleProduct_RegUserCC__promocode_Express_Checkout";
 			String Paymentmethod="Matser_CC";
