@@ -19,6 +19,7 @@ public class TEST_ST_HW_005_Checkout_as_guestuser_invalid_credit_card {
 		try {
 	//	honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("productnameRegester");
 //			honeyWell.clickAddtoBag();
@@ -45,7 +46,7 @@ public class TEST_ST_HW_005_Checkout_as_guestuser_invalid_credit_card {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

@@ -21,13 +21,13 @@ public class TEST_ST_HW_030_GuestUser_Checkout_AmexCCTax_2Prods {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
-			honeyWell.click_fans();
-			honeyWell.adding_product_toCart("productnameRegester1");
-			//honeyWell.clickAddtoBag();
+			honeyWell.accept();
+			honeyWell.Click_Heaters();
+		honeyWell.adding_product_toCart("productnameRegester2");
+			
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("productnameRegester");
-			//honeyWell.clickAddtoBag();
+		
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
 			honeyWell.guestShippingAddress("ShippingAddress1");
@@ -52,7 +52,7 @@ public class TEST_ST_HW_030_GuestUser_Checkout_AmexCCTax_2Prods {
     
     @BeforeTest
       public void startTest() throws Exception {
-       //  System.setProperty("configFile", "Honeywell\\config.properties");
+//         System.setProperty("configFile", "Honeywell\\config.properties");
           Login.signIn();
          
           

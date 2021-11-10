@@ -21,6 +21,7 @@ public class TEST_ST_HW_014_Orderstatus_verification {
 
 		try {
 			honeyWell.verifyingHomePage();
+		honeyWell.accept();
 			honeyWell.orderreturns("orderstatus");
 			
 		}

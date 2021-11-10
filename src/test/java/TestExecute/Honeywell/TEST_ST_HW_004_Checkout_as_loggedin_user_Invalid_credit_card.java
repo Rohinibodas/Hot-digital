@@ -17,14 +17,17 @@ public class TEST_ST_HW_004_Checkout_as_loggedin_user_Invalid_credit_card {
 	
   public void In_valid_credit_card_LoginUser() {
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
+			
 			honeyWell.verifyingHomePage();
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
-			honeyWell.clickAddtoBag();
+			honeyWell.accept();
+			honeyWell.loginHoneywell("AccountDetails");
+			honeyWell.Click_Heaters();
+			honeyWell.adding_product_toCart("productnameRegester2");
+//			honeyWell.clickAddtoBag();
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
-			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+//			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+			honeyWell.clickOnProceed();
 			honeyWell.creditCard_payment_Invalid("InvalidCC");
 			//honeyWell.order_Verifying();
 		}
@@ -39,13 +42,13 @@ public class TEST_ST_HW_004_Checkout_as_loggedin_user_Invalid_credit_card {
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+//	Common.closeAll();
 
 	}
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

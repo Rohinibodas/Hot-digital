@@ -21,17 +21,19 @@ public class TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
+//			honeyWell.click_Airpurifiers();
+			honeyWell.Click_Heaters();
+			
+			honeyWell.adding_product_toCart("productnameRegester2");
 			//honeyWell.clickAddtoBag();
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
 			//honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
 			honeyWell.clickOnProceed();
 			honeyWell.tax();
-			honeyWell.creditCard_payment("CCmastercard");
+      	honeyWell.creditCard_payment("CCmastercard");
 			honeyWell.order_Verifying();
 		}
 		catch (Exception e) {
@@ -51,7 +53,7 @@ public class TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

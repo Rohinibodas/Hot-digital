@@ -20,7 +20,8 @@ public class TEST_ST_HW_016_Warranty_Registration_form_validation {
 		try {
 	
 			honeyWell.verifyingHomePage();
-		//	honeyWell.productsupport();
+             honeyWell.accept();
+			//	honeyWell.productsupport();
 			honeyWell.warranty("WarrantyDetails");
 			
 		}
@@ -41,9 +42,9 @@ public class TEST_ST_HW_016_Warranty_Registration_form_validation {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 //System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
-		  honeyWell.agree_proceed();
+//		  honeyWell.agree_proceed();
 		  
 	  }
 }

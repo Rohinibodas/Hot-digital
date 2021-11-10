@@ -21,10 +21,10 @@ public class TEST_ST_HW_032_RegUser_Checkout_DisCCTax_SameBill_Shipping {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
+			honeyWell.Click_Heaters();
+			honeyWell.adding_product_toCart("productnameRegester2");
 		//	honeyWell.clickAddtoBag();
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
@@ -51,7 +51,7 @@ public class TEST_ST_HW_032_RegUser_Checkout_DisCCTax_SameBill_Shipping {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

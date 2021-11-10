@@ -20,7 +20,10 @@ public class TEST_ST_HW_018_ArticalLinks {
 	public void ArticalLinks() throws Exception {
 
 		try {
+			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
+			
 			honeyWell.HomePage();
 			honeyWell.facebook();
 			honeyWell.instagram();

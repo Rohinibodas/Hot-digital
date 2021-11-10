@@ -18,17 +18,20 @@ public class TEST_ST_HW_007_CheckoutDiscount {
 	  public void couponcode() {
 			try {
 				honeyWell.verifyingHomePage();
+				honeyWell.accept();
 				honeyWell.loginHoneywell("Promationcode");
 				
-				honeyWell.click_Airpurifiers();
-				honeyWell.adding_product_toCart("productnameRegester");
+				honeyWell.Click_Heaters();
+				honeyWell.adding_product_toCart("productnameRegester2");
 				//honeyWell.clickAddtoBag();
 				honeyWell.clickminicartButton();
 				honeyWell.clickminicartcheckout();
 				honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+			
 				honeyWell.CouponCodeinCheckoutpage("Promationcode");
-				//honeyWell.creditCard_payment_Invalid("InvalidCC");
-				//honeyWell.order_Verifying();
+				honeyWell.creditCard_payment("CCmastercard");
+				honeyWell.order_Verifying();
+			
 			}
 			catch (Exception e) {
 				
@@ -47,7 +50,7 @@ public class TEST_ST_HW_007_CheckoutDiscount {
 		
 		@BeforeTest
 		  public void startTest() throws Exception {
-			// System.setProperty("configFile", "Honeywell\\config.properties");
+//			 System.setProperty("configFile", "Honeywell\\config.properties");
 			  Login.signIn();
 			 
 			  

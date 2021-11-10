@@ -20,7 +20,7 @@ public class TEST_ST_HW_026_Checkout_with_different_Cetegory_Products {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.click_fans();
 			honeyWell.adding_product_toCart("productnameRegester1");

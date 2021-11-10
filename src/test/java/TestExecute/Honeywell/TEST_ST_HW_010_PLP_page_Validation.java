@@ -16,6 +16,7 @@ public class TEST_ST_HW_010_PLP_page_Validation {
   public void PLP_Page() throws Exception {
 		
 		honeyWell.verifyingHomePage();
+		honeyWell.accept();
 		honeyWell.loginHoneywell("AccountDetails");
 		honeyWell.click_fans();
 		honeyWell.filtertype();

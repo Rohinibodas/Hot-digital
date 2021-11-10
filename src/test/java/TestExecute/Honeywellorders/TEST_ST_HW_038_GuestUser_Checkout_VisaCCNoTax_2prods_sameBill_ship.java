@@ -21,10 +21,11 @@ public class TEST_ST_HW_038_GuestUser_Checkout_VisaCCNoTax_2prods_sameBill_ship 
 		try {
 			
 			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.click_fans();
 			honeyWell.adding_product_toCart("productnameRegester1");
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
+			honeyWell.Click_Heaters();
+			honeyWell.adding_product_toCart("productnameRegester2");
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
 			honeyWell.guestShippingAddress("ShippingAddress");
@@ -48,7 +49,7 @@ public class TEST_ST_HW_038_GuestUser_Checkout_VisaCCNoTax_2prods_sameBill_ship 
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 //System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

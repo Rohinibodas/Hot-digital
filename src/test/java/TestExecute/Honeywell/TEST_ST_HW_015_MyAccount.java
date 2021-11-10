@@ -16,7 +16,7 @@ public class TEST_ST_HW_015_MyAccount {
 	  public void Myaccount() throws Exception {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.myAccount("AccountDetails");
 			honeyWell.profile("AccountDetails");
 			honeyWell.myOrders();
@@ -33,7 +33,7 @@ public class TEST_ST_HW_015_MyAccount {
 		
 	@BeforeTest
 		  public void startTest() throws Exception {
-			// System.setProperty("configFile", "Honeywell\\config.properties");
+//			 System.setProperty("configFile", "Honeywell\\config.properties");
 			  Login.signIn();		  
 			  
 			  

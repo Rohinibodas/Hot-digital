@@ -25,7 +25,7 @@ Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 public void accountCreationFormValidation() {
 try {
 honeyWell.verifyingHomePage();
-//honeyWell.accept();
+honeyWell.accept();
 honeyWell.CreateAccountFormValidation("Erroraccount");
 } catch (Exception e) {
 Assert.fail(e.getMessage(), e);

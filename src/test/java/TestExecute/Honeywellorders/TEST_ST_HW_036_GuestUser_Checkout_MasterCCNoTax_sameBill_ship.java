@@ -21,8 +21,9 @@ public class TEST_ST_HW_036_GuestUser_Checkout_MasterCCNoTax_sameBill_ship {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			  honeyWell.click_fans();
-			honeyWell.adding_product_toCart("productnameRegester1");
+			honeyWell.accept();
+			  honeyWell.Click_Heaters();
+			honeyWell.adding_product_toCart("productnameRegester2");
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
 			honeyWell.guestShippingAddress("ShippingAddress");
@@ -46,7 +47,7 @@ public class TEST_ST_HW_036_GuestUser_Checkout_MasterCCNoTax_sameBill_ship {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		 //System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

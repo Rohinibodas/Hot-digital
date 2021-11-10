@@ -21,10 +21,10 @@ public class TEST_ST_HW_035_Reguser_Checkout_VisaCCNoTax_DiffBill_Ship {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
-			  honeyWell.click_fans();
-			honeyWell.adding_product_toCart("productnameRegester1");
+			  honeyWell.Click_Heaters();
+			honeyWell.adding_product_toCart("productnameRegester2");
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
 			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
@@ -49,7 +49,7 @@ public class TEST_ST_HW_035_Reguser_Checkout_VisaCCNoTax_DiffBill_Ship {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

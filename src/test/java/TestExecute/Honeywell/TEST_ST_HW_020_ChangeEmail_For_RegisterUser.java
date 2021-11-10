@@ -17,7 +17,7 @@ public class TEST_ST_HW_020_ChangeEmail_For_RegisterUser {
   public void changeEmail() throws Exception {
 		
 		honeyWell.verifyingHomePage();
-		//honeyWell.accept();
+		honeyWell.accept();
 		honeyWell.myAccount("AccountDetails");
 		honeyWell.changeEmail("AccountDetails");
   }

@@ -20,9 +20,11 @@ public class TEST_ST_HW_024_Sticky_Addtocart_validation {
 	public void Sticky_Addtocart_validation() throws Exception {
 
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.verifyingHomePage();
-			honeyWell.click_Airpurifiers();
+			honeyWell.accept();
+			honeyWell.loginHoneywell("AccountDetails");
+			
+		    honeyWell.click_Airpurifiers();
 			honeyWell.colorproduct("productnameRegester");
 			honeyWell.stickycartAddtoBag();
 			honeyWell.clickminicartButton();

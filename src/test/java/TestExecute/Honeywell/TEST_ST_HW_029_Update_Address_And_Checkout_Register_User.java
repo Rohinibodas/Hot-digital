@@ -22,16 +22,16 @@ public class TEST_ST_HW_029_Update_Address_And_Checkout_Register_User {
 		try {
 			
 			honeyWell.verifyingHomePage();
-		//.accept();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
-			honeyWell.click_Airpurifiers();
-			honeyWell.adding_product_toCart("productnameRegester");
-			//honeyWell.clickAddtoBag();
+			honeyWell.click_fans();
+			honeyWell.adding_product_toCart("productnameRegester1");
+
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
+			
 			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
-			//honeyWell.clickOnProceed();
-			honeyWell.creditCard_payment("ccdiscover");
+			honeyWell.creditCard_payment("CCmastercard");
 			honeyWell.order_Verifying();
 		}
 		catch (Exception e) {
@@ -51,7 +51,7 @@ public class TEST_ST_HW_029_Update_Address_And_Checkout_Register_User {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

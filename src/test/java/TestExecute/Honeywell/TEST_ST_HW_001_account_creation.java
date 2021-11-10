@@ -13,10 +13,10 @@ public class TEST_ST_HW_001_account_creation {
 	Honeywellhelper honeyWell=new Honeywellhelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
   
-  public void accountcreation() {
+  public void accountcreation() throws Exception {
 		
 		honeyWell.verifyingHomePage();
-		
+		honeyWell.accept();
 		honeyWell.createaccount("AccountDetails");
   }
 	

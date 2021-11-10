@@ -22,7 +22,7 @@ public class TEST_ST_HW_044_GuestUser_Checkout_AMEXTax_Dis_2prods_SameBill_ship 
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.click_fans();
 			honeyWell.adding_product_toCart("productnameRegester1");
 		//	honeyWell.clickAddtoBag();

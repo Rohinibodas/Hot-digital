@@ -25,6 +25,7 @@ public class TEST_ST_HW_002_Forgotpassword {
   public void forgotPassword() throws Exception {
 		try{
 			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.Forgetpassword("AccountDetails");
 			
   }

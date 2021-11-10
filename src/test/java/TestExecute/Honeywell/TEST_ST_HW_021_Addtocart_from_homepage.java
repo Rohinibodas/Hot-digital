@@ -20,6 +20,8 @@ public class TEST_ST_HW_021_Addtocart_from_homepage {
 	public void Addtocart_from_homepage() throws Exception {
 
 		try {
+			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.HomePage();
 			honeyWell.addtocarthomepage();

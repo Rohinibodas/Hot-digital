@@ -23,7 +23,7 @@ public class TEST_ST_HW_045_GuestUser_Checkout_VISACCTax_1prod_SameBill_Ship {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.click_fans();
 			honeyWell.adding_product_toCart("productnameRegester1");
                honeyWell.clickminicartButton();

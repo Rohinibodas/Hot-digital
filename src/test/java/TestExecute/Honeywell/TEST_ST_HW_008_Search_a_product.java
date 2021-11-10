@@ -18,8 +18,10 @@ public class TEST_ST_HW_008_Search_a_product {
 	
   public void searchproduct() {
 		try {
-			
+		honeyWell.verifyingHomePage();
+		honeyWell.accept();
 		honeyWell.loginHoneywell("AccountDetails");
+		
 		honeyWell.searchProduct("ProductName");
 		honeyWell.clickminicartButton();
 		honeyWell.click_View_editcart();
@@ -47,7 +49,7 @@ public class TEST_ST_HW_008_Search_a_product {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

@@ -20,6 +20,7 @@ public void outofstock_product() throws Exception {
 
 
 honeyWell.verifyingHomePage();
+honeyWell.accept();
 //honeyWell.agree_proceed();
 honeyWell.click_Airpurifiers();
 honeyWell.outofstockproduct("outofstock");

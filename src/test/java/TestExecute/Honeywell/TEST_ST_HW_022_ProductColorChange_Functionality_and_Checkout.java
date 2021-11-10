@@ -20,14 +20,18 @@ public class TEST_ST_HW_022_ProductColorChange_Functionality_and_Checkout {
 	public void ProductColorChange_Functionality_and_Checkout() throws Exception {
 
 		try {
-			honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.verifyingHomePage();
+			honeyWell.accept();
+			honeyWell.loginHoneywell("AccountDetails");
+//			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();
+		
 			honeyWell.colorproduct("productnameRegester");
 			honeyWell.clickAddtoBag();
 			honeyWell.clickminicartButton();
 			honeyWell.clickminicartcheckout();
-			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+//			honeyWell.addDeliveryAddress_registerUser("ShippingAddress");
+		   honeyWell.clickOnProceed();
 			honeyWell.creditCard_payment("CCVisa");
 			honeyWell.order_Verifying();
 		}
@@ -48,7 +52,7 @@ public class TEST_ST_HW_022_ProductColorChange_Functionality_and_Checkout {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

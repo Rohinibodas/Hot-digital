@@ -21,7 +21,7 @@ public class TEST_ST_HW_034_GuestUser_Checkout_DisCCTax_2prods {
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			honeyWell.click_fans();
 			honeyWell.adding_product_toCart("productnameRegester1");
 		//	honeyWell.clickAddtoBag();
@@ -52,7 +52,7 @@ public class TEST_ST_HW_034_GuestUser_Checkout_DisCCTax_2prods {
     
     @BeforeTest
       public void startTest() throws Exception {
-        // System.setProperty("configFile", "Honeywell\\config.properties");
+//         System.setProperty("configFile", "Honeywell\\config.properties");
           Login.signIn();
          
           

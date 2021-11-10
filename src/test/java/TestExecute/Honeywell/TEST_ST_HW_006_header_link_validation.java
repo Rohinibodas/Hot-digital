@@ -18,6 +18,7 @@ public class TEST_ST_HW_006_header_link_validation {
 			try {
 
 				honeyWell.verifyingHomePage();
+				honeyWell.accept();
 				honeyWell.headLinksValidations_Shop("HeaderLinksShops");
 				honeyWell.headerlinkLearnEducation("PageTitle");
 				honeyWell.headLinksValidations_LeanBy_Products("HeaderLinksLearn");
@@ -42,7 +43,7 @@ public class TEST_ST_HW_006_header_link_validation {
 		
 		@BeforeTest
 		  public void startTest() throws Exception {
-			// System.setProperty("configFile", "Honeywell\\config.properties");
+//			 System.setProperty("configFile", "Honeywell\\config.properties");
 			  Login.signIn();
 			 
 			  

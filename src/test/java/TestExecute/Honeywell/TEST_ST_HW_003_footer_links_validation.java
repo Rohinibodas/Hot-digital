@@ -20,6 +20,7 @@ public class TEST_ST_HW_003_footer_links_validation {
 		try {
 	
 			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.productsupport();	
 			honeyWell.fottorValidations_Shop("FooterNames");
 			honeyWell.footerValidations_aboutUs("FooterNames");
@@ -44,7 +45,7 @@ public class TEST_ST_HW_003_footer_links_validation {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

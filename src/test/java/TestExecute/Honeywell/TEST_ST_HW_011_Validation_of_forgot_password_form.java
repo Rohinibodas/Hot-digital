@@ -17,6 +17,7 @@ public class TEST_ST_HW_011_Validation_of_forgot_password_form {
   public void forgetpasswordfromvalidation() {
 		try {
 		honeyWell.verifyingHomePage();
+	honeyWell.accept();
 		honeyWell.ForgotPasswordValidation();
 	} catch (Exception e) {
 		Assert.fail(e.getMessage(), e);

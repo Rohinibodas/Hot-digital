@@ -20,6 +20,8 @@ public class TEST_ST_HW_025_Adding_Replacementfilter_product_from_pdppage {
 	public void Adding_Replacementfilter_to_product_from_pdppage() throws Exception {
 
 		try {
+			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.verifyingHomePage();
 			honeyWell.click_Airpurifiers();

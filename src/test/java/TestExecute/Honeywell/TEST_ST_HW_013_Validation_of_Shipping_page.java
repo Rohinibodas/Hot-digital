@@ -19,6 +19,7 @@ public class TEST_ST_HW_013_Validation_of_Shipping_page {
 
 		try {
 			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("ProductName");
 			honeyWell.clickAddtoBag();
@@ -44,7 +45,7 @@ public class TEST_ST_HW_013_Validation_of_Shipping_page {
 	
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "Honeywell\\config.properties");
+//		 System.setProperty("configFile", "Honeywell\\config.properties");
 		  Login.signIn();
 		 
 		  

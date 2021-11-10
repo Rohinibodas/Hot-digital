@@ -21,7 +21,7 @@ public class TEST_ST_HW_042_GuestUser_Checkout_VisaCCTax_Dis_1prod_SameBill_ship
 		try {
 			
 			honeyWell.verifyingHomePage();
-			//honeyWell.accept();
+			honeyWell.accept();
 			//honeyWell.loginHoneywell("AccountDetails");
 			honeyWell.click_fans();
 			honeyWell.adding_product_toCart("productnameRegester1");
@@ -47,7 +47,7 @@ public class TEST_ST_HW_042_GuestUser_Checkout_VisaCCTax_Dis_1prod_SameBill_ship
 	@AfterTest
 	public void clearBrowser()
 	{
-       //  Common.closeAll();
+         Common.closeAll();
 
 	}
 	

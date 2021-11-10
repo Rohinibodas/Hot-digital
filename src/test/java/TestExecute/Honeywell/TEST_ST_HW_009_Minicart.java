@@ -18,6 +18,7 @@ public class TEST_ST_HW_009_Minicart {
   public void  minicartValidation() {
 		try {
 			honeyWell.verifyingHomePage();
+			honeyWell.accept();
 			honeyWell.click_Airpurifiers();
 			honeyWell.adding_product_toCart("productnameRegester");
 			honeyWell.clickminicartButton();
