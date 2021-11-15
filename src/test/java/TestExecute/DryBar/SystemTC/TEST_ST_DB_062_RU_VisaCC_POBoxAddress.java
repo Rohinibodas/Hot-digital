@@ -33,7 +33,7 @@ public class TEST_ST_DB_062_RU_VisaCC_POBoxAddress
 			  drybar.clickCheckoutButton();
 			  drybar.Verify_FreeGift();
 			  drybar.addDeliveryAddress_for_registerUser("POBoxAddress");
-			  drybar.select_USPS_StandardGround_shippingMethod();
+			  drybar.Verify_Single_USPS_Ground_Shpping_Method();
 			  drybar.click_Next();
 			  drybar.creditCard_payment("CCVisa");
 			  drybar.order_Success();

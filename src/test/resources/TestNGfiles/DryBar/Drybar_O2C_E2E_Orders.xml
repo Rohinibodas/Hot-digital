@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Drybar E2E Orders Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    
+       <test name="TEST_EE_DB_001_GU_Checkout_Aerosol_POBox_USPS_VisaCC" testid="DRY-19" priority="P1" description="To Verify Checkout functionality of Aerosol product with PO Box Address with Ground USPS Shipping method and VisaCC Payment">
+       <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_001_GU_Checkout_Aerosol_POBox_USPS_VisaCC"/>
+        </classes>
+        </test>
+        
+        
+          <test name="TEST_EE_DB_002_GU_Checkout_Aerosol_NonPOBox_UPS_DiscoverCC" testid="DRY-19" priority="P1" description="To Verify Checkout functionality of Aerosol product with NonPO Box Address with Standard UPS Shipping method and DiscoverCC Payment">
+       <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_002_GU_Checkout_Aerosol_NonPOBox_UPS_DiscoverCC"/>
+        </classes>
+        </test>
+        
+        
+        <test name="TEST_EE_DB_003_GU_Checkout_Aero_NonAero_POBox_UPS_MasterCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Aerosol and Non Aerosol product with PO Box Address with Standard UPS Shipping methodand MasterCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_003_GU_Checkout_Aero_NonAero_POBox_UPS_MasterCC"/>
+        </classes>
+        </test>
+        
+        
+      <test name="TEST_EE_DB_004_GU_Checkout_Aero_NonAero_NonPOBox_UPS_AmexCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Aerosol and Non Aerosol product with NonPOBox Address with Standard UPS Shipping methodand Amex CC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_004_GU_Checkout_Aero_NonAero_NonPOBox_UPS_AmexCC"/>
+        </classes>
+        </test>
+        
+           
+      <test name="TEST_EE_DB_005_GU_NonAerosol_Product_POBox_USPS_GC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with POBox Address with Ground USPS Shipping method and GiftCard Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_005_GU_NonAerosol_Product_POBox_USPS_GC"/>
+        </classes>
+        </test>
+        
+        <test name="TEST_EE_DB_006_GU_NonAerosol_Product_NonPOBox_Standard_UPS_GC_and_CC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with NonPOBox Address with Standard UPS Shipping method and GiftCard Plus CC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_006_GU_NonAerosol_Product_NonPOBox_Standard_UPS_GC_and_CC"/>
+        </classes>
+        </test>
+        
+         <test name="TEST_EE_DB_007_GU_NonAerosol_Product_NonPOBox_Expedited_VisaCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with NonPOBox Address with Expedited UPS Shipping method and VisaCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_007_GU_NonAerosol_Product_NonPOBox_Expedited_VisaCC"/>
+        </classes>
+        </test>
+        
+    <test name="TEST_EE_DB_008_GU_NonAerosol_Product_NonPOBox_Express_DiscoverCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with NonPOBox Address with Express UPS Shipping method and DiscoverCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_008_GU_NonAerosol_Product_NonPOBox_Express_DiscoverCC"/>
+        </classes>
+        </test>
+   
+    <test name="TEST_EE_DB_009_GU_NonAero_Product_NonPOBox_Alaska_Expedited_MasterCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with NonPOBox Alaska Address with Expedited UPS Shipping method and MasterCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_009_GU_NonAero_Product_NonPOBox_Alaska_Expedited_MasterCC"/>
+        </classes>
+        </test>
+     
+      <test name="TEST_EE_DB_010_GU_NonAero_Product_NonPOBox_Alaska_Express_AmexCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with NonPOBox Alaska Address with Expedited UPS Shipping method and MasterCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_010_GU_NonAero_Product_NonPOBox_Alaska_Express_AmexCC"/>
+        </classes>
+        </test>   
+        
+         <test name="TEST_EE_DB_011_GU_NonAero_Product_NonPOBox_Hawai_Expedited_GC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with NonPOBox Hawai Address with Expedited UPS Shipping method and GiftCard Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_011_GU_NonAero_Product_NonPOBox_Hawai_Expedited_GC"/>
+        </classes>
+        </test>  
+        
+         <test name="TEST_EE_DB_012_GU_NonAero_Product_NonPOBox_Hawai_Express_GC_and_CC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of Non Aerosol product with NonPOBox Hawai Address with Express UPS Shipping method and GiftCard plus CC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_012_GU_NonAero_Product_NonPOBox_Hawai_Express_GC_and_CC"/>
+        </classes>
+        </test>  
+        
+         <test name="TEST_EE_DB_013_GU_Checkout_EGift_and_Physical_Prod_POBox_USPS_VisaCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product POBox Address with Ground USPS Shipping method and VisaCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_013_GU_Checkout_EGift_and_Physical_Prod_POBox_USPS_VisaCC"/>
+        </classes>
+        </test>  
+        
+         <test name="TEST_EE_DB_014_GU_Checkout_EGift_and_Physical_Prod_UPS_Standard_DiscoverCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product with Standard UPS Shipping method and DiscoverCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_014_GU_Checkout_EGift_and_Physical_Prod_UPS_Standard_DiscoverCC"/>
+        </classes>
+        </test>
+        
+        
+        <test name="TEST_EE_DB_015_GU_Checkout_EGift_and_Physical_UPS_Expedited_MasterCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product with Expedited UPS Shipping method and MasterCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_015_GU_Checkout_EGift_and_Physical_UPS_Expedited_MasterCC"/>
+        </classes>
+        </test>
+        
+         <test name="TEST_EE_DB_016_GU_Checkout_EGift_and_Physical_UPS_Express_AmexCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product with Express UPS Shipping method and AmexCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_016_GU_Checkout_EGift_and_Physical_UPS_Express_AmexCC"/>
+        </classes>
+        </test>
+        
+         <test name="TEST_EE_DB_017_GU_Checkout_with_EGiftcard_Only_VisaCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product Only with Default Standard UPS Shipping method and VisaCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_017_GU_Checkout_with_EGiftcard_Only_VisaCC"/>
+        </classes>
+        </test>
+        
+          <test name="TEST_EE_DB_018_GU_Checkout_with_EGiftcard_Only_DiscoverCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product Only with Default Standard UPS Shipping method and DiscoverCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_018_GU_Checkout_with_EGiftcard_Only_DiscoverCC"/>
+        </classes>
+        </test>
+        
+          <test name="TEST_EE_DB_019_GU_Checkout_with_EGiftcard_Only_MasterCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product Only with Default Standard UPS Shipping method and MasterCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_019_GU_Checkout_with_EGiftcard_Only_MasterCC"/>
+        </classes>
+        </test>
+        
+          <test name="TEST_EE_DB_020_GU_Checkout_with_EGiftcard_Only_AmexCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of EGift product and Physical Product Only with Default Standard UPS Shipping method and AmexCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_020_GU_Checkout_with_EGiftcard_Only_AmexCC"/>
+        </classes>
+        </test>
+       
+        
+         <test name="TEST_EE_DB_021_GU_Checkout_NO_AerosolBundle_UPS_Express_DiscoverCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of No Aerosol Bundle Product with Express UPS Shipping method and DiscoverCC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_021_GU_Checkout_NO_AerosolBundle_UPS_Express_DiscoverCC"/>
+        </classes>
+        </test>
+        
+         <test name="TEST_EE_DB_022_GU_Checkout_NO_AerosolBundle_Diff_SKU_UPS_Expedited_GC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of NO AerosolBundle product and Another Different SKU Product with Expedited UPS Shipping method and GiftCard Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_022_GU_Checkout_NO_AerosolBundle_Diff_SKU_UPS_Expedited_GC"/>
+        </classes>
+        </test>
+        
+         <test name="TEST_EE_DB_023_GU_Checkout_AerosolBundle_UPS_Standard_GC_and_CC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of AerosolBundle product with Standard UPS Shipping method and GiftCard plus CC Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_023_GU_Checkout_AerosolBundle_UPS_Standard_GC_and_CC"/>
+        </classes>
+        </test>
+        
+         <test name="TEST_EE_DB_024_GU_Checkout_DefaultBundle_Same_SKU_USPS_Ground_VisaCC" testid="DRY-21" priority="P1" description="To Verify Checkout functionality of NO AerosolBundle product and Another Different SKU Product with Expedited UPS Shipping method and GiftCard Payment">
+        <classes>
+            <class name="TestExecute.DryBar.O2C_E2E_Orders.TEST_EE_DB_024_GU_Checkout_DefaultBundle_Same_SKU_USPS_Ground_VisaCC"/>
+        </classes>
+        </test>
+        
+        
+        
+    </suite> 
+    
+ 

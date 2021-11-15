@@ -1,4 +1,6 @@
-package TestExecute.DryBar.SystemTC;
+package TestExecute.DryBar.O2C_E2E_Orders;
+
+import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -6,18 +8,22 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import TestComponent.DryBar.DryBarHelper;
-import TestComponent.DryBar.DryBarMobile;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_DB_073_GU_ShipMethod_Aero_NonAero_Prod_POBox_ShipAdd {
+public class TEST_EE_DB_001_GU_Checkout_Aerosol_POBox_USPS_VisaCC
+ {
 	String datafile = "DryBar//DryBarTestData.xlsx";	
 	DryBarHelper drybar=new DryBarHelper(datafile);
 		
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-  public void Validate_ShippingMethod_for__GuestUser_Checkout_Aerosol_and_Non_Aerosol_products_with_PO_Box_ShippingAddress() throws Exception {
-		try {
+  public void GuestUser_Checkout_Aerosol_with_PO_BoxAddress_USPS_VisaCC() throws Exception {
+		try { 
 			
+	    drybar.prepareOrdersData("DryBar_E2E_orderDetails.xlsx");
+	    Thread.sleep(4000);
+	    String Website=drybar.URL();
+	    String Description ="GuestUser_Checkout_with_Aerosol_Product_with_PO_BoxAddress_USPS_Shipping method_VisaCC_Payment";
 		drybar.Accept();
 		drybar.verifyingHomePage();
 		drybar.clickHairProducts(); 
@@ -25,22 +31,20 @@ public class TEST_ST_DB_073_GU_ShipMethod_Aero_NonAero_Prod_POBox_ShipAdd {
 		drybar.Select_Aerosol_product();
 		drybar.Verify_PDP();
 		drybar.clickAddtoBag();
-		drybar.clickHairProducts();
-		drybar.SelectShampoos(); 
-	    drybar.Selectproduct();
-		drybar.Verify_PDP();
-		drybar.clickAddtoBag();
 	    drybar.clickminiCartButton();
 	    drybar.clickCheckoutButton();
 	    drybar.click_GuestCheckOut();
 	    drybar.Verify_FreeGift();
-	    drybar.guestShipingAddress("POBoxAddress");
+	    HashMap<String,String> Shipping=drybar.guestShipingAddress("POBoxAddress");
 	    drybar.Verify_Single_USPS_Ground_Shpping_Method();
 	    drybar.click_Next();
-		drybar.Edit_BillingAddress_PaymetricPaymentMethod("BiillingAddress");
-	    drybar.creditCard_payment("ccamex");
+	    HashMap<String,String> data=drybar.OrderSummaryValidation();
+	    HashMap<String,String> Payment=drybar.creditCard_payment("CCVisa");
+	    String OrderIdNumber= drybar.Verify_order();
+	    System.out.println(OrderIdNumber);
 	    drybar.order_Success();
-
+	    drybar.writeOrderNumber(Website, OrderIdNumber,Description, data.get("subtotlaValue"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"),Shipping.get("ShippingState"),Shipping.get("ShippingZip"),Payment.get("Card"));
+		
 		}
 		
 		catch (Exception e) {

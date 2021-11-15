@@ -2,7 +2,9 @@ package TestComponent.DryBar;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -169,17 +171,213 @@ public void click_Gifts_and_Kits(){
 		
 		Sync.waitElementPresent("xpath", "(//span[text()='Gifts & Kits'])[1]");
 	Common.clickElement("xpath", "(//span[text()='Gifts & Kits'])[1]");
-	Common.assertionCheckwithReport(Common.getPageTitle().equals("Gifts & Kits | Drybar"), "verifying Gifts & Kits category","User navigate to Gifts & Kits page","user successfully open the Gifts & Kits Category page", "user faield to click the Gifts & Kits");
+	Sync.waitElementPresent("xpath","(//div[contains(text(),'Gifts Under $35')])[2]");
+	Common.clickElement("xpath", "(//div[contains(text(),'Gifts Under $35')])[2]");
+	Common.assertionCheckwithReport(Common.getPageTitle().equals("Gifts Under $35 - Gifts & Kits | Drybar"), "verifying Gifts & Kits category","User navigate to Gifts & Kits page","user successfully open the Gifts & Kits Category page", "user faield to click the Gifts & Kits");
 }
 	catch(Exception |Error e) {
-	     
+	     		e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("verifying Gifts & Kits category", "User navigate to Gifts & Kits page", "user faield to click the Gifts & Kits", Common.getscreenShotPathforReport("Gifts & Kits"));
 			Assert.fail();
 		}
 	
 }
+public void Select_No_Aerosols_Bundle_product(){
+try{
+Sync.waitPageLoad();
+Sync.waitElementPresent("xpath", "(//a[contains(text(),'QA Test Bundle 1 - No Aerosols')])");
+Common.clickElement("xpath", "(//a[contains(text(),'QA Test Bundle 1 - No Aerosols')])");
+Thread.sleep(5000);
+Common.assertionCheckwithReport(Common.getPageTitle().equals("QA TEST SET 1 | Drybar"), "verifying No Aerosols special valueset PDP","Should land on No Aerosols special valueset PDP","user successfully landed on No Aerosols special valueset PDP", "user faield to click on No Aerosols special valueset product");
+}
+catch(Exception |Error e) {
+
+ExtenantReportUtils.addFailedLog("verifying No Aerosols special valueset PDP", "User should select No Aerosols special valueset product", "user faield to select No Aerosols special valueset product", Common.getscreenShotPathforReport("FAILED to select No Aerosols special valueset"));
+Assert.fail();
+}
+}
+
+public HashMap<String, String> gitCard(String dataSet) throws Exception{
+HashMap<String, String> Payment = new HashMap<String, String>();
+try{
+Thread.sleep(5000);
+Common.scrollIntoView("id", "block-giftcard-heading");
+Common.clickElement("id", "block-giftcard-heading");
+
+Thread.sleep(5000);
 
 
+
+Common.textBoxInput("id","giftcard-code",data.get(dataSet).get("GiftCardCode"));
+
+Common.textBoxInput("id","giftcard-pin",data.get(dataSet).get("GiftCardPin"));
+String GiftCard="GiftCard";
+Payment.put("GiftCard", GiftCard);
+
+Common.clickElement("xpath", "//button[@value='Apply']");
+
+Thread.sleep(3000);
+int size=Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();
+Common.assertionCheckwithReport(size>0, "validating the gift card", "Gift Card was added.", "successfully gift card was added","Failed to add gift card");
+}
+catch (Exception | Error e) {
+e.printStackTrace();
+ExtenantReportUtils.addFailedLog("validating the gift card","Gift Card was added.","User faield to to add gift card",Common.getscreenShotPathforReport("gitcard"));
+Assert.fail();
+}
+return Payment;
+
+}
+
+public HashMap<String, String> Edit_EgiftBillingAddress_PaymetricPaymentMethod(String dataSet)throws Exception{
+HashMap<String, String> BillingAddress = new HashMap<String, String>();
+Thread.sleep(3000);// //button[contains(@class,'action-edit-address')]
+try{
+Thread.sleep(5000);
+Sync.waitElementPresent("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']");
+Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']",data.get(dataSet).get("Email"));
+Sync.waitElementPresent("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='firstname']");
+Common.textBoxInput("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='firstname']",data.get(dataSet).get("FirstName"));
+Sync.waitElementPresent("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='lastname']");
+Common.textBoxInput("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='lastname']",data.get(dataSet).get("LastName"));
+/*Sync.waitElementPresent("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='company']");
+Common.textBoxInput("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//input[@name='company']",data.get(dataSet).get("CompanyName"));*/
+Sync.waitElementPresent("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='company']");
+Common.textBoxInput("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='company']",data.get(dataSet).get("CompanyName"));
+Sync.waitElementPresent("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='street[0]']");
+Common.textBoxInput("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='street[0]']", data.get(dataSet).get("Street"));
+Common.dropdown("xpath", "//fieldset[contains(@class,'fieldset')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+Thread.sleep(5000);
+String Billingvalue = Common.findElement("xpath", "//select[@name='region_id']").getAttribute("value");
+String BillingState = Common.findElement("xpath", "//select[@name='region_id']//option[@value='" + Billingvalue + "']").getText(); BillingAddress.put("BillingState", BillingState);
+Thread.sleep(4000);
+Common.textBoxInput("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='city']", data.get(dataSet).get("City"));
+//Common.dropdown("xpath", "//div[contains(@name,'billingAddressime_paymetrictokenize')]//select[@name='region_id']", Common.SelectBy.TEXT, data.get(dataSet).get("Region"));
+//Thread.sleep(4000);
+Common.textBoxInput("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='postcode']", data.get(dataSet).get("postcode"));
+Thread.sleep(5000);
+String BillingZip = Common.findElement("name", "postcode").getAttribute("value");
+System.out.println("*****" + BillingZip + "*******");
+BillingAddress.put("BillingZip", BillingZip);
+Common.textBoxInput("xpath", "//fieldset[contains(@class,'fieldset')]//input[@name='telephone']", data.get(dataSet).get("phone"));
+Common.actionsKeyPress(Keys.PAGE_DOWN);
+Thread.sleep(5000);
+Common.scrollIntoView("xpath", "//button[contains(@class,'action-update')]");
+Thread.sleep(5000);
+Common.mouseOverClick("xpath", "//button[contains(@class,'action-update')]");
+Thread.sleep(5000);
+int sizeerrormessage=Common.findElements("xpath", "//span[contains(text(),'This is a required field')]").size();
+System.out.println("error messagess "+sizeerrormessage);
+Common.assertionCheckwithReport(sizeerrormessage<=0, "verifying Billing addres filling ", "user will fill the all the billing address", "user fill the shipping address click save button", "faield to add new shipping address");
+}
+catch(Exception |Error e) {
+e.printStackTrace();
+ExtenantReportUtils.addFailedLog("verifying Billing addres filling", "user will fill the all the Billing address", "faield to add new billing address",Common.getscreenShotPathforReport("faieldssbillingpagefilling"));
+Assert.fail();
+}
+return BillingAddress;
+}
+
+
+
+
+public HashMap<String,String> Egift_Product_OrderSummaryValidation() {
+	// TODO Auto-generated method stub
+	HashMap<String,String> data=new HashMap<String,String>();
+	try{
+	Thread.sleep(3000);
+
+	String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
+	// subtotla.replace("", newChar)
+	Float subtotlaValue=Float.valueOf(subtotla);
+	data.put("subtotlaValue",subtotla);
+
+	// Capabilities cap = (WebDriver).getCapabilities();
+
+	String shippingammount="";
+	data.put("shippingammountvalue",shippingammount);
+
+	String ActualTotalAmmount=Common.getText("xpath", "//tr[@class='grand totals']//span").replace("$", "");
+	Float ActualTotalammountvalue=Float.valueOf(ActualTotalAmmount);
+	data.put("ActualTotalammountvalue",ActualTotalAmmount);
+
+	int SizesofDis= Common.findElements("xpath", "(//span[@data-th='checkout.sidebar.summary.totals.discount'])").size();
+	if(SizesofDis>0) {
+	String Discount=Common.getText("xpath", "(//span[@data-th='checkout.sidebar.summary.totals.discount'])").replace("-$", "");
+	Float Discountammountvalue=Float.valueOf(Discount);
+	data.put("Discountammountvalue",Discount);
+
+	}
+	else {
+
+	String Discountammountvalue= "0.00";
+	data.put("Discountammountvalue",Discountammountvalue);
+
+	}
+
+	int Sizes1= Common.findElements("xpath", "//span[@data-th='Shipping']").size();
+	if(Sizes1>0) {
+	String shipingammount=Common.getText("xpath", "//span[@data-th='Shipping']").replace("$", "");
+	Float shippingammountvalue=Float.valueOf(shipingammount);
+	data.put("shippingammountvalue",shipingammount);
+
+
+	Float ExpectedTotalAmmount = subtotlaValue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+
+	}
+	else {
+	String shipingammount= "0.00";
+	data.put("shippingammountvalue",shipingammount);
+
+	Float ExpectedTotalAmmount = subtotlaValue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+	}
+
+
+	int Sizes= Common.findElements("xpath", "//td[@data-th='Tax']//span").size();
+	if(Sizes>0) {
+	String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax']//span").replace("$", "");
+	Float Taxammountvalue=Float.valueOf(TaxAmmount);
+	data.put("Taxammountvalue",TaxAmmount);
+
+
+	Float ExpectedTotalAmmount = subtotlaValue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+
+	}
+	else {
+	String Taxammountvalue= "0.00";
+	data.put("Taxammountvalue",Taxammountvalue);
+
+	Float ExpectedTotalAmmount = subtotlaValue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+	}
+
+
+	ExtenantReportUtils.addPassLog("verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
+	}
+	catch(Exception |Error e)
+	{
+	report.addFailedLog("verifying tax calculation", "getting price values from shipping page ", "Faield to get price value from shipping page", Common.getscreenShotPathforReport("TaxRates"));
+
+
+
+	e.printStackTrace();
+	Assert.fail();
+
+	}
+
+
+
+
+	return data;
+
+	}
 
 
 
@@ -431,9 +629,9 @@ public void SelectShampoos(){
 public void Select_DryShampoo(){
 	try{
 		Thread.sleep(5000);
-		Close_popup();
-		Sync.waitElementPresent("xpath", "(//li[@class='item category-item'])[10]");
-	Common.clickElement("xpath", "(//li[@class='item category-item'])[10]");
+
+		Sync.waitElementPresent("xpath", "//span[text()='Dry Shampoo']");
+	Common.clickElement("xpath", "//span[text()='Dry Shampoo']");
 	Common.assertionCheckwithReport(Common.getPageTitle().equals("Dry Shampoos - Cruelty & Sulfate Free Dry Conditioner & Shampoo | Drybar"), "verifying DryShampoos sub-category","User navigate to DryShampoos PLP page","user successfully landed on DryShampoos PLP", "user faield to click the DryShampoos sub-category");
 	}
 		catch(Exception |Error e) {
@@ -463,9 +661,9 @@ public void Select_DryShampoo(){
 public void Select_GiftCards_Category(){
     try{
         Thread.sleep(5000);
-        Sync.waitElementPresent("xpath", "(//div[contains(text(),'Gift Cards')])[2]");
+        Sync.waitElementPresent("xpath", "//span[text()='Gifts & Kits']");
         Thread.sleep(5000);
-    Common.clickElement("xpath", "(//div[contains(text(),'Gift Cards')])[2]");
+    Common.clickElement("xpath", "//span[text()='Gifts & Kits']");
     Sync.waitPageLoad();
     Thread.sleep(2000);
     String Card=Common.findElement("xpath", "(//a[@class='product-item-link'])").getText();
@@ -695,8 +893,7 @@ public void Select_sort(String dataSet) {
 	
 	try {
 		Sync.waitPageLoad();
-		Common.actionsKeyPress(Keys.PAGE_UP);
-		Common.actionsKeyPress(Keys.PAGE_UP);
+		
 		Sync.waitElementPresent("id", "sorter");
 		Thread.sleep(5000);
 		Common.dropdown("id", "sorter", Common.SelectBy.TEXT, data.get(dataSet).get("New"));
@@ -711,7 +908,9 @@ public void Select_sort(String dataSet) {
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
 		Common.actionsKeyPress(Keys.ARROW_DOWN);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		Common.mouseOver("xpath", "(//img[@class='product-image-photo'])[11]");
+		Thread.sleep(3000);
 		ExtenantReportUtils.addPassLog("verifying New sort option", "User should select New sort",
 				"user faield to Select the New sort option", Common.getscreenShotPathforReport("New"));
 		Thread.sleep(5000);
@@ -923,24 +1122,28 @@ public void Select_Configurable_product(){
 
 
 public void Selectproduct() {
-	try {
-		Sync.waitPageLoad();
-		Thread.sleep(4000);
-		Sync.waitElementPresent("xpath", "(//a[@class='product-item-link'])[1]");
-		Common.clickElement("xpath", "(//a[@class='product-item-link'])[1]");
-		Sync.waitPageLoad();
-		Thread.sleep(4000);		
-		Common.assertionCheckwithReport(Common.getPageTitle().equals("Drybar Liquid Glass Smoothing Shampoo | Drybar"),"verifying Liquid glass smooothing PDP", "Should land on Liquid glass smoothing shampoo PDP",
-				"user successfully landed on Liquid glass smoothing shampoo PDP",
-				"user faield to click on Liqui glass smoothing shampoo product");
-	} catch (Exception | Error e) {
+try {
+Sync.waitPageLoad();
+Thread.sleep(4000);
+Sync.waitElementPresent("xpath", "(//a[contains(text(),'Liquid Glass Smoothing Shampo')])");
+Common.clickElement("xpath", "(//a[contains(text(),'Liquid Glass Smoothing Shampo')])");
+Sync.waitPageLoad();
+Thread.sleep(4000);
+Common.assertionCheckwithReport(Common.getPageTitle().equals("Drybar Liquid Glass Smoothing Shampoo | Drybar"),"verifying Liquid glass smooothing PDP", "Should land on Liquid glass smoothing shampoo PDP",
+"user successfully landed on Liquid glass smoothing shampoo PDP",
+"user faield to click on Liqui glass smoothing shampoo product");
+} catch (Exception | Error e) {
 
-		ExtenantReportUtils.addFailedLog("verifying Hair Product category PDP",
-				"User should select liquid glass smoothing shampoo product",
-				"user faield to select liquid glass smoothing shampoo product",
-				Common.getscreenShotPathforReport("FAILED to select  liquid glass smoothing shampoo product"));
-		Assert.fail();
-	}
+
+
+ExtenantReportUtils.addFailedLog("verifying Hair Product category PDP",
+"User should select liquid glass smoothing shampoo product",
+"user faield to select liquid glass smoothing shampoo product",
+Common.getscreenShotPathforReport("FAILED to select liquid glass smoothing shampoo product"));
+Assert.fail();
+}
+
+
 
 }
 
@@ -948,13 +1151,15 @@ public void Select_Aerosol_product() {
 	try {
 		Sync.waitPageLoad();
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
+		/*Common.actionsKeyPress(Keys.PAGE_DOWN);
 		Common.actionsKeyPress(Keys.PAGE_DOWN);
-		Common.actionsKeyPress(Keys.PAGE_DOWN);
-		Common.actionsKeyPress(Keys.PAGE_DOWN);
-		Thread.sleep(3000);
-		Sync.waitElementPresent("xpath", "(//a[contains(text(),'Detox Clear Invisible Dry Shampo')])");
-		Thread.sleep(3000);
-		Common.clickElement("xpath", "(//a[contains(text(),'Detox Clear Invisible Dry Shampo')])");
+		Common.actionsKeyPress(Keys.PAGE_DOWN);*/
+		Thread.sleep(5000);
+		/*Sync.waitElementPresent("xpath","//button[@class='next-slide icon-right-arrow arrow slick-arrow']");
+		Common.clickElement("xpath","//button[@class='next-slide icon-right-arrow arrow slick-arrow']");*/
+		Sync.waitElementPresent("xpath", "(//a[contains(text(),'Detox Clear Invisible Dry Shampo')])[1]");
+		Thread.sleep(5000);
+		Common.clickElement("xpath", "(//a[contains(text(),'Detox Clear Invisible Dry Shampo')])[1]");
 		Common.assertionCheckwithReport(
 				Common.getPageTitle().equals("Drybar Detox Invisible Clear Dry Shampoo | Drybar"),
 				"verifying Aerosol product PDP", "Should land on Aerosol product PDP",
@@ -973,8 +1178,12 @@ public void Select_Aerosol_product() {
 public void Select_EGiftCard(){
 	try{
 		Sync.waitPageLoad();
-		Sync.waitElementPresent("xpath", "(//a[@class='product-item-link'])");
-	Common.clickElement("xpath", "(//a[@class='product-item-link'])");
+		int size=Common.findElements("xpath", "(//a[contains(text(),'EGift Card')])").size();
+		System.out.println(size);
+		if(size>0) {
+		Common.clickElement("xpath", "(//a[contains(text(),'EGift Card')])");
+		}
+	
 	String Title=Common.findElement("xpath", "(//h1[(@class='page-title')])").getText();
 	Common.assertionCheckwithReport(Title.equals("EGift Card"), "verifying EGiftCard PDP","Should land on EGiftCard PDP","user successfully landed on EGiftCard PDP", "user faield to click on EGiftCard product in PLP");
 }
@@ -1150,6 +1359,197 @@ catch(Exception |Error e) {
 	ExtenantReportUtils.addFailedLog("verifying product detail page", "user navigate to product detailepage", "user Failed navigate to product detail page", Common.getscreenShotPathforReport("productpage"));
 	Assert.fail();
 }
+}
+
+public HashMap<String,String> OrderSummaryValidation() {
+	// TODO Auto-generated method stub
+	HashMap<String,String> data=new HashMap<String,String>();
+	try{
+	Thread.sleep(3000);
+
+
+
+
+
+	String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
+	// subtotla.replace("", newChar)
+	Float subtotlaValue=Float.valueOf(subtotla);
+	data.put("subtotlaValue",subtotla);
+
+	// Capabilities cap = (WebDriver).getCapabilities();
+
+	String shippingammount=Common.getText("xpath", "//span[@data-th='Shipping']").replace("$", "");
+	Float shippingammountvalue=Float.valueOf(shippingammount);
+	data.put("shippingammountvalue",shippingammount);
+
+	String ActualTotalAmmount=Common.getText("xpath", "//tr[@class='grand totals']//span").replace("$", "");
+	Float ActualTotalammountvalue=Float.valueOf(ActualTotalAmmount);
+	data.put("ActualTotalammountvalue",ActualTotalAmmount);
+
+	int SizesofDis= Common.findElements("xpath", "(//span[@data-th='checkout.sidebar.summary.totals.discount'])").size();
+	if(SizesofDis>0) {
+	String Discount=Common.getText("xpath", "(//span[@data-th='checkout.sidebar.summary.totals.discount'])").replace("-$", "");
+	Float Discountammountvalue=Float.valueOf(Discount);
+	data.put("Discountammountvalue",Discount);
+
+	}
+	else {
+
+	String Discountammountvalue= "0.00";
+	data.put("Discountammountvalue",Discountammountvalue);
+
+	}
+
+
+	int Sizes= Common.findElements("xpath", "//td[@data-th='Tax']//span").size();
+	if(Sizes>0) {
+
+	// Float Taxrate=data.get(dataset).get("tax");
+
+	String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax']//span").replace("$", "");
+	Float Taxammountvalue=Float.valueOf(TaxAmmount);
+	data.put("Taxammountvalue",TaxAmmount);
+
+
+	Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue+Taxammountvalue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+
+	}
+	else {
+	String Taxammountvalue= "0.00";
+	data.put("Taxammountvalue",Taxammountvalue);
+
+	Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+	}
+
+
+	ExtenantReportUtils.addPassLog("verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
+	}
+	catch(Exception |Error e)
+	{
+	report.addFailedLog("verifying tax calculation", "getting price values from shipping page ", "Faield to get price value from shipping page", Common.getscreenShotPathforReport("TaxRates"));
+
+
+
+	e.printStackTrace();
+	Assert.fail();
+
+	}
+
+
+
+
+	return data;
+
+	}
+
+
+public HashMap<String, String> creditCard_payment(String dataSet) throws Exception {
+HashMap<String, String> Payment = new HashMap<String, String>();
+
+
+
+try {
+
+
+
+// Common.scrollIntoView("id", "paymetric_xisecure_frame");
+// Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
+Thread.sleep(5000);
+Common.switchFrames("id", "paymetric_xisecure_frame");
+int size = Common.findElements("xpath", "//select[@id='c-ct']").size();
+Common.switchToDefault();
+Common.assertionCheckwithReport(size > 0, "validating Creditcard option", "click the creadit card label",
+"clicking credit card label and open the card fields", "user faield to open credit card form");
+} catch (Exception | Error e) {
+e.printStackTrace();
+ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label",
+"faield to click Credit Card option", Common.getscreenShotPathforReport("Cardinoption"));
+Assert.fail();
+
+
+
+}
+
+
+
+try {
+
+
+
+Thread.sleep(2000);
+// Common.refreshpage();
+Common.switchFrames("id", "paymetric_xisecure_frame");
+Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
+String Cardtype=Common.findElement("xpath", "//select[@id='c-ct']").getAttribute("value");
+String Card=Common.findElement("xpath","//select[@id='c-ct']//option[@value='"+Cardtype+"']").getText();
+Payment.put("Card", Card);
+System.out.println("******" +Card+ "*****");
+Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
+Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT,data.get(dataSet).get("ExpMonth"));
+Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));
+Thread.sleep(2000);
+
+
+
+// Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.switchToDefault();
+
+Thread.sleep(3000);
+Common.scrollIntoView("xpath", "//span[contains(text(),'Place Order')]");
+Thread.sleep(6000);
+String URL = Common.getCurrentURL();
+Thread.sleep(4000);
+if (URL.equals("https://www.drybar.com/checkout/#payment")) {
+
+
+
+Common.getCurrentURL();
+System.out.println(URL);
+
+
+
+} else {
+
+
+
+Common.mouseOverClick("xpath", "//span[contains(text(),'Place Order')]");
+}
+
+
+
+// Common.clickElement("xpath", "(//button[@title='Place Order'])");
+
+
+
+Common.switchFrames("id", "paymetric_xisecure_frame");
+String expectedResult = "credit card fields are filled with the data";
+String errorTexts = Common.findElement("xpath", "//div[contains(@id,'error')]").getText();
+Common.switchToDefault();
+Common.assertionCheckwithReport(errorTexts.isEmpty(),
+"validating the credit card information with valid data", expectedResult, "Filled the Card detiles",
+"missing field data it showinng error");
+
+
+
+Sync.waitPageLoad();
+} catch (Exception | Error e) {
+ExtenantReportUtils.addFailedLog("validating the Credit Card infromation",
+"credit card fields are filled with the data", "faield to fill the Credit Card infromation",
+Common.getscreenShotPathforReport("Cardinfromationfail"));
+Assert.fail();
+
+
+
+}
+return Payment;
+
+
+
 }
 
 public void clickCheckoutButton(){
@@ -1608,83 +2008,144 @@ try{
 	    	Thread.sleep(5000);
 	         Common.mouseOverClick("xpath", "(//td[text()='Standard'])");
 	          Thread.sleep(3000);
-	          ExtenantReportUtils.addPassLog("To verify the Standard shipping method", "Should click on standard shipping method", "user successfully clicked on standard shipping method", Common.getscreenShotPathforReport("Successfully clicked on standard shipping method"));
+	          ExtenantReportUtils.addPassLog("To verify the Standard ground shipping method", "Should click on standard ground shipping method", "user successfully clicked on standard ground shipping method", Common.getscreenShotPathforReport("Successfully clicked on standard ground shipping method"));
 	        	//Common.assertionCheckwithReport(Addtobag.equals("Add to Bag"), "To verify the PDP Page", "Should land on  PDP page", "user successfully landed on PDP page", Common.getscreenShotPathforReport(""));
 	      }catch(Exception |Error e) {
-	      		ExtenantReportUtils.addFailedLog("To verify the standard shipping method","Should click on standard shipping method", "user unable to click on standard shipping method", Common.getscreenShotPathforReport("failed to click on standard shipping method"));			
+	      		ExtenantReportUtils.addFailedLog("To verify the standard ground shipping method","Should click on standard ground shipping method", "user unable to click on standard ground shipping method", Common.getscreenShotPathforReport("failed to click on standard ground shipping method"));			
 	      		Assert.fail();	
 	      		}
 	  }
-	public void creditCard_payment(String dataSet) throws Exception {
-
-		try {
-
-			// Common.scrollIntoView("id", "paymetric_xisecure_frame");
-			// Common.clickElement("xpath", "//label[@for='ime_paymetrictokenize']");
-			Thread.sleep(5000);
-			Common.switchFrames("id", "paymetric_xisecure_frame");
-			int size = Common.findElements("xpath", "//select[@id='c-ct']").size();
-			Common.switchToDefault();
-			Common.assertionCheckwithReport(size > 0, "validating Creditcard option", "click the creadit card label",
-					"clicking credit card label and open the card fields", "user faield to open credit card form");
-		} catch (Exception | Error e) {
-			e.printStackTrace();
-			ExtenantReportUtils.addFailedLog("validating the Credit Card option", "click the creadit card label",
-					"faield to click Credit Card option", Common.getscreenShotPathforReport("Cardinoption"));
-			Assert.fail();
-
-		}
-
-		try {
-
-			Thread.sleep(2000);
-			// Common.refreshpage();
-			Common.switchFrames("id", "paymetric_xisecure_frame");
-			Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
-			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
-			Common.dropdown("xpath", "//select[@id='c-exmth']", Common.SelectBy.TEXT,
-					data.get(dataSet).get("ExpMonth"));
-			Common.dropdown("xpath", "//select[@id='c-exyr']", Common.SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
-			Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));
-			Thread.sleep(2000);
-
-			// Common.actionsKeyPress(Keys.ARROW_DOWN);
-			Common.switchToDefault();
-			Thread.sleep(3000);
-			Common.scrollIntoView("xpath", "//span[contains(text(),'Place Order')]");
-			Thread.sleep(6000);
-			String URL = Common.getCurrentURL();
-			Thread.sleep(4000);
-			if (URL.equals("https://www.drybar.com/checkout/#payment")) {
-
-				Common.getCurrentURL();
-				System.out.println(URL);
-
-			} else {
-
-				Common.mouseOverClick("xpath", "//span[contains(text(),'Place Order')]");
-			}
-
-			// Common.clickElement("xpath", "(//button[@title='Place Order'])");
-
-			Common.switchFrames("id", "paymetric_xisecure_frame");
-			String expectedResult = "credit card fields are filled with the data";
-			String errorTexts = Common.findElement("xpath", "//div[contains(@id,'error')]").getText();
-			Common.switchToDefault();
-			Common.assertionCheckwithReport(errorTexts.isEmpty(),
-					"validating the credit card information with valid data", expectedResult, "Filled the Card detiles",
-					"missing field data it showinng error");
-
-			Sync.waitPageLoad();
-		} catch (Exception | Error e) {
-			ExtenantReportUtils.addFailedLog("validating the Credit Card infromation",
-					"credit card fields are filled with the data", "faield  to fill the Credit Card infromation",
-					Common.getscreenShotPathforReport("Cardinfromationfail"));
-			Assert.fail();
-
-		}
-
+	
+	
+	
+	
+	public void writeOrderNumber(String Website, String OrderIdNumber,String Description, String subtotlaValue, String shippingammountvalue, String Taxammountvalue,String ActualTotalammountvalue,String ExpectedTotalammountvalue,String Discountammountvalue, String ShippingState,String ShippingZip, String Card) throws FileNotFoundException, IOException
+	{
+	//String fileOut="";
+	try{
+	File file=new File(System.getProperty("user.dir")+"/src/test/resources/DryBar_E2E_orderDetails.xlsx");
+	XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+	XSSFSheet sheet;
+	Row row;
+	Cell cell;
+	int rowcount;
+	sheet = workbook.getSheet("OrderDetails");
+	if((workbook.getSheet("OrderDetails"))==null)
+	{
+	sheet = workbook.createSheet("OrderDetails");
+	CellStyle cs = workbook.createCellStyle();
+	cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+	cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+	Font f = workbook.createFont();
+	f.setBold(true);
+	cs.setFont(f);
+	cs.setAlignment(HorizontalAlignment.RIGHT);
+	row = sheet.createRow(0);
+	cell = row.createCell(0);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Orders Details");
+	row = sheet.createRow(1);
+	cell = row.createCell(0);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Web Order Number");
+	rowcount=2;
 	}
+	else
+	{
+	sheet=workbook.getSheet("OrderDetails");
+	rowcount=sheet.getLastRowNum()+1;
+	}
+	row = sheet.createRow(rowcount);
+	cell = row.createCell(0);
+	cell.setCellType(CellType.NUMERIC);
+	int SNo=rowcount-1;
+	cell.setCellValue(SNo);
+	cell = row.createCell(1);
+	cell.setCellType(CellType.STRING);
+	String websitename;
+	if(Website.contains("drybar"))
+	{
+	websitename="Drybar";
+	}
+	else
+	{
+	websitename="";
+	}
+	cell.setCellValue(websitename);
+	cell = row.createCell(2);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue("Lotuswave");
+	cell = row.createCell(3);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue(Description);
+	cell = row.createCell(4);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(OrderIdNumber);
+	cell = row.createCell(5);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue("Order placed Successfully");
+	cell = row.createCell(6);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue("Processing"); cell = row.createCell(7);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(subtotlaValue);
+	cell = row.createCell(8);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(shippingammountvalue);
+	cell = row.createCell(9);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue(ShippingState);
+	cell = row.createCell(10);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(ShippingZip);
+	cell = row.createCell(11);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue(Taxammountvalue);
+	cell = row.createCell(12);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(ExpectedTotalammountvalue);
+	cell = row.createCell(13);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(Discountammountvalue);
+	cell = row.createCell(14);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(ActualTotalammountvalue);
+	cell = row.createCell(15);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(Card);
+	System.out.println(OrderIdNumber);
+	//String subtotla = Float.toString(subtotlaValue);
+	//System.out.println("String is: "+subtotla);
+	System.out.println(subtotlaValue);
+	//String shippingammount = Float.toString(shippingammountvalue);
+	//System.out.println("String is: "+shippingammount);
+	System.out.println(shippingammountvalue);
+	//String Taxammount = Float.toString(Taxammountvalue);
+	//System.out.println("String is: "+Taxammount);
+	System.out.println(Taxammountvalue);
+	//String Totalammount = Float.toString(Totalammountvalue);
+	//System.out.println("String is: "+Totalammount);
+	System.out.println(ActualTotalammountvalue);
+	System.out.println(ExpectedTotalammountvalue);
+	//String Actualtax = Float.toString(ActualTax);
+	//System.out.println("String is: "+Actualtax);
+	//System.out.println(giventaxvalue);
+	//String userpaneltax = Float.toString(userpaneltaxvalue);
+	//System.out.println("String is: "+userpaneltax);
+	//System.out.println(calucaltedvalue);
+	FileOutputStream fileOut = new FileOutputStream(file);
+	workbook.write(fileOut);
+	fileOut.flush();
+	fileOut.close();
+	//return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue);
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
+	// return fileOut;
+	// return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue); }
+	}
+
+	
 	
 public void creditCard_payment_invalid_CC(String dataSet) throws Exception{
 	
@@ -1813,7 +2274,7 @@ public void navigateMyAccount() throws InterruptedException {
 	String expectedResult = "User should land on the home page";
 	int size =Common.findElements("xpath", "//a[@class='logo']").size();
 	Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
-	 Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
+	// Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
 	try {
 		Sync.waitPageLoad();
 		Thread.sleep(5000);
@@ -2165,7 +2626,7 @@ public void ClearMiniCart_Bag() throws InterruptedException {
 			Common.getCurrentURL();
 		} else {
 			
-			int size = Common.findElements("xpath", "(//span[contains(text(),'$0.00')])").size();
+			int size = Common.findElements("xpath", "//td[text()='Expedited']").size();
 			if (size > 0) {
 				List<WebElement> Products = Common.findElements("xpath", "(//ol//li)");
 				System.out.println(Products);
@@ -2281,32 +2742,7 @@ public void addproductInMiniCartPage() throws Exception{
 	
 	
 }
-public void gitCard(String dataSet) throws Exception{
-	try{
-		Thread.sleep(5000);
-	Common.scrollIntoView("id", "block-giftcard-heading");
-	Common.clickElement("id", "block-giftcard-heading");
-	
-	Thread.sleep(5000);
 
-Common.textBoxInput("id","giftcard-code",data.get(dataSet).get("GiftCardCode"));
-	
-	Common.textBoxInput("id","giftcard-pin",data.get(dataSet).get("GiftCardPin"));
-	
-	
-	Common.clickElement("xpath", "//button[@value='Apply']");
-	
-	Thread.sleep(3000);
-	int size=Common.findElements("xpath", "//div[contains(@class,'message-success')]/div").size();
-	Common.assertionCheckwithReport(size>0, "validating the gift card", "Gift Card was added.", "successfully gift card was added","Failed to add gift card");
-	}
-	catch (Exception | Error e) {
-		e.printStackTrace();
-		ExtenantReportUtils.addFailedLog("validating the gift card","Gift Card was added.","User faield to to add gift card",Common.getscreenShotPathforReport("gitcard"));
-        Assert.fail();
-        }
-	
-}
 public void click_place_order_button(){
 	try{
 		
@@ -2321,6 +2757,82 @@ public void click_place_order_button(){
         }
 		
 }
+
+public void Select_Aerosol_Bundle_product(){
+try{
+Sync.waitPageLoad();
+Sync.waitElementPresent("xpath", "(//a[contains(text(),'QA Test Bundle 2 - Aerosols')])");
+Common.clickElement("xpath", "(//a[contains(text(),'QA Test Bundle 2 - Aerosols')])");
+Thread.sleep(5000);
+Common.assertionCheckwithReport(Common.getPageTitle().equals("QA Test Set Bundle 2 | Drybar"), "verifying Aerosols special valueset PDP","Should land on Aerosols special valueset PDP","user successfully landed on Aerosols special valueset PDP", "user faield to click on Aerosols special valueset product");
+}
+catch(Exception |Error e) {
+ExtenantReportUtils.addFailedLog("verifying Aerosols special valueset PDP", "User should select Aerosols special valueset product", "user faield to select Aerosols special valueset product", Common.getscreenShotPathforReport("FAILED to select Aerosols special valueset"));
+Assert.fail();
+}
+}
+
+
+public void Select_Default_Options_Bundle_product(){
+try{
+Sync.waitPageLoad();
+Sync.waitElementPresent("xpath", "(//a[contains(text(),'QA Test Bundle 3 - Default')])");
+Common.clickElement("xpath", "(//a[contains(text(),'QA Test Bundle 3 - Default')])");
+Thread.sleep(5000);
+Common.assertionCheckwithReport(Common.getPageTitle().equals("QA Test Set Bundle 3 | Drybar"), "verifying Default Bundle special valueset PDP","Should land on Default Bundle special valueset PDP","user successfully landed on Default Bundle special valueset PDP", "user faield to click on Default Bundle special valueset product");
+}
+catch(Exception |Error e) {
+
+ExtenantReportUtils.addFailedLog("verifying Default Bundle special valueset PDP", "User should select Default Bundle special valueset product", "user faield to select Default Bundle special valueset product", Common.getscreenShotPathforReport("FAILED to select Default Bundle special valueset"));
+Assert.fail();
+}
+}
+
+public void Select_Another_Same_SKU_product() {
+try {
+Sync.waitPageLoad();
+Thread.sleep(4000);
+Sync.waitElementPresent("xpath", "(//a[contains(text(),'Sake Bomb Nourishing Shampoo')])");
+Common.clickElement("xpath", "(//a[contains(text(),'Sake Bomb Nourishing Shampoo')])");
+Sync.waitPageLoad();
+Thread.sleep(4000);
+Common.assertionCheckwithReport(Common.getPageTitle().equals("Drybar Sake Bomb Shampoo | Drybar"),"verifying Sake Bomb Nourishing Shampoo PDP", "Should land on Sake Bomb Nourishing Shampoo PDP",
+"user successfully landed on Sake Bomb Nourishing Shampoo PDP",
+"user faield to click on Sake Bomb Nourishing Shampoo product");
+} catch (Exception | Error e) {
+
+
+
+ExtenantReportUtils.addFailedLog("verifying Sake Bomb Nourishing Shampoo PDP",
+"User should select Sake Bomb Nourishing Shampoo product",
+"user faield to select Sake Bomb Nourishing Shampoo product",
+Common.getscreenShotPathforReport("FAILED to select Sake Bomb Nourishing Shampoo product"));
+Assert.fail();
+}
+
+
+
+}
+
+
+
+
+public void Select_Full_Size() throws Exception {
+try {
+Thread.sleep(3000);
+Sync.waitElementPresent("xpath", "(//div[(text()='Full')])");
+Common.clickElement("xpath", "(//div[(text()='Full')])");
+Thread.sleep(5000);
+ExtenantReportUtils.addPassLog("To Verify the Swath option","It should select swath options", "successfully selected Swatch options", "Swatch options");
+}catch(Exception |Error e) {
+ExtenantReportUtils.addFailedLog("To verify the Swath options","should select Swath options", "user unable to select Swath options", Common.getscreenShotPathforReport("failed to select Swath options"));
+Assert.fail();
+}
+}
+
+
+
+
 
 public void click_forgotpassword() throws Exception{
 	try{
@@ -4127,6 +4639,65 @@ public void Click_Videos() {
 
 }
 
+public HashMap<String, String> guestShipingAddress(String dataSet) throws Exception{
+HashMap<String, String> Shippingaddress = new HashMap<String, String>();
+try{
+Sync.waitElementPresent("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']");
+Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']",data.get(dataSet).get("Email"));
+Sync.waitElementPresent("xpath", "//input[@name='firstname']");
+Common.textBoxInput("xpath", "//input[@name='firstname']", data.get(dataSet).get("FirstName"));
+Sync.waitElementPresent("xpath", "//input[@name='lastname']");
+Common.textBoxInput("xpath", "//input[@name='lastname']", data.get(dataSet).get("LastName"));
+/*Sync.waitElementPresent("xpath", "//input[@name='lastname']");
+Common.textBoxInput("xpath", "//input[@name='lastname']", data.get(dataSet).get("LastName"));*/
+Sync.waitElementPresent("xpath", "//input[@name='company']");
+Common.textBoxInput("xpath", "//input[@name='company']", data.get(dataSet).get("CompanyName")); Sync.waitElementPresent("xpath", "//input[@name='street[0]']");
+Common.textBoxInput("xpath", "//input[@name='street[0]']", data.get(dataSet).get("Street"));
+/*
+Sync.waitElementPresent("xpath", "//select[@name='country_id']");
+Common.dropdown("xpath", "//select[@name='country_id']", SelectBy.TEXT, data.get(dataSet).get("Countryname"));*/
+Thread.sleep(3000);
+Common.dropdown("xpath", "//select[@name='region_id']", Common.SelectBy.TEXT,data.get(dataSet).get("Region"));
+Thread.sleep(5000);
+String Shippingvalue = Common.findElement("xpath", "//select[@name='region_id']").getAttribute("value");
+String Shippingstate = Common.findElement("xpath", "//select[@name='region_id']//option[@value='" + Shippingvalue + "']").getText(); Shippingaddress.put("ShippingState", Shippingstate); Sync.waitElementPresent("xpath", "//input[@name='city']");
+Common.textBoxInput("xpath", "//input[@name='city']", data.get(dataSet).get("City"));
+Thread.sleep(2000);
+Common.textBoxInputClear("name", "postcode");
+Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+Thread.sleep(5000);
+String ShippingZip = Common.findElement("name", "postcode").getAttribute("value");
+System.out.println("*****" + ShippingZip + "*******");
+Shippingaddress.put("ShippingZip", ShippingZip);
+Thread.sleep(5000);
+Sync.waitElementPresent("xpath", "//input[@name='telephone']");
+Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(dataSet).get("phone"));
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.ENTER);
+}
+catch(Exception |Error e) {
+e.printStackTrace();
+ExtenantReportUtils.addFailedLog("verifying shipping addres filling", "user will fill the all the shipping", "faield to add new shipping address",Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
+Assert.fail();
+}
+System.out.println(Shippingaddress);
+return Shippingaddress;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public void Select_ProductVideos_SubCategory() {
 	try {
 
@@ -4597,55 +5168,7 @@ public void Signout() {
 
 
 
-public void guestShipingAddress(String dataSet) throws Exception{
-	try{
-	Sync.waitElementPresent("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']");
-	Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']",data.get(dataSet).get("Email"));
 
-	
-	Sync.waitElementPresent("xpath", "//input[@name='firstname']");
-	Common.textBoxInput("xpath", "//input[@name='firstname']", data.get(dataSet).get("FirstName"));
-	
-	Sync.waitElementPresent("xpath", "//input[@name='lastname']");
-	Common.textBoxInput("xpath", "//input[@name='lastname']", data.get(dataSet).get("LastName"));
-	
-	/*Sync.waitElementPresent("xpath", "//input[@name='lastname']");
-	Common.textBoxInput("xpath", "//input[@name='lastname']", data.get(dataSet).get("LastName"));*/
-	
-	Sync.waitElementPresent("xpath", "//input[@name='company']");
-	Common.textBoxInput("xpath", "//input[@name='company']", data.get(dataSet).get("CompanyName"));
-	
-	
-
-	Sync.waitElementPresent("xpath", "//input[@name='street[0]']");
-	Common.textBoxInput("xpath", "//input[@name='street[0]']", data.get(dataSet).get("Street"));
-	
-/*	
-	Sync.waitElementPresent("xpath", "//select[@name='country_id']");
-	Common.dropdown("xpath", "//select[@name='country_id']", SelectBy.TEXT, data.get(dataSet).get("Countryname"));*/
-	
-	Thread.sleep(3000);
-	Sync.waitElementPresent("xpath", "//select[@name='region_id']");
-	Common.dropdown("xpath", "//select[@name='region_id']", SelectBy.TEXT, data.get(dataSet).get("Region"));
-	
-	Sync.waitElementPresent("xpath", "//input[@name='city']");
-	Common.textBoxInput("xpath", "//input[@name='city']", data.get(dataSet).get("City"));
-	
-	Sync.waitElementPresent("xpath", "//input[@name='postcode']");
-	Common.textBoxInput("xpath", "//input[@name='postcode']", data.get(dataSet).get("postcode"));
-	
-	Sync.waitElementPresent("xpath", "//input[@name='telephone']");
-	Common.textBoxInput("xpath", "//input[@name='telephone']", data.get(dataSet).get("phone"));
-	Thread.sleep(3000);
-	Common.actionsKeyPress(Keys.ENTER);
-	}
-	catch(Exception |Error e) {
-		e.printStackTrace();
-		ExtenantReportUtils.addFailedLog("verifying shipping addres filling", "user will fill the all the shipping", "faield to add new shipping address",Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
-		Assert.fail();
-		
-	}  
-}
 public void verify_Country() {
 	try {
 		Thread.sleep(3000);
@@ -5265,12 +5788,12 @@ public void FilterOptionsPLP(){
        // String Cleanse_and_condition_count=Common.findElement("xpath", "(//span[@class='count'])[4]").getText();
         Thread.sleep(4000);
         String Toolbar_number=Common.findElement("xpath", "(//span[@class='toolbar-number'])[1]").getText();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
        /* Common.actionsKeyPress(Keys.ARROW_DOWN);
         Common.actionsKeyPress(Keys.ARROW_DOWN);
         Common.actionsKeyPress(Keys.ARROW_DOWN);*/
         Common.actionsKeyPress(Keys.ARROW_DOWN);
-        Common.assertionCheckwithReport(("6").equals(Toolbar_number), "verifying Cleanse and condition filter in Benefits", "Should select Cleanse & Condition", "user successfully selected Cleanse & condition filter", "Failed to select cleanse & condition filter");
+        Common.assertionCheckwithReport(("7").equals(Toolbar_number), "verifying Cleanse and condition filter in Benefits", "Should select Cleanse & Condition", "user successfully selected Cleanse & condition filter", "Failed to select cleanse & condition filter");
     }
     
     catch(Exception |Error e) 
@@ -5287,12 +5810,12 @@ try{
      Common.clickElement("xpath", "(//input[@type='radio'])[2]");
      Thread.sleep(4000);
      String Toolbar_number=Common.findElement("xpath", "(//span[@class='toolbar-number'])[1]").getText();
-     Thread.sleep(5000);
+     Thread.sleep(8000);
+   /*  Common.actionsKeyPress(Keys.ARROW_DOWN);
      Common.actionsKeyPress(Keys.ARROW_DOWN);
+     Common.actionsKeyPress(Keys.ARROW_DOWN);*/
      Common.actionsKeyPress(Keys.ARROW_DOWN);
-     Common.actionsKeyPress(Keys.ARROW_DOWN);
-     Common.actionsKeyPress(Keys.ARROW_DOWN);
-     Common.assertionCheckwithReport(("3").equals(Toolbar_number), "verifying $20.00 - $29.99 Price filter", "Should select $20.00 - $29.99 Price filter", "user successfully selected $20.00 - $29.99 Price filter", "Failed to select $20.00 - $29.99 Price filter");
+     Common.assertionCheckwithReport(("2").equals(Toolbar_number), "verifying $20.00 - $29.99 Price filter", "Should select $20.00 - $29.99 Price filter", "user successfully selected $20.00 - $29.99 Price filter", "Failed to select $20.00 - $29.99 Price filter");
 }
    
 catch(Exception |Error e) 
@@ -5314,7 +5837,7 @@ try{
    Common.actionsKeyPress(Keys.ARROW_UP);
    String Toolbar_number=Common.findElement("xpath", "(//span[@class='toolbar-number'])[1]").getText();
    Thread.sleep(5000);
-   Common.assertionCheckwithReport(("3").equals(Toolbar_number), "verifying Phthalate Free filter in Clean benefit", "user should select Phthalate Free filter in Clean benefit", "user successfully  selected Phthalate Free filter in Clean benefit", "Failed to select Phthalate Free filter in Clean beneft");
+   Common.assertionCheckwithReport(("2").equals(Toolbar_number), "verifying Phthalate Free filter in Clean benefit", "user should select Phthalate Free filter in Clean benefit", "user successfully  selected Phthalate Free filter in Clean benefit", "Failed to select Phthalate Free filter in Clean beneft");
 }
  
 catch(Exception |Error e) 
@@ -5336,7 +5859,7 @@ try{
    Common.actionsKeyPress(Keys.ARROW_UP);
    String Toolbar_number=Common.findElement("xpath", "(//span[@class='toolbar-number'])[1]").getText();
    Thread.sleep(5000);
-   Common.assertionCheckwithReport(("3").equals(Toolbar_number), "verifying Honey free filter in clean benefit", "Should select Honey free filter in clean benefit", "user successfully selected Honey free filter in clean benefit", "Failed to select Honey free filter in clean benefit");
+   Common.assertionCheckwithReport(("2").equals(Toolbar_number), "verifying Honey free filter in clean benefit", "Should select Honey free filter in clean benefit", "user successfully selected Honey free filter in clean benefit", "Failed to select Honey free filter in clean benefit");
 }
  
 catch(Exception |Error e) 
@@ -5431,7 +5954,7 @@ try{
    Common.actionsKeyPress(Keys.ARROW_DOWN);
    Common.actionsKeyPress(Keys.ARROW_DOWN);
    Common.actionsKeyPress(Keys.ARROW_DOWN);
-   Common.assertionCheckwithReport(("1").equals(Toolbar_number), "verifying $30.00 - $39.99 price filter", "User should  select $30.00 - $39.99 price filter", "user successfully selected  select $30.00 - $39.99 price filter ", "Failed to select  select $30.00 - $39.99 price filter");
+   Common.assertionCheckwithReport(("2").equals(Toolbar_number), "verifying $30.00 - $39.99 price filter", "User should  select $30.00 - $39.99 price filter", "user successfully selected  select $30.00 - $39.99 price filter ", "Failed to select  select $30.00 - $39.99 price filter");
 }
  
 catch(Exception |Error e) 
@@ -5994,6 +6517,8 @@ public void prepareTaxData(String fileName) {
 			}
 		}
 		
+		
+		
 		public void shippingaddress1(String dataSet,String Street,String City,String postcode,String Region) throws InterruptedException {
 			 try {
 			    	Common.textBoxInput("xpath", "//fieldset[@id='customer-email-fieldset']//input[@id='customer-email']", data.get(dataSet).get("Email"));
@@ -6417,4 +6942,119 @@ public String  Verify_order() throws InterruptedException {
 
 }
 
+
+
+	public void prepareOrdersData(String fileName) {
+		// TODO Auto-generated method stub
+		try{
+
+
+			File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
+			XSSFWorkbook workbook;
+			XSSFSheet sheet;
+			Row row;
+			Cell cell;
+			int rowcount;
+			if(!(file.exists()))
+			{
+			workbook = new XSSFWorkbook();
+			sheet = workbook.createSheet("OrderDetails");
+			CellStyle cs = workbook.createCellStyle();
+			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+			Font f = workbook.createFont();
+			f.setBold(true);
+			cs.setFont(f);
+			cs.setAlignment(HorizontalAlignment.RIGHT);
+			row = sheet.createRow(0);
+			cell = row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Orders Details");
+
+
+			row = sheet.createRow(1);
+			cell = row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("S.No");
+			cell = row.createCell(1);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Website");
+			cell = row.createCell(2);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Tester");
+			cell = row.createCell(3);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Test scenario Description");
+			cell = row.createCell(4);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Web Order Number");
+			cell = row.createCell(5);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Order Confirnmation Message");
+			cell = row.createCell(6);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Order Status Magento");
+
+
+			cell = row.createCell(7);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Subtotal");
+			cell = row.createCell(8);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Shipping");
+			cell = row.createCell(9);
+			cell.setCellStyle(cs);
+			cell.setCellValue("State");
+			cell = row.createCell(10);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Zipcode");
+			cell = row.createCell(11);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Tax");
+			cell = row.createCell(12);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Estimated Order Total");
+			cell=row.createCell(13);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Discount");
+			cell=row.createCell(14);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Actual Order Total");
+			cell=row.createCell(15);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Payment Method");
+			rowcount=2;
+			}
+
+			else
+			{
+			workbook = new XSSFWorkbook(new FileInputStream(file));
+			sheet=workbook.getSheet("OrderDetails");
+			rowcount=sheet.getLastRowNum()+1;
+			}
+			/*row = sheet.createRow(rowcount);
+			cell = row.createCell(0);*/
+
+
+
+			FileOutputStream fileOut = new FileOutputStream(file);
+			workbook.write(fileOut);
+			fileOut.flush();
+			fileOut.close();
+
+
+
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+			}
+
+
+
+
+
+	
+		
+		
 }
+

@@ -63,7 +63,7 @@ public class TEST_ST_DB_044_RU_Visa_Tax_MultiProduct_FreightShip_same_BillShip {
 
 	@BeforeTest
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "DryBar\\config.properties");
+		 System.setProperty("configFile", "DryBar\\config.properties");
 		  Login.signIn();
 		 
 		  

@@ -30,7 +30,7 @@ public class TEST_ST_DB_063_GU_AmexCC_POBoxAddress {
 			  drybar.click_GuestCheckOut(); 
 			  drybar.Verify_FreeGift();
 			  drybar.guestShipingAddress("POBoxAddress");
-			  drybar.select_USPS_StandardGround_shippingMethod();
+			  drybar.Verify_Single_USPS_Ground_Shpping_Method();
 			  drybar.click_Next();
 			  drybar.creditCard_payment("ccamex");
 			  drybar.order_Success();		

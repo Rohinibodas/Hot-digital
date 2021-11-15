@@ -30,12 +30,12 @@ public class TEST_ST_DB_066_Tax_Calculation_in_Paymentpage {
 		    drybar.clickHairProducts();
 		    drybar.SelectShampoos();
 			drybar.Selectproduct();
-		    drybar.increaseProductQuantity("3");
+		 //   drybar.increaseProductQuantity("3");
 		    drybar.clickAddtoBag();
 		    drybar.clickminiCartButton();
 		    drybar.clickCheckoutButton(); 
 		    drybar.click_GuestCheckOut();
-		    drybar.ClearMiniCart_Bag();
+		    drybar.Verify_FreeGift();
 		    drybar.guestShipingAddress("ShippingAddress");
 		    drybar.Expediated_shippingmethod();
 		    drybar.click_Next();

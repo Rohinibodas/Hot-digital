@@ -24,7 +24,6 @@ public class TEST_ST_DB_067_Registereduser_Checkout_with_EGiftcard {
 			  drybar.loginApplication("HoTEmployeeAccountDetails");
 			  drybar.ClearMiniCart_Bag();
 			drybar.click_Gifts_and_Kits();
-			drybar.Select_GiftCards_Category();
 			drybar.Select_EGiftCard();
 		drybar.Enter_GiftCard_Details("GiftCardDetails");
 		    drybar.clickAddtoBag();
@@ -57,7 +56,7 @@ public class TEST_ST_DB_067_Registereduser_Checkout_with_EGiftcard {
 	public void clearBrowser()
 	{
 		
-		Common.closeAll();
+	Common.closeAll();
 
 	}
 
