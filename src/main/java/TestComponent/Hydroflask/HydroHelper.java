@@ -91,11 +91,7 @@ public class HydroHelper {
 			Assert.fail();
 
 		}
-		/*
-		 * String expectedResult="Open login, register pop up";
-		 * report.addPassLog(expectedResult,"click on the 'My Acount' link"
-		 * ,Common.getscreenShotPathforReport("my account"));
-		 */
+		
 	}
 
 	public void acceptPrivecy() {
