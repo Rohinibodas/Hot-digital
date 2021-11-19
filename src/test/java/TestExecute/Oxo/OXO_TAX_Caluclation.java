@@ -78,7 +78,7 @@ public class OXO_TAX_Caluclation {
 	
 	@BeforeMethod
 	public void startTest() throws Exception {
-		System.setProperty("configFile", "Oxo\\config.properties");
+		System.setProperty("configFile", "Oxo//config.properties");
 		Login.signIn();
 
        

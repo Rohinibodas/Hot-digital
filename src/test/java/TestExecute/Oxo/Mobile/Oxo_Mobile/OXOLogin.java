@@ -1,33 +1,24 @@
-package TestExecute.Oxo.Mobile;
+package TestExecute.Oxo.Mobile.Oxo_Mobile;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import TestComponent.oxo.OxoMobileHelper;
+import TestComponent.oxo.OXO_Mobilehelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Guest_Checkout_Paypal {
-	
+public class OXOLogin {
 	String datafile = "oxo//OxoTestData.xlsx";	
-	OxoMobileHelper oxo=new OxoMobileHelper(datafile);
+	OXO_Mobilehelper oxo=new OXO_Mobilehelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
-	  public void guest_checkout_Paypal() {
+	  public void OXO_Creat_account() {
 			try{
-				//oxo.closetheadd();
+				
 				oxo.acceptPrivecy();
-				/*oxo.clickBaby_Toddler();
-				oxo.addproducts("1");
-				oxo.checkout();
-				oxo.ShippingAddress("ShippingAddress");
-				oxo.selectGroundShippingMethod();
-				oxo.clickAcceptingaddress();
-				oxo.payPal_payment("PaypalDetails");*/
-				//oxo.VerifyaingConformationPage();
+				oxo.loginOxo("AccountDetails");
+				
 				}
 		catch (Exception e) {
 			
@@ -47,10 +38,10 @@ public class Guest_Checkout_Paypal {
 		 Login.signIn("chrome","iPhone X");
 	 }*/
 	@BeforeTest
-	  public void startTest() throws Exception {
+	public void startTest() throws Exception {
 		System.setProperty("configFile", "Oxo//mobile_config.properties");
 		Login.mobilesignIn("ios");
 	  }
+	}	
 
-	
-}
+
