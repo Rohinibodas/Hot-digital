@@ -3851,4 +3851,51 @@ Common.actionsKeyPress(Keys.PAGE_UP);
 		}
 	}
 
+public void giftcard(String dataSet) {
+	
+		try{
+		
+		//String URL = Common.getCurrentURL();
+		//Assert.assertEquals("URL", "https://stg-upgrade.revlonhairtools.com/us_en/checkout/#payment");
+			Common.actionsKeyPress(Keys.PAGE_DOWN);
+			 String Ordertotal = Common.findElement("xpath", "//td[@data-th='Order Total']/strong/span").getText().replace("$", "");
+			Sync.waitElementVisible("xpath", "//span[text()='Apply Gift Card']");
+			Common.clickElement(By.xpath("//span[text()='Apply Gift Card']"));
+	        Sync.waitElementVisible("name", "giftcard_code");
+	        Common.textBoxInput("name", "giftcard_code", data.get(dataSet).get("giftcard"));
+	        
+	        Common.clickElement(By.xpath("(//span[text()='Apply'])[2]"));
+	        Common.getscreenShot("Gift card applied successfullly");
+	     String success= Common.findElement(By.xpath("//div[@data-ui-id='checkout-cart-validationmessages-message-success']")).getText();
+	     Assert.assertEquals(success, "Gift Card 012QALEJIIFB was added.");
+	     Common.actionsKeyPress(Keys.PAGE_UP);
+	        Sync.waitElementPresent("xpath", "//div[@class='gift-card-information']");
+	      String discountedamount = Common.findElement("xpath", "//div[@class='gift-card-information']/span[2]").getText().replace("$", "");
+	      Common.assertionCheckwithReport(discountedamount.equals(Ordertotal), "Gift card is applied ", "Gift card should be applied successfully", "Failed to apply gift card");
+			
+	     	      
+		  String nopayment = Common.getText("xpath", "//span[text()='No Payment Information Required']");  
+	      Assert.assertEquals(nopayment, "No Payment Information Required");
+			
+			
+			Sync.waitElementVisible("xpath", "//span[text()='Place Order']");
+			Common.clickElement(By.xpath("//span[text()='Place Order']"));
+			 
+			Assert.assertEquals(Common.getCurrentURL(), "https://stg-upgrade.revlonhairtools.com/us_en/checkout/onepage/success/");
+			String successmessage = Common.findElement("xpath", "//h1[text()='Thank you for your purchase']").getText();
+			Common.assertionCheckwithReport(successmessage.equals("Thank you for your purchase"), "Order success page is displayed ", "Order succeess page should be dispalyed", "Failed to display order success page");
+				
+			
+			
+		}catch(Exception | Error e){
+			report.addFailedLog("Gift card should be applied on the total cart value ", "Should apply the discount code successfully", "Gift card not applied",
+					Common.getscreenShotPathforReport("Failed to apply the gi8ft card"));
+			e.printStackTrace();
+			Assert.fail();
+		}
+		
+		
+		
+	}
+
 }
