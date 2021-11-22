@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="Revelon Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+   <test name="TEST_RHT_ST_001_Multiple account creation" testid="BTY-454" priority="P1" description="This test case validates account creation of user with valid details successfully">
+         <parameter name="browser" value="chrome" />
+         <parameter name="start" value="100"/>
+       <parameter name="end" value="400"/> 
+        <classes>
+            <class name="TestExecute.Revlon.SystemTC.TEST_ST_RHT_multiple_Users_Account_creation"/>
+        </classes>
+    </test>  
+     
+  </suite>  

@@ -29,7 +29,7 @@ public class TEST_ST_RHT_046_ValidateGuestUserCheckoutWithtwoProduct {
 			revelon.Twoproductselection();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception | Error e) {

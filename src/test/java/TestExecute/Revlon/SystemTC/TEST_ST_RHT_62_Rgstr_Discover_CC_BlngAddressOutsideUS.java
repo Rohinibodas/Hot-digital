@@ -29,7 +29,7 @@ public class TEST_ST_RHT_62_Rgstr_Discover_CC_BlngAddressOutsideUS {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.BillingaddressoutsideUS();
 			
 			

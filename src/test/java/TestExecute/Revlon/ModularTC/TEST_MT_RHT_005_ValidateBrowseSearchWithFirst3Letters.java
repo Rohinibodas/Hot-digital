@@ -18,7 +18,7 @@ public class TEST_MT_RHT_005_ValidateBrowseSearchWithFirst3Letters {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.searchProductwithmultiple("SearchFullName");
 			revelon.searchProductwithmultiple("Search3Letters");
 			revelon.searchProductwithmultiple("SearchNumber");

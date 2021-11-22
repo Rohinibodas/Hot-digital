@@ -28,9 +28,9 @@ public class TEST_ST_RHT_60_GstMltplPrdct_AMEX_CC_tax_Shpng_Promocode {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.navigateCheckoutGuest("taxonfreightAddress");
+			revelon.Shippingmethod();
+			revelon.TaxandShippingAmountvalidation("taxonfreightAddress");
 			revelon.ValidatingPromocode("Promocode");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			

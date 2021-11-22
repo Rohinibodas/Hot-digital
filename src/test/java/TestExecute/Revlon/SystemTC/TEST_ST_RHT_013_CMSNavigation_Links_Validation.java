@@ -48,7 +48,7 @@ public class TEST_ST_RHT_013_CMSNavigation_Links_Validation  {
 		} 
 	}
 	
-	@BeforeMethod
+	@BeforeTest
 	  public void startTest() throws Exception {
 		// System.setProperty("configFile", "RevlonUS\\Config_RevlonUS_Staging.properties");
 		  Login.signIn();

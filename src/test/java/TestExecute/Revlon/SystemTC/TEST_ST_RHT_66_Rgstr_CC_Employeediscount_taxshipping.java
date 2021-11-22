@@ -31,8 +31,8 @@ public class TEST_ST_RHT_66_Rgstr_CC_Employeediscount_taxshipping {
 			revelon.checkoutPage();
 			revelon.clickaddnewaddress();
 			revelon.RegisteruseraddNewAddress("NewAddress");
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.Shippingmethod();
+			revelon.TaxandShippingAmountvalidation("NewAddress");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			
 		}

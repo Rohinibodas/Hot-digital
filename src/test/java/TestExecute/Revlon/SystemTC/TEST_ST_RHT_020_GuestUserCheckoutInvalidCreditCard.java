@@ -28,7 +28,7 @@ public class TEST_ST_RHT_020_GuestUserCheckoutInvalidCreditCard {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.invalidCreditCard("InvalidCreditCard");
 		}
 		catch (Exception e) {

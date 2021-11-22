@@ -17,7 +17,7 @@ public class TEST_ST_RHT_052_Gst_MltplPrdct_MstrCC_FrghtShpng_DiffBlng {
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void GuestUserMultipleProductCheckoutMasterCard_tax_FreightShipping_DifferentShippingandBillingAddress() throws Exception {
+	public void Gst_MltplPrdct_MstrCC_FrghtShpng_DiffBlng() throws Exception {
 
 		try {
 			revelon.Newslettersignup();
@@ -31,7 +31,7 @@ public class TEST_ST_RHT_052_Gst_MltplPrdct_MstrCC_FrghtShpng_DiffBlng {
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
 		    revelon.StandardShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.TaxandShippingAmountvalidation("Guest_shipping");
 			revelon.DifferentBillingaddress();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsMasterCard");
 		}

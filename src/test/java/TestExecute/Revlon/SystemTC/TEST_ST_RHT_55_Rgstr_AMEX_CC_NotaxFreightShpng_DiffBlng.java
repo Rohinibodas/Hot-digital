@@ -18,7 +18,7 @@ public class TEST_ST_RHT_55_Rgstr_AMEX_CC_NotaxFreightShpng_DiffBlng {
 	RevelonHelper revelon=new RevelonHelper(datafile);
 	
 	@Test(priority=1)
-	public void GuestCheckoutAMEX_NotaxFreightShipping_DifferentBillingaddress() throws Exception {
+	public void RegisterCheckoutAMEX_NotaxFreightShipping_DifferentBillingaddress() throws Exception {
 
 		try {
 			revelon.Newslettersignup();
@@ -30,8 +30,10 @@ public class TEST_ST_RHT_55_Rgstr_AMEX_CC_NotaxFreightShpng_DiffBlng {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.StandardShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.clickaddnewaddress();
+			revelon.RegisteruseraddNewAddress("taxonfreightAddress");
+			revelon.Shippingmethod();
+			revelon.noTaxonfrieght("NotaxonfreightAddress");
 			revelon.DifferentBillingaddress();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		}

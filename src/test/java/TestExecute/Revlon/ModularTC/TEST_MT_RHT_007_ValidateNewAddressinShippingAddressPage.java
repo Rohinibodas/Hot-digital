@@ -21,7 +21,7 @@ public class TEST_MT_RHT_007_ValidateNewAddressinShippingAddressPage {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.selectioncategory();
 			revelon.Productselection();
 			revelon.navigateMinicart();

@@ -24,7 +24,7 @@ public class TEST_ST_RHT_026_MyOrderConfirmation {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			revelon.navigateMyAccounts();
 			revelon.navigateMyorders();

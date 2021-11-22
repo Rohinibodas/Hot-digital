@@ -22,9 +22,8 @@ public class TEST_MT_RHT_012_CP_Cart_page {
 		try {
 			
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
-			revelon.closepopup();
 			revelon.searchProduct("productName");
 			revelon.Productselection();
 			revelon.navigateMinicart();

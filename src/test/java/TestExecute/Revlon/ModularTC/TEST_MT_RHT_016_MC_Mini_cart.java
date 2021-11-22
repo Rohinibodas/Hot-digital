@@ -22,7 +22,7 @@ public class TEST_MT_RHT_016_MC_Mini_cart {
 		try {
 			
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();

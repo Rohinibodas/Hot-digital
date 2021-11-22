@@ -29,7 +29,7 @@ public class TEST_ST_RHT_042_ValidateAddNewAddressShippingAddressPage {
 			revelon.checkoutPage();
 			revelon.clickaddnewaddress();
 			revelon.RegisteruseraddNewAddress("Address");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		} catch (Exception e) {
 

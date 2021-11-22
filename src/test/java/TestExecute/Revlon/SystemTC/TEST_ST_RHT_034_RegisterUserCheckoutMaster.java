@@ -27,7 +27,7 @@ public class TEST_ST_RHT_034_RegisterUserCheckoutMaster {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsMasterCard");
 		}
 		catch (Exception e) {

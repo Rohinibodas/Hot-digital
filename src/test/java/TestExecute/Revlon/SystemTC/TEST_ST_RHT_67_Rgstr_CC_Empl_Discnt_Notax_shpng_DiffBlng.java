@@ -29,8 +29,8 @@ public class TEST_ST_RHT_67_Rgstr_CC_Empl_Discnt_Notax_shpng_DiffBlng {
 			revelon.checkoutPage();
 			revelon.clickaddnewaddress();
 			revelon.RegisteruseraddNewAddress("NotaxAddress");
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.Shippingmethod();
+			revelon.TaxandShippingAmountvalidation("NotaxAddress");
 			revelon.DifferentBillingaddress();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 

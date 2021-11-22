@@ -28,7 +28,7 @@ public class TEST_ST_RHT_018_GuestUserCheckoutPayPal {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {

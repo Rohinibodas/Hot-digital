@@ -27,8 +27,8 @@ public class TEST_ST_RHT_051_Guest_CC_AMEX_tax_shpng_diff_blng_adress {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.Shippingmethod();
+			revelon.TaxandShippingAmountvalidation("Guest_shipping");
 			revelon.DifferentBillingaddress();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		}

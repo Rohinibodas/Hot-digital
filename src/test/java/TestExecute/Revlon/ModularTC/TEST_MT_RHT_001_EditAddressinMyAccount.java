@@ -23,7 +23,7 @@ public class TEST_MT_RHT_001_EditAddressinMyAccount {
 			
 			revelon.acceptPrivecy();
 			
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.EditBillingAddress();
 		}

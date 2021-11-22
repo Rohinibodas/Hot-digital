@@ -29,9 +29,9 @@ public class TEST_ST_RHT_57_GstMltplPrdct_AMEX_CC_Notax_Shpng {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.navigateCheckoutGuest_Notax("Address");
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.navigateCheckoutGuest("NotaxonfreightAddress");
+			revelon.Shippingmethod();
+			revelon.noTaxonfrieght("NotaxonfreightAddress");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		}
 		catch (Exception e) {

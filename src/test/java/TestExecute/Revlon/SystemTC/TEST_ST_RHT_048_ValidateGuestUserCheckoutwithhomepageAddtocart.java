@@ -26,7 +26,7 @@ public class TEST_ST_RHT_048_ValidateGuestUserCheckoutwithhomepageAddtocart {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		}
 		catch (Exception e) {

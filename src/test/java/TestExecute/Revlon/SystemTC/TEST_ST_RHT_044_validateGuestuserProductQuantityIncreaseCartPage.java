@@ -26,7 +26,7 @@ public void GuestuserProductQuantityIncreaseCartPage() throws Exception {
 		revelon.navigateMinicart();
 		revelon.guestincreaseproductquantity();
 		revelon.navigateCheckoutGuest("Guest_shipping");
-		revelon.FreeShippingmethod();
+		revelon.Shippingmethod();
 		revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 	}
 	catch (Exception e) {

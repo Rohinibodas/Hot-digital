@@ -18,7 +18,7 @@ public class TEST_MT_RHT_011_ValidateSearchFilterAsGuest {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.searchProduct("productName");
 			revelon.Searchresultsfilter();
 			

@@ -22,7 +22,7 @@ public class TEST_MT_RHT_013_HP_Home_page {
 		try {
 			
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.navigateHomePage();
 		}

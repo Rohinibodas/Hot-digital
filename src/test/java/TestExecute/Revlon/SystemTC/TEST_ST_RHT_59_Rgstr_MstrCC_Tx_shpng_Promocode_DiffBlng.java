@@ -27,8 +27,10 @@ public class TEST_ST_RHT_59_Rgstr_MstrCC_Tx_shpng_Promocode_DiffBlng {
 		    revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.clickaddnewaddress();
+			revelon.RegisteruseraddNewAddress("taxonfreightAddress");
+			revelon.Shippingmethod();
+			revelon.TaxandShippingAmountvalidation("taxonfreightAddress");
 			revelon.DifferentBillingaddress();
 			revelon.ValidatingPromocode("Promocode");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsMasterCard");
@@ -49,7 +51,7 @@ public class TEST_ST_RHT_59_Rgstr_MstrCC_Tx_shpng_Promocode_DiffBlng {
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 }

@@ -22,7 +22,7 @@ public class TEST_MT_RHT_018_PLP_Product_Listing_Page {
 		try {
 			
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 		}

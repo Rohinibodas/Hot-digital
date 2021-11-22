@@ -27,7 +27,7 @@ public class TEST_ST_RHT_024_User_Category_CheckoutPaypal {
 			revelon.checkoutPage();
 			revelon.clickaddnewaddress();
 			revelon.RegisteruseraddNewAddress("Paypal");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {
@@ -44,7 +44,7 @@ public class TEST_ST_RHT_024_User_Category_CheckoutPaypal {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

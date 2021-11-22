@@ -27,7 +27,7 @@ public class TEST_ST_RHT_036_GuestUserCheckoutAMEX {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		}
 		catch (Exception e) {

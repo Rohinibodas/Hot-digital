@@ -27,7 +27,7 @@ public class TEST_ST_RHT_63_Gst_MasterCC_BlngAddressOutside_US {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("Guest_shipping");
-		    revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.BillingaddressoutsideUS();
 			
 			

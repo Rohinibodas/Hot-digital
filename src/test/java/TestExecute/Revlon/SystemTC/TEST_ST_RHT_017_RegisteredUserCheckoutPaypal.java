@@ -29,7 +29,7 @@ public class TEST_ST_RHT_017_RegisteredUserCheckoutPaypal {
 			revelon.checkoutPage();
 			revelon.clickaddnewaddress();
 			revelon.RegisteruseraddNewAddress("Paypal");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaypalPaymentAndSubmitOrder("Paypal");
 		}
 		catch (Exception e) {

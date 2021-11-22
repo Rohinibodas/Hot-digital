@@ -19,7 +19,7 @@ public class TEST_MT_RHT_004_ValidateBrowsesearchforSubCategories {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.BrowseSubcategory();
 		}
 		catch (Exception e) {

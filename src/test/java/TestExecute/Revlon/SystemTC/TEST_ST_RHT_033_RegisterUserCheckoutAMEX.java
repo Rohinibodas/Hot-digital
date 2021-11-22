@@ -26,7 +26,7 @@ public class TEST_ST_RHT_033_RegisterUserCheckoutAMEX {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		}
 		catch (Exception e) {

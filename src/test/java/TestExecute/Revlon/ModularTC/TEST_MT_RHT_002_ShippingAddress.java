@@ -22,7 +22,7 @@ public class TEST_MT_RHT_002_ShippingAddress {
 		try {
 			
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();

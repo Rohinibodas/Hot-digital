@@ -28,7 +28,7 @@ public class TEST_ST_RHT_64_Gst_AMEX_CC_POBoxAddress {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckoutGuest("POBoxAddress");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsAMEXCard");
 		   
 			

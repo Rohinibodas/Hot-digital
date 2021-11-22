@@ -26,7 +26,7 @@ public class TEST_ST_RHT_045_ValidateRegisteredUserCheckoutWithtwoProduct {
 		revelon.Twoproductselection();
 	
 		revelon.checkoutPage();
-		revelon.FreeShippingmethod();
+		revelon.Shippingmethod();
 		revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		
 		

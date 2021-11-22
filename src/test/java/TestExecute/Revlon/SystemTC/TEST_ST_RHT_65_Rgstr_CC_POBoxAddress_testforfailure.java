@@ -29,7 +29,7 @@ public class TEST_ST_RHT_65_Rgstr_CC_POBoxAddress_testforfailure {
 			revelon.checkoutPage();
 			revelon.clickaddnewaddress();
 			revelon.RegisteruseraddNewAddress("POBoxAddress");
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
 
 		} catch (Exception e) {

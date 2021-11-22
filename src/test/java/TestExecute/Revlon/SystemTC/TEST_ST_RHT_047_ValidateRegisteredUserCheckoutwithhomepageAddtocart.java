@@ -28,7 +28,7 @@ public class TEST_ST_RHT_047_ValidateRegisteredUserCheckoutwithhomepageAddtocart
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			
-            revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

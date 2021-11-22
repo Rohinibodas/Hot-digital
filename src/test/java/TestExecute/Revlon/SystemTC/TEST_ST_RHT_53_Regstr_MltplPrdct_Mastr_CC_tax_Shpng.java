@@ -29,8 +29,10 @@ public class TEST_ST_RHT_53_Regstr_MltplPrdct_Mastr_CC_tax_Shpng {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.clickaddnewaddress();
+			revelon.RegisteruseraddNewAddress("taxonfreightAddress");
+			revelon.Shippingmethod();
+			revelon.TaxandShippingAmountvalidation("taxonfreightAddress");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsMasterCard");
 		}
 		catch (Exception e) {

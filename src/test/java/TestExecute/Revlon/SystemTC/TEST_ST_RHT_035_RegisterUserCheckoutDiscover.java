@@ -27,7 +27,7 @@ public class TEST_ST_RHT_035_RegisterUserCheckoutDiscover {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
 		}
 		catch (Exception e) {

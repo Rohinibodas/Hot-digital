@@ -30,8 +30,7 @@ public class TEST_ST_RHT_61_RgstrMltplePrdct_Discover_CC_promo_Difblng {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.Shippingmethod();
 			revelon.ValidatingPromocode("Promocode");
 			revelon.DifferentBillingaddress();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");

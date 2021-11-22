@@ -28,9 +28,9 @@ public class TEST_ST_RHT_54_Gst_Mltpl_Prdct_DiscoverCC_tax_Shpng {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-            revelon.navigateCheckoutGuest("Guest_shipping");
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+            revelon.navigateCheckoutGuest("taxonfreightAddress");
+            revelon.Shippingmethod();
+			revelon.TaxandShippingAmountvalidation("taxonfreightAddress");
 			
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
 		}

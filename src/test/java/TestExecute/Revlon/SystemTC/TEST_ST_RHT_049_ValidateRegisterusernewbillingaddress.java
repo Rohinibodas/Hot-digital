@@ -30,7 +30,7 @@ public class TEST_ST_RHT_049_ValidateRegisterusernewbillingaddress {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.DifferentBillingaddress();
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			

@@ -28,7 +28,7 @@ public class TEST_ST_RHT_025_Promocode_Checkout {
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
 			revelon.navigateCheckout();
-			revelon.FreeShippingmethod();
+			revelon.Shippingmethod();
 			revelon.ValidatingPromocode("Promocode");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetails");
 			

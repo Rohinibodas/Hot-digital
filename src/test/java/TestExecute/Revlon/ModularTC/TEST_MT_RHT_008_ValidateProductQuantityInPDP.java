@@ -20,7 +20,7 @@ public class TEST_MT_RHT_008_ValidateProductQuantityInPDP  {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.selectioncategory();
 			revelon.Productdetails();
 			revelon.ProductdetailsQuantity();

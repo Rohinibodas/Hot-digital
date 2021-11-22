@@ -21,7 +21,7 @@ public class TEST_MT_RHT_010_ValidateReviewCategoryLinks {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.selectioncategory();
 			revelon.Productdetails();
 			revelon.ProductReview("ProductReview");

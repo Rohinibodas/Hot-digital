@@ -20,7 +20,7 @@ public class TEST_MT_RHT_006_ValidateFiltersInProductListingPage {
 
 		try {
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.selectioncategory();
 			revelon.PLPfilterwithColour();
 			revelon.ClearFilter();

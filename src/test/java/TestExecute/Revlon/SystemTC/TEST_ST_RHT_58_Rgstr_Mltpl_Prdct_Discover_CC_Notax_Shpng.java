@@ -23,6 +23,7 @@ public class TEST_ST_RHT_58_Rgstr_Mltpl_Prdct_Discover_CC_Notax_Shpng {
 		try {
 			revelon.Newslettersignup();
 			revelon.acceptPrivecy();
+			revelon.loginRevlon("AccountDetails");
 			revelon.searchProduct("productName");
 			revelon.Productselection();
 			revelon.navigateMinicart();
@@ -30,9 +31,10 @@ public class TEST_ST_RHT_58_Rgstr_Mltpl_Prdct_Discover_CC_Notax_Shpng {
 			revelon.navigateMinicart();
 			revelon.navigateCartPage();
 			revelon.checkoutPage();
-			revelon.navigateCheckoutGuest("Address");
-			revelon.FreeShippingmethod();
-			revelon.TaxandShippingAmountvalidation();
+			revelon.clickaddnewaddress();
+			revelon.RegisteruseraddNewAddress("NotaxonfreightAddress");
+			revelon.Shippingmethod();
+			revelon.noTaxonfrieght("NotaxonfreightAddress");
 			revelon.updatePaymentAndSubmitOrder("PaymentDetailsDiscoverCard");
 		}
 		catch (Exception e) {

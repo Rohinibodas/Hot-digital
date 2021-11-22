@@ -22,7 +22,7 @@ public class TEST_MT_RHT_014_LI_Login {
 		try {
 			
 			revelon.acceptPrivecy();
-			revelon.closepopup();
+			revelon.Newslettersignup();
 			revelon.loginRevlon("AccountDetails");
 		}
 		catch (Exception e) {
