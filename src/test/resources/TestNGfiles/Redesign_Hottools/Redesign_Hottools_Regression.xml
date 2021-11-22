@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="RedesignHottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    
+     
+      <test name="Test_HT_RD_001_ValidateHeaderLinks" testid="BTYUS-1232" priority="P1" description="To validate header links in Hottools Redesign website">
+      <parameter name="browser" value="chrome" />
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_001_ValidateHeaderLinks"/>
+        </classes>
+        </test>
+        
+        
+          <test name="Test_HT_RD_002_ValidateTopLevelNavigation" testid="BTYUS-1233" priority="P1" description="This script will validate toplevel navigation in Hottols Redesign website">
+       <parameter name="browser" value="chrome" />
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_002_ValidateTopLevelNavigation"/>
+        </classes>
+        </test>
+        
+        
+        <test name="Test_HT_RD_003_ValidateFooterLinks" testid="BTYUS-1234" priority="P1" description="This script will validate footer links in Hottols Redesign website">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_003_Validate_CMSPages"/>
+        </classes>
+        </test>
+        
+     <test name="Test_HT_RD_004_ValidateSocialLinks" testid="BTYUS-1235" priority="P1" description="This script will validate social links in Hottols Redesign website">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_004_Articlelinks_validations"/>
+        </classes>
+        </test>
+      <test name="Test_HT_RD_005_ValidateFooterNewsLetter_Subscription" testid="BTYUS-1236" priority="P1" description="This script will validate footer news letter subscription link in Hottols Redesign website">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_005_FooterNewsLetterSubscription"/>
+        </classes>
+    </test>
+    
+     
+    <test name="Test_HT_RD_006_Validate_HomePage" testid="BTYUS-1237" priority="P1" description="This script will validate home page in Hottols Redesign website">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_006_Validate_HomePage"/>
+        </classes>
+    </test>
+    
+    
+       <test name="Test_HT_RD_007_Contactus_Page" testid="BTYUS-1238" priority="P1" description="This script will validate contact us page in Hottols Redesign website">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_007_ContactUSForm"/>
+        </classes>
+    </test>
+    
+    
+      <test name="Test_HT_RD_009_Addtocart_SimpleProduct" testid="BTYUS-1244" priority="P1" description="This script will verify add to cart simple product in Hottols Redesign website">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_008_AddToCart_SimpleProduct"/>
+        </classes>
+    </test>
+    
+    
+   <test name="Test_HT_RD_010_Addtocart_ConfigurableProduct" testid="BTYUS-1247" priority="P1" description="This script will verify add to cart configurable product in Hottols Redesign website">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_009_AddtoCart_Configurable_Product"/>
+        </classes>
+    </test>
+    
+    
+     	 <test name="Test_HT_RD_012_AddtoWishlist" testid="BTYUS-1252" priority="P1" description="This script will validate add to wishlist button in Hottols Redesign website">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_010_Product_Wishlist"/>
+        </classes>
+    </test>  
+    
+      <test name="Test_HT_RD_014_ForgotPassword" testid="BTYUS-1254" priority="P1" description="This script will validate forgot password link in Hottols Redesign website">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_011_ForgotPassword"/>
+        </classes>
+    </test>
+     <test name="Test_HT_RD_015_MyAccountLeftNavigation" testid="BTYUS-1255" priority="P1" description="This Test case is to verify my account left navigation liks in Hottols Redesign website.">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_012_Validate_My_Account_page_LeftNavigation"/>
+        </classes>
+    </test>
+    
+     <test name="Test_HT_RD_016_Validate_AddressBook" testid="BTYUS-1256" priority="P1" description="This Test case is to verify Adress book functionality in Hottols Redesign website.">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_013_Validate_AddressBook"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_017_Validate_AccountInformation" testid="BTYUS-1257" priority="P1" description="This script will validate Account information page in Hottols Redesign website">
+      <parameter name="browser" value="chrome" />
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_014_Validate_AccountInformation"/>
+        </classes>
+        </test>
+        
+          <test name="Test_HT_RD_011_validate_Product_outofstock" testid="BTYUS-1248" priority="P1" description="This test case is to verify  Hottools  out of stock product in PDP Page.">
+      <parameter name="browser" value="chrome" />
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_015_OutofStock_Product"/>
+        </classes>
+        </test>
+         
+    <test name="Test_HT_RD_018_Product_Listing_Page" testid="BTYUS-1259" priority="P1" description="To verify the product description page  validation">
+      <parameter name="browser" value="chrome" />
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_016_Validate_PLP_page"/>
+        </classes>
+        </test>
+        
+         
+        
+          <test name="Test_HT_RD_019_PDP-Product Details Page" testid="BTYUS-1260" priority="P1" description="To verify the PDP page.">
+       <parameter name="browser" value="chrome" />
+       
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_017_Validate_PDP_Page"/>
+        </classes>
+        </test>
+        
+         <test name="Test_HT_RD_020_Customer_Account_Creation" testid="BTYUS-1261" priority="P1" description="Registering the user as retail customer">
+       <parameter name="browser" value="chrome" />
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_018_Account_Creation"/>
+        </classes>
+        </test>
+        
+      
+        <test name="Test_HT_RD_021_Global_Search_RegisterUser" testid="BTYUS-1262" priority="P1" description="To Verify the Global search with registered user for Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_019_Validate_Global_Search_Register_User"/>
+        </classes>
+    </test>
+    <test name="Test_HT_RD_022_Global_Search _GusetUser" testid="BTYUS-1270" priority="P1" description="To Verify the Global search with Guest user for Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_020_GuestUser_Browse_Search"/>
+        </classes>
+    </test>
+     <test name="Test_HT_RD_023_Adding_ShippingAddress_RegisterUser" testid="BTYUS-1263" priority="P1" description="To verify the Shipping address page of the register user">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_021_Add_ShippingAddress_for_RegisteredUser"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_024_Adding_BillingAddress_RegisterUser" testid="BTYUS-1264" priority="P1" description="To verify the Billing address page of the register user">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_022_Adding_BillingAddress_Registeruser"/>
+        </classes>
+    </test>
+     <test name="Test_HT_RD_025_Validate_ShippingMethod" testid="BTYUS-1265" priority="P1" description="To verify the Shipping method in check out page">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_023_Validate_Shippingmethod_RegisterUser"/>
+        </classes>
+    </test>
+     <test name="Test_HT_RD_026_GuestUser_CheckOut_InvalidCreditcard" testid="BTYUS-1266" priority="P1" description="To verify the Invalid creditcard functionality for GuestUser">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_024_GuestCheckoutwith_invalid_CreditCard"/>
+        </classes>
+    </test>
+    
+         
+         <test name="Test_HT_RD_027_RetailerUser_CheckoutCCVISA" testid="BTYUS-1271" priority="P1" description="This test case is to verify  Hottools Register User CheckoutCCVISA functionality">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_025_Registereduser_Browsesearch_CheckoutCCVisa"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_028_RetailerUser_CheckoutCCAMEX" testid="BTYUS-1272" priority="P1" description="This test case is to verify  Hottools Register User CheckoutCCAMEX functionality">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_026_RegisteredUser_Checkout_AMEX_CreditCard"/>
+        </classes>
+    </test>
+    
+     <test name="Test_HT_RD_029_RetailerUser_CheckoutCCDiscover" testid="BTYUS-1273" priority="P1" description="This test case is to verify  Hottools Register User CheckoutCCDiscover functionality ">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_027_RegisteredUser_Checkout_Discover_CreditCard"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_030_RetailerUser_CheckoutCCMasterCard" testid="BTYUS-1274" priority="P1" description="This test case is to verify  Hottools Register User CheckoutCCMasterCard functionality ">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_028_RegisteredUser_Checkout_Master_CreditCard"/>
+        </classes>
+    </test> 
+    
+    <test name="Test_HT_RD_031_GuestUser_CheckOutCCVisa" testid="BTYUS-1275" priority="P1" description="To verify the Checkout with creditcard functionality for GuestUser">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_029_GuestUser_Checkout_visa_CreditCard"/>
+        </classes>
+    </test>  
+    
+    <test name="Test_HT_RD_032_GuestUser_CheckOutCCAMEX" testid="BTYUS-1276" priority="P1" description="To verify the Checkout with creditcard Amex functionality for GuestUser">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_030_GuestUser_Checkout_with_AmexCC"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_033_GuestUser_CheckOutCCDiscover" testid="BTYUS-1277" priority="P1" description="To verify the Checkout with creditcard Discover functionality for GuestUser">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_031_GuestUser_Checkout_With_DiscoverCC"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_034_GuestUser_CheckOutCCMastercard" testid="BTYUS-1278" priority="P1" description="To verify the Checkout with creditcard MasterCard functionality for GuestUser">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_032_GuestUser_Checkout_with_MasterCardCC"/>
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_035_RetailerUser_Checkout_InvalidCreditcard" testid="BTYUS-1279" priority="P1" description="This test case is to verify  Hottools Register User Checkout with invalid creditcard functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_033_RegUser_CheckOut_Invalid_CreditCard"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_036_GuestUser_CheckOutwithPromoCode" testid="BTYUS-1280" priority="P1" description="To verify the Checkout with creditcard with Discount code functionality for GuestUser">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_034_GuestUser_Checkout_PromoCode"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_037_RetailerUser_CheckoutwithPromoCode" testid="BTYUS-1282" priority="P1" description="This test case is to verify  Hottools Register User Checkout with promocode functionality">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_035_RegisterUser_Checkout_Promocode"/>
+            
+        </classes>
+    </test>
+    <test name="Test_HT_RD_038_RetailerUser_MyOrder_Confirmation" testid="BTYUS-1283" priority="P1" description="This test case is to verify  Hottools Register User Checkout My order Confirmation functionality">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_036_RegisterUser_MyOrder_Confirmation"/>
+            
+        </classes>
+    </test>
+    <test name="Test_HT_RD_039_RetailerUser_Checkout_NoTax_SameBillingandShippingaddress_MasterCard" testid="BTYUS-1284" priority="P1" description="This test case is to verify  Hottools Register User Checkoutwith No tax state address with same billing and shipping address functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_037_RegUser_Checkot_NoTax_MasterCard_Same_BillingAndShipping_Adress"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_041_RegUser_Checkout_NoTax_DifferentBilling_Shippingaddress_PromoCode_MastercardCC" testid="BTYUS-1286" priority="P1" description="This test case is to verify  Hottools Register User Checkoutwith No tax state address with promocode different billing and shipping address functionality ">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_038_RegUser_Mastercard_NoTax_Promocode_Diff_BillShipaddress"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_040_RetailerUser_Checkout_NoTax_DifferentBilling_Shippingaddress" testid="BTYUS-1285" priority="P1" description="This test case is to verify  Hottools Register User Checkoutwith No tax state address with same billing and shipping address functionality ">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_039_RegUser_Checkout_Notax_DiffBillingShippingAddressCCvisa"/>
+            
+        </classes>
+    </test>
+    
+   
+    
+    <test name="Test_HT_RD_042_RetailerUser_Checkout_Tax_Diff_BillingandShippingaddressDiscoverCC" testid="BTYUS-1287" priority="P1" description="This test case is to verify  Hottools Register User Checkoutwith No tax state address with same billing and shipping address functionality ">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_040_RegUser_Checkout_Tax_Diff_BillingshippingAddress_DiscoverCC"/>
+            
+        </classes>
+    </test>
+    <test name="Test_HT_RD_044_GuestUser_CheckOut_NoTax_sameBillingandshipingAddress" testid="BTYUS-1288" priority="P1" description="To verify the Checkout with creditcard Mastercard with NoTax state Address using same Billing and Shipping address functionality for GuestUser">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_041_Guestuser_checkout_visa_NoTax_sameBillingandshippingaddress"/>
+            
+        </classes>
+    </test>
+    
+     <test name="Test_HT_RD_045_GuestUser_CheckOut_Tax_DifferentBillingandshipingAddress_AMEX" testid="BTYUS-1291" priority="P1" description="To verify the Checkout with credit card Amex with Tax state Address using different Billing and Shipping address functionality for Guest User">
+      <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.TEST_HT_RD_042_GuestUser_Checkout_AmexCC_Tax_with_Diff_Billing_and_Shipping"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_046_GuestUser_CheckOutCC_NoTax_Diff_BillingandShippingAddress_PromoCode" testid="BTYUS-1290" priority="P1" description="To verify the Checkout with creditcard with Discount code functionality for GuestUser">
+      <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_043_Guestuser_checkoutcc_NoTax_Diff_BillingandShippingAddress_Promocode"/>
+            
+        </classes>
+    </test>
+    
+    
+    <test name="Test_HT_RD_047_GuestUser_CheckOut_withTax_For_multipleProducts_Diff_billingandshippingaddress" testid="BTYUS-1322" priority="P1" description="To verify the Checkout with creditcard Mastercard with Tax for two products for GuestUser">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_044_Guestuser_Checkoutcc_Tax_MltipleProducts_Diff_BillingandShippingaddr"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_049_RegUser_CheckOut_withTax_MultipleProducts_sameBillingandShippingaddress" testid="BTYUS-1324" priority="P1" description="To verify the Checkout with creditcard Mastercard with Tax for two products for RegUser">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.TEST_HT_RD_045_RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products_Same_Billing_and_shipping"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_048_GuestUser_CheckOut_NoTax_MultipleProducts_Diff_BillingandShippingAddress" testid="BTYUS-1323" priority="P1" description="To verify the Checkout with creditcard Mastercard with  noTax for two products for GuestUser">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_046_GuestUser_CheckOut_NoTax_MultipleProducts_Diff_BillingandShippingAddress"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_050_RegtUser_CheckOut_NoTax_MultipleProducts_same_BillingandShippingaddress" testid="BTYUS-1325" priority="P1" description="To verify the Checkout with creditcard Mastercard with No Tax for two products for RegUser">
+       
+       <parameter name="browser" value="chrome" /> <classes>
+            <class name="TestExecute.Redesign_Hottools.TEST_HT_RD_047_RegisterUser_Discover_NoTax_MultiProduct_same_BillShippingaddress"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_051_RegtUser_CheckOut_PromoCode_MultipleProducts_same_BillingandShippingaddress" testid="BTYUS-1326" priority="P1" description="To verify the Checkout with creditcard Mastercard with Promocode for two products for RegUser">
+       
+       <parameter name="browser" value="chrome" /> <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_048_RegisterUser_CheckOut_withPromocode_MultipleProducts"/>
+            
+        </classes>
+    </test>
+    
+     <test name="Test_HT_RD_053_Guestser_CheckOut_Amex_Tax_Multiprod_Promocode_Same_Billingandshippingaddress" testid="BTYUS-1729" priority="P1" description="To verify GuestUser checkout with multiple products with AMEX credit card with same billing and shipping address.">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_049_Guestser_CheckOut_Amex_Tax_Multiprod_Promocode_Same_Billingandshippingaddress"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_054_Communication_preferences_subscription" testid="BTYUS-1730" priority="P1" description="To validate NewLetter Subscription in My Account Page for Redesign Hottools.">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_050_RegisterUser_Communication_preferences_subscription"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_055_Privacypolicy_and_TermsOfuse" testid="BTYUS-1731" priority="P1" description="To verify Privacy Policy and Terms of use footerlinks in Redesign Hottools.">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_051_Privacypolicy_and_TermsOfuse"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_056_verifyingMiniCartPage" testid="BTYUS-1733" priority="P1" description="To verify mini cart page for redesign hottools.">
+      <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_052_verifyingMiniCartPage"/>
+            
+        </classes>
+    </test>
+    
+    <test name="Test_HT_RD_057_Guest_Checkout_VisaCC_Tax_with_same_Billing_and_Shipping" testid="BTYUS-1734" priority="P1" description="To verify Guest user Checkout with tax same billing and shipping address for Redesign Hottools.">
+      <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_053_Guest_Checkout_VisaCC_Tax_with_same_Billing_and_Shipping"/>
+            
+        </classes>
+    </test>
+    
+    <test name="TEST_HT_RD_058_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" testid="BTYUS-1736" priority="P1" description="To verify Guest user Checkout with tax same billing and shipping address for Redesign Hottools.">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_054_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping"/>
+            
+        </classes>
+    </test>
+    
+    <test name="TEST_HT_RD_059_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" testid="BTYUS-1729" priority="P1" description="This test case is to verify  Hottools Register User Checkout My order Confirmation functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.TEST_HT_RD_055_Share_WishList_Product"/>
+            
+        </classes>
+    </test>
+    
+    <test name="TEST_HT_RD_060_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" testid="BTYUS-1729" priority="P1" description="This test case is to verify  Hottools Register User Checkout My order Confirmation functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.TEST_HT_RD_056_RegisterUser_Browse_search_Checkout_With_POBOX_Address"/>
+            
+        </classes>
+    </test>
+    
+     <test name="TEST_HT_RD_061_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" testid="BTYUS-1729" priority="P1" description="This test case is to verify  Hottools Register User Checkout My order Confirmation functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_057_GuestUser_Checkout_with_Configurable_Product"/>
+            
+        </classes>
+    </test>
+    
+  <!--    <test name="TEST_HT_RD_062_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" testid="BTYUS-1729" priority="P1" description="This test case is to verify  Hottools Register User Checkout My order Confirmation functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_058_SignIn_in_ShippingAddresspage_Checkout_with_DiscoverCC"/>
+            
+        </classes>
+    </test> -->
+    
+    <test name="TEST_HT_RD_062_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" testid="BTYUS-1729" priority="P1" description="This test case is to verify  Hottools Register User Checkout My order Confirmation functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_059_RegisterUser_Checkout_with_Configurable_Product_DiscoverCC"/>
+            
+        </classes>
+    </test>
+    
+    <test name="TEST_HT_RD_063_RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping" testid="BTYUS-1729" priority="P1" description="This test case is to verify  Hottools Register User Checkout My order Confirmation functionality">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_060_Validation_of_Sort_Options_in_PLP"/>
+            
+        </classes>
+    </test>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+   
+    </suite>
+    
+ 

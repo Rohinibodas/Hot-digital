@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="RedesignHottools Suite">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+    
+      <test name="Test_HT_RD_Magento_Admin_panel_login" testid="BTYUS-1737" priority="P1" description="To verify Magento Admin Login for Redesign Hottools.">
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.TEST_HT_RD_Magento_Admin_panel_login"/>
+        </classes>
+        </test>
+        
+        <test name="Test_HT_RD_Magento_Admin_Sales_Menu" testid="BTYUS-1738" priority="P1" description="To Verify sales menu in Magento Admin of Redesign Hottools">
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.TEST_HT_RD_Magento_Admin_Sales_Menu"/>
+        </classes>
+        </test>
+        
+         <test name="Test_HT_RD_Magento_Admin_validate_Products and_Categories_in_CatalogMenu" testid="BTYUS-1746" priority="P1" description="To verify Catalog menu in magento admin for redesign hottools.">
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_Magento_Admin_Products_and_Categories_Menu"/>
+        </classes>
+        </test>
+        
+         <test name="Test_HT_RD_Magento_Admin_CMSpage_validation" testid="BTYUS-1747" priority="P1" description="To validate CMS Page in Redesign Hottools Magento Admin.">
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_Magento_Admin_CMSpage_validation"/>
+        </classes>
+        </test>
+        
+        
+         <test name="Test_HT_RD_Magento_Admin_CMSBlock_validation" testid="BTYUS-1748" priority="P1" description="To Validate CMS Block Menu in redesign Hottools Magento Admin.">
+       <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_Magento_Admin_CMSBlock_validation"/>
+        </classes>
+        </test>
+        
+        
+        </suite>

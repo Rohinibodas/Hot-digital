@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="RedesignHottools Suite" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+
+<test name="Test_HT_RD_020_Customer_Account_Creation1" testid="BTYUS-1272" priority="P1" description="This script will cover Retailer user Checkout with Amex CreditCard in Hottols Redesign website">
+       <parameter name="browser" value="chrome" />
+       <parameter name="start" value="20"/>
+       <parameter name="end" value="22"/>      
+         <classes>
+        <class name="TestExecute.Redesign_Hottools.Test_RD_HT_1000_Account_Creation"/>
+        </classes>
+        </test>
+        
+ 
+        
+        </suite>
