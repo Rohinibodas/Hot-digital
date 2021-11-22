@@ -3,129 +3,129 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-    <test name="TEST_RHT_MT_001_ValidateLogin" testid="BTY-456" priority="P1" description="This test case validates logged in as register user successfully">
+    
+       <test name="TEST_RHT_MT_001_ValidateEditAddressInMyAccount" testid="BTY-393" priority="P1" description="This test case validates logged in register user edit billing address in Address book successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_SMT_LI_Login"/>
-        </classes>
-    </test>
-
-    <test name="TEST_RHT_MT_002_ValidateHomePage" testid="BTY-453" priority="P1" description="This test case validates logged in registered user and verify category links in header successfully">
-         <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_SMT_HP_Home_page"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_001_EditAddressinMyAccount"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_003_ValidatingAddresspageinShippingAddress" testid="BTY-392" priority="P1" description="This test case validates logged in register user searching for a product, adding it to mini cart, checking out and adding new address in shipping address successfully">
+     <test name="TEST_RHT_MT_002_ValidatingAddresspageinShippingAddress" testid="BTY-392" priority="P1" description="This test case validates logged in register user searching for a product, adding it to mini cart, checking out and adding new address in shipping address successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ShippingAddress"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_002_ShippingAddress"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_004_ValidateEditAddressInMyAccount" testid="BTY-393" priority="P1" description="This test case validates logged in register user edit billing address in Address book successfully">
+   <!--     <test name="TEST_RHT_MT_003_ValidateBreadcrumb" testid="BTY-401" priority="P1" description="This test case validates logged in guest user selecting a product from category, validating the Breadcrumb successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_EditAddressinMyAccount"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_003_ValidateBreadcrumb"/>
+        </classes>
+    </test>-->
+    
+ <!--     <test name="TEST_MT_RHT_004_ValidateBrowsesearchforSubCategories" testid="BTY-350" priority="P1" description="This test case validates logged in register user Search with category and sub category successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_004_ValidateBrowsesearchforSubCategories"/>
+        </classes>
+    </test>-->
+    
+       <test name="TEST_RHT_MT_005_ValidateBrowseSearchWithFirst3Letters" testid="BTY-373" priority="P1" description="This test case validates logged in guest user Search with filters successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_005_ValidateBrowseSearchWithFirst3Letters"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_005_ValidateBrowsesearchforSubCategories" testid="BTY-350" priority="P1" description="This test case validates logged in register user Search with category and sub category successfully">
+     <test name="TEST_RHT_MT_006_ValidateFiltersInProductListingPage" testid="BTY-383" priority="P1" description="This test case validates logged in guest user searching for a product, Filter for search results successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateBrowsesearchforSubCategories"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_006_ValidateFiltersInProductListingPage"/>
+        </classes>
+    </test>
+     <test name="TEST_RHT_MT_007_ValidateNewAddressinShippingAddressPage" testid="BTY-397" priority="P1" description="This test case validates logged in guest user searching for a product, adding it to mini cart, Cart page, shipping address able to add new address and edit address successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_007_ValidateNewAddressinShippingAddressPage"/>
+        </classes>
+    </test>
+     <test name="TEST_MT_RHT_008_ValidateProductQuantityInPDP" testid="BTY-458" priority="P1" description="This test case validates logged in register user searching for a product, selecting product from search results successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_008_ValidateProductQuantityInPDP"/>
+        </classes>
+    </test>
+    <test name="TEST_RHT_MT_009_ValidateProductTitle" testid="BTY-402" priority="P1" description="This test case validates logged in guest user searching for a product, selecting product from search results and validating product name successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_009_ValidateProductTitle"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_006_ValidateSearchFilterAsGuest" testid="BTY-373" priority="P1" description="This test case validates logged in guest user Search with filters successfully">
+     <test name="TEST_RHT_MT_010_ValidateReviewCategoryLinks" testid="BTY-412" priority="P1" description="This test case is to verify Revlon hair tools, validate Product review functionality for Guest user.">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateSearchFilterAsGuest"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_010_ValidateReviewCategoryLinks"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_007_ValidateBrowseSearchWithFirst3Letters" testid="BTY-373" priority="P1" description="This test case validates logged in guest user Search with filters successfully">
+       <test name="TEST_RHT_MT_011_ValidateSearchFilterAsGuest" testid="BTY-373" priority="P1" description="This test case validates logged in guest user Search with filters successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateBrowseSearchWithFirst3Letters"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_011_ValidateSearchFilterAsGuest"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_008_ValidateProductListPage" testid="BTY-459" priority="P1" description="This test case validates logged in registered user searching for a product, should show result of product successfully">
+     <test name="TEST_RHT_ST_012_ValidateCartPage" testid="BTY-461" priority="P1" description="This test case validates logged in register user searching for a product, adding it to mini cart, Cart page successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_SMT_PLP_Product_Listing_Page"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_012_CP_Cart_page"/>
+        </classes>
+    </test> 
+    
+        <test name="TEST_RHT_MT_013_ValidateHomePage" testid="BTY-453" priority="P1" description="This test case validates logged in registered user and verify category links in header successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_013_HP_Home_page"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_009_ValidateFiltersInProductListingPage" testid="BTY-383" priority="P1" description="This test case validates logged in guest user searching for a product, Filter for search results successfully">
+      <test name="TEST_RHT_MT_014_ValidateLogin" testid="BTY-456" priority="P1" description="This test case validates logged in as register user successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateFiltersInProductListingPage"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_014_LI_Login"/>
+            
         </classes>
     </test>
     
-     <test name="TEST_RHT_MT_010_ValidateProductDetailsPage" testid="BTY-458" priority="P1" description="This test case validates logged in register user searching for a product, selecting product from search results successfully">
+      <test name="TEST_RHT_MT_015_ValidateLogout" testid="BTY-496" priority="P1" description="This test case validates logged in Regsiter user and navigating to home page and logout successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_SMT_PDP_Product_details_page"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_015_LO_Logout"/>
         </classes>
     </test>
     
-     <test name="TEST_RHT_MT_011_ValidateProductTitle" testid="BTY-402" priority="P1" description="This test case validates logged in guest user searching for a product, selecting product from search results and validating product name successfully">
+      <test name="TEST_RHT_MT_016_ValidateMiniCart " testid="BTY-460" priority="P1" description="This test case validates logged in register user searching for a product, adding it to mini cart successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateProductTitle"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_016_MC_Mini_cart"/>
         </classes>
     </test>
     
-     <test name="TEST_RHT_MT_012_ValidateBreadcrumb" testid="BTY-401" priority="P1" description="This test case validates logged in guest user selecting a product from category, validating the Breadcrumb successfully">
+     <test name="TEST_RHT_MT_017-TEST_MT_RHT_017_PDP_Product_details_page " testid="BTY-404" priority="P1" description="This test case validates logged in register user searching for a product from category and selecting the product and validating the Product details page  successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateBreadcrumb"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_017_PDP_Product_details_page"/>
         </classes>
     </test>
     
-    <test name="TEST_RHT_MT_013-ValidateProductQuantityInPDP " testid="BTY-404" priority="P1" description="This test case validates logged in register user searching for a product from category and selecting the product and validating the Product details page  successfully">
+     <test name="TEST_RHT_MT_018_ValidateProductListPage" testid="BTY-459" priority="P1" description="This test case validates logged in registered user searching for a product, should show result of product successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateProductQuantityInPDP"/>
+            <class name="TestExecute.Revlon.ModularTC.TEST_MT_RHT_018_PLP_Product_Listing_Page"/>
         </classes>
-    </test>
+    </test> 
     
-    <test name="TEST_RHT_MT_014_ValidateMiniCart " testid="BTY-460" priority="P1" description="This test case validates logged in register user searching for a product, adding it to mini cart successfully">
-         <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_SMT_MC_Mini_cart"/>
-        </classes>
-    </test>
-    
-    <test name="TEST_RHT_ST_015_ValidateCartPage" testid="BTY-461" priority="P1" description="This test case validates logged in register user searching for a product, adding it to mini cart, Cart page successfully">
-         <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_SMT_CP_Cart_page"/>
-        </classes>
-    </test>
-    
-    <test name="TEST_RHT_MT_016_ValidateNewAddressinShippingAddressPage" testid="BTY-397" priority="P1" description="This test case validates logged in guest user searching for a product, adding it to mini cart, Cart page, shipping address able to add new address and edit address successfully">
-         <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateNewAddressinShippingAddressPage"/>
-        </classes>
-    </test>
-    
-    <test name="TEST_RHT_MT_017_ValidateLogout" testid="BTY-496" priority="P1" description="This test case validates logged in Regsiter user and navigating to home page and logout successfully">
-         <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_SMT_LO_Logout"/>
-        </classes>
-    </test>
-    
-   <!--  <test name="TEST_RHT_MT_018_ValidateReviewCategoryLinks" testid="BTY-412" priority="P1" description="This test case is to verify Revlon hair tools, validate Product review functionality for Guest user.">
-         <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="TestExecute.Revlon.ModularTC.RHT_MT_ValidateReviewCategoryLinks"/>
-        </classes>
-    </test> -->
   </suite>  
