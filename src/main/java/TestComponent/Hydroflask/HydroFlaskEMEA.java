@@ -45,21 +45,119 @@ public void navigateMyAccount() throws InterruptedException {
 	Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
 	try {
 		Sync.waitPageLoad();
-		
 		Sync.waitElementClickable(30, By.xpath("//a[@class='social-login']"));
 		Common.findElement("xpath", "//a[@class='social-login']").click();
 		
-	} catch (Exception | Error e) {
-		e.printStackTrace();
-		ExtenantReportUtils.addFailedLog("verifying my account option", "clcik the my account button",
-				"User failed to clcik the my account button",
-				Common.getscreenShotPathforReport("my account button"));
-		Assert.fail();
+	} 
+	
+	catch(Exception e){
+		Common.clickElement("xpath", "//li[@class='header-links-login']/a");
+	}
 
+
+catch (Error e) {
+e.printStackTrace();
+ExtenantReportUtils.addFailedLog("verifying my account option", "clcik the my account button",
+		"User failed to clcik the my account button",
+		Common.getscreenShotPathforReport("my account button"));
+Assert.fail();
+
+}
+
+}
+public void login(String dataSet){
+	try {
+
+	Thread.sleep(5000);
+	Common.assertionCheckwithReport(Common.getCurrentURL().contains("customer"), "validating login page", "after clicking my account button it will navigate to login page", "sucessfully navigate to login page", "fail to navigate login page");
+	Common.textBoxInput("id", "email",data.get(dataSet).get("Email"));
+	Common.textBoxInput("id", "pass", data.get(dataSet).get("Password"));
+	ExtenantReportUtils.addPassLog("verifying login page with credentials", "Open login page",
+			"User fill the  login in account  ", Common.getscreenShotPathforReport("loginpage"));
+
+	
+	Common.clickElement("xpath", "//button[@class='login-page-submit-action']");
+    
+    
+    Thread.sleep(4000);
+   }
+	
+	catch (Exception | Error e)
+	
+	{
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying login page with credentials", "Open login page",
+				"User failed to login in account  ", Common.getscreenShotPathforReport("login faield"));
+		Assert.fail();
+		;
 	}
 }
 
 public void loginHydroflaskAccount(String dataSet) throws Exception {
+	//Thread.sleep(3000);
+	navigateMyAccount();
+	String expectedResult = "Opens login pop_up";
+
+if(Common.findElements("id","email").size()>0) {
+	
+	login(dataSet);
+}
+else {
+	
+	Sync.waitElementClickable(30, By.id("social-login-popup-log-in-email"));
+	if (Common.findElement("id", "social-login-popup-log-in-email") == null) {
+		Common.clickElement("xpath", "//a[@class='social-login']");
+		//Thread.sleep(2000);
+	}
+	int size = Common.findElements("id", "social-login-popup-log-in-email").size();
+
+	Common.assertionCheckwithReport(size > 0, "verifying  login pop up", expectedResult,
+			"Successfully opeans Login pop up page", "Faild to load the Login pop up");
+	// Common.assertionCheckwithReport(size>0, "Successfully opeans Login
+	// pop up page", expectedResult, "Faild to load the Login pop up");
+
+	try {
+		Common.textBoxInput("id", "social-login-popup-log-in-email", data.get(dataSet).get("Email"));
+		Common.textBoxInput("id", "social-login-popup-log-in-pass", data.get(dataSet).get("Password"));
+
+		expectedResult = "see the fields populated with the data";
+		int errormessagetextSize = Common.findElements("xpath", "//div[contains (@id,'error')]").size();
+		Common.assertionCheckwithReport(errormessagetextSize <= 0, "verifying login credentials", expectedResult,
+				"Successfully Enter in the login data", "Required Field Data Missing");
+		// (errormessagetextSize<=0, "Successfully Enter in the login data,
+		// email address and password", expectedResult,"Required Field Data
+		// Missing");
+
+		Common.clickElement("id", "bnt-social-login-authentication");
+		Thread.sleep(4000);
+		Sync.waitElementPresent("xpath", "//span[@data-ui-id='page-title-wrapper']");
+		// Assert.assertEquals(Common.getText("xpath",
+		// "//span[@data-ui-id='page-title-wrapper']"), "My Account");
+		// expectedResult="it will successfully logs in and will see the
+		// customer name on the header and customer is redirected to 'My
+		// Account' page";
+		String text = Common.getText("xpath", "//span[@data-ui-id='page-title-wrapper']");
+		// ExtenantReportUtils.addPassLog(expectedResult, "",
+		// Common.getscreenShotPathforReport(expectedResult));
+		Common.assertionCheckwithReport(text.equals("My Account"), "verifying login account",
+				"customer is redirected to My Account page",
+				"Logged in the application and customer is redirected to My Account page",
+				"Unabel to login Account");
+		// (text.equals("My Account"), "Logged in the application and
+		// customer is redirected to My Account page",expectedResult,
+		// "Unabel to login Account");
+
+	}
+
+	catch (Exception | Error e) {
+		ExtenantReportUtils.addFailedLog("verifying login page with credentials", expectedResult,
+				"User failed to login in account  ", Common.getscreenShotPathforReport("login faield"));
+		Assert.fail();
+
+	}
+}
+}
+/*public void loginHydroflaskAccount(String dataSet) throws Exception {
 	
 	navigateMyAccount();
 	String expectedResult = "Opens login pop_up";
@@ -103,7 +201,8 @@ public void loginHydroflaskAccount(String dataSet) throws Exception {
 		Assert.fail();
 
 	}
-}
+}*/
+
 public void orderSubmit(String category) throws Exception {
 	
 	
@@ -127,7 +226,7 @@ public void orderSubmit(String category) throws Exception {
 		Common.clickElement("xpath", "//ul[@class='megamenu-list-ancestor']/li[2]");
 	}
 	Thread.sleep(1000);
-	Common.clickElement("xpath", "//ul[@class='megamenu-list-ancestor']/li[2]");
+	Common.clickElement("xpath", "//ul[@class='megamenu-list-ancestor']/li[3]");
 	Thread.sleep(4000);
 	expectedResult = "User should select the  bottle category";
 	int sizebotteles = Common.findElements("xpath", "//ul[@class='megamenu-list-ancestor']/li[2]").size();
@@ -160,7 +259,7 @@ public void orderSubmit(String category) throws Exception {
 		List<WebElement> element = Common.findElements("xpath", "//button[contains(@class,'actions-primary-add-to-cart')]");
 
 		
-		element.get(2).click();
+		element.get(10).click();
         Thread.sleep(5000);
 
 		//String s = Common.getText("xpath", "//a[@aria-label='minicart']/following::span[3]");
@@ -364,16 +463,16 @@ public void addDeliveryAddress(String dataSet) throws Exception {
 
 try {
 
-Sync.waitElementVisible("id", "customer-email-address");
+Sync.waitElementVisible("id", "customer-email");
 
-Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
 
 }
 catch (NoSuchElementException e) {
 
 checkOut();
 
-Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
 
 
 
@@ -385,7 +484,7 @@ try {
 
 Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
 
-    int size = Common.findElements("id", "customer-email-address").size();
+    int size = Common.findElements("id", "customer-email").size();
 
     Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
 
@@ -577,7 +676,7 @@ public void addPaymentDetails(String dataSet) throws Exception {
 	
 				//Common.dropdown("xpath", "//select[@id='c-ct']", Common.SelectBy.TEXT, data.get(dataSet).get("cardType"));
 		
-		Common.textBoxInput("xpath", "//span[@data-cse='encryptedCardNumber']", data.get(dataSet).get("cardNumber"));
+		Common.textBoxInput("xpath", "//input[@id='encryptedCardNumber']", data.get(dataSet).get("cardNumber"));
 
 		Common.switchToDefault();
 		Common.switchFrames("xpath", "//span[contains(@class,'adyen-checkout__card__exp-dat')]/iframe");
@@ -596,7 +695,18 @@ public void addPaymentDetails(String dataSet) throws Exception {
 		
 		Thread.sleep(1000);
 		Common.clickElement("xpath", "//label[@for='agreement_adyen_cc_1']");
-		Common.clickElement("xpath", "//button[@class='action primary checkout']");
+		
+		String URL = Common.getCurrentURL();
+		if (URL.contains("stg")) {
+			Common.clickElement("xpath", "//button[@class='action primary checkout']");
+		}
+
+		else
+		{
+			Common.getCurrentURL();
+			System.out.println(URL);
+		}
+		
 		
 		
 
@@ -628,14 +738,11 @@ public void updatePaymentAndSubmitOrder(String dataSet) throws Exception {
 	}
 	
 	Thread.sleep(3000);
-	int placeordercount = Common.findElements("xpath", "//button[@class='action primary checkout']").size();
+//	int placeordercount = Common.findElements("xpath", "//button[@class='action primary checkout']").size();
+	String URL = Common.getCurrentURL();
 	
-	if (placeordercount > 1) {
-		Common.clickElement("xpath", "//button[@class='action primary checkout']");
-	}
-
-	
-	
+	if (URL.contains("stg"))
+	{
 		try{
 		String urlName=	Common.getCurrentURL();
     	Common.assertionCheckwithReport(urlName.contains("success"),
@@ -650,12 +757,50 @@ public void updatePaymentAndSubmitOrder(String dataSet) throws Exception {
 			Assert.fail();
 		}
 
-}
+}}
 public void acceptPrivecy() {		
 	Common.clickElementStale("id", "truste-consent-required");	}
 
 
+public void update_3D_PaymentAndSubmitOrder(String dataSet) throws Exception {
+	
+	addPaymentDetails(dataSet);
+	String expectedResult = "It redirects to order confirmation page";
 
+	if (Common.findElements("xpath", "//span[contains(@class,'error-text')]").size() > 0) {
+		addPaymentDetails(dataSet);
+	}
+	
+	Thread.sleep(3000);
+	int placeordercount = Common.findElements("xpath", "//button[@class='action primary checkout']").size();
+	
+	if (placeordercount > 1) {
+		Common.clickElement("xpath", "//button[@class='action primary checkout']");
+	}
+	Thread.sleep(5000);
+	Common.switchFrames("xpath", "//iframe[@name='threeDSIframe']");
+	//int password=Common.findElements("xpath", "//label[@class='input-label']").size();
+	//if(password>0) {
+	Common.textBoxInput("xpath", "//input[@class='input-field']", data.get(dataSet).get("Password_3D"));
+	Common.clickElement("xpath", "//input[@class='button--primary']");
+	Common.switchToDefault();
+	//}
+		try{
+			Thread.sleep(3000);
+		String urlName=	Common.getCurrentURL();
+    	Common.assertionCheckwithReport(urlName.contains("success"),
+			"verifying the product confirmation", expectedResult,
+			"Successfully It redirects to order confirmation page Order Placed",
+			"User unabel to go orderconformation page");
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying the product confirmation", expectedResult,
+					"User failed to navigate  to order confirmation page", Common.getscreenShotPathforReport("failednavigatepage"));
+			Assert.fail();
+		}
+
+}
 
 public void socialLinkValidation(String dataSet){
 	
@@ -675,7 +820,7 @@ public void socialLinkValidation(String dataSet){
 			Common.switchToFirstTab();
 		}
    else if(socallinksarry[i].equals("Instagram")){
-			Common.assertionCheckwithReport(Common.getPageTitle().contains("Hydro Flask (@hydroflask) • Instagram photos and videos"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
+			Common.assertionCheckwithReport(Common.getCurrentURL().contains("instagram"), "Verifying Social link  "+socallinksarry[i],"User click the social "+socallinksarry[i], "successfully navigating to social link  "+socallinksarry[i], "Failed to navigate to social link "+socallinksarry[i]);
 			Common.closeCurrentWindow();
 			Common.switchToFirstTab();
 		}
@@ -789,7 +934,7 @@ String Links= "press";
 
  Thread.sleep(3000);
 
- Common.clickElement("xpath","(//a[contains(@href,'press')])[2]");
+ Common.clickElement("xpath","//a[contains(@href,'press')]");
 
  Sync.waitPageLoad();
 
@@ -988,7 +1133,7 @@ String Links= "privacy";
 
  Thread.sleep(3000);
 
- Common.clickElement("xpath","(//a[contains(@href,'privacy')])[2]");
+ Common.clickElement("xpath","//a[contains(@href,'privacy')]");
 
  Sync.waitPageLoad();
 
@@ -1092,11 +1237,58 @@ e.printStackTrace();
 		// report.addPassLog(expectedResult,"promotion code working as
 		// expected",Common.getscreenShotPathforReport("pomotion code"));
 	}
+ 
+ 
+ 
+ public void Rigisteraccount(String dataSet) {
+		
+		try {
+			
+			
+		String email = Common.genrateRandomEmail(data.get(dataSet).get("Email"));
+		
+		Common.findElement("xpath", "//div[@class='login-page-register-wrapper']/a").click();
+		
+		
+		Common.textBoxInput("id", "firstname", data.get(dataSet).get("FirstName"));
+		
+		Common.textBoxInput("id", "lastname", data.get(dataSet).get("LastName"));
+		
+		Common.textBoxInput("id", "email_address", email);
+		
+		Common.textBoxInput("id", "password", data.get(dataSet).get("Password"));
+		Common.textBoxInput("id", "password-confirmation", data.get(dataSet).get("Password"));
+		
+		Common.clickElement("xpath","//button[@class='register-page-action-submit']");
+		Thread.sleep(5000);
+		
+		int successmsg = Common.findElements("xpath", "(//div[@data-ui-id='message-success'])[2]").size();
+		
+		Common.assertionCheckwithReport(successmsg>0, "verifying new account creation confirmation ",
+				"new  account creation ", "Successfully Created an account and logged in the application",
+				"faield to Create New Account");
+		
+		}
+		catch (Exception | Error e) {
+			e.printStackTrace();
+			ExtenantReportUtils.addFailedLog("verifying  page to Create new account",
+					"Crate account from with valid data", "User failed to proceed creat account form ",
+					Common.getscreenShotPathforReport("account creation issue"));
+			Assert.fail();
+		
+	}
+	}
 public void CreateNewAccount(String dataSet) throws Exception {
 
 		navigateMyAccount();
 		String expectedResult = "opens Sign up pop up";
 
+if(Common.findElements("xpath", "//div[@class='login-page-register-wrapper']/a").size()>0) {
+			
+			Rigisteraccount(dataSet);
+			
+		}
+		else {
 		try {
 			Sync.waitElementClickable(30, By.xpath("//div[@class='social-login-popup-subheading subheading-register action create']"));
 			// Common.assertionCheckwithReport("", expectedResult, "");
@@ -1176,15 +1368,12 @@ public void CreateNewAccount(String dataSet) throws Exception {
 					expectedResult, "Successfully Created an account and logged in the application",
 					"faield to Create New Account");
 
-			// report.addPassLog(expectedResult,"Successfully Created an account
-			// and logged in the
-			// application",Common.getscreenShotPathforReport("Successfully
-			// Created an account and logged in the application"));
 		} catch (Exception | Error e) {
 			ExtenantReportUtils.addFailedLog("verifying new account creation confirmation", expectedResult,
 					"User failed to faield to Create New Account ", Common.getscreenShotPathforReport("signup faield"));
 			Assert.fail();
 
+		}
 		}
 
 }
@@ -1677,8 +1866,9 @@ public void verifying_WSL_Partnership(){
 	
 	Common.clickElement("xpath", "(//a[contains(@href,'world-surf-league')])[1]");
 	//Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[3]//ul/li[4]/a");
-	int partnership=Common.isElementPresent("xpath", "(//a[contains(@href,'world-surf-league')])[2]").size();
-	Common.assertionCheckwithReport(partnership>0, "verifying Header link WSL Partnership","user open the WSL Partnership", "user successfully open the header link WSL Partnership","Failed open the WSL Partnership");
+	Thread.sleep(3000);
+//	int partnership=Common.isElementPresent("xpath", "(//a[contains(@href,'world-surf-league')])[2]").size();
+	Common.assertionCheckwithReport(Common.getCurrentURL().contains("world-surf-league"), "verifying Header link WSL Partnership","user open the WSL Partnership", "user successfully open the header link WSL Partnership","Failed open the WSL Partnership");
 	
 	}
 	catch (Exception | Error e) {
@@ -1695,7 +1885,7 @@ public void verifying_Contact(){
 	Sync.waitPageLoad();
 	Common.clickElement("xpath", "//ul[@class='learn-menu']//li[5]");
 	Common.clickElement("xpath", "(//a[contains(@href,'contact')])[1]");
-	//Common.clickElement("xpath", "//ul[@class='megamenu-list']/li[5]//ul/li[5]/a");
+	Sync.waitPageLoad();
 	int contact=Common.isElementPresent("xpath", "//a[@class='logo']").size();
 	Common.assertionCheckwithReport(contact > 0, "verifying Header link contact","user open the contact header link", "user successfully open the header link contact","Failed open the contact");
 	
@@ -2011,6 +2201,7 @@ public void Shop_header_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'bottles')])[1]");
+	 Thread.sleep(5000);
      int bottles=Common.isElementPresent("xpath", "//div[@class='description-banner-title']").size();
    
 	 Common.assertionCheckwithReport(bottles>0, "Verifying bottles page", "It should navigate tobottles page", "successfully lands on bottles page ","bottles page");
@@ -2036,6 +2227,7 @@ public void accessories_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'accessories')])[1]");
+	 Thread.sleep(3000);
 	 int accessories=Common.isElementPresent("xpath", "(//a[contains(@href,'accessories')])[7]").size();
 	Common.assertionCheckwithReport(accessories>0, "Verifying accessories page", "It should navigate to accessories page", "successfully lands on accessories page ","accessories page");
 	 }
@@ -2058,7 +2250,9 @@ public void tumblers_Validation() throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'tumblers')])[1]");
+	 Thread.sleep(5000);
 	 int tumbler=Common.isElementPresent("xpath", "//div[@class='category-sibling-current-category has-siblings']").size();
+	
 	Common.assertionCheckwithReport(tumbler>0, "Verifying tumbler page", "It should navigate to tumbler page", "successfully lands on tumbler page ","tumbler page");
 	 }
 
@@ -2081,6 +2275,7 @@ public void coffee_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'coffee')])[1]");
+	 Thread.sleep(5000);
 	 int coffee=Common.isElementPresent("xpath", "//div[@class='description-banner-title']").size();
 
 	Common.assertionCheckwithReport(coffee>0, "Verifying coffee page", "It should navigate to coffee page", "successfully lands on coffee page ","coffee page");
@@ -2104,6 +2299,7 @@ public void beer_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'beer')])[1]");
+	 Thread.sleep(5000);
 	 int beer=Common.isElementPresent("xpath", "//div[@class='description-banner-title']").size();
 
 	Common.assertionCheckwithReport(beer>0, "Verifying beer page", "It should navigate to beer page", "successfully lands on beer page ","beer page");
@@ -2128,6 +2324,7 @@ public void Wine_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'wine')])[1]");
+	 Thread.sleep(5000);
 	 int wine=Common.isElementPresent("xpath", "//div[@class='description-banner-title']").size();
 
 	Common.assertionCheckwithReport(wine>0, "Verifying wine page", "It should navigate to beer page", "successfully lands on beer page ","beer page");
@@ -2151,6 +2348,7 @@ public void coolers_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'coolers')])[1]");
+	 Thread.sleep(5000);
 	 int coolers=Common.isElementPresent("xpath", "//div[@class='description-banner-title']").size();
 
 	Common.assertionCheckwithReport(coolers>0, "Verifying coolers page", "It should navigate to coolers page", "successfully lands on coolers page ","beer page");
@@ -2174,6 +2372,7 @@ public void Food_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//a[contains(@href,'food')])[1]");
+	 Thread.sleep(5000);
 	 int food=Common.isElementPresent("xpath", "//div[@class='description-banner-title']").size();
 
 	Common.assertionCheckwithReport(food>0, "Verifying food page", "It should navigate to food page", "successfully lands on food page ","beer page");
@@ -2196,6 +2395,7 @@ public void More_Validation( ) throws Exception {
 
 	 Common.clickElement("xpath","//ul[@class='megamenu-list']/li[1]/div[1]/button");
 	 Common.clickElement("xpath","(//button[@data-ac-test='link-to_navigation-category_level2'])[2]");
+Thread.sleep(3000);
 	 int more=Common.isElementPresent("xpath", "//div[@class='description-banner-title']").size();
 
 	Common.assertionCheckwithReport(more>0, "Verifying food page", "It should navigate to food page", "successfully lands on food page ","beer page");
