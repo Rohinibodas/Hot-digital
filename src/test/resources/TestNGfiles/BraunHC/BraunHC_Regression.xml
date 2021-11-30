@@ -3,7 +3,7 @@
    <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-	
+
    <test name="Test_BraunUS_ST_003_ValidatingContentLinks"
 		testid="HHG-129" priority="P1"
 		description="This test case  Validating ContentLinks">
@@ -44,7 +44,6 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_07_RegQuantityChngMinicart" />
 		</classes>
 	</test>
-	
 	<test name="Test_BraunUS_008_GuestUserCheckout_with_CC" testid="HHG-134"
 		priority="P1"
 		description="This test case validates Guest user Checkout  with CC functionality of BraunUS">
@@ -265,14 +264,8 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_41_RegUserIncprodcutQunty"/>
 		</classes>
      </test>
-     <test name="Test_BraunUS_ST_042_Compare_products"
-		testid="HHG-159" priority="P1"
-		description="This test case  Validating BarunHC_Compare_products">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_42_CompareProducts"/>
-		</classes>
-     </test>
+    
+
      <test name="Test_BraunUS_ST_043_Header_Links"
 		testid="HHG-161" priority="P1"
 		description="This test case Validating BraunHC_validateHeaderlinks">
@@ -358,7 +351,7 @@
 		description="This test case Validating GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_001_GuestCCAmexWithTaxMutiProducts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_53_GuestCCAmexWithTaxMutiProducts"/>
 		</classes>
 		
      </test>
@@ -368,7 +361,7 @@
 		description="To verify the functionality of RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_002_RegCCMasterWithTax"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_54_RegCCMasterWithTax"/>
 		</classes>
 		
      </test>	
@@ -378,7 +371,7 @@
 		description="To verify the  functionality Adding new Address in shipping page for register user">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_003_RegCCDiscoverWithTax"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_55_RegCCDiscoverWithTax"/>
 		</classes>
 		
      </test>	
@@ -390,7 +383,7 @@
 		description="To Verify the RegisteredUser_Checkout_visaCC_with_Tax_Multiple_product">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_004_RegCCVissaWithTaxMutiProducts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_56_RegCCVissaWithTaxMutiProducts"/>
 		</classes>
 		
      </test>
@@ -401,7 +394,7 @@
 		description="o verify the functionality of RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_005_RegCCAmexWithTaxMutiProducts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_57_RegCCAmexWithTaxMutiProducts"/>
 		</classes>
 		
      </test>	
@@ -411,7 +404,7 @@
 		description="To verify the  functionlaity of  _GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_006_GuestCCDiscoverWithTaxMutiProducts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_58_GuestCCDiscoverWithTaxMutiProducts"/>
 		</classes>
      </test>
      
@@ -420,7 +413,7 @@
 		description="This test caseTo validate GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_007_GuestCCMasterNOTax"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_59_GuestCCMasterNOTax"/>
 		</classes>
      </test>
      
@@ -430,7 +423,7 @@
 		description="This test case To verify the  functionlaity Registereduser_Checkout_AmexCC_NoTax_with_Multi_products_same_Billing_and_Shipping">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_008_RegCCAmexNoTaxMutiProducts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_60_RegCCAmexNoTaxMutiProducts"/>
 		</classes>
      </test>
      
@@ -440,15 +433,15 @@
 		description="This test caseTo validate GuestUser_Checkout_DiscoverCC_NoTax_with_same_Billing_and_shipping_Address">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_009_GuestCCDiscoverNoTax"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_61_GuestCCDiscoverNoTax"/>
 		</classes>
      </test>	
-     <test name="Test_BraunUS_ST_010_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address"
+  <!--     <test name="Test_BraunUS_ST_010_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address"
 		testid="HHG-226" priority="P1"
 		description="This test caseTo validate GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_010_GuestCCVissaNotaxMutiProducts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_62_GuestCCVissaNotaxMutiProducts"/>
 		</classes>
      </test>
      
@@ -460,7 +453,7 @@
 		description="This test caseTo validate the GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_011_GuestCCAmexNoTaxMutiProdcuts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_63_GuestCCAmexNoTaxMutiProdcuts"/>
 		</classes>
      </test>
      
@@ -471,9 +464,9 @@
 		description="This test caseTo validate theRegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_012_RegCCDiscoverNotaxMutiProdcuts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_64_RegCCDiscoverNotaxMutiProdcuts"/>
 		</classes>
-     </test>  
+     </test>  -->
      
      			
  </suite>

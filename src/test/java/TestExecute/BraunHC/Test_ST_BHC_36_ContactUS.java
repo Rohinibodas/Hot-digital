@@ -1,4 +1,4 @@
-package TestExecute.BraunHC;
+ package TestExecute.BraunHC;
 
 import org.testng.annotations.Test;
 
@@ -15,16 +15,16 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_36_ContactUS {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void ContactUs_FooterLink() throws Exception {
 
 		try {
-			
+
 		
 			
-			//BraunHC.AGREEPROCEED();
-			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 		    BraunHC.validateNavigateContactUS_footer_links("ContactUs");
 			
 			
@@ -37,8 +37,8 @@ public class Test_ST_BHC_36_ContactUS {
 
 	@BeforeTest
     public void startTest() throws Exception {
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
+		 //System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

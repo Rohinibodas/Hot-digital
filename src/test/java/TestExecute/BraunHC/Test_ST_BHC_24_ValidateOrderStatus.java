@@ -15,11 +15,15 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_24_ValidateOrderStatus {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void BraunHC_OrderStatus() throws Exception {
 
 		try {
+			
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.OrderStatus("Contact");
 		}
 		catch (Exception e) {

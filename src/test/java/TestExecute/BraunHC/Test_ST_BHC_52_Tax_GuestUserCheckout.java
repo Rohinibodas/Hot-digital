@@ -23,10 +23,11 @@ public class Test_ST_BHC_52_Tax_GuestUserCheckout {
 String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void GuestCategoryCheckoutCC() throws Exception {
 
+		
 		try {
 			String addressFile = "BraunHC//StreetAddresswithZipcode.xlsx";
 			BraunHC.prepareTaxData("BraunTaxDetails_Guest.xlsx");
@@ -44,28 +45,30 @@ String datafile = "BraunHC//BraunHCTestData.xlsx";
 			String City=addressVal.get(state).get(i).get("City");
 			String Zipcode=addressVal.get(state).get(i).get("Zipcode");
 			String tax=addressVal.get(state).get(i).get("TaxRate");
-			BraunHC.AGREEPROCEED();
-			//BraunHC.selectCategoryProduct("AccountDetails");
-			//BraunHC.Global_search("SearchproductName");
+			String Website=BraunHC.URL();
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
-			BraunHC.GuestShippingaddress(streetAddress,City,Zipcode,state);
-			//BraunHC.MoneyOrderpayment();
-			BraunHC.Taxcalucaltion(tax);
+			BraunHC.ShippingAddress("Address",streetAddress,City,Zipcode,state);
+			BraunHC.ShippingMethods();
+			BraunHC.AddressVerfication();
+			HashMap<String,String> data=BraunHC.taxValidation(tax,state);
+			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");		
+			//BraunHC.RegistereduserOrderSuccesspage();
 			
-			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
-			//BraunHC.GuestOrderSuccesspage();
-			BraunHC.RegistereduserOrderSuccesspage();
-			
-			//writeResultstoXLSx( OrderId, SubTotal, ShippingAmount, TaxAmount,  TotalAmount, ActualTax , tax)
+		 String OrderId=BraunHC.guestorder_Verifying();
+			 
+	            //String OrderId="12345";
+	            System.out.print(data);
+			// BraunHC.writeResultstoXLSx(Website,data.get("subtotlaValue"),data.get("shippingammountvalue"),state,Zipcode,data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));
+	         BraunHC.writeResultstoXLSxReg(Website,OrderId,data.get("subtotlaValue"),data.get("shippingammountvalue"),state,Zipcode,data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));  
 			}
 			
 		catch (Exception e) {
 			Common.closeAll();
 			startTest();
-			//Assert.fail(e.getMessage(), e);
+			//Assert.fail(e.getMessage(), e);s
 		} 
 			}
 			}}
@@ -78,7 +81,7 @@ String datafile = "BraunHC//BraunHCTestData.xlsx";
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		 System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

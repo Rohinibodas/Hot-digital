@@ -11,34 +11,33 @@ import TestComponent.BraunHC.BraunHCHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class Test_ST_BHC_46_CCwithNewBillingAddress {
+public class Test_ST_BHC_53_GuestCCAmexWithTaxMutiProducts {
 	
-
-	public class BraunHC_Checkout_with_Two_products_in_plp {
+	
 		String datafile = "BraunHC//BraunHCTestData.xlsx";	
 		BraunHCHelper BraunHC=new BraunHCHelper(datafile);
 		
 		@Test(priority=1)
-		public void Checkout_with_Two_products_in_plp() throws Exception {
+		public void GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products() throws Exception {
 
 			try {
 				
+				
+				
 				BraunHC.AGREEPROCEED();
-				BraunHC.PopUp();
+		        BraunHC.PopUp();
 				BraunHC.Mouseover();
-				BraunHC.Two_products_in_plp();
+				BraunHC.mouseoverproduct();			
 				BraunHC.Addtocart();
 				BraunHC.ViewandEditcartPage();
 				BraunHC.checkoutPage();
 				BraunHC.GuestShippingaddress("Address");
 				BraunHC.ShippingMethods();
 				BraunHC.AddressVerfication();
-				BraunHC.NewBillingaddress("NewBillingaddressform");
-				 BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
-	            // BraunHC.RegistereduserOrderSuccesspage();
-				 BraunHC.GuestOrderSuccesspage();
-				
-				
+				BraunHC.Tax_validation();
+				BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetailsAEMX");
+				//BraunHC.RegistereduserOrderSuccesspage();
+				BraunHC.GuestOrderSuccesspage();
 			}
 			catch (Exception e) {
 				Assert.fail(e.getMessage(), e);
@@ -50,7 +49,7 @@ public class Test_ST_BHC_46_CCwithNewBillingAddress {
 		@BeforeTest
 	    public void startTest() throws Exception {
 			// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-			 //System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+			// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 			   	    
 	    Login.signIn();
 	    }
@@ -64,4 +63,3 @@ public class Test_ST_BHC_46_CCwithNewBillingAddress {
 
 		}
 	}
-}

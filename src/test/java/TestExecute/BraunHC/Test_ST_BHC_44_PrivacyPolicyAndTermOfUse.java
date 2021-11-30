@@ -15,13 +15,14 @@ public class Test_ST_BHC_44_PrivacyPolicyAndTermOfUse {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void Privacy_PolicyAnd_TermOfUse() throws Exception {
 
 		try {
 			
-		    //BraunHC.AGREEPROCEED();
+			BraunHC.AGREEPROCEED();
+	        BraunHC.PopUp();;
 		     BraunHC.privacy();
 			BraunHC.Terms_OF_Use();
 		}
@@ -34,7 +35,7 @@ public class Test_ST_BHC_44_PrivacyPolicyAndTermOfUse {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

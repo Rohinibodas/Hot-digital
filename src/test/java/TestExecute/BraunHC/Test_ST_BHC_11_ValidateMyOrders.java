@@ -18,9 +18,12 @@ public class Test_ST_BHC_11_ValidateMyOrders {
 	
 	@Test(priority=1)
 	public void loginApplication() throws Exception {
+
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();		
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.MyOrdersPage();
 		}

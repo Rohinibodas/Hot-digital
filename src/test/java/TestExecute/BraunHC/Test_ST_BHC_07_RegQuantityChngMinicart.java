@@ -20,11 +20,15 @@ public class Test_ST_BHC_07_RegQuantityChngMinicart {
 	public void RegisteruserMiniCart() throws Exception {
 
 		try {
-		
 			
-			//BraunHC.AGREEPROCEED();
+			
+			
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Select_ProductinThermometers("Forehead Thermometer");
+			//BraunHC.PopUp();
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();

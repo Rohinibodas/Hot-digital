@@ -14,24 +14,23 @@ import TestLib.Login;
 public class Test_ST_BHC_47_CCWithNewshippingAddress {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-	
 	@Test(priority=1)
 	public void RegisteredUserCheckoutwithnewaddress() throws Exception {
+
 		try {
 			
 			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Select_ProductinThermometers("Forehead Thermometer");
-			//BraunHC.Mouseover();
-			//BraunHC.Two_products_in_plp();
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
 			BraunHC.ShippingMethods();
 			BraunHC.RegisterUser_ShippingAddress();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
-			//BraunHC.RegistereduserOrderSuccesspage();
-			BraunHC.GuestOrderSuccesspage();
+			BraunHC.RegistereduserOrderSuccesspage();
+	        //BraunHC.GuestOrderSuccesspage();
 			
 		}
 		catch (Exception e) {

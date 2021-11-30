@@ -15,13 +15,15 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_16_ValidateAccountInfo {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void Accountinfomation() throws Exception {
 
 		try {
 			
-		//	BraunHC.AGREEPROCEED();
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Accountinfomation();
 			BraunHC.changeProfileName("AccountDetails");

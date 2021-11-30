@@ -17,16 +17,19 @@ public class Test_ST_BHC_40_GuestUserIncProductQnty {
 	
 	@Test(priority=1)
 	public void ValidateGuestUserIncreaseProductQuantityInCartPage() throws Exception {
+
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcart("Increaseproductqunty");
-			//BraunHC.Shoppingcartpage();
 			BraunHC.checkoutPage();
 			BraunHC.GuestShippingaddress("Address");
 			BraunHC.ShippingMethods();
+			BraunHC.AddressVerfication();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			//BraunHC.RegistereduserOrderSuccesspage();
 			BraunHC.GuestOrderSuccesspage();

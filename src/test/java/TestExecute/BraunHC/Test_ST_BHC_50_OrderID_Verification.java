@@ -15,21 +15,21 @@ public class Test_ST_BHC_50_OrderID_Verification {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void OrderID_VerficationC() throws Exception {
 
 		try {
 			
-			
-			//BraunHC.AGREEPROCEED();
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Select_ProductinThermometers("Forehead Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
 			BraunHC.ShippingMethods();
-  		BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
+  		   BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 		    BraunHC.RegistereduserOrderSuccesspage();
 			  BraunHC.order_verification();
 		}

@@ -15,20 +15,22 @@ public class Test_ST_BHC_38_GuestUserInvalidCC {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void Invaildcreditcardcheckout() throws Exception {
 
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();		
-			//BraunHC.Global_search("SearchproductName");
 			BraunHC.GuestShippingaddress("Address");
 			BraunHC.ShippingMethods();
+			BraunHC.AddressVerfication();
 		    BraunHC.invalidCreditCard("InvalidCreditCard");
 
 		}

@@ -15,13 +15,16 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_05_QuantityChngMiniCart {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void ChangeQTYMini_Cart() throws Exception {
 
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+			
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			//BraunHC.Global_search("SearchproductName");
 			BraunHC.ChangeQtyMinicart();
@@ -36,7 +39,7 @@ public class Test_ST_BHC_05_QuantityChngMiniCart {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

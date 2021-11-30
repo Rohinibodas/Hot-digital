@@ -14,13 +14,16 @@ import TestLib.Login;
 public class Test_ST_BHC_45_CCWithTwoProductsInPlp {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void Checkout_with_Two_products_in_plp() throws Exception {
 
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+			
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.Mouseover();
 			BraunHC.Two_products_in_plp();
 			BraunHC.Addtocart();
@@ -28,6 +31,7 @@ public class Test_ST_BHC_45_CCWithTwoProductsInPlp {
 			BraunHC.checkoutPage();
 			BraunHC.GuestShippingaddress("Address");
 			BraunHC.ShippingMethods();
+			BraunHC.AddressVerfication();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			//BraunHC.RegistereduserOrderSuccesspage();
 			BraunHC.GuestOrderSuccesspage();
@@ -43,7 +47,7 @@ public class Test_ST_BHC_45_CCWithTwoProductsInPlp {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		 System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

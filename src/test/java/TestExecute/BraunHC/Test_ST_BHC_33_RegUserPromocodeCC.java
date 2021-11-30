@@ -15,14 +15,15 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_33_RegUserPromocodeCC {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void BarunHC_RegUser_CheckoutCC_applypromo_code() throws Exception {
 
 		try {
 			
 			
-			//BraunHC.AGREEPROCEED();
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Select_ProductinThermometers("Forehead Thermometer");
 			BraunHC.Addtocart();
@@ -30,6 +31,7 @@ public class Test_ST_BHC_33_RegUserPromocodeCC {
 			BraunHC.Applypromocode("promocode");
 			BraunHC.checkoutPage();
 			BraunHC.ShippingMethods();
+			//BraunHC.AddressVerfication();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			BraunHC.RegistereduserOrderSuccesspage();
 			
@@ -43,7 +45,7 @@ public class Test_ST_BHC_33_RegUserPromocodeCC {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		 //System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

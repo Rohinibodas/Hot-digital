@@ -19,15 +19,16 @@ public class Test_ST_BHC_48_CCWithDifferntProducts {
 	public void Checkout_with_differntproducts() throws Exception {
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.Mouseover();
 			BraunHC.Checkout_with_differnt_proucts();
-			//BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
 			BraunHC.GuestShippingaddress("Address");
 			BraunHC.ShippingMethods();
+			BraunHC.AddressVerfication();
            BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
            // BraunHC.RegistereduserOrderSuccesspage();
             BraunHC.GuestOrderSuccesspage();
@@ -43,7 +44,7 @@ public class Test_ST_BHC_48_CCWithDifferntProducts {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

@@ -15,17 +15,19 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_21_RegUserBrowserSearch {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void Registered_UserBrowser_Search() throws Exception {
 
 		try {
 			
 			
-			//BraunHC.AGREEPROCEED();
-			BraunHC.loginBraunHC("AccountDetails");
 			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
+			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Global_search("SearchproductName");
+			//BraunHC.PopUp();
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();			

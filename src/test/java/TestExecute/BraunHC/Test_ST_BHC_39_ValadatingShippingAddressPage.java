@@ -15,13 +15,14 @@ public class Test_ST_BHC_39_ValadatingShippingAddressPage {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void valadating_ShippingAddressPage() throws Exception {
 
 		try {
-			
-			//BraunHC.AGREEPROCEED();
+		
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();

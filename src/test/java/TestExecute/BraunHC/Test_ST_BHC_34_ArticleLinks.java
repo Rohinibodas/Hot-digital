@@ -15,14 +15,16 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_34_ArticleLinks {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void Article_Linkes() throws Exception {
 
 		try {
 			
 			
-			//BraunHC.AGREEPROCEED();
+			
+			BraunHC.AGREEPROCEED();
+	        BraunHC.PopUp();
 			BraunHC.instagramFooterlink();
 			BraunHC.facebookFooterlink();
 			BraunHC.youtubeFooterlink();
@@ -32,19 +34,10 @@ public class Test_ST_BHC_34_ArticleLinks {
 		} 
 	}
 	
-	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		//System.setProperty("configFile", "BraunHC\\config.properties");
-		  Login.signIn(browser);
-		  
-	  }
-	
-
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

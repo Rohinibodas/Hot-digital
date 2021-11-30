@@ -19,15 +19,18 @@ public class Test_ST_BHC_04_RegUserCategoryCC {
 	@Test(priority=1)
 	public void RegCategoryCheckoutCC() throws Exception {
 
-		try {
 	
+		try {
 			
-	      //	BraunHC.AGREEPROCEED();
+			
+	     	BraunHC.AGREEPROCEED();
+	     	BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
-			BraunHC.checkoutPage();			
+			BraunHC.checkoutPage();	
+	         //BraunHC.Registeruseraddress();
 			BraunHC.ShippingMethods();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			BraunHC.RegistereduserOrderSuccesspage();
@@ -41,7 +44,7 @@ public class Test_ST_BHC_04_RegUserCategoryCC {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

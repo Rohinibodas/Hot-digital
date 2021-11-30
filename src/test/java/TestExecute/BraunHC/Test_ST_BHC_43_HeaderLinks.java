@@ -13,7 +13,7 @@ import TestLib.Login;
 
 public class Test_ST_BHC_43_HeaderLinks 
 {
-	
+		
 		 
 		String datafile = "BraunHC//BraunHCTestData.xlsx";	
 		BraunHCHelper BraunHC=new BraunHCHelper(datafile);
@@ -22,7 +22,11 @@ public class Test_ST_BHC_43_HeaderLinks
 		public void BraunHC_validateHeaderlinks() throws Exception {
 
 			try {
-				//BraunHC.AGREEPROCEED();
+				
+				
+				
+				BraunHC.AGREEPROCEED();
+				BraunHC.PopUp();
 				BraunHC.Mouseover();
 				BraunHC.mouseoverheaderlink();
 				BraunHC.Mouseoverlearn();
@@ -36,8 +40,8 @@ public class Test_ST_BHC_43_HeaderLinks
 
 		@BeforeTest
 	    public void startTest() throws Exception {
-			// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-			// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+			//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
+		   //System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 			   	    
 	    Login.signIn();
 	    }
@@ -47,7 +51,7 @@ public class Test_ST_BHC_43_HeaderLinks
 		public void clearBrowser()
 		{
 			
-			Common.closeAll();
+		Common.closeAll();
 
 		}
 	}

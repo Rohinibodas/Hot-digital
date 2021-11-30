@@ -15,30 +15,31 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_19_RegUserCC {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void RegisteredUserCheckout() throws Exception {
 
 		try {
 			
 			
-			//BraunHC.AGREEPROCEED();
+			
+			BraunHC.AGREEPROCEED();
+	    	BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
-			BraunHC.Global_search("SearchproductName");
-			//BraunHC.Select_ProductinThermometers("No Touch Thermometer");
+			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
-			BraunHC.checkoutPage();			
+			BraunHC.checkoutPage();	
+	       // BraunHC.Registeruseraddress();
 			BraunHC.ShippingMethods();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
-			BraunHC.RegistereduserOrderSuccesspage();
+			//BraunHC.RegistereduserOrderSuccesspage();
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		} 
 	}
 	
-
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");

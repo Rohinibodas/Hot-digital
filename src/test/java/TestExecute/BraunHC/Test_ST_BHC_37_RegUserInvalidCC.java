@@ -14,14 +14,14 @@ import TestLib.Login;
 public class Test_ST_BHC_37_RegUserInvalidCC {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void RegCategoryCheckoutCC() throws Exception {
 
 		try {
 			
-			
-		//	BraunHC.AGREEPROCEED();
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();

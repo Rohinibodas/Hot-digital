@@ -15,19 +15,21 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_27_RegUsercheckoutDiscover {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void RegCheckoutDiscover() throws Exception {
 
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+			
+			
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
-			//BraunHC.Global_search("SearchproductName");
 			BraunHC.ShippingMethods();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetailsDiscover");
 		   BraunHC.RegistereduserOrderSuccesspage();

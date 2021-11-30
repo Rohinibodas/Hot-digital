@@ -15,13 +15,15 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_09_AccountCreation {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void AccountCreationBraun() throws Exception {
 
 		try {
 			
-			//BraunHC.AGREEPROCEED();
+		 
+			BraunHC.AGREEPROCEED();
+		    BraunHC.PopUp();
 			BraunHC.AccountCreationBraunHC("AccountDetails");
 		}
 		catch (Exception e) {
@@ -33,7 +35,7 @@ public class Test_ST_BHC_09_AccountCreation {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

@@ -15,19 +15,18 @@ import org.testng.annotations.BeforeMethod;
 public class Test_ST_BHC_35_WarrantyRegistration {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void WarrantyRegistration_FooterLink() throws Exception {
 
 		try {
 			
 			
-			
-			//BraunHC.AGREEPROCEED();
-			
+
+			BraunHC.AGREEPROCEED();
+		    BraunHC.PopUp();
 		    BraunHC.WarrantyRegistration_footerlink("WarrantyRegistration");
-	
-			
+					
 			
 		}
 		catch (Exception e) {
@@ -40,7 +39,7 @@ public class Test_ST_BHC_35_WarrantyRegistration {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		//System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }

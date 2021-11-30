@@ -15,21 +15,22 @@ public class Test_ST_BHC_51_SignInShippingPage {
 
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
-
+	
 	@Test(priority=1)
 	public void SignInShippingPage() throws Exception {
 
-		try {
+		try {	
 			
-			
-			//BraunHC.AGREEPROCEED();
+			BraunHC.AGREEPROCEED();
+			BraunHC.PopUp();
 			BraunHC.Select_ProductinThermometers("Forehead Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
 			BraunHC.SignIn_Shippingpage("CustomerAccountdetails");
-			BraunHC.ShippingMethods();
-		   BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
+			//BraunHC.Registeruseraddress();
+		    BraunHC.ShippingMethods();
+		     BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
 			BraunHC.RegistereduserOrderSuccesspage();
 		}
 		catch (Exception e) {
@@ -41,7 +42,7 @@ public class Test_ST_BHC_51_SignInShippingPage {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+	//	System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }
@@ -51,7 +52,7 @@ public class Test_ST_BHC_51_SignInShippingPage {
 	public void clearBrowser()
 	{
 		
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 }

@@ -1,37 +1,40 @@
 package TestExecute.BraunHC;
 
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TestComponent.BraunHC.BraunHCHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
+public class Test_ST_BHC_56_RegCCVissaWithTaxMutiProducts {
 
-public class Test_ST_BHC_28_RegUserCheckoutMaster {
 	String datafile = "BraunHC//BraunHCTestData.xlsx";	
 	BraunHCHelper BraunHC=new BraunHCHelper(datafile);
 	
 	@Test(priority=1)
-	public void RegCheckoutMaster() throws Exception {
+	public void _RegisteredUser_Checkout_visaCC_with_Tax_Multiple_produc() throws Exception {
 
 		try {
 			
 			
 			BraunHC.AGREEPROCEED();
-			BraunHC.PopUp();
+	        BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
-			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
+			BraunHC.Mouseover();
+			//BraunHC.PopUp();
+			BraunHC.Two_products_in_plp();
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
 			BraunHC.ShippingMethods();
+			BraunHC.Tax_validation();
 			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetailsMaster");
-			BraunHC.RegistereduserOrderSuccesspage();
+	        BraunHC.RegistereduserOrderSuccesspage();
 
 
 		}
