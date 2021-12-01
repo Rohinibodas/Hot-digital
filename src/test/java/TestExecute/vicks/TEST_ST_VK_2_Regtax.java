@@ -1,5 +1,15 @@
 package TestExecute.vicks;
 
+import org.testng.annotations.Test;
+
+import TestComponent.Vicks.VicksHelper;
+import TestLib.Common;
+import TestLib.Login;
+import Utilities.ExcelReader;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,25 +18,20 @@ import java.util.Set;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
-import TestComponent.Vicks.VicksHelper;
-import TestLib.Common;
-import TestLib.Login;
-import Utilities.ExcelReader;
 
  
 
-public class TEST_ST_VK_1_Guesttax {
+public class TEST_ST_VK_2_Regtax {
     String datafile = "Vicks//Vickstestdata.xlsx";    
 	VicksHelper vicks = new VicksHelper(datafile);
     @Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
     
-    public void gUESTTAX() throws Exception {
+    public void Regtax() throws Exception {
     	try {
-			String addressFile = "Vicks/flks.xlsx";
+			String addressFile = "Vicks//StreetAddresswithZipcode.xlsx";
 
-	     	vicks.prepareTaxData("vicksTaxDetails_Guest.xlsx");
+	     	vicks.prepareRegTaxData("vicksTaxDetails_Reg.xlsx");
+	     	vicks.loginVicks("AccountDetails");
 	     	Map<String, List<Map<String, String>>> addressVal=new HashMap<>();
 			ExcelReader excelData=new ExcelReader(addressFile);
 			addressVal=excelData.getStateAddressValue();
@@ -38,12 +43,11 @@ public class TEST_ST_VK_1_Guesttax {
 //				int i=2;
 		
 			try {
-				
 			Map<String, String> add=addressVal.get(state).get(i);
 			String streetAddress=addressVal.get(state).get(i).get("StreetAddress");
 			String City=addressVal.get(state).get(i).get("City");
 			String Zipcode=addressVal.get(state).get(i).get("Zipcode");
-			String tax=addressVal.get(state).get(i).get("TaxRate");
+			String tax=addressVal.get(state).get(i).get("TaxRate");	  
 			String Website=vicks.URL();
 			vicks.Verifyhomepage();
 //			vicks.Agreandproceed();
@@ -52,20 +56,17 @@ public class TEST_ST_VK_1_Guesttax {
 			vicks.addtocart();
 			vicks.mincat();
 			vicks.checkout();
-            vicks.GuestShippingAddress(streetAddress,City,Zipcode,state);
+            vicks.RegisterShippingAddress(streetAddress,City,Zipcode,state);
             HashMap<String,String> data=vicks.Taxcalucaltion(tax,state);
             vicks.paymentDetails("PaymentDetails");
-           //String OrderId=vicks.PlaceOrder();
-            String OrderId="123";
-//            vicks.clickminicartButton();
-//    		vicks.removeproductinBagPage();
-    		
-            
+           String OrderId=vicks.regPlaceOrder();
+//           vicks.Logout();
+//            String OrderId="123";
          
             
     	 System.out.print(data);
 
-			vicks.writeResultstoXLSx(Website,OrderId,data.get("subtotlaValue"),data.get("shippingammountvalue"),state,Zipcode,data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));
+			vicks.regwriteResultstoXLSx(Website,OrderId,data.get("subtotlaValue"),data.get("shippingammountvalue"),state,Zipcode,data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));
            
 			}
 			
@@ -84,7 +85,7 @@ public class TEST_ST_VK_1_Guesttax {
     	
 	@BeforeMethod
 	public void startTest() throws Exception {
-	//	System.setProperty("configFile", "Vicks\\config_Vicks_Production.properties");
+		System.setProperty("configFile", "Vicks\\config.properties");
 		Login.signIn();
         
     }

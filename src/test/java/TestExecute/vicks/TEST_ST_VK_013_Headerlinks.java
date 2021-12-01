@@ -20,8 +20,8 @@ public class TEST_ST_VK_013_Headerlinks {
 //			vicks.Agreandproceed();
           vicks.validationlinksshop("shoppagetitle");
 	     vicks.headLinksValidations_Learn("PageTitle");
-       		vicks.validationlinkssupport("supportpagetitle");
-			
+//       		vicks.validationlinkssupport("supportpagetitle");
+			vicks.headersupport("ordersupport");
 			
 		}
 		catch (Exception e) {
@@ -42,7 +42,7 @@ public class TEST_ST_VK_013_Headerlinks {
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {
-//			System.setProperty("configFile", "Vickshumdifier\\config.properties");
+//			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
 			 
 			  

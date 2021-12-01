@@ -24,7 +24,7 @@ public class TEST_ST_VK_003_MiniCart {
 		vicks.productselect();
 		vicks.addtocart();
 		vicks.clickminicartButton();
-		vicks.update_product_miniCartBag("2");
+		vicks.update_product_miniCartBag("14");
 		vicks.clickminicartButton();
 		vicks.removeproductinBagPage();
 		
@@ -43,6 +43,7 @@ public class TEST_ST_VK_003_MiniCart {
 	@BeforeMethod
 	public void startTest() throws Exception {
 //		System.setProperty("configFile", "Vicks\\config.properties");
+		
 		Login.signIn();
 
 	}

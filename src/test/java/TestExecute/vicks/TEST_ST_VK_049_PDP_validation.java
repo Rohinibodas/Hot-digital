@@ -9,42 +9,41 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_VK_007_ValidationBrowse_SearchGuestUser {
+public class TEST_ST_VK_049_PDP_validation {
 	String datafile = "Vicks//Vickstestdata.xlsx";
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void TEST_VK_ST_007_ValidationBrowse_SearchGuestUser() throws Exception {
+	public void CreateNewAccount() {
 
 		try {
+		
 
 			vicks.Verifyhomepage();
-//			vicks.Agreandproceed();
-//			vicks.loginVicks("AccountDetails");
-			vicks.searchProduct("productname");
-			vicks.clickonproduct();
-			//vicks.addtocart();
-			//vicks.clickminicartButton();
-//			vicks.click_View_editcart();
-//			vicks.changeQuntity_UpdateProduct("2");
-		/*	vicks.clickCheckoutButton_minicart();
-			vicks.addDeliveryAddress_registerUser("ShippingAddress");*/
+			vicks.CreateAccount("AccountDetails");
+			vicks.Humidifiers_Vaporizers();
+			vicks.productselect();
+			vicks.SKU_validation1();
+			vicks.title1();
+		 
+		
+			
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
+		
 	}
 
 	@AfterTest
 	public void clearBrowser() {
-
 		Common.closeAll();
 
 	}
 
 	@BeforeMethod
 	public void startTest() throws Exception {
-//		System.setProperty("configFile", "Vicks\\config.properties");
+		System.setProperty("configFile", "Vicks\\config.properties");
 		Login.signIn();
 
 	}

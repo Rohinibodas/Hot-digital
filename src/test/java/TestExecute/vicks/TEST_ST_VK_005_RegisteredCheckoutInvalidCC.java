@@ -46,7 +46,7 @@ public class TEST_ST_VK_005_RegisteredCheckoutInvalidCC {
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {
-//			System.setProperty("configFile", "Vickshumdifier\\config.properties");
+//			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
 			 
 			  

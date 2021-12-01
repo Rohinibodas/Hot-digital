@@ -15,7 +15,7 @@ import TestLib.Common;
 import TestLib.Login;
 
 public class TEST_ST_VK_052_Guestuser_XML_Validation {
-	String datafile = "Vicks//Vickstestdata.xlsx";	
+	String datafile = "Vicks//VicksTestData.xlsx";	
 	VicksHelper vicks = new VicksHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
@@ -24,7 +24,7 @@ public class TEST_ST_VK_052_Guestuser_XML_Validation {
 		try {
 			
 			vicks.Verifyhomepage();
-			vicks.Agreandproceed();
+//			vicks.Agreandproceed();
 			vicks.Humidifiers_Vaporizers();
 			vicks.productselect();
 			vicks.addtocart();
@@ -36,16 +36,17 @@ public class TEST_ST_VK_052_Guestuser_XML_Validation {
 			HashMap<String,String> shippingaddresss=vicks.shippingaddress1("Address1");
 			HashMap<String,String> ordertaxammount=vicks.orderamountinfo();
 			HashMap<String,String>paymentdetriles=vicks.paymentdetriles("PaymentDetails");
-		//	String order=vicks.PlaceOrder();
+			String order=vicks.PlaceOrder();
 			
 			 vicks.vicksAdminlogin("AdminLogins");
-		/*     vicks.selectManulExport(order);
+		     vicks.selectManulExport(order);
 			
 			
+		     
 		      vicks.productinfromationvalidation(productinfromation, order);
 			 vicks.shippingvalidaing_GustUserXML(shippingaddresss, order);
 			 vicks.TotalvalidationXML(ordertaxammount, order);
-			 vicks.card_details_validationXML(paymentdetriles, order);*/
+			 vicks.card_details_validationXML(paymentdetriles, order);
 			
 		 
 		}

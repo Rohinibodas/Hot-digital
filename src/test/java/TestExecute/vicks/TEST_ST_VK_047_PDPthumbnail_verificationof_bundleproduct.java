@@ -9,26 +9,31 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_VK_007_ValidationBrowse_SearchGuestUser {
+public class TEST_ST_VK_047_PDPthumbnail_verificationof_bundleproduct {
 	String datafile = "Vicks//Vickstestdata.xlsx";
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void TEST_VK_ST_007_ValidationBrowse_SearchGuestUser() throws Exception {
+	public void TEST_VK_ST__047_PDPthumbnail_verificationof_bundleproduct() throws Exception {
 
 		try {
 
 			vicks.Verifyhomepage();
-//			vicks.Agreandproceed();
-//			vicks.loginVicks("AccountDetails");
-			vicks.searchProduct("productname");
+			vicks.Agreandproceed();
+			vicks.loginVicks("AccountDetails");
+			vicks.bundleproduct("Bundleproduct");
 			vicks.clickonproduct();
-			//vicks.addtocart();
-			//vicks.clickminicartButton();
-//			vicks.click_View_editcart();
-//			vicks.changeQuntity_UpdateProduct("2");
-		/*	vicks.clickCheckoutButton_minicart();
-			vicks.addDeliveryAddress_registerUser("ShippingAddress");*/
+			vicks.colorswatch();
+			vicks.addtocart();
+			vicks.mincat();
+			vicks.checkout();
+			vicks.shipingmethod();
+			vicks.paymentDetails("MasterCardPaymentDetails");
+			vicks.PlaceOrder();
+	
+			
+			
+			
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
@@ -44,7 +49,7 @@ public class TEST_ST_VK_007_ValidationBrowse_SearchGuestUser {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
-//		System.setProperty("configFile", "Vicks\\config.properties");
+		System.setProperty("configFile", "Vicks\\config.properties");
 		Login.signIn();
 
 	}

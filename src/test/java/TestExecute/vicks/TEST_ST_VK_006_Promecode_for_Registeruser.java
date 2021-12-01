@@ -48,7 +48,7 @@ public class TEST_ST_VK_006_Promecode_for_Registeruser {
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {
-			System.setProperty("configFile", "Vickshumdifier\\config.properties");
+//			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
 			 
 			  

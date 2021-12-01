@@ -262,7 +262,19 @@
         </classes>
     </test>
 </test> 
-	            
+	          
+	            <test name="TEST_ST_VK_046_Newsletter_subcription" testid="HHG-1647" priority="P1" description="This script will cover Process Of news letter subcription in vicks">
+        <classes>
+                   <class name="TestExecute.vicks.TEST_ST_VK_046_Newsletter_subcription" />
+        </classes>
+	    </test> 
+	    
+	     <test name="TEST_ST_VK_047_PDPthumbnail_verificationof_bundleproduct" testid="HHG-1653" priority="P1" description="This test is to verify the change of the thumbnail images of selected colour swatch of bundle products ">
+        <classes>
+                   <class name="TestExecute.vicks.TEST_ST_VK_047_PDPthumbnail_verificationof_bundleproduct" />
+        </classes>
+	    </test> 
+	      
 	      <test name="TEST_ST_VK_025_ContactUs" testid="HHG-998" priority="P1" description="This script will cover Process Of warrenty form in vicks">
         <classes>
                    <class name="TestExecute.vicks.TEST_ST_VK_025_ContactUs" />

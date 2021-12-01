@@ -17,6 +17,7 @@ public class TEST_ST_VK_025_ContactUs {
 	
 		try {
 			
+			
 			vicks.Verifyhomepage();
 			//vicks.Agreandproceed();
 			vicks.contact("Contactus");
@@ -30,13 +31,13 @@ public class TEST_ST_VK_025_ContactUs {
 	@AfterTest
 	public void clearBrowser()
 	{
-//		Common.closeAll();
+		Common.closeAll();
 
 	}
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {
-//			System.setProperty("configFile", "Vickshumdifier\\config.properties");
+//			System.setProperty("configFile", "Vicks\\config.properties");
 			  Login.signIn();
 			 
 			  

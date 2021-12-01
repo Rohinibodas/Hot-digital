@@ -3,8 +3,8 @@ package TestExecute.vicks;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
 import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
@@ -22,7 +22,7 @@ public class TEST_ST_VK_012_Footerlinks {
 //			vicks.Agreandproceed();
 			vicks.productsupport();
 			vicks.FAQs();
-			vicks.Contactus();
+			vicks.Contactus_Warrenty();
 			vicks.fottorValidations_Shop("FooterLinks");
 			vicks.fottorValidations_HeleOfTroy("Heleoftroy");
 		  //  vicks.fottorValidations_About("Heleoftroy");

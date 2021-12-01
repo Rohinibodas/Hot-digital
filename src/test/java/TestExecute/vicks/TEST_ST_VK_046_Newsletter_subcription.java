@@ -9,35 +9,25 @@ import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_VK_007_ValidationBrowse_SearchGuestUser {
+public class TEST_ST_VK_046_Newsletter_subcription {
 	String datafile = "Vicks//Vickstestdata.xlsx";
 	VicksHelper vicks = new VicksHelper(datafile);
 
 	@Test(priority = 1)
-	public void TEST_VK_ST_007_ValidationBrowse_SearchGuestUser() throws Exception {
+	public void Newsletter_subcription() {
 
 		try {
-
-			vicks.Verifyhomepage();
-//			vicks.Agreandproceed();
-//			vicks.loginVicks("AccountDetails");
-			vicks.searchProduct("productname");
-			vicks.clickonproduct();
-			//vicks.addtocart();
-			//vicks.clickminicartButton();
-//			vicks.click_View_editcart();
-//			vicks.changeQuntity_UpdateProduct("2");
-		/*	vicks.clickCheckoutButton_minicart();
-			vicks.addDeliveryAddress_registerUser("ShippingAddress");*/
+		
+			vicks.NewsLetterSubscription();
 
 		} catch (Exception e) {
 			Assert.fail(e.getMessage(), e);
 		}
+		
 	}
 
 	@AfterTest
 	public void clearBrowser() {
-
 		Common.closeAll();
 
 	}

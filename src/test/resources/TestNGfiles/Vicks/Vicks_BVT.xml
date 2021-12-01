@@ -47,5 +47,11 @@
                      <class name="TestExecute.vicks.TEST_ST_VK_007_ValidationBrowse_SearchGuestUser" />
             </classes>
 	      </test>
+	         <test name="TEST_ST_VK_046_Newsletter_subcription" testid="HHG-1647" priority="P1" description="This script will cover Process Of news letter subcription in vicks">
+        <classes>
+                   <class name="TestExecute.vicks.TEST_ST_VK_046_Newsletter_subcription" />
+        </classes>
+	    </test> 
+	      
     
       </suite>
