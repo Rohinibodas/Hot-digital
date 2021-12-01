@@ -11,14 +11,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+  
 
 public class Login {
 	static String browserName = "GC";
 	static Automation_properties automation_properties = Automation_properties.getInstance();
 	static WebDriver driver;
 
-	
+	  
 	public static void signIn(String browser) throws Exception
 	{
 		if(BaseDriver.getDriver()==null)
@@ -40,6 +40,16 @@ public class Login {
 		automation_properties = Automation_properties.getInstance();
 		System.out.println(automation_properties.getInstance().getProperty(automation_properties.BASEURL));
 		driver=BaseDriver.StartBrowser(browser,automation_properties.getInstance().getProperty(automation_properties.BASEURL),"mobile",Device);
+		Driver.getLogger().info("Logged in with User: ");
+		}
+		
+	}  
+	public static void openwebsite(String url) throws Exception{
+		if(BaseDriver.getDriver()==null)
+		{
+			Automation_properties.setInstance(null);
+		automation_properties = Automation_properties.getInstance();	
+		driver=BaseDriver.StartBrowser(System.getProperty("browser",automation_properties.getInstance().getProperty(automation_properties.BROWSER)),url);
 		Driver.getLogger().info("Logged in with User: ");
 		}
 		

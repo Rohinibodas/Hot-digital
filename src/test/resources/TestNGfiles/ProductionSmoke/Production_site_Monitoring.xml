@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<suite name="OxoSuite Suite">
+    <listeners>      
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+       
+    
+       <test name="TEST_ST_HF_032_Checkout_with_credit_card_as_registered_user_with_bundle_my_hydro_and_configurable_product"		
+	testid="HYDRO-926" priority="P1"		
+	description="This script will cover checkout with paymetric method as registered user with bundle ,my hydro and configurable product">		
+	<classes>			
+		<class name="TestExecute.Hydroflask.Smoke.TEST_ST_HF_032_Checkout_RegUserCC_bundle_my_hydro_configurable" />		
+	</classes>        
+</test>
+<test name="TEST_ST_HF_EMEA_002_RegisteredUser_Checkout_CreditCard_Visa_Germany" testid="HES-120" priority="P1"
+		description="This script will cover RegisterUser  checkout with  VISA Creditcard  order submit Process of HydroFlaskEMEA-Germany	">
+		<parameter name="URL" value="https://www.hydroflask.com/de-de/" />
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.TEST_ST_HF_EMEA_002_RegisteredUser_Checkout_CreditCard_Visa" />
+		</classes>
+	</test>
+
+<test name="TEST_ST_HF_EMEA_002_RegisteredUser_Checkout_CreditCard_Visa_France" testid="HES-120" priority="P1"
+		description="This script will cover RegisterUser  checkout with  VISA Creditcard  order submit Process of HydroFlaskEMEA-France	">
+		<parameter name="URL" value="https://www.hydroflask.com/fr-fr/" />
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.TEST_ST_HF_EMEA_002_RegisteredUser_Checkout_CreditCard_Visa" />
+		</classes>
+	</test>
+	<test name="TEST_ST_HF_EMEA_002_RegisteredUser_Checkout_CreditCard_Visa_unitedkindom" testid="HES-120" priority="P1"
+		description="This script will cover RegisterUser  checkout with  VISA Creditcard  order submit Process of HydroFlaskEMEA-unitedkingdom	">
+		<parameter name="URL" value="https://www.hydroflask.com/uk-en/" />
+		<classes>
+			<class name="TestExecute.HydroflaskEMEA.TEST_ST_HF_EMEA_002_RegisteredUser_Checkout_CreditCard_Visa" />
+		</classes>
+	</test>
+
+<test name="TEST_OXO_ST_006-Registered Checkout Paypal"
+		testid="OUS23-764" priority="P1"
+		description="This script will cover Registered User  order using paypal submit Process of oxo">
+		<classes>
+			<class name="TestExecute.OXOBVT.TEST_ST_OXO_006_Registered_Checkout_PayPal" />
+		</classes>
+	</test>
+	
+    <test name="Test_stingerUS_ST_016_RegisteredUserCheckout" testid="HHG-261"
+		priority="P1"
+		description="To verify the RegisterUser Checkout with CreditCard">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.Stinger.TEST_ST_SR_016RegisterUser_Checkout"/>
+		</classes>
+	</test>	
+	 <test name="TEST_ST_VK_037_Reguser_checkout_MasterCCtax_samebill_ship" testid="HHG-431"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_ST_VK_037_Reguser_checkout_MasterCCtax_samebill_ship" />
+        </classes>
+    </test>
+     
+     <test name="TEST_HT_ST_008-OrderSuccesspageforRetailerUser" testid="BTY-398" priority="P1" description="This script will cover OrderSuccesspageforRetailerUser pages in Hottools">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.hottools.SmokeTC.Test_HT_ST_Retailer_Browsesearch_Checkout_page"/>
+        </classes>
+    </test> 
+    <test name="TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping" testid="HHG-415"
+        priority="P1" description="This script will cover validation of checkout with tax">
+        <classes>
+            <class name="TestExecute.Honeywellorders.TEST_ST_HW_031_RegUser_Checkout_MasterCCTax_sameBill_shipping" />
+        </classes>
+    </test>
+    <test name="Test Case_Test_Febreze_017_RegisterUserCheckoutVisa" testid="HHG_328" priority="P1" description="To Verify the RegisterUserCheckoutVisa functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_17_RegisterUser_Checkout_visa"/>
+        </classes>
+    </test>
+     <test name="TEST_ST_DB_002_RegisteredUser_Checkout_visa_CreditCard" testid="DRY-20" priority="P1" description="This script will cover RegisteredUser Checkout with visa CreditCard in Drybar">
+       <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_002_RegisteredUser_Checkout_visa_CreditCard"/>
+        </classes>
+        </test>
+         <test name="Test_BraunUS_ST_004_RegisteredUserCategoryCheckout"
+		testid="HHG-130" priority="P1"
+		description="This test case is to verify Braun US, Category Checkout functionality for user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_04_RegUserCategoryCC" />
+		</classes>
+	</test>
+	<test name="Test_BraunUK_ST_004_RegisterUsercategory Checkout Creditcard" testid="BNSI-880" priority="P1" description="This script will cover Registercheckout with Creditcard for BraunUK">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.BraunEMEAProduction.BraunDEP.Test_ST_Registercheckoutwithcreditcard"/>
+        </classes>
+    </test>
+    <test name="Test_PUR_ST_006_RegistereduserCategorycheckout" testid="HHUS-173" priority="P1" description="To verify the category checkout functionality for Registered user">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.PUR.TEST_ST_PUR_006_RegisterUser_Category_Checkout"/>
+        </classes>
+    </test>
+     <test name="Test_HT_RD_027_RetailerUser_CheckoutCCVISA" testid="BTYUS-1271" priority="P1" description="This test case is to verify  Hottools Register User CheckoutCCVISA functionality">
+       <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Redesign_Hottools.Test_HT_RD_025_Registereduser_Browsesearch_CheckoutCCVisa"/>
+        </classes>
+    </test>
+    <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard" testid="BTY-462" priority="P1" description="This test case validates registered user Checkout process with valid credit card successfully">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Revlon.SystemTC.TEST_ST_RHT_011_RegisterUserCheckoutCreditCard"/>
+        </classes>
+    </test> 
+
+ </suite>
