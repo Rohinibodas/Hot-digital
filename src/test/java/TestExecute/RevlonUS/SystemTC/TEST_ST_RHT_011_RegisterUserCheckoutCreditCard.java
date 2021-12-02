@@ -37,7 +37,7 @@ public class TEST_ST_RHT_011_RegisterUserCheckoutCreditCard {
 	
 	@BeforeMethod
 	  public void startTest() throws Exception {
-		// System.setProperty("configFile", "RevlonUS\\Config_RevlonUS_Staging.properties");
+		 System.setProperty("configFile", "RevlonUS\\Config_RevlonUS_Staging.properties");
 		  Login.signIn();
 }
 	

@@ -110,7 +110,7 @@
     <test name="TEST_RHT_ST_011_RegisterUserCheckoutCreditCard" testid="BTY-462" priority="P1" description="This test case validates registered user Checkout process with valid credit card successfully">
          <parameter name="browser" value="chrome" />
         <classes>
-            <class name="TestExecute.Revlon.SystemTC.TEST_ST_RHT_011_RegisterUserCheckoutCreditCard"/>
+            <class name="TestExecute.RevlonUS.SystemTC.TEST_ST_RHT_011_RegisterUserCheckoutCreditCard"/>
         </classes>
     </test> 
 
