@@ -3,7 +3,7 @@ package TestExecute.RevlonUK;
 import org.testng.annotations.Test;
 
 import TestComponent.RevlonUk.RevlonUKHelper;
-import TestComponent.revlon.RevelonHelper;
+
 import TestLib.Common;
 import TestLib.Login;
 
