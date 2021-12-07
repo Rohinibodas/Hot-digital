@@ -20,15 +20,7 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_04_RegUserCategoryCC" />
 		</classes>
 	</test>
- <test name="Test_BraunUS_ST_005_ValidateQuntityChangeInCart"
-		testid="HHG-131" priority="P1"
-		description="This test case validates to Change QTY in Mini Cart of user">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_05_QuantityChngMiniCart" />
-		</classes>
-	</test>
-	
+ 
 	<test name="Test_BraunUS_ST_006_GuestUserCategoryCheckoutCC"
 		testid="HHG-132" priority="P1"
 		description="This test case is to verify Guest user Category Checkout Creditcart functionality of BraunUS">
@@ -37,13 +29,23 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_06_GuestUserCategoryCC" />
 		</classes>
 	</test>	
+	
+	
+<!--	<test name="Test_BraunUS_ST_005_ValidateQuntityChangeInCart"
+		testid="HHG-131" priority="P1"
+		description="This test case validates to Change QTY in Mini Cart of user">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_05_QuantityChngMiniCart" />
+		</classes>
+	</test>
 	<test name="Test_BraunUS_007_ValidateRegisterUserMiniCart" testid="HHG-133"
 		priority="P1" description="This test case validates Registeruser MiniCartof BraunUS">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestExecute.BraunHC.Test_ST_BHC_07_RegQuantityChngMinicart" />
 		</classes>
-	</test>
+	</test>-->
 	<test name="Test_BraunUS_008_GuestUserCheckout_with_CC" testid="HHG-134"
 		priority="P1"
 		description="This test case validates Guest user Checkout  with CC functionality of BraunUS">
@@ -435,7 +437,31 @@
 		<classes>
 			<class name="TestExecute.BraunHC.Test_ST_BHC_61_GuestCCDiscoverNoTax"/>
 		</classes>
-     </test>	
+     </test>
+     
+     
+     
+     
+       <test name="Test_ST_BHC_67_PLP_Page_Valadation"
+		testid="HHG-17139" priority="P1"
+		description="to verify the functionality  of  sorty by ,valadating prodcut name and price ,position">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_67_PLP_Page_Valadation"/>
+		</classes>
+		
+     </test>
+     
+     <test name="TTest_ST_BHC_68_PDP_Page_Valadation"
+		testid="HHG-17139" priority="P1"
+		description="this test case to valadate prodcut name in both plp,pdp and prodcut price and sku number and qunty">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_68_PDP_Page_Valadation"/>
+		</classes>
+		
+     </test>
+     	
   <!--     <test name="Test_BraunUS_ST_010_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address"
 		testid="HHG-226" priority="P1"
 		description="This test caseTo validate GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address">

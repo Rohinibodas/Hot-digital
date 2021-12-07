@@ -3,128 +3,24 @@
    <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-	
-   <test name="Test_BraunUS_ST_001__GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products"
-		testid="HHG-215" priority="P1"
-		description="This test case Validating GuestUser_Checkout_AmexCC_Tax_with_Multiple_Products">
+
+     <test name="TTest_ST_BHC_68_PDP_Page_Valadation"
+		testid="HHG-17139" priority="P1"
+		description="this test case to valadate prodcut name in both plp,pdp and prodcut price and sku number and qunty">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_001_GuestCCAmexWithTaxMutiProducts"/>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_68_PDP_Page_Valadation"/>
+		</classes>
+		
+     </test>
+      <test name="Test_ST_BHC_67_PLP_Page_Valadation"
+		testid="HHG-17139" priority="P1"
+		description="to verify the functionality  of  sorty by ,valadating prodcut name and price ,position">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestExecute.BraunHC.Test_ST_BHC_67_PLP_Page_Valadation"/>
 		</classes>
 		
      </test>
      
-     <test name="Test_BraunUS_ST_002_RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping"
-		testid="HHG-217" priority="P1"
-		description="To verify the functionality of RegisteredUser_Checkout_MasterCC_Tax_with_same_Billing_and_shipping">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_002_RegCCMasterWithTax"/>
-		</classes>
-		
-     </test>	
-     
-      <test name="Test_BraunUS_ST_003RegisteredUser_Checkout_DiscoverCC_Tax_with_Same_Billing_and_Shipping"
-		testid="HHG-219" priority="P1"
-		description="To verify the  functionality Adding new Address in shipping page for register user">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_003_RegCCDiscoverWithTax"/>
-		</classes>
-		
-     </test>	
-	
-	
-	
-	 <test name=" Test_BraunUS_ST_004_RegisteredUser_Checkout_visaCC_with_Tax_Multiple_product"
-		testid="HHG-220" priority="P1"
-		description="To Verify the RegisteredUser_Checkout_visaCC_with_Tax_Multiple_product">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_004_RegCCVissaWithTaxMutiProducts"/>
-		</classes>
-		
-     </test>
-     
-     
-     <test name="Test_BraunUS_ST_005_RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products"
-		testid="HHG-221" priority="P1"
-		description="o verify the functionality of RegisteredUser_Checkout_AmexCC_Tax_with_multiple_products">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_005_RegCCAmexWithTaxMutiProducts"/>
-		</classes>
-		
-     </test>	
-     
-     <test name="Test_BraunUS_ST_006_GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products"
-		testid="HHG-222" priority="P1"
-		description="To verify the  functionlaity of  _GuestUser_Checkout_DiscoverCC_Tax_with_multiple_products">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_006_GuestCCDiscoverWithTaxMutiProducts"/>
-		</classes>
-     </test>
-     
-      <test name="Test_BraunUS_ST_007_GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping"
-		testid="HHG-223" priority="P1"
-		description="This test caseTo validate GuestUser_Checkout_MastercardCC_NoTax_with_same_Billing_and_shipping">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_007_GuestCCMasterNOTax"/>
-		</classes>
-     </test>
-     
-     
-		 <test name="Test_BraunUS_ST_008_Registereduser_Checkout_AmexCC_NoTax_with_Multi_products_same_Billing_and_Shipping"
-		testid="HHG-224" priority="P1"
-		description="This test case To verify the  functionlaity Registereduser_Checkout_AmexCC_NoTax_with_Multi_products_same_Billing_and_Shipping">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_008_RegCCAmexNoTaxMutiProducts"/>
-		</classes>
-     </test>
-     
-     
-      <test name="Test_BraunUS_ST_009_GuestUser_Checkout_DiscoverCC_NoTax_with_same_Billing_and_shipping_Address"
-		testid="HHG-226" priority="P1"
-		description="This test caseTo validate GuestUser_Checkout_DiscoverCC_NoTax_with_same_Billing_and_shipping_Address">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_009_GuestCCDiscoverNoTax"/>
-		</classes>
-     </test>	
-     <test name="Test_BraunUS_ST_010_GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address"
-		testid="HHG-226" priority="P1"
-		description="This test caseTo validate GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_010_GuestCCVissaNotaxMutiProducts"/>
-		</classes>
-     </test>
-     
-		
-		
-     
-	<test name="Test_BraunUS_ST_011__GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address "
-		testid="HHG-227" priority="P1"
-		description="This test caseTo validate the GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_011_GuestCCAmexNoTaxMutiProdcuts"/>
-		</classes>
-     </test>
-     
-     
-     
-     <test name=" Test_BraunUS_ST__012_RegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address"
-		testid="HHG-230" priority="P1"
-		description="This test caseTo validate theRegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_012_RegCCDiscoverNotaxMutiProdcuts"/>
-		</classes>
-     </test>  
-     
-     			
  </suite>

@@ -6,7 +6,7 @@
 	<test name="Test_BraunUS_ST_009_AccountCreation" testid="HHG-135"
 		priority="P1"
 		description="This test case validates account creation of user with valid details ">
-		<parameter name="browser" value="chrome" />
+		<parameter name="browser" value="chrome"/>
 		<classes>
 		<class name="TestExecute.BraunHC.Test_ST_BHC_09_AccountCreation"/>
 		</classes>

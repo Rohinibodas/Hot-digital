@@ -8,6 +8,7 @@ import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -1547,7 +1548,7 @@ public class BraunHCHelper {
 			
 			Common.actionsKeyPress(Keys.END);
 			
-			
+			Thread.sleep(2000);
 			Sync.waitElementPresent("xpath", "//span[text()='PUR']");
 			Common.clickElement("xpath", "//span[text()='PUR']");
 			Common.switchWindows();
@@ -3370,66 +3371,67 @@ public String  URL() throws InterruptedException {
 
 
 
-public void ShippingMethods() {
-	// TODO Auto-generated method stub
-	String expectedResult=" Validating  shipping methods";
-try {
-	
-
-	int title= Common.findElements("xpath", "//div[text()='Shipping methods']").size();
-
-	 
-
-	System.out.println(title);
-
-	 
-
-	Common.assertionCheckwithReport(title>0, "verifying Shipping methods", " Shipping methods page should dispaly", "sucessfully lands on  Shipping methods page ", "faield to land on Shipping methods page");
-
-	 
-	 { 
-		 int subtotal=Common.findElements("xpath", "(//td[text()='Free Shipping'])").size();
-		 
-
-	/*	 if(subtotal>0)
-			 
-		 { 
-			 
-			 Sync.waitPageLoad();
-			 
-			 
-			 Sync.waitElementPresent("xpath", "(//td[text()='Free Shipping'])");
-		        Common.clickElement("xpath", "(//td[text()='Free Shipping'])");
-			    
-			// Common.findElement("xpath", "(//td[text()='Free Shipping'])");
-			 
-			
-		        ExtenantReportUtils.addPassLog("verifying Shipping methods", "User should select the free Shipping method", "User sucessfully  selected the free Shipping method", Common.getscreenShotPathforReport("Failed to select free shipping method"));
-			
-			 
-			// System.out.println("The subtotal amount should be displayed");
-		 } else {
-			  Thread.sleep(5000);
-			 Sync.waitElementPresent("xpath", "//td[text()='US - Fedex SmartPost']");
-		        Common.clickElement("xpath", "//td[text()='US - Fedex SmartPost']");
-			    
-		        ExtenantReportUtils.addPassLog("verifying Shipping methods", "User should select the US - Fedex SmartPost", "User sucessfully  selected the US - Fedex SmartPost", Common.getscreenShotPathforReport("Failed to select US - Fedex SmartPost method"));
-		 }*/
-		 
-	 }
-	 
-	 Registeruseraddress();
-
-
+	public void ShippingMethods() {
+		// TODO Auto-generated method stub
+		String expectedResult=" Validating  shipping methods";
+	try {
 		
-	
-}
-	catch(Exception |Error e) {
-	 	e.printStackTrace();   
-		ExtenantReportUtils.addFailedLog("verifying Shipping methods", "verifying Shipping methods", "faield to verifying Shipping methods", Common.getscreenShotPathforReport("verifying Shipping methods"));
-		Assert.fail();
+
+		int title= Common.findElements("xpath", "//div[text()='Shipping methods']").size();
+
+		 
+
+		System.out.println(title);
+
+		 
+
+		Common.assertionCheckwithReport(title>0, "verifying Shipping methods", " Shipping methods page should dispaly", "sucessfully lands on  Shipping methods page ", "faield to land on Shipping methods page");
+
+		 
+		 { 
+			 int subtotal=Common.findElements("xpath", "//td[text()='Free Shipping']").size();
+			 
+
+			 if(subtotal>0)
+				 
+			 { 
+				 
+				 Sync.waitPageLoad();
+				 
+				 
+				 Sync.waitElementPresent("xpath", "//td[text()='Free Shipping']");
+			        Common.clickElement("xpath", "//td[text()='Free Shipping']");
+				    
+				// Common.findElement("xpath", "(//td[text()='Free Shipping'])");
+				 
+				
+			        ExtenantReportUtils.addPassLog("verifying Shipping methods", "User should select the free Shipping method", "User sucessfully  selected the free Shipping method", Common.getscreenShotPathforReport("Failed to select free shipping method"));
+				
+				 
+				// System.out.println("The subtotal amount should be displayed");
+			 } else {
+				  Thread.sleep(5000);
+				 Sync.waitElementPresent("xpath", "//td[text()='Fedex SmartPost']");
+			        Common.clickElement("xpath", "//td[text()='Fedex SmartPost']");
+				    
+			        ExtenantReportUtils.addPassLog("verifying Shipping methods", "User should select the US - Fedex SmartPost", "User sucessfully  selected the US - Fedex SmartPost", Common.getscreenShotPathforReport("Failed to select US - Fedex SmartPost method"));
+			 }
+
+			 
+		 }
+		 
+		 Registeruseraddress();
+
+
+			
+		
 	}
-}
+		catch(Exception |Error e) {
+		 	e.printStackTrace();   
+			ExtenantReportUtils.addFailedLog("verifying Shipping methods", "verifying Shipping methods", "faield to verifying Shipping methods", Common.getscreenShotPathforReport("verifying Shipping methods"));
+			Assert.fail();
+		}
+	}
 
 
 
@@ -4252,7 +4254,511 @@ Assert.fail();
 }
 }
 
+
+
+//new//
+
+
+
+
+public void plpvaladation(String dataSet) throws InterruptedException 
+{
+String expectedResult="plppage valadation";
+try {
+
+	
+
+	int title= Common.findElements("xpath", "(//label[text()='Sort By'])[1]").size();
+
+	 
+
+
+	System.out.println(title);
+	 
+
+	Common.assertionCheckwithReport(title>0, "verifying Sort by block", " Sort by block  should dispaly", "sucessfully lands on  Sort by block page ", "faield to land on Sort by block page");
+	Thread.sleep(3000);
+	Sync.waitElementPresent("xpath", "(//select[@id='sorter'])[1]");
+	//Common.clickElement("xpath", "(//select[@id='sorter'])[1]");
+	
+	Common.dropdown("xpath", "(//select[@id='sorter'])[1]", SelectBy.TEXT, data.get(dataSet).get("Position"));
+
+	int prodcutname= Common.findElements("xpath", "(//select[@id='sorter'])[1]").size();
+
+	 
+
+
+	System.out.println(prodcutname);
+	 
+	Common.getscreenShotPathforReport("prodcutname");
+	Common.assertionCheckwithReport(title>0, "verifying Sort by block", " Sort by block  should dispaly", "sucessfully lands on  Sort by block page ", "faield to land on Sort by block page");
+
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Common.actionsKeyPress(Keys.ARROW_DOWN);
+	Thread.sleep(3000);
+	ExtenantReportUtils.addPassLog("verifying  sort option", "User should select  sort",
+			"user faield to Select the Most Viewed sort option",
+			Common.getscreenShotPathforReport("list of prodcts name"));
+	Thread.sleep(5000);
+} catch (Exception | Error e) {
+
+	ExtenantReportUtils.addFailedLog("verifying  Most Viewed sort option",
+			"User should  select Most Viewed sort option",
+			"user Successfully Selected the Most Viewed Sort option",
+			Common.getscreenShotPathforReport("list of prodcuts displayed"));
+	Assert.fail();
 }
+try{
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Common.actionsKeyPress(Keys.ARROW_DOWN);
+		Thread.sleep(3000);
+		ExtenantReportUtils.addPassLog("verifying  sort option", "User should select  sort",
+				"user faield to Select the Most Viewed sort option",
+				Common.getscreenShotPathforReport("list of prodcts name"));
+		Thread.sleep(5000);
+	} catch (Exception | Error e) {
+
+		ExtenantReportUtils.addFailedLog("verifying  Most Viewed sort option",
+				"User should  select Most Viewed sort option",
+				"user Successfully Selected the Most Viewed Sort option",
+				Common.getscreenShotPathforReport("list of prodcuts displayed"));
+		Assert.fail();
+	
+		}
+		
+	}
+
+
+
+
+public void productprice(String dataSet) throws Exception
+{
+String expectedResult="plp vallidation ";
+try {
+int title=Common.findElements("xpath", "(//label[contains(text(),'Sort By')])[1]").size();
+
+System.out.println(title);
+
+Thread.sleep(3000);
+
+Sync.waitElementPresent("xpath", "(//select[@data-role='sorter'])[1]");
+
+Thread.sleep(3000);
+/*int a=Common.findElements("xpath", "//div[contains(text(),'X')]").size();
+
+if(a>0)
+{
+Common.clickElement("xpath", "//div[contains(text(),'X')]");
+}
+else{
+
+}*/
+Thread.sleep(2000);
+
+
+Common.dropdown("xpath", "(//select[@data-role='sorter'])[1]", Common.SelectBy.TEXT, data.get(dataSet).get("Position"));
+Thread.sleep(3000);
+Common.getscreenShotPathforReport("productPrice");
+int product=Common.findElements("xpath", "(//select[@id='sorter'])[1]").size();
+
+System.out.println(product);
+Thread.sleep(3000);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Thread.sleep(3000);
+
+ExtenantReportUtils.addPassLog("verifying product Price", "User should select product Price",
+"user faield to Select product price",
+Common.getscreenShotPathforReport("productpage"));
+Thread.sleep(5000);
+} catch (Exception | Error e) {
+e.printStackTrace();
+ExtenantReportUtils.addFailedLog("verifying  Most Viewed sort option",
+"User should  select Most Viewed sort option",
+"user Successfully Selected product Price",
+Common.getscreenShotPathforReport("productpage"));
+e.printStackTrace();
+Assert.fail();
+}
+}
+
+
+
+public void Filterprice() throws Exception{
+String expectedResult="It should navigate to Filterprice";
+try {
+Common.actionsKeyPress(Keys.PAGE_UP);
+
+Thread.sleep(5000);
+Common.mouseOver("xpath", "//a[@data-opt-path='price=0-10']");
+
+Thread.sleep(3000);
+String title=Common.getText("xpath", "//a[@data-opt-path='price=0-10']");
+System.out.println(title);
+Common.clickElement("xpath", "//a[@data-opt-path='price=0-10']");
+//Common.actionsKeyPress(Keys.ARROW_DOWN);
+
+Thread.sleep(5000);
+
+Common.assertionCheckwithReport(title.equals("$0.00 - $10.00"),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to Replacement Filters Page", "$10.00 - $20.00"); 
+Common.getscreenShotPathforReport("succes to navigate to  Filter price page");
+
+} catch (Exception | Error e) {
+ExtenantReportUtils.addFailedLog("To verify the Filterprice","should navigate to  Filter price page", "userunable to navigate to  Filter price page", Common.getscreenShotPathforReport("failed to navigate to  Filter price page")); 
+e.printStackTrace();
+
+Assert.fail(); 
+}
+
+
+
+
+try {
+
+	
+	Common.actionsKeyPress(Keys.PAGE_UP);
+
+Thread.sleep(5000);
+Common.mouseOver("xpath", "//a[@data-opt-path='price=30-40']");
+Common.clickElement("xpath", "//a[@data-opt-path='price=30-40']");
+Thread.sleep(3000);
+//Common.mouseOver("xpath", "//a[@data-opt-path='price=40-50']");
+String title=Common.getText("xpath", "//a[@data-opt-path='price=30-40']");
+System.out.println(title);
+Common.mouseOver("xpath", "//a[@data-opt-path='price=40-50']");
+Common.clickElement("xpath", "//a[@data-opt-path='price=40-50']");
+String titles=Common.getText("xpath", "//a[@data-opt-path='price=40-50']");
+Thread.sleep(5000);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Common.actionsKeyPress(Keys.ARROW_DOWN);
+Thread.sleep(5000);
+
+//Common.assertionCheckwithReport(title.equals("$30.00 - $40.00 "),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to Replacement Filters Page", "$20.00 - $30.00"); 
+//Common.getscreenShotPathforReport("succes to navigate to  Filter price page");
+
+
+Common.assertionCheckwithReport(titles.equals("$40.00 - $50.00"),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to Replacement Filters Page", "$20.00 - $30.00"); 
+Common.getscreenShotPathforReport("succes to navigate to  Filter price page");
+} catch (Exception | Error e) {
+ExtenantReportUtils.addFailedLog("To verify the Filterprice","should navigate to  Filter price page", "userunable to navigate to  Filter price page", Common.getscreenShotPathforReport("failed to navigate to  Filter price page")); 
+e.printStackTrace();
+
+Assert.fail(); 
+}
+
+
+
+
+
+
+
+
+try {
+Common.actionsKeyPress(Keys.PAGE_UP);
+Common.actionsKeyPress(Keys.PAGE_UP);
+
+
+Thread.sleep(5000);
+Common.mouseOver("xpath", "//a[@data-opt-path='price=50-60']");
+Common.clickElement("xpath", "//a[@data-opt-path='price=50-60']");
+String ammount=Common.getText("xpath", "//a[@data-opt-path='price=50-60']");
+System.out.println(ammount);
+Thread.sleep(3000);
+Common.mouseOver("xpath", "//a[@data-opt-path='price=60-70']");
+Common.clickElement("xpath", "//a[@data-opt-path='price=60-70']");
+String title=Common.getText("xpath", "//a[@data-opt-path='price=60-70']");
+System.out.println(title);
+
+
+Common.mouseOver("xpath", "//a[@data-opt-path='price=70-80']");
+String price=Common.getText("xpath", "//a[@data-opt-path='price=70-80']");
+System.out.println(price);
+//Common.clickElement("xpath", "//a[@data-opt-path='price=30-40']");
+Thread.sleep(5000);
+
+
+Common.assertionCheckwithReport(ammount.equals("$50.00 - $60.00"),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to  Filter price page", "$30.00 - $40.00"); 
+Common.getscreenShotPathforReport("succes to navigate to  Filter price page");
+Common.assertionCheckwithReport(title.equals("$60.00 - $70.00"),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to  Filter price page", "$30.00 - $40.00"); 
+Common.getscreenShotPathforReport("succes to navigate to  Filter price page");
+
+Common.assertionCheckwithReport(price.equals("$70.00 and above"),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to  Filter price page", "$30.00 - $40.00"); 
+Common.getscreenShotPathforReport("succes to navigate to  Filter price page");
+} catch (Exception | Error e) {
+ExtenantReportUtils.addFailedLog("To verify the Filterprice","should navigate to  Filter price page", "userunable to navigate to  Filter price page", Common.getscreenShotPathforReport("failed to navigate to  Filter price page")); 
+e.printStackTrace();
+
+Assert.fail(); 
+}
+
+
+
+
+
+
+}
+
+public void PDP_Validation(String dataSet) throws InterruptedException
+{
+Thread.sleep(5000);
+String expectedResult="It should navigate to PDP_page";
+
+try {
+
+String title=Common.getText("xpath", "(//a[contains(text(), 'Forehead Thermometer')])[1]");
+System.out.println(title);
+Common.clickElement("xpath", "(//a[contains(text(), 'Forehead Thermometer')])[1]");
+Thread.sleep(5000);
+
+
+/*int a=Common.findElements("xpath", "//div[contains(text(),'X')]").size();
+
+if(a>0)
+{
+Common.clickElement("xpath", "//div[contains(text(),'X')]");
+}
+else{
+
+}*/
+
+Common.assertionCheckwithReport(title.equals("Forehead Thermometer"),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to PDP_page", "PUR PLUS Faucet Filtration System"); 
+Common.getscreenShotPathforReport("succes to navigate to  PDP_page");
+
+
+} catch (Exception | Error e) {
+ExtenantReportUtils.addFailedLog("To verify the PDP_page","should navigate to  PDP_page", "userunable to navigate to  PDP_page", Common.getscreenShotPathforReport("failed to navigate to  PDP_page")); 
+e.printStackTrace();
+
+Assert.fail(); 
+}
+
+
+try {
+
+String title=Common.getText("xpath", "(//span[contains(text(), 'Forehead Thermometer')])[1]");
+System.out.println(title);
+
+
+
+Common.assertionCheckwithReport(title.equals("Forehead Thermometer"),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to PDP_page", "PUR PLUS Faucet Filtration System"); 
+Common.getscreenShotPathforReport("succes to navigate to  PDP_page");
+
+String plpTotalAmmount=Common.getText("xpath", "//span[@id='product-price-6']").replace("$", "");
+System.out.println("plpTotalAmmount"+plpTotalAmmount);
+
+
+String pdpTotalAmmount=Common.getText("xpath", "(//span[@id='product-price-6'])[1]");
+System.out.println("pdpTotalAmmount"+pdpTotalAmmount);
+
+Common.assertionCheckwithReport(plpTotalAmmount.equals(pdpTotalAmmount),"Verifying  Filter price page","it shoud navigate to  Filter price page", "successfully  navigated to PDP_page", "PUR PLUS Faucet Filtration System"); 
+Common.getscreenShotPathforReport("succes to navigate to  PDP_page");
+
+
+Common.textBoxInput("xpath","(//input[@id='qty'])[1]", data.get(dataSet).get("Qunty"));
+
+Sync.waitElementPresent("xpath", "(//span[text()='Add to cart'])[1]");
+Common.clickElement("xpath", "(//span[text()='Add to cart'])[1]"); 
+
+String errormessage=Common.getText("xpath", "//div[text()='The maximum you may purchase is 2.']");
+System.out.println(errormessage);
+
+Common.assertionCheckwithReport(errormessage.equals("The maximum you may purchase is 2."),"Verifying  the qunty of  the product","it shoud verify the qunty of the product", "successfully  verifyed error message", "The maximum you may purchase is 2."); 
+
+} catch (Exception | Error e) {
+ExtenantReportUtils.addFailedLog("To verify the PDP_page","should navigate to  PDP_page", "userunable to navigate to  PDP_page", Common.getscreenShotPathforReport("failed to navigate to  PDP_page")); 
+e.printStackTrace();
+
+Assert.fail(); 
+} 
+
+}
+
+
+public void headerlinkLearnEducation(String dataSet) throws Exception {
+	Sync.waitPageLoad();
+	//Sync.waitElementClickable("xpath", "//span[contains(text() , 'Learn')]");
+	Common.mouseOver("xpath", "//span[contains(text() , 'Learn')]");
+	
+
+String Hederlinks=data.get(dataSet).get("megamenus");
+	
+	String[] hedrs=Hederlinks.split(",");
+	String titles = data.get(dataSet).get("Title");
+	String[] title = titles.split(",");
+	int i=0;;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Thread.sleep(3000);
+		Sync.waitElementClickable("xpath", "//ul[@data-menu='menu-114']//span[text()='"+hedrs[i]+"']");
+		Common.clickElement("xpath", "//ul[@data-menu='menu-114']//span[text()='"+hedrs[i]+"']");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains(title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "//span[contains(text() , 'Learn')]");
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+        ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+        e.printStackTrace();
+        Assert.fail();
+
+	}
+}
+
+public void headLinksValidations_Shop(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "//span[text()='Shop']");
+	
+	String Hederlinks=data.get(dataSet).get("megamenus");
+	
+	String[] hedrs=Hederlinks.split(",");
+	String titles = data.get(dataSet).get("Title");
+	String[] title = titles.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+
+		System.out.println(hedrs[i]);
+		//Sync.waitElementClickable("xpath", "//a[@title='"+hedrs[i]+"']");
+		Common.clickElement("xpath", "//a[@title='"+hedrs[i]+"']");
+		Thread.sleep(5000);
+		System.out.println(Common.getPageTitle());
+		
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.mouseOver("xpath", "//span[text()='Shop']");	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+
+public void headLinksValidations_Support(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	Common.mouseOver("xpath", "//span[text()='Support']");
+	
+	String Hederlinks=data.get(dataSet).get("megamenus");
+	
+	String[] hedrs=Hederlinks.split(",");
+	String titles = data.get(dataSet).get("Title");
+	String[] title = titles.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+
+		System.out.println(hedrs[i]);
+		//Sync.waitElementClickable("xpath", "//a[@title='"+hedrs[i]+"']");
+		Common.clickElement("xpath", "//li[@class='nav-main nav-main-braun__item nav-main nav-main-braun__item--parent level-top parent nav-learn nav-dropdown nav-support ui-menu-item']//span[text()='"+hedrs[i]+"']");
+		Thread.sleep(5000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getCurrentURL().contains(title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		
+		Common.mouseOver("xpath", "//span[text()='Support']");	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+
+		ExtenantReportUtils.addFailedLog("validating Header Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the header link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the headerlink"));
+	
+		Assert.fail();
+
+	}
+}
+
+
+
+
+public void footerValidations_Shop(String dataSet) throws Exception{
+	Thread.sleep(3000);
+	Sync.waitPageLoad();
+	
+	Common.actionsKeyPress(Keys.END);
+  String Hederlinks=data.get(dataSet).get("megamenus");
+	
+	String[] hedrs=Hederlinks.split(",");
+	String titles = data.get(dataSet).get("Title");
+	String[] title = titles.split(",");
+	int i=0;
+	
+	try{
+	for(i=0;i<hedrs.length;i++){
+		System.out.println(hedrs[i]);
+		Sync.waitElementClickable("xpath", "//span[text()='"+hedrs[i]+"']");
+		Common.clickElement("xpath", "//span[text()='"+hedrs[i]+"']");
+		Thread.sleep(3000);
+		System.out.println(Common.getPageTitle());
+		Common.assertionCheckwithReport(Common.getPageTitle().contains(title[i]), "verifying Header link of "+hedrs[i],"user open the "+hedrs[i]+" option", "user successfully open the header link "+hedrs[i],"Failed open the header link "+hedrs[i]);
+		Common.actionsKeyPress(Keys.END);	
+	}
+	}
+	catch (Exception | Error e) {
+		e.printStackTrace();
+        ExtenantReportUtils.addFailedLog("validating footer Links " +hedrs[i],"user open the "+hedrs[i]+" option","User unabel open the footer link "+hedrs[i],Common.getscreenShotPathforReport("user failed to open the footer link"));
+        Assert.fail();
+
+	}
+}
+}
+
+
+
+
 
 
 
