@@ -41,17 +41,16 @@ public class TEST_ST_PUR_024_MyProduct_Reviews {
 		   }*/
 	
 	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-	//	System.setProperty("configFile", "PUR\\config.properties");
-		  Login.signIn(browser);
-	}
+	  public void startTest() throws Exception {
+		 //System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
+}
 	
 
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

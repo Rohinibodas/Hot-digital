@@ -44,11 +44,10 @@ public class TEST_ST_PUR_044_Registeruser_tax_MastercardCC {
 		   }*/
 	
 	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-	//	System.setProperty("configFile", "PUR\\config.properties");
-		  Login.signIn(browser);
-	}
+	  public void startTest() throws Exception {
+		// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
+}
 	
 	  
 

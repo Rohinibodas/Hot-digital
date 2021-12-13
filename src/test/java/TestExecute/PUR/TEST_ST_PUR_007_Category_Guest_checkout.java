@@ -42,12 +42,13 @@ public class TEST_ST_PUR_007_Category_Guest_checkout {
 			  Login.signIn("firefox");
 			   }*/
 		
-	    @BeforeMethod
-		@Parameters({"browser"}) 
-		  public void startTest(String browser) throws Exception {
-			//System.setProperty("configFile", "PUR\\config.properties");
-			  Login.signIn(browser);
+		@BeforeMethod
+		//@Parameters() 
+		  public void startTest() throws Exception {
+			// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+			  Login.signIn();
 		}
+
 
 		@AfterTest
 		public void clearBrowser()

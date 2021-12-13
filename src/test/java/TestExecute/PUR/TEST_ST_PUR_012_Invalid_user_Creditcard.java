@@ -41,10 +41,10 @@ public class TEST_ST_PUR_012_Invalid_user_Creditcard {
 		   }*/
 	
 	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-		//System.setProperty("configFile", "PUR\\config.properties");
-		  Login.signIn(browser);
+	//@Parameters() 
+	  public void startTest() throws Exception {
+	System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
 	}
 
 	@AfterTest

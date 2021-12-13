@@ -21,7 +21,7 @@ public class TEST_ST_PUR_004_ForgotPassword {
 		try{
 			//PUR.AgreeAndProceed();
 			PUR.ClicktheSignbutton();
-			PUR.forgotPassword("CustomerAccountdetails");
+			PUR.forgotPassword("ForgotPassword");
 			
 			
 		}
@@ -39,10 +39,10 @@ public class TEST_ST_PUR_004_ForgotPassword {
 		   }*/
 	
 	@BeforeMethod
-	@Parameters({"browser"}) 
-	  public void startTest(String browser) throws Exception {
-	//	System.setProperty("configFile", "PUR\\config.properties");
-		  Login.signIn(browser);
+	//@Parameters() 
+	  public void startTest() throws Exception {
+		// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
 	}
 
 	@AfterTest

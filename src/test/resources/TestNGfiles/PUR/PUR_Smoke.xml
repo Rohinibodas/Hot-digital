@@ -3,14 +3,14 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-   <test name="Test_PUR_001_Create NewAccount" testid="HHUS-127" priority="P1" description="To Verify the Create new account functionality in PUR">
+     <test name="Test_PUR_001_Create NewAccount" testid="HHUS-127" priority="P1" description="To Verify the Create new account functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.PUR.TEST_ST_PUR_001_AccountCreation"/>
         </classes>
         </test>
-        
-         <test name="Test_PUR_ST_007_GuestUserCategoryCheckout" testid="HHUS-174" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
+             
+         <test name="TEST_ST_PUR_007_Category_Guest_checkout" testid="HHUS-174" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.PUR.TEST_ST_PUR_007_Category_Guest_checkout"/>
@@ -43,7 +43,7 @@
         <classes>
             <class name="TestExecute.PUR.TEST_ST_PUR_026_SocialMediaLinks"/>
         </classes>
-    </test>
+    </test>-->
     <test name="Test_PUR_017_ValidationContentlinks" testid="HHUS-236" priority="P1" description="To verify the contentlinks functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
@@ -52,7 +52,7 @@
     </test>
     
     
-      <test name="Test_PUR_ST_031_RegistereduserPromocodecheckout" testid="HHUS-292" priority="P1" description="To verify Apply PromoCode for Registereduser functionality in PUR">
+   <!--  <test name="Test_PUR_ST_031_RegistereduserPromocodecheckout" testid="HHUS-292" priority="P1" description="To verify Apply PromoCode for Registereduser functionality in PUR">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.PUR.TEST_ST_PUR_031_RegistereduserPromocodecheckout"/>
@@ -63,7 +63,7 @@
         <classes>
             <class name="TestExecute.PUR.TEST_ST_PUR_032_GusetuserPromocodecheckout"/>
         </classes>
-    </test>
+    </test> -->
     
      <test name="Test_PUR_005_RegistereduserCheckoutCreditcard" testid="HHUS-172" priority="P1" description="To verify the search functionality for Checkout with credit card in PUR web site">
          <parameter name="browser" value="chrome" />

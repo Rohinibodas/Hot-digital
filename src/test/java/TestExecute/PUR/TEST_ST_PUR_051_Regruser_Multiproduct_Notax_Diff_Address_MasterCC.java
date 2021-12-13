@@ -42,17 +42,15 @@ public class TEST_ST_PUR_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC {
 	}
 
 	*/
-	  @BeforeMethod
-	  
-	  @Parameters({"browser"}) public void startTest(String browser) throws
-	  Exception {
-		  //System.setProperty("configFile", "PUR\\config.properties");
-	  Login.signIn(browser); }
+	@BeforeMethod
+	  public void startTest() throws Exception {
+		// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
+}
 	 
-
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

@@ -40,11 +40,10 @@ public class TEST_ST_PUR_054_Guestuser_Promocode_tax_VisaCC {
 	 */
 
 	@BeforeMethod
-	@Parameters({ "browser" })
-	public void startTest(String browser) throws Exception {
-		//System.setProperty("configFile", "PUR\\config.properties");
-		Login.signIn(browser);
-	}
+	  public void startTest() throws Exception {
+		 //System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
+}
 
 	@AfterTest
 	public void clearBrowser() {

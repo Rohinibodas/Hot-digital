@@ -39,18 +39,17 @@ public class TEST_ST_PUR_057_Reg_Multiproduct_Promocode_tax_diff_Address_DisCC {
 	}
 /*
 	@BeforeMethod
-	public void startTest() throws Exception {
-		System.setProperty("configFile", "PUR//config.properties");
-		Login.signIn("chrome");
-	}
+	  public void startTest() throws Exception {
+		 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
+}
 
 	*/
-	  @BeforeMethod
-	  
-	  @Parameters({"browser"}) public void startTest(String browser) throws
-	  Exception { 
-		  //System.setProperty("configFile", "PUR\\config.properties");
-	  Login.signIn(browser); }
+	@BeforeMethod
+	  public void startTest() throws Exception {
+		// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  Login.signIn();
+}
 	 
 
 	@AfterTest
