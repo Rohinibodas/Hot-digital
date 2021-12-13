@@ -27,11 +27,11 @@ public class  Test_OXO_ST_028_Validate_RegisterUser_Checkout_VisaCC_Tax_Employee
 			oxo.addNewAddress("ShippingAddress");
 			oxo.clickAcceptingaddress();
 			oxo.selectGroundShippingMethod();
-			oxo.Promocode("EmployeeDiscount");
+			oxo.EmployeeDiscountCode("EmployeeDiscount");
 			oxo.Click_CreditCard();
 			oxo.creditCard_payment("PaymentDetails");
 			oxo.VerifyaingConformationPage();
-			
+			oxo.tax();
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);
@@ -40,7 +40,7 @@ public class  Test_OXO_ST_028_Validate_RegisterUser_Checkout_VisaCC_Tax_Employee
 
 	@AfterTest
 	public void clearBrowser() {
-		Common.closeAll();
+//		Common.closeAll();
 
 	}
 

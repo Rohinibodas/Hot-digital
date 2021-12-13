@@ -31,6 +31,7 @@ public class TEST_ST_OXO_001_Guest_Checkout_AMEX_SingleProduct_Tax_Shipping_Dife
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("AMEXPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.tax();
 			
 		} catch (Exception e) {
 

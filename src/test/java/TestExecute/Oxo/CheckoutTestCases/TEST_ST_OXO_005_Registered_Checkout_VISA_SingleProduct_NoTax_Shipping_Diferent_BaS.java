@@ -32,6 +32,7 @@ public class TEST_ST_OXO_005_Registered_Checkout_VISA_SingleProduct_NoTax_Shippi
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("PaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 

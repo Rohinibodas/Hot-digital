@@ -36,6 +36,7 @@ public class  TEST_ST_OXO_003_Guest_Checkout_Mastercard_MultiProduct_Tax_ESO_Dif
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("MasterCardPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.tax();
 			
 			
 			

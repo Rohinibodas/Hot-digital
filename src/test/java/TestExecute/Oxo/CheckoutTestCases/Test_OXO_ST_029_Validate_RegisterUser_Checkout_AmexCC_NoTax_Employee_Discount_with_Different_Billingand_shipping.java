@@ -26,13 +26,13 @@ public class  Test_OXO_ST_029_Validate_RegisterUser_Checkout_AmexCC_NoTax_Employ
 			oxo.addNewAddress("NoTaxAddress");
 			oxo.clickAcceptingaddress();
 			oxo.selectGroundShippingMethod();
-			oxo.Promocode("EmployeeDiscount");
+			oxo.EmployeeDiscountCode("EmployeeDiscount");
 			oxo.Click_CreditCard();
 			oxo.Edit_BillingAddress("BiillingAddress");
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("AMEXPaymentDetails");
 			oxo.VerifyaingConformationPage();
-			
+			oxo.NoTax();
 		} catch (Exception e) {
 
 			Assert.fail(e.getMessage(), e);

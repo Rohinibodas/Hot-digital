@@ -37,6 +37,7 @@ public class  TEST_ST_OXO_010_Registered_Checkout_Mastercard_MultiProduct_NoTax_
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("MasterCardPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 

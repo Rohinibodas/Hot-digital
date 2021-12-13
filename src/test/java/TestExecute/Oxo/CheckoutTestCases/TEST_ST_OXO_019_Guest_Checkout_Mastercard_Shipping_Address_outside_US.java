@@ -18,7 +18,7 @@ public class TEST_ST_OXO_019_Guest_Checkout_Mastercard_Shipping_Address_outside_
 	public void TEST_ST_OXO_019_Guest_Checkout_Mastercard_Shipping_Address_outside_US() throws Exception {
 
 		try {
-			oxo.closetheadd();
+			
 			
 		} catch (Exception e) {
 

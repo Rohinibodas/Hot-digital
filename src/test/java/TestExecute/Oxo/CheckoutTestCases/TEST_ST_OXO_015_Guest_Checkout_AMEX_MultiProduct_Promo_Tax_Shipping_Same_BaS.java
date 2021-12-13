@@ -19,6 +19,23 @@ public class TEST_ST_OXO_015_Guest_Checkout_AMEX_MultiProduct_Promo_Tax_Shipping
 
 		try {
 			oxo.closetheadd();
+			oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.CleaningandOrganization();
+			oxo.addproducts("1");
+			oxo.CookingAndBaking();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.ShippingAddress("ShippingAddress");
+			oxo.selectGroundShippingMethod();
+			oxo.clickAcceptingaddress();
+			oxo.Promocode("EmployeeDiscount");
+		    oxo.Click_CreditCard();
+			oxo.creditCard_payment("AMEXPaymentDetails");
+			oxo.VerifyaingConformationPage();
+			oxo.tax();
 			
 		} catch (Exception e) {
 

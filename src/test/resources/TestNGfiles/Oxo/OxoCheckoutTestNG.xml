@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="OxoSuite Suite">
+
+	<listeners>
+
+		<listener class-name="Utilities.TestListener" />
+
+	</listeners>
+
+
+
+
+
+	<test name="Test_OXO_ST_028_Validate_RegisterUser_Checkout_VisaCC_Tax_Employee_Discount_with_Same_Billingand_Shipping" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate RegisterUser CheckoutVisaCC Tax Employee Discount withSame Billingand Shipping">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.Test_OXO_ST_028_Validate_RegisterUser_Checkout_VisaCC_Tax_Employee_Discount_with_Same_Billingand_Shipping" />
+
+		</classes>
+
+	</test>
+	
+	<test name="Test_OXO_ST_029_Validate_RegisterUser_Checkout_AmexCC_NoTax_Employee_Discount_with_Different_Billingand_shipping" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate RegisterUser Checkout AmexCC NoTax Employee Discount withSame Billingand Shipping">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.Test_OXO_ST_029_Validate_RegisterUser_Checkout_AmexCC_NoTax_Employee_Discount_with_Different_Billingand_shipping" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_001_Guest_Checkout_AMEX_SingleProduct_Tax_Shipping_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_AMEX_SingleProduct_Tax_Shipping_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_001_Guest_Checkout_AMEX_SingleProduct_Tax_Shipping_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_002_Registered_Checkout_VISA_MultiProduct_Tax_ESO_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_VISA_MultiProduct_Tax_ESO_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_002_Registered_Checkout_VISA_MultiProduct_Tax_ESO_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_003_Guest_Checkout_Mastercard_MultiProduct_Tax_ESO_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_Mastercard_MultiProduct_Tax_ESO_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_003_Guest_Checkout_Mastercard_MultiProduct_Tax_ESO_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_004_Registered_Checkout_AMEX_MultiProduct_Tax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_AMEX_MultiProduct_Tax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_004_Registered_Checkout_AMEX_MultiProduct_Tax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_005_Registered_Checkout_VISA_SingleProduct_NoTax_Shipping_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_VISA_SingleProduct_NoTax_Shipping_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_005_Registered_Checkout_VISA_SingleProduct_NoTax_Shipping_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_006_Registered_Checkout_AMEX_SingleProduct_NoTax_ESO_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_AMEX_SingleProduct_NoTax_ESO_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_006_Registered_Checkout_AMEX_SingleProduct_NoTax_ESO_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_007_Guest_Checkout_Discover_SingleProduct_NoTax_ESO_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_Discover_SingleProduct_NoTax_ESO_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_007_Guest_Checkout_Discover_SingleProduct_NoTax_ESO_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_008_Guest_Checkout_Master_MultiProduct_NoTax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_Master_MultiProduct_NoTax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_008_Guest_Checkout_Master_MultiProduct_NoTax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_009_Guest_Checkout_VISA_MultiProduct_NoTax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_VISA_MultiProduct_NoTax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_009_Guest_Checkout_VISA_MultiProduct_NoTax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_010_Registered_Checkout_Mastercard_MultiProduct_NoTax_Shipping_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_Mastercard_MultiProduct_NoTax_Shipping_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_010_Registered_Checkout_Mastercard_MultiProduct_NoTax_Shipping_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_011_Guest_Checkout_AMEX_MultiProduct_NoTax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_AMEX_MultiProduct_NoTax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_011_Guest_Checkout_AMEX_MultiProduct_NoTax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_012_Registered_Checkout_Discover_MultiProduct_NoTax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_Discover_MultiProduct_NoTax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_012_Registered_Checkout_Discover_MultiProduct_NoTax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_013_Guest_Checkout_VISA_SingleProduct_Discount_Promotion_Tax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_VISA_SingleProduct_Discount_Promotion_Tax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_013_Guest_Checkout_VISA_SingleProduct_Discount_Promotion_Tax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_014_Registered_Checkout_Mastercard_SingleProduct_Promotion_Tax_Shipping_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_Mastercard_SingleProduct_Promotion_Tax_Shipping_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_014_Registered_Checkout_Mastercard_SingleProduct_Promotion_Tax_Shipping_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_015_Guest_Checkout_AMEX_MultiProduct_Promo_Tax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_AMEX_MultiProduct_Promo_Tax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_015_Guest_Checkout_AMEX_MultiProduct_Promo_Tax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_016_Registered_Checkout_Discover_MultiProduct_Promo_Tax_Shipping_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_Discover_MultiProduct_Promo_Tax_Shipping_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_016_Registered_Checkout_Discover_MultiProduct_Promo_Tax_Shipping_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_017_Registered_Checkout_VISA_POBox" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_VISA_POBox">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_017_Registered_Checkout_VISA_POBox" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_018_Guest_Checkout_AMEX_POBox" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_AMEX_POBox">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_018_Guest_Checkout_AMEX_POBox" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_019_Guest_Checkout_Mastercard_Shipping_Address_outside_US" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_Mastercard_Shipping_Address_outside_US">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_019_Guest_Checkout_Mastercard_Shipping_Address_outside_US" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_ST_OXO_020_Registered_Checkout_Discover_Billing_Address_outside_US" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_Discover_Billing_Address_outside_US">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_020_Registered_Checkout_Discover_Billing_Address_outside_US" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_ST_OXO_021_Registered_Checkout_PP_SingleProduct_Promocode_tax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_PP_SingleProduct_Promocode_tax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_021_Registered_Checkout_PP_SingleProduct_Promocode_tax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_ST_OXO_022_Guest_Checkout_PP_SingleProduct_Promocode_Tax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_PP_SingleProduct_Promocode_Tax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_022_Guest_Checkout_PP_SingleProduct_Promocode_Tax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_023_Registered_Checkout_PP_SingleProduct_NoTax_Shipping_Diferent_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_PP_SingleProduct_NoTax_Shipping_Diferent_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_023_Registered_Checkout_PP_SingleProduct_NoTax_Shipping_Diferent_BaS" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_ST_OXO_024_Registered_Checkout_PP_MultiProduct_Tax_ESO_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_PP_MultiProduct_Tax_ESO_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_024_Registered_Checkout_PP_MultiProduct_Tax_ESO_Same_BaS" />
+
+		</classes>
+
+	</test>
+
+	<test name="TEST_ST_OXO_025_Guest_Checkout_Express_PP_SingleProduct_Promocode_Tax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_Express_PP_SingleProduct_Promocode_Tax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_025_Guest_Checkout_Express_PP_SingleProduct_Promocode_Tax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_026_Guest_Checkout_Express_PP_MultiProduct_NoTax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_Express_PP_MultiProduct_NoTax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_026_Guest_Checkout_Express_PP_MultiProduct_NoTax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_027_Guest_Checkout_Express_PP_SingleProduct_Tax_Shipping_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Guest_Checkout_Express_PP_SingleProduct_Tax_Shipping_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_027_Guest_Checkout_Express_PP_SingleProduct_Tax_Shipping_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="TEST_ST_OXO_030_Registered_Checkout_Express_PP_MultiProduct_Tax_ESO_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate Registered_Checkout_Express_PP_MultiProduct_Tax_ESO_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.TEST_ST_OXO_030_Registered_Checkout_Express_PP_MultiProduct_Tax_ESO_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="Test_ST_OXO_036_Validate_RegisterUser_Checkout_AmexCC_NoTax_Employee_Discount_with_Different_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate RegisterUser_Checkout_AmexCC_NoTax_Employee_Discount_with_Different_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.Test_ST_OXO_036_Validate_RegisterUser_Checkout_AmexCC_NoTax_Employee_Discount_with_Different_BaS" />
+
+		</classes>
+
+	</test>
+	
+	<test name="Test_ST_OXO_037_Validate_RegisterUser_Checkout_VisaCC_Tax_Employee_Discount_with_Same_BaS" testid="OXUS-373"
+
+		priority="P1" description="This script will cover Validate RegisterUser_Checkout_VisaCC_Tax_Employee_Discount_with_Same_BaS">
+
+		<classes>
+
+			<class name="TestExecute.Oxo.CheckoutTestCases.Test_ST_OXO_037_Validate_RegisterUser_Checkout_VisaCC_Tax_Employee_Discount_with_Same_BaS" />
+
+		</classes>
+
+	</test>
+	
+
+</suite>

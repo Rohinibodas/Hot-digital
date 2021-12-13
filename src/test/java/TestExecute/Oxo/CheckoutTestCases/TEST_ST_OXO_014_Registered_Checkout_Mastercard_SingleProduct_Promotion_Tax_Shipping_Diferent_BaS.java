@@ -32,6 +32,7 @@ public class TEST_ST_OXO_014_Registered_Checkout_Mastercard_SingleProduct_Promot
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("MasterCardPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.tax();
 			
 		} catch (Exception e) {
 

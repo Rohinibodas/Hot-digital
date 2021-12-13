@@ -19,6 +19,14 @@ public class TEST_ST_OXO_026_Guest_Checkout_Express_PP_MultiProduct_NoTax_Shippi
 
 		try {
 			oxo.closetheadd();
+			oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.CleaningandOrganization();
+			oxo.addproducts("1");
+			oxo.CookingAndBaking();
+			oxo.addproducts("1");
 			
 		} catch (Exception e) {
 

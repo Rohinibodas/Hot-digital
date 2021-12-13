@@ -28,6 +28,7 @@ public class  TEST_ST_OXO_007_Guest_Checkout_Discover_SingleProduct_NoTax_ESO_Sa
 		    oxo.Click_CreditCard();
 			oxo.creditCard_payment("DiscoverPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 

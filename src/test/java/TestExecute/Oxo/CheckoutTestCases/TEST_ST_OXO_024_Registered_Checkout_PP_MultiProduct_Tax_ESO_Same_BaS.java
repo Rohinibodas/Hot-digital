@@ -19,6 +19,23 @@ public class TEST_ST_OXO_024_Registered_Checkout_PP_MultiProduct_Tax_ESO_Same_Ba
 
 		try {
 			oxo.closetheadd();
+			oxo.loginOxo("NoTaxAddress");
+			oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.CleaningandOrganization();
+			oxo.addproducts("1");
+			oxo.CookingAndBaking();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.ShippingAddress("NoTaxAddress");
+			oxo.selectExpressStandardOvernightShippingMethod();
+			oxo.clickAcceptingaddress();
+			oxo.payPal_payment("PaypalDetails");
+			oxo.VerifyaingConformationPage();
+			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 

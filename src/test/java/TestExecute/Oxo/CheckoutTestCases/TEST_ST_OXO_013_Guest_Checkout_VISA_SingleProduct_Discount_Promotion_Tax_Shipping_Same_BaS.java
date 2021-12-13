@@ -30,6 +30,7 @@ public class TEST_ST_OXO_013_Guest_Checkout_VISA_SingleProduct_Discount_Promotio
 		    oxo.Click_CreditCard();
 			oxo.creditCard_payment("PaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.tax();
 			
 		} catch (Exception e) {
 

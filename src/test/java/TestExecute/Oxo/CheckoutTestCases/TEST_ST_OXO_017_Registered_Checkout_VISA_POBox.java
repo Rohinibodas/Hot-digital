@@ -19,6 +19,16 @@ public class TEST_ST_OXO_017_Registered_Checkout_VISA_POBox{
 
 		try {
 			oxo.closetheadd();
+			oxo.loginOxo("AccountDetails");
+			oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.ShippingAddress("POBoxAddress");
+			oxo.selectGroundShippingMethod();
+			oxo.clickAcceptingaddress();
+		    oxo.Click_CreditCard();
+			oxo.creditCard_payment("PaymentDetails");
+			oxo.VerifyaingConformationPage();
 			
 		} catch (Exception e) {
 

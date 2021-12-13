@@ -19,6 +19,18 @@ public class Test_ST_OXO_037_Validate_RegisterUser_Checkout_VisaCC_Tax_Employee_
 
 		try {
 			oxo.closetheadd();
+			oxo.loginOxo("AccountDetails");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.addNewAddress("ShippingAddress");
+			oxo.clickAcceptingaddress();
+			oxo.selectGroundShippingMethod();
+			oxo.EmployeeDiscountCode("EmployeeDiscount");
+			oxo.Click_CreditCard();
+			oxo.creditCard_payment("PaymentDetails");
+			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 

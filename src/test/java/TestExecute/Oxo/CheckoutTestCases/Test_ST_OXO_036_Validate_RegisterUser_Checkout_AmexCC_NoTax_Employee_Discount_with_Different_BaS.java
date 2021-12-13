@@ -31,6 +31,7 @@ public class Test_ST_OXO_036_Validate_RegisterUser_Checkout_AmexCC_NoTax_Employe
 			oxo.Click_CreditCard();
 			oxo.creditCard_payment("AMEXPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 			
 		} catch (Exception e) {

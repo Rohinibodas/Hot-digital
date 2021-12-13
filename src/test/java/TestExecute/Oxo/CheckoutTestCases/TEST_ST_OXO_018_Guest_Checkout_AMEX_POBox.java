@@ -19,6 +19,15 @@ public class  TEST_ST_OXO_018_Guest_Checkout_AMEX_POBox{
 
 		try {
 			oxo.closetheadd();
+			oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.ShippingAddress("POBoxAddress");
+			oxo.selectGroundShippingMethod();
+			oxo.clickAcceptingaddress();
+		    oxo.Click_CreditCard();
+			oxo.creditCard_payment("PaymentDetails");
+			oxo.VerifyaingConformationPage();
 			
 		} catch (Exception e) {
 

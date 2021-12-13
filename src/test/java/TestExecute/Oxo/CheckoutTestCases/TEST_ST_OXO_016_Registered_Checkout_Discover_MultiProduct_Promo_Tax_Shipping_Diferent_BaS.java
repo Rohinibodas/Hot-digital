@@ -19,6 +19,24 @@ public class TEST_ST_OXO_016_Registered_Checkout_Discover_MultiProduct_Promo_Tax
 
 		try {
 			oxo.closetheadd();
+			oxo.loginOxo("AccountDetails");
+			oxo.Beverage();
+			oxo.addproducts("1");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.CleaningandOrganization();
+			oxo.addproducts("1");
+			oxo.CookingAndBaking();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.ShippingAddress("ShippingAddress");
+			oxo.selectGroundShippingMethod();
+			oxo.clickAcceptingaddress();
+			oxo.Promocode("EmployeeDiscount");
+		    oxo.Click_CreditCard();
+			oxo.creditCard_payment("DiscoverPaymentDetails");
+			oxo.VerifyaingConformationPage();
+			oxo.tax();
 			
 		} catch (Exception e) {
 

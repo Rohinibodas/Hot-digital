@@ -19,6 +19,13 @@ public class TEST_ST_OXO_027_Guest_Checkout_Express_PP_SingleProduct_Tax_Shippin
 
 		try {
 			oxo.closetheadd();
+			oxo.CookingAndBaking();
+			oxo.addproducts("1");
+			oxo.clickViewCart();
+			oxo.Express_payPal_payment("PaypalDetails");
+			oxo.selectGroundShippingMethod();
+			oxo.PlaceorderButton();
+			oxo.tax();
 			
 		} catch (Exception e) {
 

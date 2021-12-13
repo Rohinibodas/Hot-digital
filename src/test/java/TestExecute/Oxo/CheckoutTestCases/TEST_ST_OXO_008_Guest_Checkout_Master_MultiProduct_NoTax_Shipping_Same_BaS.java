@@ -34,6 +34,7 @@ public class  TEST_ST_OXO_008_Guest_Checkout_Master_MultiProduct_NoTax_Shipping_
 		    oxo.Click_CreditCard();
 			oxo.creditCard_payment("MasterCardPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 

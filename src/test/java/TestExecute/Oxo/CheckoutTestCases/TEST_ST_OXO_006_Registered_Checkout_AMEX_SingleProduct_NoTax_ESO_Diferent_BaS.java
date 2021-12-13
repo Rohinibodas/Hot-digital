@@ -32,6 +32,7 @@ public class  TEST_ST_OXO_006_Registered_Checkout_AMEX_SingleProduct_NoTax_ESO_D
 			oxo.clickAcceptingaddress();
 			oxo.creditCard_payment("AMEXPaymentDetails");
 			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 

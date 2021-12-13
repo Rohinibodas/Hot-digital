@@ -19,6 +19,17 @@ public class TEST_ST_OXO_025_Guest_Checkout_Express_PP_SingleProduct_Promocode_T
 
 		try {
 			oxo.closetheadd();
+			oxo.loginOxo("AccountDetails");
+			oxo.clickBaby_Toddler();
+			//oxo.Beverage();
+			oxo.addproducts("1");
+			//oxo.checkout();
+			oxo.clickViewCart();
+			oxo.Promocode("Promocode");
+            oxo.Express_payPal_payment("PaypalDetails");
+            oxo.Express_PayPal_GroundShippingMethod();
+            oxo.PlaceorderButton();
+            oxo.tax();
 			
 		} catch (Exception e) {
 

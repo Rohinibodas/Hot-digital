@@ -19,6 +19,18 @@ public class TEST_ST_OXO_023_Registered_Checkout_PP_SingleProduct_NoTax_Shipping
 
 		try {
 			oxo.closetheadd();
+			oxo.loginOxo("AccountDetails");
+			oxo.clickBaby_Toddler();
+			oxo.addproducts("1");
+			oxo.checkout();
+			oxo.addNewAddress("NoTaxAddress");
+			oxo.clickAcceptingaddress();
+			oxo.selectGroundShippingMethod();
+			oxo.Edit_BillingAddress("BiillingAddress");
+			oxo.clickAcceptingaddress();
+			oxo.payPal_payment("PaypalDetails");
+			oxo.VerifyaingConformationPage();
+			oxo.NoTax();
 			
 		} catch (Exception e) {
 
