@@ -17,7 +17,7 @@ public class TEST_ST_HF_049_Footerlink_Validation {
 		try{
 		Hydro.footerLinks_AboutUs_Validation();
 		Hydro.footerLinks_DealerCentral_Validation();
-		Hydro.footerLinks_Personalize_Validation();
+		Hydro.footerlinks_Group_Customization_Validation();
 		Hydro.footerLinks_Affiliates_Validation();
 		Hydro.footerLinks_ProDeal_Validation();
 		Hydro.footerLinks_FAQ_Validation();
@@ -28,10 +28,11 @@ public class TEST_ST_HF_049_Footerlink_Validation {
 		Hydro.footerLinks_Track_Your_Order_Validation();
 		//Hydro.footerLinks_Refer_aFriend_Validation();
 		Hydro.footerLinks_Parks_For_All_Validation();
-		//Hydro.footerLinks_New_Arrivals_Validation();
+		Hydro.footerLinks_Ambassadors_Validation();
+		Hydro.footerLinks_New_Arrivals_Validation();
 		Hydro.footerLinks_Bottles_Validation();
 		Hydro.footerLinks_Customize_Validation();
-		Hydro.footerLinks_OutdoorKitchen_Validation();
+//		Hydro.footerLinks_OutdoorKitchen_Validation();
 		//Hydro.footerLinks_Refer_aFriend_Validation();
 		
 		//Hydro.footerLinks_Careers_Validation();

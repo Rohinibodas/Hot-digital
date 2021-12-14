@@ -69,6 +69,8 @@ public class HydroHelper {
 		Thread.sleep(2000);
 		Sync.waitPageLoad();
 		String expectedResult = "User should land on the home page";
+		
+		
 		int size =Common.findElements("xpath", "//a[@class='logo']").size();
 		Common.assertionCheckwithReport(size > 0, " verifying the home page", expectedResult,"Successfully landed on the home page", "User unabel to land on home page");
 		//Common.assertionCheckwithReport(size>0, "Successfully landed on th home page", expectedResult,"User unabel to land on home page");
@@ -304,7 +306,7 @@ public void Rigisteraccount(String dataSet) {
 			// email address and password", expectedResult,"Required Field Data
 			// Missing");
 
-			Common.clickElement("id", "bnt-social-login-authentication");
+			Common.clickElement("xpath", "//button[contains(text(),'Sign in')]");
 			Thread.sleep(4000);
 			Sync.waitElementPresent("xpath", "//span[@data-ui-id='page-title-wrapper']");
 			// Assert.assertEquals(Common.getText("xpath",
@@ -4425,6 +4427,28 @@ public void Newsletter_subscription() {
 		  
 	  }
 	  }
+  
+  public void footerlinks_Group_Customization_Validation(){
+		 String Links= "Group_custimization";
+		  try{
+		  
+		 // Sync.waitElementInvisible("xpath", "//a[text()='Personalize']");
+			  Common.actionsKeyPress(Keys.END);
+			  Thread.sleep(3000);
+		  Common.clickElement("xpath","//a[text()='Group Customization']");
+		  Sync.waitPageLoad();
+		  Common.assertionCheckwithReport(Common.getCurrentURL().contains("group-custom-sales"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+		  }
+		  catch (Exception |Error e) {
+				e.printStackTrace();
+		    ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+		    Assert.fail();
+		  
+	  }
+	  }
+  
+  
+
   public void footerLinks_Affiliates_Validation(){
 		 String Links= "Affiliates";
 		  try{
@@ -4621,14 +4645,15 @@ public void Newsletter_subscription() {
 	  }
 	  }
   
-  public void footerLinks_New_Arrivals_Validation(){
-		 String Links= "New Arrivals";
+  
+  public void footerLinks_Holiday_Gift_Guide_Validation(){
+		 String Links= "Holiday_Gift_Guide";
 		  try{
 			  Common.actionsKeyPress(Keys.END);
 			  Thread.sleep(3000);
-		  Common.clickElement("xpath","//a[text()='New Arrivals']");
+		  Common.clickElement("xpath","//a[text()='Holiday Gift Guide']");
 		  Sync.waitPageLoad();
-		  Common.assertionCheckwithReport(Common.getPageTitle().equals("Hydro Flask New Arrivals  | Hydro Flask"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+		  Common.assertionCheckwithReport(Common.getCurrentURL().contains("gift-of-go"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
 		  }
 		  catch (Exception |Error e) {
 				e.printStackTrace();
@@ -4637,6 +4662,44 @@ public void Newsletter_subscription() {
 		  
 	  }
 	  }
+  
+  public void footerLinks_Ambassadors_Validation(){
+		 String Links= "Ambassadors";
+		  try{
+			  Common.actionsKeyPress(Keys.END);
+			  Thread.sleep(3000);
+		  Common.clickElement("xpath","//a[text()='Ambassadors']");
+		  Sync.waitPageLoad();
+		  Common.assertionCheckwithReport(Common.getPageTitle().equals("Ambassadors Landing Page"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+		  }
+		  catch (Exception |Error e) {
+				e.printStackTrace();
+		    ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+		    Assert.fail();
+		  
+	  }
+	  }
+
+  
+  public void footerLinks_New_Arrivals_Validation(){
+		 String Links= "New Arrivals";
+		  try{
+			  Common.actionsKeyPress(Keys.END);
+			  Thread.sleep(3000);
+		  Common.clickElement("xpath","//a[text()='New Arrivals']");
+		  Sync.waitPageLoad();
+//		  int element= Common.findElements("xpath", "(//div[text()='New Arrivals'])[2]").size();
+		  Common.assertionCheckwithReport(Common.getCurrentURL().contains("new-arrivals"),"Validate the Footer link "+Links, "Click the footer link "+Links+"it will navigate to page"+Links, "successfully navigating to "+Links +"page ","Failed to navigate to"+Links+"page");
+		  }
+		  catch (Exception |Error e) {
+				e.printStackTrace();
+		    ExtenantReportUtils.addFailedLog("Validate the Footer link "+Links,"Click the footer link "+Links+"it will navigate to page"+Links, "Failed to navigate to"+Links+"page", Common.getscreenShotPathforReport("failed to land on "+Links));
+		    Assert.fail();
+		  
+	  }
+	  }
+		  
+	  
   public void footerLinks_Bottles_Validation(){
 		 String Links= "Bottles";
 		  try{
@@ -5315,7 +5378,7 @@ public void Newsletter_subscription() {
         	
         	try {
     			
-    			String Serachproduct ="20 oz Wide Mouth";
+    			String Serachproduct ="21 oz Standard Mouth w/ Sport Cap";
     		Thread.sleep(5000);
     		Sync.waitElementVisible("xpath", "//form[@id='search_mini_form']//label");
     		Thread.sleep(8000);
@@ -7806,6 +7869,36 @@ String expectedResult = "User gets redirected to confirmation page, Order has be
 
 
 
+public void Partial_updatePaymentAndSubmitOrder(String dataSet) throws Exception {
+	
+
+	addPaymentDetails(dataSet);
+	String expectedResult = "It redirects to order confirmation page";
+try {
+	if (Common.findElements("xpath", "//div[@class='message message-error']").size() > 0) {
+		addPaymentDetails(dataSet);
+	}
+	
+	Thread.sleep(3000);
+	int placeordercount = Common.findElements("xpath", "//span[text()='Place Order']").size();
+	//Juttriles code //("xpath", "//span[text()='Place Order']")
+	////button[@title='Place Order']   stage
+	if (placeordercount > 1) {
+		Common.clickElement("xpath", "//span[text()='Place Order']");
+	
+	
+		}
+}
+catch (Exception | Error e) {
+	e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("verifying the product confirmation", expectedResult,
+			"User failed to navigate  to order confirmation page", Common.getscreenShotPathforReport("failednavigatepage"));
+	Assert.fail();
+}
+
+
+
+}
 
 
 public void CheckOutPaypalminicart(String dataSet) {
@@ -8232,10 +8325,10 @@ public void Verify_AVS_addDeliveryAddress1(String dataSet) throws Exception {
 	   
     
     try {
-        Sync.waitElementVisible("id", "customer-email-address");
-        Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+        Sync.waitElementVisible("id", "customer-email");
+        Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
         Thread.sleep(5000);
-        String emailid=Common.findElement("id" ,"customer-email-address").getAttribute("value");
+        String emailid=Common.findElement("id" ,"customer-email").getAttribute("value");
         System.out.println("*****"+emailid+"*******");
        
         
@@ -8255,7 +8348,7 @@ public void Verify_AVS_addDeliveryAddress1(String dataSet) throws Exception {
         String ShippingFirstName=Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']").getAttribute("value");
         System.out.println("*****"+ShippingFirstName+"*******");
      
-        int size = Common.findElements("id", "customer-email-address").size();
+        int size = Common.findElements("id", "customer-email").size();
         Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
         Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
         Thread.sleep(2000);
