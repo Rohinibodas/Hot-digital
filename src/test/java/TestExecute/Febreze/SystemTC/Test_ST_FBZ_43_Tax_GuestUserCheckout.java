@@ -24,8 +24,8 @@ public class Test_ST_FBZ_43_Tax_GuestUserCheckout {
 		public void GuestCategoryCheckoutCC() throws Exception {
 
 			try {
-				String addressFile = "Febreze//febrez-ks (1).xlsx";
-				//String addressFile = "Febreze//StreetAddresswithZipcode3.xlsx";
+				//String addressFile = "Febreze//febrez-ks (1).xlsx";
+				String addressFile = "Febreze//StreetAddresswithZipcode.xlsx";
 				febreze.prepareTaxData("FebrezeTaxDetails.xlsx");
 				Map<String, List<Map<String, String>>> addressVal=new HashMap<>();
 				ExcelReader excelData=new ExcelReader(addressFile);
@@ -47,13 +47,14 @@ public class Test_ST_FBZ_43_Tax_GuestUserCheckout {
 			    febreze.productselection();
 			    febreze.Navigateminicart();
 			    febreze.NavigateMycartpage();
+			    febreze.ProductQuantityincreaseMycart("UpdateQuantity");
 			    febreze.checkoutpage();
 			    febreze.ShippingAddress("Address",streetAddress,City,Zipcode,state);
 			   // febreze.shipping_Address("Guest_shipping");
 			   HashMap<String,String> data=febreze.taxValidation(tax,state);
-			  febreze.AddPaymentdetails("PaymentDetails");
-	          String OrderId=febreze.order_Verifying();
-			  febreze.writeResultstoXLSx(Website,OrderId,data.get("subtotlaValue"),data.get("shippingammountvalue"),state,Zipcode,data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));
+			 // febreze.AddPaymentdetails("PaymentDetails");
+	        //  String OrderId=febreze.order_Verifying();
+			  febreze.writeResultstoXLSx(Website,data.get("subtotlaValue"),data.get("shippingammountvalue"),state,Zipcode,data.get("Taxammountvalue"),data.get("ActualTotalammountvalue"),data.get("ExpectedTotalAmmountvalue"),data.get("giventaxvalue"),data.get("calculatedvalue"));
 			
 				}
 				
@@ -71,13 +72,15 @@ public class Test_ST_FBZ_43_Tax_GuestUserCheckout {
 			
 	@AfterTest
 	public void clearBrowser() {
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 
 	@BeforeMethod
 	public void startTest() throws Exception {
-		System.setProperty("configFile", "Febreze\\Config_Febreze_Staging.properties");
+		//System.setProperty("configFile", "Febreze\\Config_Febreze_Staging.properties");
+		System.setProperty("configFile", "Febreze\\Config_Febreze_prod.properties");
+		
 		Login.signIn();
 
 	}

@@ -3147,7 +3147,216 @@ System.out.println(Shippingaddress);
 return Shippingaddress;
 }
 
+
+public void writeResultstoXLSx1(String Website,String subtotlaValue,String shippingammountvalue,String state,String Zipcode,String Taxammountvalue,String ActualTotalammountvalue, String ExpectedTotalammountvalue,String giventaxvalue,String calucaltedvalue)
+{
+	//String fileOut="";
+try{
+	
+	File file=new File(System.getProperty("user.dir")+"/src/test/resources/StingerTaxDetails_Guest.xlsx");
+	XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+	XSSFSheet sheet;
+	Row row;
+	Cell cell;
+	int rowcount;
+	sheet = workbook.getSheet("TaxDetails");
+	
+	if((workbook.getSheet("TaxDetails"))==null)
+	{
+	sheet = workbook.createSheet("TaxDetails");
+	CellStyle cs = workbook.createCellStyle();
+	cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+	cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+	Font f = workbook.createFont();
+	f.setBold(true);
+	cs.setFont(f);	 
+	cs.setAlignment(HorizontalAlignment.RIGHT);
+	row = sheet.createRow(0);
+	cell = row.createCell(0);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Orders Details");
+	
+	row = sheet.createRow(1);
+	cell = row.createCell(0);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Web Order Number");
+	cell = row.createCell(1);
+	cell.setCellStyle(cs);
+	cell.setCellValue("SubTotal");
+	cell = row.createCell(2);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Shipping");
+	cell=row.createCell(3);
+	cell.setCellStyle(cs);
+	cell.setCellValue("TaxRate");
+	cell=row.createCell(4);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Web Configured TaxRate");
+	cell=row.createCell(5);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Actual TaxAmount");
+	cell=row.createCell(6);
+	cell.setCellStyle(cs);
+	cell.setCellValue("Expected TaxAmount");
+	
+	rowcount=2;
+	
+	}
+	
+	else
+	{
+	
+	sheet=workbook.getSheet("TaxDetails");	
+	rowcount=sheet.getLastRowNum()+1;
+	}
+	row = sheet.createRow(rowcount);
+	
+	cell = row.createCell(0);
+	cell.setCellType(CellType.NUMERIC);
+	int SNo=rowcount-1;
+	cell.setCellValue(SNo);
+	cell = row.createCell(1);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue("");
+	cell = row.createCell(2);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue("Beauty");
+	cell = row.createCell(3);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue("User");
+	cell = row.createCell(4);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue("Lotuswave");
+	cell = row.createCell(5);
+	cell.setCellType(CellType.STRING);
+	cell.setCellValue("B2C");
+	cell = row.createCell(6);
+	cell.setCellType(CellType.STRING);
+	
+	String Site;
+	//String Site;
+    if(Website.contains("stingerproducts"))
+     {
+
+        Site="stingerproducts";
+
 }
+    else
+    {
+    	Site="";
+    }
+	cell.setCellValue(Site);
+	
+	//cell = row.createCell(7);
+	//cell.setCellValue(OrderId);
+	cell = row.createCell(8);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(subtotlaValue);
+	cell = row.createCell(9);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(shippingammountvalue);
+	cell = row.createCell(10);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(state);
+	cell = row.createCell(11);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(Zipcode);
+	cell = row.createCell(12);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(Taxammountvalue);
+	cell = row.createCell(13);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(ActualTotalammountvalue);
+	cell = row.createCell(14);
+	cell.setCellType(CellType.STRING);
+	String TaxonShipping;
+	  if((state.equals("Illinois"))||(state.equals("Florida")))
+     {
+		TaxonShipping="NO";	
+}
+	else
+	{
+		TaxonShipping="YES";
+	}
+	cell.setCellValue(TaxonShipping);
+	cell = row.createCell(15);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(giventaxvalue);
+	cell = row.createCell(16);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(calucaltedvalue);
+	cell = row.createCell(17);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(ExpectedTotalammountvalue);
+	cell = row.createCell(18);
+	cell.setCellType(CellType.NUMERIC);
+	cell.setCellValue(ActualTotalammountvalue);
+	cell = row.createCell(19);
+	cell.setCellType(CellType.STRING);
+	String status;
+	if(Taxammountvalue.equals(calucaltedvalue)&&(ActualTotalammountvalue).equals(ExpectedTotalammountvalue))
+     {
+		
+		status="PASS";
+		CellStyle style = workbook.createCellStyle();
+		Font font= workbook.createFont();
+		font.setColor(IndexedColors.GREEN.getIndex());
+		font.setBold(true);
+		style.setFont(font);
+		cell.setCellStyle(style);
+	}
+	else
+	{
+		status="FAIL";
+		CellStyle style = workbook.createCellStyle();
+		Font font= workbook.createFont();
+		font.setColor(IndexedColors.RED.getIndex());
+		font.setBold(true);
+		style.setFont(font);
+		cell.setCellStyle(style);
+		}
+	
+	
+	cell.setCellValue(status);
+	
+//	System.out.println(OrderId);
+	//String subtotla = Float.toString(subtotlaValue);
+	//System.out.println("String is: "+subtotla);
+	System.out.println(subtotlaValue);
+	//String shippingammount = Float.toString(shippingammountvalue);
+	//System.out.println("String is: "+shippingammount);
+	System.out.println(shippingammountvalue);
+	//String Taxammount = Float.toString(Taxammountvalue);
+	//System.out.println("String is: "+Taxammount);
+	System.out.println(Taxammountvalue);
+	//String Totalammount = Float.toString(Totalammountvalue);
+	//System.out.println("String is: "+Totalammount);
+	System.out.println(ActualTotalammountvalue);
+	System.out.println(ExpectedTotalammountvalue);
+	//String Actualtax = Float.toString(ActualTax);
+	//System.out.println("String is: "+Actualtax);
+	System.out.println(giventaxvalue);
+	//String userpaneltax = Float.toString(userpaneltaxvalue);
+	//System.out.println("String is: "+userpaneltax);
+	System.out.println(calucaltedvalue);
+	
+		FileOutputStream fileOut = new FileOutputStream(file);
+	
+	workbook.write(fileOut);
+
+	fileOut.flush();
+	fileOut.close();
+//return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+//return fileOut;
+//return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue);
+
+}
+}
+
+
 
 
 

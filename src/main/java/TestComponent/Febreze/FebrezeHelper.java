@@ -2596,26 +2596,7 @@ public void newaddress() throws Exception {
     Common.clickElement("xpath", "//span[text()='New Address']");
     Thread.sleep(3000);
 }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
