@@ -3,12 +3,22 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-  <test name="Test_Febreze_01_AccountCreation" testid="HHG-306" priority="P1" description="To Verify the AccountCreation functionality in Febreze">
+    
+    
+     <test name="Test_Febreze_31_Registerusercategorycheckoutvisa" testid="HHG-357" priority="P1" description="To Verify the Registeruser category checkout visa in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_31_Registerusercategorycheckoutvisa"/>
+        </classes>
+    </test>
+        
+      <test name="Test_Febreze_01_AccountCreation" testid="HHG-306" priority="P1" description="To Verify the AccountCreation functionality in Febreze">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Febreze.SystemTC.Test_ST_FBZ_01_AccountCreation"/>
         </classes>
     </test>
+   
     <test name="Test_Febreze_005_ValidateHeaderLinks" testid="HHG-310" priority="P1" description="To Verify the HeaderlinksNavigation functionality in Febreze">
          <parameter name="browser" value="chrome" />
         <classes>
@@ -45,5 +55,26 @@
             <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_22_RegisteruserBrowsersearch"/>
         </classes>
     </test>
-     
+   
+     <test name="Test_Febreze_24_GuestUser_Category_checkout_Discover" testid="HHG_353" priority="P1" description="To Verify the Validateaddrees book functionality in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_24_GuestUser_Category_checkout_Discover"/>
+        </classes>
+    </test>
+    
+      <test name="Test_Febreze_33_MyAccountLeftnavigation" testid="HHG-1054" priority="P1" description="To Verify the MyAccount Leftnavigation in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_33_MyAccountLeftnavigation"/>
+        </classes>
+    </test>
+    
+      <test name="TEST_Febrez_29_CMS_linksNavigation" testid="HHG-357" priority="P1" description="To Verify the CMS links Navigation in Febreze">
+         <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_29_CMS_linksNavigation"/>
+        </classes>
+    </test> 
+    
     </suite>

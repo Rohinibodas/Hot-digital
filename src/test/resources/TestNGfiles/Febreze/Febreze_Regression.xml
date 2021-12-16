@@ -3,12 +3,12 @@
     <listeners>
         <listener class-name="Utilities.TestListener"/>
     </listeners>
-   <test name="Test_Febreze_01_AccountCreation" testid="HHG-306" priority="P1" description="To Verify the AccountCreation functionality in Febreze">
+     <test name="Test_Febreze_01_AccountCreation" testid="HHG-306" priority="P1" description="To Verify the AccountCreation functionality in Febreze">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Febreze.SystemTC.Test_ST_FBZ_01_AccountCreation"/>
         </classes>
-   </test>
+   </test> 
       <test name="Test_Febreze_02_ValidateAccountInformation" testid="HHG-307" priority="P1" description="To Verify the Accountinformation functionality in Febreze">
          <parameter name="browser" value="chrome" />
         <classes>
@@ -141,7 +141,7 @@
             <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_23_Registeruser_Invalid_creditcard"/>
         </classes>
     </test>
-      <test name="Test_Febreze_024_ValidateAddressBook" testid="HHG_353" priority="P1" description="To Verify the Validateaddrees book functionality in Febreze">
+      <test name="Test_Febreze_024_GuestUser_Category_checkout_Discover" testid="HHG_353" priority="P1" description="To Verify the Validateaddrees book functionality in Febreze">
          <parameter name="browser" value="chrome" />
         <classes>
             <class name="TestExecute.Febreze.SystemTC.TEST_ST_FBZ_24_GuestUser_Category_checkout_Discover"/>
