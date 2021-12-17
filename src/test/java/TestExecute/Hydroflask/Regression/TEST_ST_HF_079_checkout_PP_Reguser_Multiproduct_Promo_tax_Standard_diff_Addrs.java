@@ -19,8 +19,9 @@ public class TEST_ST_HF_079_checkout_PP_Reguser_Multiproduct_Promo_tax_Standard_
 
 		try {   
 			Hydro.loginHydroflaskAccount("AccountDetails");
-			Hydro.searchproduct_addtocart("32 oz Tumbler Lid");
+			
 			Hydro.orderSubmit("Bottles");
+			Hydro.searchproduct_addtocart("32 oz Tumbler Lid");
 			Hydro.checkOut();
 			Hydro.addDeliveryAddress_registerUser("Address");
 			Hydro.verifyingTax_field();

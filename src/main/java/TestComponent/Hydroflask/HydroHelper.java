@@ -5675,17 +5675,17 @@ public void Newsletter_subscription() {
         
         public void addDeliveryAddress_Outside_US(String dataSet) throws Exception {
     		try {
-    			Sync.waitElementVisible("id", "customer-email-address");
-    			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+    			Sync.waitElementVisible("id", "customer-email");
+    			Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
     		} catch (NoSuchElementException e) {
     			checkOut();
-    			Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+    			Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
 
     		}
     		String expectedResult = "email field will have email address";
     		try {
     			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']",data.get(dataSet).get("FirstName"));
-                int size = Common.findElements("id", "customer-email-address").size();
+                int size = Common.findElements("id", "customer-email").size();
                 Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unabel to fill the email address");
                 Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
     			Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='street[0]']",data.get(dataSet).get("Street"));
@@ -5975,7 +5975,7 @@ public void Newsletter_subscription() {
     						"user will fill the all the shipping", "user fill the shiping address click save button",
     						"faield to add new shipping address");
     				
-    				Common.clickElement("xpath", "//input[@id='label_method_flatrate']");
+    				Common.clickElement("xpath", "(//label[@class='checkout-shipping-methods-label'])[2]");
     				Common.clickElement("xpath", "//button[@data-ac-test='form-shipping-address_action_submit']");
     				
     			} catch (Exception | Error e) {
@@ -7921,7 +7921,7 @@ public void CheckOutPaypalminicart(String dataSet) {
 		Assert.fail();
 	}
 	try {
-		Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]");
+		Common.switchFrames("xpath", "//iframe[contains(@class,'component-frame visible')]");
 		Sync.scrollDownToView("xpath", "//div[@class='paypal-button-label-container']");
 		Sync.waitElementClickable(30, By.xpath("//div[@class='paypal-button-label-container']"));
 		Common.mouseOverClick("xpath", "//div[@class='paypal-button-label-container']");
@@ -7970,7 +7970,7 @@ public void CheckOutPaypalminicart(String dataSet) {
 		
 		
 		
-		/////
+		
 		}	
 }
 
@@ -8087,19 +8087,21 @@ catch (Exception | Error e) {
 	        Sync.waitPageLoad();
 	       Thread.sleep(5000);
 	       Common.switchToFirstTab();
+	       Thread.sleep(3000);
 	       Sync.waitElementPresent("xpath","//span[contains(text(),'Review Order')]"); 
-	        Sync.waitElementPresent("xpath", "//div[contains(text(),'Your shipping address is not verified. Your may edit it on PayPal.')]");
+	        Sync.waitElementPresent("xpath","(//div[contains(text(),'Your shipping address is not verified. You may edit it on PayPal.')])[2]");
 	    	 
-	       int message=Common.findElements("xpath", "//div[contains(text(),'Your shipping address is not verified. Your may edit it on PayPal.')]").size();
-
+	       String message=Common.getText("xpath", "(//div[contains(text(),'Your shipping address is not verified. You may edit it on PayPal.')])[2]");
+  System.out.println(message);
 	    	 expectedResult = "User gets redirected to Review page Display Error Message";
-	  	Common.assertionCheckwithReport(message>0, "Verifying Paypal Address at Review page","Entered Paypal payment Address and redirected to Review page", expectedResult,	"User failed to validate paypal payment Address - Your shipping address is not verified. Your may edit it on PayPal.");
+	  	Common.assertionCheckwithReport(message.contains("Your shipping address is not verified"), "Verifying Paypal Address at Review page","Entered Paypal payment Address and redirected to Review page", expectedResult,	"User failed to validate paypal payment Address - Your shipping address is not verified. Your may edit it on PayPal.");
 	    	
 		
 		}
 		
 	   
 		catch (Exception | Error e) {
+			e.printStackTrace();
 			ExtenantReportUtils.addFailedLog("Verifying Paypal Address at Review page", "Entered Paypal payment Address and redirected to Review page",
 					"User failed to validate paypal payment Address - Your shipping address is not verified. Your may edit it on PayPal.", Common.getscreenShotPathforReport("PaypalShipping"));
 			Assert.fail();
@@ -8111,13 +8113,13 @@ catch (Exception | Error e) {
 
 public void addDeliveryAddressValidate(String dataSet) throws Exception {
 	try {
-		Sync.waitElementVisible("id", "customer-email-address");
-		Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
-		String emailid=Common.findElement("id" ,"customer-email-address").getAttribute("value");
+		Sync.waitElementVisible("id", "customer-email");
+		Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
+		String emailid=Common.findElement("id" ,"customer-email").getAttribute("value");
 		System.out.println("*****"+emailid+"*******");
 	} catch (NoSuchElementException e) {
-		checkOut();
-		Common.textBoxInput("id", "customer-email-address", data.get(dataSet).get("Email"));
+
+		Common.textBoxInput("id", "customer-email", data.get(dataSet).get("Email"));
 
 	}
 	String expectedResult = "email field will have email address";
@@ -8126,7 +8128,7 @@ public void addDeliveryAddressValidate(String dataSet) throws Exception {
 		String ShippingFirstName=Common.findElement("xpath", "//form[@id='co-shipping-form']//input[@name='firstname']").getAttribute("value");
 		System.out.println("*****"+ShippingFirstName+"*******");
 		
-		int size = Common.findElements("id", "customer-email-address").size();
+		int size = Common.findElements("id", "customer-email").size();
         Common.assertionCheckwithReport(size > 0, "validating the email address field", expectedResult,"Filled Email address", "unable to fill the email address");
         Common.textBoxInput("xpath", "//form[@id='co-shipping-form']//input[@name='lastname']",data.get(dataSet).get("LastName"));
 		
@@ -8240,6 +8242,40 @@ public void addDeliveryAddressValidate(String dataSet) throws Exception {
 	Thread.sleep(3000);
 }
 
+public void AVS_payPal_Payment_CheckoutPage(String dataSet) throws Exception {
+
+	String expectedResult = "It should open paypal site window.";
+	try {
+		Thread.sleep(3000);
+		Sync.waitElementPresent("xpath", "//input[@id='paypal_express']");
+		Thread.sleep(2000);
+		Common.clickElement("xpath", "//input[@id='paypal_express']");
+		Thread.sleep(5000);
+		//Common.actionsKeyPress(Keys.PAGE_DOWN);
+		Common.switchFrames("xpath", "//iframe[contains(@class,'component-frame visible')]");
+		//Thread.sleep(5000);
+		//Common.refreshpage();
+		Thread.sleep(8000);
+		Sync.waitElementClickable("xpath", "//div[@class='paypal-button-label-container']");
+		Common.clickElement("xpath", "//div[@class='paypal-button-label-container']");
+		Common.switchToDefault();
+		Thread.sleep(5000);
+		String errorMessage = Common.getText("xpath", "(//div[contains(text(),'PayPal gateway has rejected request')])[1]");
+//		Assert.assertEquals(errorMessage, "Your order has been received", "Sucess message validations");
+		System.out.println(errorMessage);
+		expectedResult = "Verify order confirmation number which was dynamically generated";
+		Common.assertionCheckwithReport(errorMessage.contains("PayPal gateway has rejected request"),"Order Placed successfull", expectedResult, "faild to place order");
+		
+	} catch (Exception | Error e) {
+		e.printStackTrace();
+		ExtenantReportUtils.addFailedLog("verifying the paypal payment ", expectedResult,
+				"User failed to proceed with paypal payment", Common.getscreenShotPathforReport(expectedResult));
+		Assert.fail();
+	}
+
+	
+
+}
 
 
 public void payPal_Payment_CheckoutPage(String dataSet) throws Exception {
@@ -8252,7 +8288,7 @@ public void payPal_Payment_CheckoutPage(String dataSet) throws Exception {
 		Common.clickElement("xpath", "//input[@id='paypal_express']");
 		Thread.sleep(5000);
 		//Common.actionsKeyPress(Keys.PAGE_DOWN);
-		Common.switchFrames("xpath", "//iframe[contains(@class,'zoid-component-frame')]");
+		Common.switchFrames("xpath", "//iframe[contains(@class,'component-frame visible')]");
 		//Thread.sleep(5000);
 		//Common.refreshpage();
 		Thread.sleep(8000);

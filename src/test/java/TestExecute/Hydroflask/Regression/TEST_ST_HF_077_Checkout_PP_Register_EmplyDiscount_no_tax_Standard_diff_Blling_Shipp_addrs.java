@@ -37,7 +37,7 @@ public class TEST_ST_HF_077_Checkout_PP_Register_EmplyDiscount_no_tax_Standard_d
 
 	@AfterTest
 	public void clearBrowser() {
-//	 Common.closeAll();
+	 Common.closeAll();
 
 	}
 

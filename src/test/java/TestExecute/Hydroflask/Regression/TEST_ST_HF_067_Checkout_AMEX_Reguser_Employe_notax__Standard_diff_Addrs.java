@@ -24,7 +24,7 @@ public class TEST_ST_HF_067_Checkout_AMEX_Reguser_Employe_notax__Standard_diff_A
 //			Hydro.validating_Employ_Discount_forInlineProducts(65);
 
 			Hydro.addDeliveryAddress_registerUser("No_TaxAddress");
-			Hydro.verifyingTax_field();
+			Hydro.verifying_NoTax_field();
 			Hydro.edit_BillingAddress_RegisterUser("Billing_Address");
 			Hydro.updatePaymentAndSubmitOrder("Amexcard");
 		}
