@@ -22,7 +22,7 @@ public class Test_ST_BHC_35_WarrantyRegistration {
 		try {
 			
 			
-
+			
 			BraunHC.AGREEPROCEED();
 		    BraunHC.PopUp();
 		    BraunHC.WarrantyRegistration_footerlink("WarrantyRegistration");

@@ -19,7 +19,6 @@ public class Test_ST_BHC_03_ContentLinks {
 	@Test(priority=1)
 	public void CMS_links() throws Exception {
 
-		
 		try {
 			
 			

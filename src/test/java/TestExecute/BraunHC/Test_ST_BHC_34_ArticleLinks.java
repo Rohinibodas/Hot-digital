@@ -22,7 +22,6 @@ public class Test_ST_BHC_34_ArticleLinks {
 		try {
 			
 			
-			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();
 			BraunHC.instagramFooterlink();

@@ -21,7 +21,6 @@ public class Test_ST_BHC_59_GuestCCMasterNOTax {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();
 			//BraunHC.Mouseover();

@@ -21,6 +21,7 @@ public class Test_ST_BHC_44_PrivacyPolicyAndTermOfUse {
 
 		try {
 			
+			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();;
 		     BraunHC.privacy();

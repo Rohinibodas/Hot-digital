@@ -21,7 +21,6 @@ public class Test_ST_BHC_22_ValidateForgotPassword {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.ClicktheSignbutton();

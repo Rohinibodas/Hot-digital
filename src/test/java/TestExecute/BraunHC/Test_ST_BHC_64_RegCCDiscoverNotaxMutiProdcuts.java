@@ -19,6 +19,7 @@ public class Test_ST_BHC_64_RegCCDiscoverNotaxMutiProdcuts {
 	
 	@Test(priority=1)
 	public void RegCheckoutDiscover_NoTax_with_Same_Billing_and_Shipping() throws Exception {
+
 		try {
 			
 			

@@ -20,7 +20,7 @@ public class Test_ST_BHC_36_ContactUS {
 	public void ContactUs_FooterLink() throws Exception {
 
 		try {
-
+			
 		
 			
 			BraunHC.AGREEPROCEED();

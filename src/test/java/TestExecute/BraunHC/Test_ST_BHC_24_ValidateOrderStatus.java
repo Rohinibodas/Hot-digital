@@ -21,7 +21,6 @@ public class Test_ST_BHC_24_ValidateOrderStatus {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.OrderStatus("Contact");

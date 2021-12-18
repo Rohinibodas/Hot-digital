@@ -19,7 +19,7 @@ public class Test_ST_BHC_63_GuestCCAmexNoTaxMutiProdcuts {
 	@Test(priority=1)
 	public void GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address() throws Exception {
 
-	try {
+		try {
 			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();

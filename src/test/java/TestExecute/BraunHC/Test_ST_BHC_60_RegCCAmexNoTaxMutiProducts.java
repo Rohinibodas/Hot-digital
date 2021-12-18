@@ -20,7 +20,7 @@ public class Test_ST_BHC_60_RegCCAmexNoTaxMutiProducts {
 	@Test(priority=1)
 	public void RegisteredUser_Checkout_AmexCC_Tax_with_Multiple_Products() throws Exception {
 
-	try {
+		try {
 			
 			
 			BraunHC.AGREEPROCEED();

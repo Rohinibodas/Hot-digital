@@ -21,7 +21,6 @@ public class Test_ST_BHC_15_validateAddressBook {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			

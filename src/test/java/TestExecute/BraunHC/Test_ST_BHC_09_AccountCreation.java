@@ -21,8 +21,7 @@ public class Test_ST_BHC_09_AccountCreation {
 
 		try {
 			
-		 
-			BraunHC.AGREEPROCEED();
+		    BraunHC.AGREEPROCEED();
 		    BraunHC.PopUp();
 			BraunHC.AccountCreationBraunHC("AccountDetails");
 		}

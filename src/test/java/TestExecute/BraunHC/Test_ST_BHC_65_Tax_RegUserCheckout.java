@@ -22,7 +22,7 @@ public class Test_ST_BHC_65_Tax_RegUserCheckout {
 			BraunHCHelper BraunHC=new BraunHCHelper(datafile);
 			
 			@Test(priority=1)
-     		public void RegUserCheckout() throws Exception {
+			public void RegUserCheckout() throws Exception {
 
 				try {
 					String addressFile = "BraunHC//StreetAddresswithZipcode.xlsx";

@@ -27,7 +27,6 @@ String datafile = "BraunHC//BraunHCTestData.xlsx";
 	@Test(priority=1)
 	public void GuestCategoryCheckoutCC() throws Exception {
 
-		
 		try {
 			String addressFile = "BraunHC//StreetAddresswithZipcode.xlsx";
 			BraunHC.prepareTaxData("BraunTaxDetails_Guest.xlsx");

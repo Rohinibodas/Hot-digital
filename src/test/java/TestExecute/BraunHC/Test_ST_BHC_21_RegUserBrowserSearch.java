@@ -27,14 +27,13 @@ public class Test_ST_BHC_21_RegUserBrowserSearch {
 			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");
 			BraunHC.Global_search("SearchproductName");
-			//BraunHC.PopUp();
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();			
 			BraunHC.ShippingMethods();
-			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
+			 BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetailsAEMX");
 			BraunHC.RegistereduserOrderSuccesspage();
-			//BraunHC.zerosearchProduct("Zero_Search");
+			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

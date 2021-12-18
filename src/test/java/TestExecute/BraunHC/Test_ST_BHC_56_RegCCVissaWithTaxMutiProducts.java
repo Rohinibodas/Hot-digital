@@ -21,7 +21,6 @@ public class Test_ST_BHC_56_RegCCVissaWithTaxMutiProducts {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");

@@ -20,6 +20,7 @@ public class Test_ST_BHC_37_RegUserInvalidCC {
 
 		try {
 			
+			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");

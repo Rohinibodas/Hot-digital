@@ -21,6 +21,7 @@ public class Test_ST_BHC_49_RegUserCCWithSignout {
 
 		try {
 			
+			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");

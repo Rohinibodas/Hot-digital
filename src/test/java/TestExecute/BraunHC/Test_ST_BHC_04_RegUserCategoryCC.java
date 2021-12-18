@@ -19,7 +19,6 @@ public class Test_ST_BHC_04_RegUserCategoryCC {
 	@Test(priority=1)
 	public void RegCategoryCheckoutCC() throws Exception {
 
-	
 		try {
 			
 			

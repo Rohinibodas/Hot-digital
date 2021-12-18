@@ -21,7 +21,6 @@ public class Test_ST_BHC_33_RegUserPromocodeCC {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");

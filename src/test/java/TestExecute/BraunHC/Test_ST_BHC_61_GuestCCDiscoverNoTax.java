@@ -19,7 +19,7 @@ public class Test_ST_BHC_61_GuestCCDiscoverNoTax {
 	@Test(priority=1)
 	public void GuestUser_Checkout_DiscoverCC_NoTax_() throws Exception {
 
-	try {
+		try {
 			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();

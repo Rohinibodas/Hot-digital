@@ -20,7 +20,6 @@ public class Test_ST_BHC_08_GuestUserCC {
 	public void GuestCategoryCheckoutCC() throws Exception 
 	{
 
-		
 		try {
 			
 			BraunHC.AGREEPROCEED();

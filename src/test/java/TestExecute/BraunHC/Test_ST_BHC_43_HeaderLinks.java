@@ -27,11 +27,13 @@ public class Test_ST_BHC_43_HeaderLinks
 				
 				BraunHC.AGREEPROCEED();
 				BraunHC.PopUp();
-				BraunHC.Mouseover();
-				BraunHC.mouseoverheaderlink();
-				BraunHC.Mouseoverlearn();
-				BraunHC.Mouseoversupport();
+				BraunHC.headLinksValidations_Shop("headermenu");
+			    BraunHC.headerlinkLearnEducation("Learnmenu");
+				BraunHC.headLinksValidations_Support("supportmenu");
+				
+				
 			}
+			
 			catch (Exception e) {
 				Assert.fail(e.getMessage(), e);
 			} 

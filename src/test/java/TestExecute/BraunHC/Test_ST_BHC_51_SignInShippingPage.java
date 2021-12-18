@@ -19,7 +19,8 @@ public class Test_ST_BHC_51_SignInShippingPage {
 	@Test(priority=1)
 	public void SignInShippingPage() throws Exception {
 
-		try {	
+		try {
+			
 			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();

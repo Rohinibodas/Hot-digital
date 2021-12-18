@@ -22,7 +22,6 @@ public class Test_ST_BHC_19_RegUserCC {
 		try {
 			
 			
-			
 			BraunHC.AGREEPROCEED();
 	    	BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");

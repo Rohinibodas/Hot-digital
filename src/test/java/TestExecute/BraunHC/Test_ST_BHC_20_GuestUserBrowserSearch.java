@@ -21,7 +21,6 @@ public class Test_ST_BHC_20_GuestUserBrowserSearch {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.Global_search("SearchproductName");

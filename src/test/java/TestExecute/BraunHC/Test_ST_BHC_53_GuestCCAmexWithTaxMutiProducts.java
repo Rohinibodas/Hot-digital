@@ -22,8 +22,6 @@ public class Test_ST_BHC_53_GuestCCAmexWithTaxMutiProducts {
 
 			try {
 				
-				
-				
 				BraunHC.AGREEPROCEED();
 		        BraunHC.PopUp();
 				BraunHC.Mouseover();

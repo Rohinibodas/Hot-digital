@@ -4,23 +4,13 @@
         <listener class-name="Utilities.TestListener"/>
     </listeners>
 
-     <test name="TTest_ST_BHC_68_PDP_Page_Valadation"
-		testid="HHG-17139" priority="P1"
-		description="this test case to valadate prodcut name in both plp,pdp and prodcut price and sku number and qunty">
+     <test name="Test_BraunUS_ST_022_ValidateForgotPassword"
+		testid="HHG-142" priority="P1"
+		description="To verify the functionality of Adding Two products from PLP Page">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_68_PDP_Page_Valadation"/>
-		</classes>
-		
-     </test>
-      <test name="Test_ST_BHC_67_PLP_Page_Valadation"
-		testid="HHG-17139" priority="P1"
-		description="to verify the functionality  of  sorty by ,valadating prodcut name and price ,position">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestExecute.BraunHC.Test_ST_BHC_67_PLP_Page_Valadation"/>
-		</classes>
-		
+			<class name="TestExecute.BraunHC.Test_ST_BHC_22_ValidateForgotPassword"/>
+		</classes>	
      </test>
      
  </suite>

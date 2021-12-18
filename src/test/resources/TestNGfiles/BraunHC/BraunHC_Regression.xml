@@ -29,8 +29,6 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_06_GuestUserCategoryCC" />
 		</classes>
 	</test>	
-	
-	
 <!--	<test name="Test_BraunUS_ST_005_ValidateQuntityChangeInCart"
 		testid="HHG-131" priority="P1"
 		description="This test case validates to Change QTY in Mini Cart of user">
@@ -437,11 +435,7 @@
 		<classes>
 			<class name="TestExecute.BraunHC.Test_ST_BHC_61_GuestCCDiscoverNoTax"/>
 		</classes>
-     </test>
-     
-     
-     
-     
+     </test>     
        <test name="Test_ST_BHC_67_PLP_Page_Valadation"
 		testid="HHG-17139" priority="P1"
 		description="to verify the functionality  of  sorty by ,valadating prodcut name and price ,position">
@@ -470,9 +464,7 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_62_GuestCCVissaNotaxMutiProducts"/>
 		</classes>
      </test>
-     
-		
-		
+ 		
      
 	<test name="Test_BraunUS_ST_011__GuestUser_Checkout_AmexCC_NoTax_multiple_products_and_Same_Billing_and_shipping_Address "
 		testid="HHG-227" priority="P1"
@@ -482,9 +474,7 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_63_GuestCCAmexNoTaxMutiProdcuts"/>
 		</classes>
      </test>
-     
-     
-     
+
      <test name=" Test_BraunUS_ST__012_RegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address"
 		testid="HHG-230" priority="P1"
 		description="This test caseTo validate theRegisterUser_Checkout_DiscoverCC_NoTax_With_multiple_products_and_Same_Billing_and_shipping_Address">
@@ -493,6 +483,5 @@
 			<class name="TestExecute.BraunHC.Test_ST_BHC_64_RegCCDiscoverNotaxMutiProdcuts"/>
 		</classes>
      </test>  -->
-     
-     			
+  			
  </suite>

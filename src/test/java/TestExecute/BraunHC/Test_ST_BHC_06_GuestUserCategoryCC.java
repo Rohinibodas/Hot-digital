@@ -21,7 +21,6 @@ public class Test_ST_BHC_06_GuestUserCategoryCC {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.Select_ProductinThermometers("No Touch Thermometer");

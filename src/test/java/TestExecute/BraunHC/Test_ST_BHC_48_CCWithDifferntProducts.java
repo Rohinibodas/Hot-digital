@@ -17,6 +17,7 @@ public class Test_ST_BHC_48_CCWithDifferntProducts {
 	
 	@Test(priority=1)
 	public void Checkout_with_differntproducts() throws Exception {
+
 		try {
 			
 			BraunHC.AGREEPROCEED();

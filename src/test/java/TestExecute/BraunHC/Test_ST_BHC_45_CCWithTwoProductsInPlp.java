@@ -20,8 +20,6 @@ public class Test_ST_BHC_45_CCWithTwoProductsInPlp {
 
 		try {
 			
-			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.Mouseover();

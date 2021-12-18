@@ -21,7 +21,6 @@ public class Test_ST_BHC_58_GuestCCDiscoverWithTaxMutiProducts {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();
 			BraunHC.mouseoverproduct();

@@ -21,7 +21,6 @@ public class Test_ST_BHC_55_RegCCDiscoverWithTax {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");

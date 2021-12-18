@@ -19,7 +19,8 @@ public class Test_ST_BHC_62_GuestCCVissaNotaxMutiProducts {
 	@Test(priority=1)
 	public void GuestUser_Checkout_VisaCC_NoTax_with_Multiple_products_and_same_Billing_and_shipping_Address() throws Exception {
 
-		try {		
+		try {
+			
 			BraunHC.AGREEPROCEED();
 	        BraunHC.PopUp();
       		BraunHC.Mouseover();

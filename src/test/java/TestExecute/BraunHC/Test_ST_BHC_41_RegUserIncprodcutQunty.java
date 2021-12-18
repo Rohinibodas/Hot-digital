@@ -20,7 +20,6 @@ public class Test_ST_BHC_41_RegUserIncprodcutQunty {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
 			BraunHC.loginBraunHC("AccountDetails");

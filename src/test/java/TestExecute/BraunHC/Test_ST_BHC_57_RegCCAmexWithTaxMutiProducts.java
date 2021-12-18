@@ -22,7 +22,6 @@ public class Test_ST_BHC_57_RegCCAmexWithTaxMutiProducts {
 
 		try {
 			
-			
 			BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
 			//BraunHC.Mouseover();
