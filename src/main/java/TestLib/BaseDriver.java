@@ -180,7 +180,89 @@ public class BaseDriver
 			}
 			else{
 				WebDriverManager.chromedriver().setup();
-				driver=new ChromeDriver();
+				String 	downloadFilepath = System.getProperty("user.dir")+"\\TestLogs\\Download";
+				File dlDirectory = new File(downloadFilepath);
+				dlDirectory.mkdir();
+				if (!dlDirectory.exists()) {
+					dlDirectory.mkdir();
+				}else{
+					File[] files = dlDirectory.listFiles();
+					if(files!=null)
+					{
+						for (File f : files)
+						{
+							if(f.delete())
+								{
+									System.out.println(f.getName()+"  file deleted  "+f.getAbsolutePath());
+									//Driver.getLogger().info(f.getName()+"  file deleted  "+f.getAbsolutePath());
+								}
+								else
+								{
+									System.out.println("Unable to delete file.....");
+								}
+							}
+						}
+					
+				}
+				
+
+				
+
+				
+			// Save Chrome Preferences in Hash Map
+			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+			HashMap<String, Object> contentsetting = new HashMap<String, Object>();
+			chromePrefs.put("profile.default_content_settings.popups", 0);
+		
+			chromePrefs.put("download.default_directory", downloadFilepath);
+			contentsetting.put("multiple-automatic-downloads", 1);
+	
+			chromePrefs.put("safebrowsing.enabled", "true");
+			
+			chromePrefs.put("download.prompt_for_download", "false");
+			chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
+			chromePrefs.put("credentials_enable_service", false);
+			chromePrefs.put("password_manager_enabled", false);
+
+			// Save Chrome Opions
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--no-sandbox");
+			options.addArguments("-disable-dev-shm-usage");
+			options.addArguments("--test-type");
+			options.addArguments("--enable-video-player-chromecast-support");
+			
+			
+	
+			
+			options.setExperimentalOption("useAutomationExtension", false);
+	
+			options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+			options.addArguments("disable-infobars");
+			options.addArguments("--disable-notifications");
+			options.addArguments("--disable-popup-blocking");
+			if(View.equalsIgnoreCase("mobile")) {
+				HashMap<String, String> mobileEmulation = new HashMap<String, String>();
+				//mobileEmulation.put("deviceName", "iPhone X");
+				mobileEmulation.put("deviceName", Device);
+				options.setExperimentalOption("mobileEmulation", mobileEmulation);
+				System.out.print("Mobile Device initiated");
+			}
+			
+			
+			//options.setCapability("chrome.switches", Arrays.asList("--disable-local-storage"));
+			//options.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
+			// cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			//options.setCapability(ChromeOptions.CAPABILITY, options);
+			//options.setCapability("--enable-video-player-chromecast-support", true);
+			//DesiredCapabilities handlSSLErr = DesiredCapabilities.chrome ()       
+			options.addArguments("ignore-certificate-errors");
+					//WebDriver driver = new ChromeDriver (handlSSLErr);
+			LoggingPreferences logPrefschrome = new LoggingPreferences();
+			logPrefschrome.enable(LogType.BROWSER, Level.ALL);
+			//options.setCapability(CapabilityType.LOGGING_PREFS, logPrefschrome);
+			options.setExperimentalOption("prefs", chromePrefs);
+			driver = new ChromeDriver(options);
+			Driver.getLogger().info("Chrome Driver Stared Successfully");
 			}
 			Thread.sleep(3000);
 			System.out.println("URL is=====?"+URL);
