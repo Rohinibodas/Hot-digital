@@ -37,7 +37,7 @@ public class TEST_ST_SR_010GuestUserCheckout_with_CC{
 	 @BeforeTest
      public void startTest1() throws Exception {
      	//System.setProperty("configFile", "Stinger\\config_Stinger_Production.properties");
-    // System.setProperty("configFile", "Stinger\\config_Stinger_Staging.properties");
+     System.setProperty("configFile", "Stinger\\config_Stinger_Staging.properties");
     	    
      Login.signIn();
      }
