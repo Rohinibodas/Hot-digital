@@ -172,11 +172,11 @@
         </classes>
     </test>
     
-    <test name="Test_DB_ST_028_Sort_options_in_PLP" testid="DRY-775" priority="P1" description="This Test case is to used to change/verify the sort options in PLP">
+    <test name="TEST_ST_DB_028_Travel_Size_Product_Checkout_with_MasterCC" testid="DRY-1281" priority="P1" description="This test case is to used to Verify the checkout Functionality with a Travel size Product">
         <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_028_Validation_of_Sort_options_in_PLP"/>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_028_Travel_Size_Product_Checkout_with_MasterCC"/>
         </classes>
-    </test>  
+    </test>
     
     <test name="Test_DB_ST_029_Validation_of_How_To_Use_Functionality" testid="DRY-781" priority="P1" description="This Test case is to used to verify the how to use step by step button  in PDP">
         <classes>
@@ -214,9 +214,9 @@
         </classes>
     </test>
     
-       <test name="Test_DB_ST_035_Validation_Of_Filters_in_PLP" testid="DRY-790" priority="P1" description="This Test case is to used to Validate the Sort options in PLP">
+      <test name="TEST_ST_DB_035_Validation_of_Videospage" testid="DRY-1199" priority="P1" description="This test case is to used to Verify the Videos page of Drybar">
         <classes>
-            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_035_Validation_Of_Filters_in_PLP"/>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_035_Validation_of_Videospage"/>
         </classes>
     </test>
       
@@ -517,6 +517,45 @@
             <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_082_GU_ShipMethod_NonAero_Product_NonPOBox_Hawaii"/>
         </classes>
     </test>
+    
+    
+    <test name="TEST_ST_DB_084_Register_Checkout_Bundle_product_with_VisaCC" testid="DRY-1225" priority="P1" description="This test case is to used to Verify the checkout with a Bundle Product with Visa Credit card">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_084_Register_Checkout_Bundle_product_with_VisaCC"/>
+        </classes>
+    </test>
+    <test name="TEST_ST_DB_085_GU_Checkout_with_Bundle__and_Single_Products" testid="DRY-1226" priority="P1" description="This test case is to used to Verify the checkout functionality with a bundle product ">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_085_GU_Checkout_with_Bundle__and_Single_Products"/>
+        </classes>
+    </test>
+    <test name="TEST_ST_DB_086_GU_Checkout_Bundle_and_SingleProductfromBundle" testid="DRY-1137" priority="P1" description="This test case is to used to Verify the checkout functionality with a Bundle and single product">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_086_GU_Checkout_Bundle_and_SingleProductfromBundle"/>
+        </classes>
+    </test>
+    <test name="TEST_ST_DB_087_GU_Checkout_TwoBundleproducts_with_Same_SKU_in_each_Bundle" testid="DRY-1228" priority="P1" description="This test case is to used to Verify the checkout functionality with Two bundle products with the same SKU Product in each Bundle">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_087_GU_Checkout_TwoBundleproducts_with_Same_SKU_in_each_Bundle"/>
+        </classes>
+    </test>
+    <test name="TEST_ST_DB_088_Validation_of_Magento_and_XML_Payment_details" testid="DRY-1587" priority="P1" description="This test case is to used to Verify the Magento_and_XML_Payment_details">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_088_Validation_of_Magento_and_XML_Payment_details"/>
+        </classes>
+    </test>
+    <test name="TEST_ST_DB_089_Validation_of_Payment_of_Order_XML" testid="DRY-1616" priority="P1" description="This test case is to used to Verify Order XML Payment Details of Drybar">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_089_Validation_of_Payment_of_Order_XML"/>
+        </classes>
+    </test>
+    
+     <test name="TEST_ST_DB_090_Validation_of_OrderXML" testid="DRY-1616" priority="P1" description="This test case is to used to Validate the Order XML File of Drybar">
+        <classes>
+            <class name="TestExecute.DryBar.SystemTC.TEST_ST_DB_090_Validation_of_OrderXML"/>
+        </classes>
+    </test>
+    
     
  
     
