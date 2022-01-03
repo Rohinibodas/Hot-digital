@@ -26,8 +26,8 @@ public class Test_ST_BHC_67_PLP_Page_Valadation {
 			BraunHC.PopUp();
 			BraunHC.Mouseover();
 			BraunHC.plpvaladation("Sortby");
-            BraunHC.productprice("productprice");
-		    BraunHC.Filterprice(); 
+           BraunHC.productprice("productprice");
+		     BraunHC.Filterprice(); 
 		
 		
 		}

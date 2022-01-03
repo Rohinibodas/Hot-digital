@@ -27,6 +27,7 @@ public class Test_ST_BHC_56_RegCCVissaWithTaxMutiProducts {
 			BraunHC.Mouseover();
 			//BraunHC.PopUp();
 			BraunHC.Two_products_in_plp();
+		
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
@@ -56,7 +57,7 @@ public class Test_ST_BHC_56_RegCCVissaWithTaxMutiProducts {
 	public void clearBrowser()
 	{
 		
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 }

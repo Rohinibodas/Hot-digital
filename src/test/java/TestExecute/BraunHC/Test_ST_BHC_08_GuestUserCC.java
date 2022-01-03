@@ -22,20 +22,24 @@ public class Test_ST_BHC_08_GuestUserCC {
 
 		try {
 			
+			
+			
+			
 			BraunHC.AGREEPROCEED();
 			BraunHC.PopUp();
-			
-			BraunHC.Global_search("SearchproductName");
-			//BraunHC.Select_ProductinThermometers("No Touch Thermometer");
+			BraunHC.Select_ProductinThermometers("No Touch Thermometer");
 			BraunHC.Addtocart();
 			BraunHC.ViewandEditcartPage();
 			BraunHC.checkoutPage();
 			BraunHC.GuestShippingaddress("Address");
 			BraunHC.ShippingMethods();
 			BraunHC.AddressVerfication();
-			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetails");
-			BraunHC.GuestOrderSuccesspage();
+	        BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetails");
 			//BraunHC.RegistereduserOrderSuccesspage();
+	        BraunHC.GuestOrderSuccesspage();
+			
+			
+			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

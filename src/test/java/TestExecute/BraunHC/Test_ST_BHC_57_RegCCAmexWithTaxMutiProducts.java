@@ -22,7 +22,7 @@ public class Test_ST_BHC_57_RegCCAmexWithTaxMutiProducts {
 
 		try {
 			
-			BraunHC.AGREEPROCEED();
+		/*	BraunHC.AGREEPROCEED();
 			BraunHC.loginBraunHC("AccountDetails");
 			//BraunHC.Mouseover();
 			BraunHC.mouseoverproduct();
@@ -35,7 +35,23 @@ public class Test_ST_BHC_57_RegCCAmexWithTaxMutiProducts {
 			BraunHC.Tax_validation();
 			BraunHC.UpdateGuestPaymentAndSubmitOrder("PaymentDetailsAEMX");
 			BraunHC.RegistereduserOrderSuccesspage();
-
+*/
+			
+			BraunHC.AGREEPROCEED();
+	        BraunHC.PopUp();
+			BraunHC.loginBraunHC("AccountDetails");
+			BraunHC.Mouseover();
+			//BraunHC.PopUp();
+			BraunHC.Two_products_in_plp();
+			BraunHC.Addtocart();
+			BraunHC.ViewandEditcartPage();
+			BraunHC.checkoutPage();
+			BraunHC.ShippingMethods();
+			BraunHC.Tax_validation();
+			BraunHC.UpdatePaymentAndSubmitOrder("PaymentDetailsAEMX");
+	        BraunHC.RegistereduserOrderSuccesspage();
+			
+			
 		}
 		catch (Exception e) {
 			Assert.fail(e.getMessage(), e);

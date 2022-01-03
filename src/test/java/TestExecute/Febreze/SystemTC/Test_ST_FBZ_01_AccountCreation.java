@@ -17,9 +17,9 @@ public class Test_ST_FBZ_01_AccountCreation {
 	@Test(priority=1)
 	public void AccountCreation() {
 		try {
-			febreze.Acceptcookies();
-			febreze.Navigate_Accountcreation();
-			febreze.Accountcreation("AccountCreation");
+			
+			
+			
 
 		}catch(Exception | Error e){
 			Assert.fail();

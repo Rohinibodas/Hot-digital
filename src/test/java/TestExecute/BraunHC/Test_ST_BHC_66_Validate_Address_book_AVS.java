@@ -28,7 +28,7 @@ public class Test_ST_BHC_66_Validate_Address_book_AVS {
 			BraunHC.Validate_Address_book_AVS("Addressbook");
 		}
 		catch (Exception e) {
-		Assert.fail(e.getMessage(), e);
+			Assert.fail(e.getMessage(), e);
 		} 
 	}
 	

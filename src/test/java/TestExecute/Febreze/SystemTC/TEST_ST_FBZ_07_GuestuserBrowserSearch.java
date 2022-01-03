@@ -35,7 +35,7 @@ public class TEST_ST_FBZ_07_GuestuserBrowserSearch {
 
 	@BeforeMethod
 	public void startTest() throws Exception {
-		//System.setProperty("configFile", "Febreze\\Config_Febreze_Staging.properties");
+		System.setProperty("configFile", "Febreze\\Config_Febreze_Staging.properties");
 		Login.signIn();
 
 	}

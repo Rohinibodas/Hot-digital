@@ -43,7 +43,7 @@ public class Test_ST_BHC_20_GuestUserBrowserSearch {
 	@BeforeTest
     public void startTest() throws Exception {
 		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Production.properties");
-		// System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
+		///System.setProperty("configFile", "BraunHC\\Config_BraunHC_Staging.properties");
 		   	    
     Login.signIn();
     }
