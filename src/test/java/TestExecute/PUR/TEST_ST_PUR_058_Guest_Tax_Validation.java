@@ -27,7 +27,7 @@ public class TEST_ST_PUR_058_Guest_Tax_Validation {
 	public void categoryGuestcheckout(){
 
 		try {
-
+            
 			String addressFile = "PUR//PURAddressTax.xlsx";
 			PUR.prepareTaxData("PURTaxDetails_Guest.xlsx");
 			Map<String, List<Map<String, String>>> addressVal=new HashMap<>();

@@ -47,7 +47,7 @@ public class TEST_ST_PUR_041_RegUser_Adding_two_productsCheckout {
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {
-		 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+			// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 			  Login.signIn();
 	}
 		@AfterTest

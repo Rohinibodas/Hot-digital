@@ -40,7 +40,7 @@ public class TEST_ST_PUR_014_MyOrders {
 	@BeforeMethod
 	//@Parameters() 
 	  public void startTest() throws Exception {
-	 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 		  Login.signIn();
 	}
 	

@@ -19,14 +19,14 @@ public class TEST_ST_PUR_007_Category_Guest_checkout {
 		public void categoryGuestcheckout(){
 
 			try{
-				
+				PUR.AgreeAndProceed();
 				PUR.Mouseover();
 				//PUR.categoryMenuItem();
 				PUR.Productselection();
 				PUR.navigateMinicart();
 				PUR.checkoutPage();
 				PUR.shipping_Address("Address");
-				PUR.updatePaymentAndSubmitOrder("PaymentDetails");
+				//PUR.updatePaymentAndSubmitOrder("PaymentDetails");
 				
 			}
 			catch (Exception e) {

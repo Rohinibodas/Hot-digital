@@ -10,22 +10,29 @@ import TestComponent.PUR.PurHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_PUR_021_StoreCredit {
+public class TEST_ST_PUR_059_PLP_Validation {
+	
 	String datafile = "PUR//PUR_TestData.xlsx";	
 	PurHelper PUR=new PurHelper(datafile);
 	
 	@Test(priority=1)
-	public void validateStoreCredit(){
+	public void PLP_validation(){
 
 		try{
 			
+			PUR.AgreeAndProceed();
+			PUR.Mouseover();
+			PUR.productname("sortby");
+			PUR.productprice("Price");
+			PUR.Filterprice();
 			
-			PUR.singin("CustomerAccountdetails");
-			PUR.navigateStoreCredit();
 			
-
-
-				
+			
+			
+			
+			
+			
+			
 		}
 		catch (Exception e) {
 
@@ -35,7 +42,6 @@ public class TEST_ST_PUR_021_StoreCredit {
 	
 	
 	/*@BeforeMethod
-	@Parameters({"browser"})  
 	  public void startTest() throws Exception {
 		System.setProperty("configFile", "PUR\\config.properties");
 		  Login.signIn("chrome");
@@ -46,11 +52,13 @@ public class TEST_ST_PUR_021_StoreCredit {
 		 //System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 		  Login.signIn();
 }
+	
+	  
 
 	@AfterTest
 	public void clearBrowser()
 	{
-		Common.closeAll();
+		//Common.closeAll();
 
 	}
 

@@ -48,7 +48,7 @@ public class TEST_ST_PUR_019_Header_Links {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

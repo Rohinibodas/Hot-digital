@@ -51,7 +51,7 @@ public void  login_shippingPage() throws Exception {
 @BeforeMethod
 //@Parameters() 
   public void startTest() throws Exception {
-	 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+	// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 	  Login.signIn();
 }
 

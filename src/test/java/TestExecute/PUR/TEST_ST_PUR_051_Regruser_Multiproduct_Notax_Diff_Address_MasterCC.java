@@ -50,7 +50,7 @@ public class TEST_ST_PUR_051_Regruser_Multiproduct_Notax_Diff_Address_MasterCC {
 	 
 	@AfterTest
 	public void clearBrowser() {
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

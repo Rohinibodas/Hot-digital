@@ -50,7 +50,7 @@ public class TEST_ST_PUR_025_ValidateMyAccountLeftNavigation {
 
 	@BeforeMethod
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		 //System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 		  Login.signIn();
 }
 

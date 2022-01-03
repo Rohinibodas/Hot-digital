@@ -25,7 +25,7 @@ public class TEST_ST_PUR_005_User_BrowseSearch_Creditcard {
 			PUR.Addtocart();
 			PUR.checkoutPage();
 			PUR.AddAddress();
-			PUR.updatePaymentAndSubmitOrder("PaymentDetails");
+			//PUR.updatePaymentAndSubmitOrder("PaymentDetails");
 			
 		}
 		catch (Exception e) {
@@ -44,7 +44,7 @@ public class TEST_ST_PUR_005_User_BrowseSearch_Creditcard {
 	@BeforeMethod
 	//@Parameters() 
 	  public void startTest() throws Exception {
-		 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 		  Login.signIn();
 	}
 

@@ -50,7 +50,7 @@ public class TEST_ST_PUR_024_MyProduct_Reviews {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

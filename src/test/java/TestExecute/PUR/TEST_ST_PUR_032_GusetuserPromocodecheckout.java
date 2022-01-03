@@ -42,7 +42,7 @@ public class TEST_ST_PUR_032_GusetuserPromocodecheckout {
 			   }*/
 		@BeforeMethod
 		  public void startTest() throws Exception {
-			 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+			// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 			  Login.signIn();
 	}
 

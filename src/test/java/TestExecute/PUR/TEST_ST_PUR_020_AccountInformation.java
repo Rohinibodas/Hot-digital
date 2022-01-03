@@ -56,7 +56,7 @@ public class TEST_ST_PUR_020_AccountInformation {
 	@AfterTest
 	public void clearBrowser()
 	{
-		//Common.closeAll();
+		Common.closeAll();
 
 	}
 

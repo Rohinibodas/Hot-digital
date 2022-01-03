@@ -21,7 +21,7 @@ public class TEST_ST_PUR_017_ValidateContentlinks {
 		try{
 			//PUR.AgreeAndProceed();
 			PUR.productsupportFooterlink();
-			PUR.faqFooterlink();
+			//PUR.faqFooterlink();
 			PUR.warrantyregistrationFooterlink();
 			PUR.contactusFooterlink();
 			//PUR.municipalitiesFooterlink();
@@ -63,7 +63,7 @@ public class TEST_ST_PUR_017_ValidateContentlinks {
 	@AfterTest
 	public void clearBrowser()
 	{
-Common.closeAll();
+           Common.closeAll();
 
 	}
 

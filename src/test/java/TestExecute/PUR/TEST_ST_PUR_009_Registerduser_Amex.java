@@ -24,7 +24,7 @@ public class TEST_ST_PUR_009_Registerduser_Amex {
 			PUR.Addtocart();
 			PUR.checkoutPage();
 			PUR.AddAddress();
-			//PUR.shipping_Address("Address");
+			PUR.shipping_Address("Address");
 			PUR.addPaymentDetails("AmexDetails");
 			PUR.updatePaymentAndSubmitOrder("AmexDetails");
 			
@@ -45,14 +45,14 @@ public class TEST_ST_PUR_009_Registerduser_Amex {
 	@BeforeMethod
 	//@Parameters() 
 	  public void startTest() throws Exception {
-	 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+	//	 System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 		  Login.signIn();
 	}
 
 	@AfterTest
 	public void clearBrowser()
 	{
-	Common.closeAll();
+		Common.closeAll();
 
 }
 }

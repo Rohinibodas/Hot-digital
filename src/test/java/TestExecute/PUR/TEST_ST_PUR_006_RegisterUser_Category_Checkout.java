@@ -19,6 +19,7 @@ public class TEST_ST_PUR_006_RegisterUser_Category_Checkout {
 		public void registerCategoryCheckout(){
 
 			try{
+				PUR.AgreeAndProceed();
 				PUR.ClicktheSignbutton();
 				PUR.singin("CustomerAccountdetails");
 				PUR.Mouseover();
@@ -26,7 +27,7 @@ public class TEST_ST_PUR_006_RegisterUser_Category_Checkout {
 				PUR.navigateMinicart();
 				PUR.checkoutPage();
 				PUR.AddAddress();
-				PUR.updatePaymentAndSubmitOrder("PaymentDetails");
+				//PUR.updatePaymentAndSubmitOrder("PaymentDetails");
 			
 				
 			}
@@ -37,24 +38,24 @@ public class TEST_ST_PUR_006_RegisterUser_Category_Checkout {
 		}
 		
 		
-		@BeforeMethod
+		/*@BeforeMethod
 		  public void startTest() throws Exception {
 			System.setProperty("configFile", "PUR//config.properties");
 			  Login.signIn("chrome");
-			   }
+			   }*/
 		
-		/*@BeforeMethod
+		@BeforeMethod
 		//@Parameters() 
-		//  public void startTest() throws Exception {
-		//System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
+		  public void startTest() throws Exception {
+			// System.setProperty("configFile", "PUR\\Config_PUR_Staging.properties");
 			  Login.signIn();
-		}*/
+		}
 
 
 		@AfterTest
 		public void clearBrowser()
 		{
-		Common.closeAll();
+			Common.closeAll();
 
 		}
 		
