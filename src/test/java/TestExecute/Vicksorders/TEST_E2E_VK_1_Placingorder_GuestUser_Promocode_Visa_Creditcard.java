@@ -1,4 +1,4 @@
-package TestExecute.vicks;
+package TestExecute.Vicksorders;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,46 +9,39 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import TestComponent.Hydroflask.HydroHelper;
 import TestComponent.Vicks.VicksHelper;
 import TestLib.Common;
 import TestLib.Login;
 
-public class TEST_ST_VK_052_Guestuser_XML_Validation {
+public class TEST_E2E_VK_1_Placingorder_GuestUser_Promocode_Visa_Creditcard {
 	String datafile = "Vicks//VicksTestData.xlsx";	
 	VicksHelper vicks = new VicksHelper(datafile);
 	@Test(retryAnalyzer = Utilities.RetryAnalyzer.class)
 	
-	public void Guestuser_XML_Validation() throws Throwable {
+	public void Placingorder_GuestUser_Promocode_Visa_Creditcard() throws Throwable {
 
 		try {
-			
+			vicks.prepareOrdersData("vicks_E2E_orderDetails.xlsx");
+		  
+		    String Website=vicks.URL();
+		    String Description ="Placingorder_GuestUser_Promocode_Visa_Creditcard";
 			vicks.Verifyhomepage();
 //			vicks.Agreandproceed();
 			vicks.Humidifiers_Vaporizers();
 			vicks.productselect();
 			vicks.addtocart();
 			vicks.mincat();
-			vicks.viewandedit();
-			HashMap<String,HashMap<String,String>> productinfromation=vicks.productshoppingcart();
-			vicks.mincat();
 			vicks.checkout();
 			HashMap<String,String> shippingaddresss=vicks.shippingaddress1("Address1");
-			HashMap<String,String> ordertaxammount=vicks.orderamountinfo();
+			vicks.Promocode("Promocode");
+			HashMap<String,String> data=vicks.OrderSummaryValidation();
 			HashMap<String,String>paymentdetriles=vicks.paymentdetriles("PaymentDetails");
 			String order=vicks.PlaceOrder();
 			
+			 vicks.writeOrderNumber(Website, order,Description, data.get("subtotlaValue"),data.get("shippingammountvalue"),data.get("Taxammountvalue"),
+					   data.get("ActualTotalAmmount"),data.get("ExpectedTotalAmmountvalue"),data.get("Discountammountvalue"),shippingaddresss.get("ShippingState"),
+					   shippingaddresss.get("ShippingZip"),paymentdetriles.get("Card"));
 			
-			
-			 vicks.vicksAdminlogin("AdminLogins");
-		     vicks.selectManulExport(order);
-			
-			
-		     
-		      vicks.productinfromationvalidation(productinfromation, order);
-			 vicks.shippingvalidaing_GustUserXML(shippingaddresss, order);
-			 vicks.TotalvalidationXML(ordertaxammount, order);
-			 vicks.card_details_validationXML(paymentdetriles, order);
 			
 		 
 		}
@@ -69,7 +62,7 @@ public class TEST_ST_VK_052_Guestuser_XML_Validation {
 	
 	@BeforeMethod
 	public void startTest() throws Exception {
-		System.setProperty("configFile", "Vicks\\config.properties");
+//		System.setProperty("configFile", "Vicks\\config.properties");
 		Login.signIn();
  
 	  }

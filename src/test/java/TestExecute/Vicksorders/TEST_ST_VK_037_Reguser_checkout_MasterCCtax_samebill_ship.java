@@ -46,7 +46,7 @@ public class TEST_ST_VK_037_Reguser_checkout_MasterCCtax_samebill_ship {
 		
 		@BeforeMethod
 		  public void startTest() throws Exception {
-//			System.setProperty("configFile", "Vicks\\config.properties");
+//			System.setProperty("configFile", "Vicks\\config_Vicks_Production.properties");
 			 Login.signIn();
 		
 			 

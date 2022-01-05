@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="VIcksSuite Suite">
+
+	<listeners>
+	
+
+		<listener class-name="Utilities.TestListener" />
+
+	</listeners>
+
+         <test name="TEST_ST_VK_048_300_Account_Creation" testid="HHG-322" priority="P1" description="This script will cover Process Of creating new account">
+         <parameter name="browser" value="chrome"/>
+
+         <parameter name="start" value="1"/>
+
+         <parameter name="end" value="300"/>
+     <classes>
+     
+         <class name="TestExecute.vicks.TEST_ST_VK_048_300_Account_Creation" />
+     </classes>
+     </test>     
+    
+      </suite>

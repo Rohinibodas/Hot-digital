@@ -617,11 +617,14 @@ public void shippingaddress(String datSet) throws Exception {
 				//	Sync.waitPageLoad();
 					Thread.sleep(3000);
 					Common.actionsKeyPress(Keys.END);
+					Thread.sleep(5000);
 				Sync.waitElementPresent("id", "block-discount-heading");
 				Common.scrollIntoView("id", "block-discount-heading");
 				Common.clickElement("id", "block-discount-heading");
+				Thread.sleep(5000);
 				Sync.waitElementPresent("id", "discount-code");
 	            Common.textBoxInput("id", "discount-code", data.get(dataSet).get("Promocode"));
+	            Thread.sleep(4000);
 				Common.clickElement("xpath", "//span[text()='Apply Discount']");
 			    Sync.waitPageLoad();
 			    Common.actionsKeyPress(Keys.HOME);
@@ -675,9 +678,10 @@ public void shippingaddress(String datSet) throws Exception {
 			Sync.waitElementPresent("xpath", "//select[@id='c-ct']");
 			Common.dropdown("xpath", "//select[@id='c-ct']", SelectBy.TEXT, data.get(dataSet).get("cardType"));
 			Common.textBoxInput("id", "c-cardnumber", data.get(dataSet).get("cardNumber"));
-
+			Thread.sleep(4000);
 			Common.clickElement("xpath", "(//select[@id='c-exmth']/option)[6]");
-			Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
+			Thread.sleep(4000);
+//			Common.dropdown("id", "c-exyr", SelectBy.TEXT, data.get(dataSet).get("ExpYear"));
 			Common.textBoxInput("id", "c-cvv", data.get(dataSet).get("cvv"));
 			Common.switchToDefault();
 			try {
@@ -1005,8 +1009,8 @@ public void shippingaddress(String datSet) throws Exception {
 			Thread.sleep(4000);
 			Common.textBoxInput("id", "popup_newsletter_email", Utils.getEmailid());
 			Common.clickElement("xpath", "//input[@id='terms_conditions_consent' and @data-validate]");
-			Sync.waitElementClickable("xpath", "//button[@title='SIGN UP']");
-			Common.clickElement("xpath", "//button[@title='SIGN UP']");
+			Sync.waitElementClickable("xpath", "//button[@title='SUBSCRIBE']");
+			Common.clickElement("xpath", "//button[@title='SUBSCRIBE']");
 report.addPassLog("Should display  Newsletter subscription page", "Newsletter subscription Page display successfully", Common.getscreenShotPathforReport("Newsletter subscription page success"));
 			
 		}catch(Exception |Error e)
@@ -2537,6 +2541,8 @@ public void addtocarthomepage() {
 		Common.clickElement("xpath", "(//img[@alt='Vicks 3-in-1 SleepyTime Humidifier'])[3]");
 		Sync.waitElementClickable("xpath", "//form[@data-product-sku='VUL500']//button");
 		Common.clickElement("xpath","//form[@data-product-sku='VUL500']//button");
+		Thread.sleep(2000);
+		Common.clickElement("xpath","//button[@id='btn-minicart-close']");
 		ExtenantReportUtils.addPassLog("Verifing product to add cart from homepage", "Product should add to cart from homepage",
 				"Product should add to cart from homepage",
 				Common.getscreenShotPathforReport("Product successfully added to cart from homepage"));
@@ -3644,8 +3650,13 @@ public void GuestShippingAddress(String Street,String City,String postcode,Strin
 		            String ShippingPhone=Common.findElement("xpath", "//input[@name='telephone']").getAttribute("value");
 			        System.out.println("*****"+ShippingPhone+"*******");
 			        Shippingaddress.put("ShippingPhone", ShippingPhone);
+			        
+			        
 		            
 		            Common.clickElement("xpath", "//button[@class='button action continue primary']");
+		            Thread.sleep(3000);
+
+		            Common.clickElement("xpath","//button[@class='action-primary action-accept']");
 		            ExtenantReportUtils.addPassLog("Verifing guest user checkout page", "Guest user checkout page success",
 		                    "Guest user checkout page success",
 		                    Common.getscreenShotPathforReport("Guest user checkout page success"));
@@ -3701,7 +3712,7 @@ public void GuestShippingAddress(String Street,String City,String postcode,Strin
 		public void vicksAdminlogin(String dataSet) {
 			// TODO Auto-generated method stub
 			try {
-	         	//Common.oppenURL("https://jetrails-stag-hh.heledigital.com/y4vcVf9pmEX4bCwt/");
+	         	Common.oppenURL("https://jetrails-stag-hh.heledigital.com/y4vcVf9pmEX4bCwt/");
 	         	Common.textBoxInput("xpath", "//input[contains(@name,'username')]", data.get(dataSet).get("UserName"));
 	         	Common.textBoxInput("xpath", "//input[contains(@name,'password')]",data.get(dataSet).get("Password"));
 	         	
@@ -3755,10 +3766,14 @@ public void GuestShippingAddress(String Street,String City,String postcode,Strin
 	             	
 	             	
 	                Common.clickElement("xpath", "//input[@id='filter_new_only']");
+	                Thread.sleep(4000);
 	                
 	                Common.clickCheckBox("xpath", "//input[@id='start_download']");
 	                
+	                Thread.sleep(12000);
+	                
 	                 Common.clickElement("xpath", "//button[@id='export_button']");
+	                 Thread.sleep(4000);
 	                 report.addPassLog("validating the Manual Export order files"," enter all the field infromation manual export field","User sucessfully enter all the manual export field data",Common.getscreenShotPathforReport("downloading"));
 	    		 
 	                
@@ -3794,6 +3809,7 @@ public void GuestShippingAddress(String Street,String City,String postcode,Strin
 		     	 String ShippingState= (String) jsonInMap.get("ShippingState");
 		     	 String ShippingZip=(String) jsonInMap.get("ShippingZip");
 		     	 String customermail=(String) jsonInMap.get("cust_to_email");
+		     	 String ShippingPhone=(String) jsonInMap.get("ShippingPhone");
 		     	 
 		     	//ArrayList<String> orderxmlinfromation=new ArrayList<String>();
 		     	
@@ -3802,25 +3818,26 @@ public void GuestShippingAddress(String Street,String City,String postcode,Strin
 		     	orderxmlinfromation.add("ShippingAddress1="+ShippingAddress1);
 		     	orderxmlinfromation.add("ShippingCity="+ShippingCity);
 		     	orderxmlinfromation.add("ShippingState="+ShippingState);
-		     	orderxmlinfromation.add("ShippingZip="+ShippingZip);
+		     	orderxmlinfromation.add("ShippingPhone="+ShippingPhone);
 
-		     	  String SfCustomerEmail=shippingaddress.get("emailid");
+		     	  String SfCustomerEmail=shippingaddress.get("Emailid");
 		     	 String Sffirstname=shippingaddress.get("ShippingFisrtName");
 		     	 String SfLastname =shippingaddress.get("ShippingLastName");
 		     	 String SfStreet =shippingaddress.get("ShippingAddress1");
 		     	 String Sfcity =shippingaddress.get("ShippingCity");
 		     	 String SfRegion =shippingaddress.get("ShippingState");
 		     	 String Sfpostcode =shippingaddress.get("ShippingZip");
+		     	 String Sfmobile=shippingaddress.get("ShippingPhone");
 		     	 
 		     	orderxmlvalidations("customerEmail", customermail, SfCustomerEmail);
 				 orderxmlvalidations("Shiiping first name",ShippingFirstName , Sffirstname);
 				 orderxmlvalidations("Shiiping last name",ShippingLastName, SfLastname);
 				 orderxmlvalidations("Shiiping Street address", ShippingAddress1, SfStreet);
 				 orderxmlvalidations("Shiiping City ", ShippingCity, Sfcity);
-				 
+				 orderxmlvalidations("ShippingPhone", ShippingPhone, Sfmobile);
 				 orderxmlvalidations("Shiiping shipping zip code", ShippingZip, Sfpostcode);
 		     	
-		     	 Common.assertionCheckwithReport(SfCustomerEmail.contains(customermail)&&ShippingFirstName.contains(Sffirstname)&&SfLastname.contains(ShippingLastName)&&SfStreet.contains(ShippingAddress1)&&Sfcity.contains(ShippingCity)&&ShippingZip.contains(Sfpostcode), "Validating orderxml infromation with order shipping address","Order shipping address shoud match to order export xml adress","sucessfully order xml infromation matches to export xml adress"," un match the storefront shipping address"+shippingaddress+"    with  "+"   Orderxml infromation"+orderxmlinfromation);
+		     	 Common.assertionCheckwithReport(SfCustomerEmail.contains(customermail)&&ShippingFirstName.contains(Sffirstname)&&SfLastname.contains(ShippingLastName)&&SfStreet.contains(ShippingAddress1)&&Sfcity.contains(ShippingCity)&&ShippingZip.contains(Sfpostcode)&&ShippingPhone.contains(Sfmobile), "Validating orderxml infromation with order shipping address","Order shipping address shoud match to order export xml adress","sucessfully order xml infromation matches to export xml adress"," un match the storefront shipping address"+shippingaddress+"    with  "+"   Orderxml infromation"+orderxmlinfromation);
 		     	}
 		     	
 		     	catch (Exception | Error e) {
@@ -3907,6 +3924,13 @@ public void GuestShippingAddress(String Street,String City,String postcode,Strin
     			System.out.println(order_total.contains(Sforder));
         		System.out.println(tax_amt.contains(SfTaxamount));
         		System.out.println( Sfshipping.contains(OrderShippingCosts));
+        		
+        	
+        		orderxmlvalidations("gross_total",order_total , Sforder);
+        		orderxmlvalidations("tax_amount",tax_amt, SfTaxamount);
+        		orderxmlvalidations("OrderShippingCosts", OrderShippingCosts, Sfshipping);
+
+
 
         		
         		
@@ -5139,6 +5163,345 @@ public void title1() {
 		ExtenantReportUtils.addFailedLog("Verifing other product list title ",expectedResult,
 				"Should display other product list title ", Common.getscreenShotPathforReport("Failed to dispaly other product list title"));
 	}
+}
+public void prepareOrdersData(String fileName) {
+	// TODO Auto-generated method stub
+	
+		try {
+			File file=new File(System.getProperty("user.dir")+"/src/test/resources/"+fileName);
+			XSSFWorkbook workbook;
+			XSSFSheet sheet;
+			Row row;
+			Cell cell;
+			int rowcount;
+			if(!(file.exists()))
+			{
+			workbook = new XSSFWorkbook();
+			sheet = workbook.createSheet("OrderDetails");
+			CellStyle cs = workbook.createCellStyle();
+			cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+			Font f = workbook.createFont();
+			f.setBold(true);
+			cs.setFont(f);
+			cs.setAlignment(HorizontalAlignment.RIGHT);
+			row = sheet.createRow(0);
+			cell = row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Orders Details");
+
+			
+			
+			row=sheet.createRow(1);
+			cell=row.createCell(0);
+			cell.setCellStyle(cs);
+			cell.setCellValue("S.No");
+			cell = row.createCell(1);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Website");
+			cell = row.createCell(2);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Tester");
+			cell = row.createCell(3);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Test scenario Description");
+			cell = row.createCell(4);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Web Order Number");
+			cell = row.createCell(5);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Order Confirnmation Message");
+			cell = row.createCell(6);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Order Status Magento");
+
+
+			cell = row.createCell(7);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Subtotal");
+			cell = row.createCell(8);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Shipping");
+			cell = row.createCell(9);
+			cell.setCellStyle(cs);
+			cell.setCellValue("State");
+			cell = row.createCell(10);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Zipcode");
+			cell = row.createCell(11);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Tax");
+			cell = row.createCell(12);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Estimated Order Total");
+			cell=row.createCell(13);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Discount");
+			cell=row.createCell(14);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Actual Order Total");
+			cell=row.createCell(15);
+			cell.setCellStyle(cs);
+			cell.setCellValue("Payment Method");
+			rowcount=2;
+			}
+
+			else
+			{
+			workbook = new XSSFWorkbook(new FileInputStream(file));
+			sheet=workbook.getSheet("OrderDetails");
+			rowcount=sheet.getLastRowNum()+1;
+			}
+			
+
+
+
+			FileOutputStream fileOut = new FileOutputStream(file);
+			workbook.write(fileOut);
+			fileOut.flush();
+			fileOut.close();
+
+
+
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+			}
+public HashMap<String, String> OrderSummaryValidation() {
+	// TODO Auto-generated method stub
+	HashMap<String,String> data=new HashMap<String,String>();
+	try{
+	Thread.sleep(3000);
+
+	String subtotla=Common.getText("xpath", "//tr[@class='totals sub']/td/span").replace("$", "");
+	// subtotla.replace("", newChar)
+	Float subtotlaValue=Float.valueOf(subtotla);
+	data.put("subtotlaValue",subtotla);
+
+	// Capabilities cap = (WebDriver).getCapabilities();
+
+	String shippingammount=Common.getText("xpath", "//span[@data-th='Shipping']").replace("$", "");
+	Float shippingammountvalue=Float.valueOf(shippingammount);
+	data.put("shippingammountvalue",shippingammount);
+
+	String ActualTotalAmmount=Common.getText("xpath", "//tr[@class='grand totals']//td");
+	//Float ActualTotalammountvalue=Float.valueOf(ActualTotalAmmount);
+	data.put("ActualTotalAmmount",ActualTotalAmmount);
+	Thread.sleep(3000);
+
+	int SizesofDis= Common.findElements("xpath", "(//span[@data-th='checkout.sidebar.summary.totals.discount'])").size();
+	if(SizesofDis>0) {
+	String Discount=Common.getText("xpath", "(//span[@data-th='checkout.sidebar.summary.totals.discount'])").replace("-$", "");
+	//Float Discountammountvalue=Float.valueOf(Discount);
+	data.put("Discountammountvalue",Discount);
+
+	}
+	else {
+
+	String Discountammountvalue= "0.00";
+	data.put("Discountammountvalue",Discountammountvalue);
+
+	}
+
+
+	int Sizes= Common.findElements("xpath", "//td[@data-th='Tax']//span").size();
+	if(Sizes>0) {
+
+	// Float Taxrate=data.get(dataset).get("tax");
+
+	String TaxAmmount=Common.getText("xpath", "//td[@data-th='Tax']//span").replace("$", "");
+	Float Taxammountvalue=Float.valueOf(TaxAmmount);
+	data.put("Taxammountvalue",TaxAmmount);
+
+
+	Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue+Taxammountvalue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+
+	}
+	else {
+	String Taxammountvalue= "0.00";
+	data.put("Taxammountvalue",Taxammountvalue);
+
+	Float ExpectedTotalAmmount = subtotlaValue+shippingammountvalue;
+	String ExpectedTotalAmount=String.valueOf(ExpectedTotalAmmount);
+	data.put("ExpectedTotalAmmountvalue",ExpectedTotalAmount);
+	}
+
+
+	ExtenantReportUtils.addPassLog("verifying tax calculation", "tax rate is matches to given shipping address tax ","successfully tax rate is matches to given shipping address tax", "tax rate is not matches to given shipping address tax");
+	}
+	catch(Exception |Error e)
+	{
+	report.addFailedLog("verifying tax calculation", "getting price values from shipping page ", "Faield to get price value from shipping page", Common.getscreenShotPathforReport("TaxRates"));
+
+
+
+	e.printStackTrace();
+	Assert.fail();
+
+	}
+
+
+
+
+	return data;
+
+	}
+public void writeOrderNumber(String website, String orderIdNumber, String description, String subtotlaValue, String shippingammountvalue,
+		String Taxammountvalue, String ActualTotalAmmount, String ExpectedTotalAmmountvalue, String Discountammountvalue, String ShippingState, String ShippingZip,
+		String Card) {
+	// TODO Auto-generated method stub
+	try{
+		File file=new File(System.getProperty("user.dir")+"/src/test/resources/vicks_E2E_orderDetails.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(file));
+		XSSFSheet sheet;
+		Row row;
+		Cell cell;
+		int rowcount;
+		sheet = workbook.getSheet("OrderDetails");
+		if((workbook.getSheet("OrderDetails"))==null)
+		{
+		sheet = workbook.createSheet("OrderDetails");
+		CellStyle cs = workbook.createCellStyle();
+		cs.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		cs.setFillForegroundColor(IndexedColors.LIGHT_CORNFLOWER_BLUE.getIndex());
+		Font f = workbook.createFont();
+		f.setBold(true);
+		cs.setFont(f);
+		cs.setAlignment(HorizontalAlignment.RIGHT);
+		row = sheet.createRow(0);
+		cell = row.createCell(0);
+		cell.setCellStyle(cs);
+		cell.setCellValue("Orders Details");
+		row = sheet.createRow(1);
+		cell = row.createCell(0);
+		cell.setCellStyle(cs);
+		cell.setCellValue("Web Order Number");
+		rowcount=2;
+		}
+		else
+		{
+		sheet=workbook.getSheet("OrderDetails");
+		rowcount=sheet.getLastRowNum()+1;
+		}
+		row = sheet.createRow(rowcount);
+		cell = row.createCell(0);
+		cell.setCellType(CellType.NUMERIC);
+		int SNo=rowcount-1;
+		cell.setCellValue(SNo);
+		cell = row.createCell(1);
+		cell.setCellType(CellType.STRING);
+		String websitename;
+		if(website.contains("vicks"))
+		{
+		websitename="vicks";
+		}
+		else
+		{
+		websitename="";
+		}
+		cell.setCellValue(websitename);
+		cell = row.createCell(2);
+		cell.setCellType(CellType.STRING);
+		cell.setCellValue("Lotuswave");
+		cell = row.createCell(3);
+		cell.setCellType(CellType.STRING);
+		cell.setCellValue(description);
+		cell = row.createCell(4);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(orderIdNumber);
+		cell = row.createCell(5);
+		cell.setCellType(CellType.STRING);
+		cell.setCellValue("Order placed Successfully");
+		cell = row.createCell(6);
+		cell.setCellType(CellType.STRING);
+		cell.setCellValue("Processing"); cell = row.createCell(7);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(subtotlaValue);
+		cell = row.createCell(8);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(shippingammountvalue);
+		cell = row.createCell(9);
+		cell.setCellType(CellType.STRING);
+		cell.setCellValue(ShippingState);
+		cell = row.createCell(10);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(ShippingZip);
+		cell = row.createCell(11);
+		cell.setCellType(CellType.STRING);
+		cell.setCellValue(Taxammountvalue);
+		cell = row.createCell(12);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(ExpectedTotalAmmountvalue);
+		cell = row.createCell(13);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(Discountammountvalue);
+		cell = row.createCell(14);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(ActualTotalAmmount);
+		cell = row.createCell(15);
+		cell.setCellType(CellType.NUMERIC);
+		cell.setCellValue(Card);
+		System.out.println(orderIdNumber);
+		System.out.println(subtotlaValue);
+		System.out.println(shippingammountvalue);
+		System.out.println(Taxammountvalue);
+		System.out.println(ActualTotalAmmount);
+		System.out.println(ExpectedTotalAmmountvalue);
+		FileOutputStream fileOut = new FileOutputStream(file);
+		workbook.write(fileOut);
+		fileOut.flush();
+		fileOut.close();
+		//return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue);
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		// return fileOut;
+		// return writeResultstoXLSx(String OrderId,String subtotla,String shippingammount,String TaxAmmount,String Totalammount,String giventaxvalue1,String userpaneltaxvalue); }
+		}
+public HashMap<String, String> RegisterShipingAddress(String dataSet) {
+	// TODO Auto-generated method stub
+HashMap<String, String> shippingaddresss = new HashMap<String, String>();
+	
+	try {
+		Common.clickElement("xpath", "//span[contains(text(),'New Address')]");
+	Common.textBoxInput("name", "street[0]", data.get(dataSet).get("Street"));
+
+	Thread.sleep(3000);
+	Common.dropdown("name", "region_id", Common.SelectBy.TEXT,data.get(dataSet).get("Region"));
+	Thread.sleep(5000);
+	String Shippingvalue = Common.findElement("xpath", "//select[@name='region_id']").getAttribute("value");
+	String Shippingstate = Common.findElement("xpath", "//select[@name='region_id']//option[@value='" + Shippingvalue + "']").getText();
+	                        shippingaddresss.put("ShippingState", Shippingstate); Sync.waitElementPresent("xpath", "//input[@name='city']");
+	Common.textBoxInput("xpath", "//input[@name='city']", data.get(dataSet).get("City"));
+	Thread.sleep(2000);
+	Common.textBoxInputClear("name", "postcode");
+	Common.textBoxInput("name", "postcode", data.get(dataSet).get("postcode"));
+	Thread.sleep(5000);
+
+	String ShippingZip = Common.findElement("name", "postcode").getAttribute("value");
+	System.out.println("*****" + ShippingZip + "*******");
+	shippingaddresss.put("ShippingZip", ShippingZip);
+	Thread.sleep(5000);
+	Sync.waitElementPresent("name", "telephone");
+	Common.textBoxInput("name", "telephone", data.get(dataSet).get("phone"));
+	Thread.sleep(3000);
+	Common.actionsKeyPress(Keys.ENTER);
+	Thread.sleep(3000);
+	Common.clickElement("xpath", "//button[contains(@class,'save-address')]");
+	Common.clickElement("xpath","//button[@class='action-primary action-accept']");
+	 Thread.sleep(5000);
+		Common.clickElement("xpath", "//div[@id='shipping-method-buttons-container']/div/button");
+
+
+	}
+	catch(Exception |Error e) {
+	e.printStackTrace();
+	ExtenantReportUtils.addFailedLog("verifying shipping addres filling", "user will fill the all the shipping", "faield to add new shipping address",Common.getscreenShotPathforReport("faieldsshippingpagefilling"));
+	Assert.fail();
+	}
+	return shippingaddresss;
 }
 }
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<suite name="VIcksSuite Suite">
+
+	<listeners>
+	
+
+		<listener class-name="Utilities.TestListener" />
+
+	</listeners>
+
+         <test name="TEST_E2E_VK_1_Placingorder_GuestUser_Promocode_Visa_Creditcard" testid="HHG-1954" priority="P1" description="This script will cover Process Of placing oder with promocode as guest user">
+     <classes>
+         <class name="TestExecute.Vicksorders.TEST_E2E_VK_1_Placingorder_GuestUser_Promocode_Visa_Creditcard" />
+     </classes>
+     </test>     
+          <test name="TEST_E2E_VK_2_Placingorder_RegisterUser_Promocode_Master_Creditcard" testid="HHG-1960" priority="P1" description="This script will cover Process Of placing oder with promocode as Register user">
+     <classes>
+         <class name="TestExecute.Vicksorders.TEST_E2E_VK_2_Placingorder_RegisterUser_Promocode_Master_Creditcard" />
+     </classes>
+     </test>
+     
+      <test name="TEST_ST_E2E_3_Placing_Bundle_Productorder_GuestUser_Amex_CreditCard" testid="HHG-1961" priority="P1" description="This script will cover Process Of placing order with bundle product as guset user">
+     <classes>
+         <class name="TestExecute.Vicksorders.TEST_E2E_VK_3_Placing_Bundle_Productorder_GuestUser_Amex_CreditCard" />
+     </classes>
+     </test>
+     
+      <test name="TEST_E2E_VK_4_Placing_Bundle_Productorder_Promocode_RegisterUser_Discover_CreditCard" testid="HHG-1962" priority="P1" description="This script will cover Process Of placing bundle product with promocode as register user ">
+     <classes>
+         <class name="TestExecute.Vicksorders.TEST_E2E_VK_4_Placing_Bundle_Productorder_Promocode_RegisterUser_Discover_CreditCard" />
+     </classes>
+     </test>
+	       
+	        
+	      <test name="TEST_E2E_VK_5_Placing_Bundle_ProductorderPromocode_Visa_GuestUser" testid="HHG-1963" priority="P1" description="This script will cover Process Of placing bundle product with promocode as Guest user">
+      <classes>
+             <class name="TestExecute.Vicksorders.TEST_E2E_VK_5_Placing_Bundle_Productorder_Promocode_Visa_GuestUser" />
+     </classes>
+      </test>
+      
+      <test name="TEST_E2E_VK_6_Placing_Simpleproduct_configurable_bundleproduct_order_RegisterUser_Master_Creditcard" testid="HHG-1964" priority="P1" description="This script will cover process of placing simple bundle and configurable product as register user">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_E2E_VK_6_Placing_Simpleproduct_configurable_bundleproduct_order_RegisterUser_Master_Creditcard" />
+        </classes>
+    </test>
+     <test name="TEST_E2E_VK_7_Placing_Simpleproduct_bundle_configurableproduct_order_GuestUser_Amex_Creditcard" testid="HHG-1965" priority="P1" description="This script will cover process of placing simple bundle and configurable product as Guest user">
+        <classes>
+            <class name="TestExecute.Vicksorders.TEST_E2E_VK_7_Placing_Simpleproduct_bundle_configurableproduct_order_GuestUser_Amex_Creditcard" />
+        </classes>
+    </test>
+        
+    
+      </suite>
