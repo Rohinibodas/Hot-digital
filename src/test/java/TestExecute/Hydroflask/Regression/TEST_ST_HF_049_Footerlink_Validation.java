@@ -17,7 +17,7 @@ public class TEST_ST_HF_049_Footerlink_Validation {
 		try{
 		Hydro.footerLinks_AboutUs_Validation();
 		Hydro.footerLinks_DealerCentral_Validation();
-		Hydro.footerlinks_Group_Customization_Validation();
+	//	Hydro.footerlinks_Group_Customization_Validation();
 		Hydro.footerLinks_Affiliates_Validation();
 		Hydro.footerLinks_ProDeal_Validation();
 		Hydro.footerLinks_FAQ_Validation();

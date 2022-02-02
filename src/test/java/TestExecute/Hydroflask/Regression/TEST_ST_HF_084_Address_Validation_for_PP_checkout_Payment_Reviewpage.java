@@ -25,7 +25,7 @@ public class TEST_ST_HF_084_Address_Validation_for_PP_checkout_Payment_Reviewpag
 			
 			Hydro.checkOut();
 			Hydro.addDeliveryAddressValidate("InvalidAddress1");
-			Hydro.AVS_payPal_Payment_CheckoutPage("PaypalDetails");
+			Hydro.payPal_Payment_CheckoutPage("PaypalDetails");
 			
 		}
 		catch (Exception e) {

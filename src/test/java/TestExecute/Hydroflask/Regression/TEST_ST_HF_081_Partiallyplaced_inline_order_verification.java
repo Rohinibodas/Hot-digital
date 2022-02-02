@@ -25,7 +25,7 @@ public class TEST_ST_HF_081_Partiallyplaced_inline_order_verification {
 //	 Hydro.Customize_Bottle();
 	 Hydro.checkOut();
 	 Hydro.addDeliveryAddress("InlineOrder");
-	 Hydro.Partial_updatePaymentAndSubmitOrder("PaymentDetails");
+	 Hydro.updatePaymentAndSubmitOrder("PaymentDetails");
 	 Hydro.Partial_order_verification();
 	}
 	catch (Exception e) {
